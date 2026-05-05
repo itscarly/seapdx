@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "itinerary-monitor[bot]"
           git config user.email "itinerary-monitor[bot]@users.noreply.github.com"
-          git add data/monitor-snapshot.json research/pricing/latest-report.md research/pricing/latest-summary.json
+          git add -f data/monitor-snapshot.json research/pricing/latest-report.md research/pricing/latest-summary.json
           if git diff --cached --quiet; then
             echo "No monitor file changes to commit."
           else
