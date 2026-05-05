@@ -1,0 +1,14 @@
+{
+  "name": "seattle-portland-travel-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Seattle and Portland travel itinerary dashboard with budget and monitoring scripts.",
+  "scripts": {
+    "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js",
+    "audit:budget": "node scripts/audit-budget.js",
+    "monitor:itinerary": "node scripts/monitor-itinerary.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
