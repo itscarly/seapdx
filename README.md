@@ -6,6 +6,19 @@ Static interactive itinerary dashboard for a November 1-9, 2026 Seattle and Port
 
 Open `dashboards/html/index.html` in a browser.
 
+For normal local testing, run a static server from the project root:
+
+```sh
+npm run serve
+```
+
+Then open `http://localhost:4173/`.
+
+This project is intentionally static-only, so the same files work:
+
+- locally through a static server or `localserv`
+- publicly through a host such as Netlify
+
 ## Project Shape
 
 - `data/trip-data.js` stores the itinerary, budget, source links, exclusions, and reference notes.
@@ -21,6 +34,10 @@ The dashboard uses sources checked on May 5, 2026. Since the trip is in November
 ## Publishing
 
 See `docs/deployment.md` for public hosting options. Netlify is the recommended path for quickly sharing this static dashboard, especially if connected to a GitHub repository for automatic redeploys.
+
+## Local Workflow
+
+See `docs/local-development.md` for the preferred local static-server workflow and path expectations.
 
 ## Automation
 
