@@ -1,25 +1,47 @@
 # Publishing the Dashboard
 
-The dashboard is a static site: HTML, CSS, JavaScript, and data files. It can be shared publicly once hosted.
+The dashboard is a static site: HTML, CSS, JavaScript, and data files. The same codebase should be used for both local serving and public hosting. There is no separate site build and no required backend.
+
+## Local and Public Model
+
+- Local use: serve the project root with a static server or `localserv`.
+- Public use: deploy the same project root to Netlify.
+- Shared contract: `/` must resolve to the dashboard entry, and relative asset paths must stay unchanged.
+
+For the local workflow, see `docs/local-development.md`.
 
 ## Recommended Option: Netlify
 
-Best for fast sharing without a build step.
+Best for fast sharing without a build step and for keeping local edits aligned with the public site.
 
-1. Create or log in to Netlify.
-2. Use Netlify Drop or connect a Git repository.
-3. Publish the project folder or connect the repository.
-4. Set the publish directory to the project root if using the current file paths.
-5. Share the generated `netlify.app` URL.
+1. Put this folder in a Git repository.
+2. Push it to GitHub.
+3. Create or log in to Netlify.
+4. Connect the GitHub repository to Netlify.
+5. Set the publish directory to the project root.
+6. Keep `netlify.toml` as the source of the root routing behavior.
+7. Share the generated `netlify.app` URL.
 
 Why this fits:
 
 - Static files work well.
 - No server is required.
-- Git-connected deploys can update automatically whenever the itinerary data changes.
-- Netlify supports drag-and-drop for quick manual publishing and Git for continuous deployment.
+- Git-connected deploys update automatically whenever the itinerary data changes.
+- The local and public versions run from the same static file layout.
+- Netlify still supports drag-and-drop as a fallback if needed.
 
 Official docs: https://docs.netlify.com/site-deploys/create-deploys/
+
+## Manual Fallback: Netlify Drop
+
+If you need a one-off publish before the Git setup is ready:
+
+1. Create or log in to Netlify.
+2. Use Netlify Drop.
+3. Upload the project root folder.
+4. Confirm that the deployed root opens the dashboard correctly.
+
+This is a fallback, not the preferred long-term workflow.
 
 ## Good Option: GitHub Pages
 
@@ -48,10 +70,6 @@ Best if you later turn the static dashboard into a React app or want preview dep
 4. Share the generated Vercel URL.
 
 Official docs: https://vercel.com/docs
-
-## Current Workspace Note
-
-This folder is not currently a git repository and has no configured remote. To make the site accessible to other people, the next practical step is to choose a host and publish the project.
 
 ## Recommended Publishing Path
 

@@ -4,6 +4,7 @@
   "private": true,
   "description": "Static Seattle and Portland travel itinerary dashboard with budget and monitoring scripts.",
   "scripts": {
+    "serve": "python3 -m http.server 4173",
     "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js",
     "audit:budget": "node scripts/audit-budget.js",
     "monitor:itinerary": "node scripts/monitor-itinerary.js"

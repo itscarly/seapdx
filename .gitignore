@@ -4,3 +4,4 @@ node_modules/
 research/pricing/latest-report.md
 research/pricing/latest-summary.json
 data/monitor-snapshot.json
+.playwright-mcp/
