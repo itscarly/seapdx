@@ -4,6 +4,14 @@
 
 Automatically recheck itinerary-sensitive facts, notify the traveler when something changes, and update the dashboard data when a change is approved.
 
+## Current Live Setup
+
+- Source control and automation run through GitHub.
+- The public site is hosted on Netlify.
+- Netlify redeploys automatically on every push to `main`.
+- The scheduled monitor writes updated reports and snapshots, commits them, and pushes them back to `main` when those generated files change.
+- When source changes are detected, the workflow opens a GitHub issue for review.
+
 ## What To Monitor
 
 - Food prices and menu links for every restaurant, cafe, market stop, and airport buffer in `data/trip-data.js`.
@@ -65,7 +73,7 @@ Dashboard status: updated estimate only.
    - Keep `data/trip-data.js` for the dashboard.
    - Add a generated or mirrored JSON file later if automated scripts need easier parsing.
 2. Add a scheduled checker.
-   - Best option after publishing to GitHub: GitHub Actions scheduled workflow.
+   - Active option: GitHub Actions scheduled workflow.
    - Local-only option: macOS `launchd` or cron job.
 3. Use source-specific checks.
    - Official website first.
@@ -75,9 +83,11 @@ Dashboard status: updated estimate only.
    - Save reports in `research/pricing/`.
    - Append accepted changes to `CHANGELOG.md` if added later.
 5. Notify the traveler.
-   - Email, GitHub issue, or Slack/Discord webhook are the most practical choices.
+   - Current channel: GitHub issue.
+   - Later options: email or Slack/Discord webhook.
 6. Update the dashboard.
-   - Patch `data/trip-data.js`.
+   - Current behavior: generated reports and snapshots are updated automatically, but itinerary structure changes still require review.
+   - Patch `data/trip-data.js` only after review or after a future low-risk auto-patch workflow is added.
    - Run validation:
      - JS syntax check
      - budget audit
@@ -85,11 +95,10 @@ Dashboard status: updated estimate only.
      - target/ceiling audit
    - Deploy updated static site.
 
-## Required Decisions Before Full Automation
+## Remaining Decisions Before Full Automation
 
-- Hosting target: GitHub Pages, Netlify, Vercel, or other.
-- Notification channel: email, GitHub issue, Slack, Discord, or SMS.
-- Whether automatic changes can commit directly or should open a pull request for review.
+- Notification channel beyond GitHub Issues: email, Slack, Discord, or SMS.
+- Whether low-risk dashboard data changes should commit directly or open a pull request for review.
 - Whether paid APIs are allowed:
   - Google Places API for place status
   - Google Maps Routes API for travel time
