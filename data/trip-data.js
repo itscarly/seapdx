@@ -72,6 +72,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "1:55 PM",
+              leaveTime: "2:15 PM from airport station",
               name: "Arrive SEA, Link light rail to Capitol Hill",
               type: "transit",
               neighborhood: "Airport to Capitol Hill",
@@ -83,7 +84,21 @@ window.TRIP_DATA = {
               status: "Operating transit route; verify service alerts day-of."
             },
             {
+              time: "3:15 PM",
+              name: "Check in at The Boylston Hotel Capitol Hill",
+              type: "hotel",
+              anchorType: "hotel-checkin",
+              hotelContext: "Seattle base: The Boylston Hotel Capitol Hill",
+              neighborhood: "Capitol Hill",
+              duration: "20-30 min",
+              cost: 0,
+              bestTime: "Right after arrival transit.",
+              notes: "Drop bags, reset, and keep the first afternoon close to the hotel.",
+              route: "https://www.google.com/maps/dir/Capitol+Hill+Station+Seattle/The+Boylston+Hotel+Capitol+Hill+Seattle"
+            },
+            {
               time: "4:30 PM",
+              leaveTime: "4:10 PM",
               name: "Analog Coffee",
               type: "coffee",
               neighborhood: "Capitol Hill",
@@ -107,6 +122,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "5:30 PM",
+              leaveTime: "5:20 PM",
               name: "Canon",
               type: "cocktails",
               neighborhood: "Capitol Hill",
@@ -128,6 +144,7 @@ window.TRIP_DATA = {
             },
             {
               time: "7:00 PM",
+              leaveTime: "6:50 PM",
               name: "Due' Cucina Capitol Hill",
               type: "food",
               neighborhood: "Capitol Hill",
@@ -162,6 +179,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "8:30 AM",
+              leaveTime: "8:00 AM",
               name: "Anchorhead Coffee - Pike Place",
               type: "coffee",
               neighborhood: "Pike Place / Waterfront",
@@ -180,6 +198,7 @@ window.TRIP_DATA = {
             },
             {
               time: "9:20 AM",
+              leaveTime: "9:05 AM",
               name: "Pike Place Market grazing route",
               type: "food",
               neighborhood: "Pike Place",
@@ -203,6 +222,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "12:15 PM",
+              leaveTime: "12:05 PM",
               name: "Seattle Waterfront + Olympic Sculpture Park",
               type: "sightseeing",
               neighborhood: "Waterfront / Belltown",
@@ -217,6 +237,7 @@ window.TRIP_DATA = {
             },
             {
               time: "3:30 PM",
+              leaveTime: "3:05 PM",
               name: "Columbia Center Sky View Observatory",
               type: "sightseeing",
               neighborhood: "Downtown",
@@ -291,6 +312,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "8:45 AM",
+              leaveTime: "8:05 AM",
               name: "Walk/transit to Seattle Ferry Terminal",
               type: "transit",
               neighborhood: "Capitol Hill to Waterfront",
@@ -302,6 +324,7 @@ window.TRIP_DATA = {
             },
             {
               time: "9:45 AM",
+              leaveTime: "9:20 AM",
               name: "Bainbridge Island ferry + Winslow",
               type: "sightseeing",
               neighborhood: "Bainbridge Island",
@@ -324,6 +347,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "3:15 PM",
+              leaveTime: "2:25 PM",
               name: "Seattle Japanese Garden",
               type: "sightseeing",
               neighborhood: "Madison Valley / Arboretum",
@@ -346,6 +370,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "5:15 PM",
+              leaveTime: "4:55 PM",
               name: "Bottlehouse",
               type: "cocktails",
               neighborhood: "Madrona",
@@ -367,6 +392,7 @@ window.TRIP_DATA = {
             },
             {
               time: "7:00 PM",
+              leaveTime: "6:35 PM",
               name: "Spinasse solo pasta splurge",
               type: "food",
               neighborhood: "Capitol Hill",
@@ -400,7 +426,19 @@ window.TRIP_DATA = {
           label: "Morning",
           items: [
             {
+              time: "7:15 AM",
+              name: "Check out of The Boylston Hotel Capitol Hill",
+              type: "hotel",
+              anchorType: "hotel-departure",
+              hotelContext: "Seattle base: The Boylston Hotel Capitol Hill",
+              neighborhood: "Capitol Hill",
+              duration: "15-20 min",
+              cost: 0,
+              notes: "Store luggage if needed, or head out with a light bag before the transfer day begins."
+            },
+            {
               time: "8:00 AM",
+              leaveTime: "7:50 AM",
               name: "Anchorhead Capitol Hill or Olympia Coffee Columbia City",
               type: "coffee",
               neighborhood: "Capitol Hill / Columbia City",
@@ -420,6 +458,7 @@ window.TRIP_DATA = {
             },
             {
               time: "10:00 AM",
+              leaveTime: "9:35 AM",
               name: "UW social loop: Cafe Allegro, University Book Store, Big Time Brewery",
               type: "food",
               neighborhood: "University District",
@@ -445,6 +484,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "Train time per ticket",
+              leaveTime: "35-45 min before departure",
               name: "Amtrak Cascades 517 to Portland",
               type: "transit",
               neighborhood: "King Street Station to Portland Union Station",
@@ -466,7 +506,19 @@ window.TRIP_DATA = {
           label: "Evening",
           items: [
             {
+              time: "After arrival",
+              name: "Check in at Hotel Vance",
+              type: "hotel",
+              anchorType: "hotel-checkin",
+              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              neighborhood: "Downtown / Cultural District",
+              duration: "20-30 min",
+              cost: 0,
+              notes: "Drop bags and reset before deciding how much of the Powell's / Life of Pie plan still fits."
+            },
+            {
               time: "After check-in",
+              leaveTime: "10-15 min after hotel reset",
               name: "Powell's City of Books + Life of Pie NW",
               type: "food",
               neighborhood: "Pearl / NW 23rd",
@@ -503,6 +555,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "8:30 AM",
+              leaveTime: "8:20 AM",
               name: "Hotel Vance Starbucks or Stumptown Downtown",
               type: "coffee",
               neighborhood: "Cultural District / Downtown",
@@ -521,6 +574,7 @@ window.TRIP_DATA = {
             },
             {
               time: "10:00 AM",
+              leaveTime: "9:20 AM",
               name: "Washington Park + Portland Japanese Garden",
               type: "sightseeing",
               neighborhood: "Washington Park",
@@ -543,6 +597,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "1:45 PM",
+              leaveTime: "1:20 PM",
               name: "Life of Pie NW happy-hour lunch",
               type: "food",
               neighborhood: "NW 23rd",
@@ -562,6 +617,7 @@ window.TRIP_DATA = {
             },
             {
               time: "3:15 PM",
+              leaveTime: "3:00 PM",
               name: "Powell's City of Books + Made Here",
               type: "shopping",
               neighborhood: "Pearl / Downtown",
@@ -584,6 +640,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "6:00 PM",
+              leaveTime: "5:20 PM",
               name: "Gado Gado",
               type: "food",
               neighborhood: "Hollywood / NE",
@@ -618,6 +675,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "8:30 AM",
+              leaveTime: "8:00 AM",
               name: "Coava Coffee Roasters Flagship",
               type: "coffee",
               neighborhood: "Central Eastside",
@@ -637,6 +695,7 @@ window.TRIP_DATA = {
             },
             {
               time: "10:00 AM",
+              leaveTime: "9:50 AM",
               name: "Central Eastside walk: Deadstock / Smith Teamaker / waterfront crossing",
               type: "sightseeing",
               neighborhood: "Central Eastside",
@@ -659,6 +718,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "12:30 PM",
+              leaveTime: "12:10 PM",
               name: "Hat Yai",
               type: "food",
               neighborhood: "NE Killingsworth or Belmont",
@@ -677,6 +737,7 @@ window.TRIP_DATA = {
             },
             {
               time: "3:00 PM",
+              leaveTime: "2:40 PM",
               name: "Mississippi / Williams walk",
               type: "shopping",
               neighborhood: "North Portland",
@@ -699,6 +760,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "5:00 PM",
+              leaveTime: "4:35 PM",
               name: "Rontoms",
               type: "cocktails",
               neighborhood: "East Burnside",
@@ -719,6 +781,17 @@ window.TRIP_DATA = {
               website: "https://www.rontoms.net/",
               menu: "https://www.rontoms.net/menu-1",
               route: "https://www.google.com/maps/dir/North+Mississippi+Avenue+Portland/Rontoms+Portland"
+            },
+            {
+              time: "7:00 PM",
+              name: "Return to Hotel Vance",
+              type: "hotel",
+              anchorType: "hotel-return",
+              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              neighborhood: "Downtown / Cultural District",
+              duration: "20-30 min",
+              cost: 0,
+              notes: "End the night here unless a weather-safe downtown detour still feels easy."
             }
           ]
         }
@@ -738,6 +811,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "9:00 AM",
+              leaveTime: "8:40 AM",
               name: "Stumptown Downtown",
               type: "coffee",
               neighborhood: "Downtown",
@@ -757,6 +831,7 @@ window.TRIP_DATA = {
             },
             {
               time: "10:00 AM",
+              leaveTime: "9:45 AM",
               name: "Portland Saturday Market + Waterfront Park",
               type: "shopping",
               neighborhood: "Old Town / Waterfront",
@@ -779,6 +854,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "1:30 PM",
+              leaveTime: "1:05 PM",
               name: "Eem",
               type: "food",
               neighborhood: "North Williams",
@@ -803,6 +879,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "5:30 PM",
+              leaveTime: "5:00 PM",
               name: "Tope or rooftop backup near downtown",
               type: "cocktails",
               neighborhood: "Downtown",
@@ -839,6 +916,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "9:00 AM",
+              leaveTime: "8:30 AM",
               name: "Heart Coffee or Good Coffee",
               type: "coffee",
               neighborhood: "Eastside",
@@ -858,6 +936,7 @@ window.TRIP_DATA = {
             },
             {
               time: "10:30 AM",
+              leaveTime: "10:10 AM",
               name: "Alberta Arts / Mississippi backup loop",
               type: "sightseeing",
               neighborhood: "NE Portland",
@@ -880,6 +959,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "1:30 PM",
+              leaveTime: "1:00 PM",
               name: "Screen Door, Gabbiano's, or Cubo de Cuba value lunch",
               type: "food",
               neighborhood: "Eastside / Downtown",
@@ -903,6 +983,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "5:30 PM",
+              leaveTime: "5:10 PM",
               name: "Grassa Downtown or Vance + Vine",
               type: "food",
               neighborhood: "Downtown / Hotel Vance",
@@ -922,6 +1003,7 @@ window.TRIP_DATA = {
             ,
             {
               time: "7:30 PM",
+              leaveTime: "7:00 PM",
               name: "Big Legrowlski open jam social night",
               type: "cocktails",
               neighborhood: "Pearl District",
@@ -941,6 +1023,17 @@ window.TRIP_DATA = {
               hours: "Open-jam info lists Sunday, Monday, Tuesday 7 PM-midnight; venue lists 21+.",
               website: "https://www.biglegrowlski.com/open-jam",
               route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/The+Big+Legrowlski+Portland"
+            },
+            {
+              time: "9:15 PM",
+              name: "Return to Hotel Vance",
+              type: "hotel",
+              anchorType: "hotel-return",
+              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              neighborhood: "Downtown / Cultural District",
+              duration: "20-30 min",
+              cost: 0,
+              notes: "Default wind-down point after the final full Portland day."
             }
           ]
         }
@@ -960,6 +1053,19 @@ window.TRIP_DATA = {
           items: [
             {
               time: "Flight-dependent",
+              leaveTime: "2.5 hours before departure",
+              name: "Check out of Hotel Vance",
+              type: "hotel",
+              anchorType: "hotel-departure",
+              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              neighborhood: "Downtown / Cultural District",
+              duration: "15-20 min",
+              cost: 0,
+              notes: "Leave extra lobby and elevator time if morning weather is rough."
+            },
+            {
+              time: "Flight-dependent",
+              leaveTime: "2.25 hours before departure",
               name: "Hotel Vance to PDX",
               type: "transit",
               neighborhood: "Downtown to airport",
@@ -1037,18 +1143,18 @@ window.TRIP_DATA = {
     ]
   },
   exclusions: [
-    { name: "Space Needle", reason: "Excluded for value. Columbia Center gives a higher public view for a more efficient downtown route." },
-    { name: "Seattle Ferris Wheel", reason: "Touristy and redundant after Sky View; use waterfront walk instead." },
-    { name: "The Pink Door", reason: "Still excluded from the default plan because Spinasse is the Seattle splurge. Use Pink Door only if Spinasse is unavailable." },
-    { name: "Carkeek Park", reason: "Too far north for this short Seattle stay unless replacing Bainbridge." },
-    { name: "West Seattle cluster: Panterelli, MotoPizza, Alki-adjacent ideas", reason: "Adds transit time and backtracking from Capitol Hill." },
-    { name: "Seattle Streetcar / 3303 S Bond Ave item", reason: "Address appears Portland South Waterfront/OHSU related, not Seattle. Excluded as cross-city data error." },
-    { name: "Daily Cafe / Summit Cafe at OHSU", reason: "Portland/OHSU items mistakenly listed under Seattle; not used in Seattle routing." },
-    { name: "Depoe Bay", reason: "Full-day coastal trip, car/tour cost, and weather risk are still too high for the $800 target." },
-    { name: "Multnomah Falls via Viator", reason: "Good optional tour, but paid tour consumes too much budget. Add only if replacing Portland Japanese Garden or Gado Gado." },
-    { name: "Carver Cafe", reason: "Too far from central Portland without a car and not aligned with the transit-first plan." },
-    { name: "The Grotto", reason: "Interesting but east of the core route; use only as rainy/reflective backup if skipping Washington Park." },
-    { name: "Duplicate chains/branches", reason: "Only closest or strategically useful branch is recommended to avoid itinerary clutter." }
+    { name: "Space Needle", reason: "Excluded for value. Columbia Center gives a higher public view for a more efficient downtown route.", bestDay: "day-2", alternateType: "sightseeing", alternateFor: "Columbia Center Sky View Observatory", estimatedCost: 42, neighborhood: "Seattle Center", duration: "90 min", bestTime: "Late afternoon if the icon matters more than budget efficiency.", notes: "Best as a skyline-icon swap, not an add-on.", route: "https://www.google.com/maps/dir/Pike+Place+Market/Space+Needle+Seattle", website: "https://www.spaceneedle.com/" },
+    { name: "Seattle Ferris Wheel", reason: "Touristy and redundant after Sky View; use waterfront walk instead.", bestDay: "day-2", alternateType: "sightseeing", alternateFor: "Seattle Waterfront + Olympic Sculpture Park", estimatedCost: 22, neighborhood: "Waterfront", duration: "45 min", bestTime: "Midday if weather is clear and you want a shorter paid tourist stop.", notes: "Photo-forward backup, not the best value.", route: "https://www.google.com/maps/dir/Pike+Place+Market/Seattle+Great+Wheel", website: "https://seattlegreatwheel.com/" },
+    { name: "The Pink Door", reason: "Still excluded from the default plan because Spinasse is the Seattle splurge. Use Pink Door only if Spinasse is unavailable.", bestDay: "day-3", alternateType: "food", alternateFor: "Spinasse solo pasta splurge", estimatedCost: 58, neighborhood: "Pike Place", duration: "90 min", bestTime: "Dinner if you want an atmospheric Pike Place backup.", notes: "Use this if Spinasse booking falls through.", route: "https://www.google.com/maps/dir/Bottlehouse+Seattle/The+Pink+Door+Seattle", website: "https://www.thepinkdoor.net/" },
+    { name: "Carkeek Park", reason: "Too far north for this short Seattle stay unless replacing Bainbridge.", bestDay: "day-3", alternateType: "sightseeing", alternateFor: "Bainbridge Island ferry + Winslow", estimatedCost: 6, neighborhood: "North Seattle", duration: "2 hr", bestTime: "Daylight hours if ferry conditions make Bainbridge feel too ambitious.", notes: "Nature-heavy fallback with less transfer friction.", route: "https://www.google.com/maps/dir/The+Boylston+Hotel+Capitol+Hill+Seattle/Carkeek+Park+Seattle", website: "https://www.seattle.gov/parks/allparks/carkeek-park" },
+    { name: "West Seattle cluster: Panterelli, MotoPizza, Alki-adjacent ideas", reason: "Adds transit time and backtracking from Capitol Hill.", bestDay: "day-2", alternateType: "food", alternateFor: "Seattle Waterfront + Olympic Sculpture Park", estimatedCost: 28, neighborhood: "West Seattle", duration: "2-3 hr", bestTime: "Only if clear weather makes Alki views the priority.", notes: "Worth considering only if you intentionally trade central efficiency for neighborhood views.", route: "https://www.google.com/maps/dir/The+Boylston+Hotel+Capitol+Hill+Seattle/Alki+Beach+Seattle", website: "https://www.google.com/maps/search/Alki+Beach+Seattle" },
+    { name: "Seattle Streetcar / 3303 S Bond Ave item", reason: "Address appears Portland South Waterfront/OHSU related, not Seattle. Excluded as cross-city data error.", bestDay: "day-5", alternateType: "transit", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 3, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Use only if you pivot a Portland day toward South Waterfront instead of Washington Park.", notes: "Kept as labeled backup because the original source mixed city data.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/3303+S+Bond+Ave+Portland", website: "https://www.google.com/maps/search/3303+S+Bond+Ave+Portland" },
+    { name: "Daily Cafe / Summit Cafe at OHSU", reason: "Portland/OHSU items mistakenly listed under Seattle; not used in Seattle routing.", bestDay: "day-5", alternateType: "coffee", alternateFor: "Hotel Vance Starbucks or Stumptown Downtown", estimatedCost: 8, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Morning if you want a quieter coffee detour instead of central downtown.", notes: "Useful only if already heading toward OHSU or the tram area.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/OHSU+Portland", website: "https://www.google.com/maps/search/OHSU+Cafe+Portland" },
+    { name: "Depoe Bay", reason: "Full-day coastal trip, car/tour cost, and weather risk are still too high for the $800 target.", bestDay: "day-8", alternateType: "sightseeing", alternateFor: "Alberta Arts / Mississippi backup loop", estimatedCost: 120, neighborhood: "Oregon Coast", duration: "Full day", bestTime: "Only if you are willing to replace most of the day and treat it as a major splurge.", notes: "Beautiful coast option, but it breaks the transit-first short-trip logic.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Depoe+Bay+Oregon", website: "https://www.oregoncoast.org/cities/depoe-bay/" },
+    { name: "Multnomah Falls via Viator", reason: "Good optional tour, but paid tour consumes too much budget. Add only if replacing Portland Japanese Garden or Gado Gado.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 89, neighborhood: "Columbia River Gorge", duration: "4-5 hr", bestTime: "Morning if you decide to replace one major Portland city anchor with a gorge trip.", notes: "Best as a full substitution, not an add-on.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Multnomah+Falls", website: "https://www.google.com/maps/search/Multnomah+Falls+tour+Portland" },
+    { name: "Carver Cafe", reason: "Too far from central Portland without a car and not aligned with the transit-first plan.", bestDay: "day-8", alternateType: "food", alternateFor: "Screen Door, Gabbiano's, or Cubo de Cuba value lunch", estimatedCost: 22, neighborhood: "Outer Southeast", duration: "90 min", bestTime: "Late breakfast or lunch only if you intentionally build in a longer outer-neighborhood detour.", notes: "Good local-feeling food stop, but weak route efficiency for this trip.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Carver+Cafe+Damascus", website: "https://www.google.com/maps/search/Carver+Cafe+Oregon" },
+    { name: "The Grotto", reason: "Interesting but east of the core route; use only as rainy/reflective backup if skipping Washington Park.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 10, neighborhood: "Northeast Portland", duration: "90 min", bestTime: "Light-rain morning or reflective backup day.", notes: "Quieter spiritual-site fallback if you want a lower-key Portland day.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/The+Grotto+Portland", website: "https://thegrotto.org/" },
+    { name: "Duplicate chains/branches", reason: "Only closest or strategically useful branch is recommended to avoid itinerary clutter.", bestDay: "day-8", alternateType: "coffee", alternateFor: "Heart Coffee or Good Coffee", estimatedCost: 7, neighborhood: "Both cities", duration: "30-45 min", bestTime: "Any time a listed default branch has lines or awkward routing.", notes: "Treat this as a policy reminder: nearest good branch can substitute without changing the spirit of the day.", route: "https://www.google.com/maps/search/coffee+near+Hotel+Vance+Portland", website: "https://www.google.com/maps/search/coffee+shops+Portland" }
   ],
   sources: [
     { label: "Seattle Streetcar fares", url: "https://www.seattle.gov/transportation/getting-around/transit/streetcar/fares-and-orca-card" },
