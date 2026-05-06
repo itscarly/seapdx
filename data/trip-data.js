@@ -4,7 +4,7 @@ window.TRIP_DATA = {
     dates: "November 1-9, 2026",
     travelerBase: {
       seattle: "The Boylston Hotel Capitol Hill",
-      portland: "Hotel Rose - A Staypineapple Hotel"
+      portland: "Hotel Vance, Portland, a Tribute Portfolio Hotel"
     },
     verifiedOn: "May 5, 2026",
     budgetCap: 800,
@@ -15,6 +15,7 @@ window.TRIP_DATA = {
       "Prices include estimated local tax and budget-conscious tips where table service or cocktails are involved.",
       "Default tip model: 18% for sit-down restaurants and cocktail bars, $1 for coffee, and optional 10% for meaningful counter-service food.",
       "Coffee beans are capped at two bags total: one in Seattle and one in Portland, with a maximum bean budget of $60.",
+      "Portland home base is Hotel Vance, Portland, a Tribute Portfolio Hotel, 1455 Southwest Broadway, Portland, Oregon 97201, United States.",
       "November 2026 hours are not fully published for many businesses, so the dashboard flags current verified status and recommends rechecking before booking.",
       "The plan is curated best-fit; not every candidate location is included."
     ]
@@ -482,7 +483,7 @@ window.TRIP_DATA = {
               hours: "Powell's daily 10 AM-9 PM; Life of Pie daily 11 AM-10 PM.",
               website: "https://www.powells.com/locations/powells-city-of-books",
               menu: "https://lifeofpiepizza.com/",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Powell's+City+of+Books/Life+of+Pie+NW+23rd"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Powell's+City+of+Books/Life+of+Pie+NW+23rd"
             }
           ]
         }
@@ -502,21 +503,21 @@ window.TRIP_DATA = {
           items: [
             {
               time: "8:30 AM",
-              name: "Less & More Coffee or Stumptown Downtown",
+              name: "Hotel Vance Starbucks or Stumptown Downtown",
               type: "coffee",
-              neighborhood: "Downtown",
+              neighborhood: "Cultural District / Downtown",
               duration: "35 min",
               cost: 6,
               bestTime: "Before heading uphill.",
-              knownFor: "Downtown espresso stop near hotel.",
-              sentiment: "Efficient local pick.",
+              knownFor: "Fast near-hotel caffeine start with an easy PSU/downtown launch.",
+              sentiment: "Most practical morning coffee from the new hotel base.",
               beans: "Save bean purchases for Coava/Heart/Stumptown retail.",
               payment: "Cards accepted at major cafes.",
               taxTipIncluded: "Drink estimate includes tax plus $1 coffee tip.",
               tipGuidance: "$1 is enough for coffee.",
-              hours: "Recheck closer to trip.",
-              website: "https://www.google.com/maps/search/Less+and+More+Coffee+Portland",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Less+and+More+Coffee+Portland"
+              hours: "Hotel Vance Starbucks currently lists daily morning-through-evening service; recheck the downtown Stumptown branch hours closer to the trip.",
+              website: "https://www.hotelvance.com/dining",
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Stumptown+Coffee+Roasters+Downtown+Portland"
             },
             {
               time: "10:00 AM",
@@ -533,7 +534,7 @@ window.TRIP_DATA = {
               taxTipIncluded: "Ticket estimate includes fees/tax buffer; no tip.",
               hours: "Public hours generally Wed-Mon 10 AM-5:30 PM, Tue noon-5:30 PM; adult admission $22.50.",
               website: "https://japanesegarden.org/hours-admission/",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Washington+Park+MAX+Station/Portland+Japanese+Garden"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Washington+Park+MAX+Station/Portland+Japanese+Garden"
             }
           ]
         },
@@ -632,7 +633,7 @@ window.TRIP_DATA = {
               tipGuidance: "$1 for coffee; no tip needed on the retail bean bag.",
               hours: "Flagship open daily 7 AM-6 PM.",
               website: "https://coavacoffee.com/locations",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Coava+Coffee+Roasters+Flagship"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Coava+Coffee+Roasters+Flagship"
             },
             {
               time: "10:00 AM",
@@ -752,7 +753,7 @@ window.TRIP_DATA = {
               tipGuidance: "$1 is enough for coffee.",
               hours: "Downtown 128 SW 3rd: daily 7 AM-5 PM.",
               website: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Stumptown+Coffee+Roasters+128+SW+3rd"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Stumptown+Coffee+Roasters+Downtown+Portland"
             },
             {
               time: "10:00 AM",
@@ -818,7 +819,7 @@ window.TRIP_DATA = {
               tipGuidance: "If you order a drink, tip 18%.",
               hours: "Recheck current hours.",
               website: "https://www.google.com/maps/search/Tope+Portland",
-              route: "https://www.google.com/maps/dir/Eem+Portland/Tope+Portland/Hotel+Rose+Portland"
+              route: "https://www.google.com/maps/dir/Eem+Portland/Tope+Portland/Hotel+Vance+Portland"
             }
           ]
         }
@@ -853,7 +854,7 @@ window.TRIP_DATA = {
               tipGuidance: "$1 is enough for coffee.",
               hours: "Recheck exact branch hours before trip.",
               website: "https://www.heartroasters.com/",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Heart+Coffee+Portland"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Heart+Coffee+Portland"
             },
             {
               time: "10:30 AM",
@@ -902,21 +903,21 @@ window.TRIP_DATA = {
           items: [
             {
               time: "5:30 PM",
-              name: "Grassa or Midtown Beer Garden",
+              name: "Grassa Downtown or Vance + Vine",
               type: "food",
-              neighborhood: "Downtown",
+              neighborhood: "Downtown / Hotel Vance",
               duration: "60 min",
               cost: 18,
               bestTime: "Early, simple final dinner.",
-              knownFor: "Budget-friendly downtown dinner near hotel.",
-              sentiment: "Practical, not a splurge.",
+              knownFor: "Low-friction final dinner with either easy pasta downtown or an on-site hotel fallback.",
+              sentiment: "Practical close-to-base finish, not a splurge.",
               reservation: "None.",
               payment: "Cards accepted.",
               taxTipIncluded: "Estimate includes tax; tip depends on service style.",
               tipGuidance: "Tip 10% for counter service or 18% if seated/bar service is involved.",
               hours: "Recheck current branch hours.",
-              website: "https://www.grassapdx.com/",
-              route: "https://www.google.com/maps/dir/Screen+Door+Portland/Grassa+Portland/Hotel+Rose+Portland"
+              website: "https://www.hotelvance.com/dining",
+              route: "https://www.google.com/maps/dir/Screen+Door+Portland/Grassa+Portland/Hotel+Vance+Portland"
             }
             ,
             {
@@ -928,18 +929,18 @@ window.TRIP_DATA = {
               cost: 18,
               bestTime: "Sunday, Monday, or Tuesday 7 PM-midnight open jam; Sunday fits this itinerary.",
               knownFor: "Casual live music/open jam, local crowd, no-cover community vibe.",
-              sentiment: "Good social value near Hotel Rose; 21+ only.",
+              sentiment: "Good social value with a manageable return to Hotel Vance; 21+ only.",
               happyHour: "No default happy-hour deal; budget one drink or nonalcoholic option.",
               recommended: "Use this as a public app-date or social hangout, not a late-night pickup plan.",
               reservation: "No reservation; check event calendar before going.",
               payment: "Cards accepted; support the venue with a drink/snack.",
               taxTipIncluded: "Estimate includes one drink/snack, tax, and 18% bar tip.",
               tipGuidance: "Tip 18% at the bar.",
-              socialFit: "Strongest Portland social pick near the hotel for meeting locals in a structured public setting.",
+              socialFit: "Strongest Portland live-music social pick with a simple return to Hotel Vance by streetcar, MAX, or short rideshare.",
               safetyNote: "Keep first meetups public, stay aware around Old Town/Pearl late at night, and use your own route home.",
               hours: "Open-jam info lists Sunday, Monday, Tuesday 7 PM-midnight; venue lists 21+.",
               website: "https://www.biglegrowlski.com/open-jam",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/The+Big+Legrowlski+Portland"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/The+Big+Legrowlski+Portland"
             }
           ]
         }
@@ -959,7 +960,7 @@ window.TRIP_DATA = {
           items: [
             {
               time: "Flight-dependent",
-              name: "Hotel Rose to PDX",
+              name: "Hotel Vance to PDX",
               type: "transit",
               neighborhood: "Downtown to airport",
               duration: "45-60 min",
@@ -971,7 +972,7 @@ window.TRIP_DATA = {
               payment: "Tap contactless card or phone.",
               hours: "Verify service alerts day-of.",
               website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Hotel+Rose+Portland/Portland+International+Airport"
+              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Portland+International+Airport"
             },
             {
               time: "Before departure",
@@ -1018,13 +1019,13 @@ window.TRIP_DATA = {
       { name: "Hinge", city: "Both cities", fit: "Backup for more filtered, date-quality matches.", setup: "Manually set location to Capitol Hill/U District for Seattle, then Downtown/Pearl or inner eastside for Portland.", safety: "Use it for coffee or dinner dates where you can screen better before meeting.", link: "https://help.hinge.co/hc/en-us/articles/49661615922195-Location-Settings" },
       { name: "Bumble", city: "Both cities", fit: "Optional if you want more control over messaging.", setup: "Travel Mode is Premium/Premium+ and can be set up before arrival.", safety: "Good for public coffee/drink plans; keep first meetups short.", link: "https://support.bumble.com/hc/articles/28423960803741-Using-Bumble-while-traveling" },
       { name: "Cafe Allegro + University Book Store + Big Time Brewery", city: "Seattle", fit: "UW-adjacent public hangout loop, reachable from Capitol Hill by Link.", setup: "Use Cafe Allegro or University Book Store for daytime app meetups; Big Time works better for early evening beer/trivia/chess energy.", safety: "Campus-adjacent does not mean everyone is available or straight. Use apps/preferences for dating intent and keep interactions respectful.", link: "https://www.bigtimebrewery.com/" },
-      { name: "Big Legrowlski", city: "Portland", fit: "Best Portland social venue near Hotel Rose for open jam/live music and local conversation.", setup: "Sunday open jam fits the itinerary; budget one drink and keep your own way home.", safety: "21+ only. Stay public, avoid leaving with someone you just met, and use rideshare backup if transit feels inconvenient late.", link: "https://www.biglegrowlski.com/open-jam" },
-      { name: "Powell's / Pearl District coffee meetup", city: "Portland", fit: "Safest daytime first-date zone near Hotel Rose.", setup: "Meet at Powell's or a nearby cafe before dinner; keep it to 45-60 minutes first.", safety: "Good default for first app meetups because exits, transit, and hotel return are simple.", link: "https://www.travelportland.com/attractions/powells/" }
+      { name: "Big Legrowlski", city: "Portland", fit: "Best Portland structured social venue still worth the trip from Hotel Vance for open jam/live music and local conversation.", setup: "Sunday open jam still fits the itinerary; budget one drink and keep your own route back to Hotel Vance.", safety: "21+ only. Stay public, avoid leaving with someone you just met, and use streetcar/MAX or rideshare backup if late-night transit feels inconvenient.", link: "https://www.biglegrowlski.com/open-jam" },
+      { name: "Powell's / West End coffee meetup", city: "Portland", fit: "Safest daytime first-date zone from Hotel Vance, with Powell's, downtown cafes, and easy PSU/Cultural District return options.", setup: "Meet at Powell's or a nearby West End cafe before dinner; keep it to 45-60 minutes first.", safety: "Good default for first app meetups because exits, transit, and hotel return are simple from the new base.", link: "https://www.travelportland.com/attractions/powells/" }
     ],
     rainyDay: [
       "Seattle: Pike Place Market, Seattle Art Museum, Amazon Spheres exterior/photo stop, coffee crawl near Capitol Hill.",
       "Seattle: Replace Bainbridge with UW libraries, Japanese Garden only if light rain, Bottlehouse early happy hour.",
-      "Portland: Powell's, Made Here, Stumptown/Coava cafe blocks, Japanese Garden in light rain, indoor food carts/beer garden.",
+      "Portland: Powell's, Made Here, Hotel Vance/West End coffee blocks, Japanese Garden in light rain, indoor food carts/beer garden.",
       "Portland: Skip Multnomah Falls if wind, heavy rain, or tour timing threatens the budget."
     ],
     packing: [
