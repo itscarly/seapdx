@@ -21,3 +21,4 @@
 - Public Netlify deployment verified at `https://69fb91822a460f21b189142d--cheerful-cupcake-75ba93.netlify.app/`.
 - Shared favicon added at `/favicon.svg` and linked from both HTML entry points.
 - Automation docs updated to reflect the live Netlify auto-deploy path and the existing GitHub monitor auto-commit/push behavior.
+- Portland hotel base later changed from Hotel Rose to Hotel Vance, with Portland hotel-dependent route text and meetup guidance re-centered on the new base.
