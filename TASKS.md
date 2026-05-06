@@ -20,11 +20,12 @@
 
 ## Automation
 
-- [ ] Choose hosting provider for public access: Netlify recommended; GitHub Pages or Vercel also viable.
-- [ ] Choose notification channel for price/reservation/transit alerts.
-- [ ] Convert itinerary data into a monitorable JSON source or build a parser for `data/trip-data.js`.
-- [ ] Add scheduled checks for food prices, menu links, reservations, happy hours, backup activities, transit fares, ferry fares, Amtrak status, and route disruptions.
-- [ ] Save recurring check reports under `research/pricing/`.
-- [ ] Update `data/trip-data.js` when factual price/hour/fare changes are detected.
-- [ ] Run budget validation after every automated update.
-- [ ] Redeploy the public dashboard after accepted updates.
+- [x] Choose hosting provider for public access: Netlify is live.
+- [x] Choose notification channel for price/reservation/transit alerts: GitHub Issues for now.
+- [x] Convert itinerary data into a monitorable source or build a parser for `data/trip-data.js`.
+- [x] Add scheduled checks for food prices, menu links, reservations, happy hours, backup activities, transit fares, ferry fares, Amtrak status, and route disruptions.
+- [x] Save recurring check reports under `research/pricing/`.
+- [x] Run budget validation after every automated update.
+- [x] Redeploy the public dashboard after accepted pushes via Netlify auto-deploy.
+- [ ] Update `data/trip-data.js` automatically when low-risk factual price/hour/fare changes are detected.
+- [ ] Add a second notification channel if GitHub Issues alone is not enough.

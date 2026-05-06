@@ -12,6 +12,11 @@ The current v1 deliverable is a static responsive HTML dashboard:
 
 `dashboards/html/index.html`
 
+It now runs in both places from the same codebase:
+
+- locally through a static server from the project root
+- publicly on Netlify with automatic redeploys from GitHub pushes
+
 ## Data Source
 
 Structured itinerary data lives in:
@@ -25,3 +30,4 @@ Structured itinerary data lives in:
 - Prioritize public transit and walking.
 - Keep cocktail and social stops tied to happy hour, public meetups, or clearly capped one-drink experiences.
 - Keep coffee beans inside the $60 two-bag cap.
+- Keep the deployment model static-only, with no required backend.

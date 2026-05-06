@@ -7,6 +7,9 @@
 - [x] Add a simple local serve command without introducing a backend.
 - [x] Verify local asset paths still work from the project root.
 - [x] Run validation checks and record the result.
+- [x] Confirm the public Netlify site is live.
+- [x] Add a shared favicon so the live site stops requesting a missing `/favicon.ico`.
+- [x] Reconcile automation notes with the live GitHub + Netlify setup.
 
 ## Review
 
@@ -15,3 +18,6 @@
 - `npm run serve` added for project-root static serving without adding a backend.
 - `npm run validate` passed on May 6, 2026.
 - Local browser verification passed at `http://127.0.0.1:4173/`, which resolved to `http://127.0.0.1:4173/dashboards/html/index.html`.
+- Public Netlify deployment verified at `https://69fb91822a460f21b189142d--cheerful-cupcake-75ba93.netlify.app/`.
+- Shared favicon added at `/favicon.svg` and linked from both HTML entry points.
+- Automation docs updated to reflect the live Netlify auto-deploy path and the existing GitHub monitor auto-commit/push behavior.
