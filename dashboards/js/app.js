@@ -44,7 +44,10 @@ const editorEls = {
   menu: document.getElementById("editorMenu"),
   route: document.getElementById("editorRoute"),
   openAdd: document.getElementById("openAddStop"),
+  exportChanges: document.getElementById("exportChanges"),
+  copySummary: document.getElementById("copyChangeSummary"),
   reset: document.getElementById("resetCustomizations"),
+  status: document.getElementById("editorStatus"),
   close: document.getElementById("closeEditor"),
   cancel: document.getElementById("cancelEditor")
 };
@@ -105,6 +108,7 @@ function resetState() {
   } catch (error) {
     console.warn("Could not clear itinerary edits.", error);
   }
+  setStatus("Saved itinerary edits cleared. You are back on the default trip plan.");
 }
 
 function assignStopUids(dataset) {
@@ -612,6 +616,9 @@ function bindEditorChrome() {
     openEditor("add");
   });
 
+  editorEls.exportChanges.addEventListener("click", exportChanges);
+  editorEls.copySummary.addEventListener("click", copyChangeSummary);
+
   editorEls.reset.addEventListener("click", () => {
     resetState();
     rerenderApp();
@@ -837,4 +844,174 @@ function rerenderApp() {
   renderGuide(currentGuide);
   renderTransitAndSources();
   populateDayOptions(editorEls.day.value || data.itinerary[0]?.id);
+}
+
+function sanitizeStopForCompare(stop) {
+  const copy = {};
+  Object.entries(stop).forEach(([key, value]) => {
+    if (key === "_uid") return;
+    copy[key] = value;
+  });
+  return copy;
+}
+
+function stopChanged(baseStop, currentStop) {
+  return JSON.stringify(sanitizeStopForCompare(baseStop)) !== JSON.stringify(sanitizeStopForCompare(currentStop));
+}
+
+function collectChanges() {
+  const changes = [];
+  data.itinerary.forEach((day) => {
+    const baseDay = baseData.itinerary.find((entry) => entry.id === day.id);
+    day.segments.forEach((segment) => {
+      const baseSegment = baseDay?.segments.find((entry) => entry.label === segment.label);
+      const baseItems = baseSegment?.items || [];
+      const currentItems = segment.items || [];
+      const baseByUid = new Map(baseItems.map((stop) => [stop._uid, stop]));
+      const currentByUid = new Map(currentItems.map((stop) => [stop._uid, stop]));
+
+      currentItems.forEach((stop, index) => {
+        const baseStop = baseByUid.get(stop._uid);
+        if (!baseStop) {
+          changes.push({
+            kind: "added",
+            dayId: day.id,
+            dayLabel: `${day.date} - ${day.title}`,
+            segment: segment.label,
+            stop: sanitizeStopForCompare(stop),
+            position: index + 1
+          });
+          return;
+        }
+        if (stopChanged(baseStop, stop)) {
+          changes.push({
+            kind: "updated",
+            dayId: day.id,
+            dayLabel: `${day.date} - ${day.title}`,
+            segment: segment.label,
+            stop: sanitizeStopForCompare(stop),
+            previousStop: sanitizeStopForCompare(baseStop),
+            position: index + 1
+          });
+        }
+      });
+
+      baseItems.forEach((stop) => {
+        if (!currentByUid.has(stop._uid)) {
+          changes.push({
+            kind: "removed",
+            dayId: day.id,
+            dayLabel: `${day.date} - ${day.title}`,
+            segment: segment.label,
+            stop: sanitizeStopForCompare(stop)
+          });
+        }
+      });
+    });
+  });
+
+  const alternatesAdded = Array.from(activeAlternates).map((name) => {
+    const item = data.exclusions.find((entry) => entry.name === name);
+    if (!item) return null;
+    return {
+      kind: "alternate-enabled",
+      dayId: item.bestDay || "",
+      dayLabel: item.bestDay ? dayLabel(item.bestDay) : "",
+      segment: item.alternateFor || "",
+      stop: {
+        name: item.name,
+        type: item.alternateType || item.type || "alternate",
+        notes: item.notes || item.reason || ""
+      }
+    };
+  }).filter(Boolean);
+
+  return changes.concat(alternatesAdded);
+}
+
+function buildExportPayload() {
+  const changes = collectChanges();
+  return {
+    exportedAt: new Date().toISOString(),
+    siteTitle: data.meta.title,
+    dates: data.meta.dates,
+    projectedTotal: data.budget.projectedTotal,
+    activeAlternates: Array.from(activeAlternates),
+    changes,
+    customizedData: data
+  };
+}
+
+function downloadTextFile(filename, content, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function setStatus(message) {
+  if (editorEls.status) {
+    editorEls.status.textContent = message;
+  }
+}
+
+function exportChanges() {
+  const payload = buildExportPayload();
+  downloadTextFile(
+    "trip-itinerary-customization-export.json",
+    JSON.stringify(payload, null, 2),
+    "application/json"
+  );
+  setStatus("Downloaded your itinerary edits as a JSON export file.");
+}
+
+function formatStopLine(stop) {
+  const pieces = [stop.name];
+  if (stop.time) pieces.push(`planned ${stop.time}`);
+  if (stop.leaveTime) pieces.push(`leave ${stop.leaveTime}`);
+  if (stop.cost != null) pieces.push(`cost ${money(stop.cost)}`);
+  return pieces.join(" | ");
+}
+
+function buildChangeSummary() {
+  const payload = buildExportPayload();
+  const lines = [
+    `Trip update export`,
+    `Project: ${payload.siteTitle}`,
+    `Dates: ${payload.dates}`,
+    `Projected total: ${money(payload.projectedTotal)}`,
+    `Changed items: ${payload.changes.length}`
+  ];
+
+  if (!payload.changes.length) {
+    lines.push("No itinerary changes are saved in this browser right now.");
+    return lines.join("\n");
+  }
+
+  payload.changes.forEach((change, index) => {
+    lines.push("");
+    lines.push(`${index + 1}. ${change.kind.toUpperCase()} | ${change.dayLabel} | ${change.segment}`);
+    lines.push(`   ${formatStopLine(change.stop)}`);
+    if (change.kind === "updated" && change.previousStop) {
+      lines.push(`   Previous: ${formatStopLine(change.previousStop)}`);
+    }
+  });
+
+  return lines.join("\n");
+}
+
+async function copyChangeSummary() {
+  const summary = buildChangeSummary();
+  try {
+    await navigator.clipboard.writeText(summary);
+    setStatus("Copied your itinerary change summary. Paste it back here any time for a permanent repo update.");
+  } catch (error) {
+    downloadTextFile("trip-itinerary-change-summary.txt", summary, "text/plain");
+    setStatus("Clipboard access was blocked, so I downloaded the change summary as a text file instead.");
+  }
 }
