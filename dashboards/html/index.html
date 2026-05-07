@@ -61,6 +61,16 @@
             <button class="chip" data-filter="cocktails">Cocktails</button>
           </div>
         </div>
+        <div class="editor-bar">
+          <div>
+            <p class="editor-title">Customize itinerary</p>
+            <p class="editor-copy">Add brand-new places, replace restaurants or stops, remove things that no longer fit, and keep those edits saved in this browser. The live Netlify site and local copy both get this editor feature, but your specific trip edits save in your browser until you export them or I write them back into the repo later.</p>
+          </div>
+          <div class="editor-actions">
+            <button class="button primary" id="openAddStop" type="button">Add custom place</button>
+            <button class="button" id="resetCustomizations" type="button">Reset saved edits</button>
+          </div>
+        </div>
         <div id="days" class="days"></div>
       </section>
 
@@ -141,6 +151,97 @@
     <footer class="footer">
       <p>Recheck hours, prices, ferry schedules, restaurant availability, and NHL schedule 30-45 days before travel.</p>
     </footer>
+
+    <dialog id="editorDialog" class="editor-dialog">
+      <form id="editorForm" class="editor-form" method="dialog">
+        <div class="editor-form-head">
+          <div>
+            <p class="eyebrow">Itinerary editor</p>
+            <h2 id="editorHeading">Add custom stop</h2>
+          </div>
+          <button class="alternate-remove" type="button" id="closeEditor">Close</button>
+        </div>
+
+        <input type="hidden" id="editorMode" value="add">
+        <input type="hidden" id="editorTargetUid" value="">
+
+        <div class="editor-grid">
+          <label>
+            Day
+            <select id="editorDay" required></select>
+          </label>
+          <label>
+            Segment
+            <select id="editorSegment" required></select>
+          </label>
+          <label>
+            Place name
+            <input id="editorName" required>
+          </label>
+          <label>
+            Type
+            <select id="editorType">
+              <option value="food">Food</option>
+              <option value="coffee">Coffee</option>
+              <option value="cocktails">Cocktails</option>
+              <option value="sightseeing">Sightseeing</option>
+              <option value="shopping">Shopping</option>
+              <option value="transit">Transit</option>
+              <option value="hotel">Hotel</option>
+            </select>
+          </label>
+          <label>
+            Planned time
+            <input id="editorTime" placeholder="6:30 PM">
+          </label>
+          <label>
+            Leave by
+            <input id="editorLeaveTime" placeholder="6:05 PM">
+          </label>
+          <label>
+            Duration
+            <input id="editorDuration" placeholder="60 min">
+          </label>
+          <label>
+            Cost
+            <input id="editorCost" type="number" min="0" step="1" placeholder="18">
+          </label>
+          <label>
+            Neighborhood
+            <input id="editorNeighborhood" placeholder="Pearl District">
+          </label>
+          <label>
+            Best time
+            <input id="editorBestTime" placeholder="Early dinner">
+          </label>
+          <label class="editor-wide">
+            Known for
+            <input id="editorKnownFor" placeholder="Why this place is worth going to">
+          </label>
+          <label class="editor-wide">
+            Notes
+            <textarea id="editorNotes" rows="3" placeholder="Extra route, reservation, or pacing notes"></textarea>
+          </label>
+          <label>
+            Website
+            <input id="editorWebsite" type="url" placeholder="https://">
+          </label>
+          <label>
+            Menu
+            <input id="editorMenu" type="url" placeholder="https://">
+          </label>
+          <label class="editor-wide">
+            Route link
+            <input id="editorRoute" type="url" placeholder="https://maps.google.com/...">
+          </label>
+        </div>
+
+        <div class="editor-actions footer-actions">
+          <button class="button" type="button" id="cancelEditor">Cancel</button>
+          <button class="button primary" type="submit" id="saveEditor">Save change</button>
+        </div>
+      </form>
+    </dialog>
 
     <script src="../../data/trip-data.js"></script>
     <script src="../js/app.js"></script>

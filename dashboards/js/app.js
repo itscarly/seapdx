@@ -1,9 +1,15 @@
-const data = window.TRIP_DATA;
+const STORAGE_KEY = "trip-dashboard-custom-data-v2";
+
+const baseData = cloneData(window.TRIP_DATA);
+assignStopUids(baseData);
+
+let data = cloneData(baseData);
+let activeAlternates = new Set();
 let currentFilter = "all";
 let currentGuide = "reservations";
-const activeAlternates = new Set();
 
-const money = (value) => `$${Math.round(value || 0).toLocaleString()}`;
+hydrateFromStorage();
+recalculateDayTotalsAndBudget();
 
 const iconMap = {
   coffee: iconCoffee(),
@@ -15,6 +21,154 @@ const iconMap = {
   hotel: iconHotel(),
   alternate: iconSpark()
 };
+
+const editorEls = {
+  dialog: document.getElementById("editorDialog"),
+  form: document.getElementById("editorForm"),
+  heading: document.getElementById("editorHeading"),
+  mode: document.getElementById("editorMode"),
+  targetUid: document.getElementById("editorTargetUid"),
+  day: document.getElementById("editorDay"),
+  segment: document.getElementById("editorSegment"),
+  name: document.getElementById("editorName"),
+  type: document.getElementById("editorType"),
+  time: document.getElementById("editorTime"),
+  leaveTime: document.getElementById("editorLeaveTime"),
+  duration: document.getElementById("editorDuration"),
+  cost: document.getElementById("editorCost"),
+  neighborhood: document.getElementById("editorNeighborhood"),
+  bestTime: document.getElementById("editorBestTime"),
+  knownFor: document.getElementById("editorKnownFor"),
+  notes: document.getElementById("editorNotes"),
+  website: document.getElementById("editorWebsite"),
+  menu: document.getElementById("editorMenu"),
+  route: document.getElementById("editorRoute"),
+  openAdd: document.getElementById("openAddStop"),
+  reset: document.getElementById("resetCustomizations"),
+  close: document.getElementById("closeEditor"),
+  cancel: document.getElementById("cancelEditor")
+};
+
+initHero();
+renderSummary();
+renderItinerary();
+initFilters();
+renderBudget();
+renderGuide();
+initTabs();
+renderTransitAndSources();
+bindEditorChrome();
+initReveal();
+
+function cloneData(value) {
+  if (typeof structuredClone === "function") {
+    return structuredClone(value);
+  }
+  return JSON.parse(JSON.stringify(value));
+}
+
+function hydrateFromStorage() {
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (parsed?.data?.itinerary && parsed?.data?.budget) {
+      data = cloneData(parsed.data);
+      assignStopUids(data);
+    }
+    if (Array.isArray(parsed?.activeAlternates)) {
+      activeAlternates = new Set(parsed.activeAlternates);
+    }
+  } catch (error) {
+    console.warn("Could not restore saved itinerary edits.", error);
+  }
+}
+
+function saveState() {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      data,
+      activeAlternates: Array.from(activeAlternates)
+    }));
+  } catch (error) {
+    console.warn("Could not save itinerary edits.", error);
+  }
+}
+
+function resetState() {
+  data = cloneData(baseData);
+  assignStopUids(data);
+  activeAlternates = new Set();
+  recalculateDayTotalsAndBudget();
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.warn("Could not clear itinerary edits.", error);
+  }
+}
+
+function assignStopUids(dataset) {
+  dataset.itinerary.forEach((day) => {
+    day.segments.forEach((segment, segmentIndex) => {
+      segment.items.forEach((stop, stopIndex) => {
+        if (!stop._uid) {
+          stop._uid = `${day.id}-${segmentIndex}-${stopIndex}-${slugify(stop.name)}`;
+        }
+      });
+    });
+  });
+}
+
+function slugify(value) {
+  return String(value || "item")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40) || "item";
+}
+
+function findDay(dayId) {
+  return data.itinerary.find((day) => day.id === dayId);
+}
+
+function findStopContext(uid) {
+  for (let dayIndex = 0; dayIndex < data.itinerary.length; dayIndex += 1) {
+    const day = data.itinerary[dayIndex];
+    for (let segmentIndex = 0; segmentIndex < day.segments.length; segmentIndex += 1) {
+      const segment = day.segments[segmentIndex];
+      for (let stopIndex = 0; stopIndex < segment.items.length; stopIndex += 1) {
+        const stop = segment.items[stopIndex];
+        if (stop._uid === uid) {
+          return { dayIndex, segmentIndex, stopIndex, day, segment, stop };
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function getBaseTripTotal() {
+  return baseData.itinerary.reduce((sum, day) => sum + Number(day.dayTotal || 0), 0);
+}
+
+function getCurrentTripTotal() {
+  return data.itinerary.reduce((sum, day) => sum + Number(day.dayTotal || 0), 0);
+}
+
+function recalculateDayTotalsAndBudget() {
+  data.itinerary.forEach((day) => {
+    day.dayTotal = day.segments.reduce((daySum, segment) => (
+      daySum + segment.items.reduce((segmentSum, stop) => segmentSum + Number(stop.cost || 0), 0)
+    ), 0);
+  });
+
+  const delta = getCurrentTripTotal() - getBaseTripTotal();
+  data.budget.projectedTotal = baseData.budget.projectedTotal + delta;
+}
+
+function money(value) {
+  return `$${Math.round(Number(value) || 0).toLocaleString()}`;
+}
 
 function iconCoffee() {
   return `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h10v6a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8Z" stroke="currentColor" stroke-width="1.8"/><path d="M16 10h1.5a2.5 2.5 0 1 1 0 5H16" stroke="currentColor" stroke-width="1.8"/><path d="M8 4c0 1-1 1.4-1 2.4S8 8 8 8m4-4c0 1-1 1.4-1 2.4S12 8 12 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
@@ -60,8 +214,8 @@ function initHero() {
   const total = data.budget.projectedTotal;
   const remaining = data.budget.cap - total;
   document.getElementById("heroSpend").textContent = money(total);
-  document.getElementById("heroRemaining").textContent = `${money(remaining)} under target; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
-  document.getElementById("heroMeter").style.width = `${Math.min(100, (total / data.budget.cap) * 100)}%`;
+  document.getElementById("heroRemaining").textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
+  document.getElementById("heroMeter").style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
 }
 
 function getHotelBase(day) {
@@ -109,6 +263,21 @@ function renderTiming(stop) {
   return pills ? `<div class="timing-row">${pills}</div>` : "";
 }
 
+function renderEditorActions(stop, options = {}) {
+  if (options.isAlternate) {
+    return `<button class="alternate-remove focus-ring" type="button" data-remove-alternate="${escapeAttribute(stop.name)}">Remove alternate</button>`;
+  }
+
+  return [
+    `<button class="stop-action focus-ring" type="button" data-editor-action="replace" data-stop-uid="${escapeAttribute(stop._uid)}">Replace stop</button>`,
+    `<button class="stop-action focus-ring" type="button" data-editor-action="insert-after" data-stop-uid="${escapeAttribute(stop._uid)}">Add after</button>`,
+    `<button class="stop-action focus-ring" type="button" data-editor-action="remove" data-stop-uid="${escapeAttribute(stop._uid)}">Remove</button>`,
+    stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
+    stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
+    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : ""
+  ].filter(Boolean).join("");
+}
+
 function renderStop(stop, options = {}) {
   const type = stop.alternateType || stop.type;
   const icon = iconMap[type] || iconMap.alternate;
@@ -132,13 +301,6 @@ function renderStop(stop, options = {}) {
     ["Alternate for", stop.alternateFor]
   ].filter(([, value]) => value);
 
-  const links = [
-    stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
-    stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
-    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : "",
-    options.isAlternate ? `<button class="alternate-remove focus-ring" type="button" data-remove-alternate="${escapeAttribute(stop.name)}">Remove alternate</button>` : ""
-  ].filter(Boolean).join("");
-
   return `
     <article class="stop ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-reveal>
       <div class="stop-top">
@@ -156,7 +318,7 @@ function renderStop(stop, options = {}) {
       <div class="details">
         ${details.map(([label, value]) => `<div class="detail"><b>${label}</b>${value}</div>`).join("")}
       </div>
-      <div class="card-actions">${links}</div>
+      <div class="card-actions">${renderEditorActions(stop, options)}</div>
     </article>
   `;
 }
@@ -210,6 +372,7 @@ function renderItinerary(filter = "all") {
     `;
   }).join("");
   daysEl.innerHTML = dayHtml || `<p>No stops match this filter.</p>`;
+
   document.querySelectorAll(".day-head").forEach((head) => {
     head.addEventListener("click", () => toggleDay(head));
     head.addEventListener("keydown", (event) => {
@@ -219,6 +382,8 @@ function renderItinerary(filter = "all") {
       }
     });
   });
+
+  bindStopActions();
   bindAlternateRemove();
   initReveal();
 }
@@ -297,11 +462,13 @@ function renderGuide(type = "reservations") {
         ${item.notes ? `<p><b>Use case:</b> ${item.notes}</p>` : ""}
         <div class="guide-card-actions">
           <button class="alternate-toggle focus-ring" type="button" data-add-alternate="${escapeAttribute(item.name)}">${activeAlternates.has(item.name) ? "Added to itinerary" : "Add as alternate"}</button>
+          <button class="stop-action focus-ring" type="button" data-exclusion-action="add-stop" data-exclusion-name="${escapeAttribute(item.name)}">Add as real stop</button>
           ${item.link ? `<a class="link-button" href="${item.link}" target="_blank" rel="noreferrer">Open source</a>` : ""}
         </div>
       </article>
     `).join("");
     bindAlternateAdd();
+    bindExclusionActions();
     initReveal();
     return;
   }
@@ -331,7 +498,7 @@ function labelize(key) {
 }
 
 function dayLabel(dayId) {
-  const day = data.itinerary.find((entry) => entry.id === dayId);
+  const day = findDay(dayId);
   return day ? `${day.date} - ${day.title}` : dayId;
 }
 
@@ -339,6 +506,7 @@ function bindAlternateAdd() {
   document.querySelectorAll("[data-add-alternate]").forEach((button) => {
     button.addEventListener("click", () => {
       activeAlternates.add(button.dataset.addAlternate);
+      saveState();
       renderGuide("exclusions");
       renderItinerary(currentFilter);
     });
@@ -349,6 +517,7 @@ function bindAlternateRemove() {
   document.querySelectorAll("[data-remove-alternate]").forEach((button) => {
     button.addEventListener("click", () => {
       activeAlternates.delete(button.dataset.removeAlternate);
+      saveState();
       renderItinerary(currentFilter);
       if (currentGuide === "exclusions") {
         renderGuide("exclusions");
@@ -408,12 +577,264 @@ function initReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
-initHero();
-renderSummary();
-renderItinerary();
-initFilters();
-renderBudget();
-renderGuide();
-initTabs();
-renderTransitAndSources();
-initReveal();
+function bindStopActions() {
+  document.querySelectorAll("[data-editor-action]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const action = button.dataset.editorAction;
+      const uid = button.dataset.stopUid;
+      if (action === "remove") {
+        removeStop(uid);
+        return;
+      }
+      openEditor(action, { uid });
+    });
+  });
+}
+
+function bindExclusionActions() {
+  document.querySelectorAll("[data-exclusion-action='add-stop']").forEach((button) => {
+    button.addEventListener("click", () => {
+      const exclusion = data.exclusions.find((item) => item.name === button.dataset.exclusionName);
+      openEditor("add-from-exclusion", { exclusion });
+    });
+  });
+}
+
+function bindEditorChrome() {
+  populateDayOptions();
+
+  editorEls.day.addEventListener("change", () => {
+    populateSegmentOptions(editorEls.day.value, editorEls.segment.value);
+  });
+
+  editorEls.openAdd.addEventListener("click", () => {
+    openEditor("add");
+  });
+
+  editorEls.reset.addEventListener("click", () => {
+    resetState();
+    rerenderApp();
+  });
+
+  editorEls.close.addEventListener("click", closeEditor);
+  editorEls.cancel.addEventListener("click", closeEditor);
+
+  editorEls.form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    submitEditor();
+  });
+
+  editorEls.dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeEditor();
+  });
+}
+
+function populateDayOptions(selectedDayId = data.itinerary[0]?.id) {
+  editorEls.day.innerHTML = data.itinerary.map((day) => `
+    <option value="${day.id}">${day.date} - ${day.title}</option>
+  `).join("");
+  editorEls.day.value = selectedDayId || data.itinerary[0]?.id || "";
+  populateSegmentOptions(editorEls.day.value);
+}
+
+function populateSegmentOptions(dayId, selectedLabel) {
+  const day = findDay(dayId);
+  if (!day) return;
+  editorEls.segment.innerHTML = day.segments.map((segment) => `
+    <option value="${segment.label}">${segment.label}</option>
+  `).join("");
+  editorEls.segment.value = selectedLabel && day.segments.some((segment) => segment.label === selectedLabel)
+    ? selectedLabel
+    : day.segments[0]?.label || "";
+}
+
+function openEditor(mode, payload = {}) {
+  const context = payload.uid ? findStopContext(payload.uid) : null;
+  const exclusion = payload.exclusion || null;
+  editorEls.form.reset();
+  editorEls.mode.value = mode;
+  editorEls.targetUid.value = payload.uid || "";
+
+  const selectedDay = exclusion?.bestDay || context?.day.id || data.itinerary[0]?.id;
+  const selectedSegment = context?.segment.label || inferSegmentLabel(exclusion?.alternateType || exclusion?.type, selectedDay);
+  populateDayOptions(selectedDay);
+  populateSegmentOptions(selectedDay, selectedSegment);
+
+  if (mode === "replace" && context) {
+    fillEditor(context.stop, `Replace ${context.stop.name}`);
+  } else if (mode === "insert-after" && context) {
+    fillEditor({
+      type: context.stop.type,
+      neighborhood: context.stop.neighborhood,
+      bestTime: context.stop.bestTime
+    }, `Add stop after ${context.stop.name}`);
+  } else if (mode === "add-from-exclusion" && exclusion) {
+    fillEditor(exclusionToStop(exclusion), `Add ${exclusion.name}`);
+  } else {
+    fillEditor({}, "Add custom stop");
+  }
+
+  if (typeof editorEls.dialog.showModal === "function") {
+    editorEls.dialog.showModal();
+  } else {
+    editorEls.dialog.setAttribute("open", "open");
+  }
+  editorEls.name.focus();
+}
+
+function fillEditor(stop, heading) {
+  editorEls.heading.textContent = heading;
+  editorEls.name.value = stop.name || "";
+  editorEls.type.value = stop.type || stop.alternateType || "food";
+  editorEls.time.value = stop.time || "";
+  editorEls.leaveTime.value = stop.leaveTime || "";
+  editorEls.duration.value = stop.duration || "";
+  editorEls.cost.value = stop.cost != null ? stop.cost : (stop.estimatedCost != null ? stop.estimatedCost : "");
+  editorEls.neighborhood.value = stop.neighborhood || "";
+  editorEls.bestTime.value = stop.bestTime || "";
+  editorEls.knownFor.value = stop.knownFor || "";
+  editorEls.notes.value = stop.notes || "";
+  editorEls.website.value = stop.website || stop.link || "";
+  editorEls.menu.value = stop.menu || "";
+  editorEls.route.value = stop.route || "";
+}
+
+function closeEditor() {
+  if (typeof editorEls.dialog.close === "function") {
+    editorEls.dialog.close();
+  } else {
+    editorEls.dialog.removeAttribute("open");
+  }
+}
+
+function exclusionToStop(exclusion) {
+  return {
+    name: exclusion.name,
+    type: exclusion.alternateType || exclusion.type || "food",
+    time: "",
+    leaveTime: "",
+    duration: "",
+    cost: exclusion.estimatedCost ?? 0,
+    neighborhood: exclusion.neighborhood || "",
+    bestTime: exclusion.bestTime || "",
+    knownFor: exclusion.knownFor || exclusion.alternateFor || "",
+    notes: exclusion.notes || exclusion.reason || "",
+    website: exclusion.website || exclusion.link || "",
+    menu: exclusion.menu || "",
+    route: exclusion.route || ""
+  };
+}
+
+function inferSegmentLabel(type, dayId) {
+  const day = findDay(dayId);
+  if (!day?.segments.length) return "";
+  if (type === "cocktails") return day.segments.find((segment) => /evening/i.test(segment.label))?.label || day.segments.at(-1).label;
+  if (type === "coffee") return day.segments.find((segment) => /morning/i.test(segment.label))?.label || day.segments[0].label;
+  return day.segments[0].label;
+}
+
+function buildStopFromForm() {
+  return {
+    _uid: `custom-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    name: editorEls.name.value.trim(),
+    type: editorEls.type.value,
+    time: editorEls.time.value.trim(),
+    leaveTime: editorEls.leaveTime.value.trim(),
+    duration: editorEls.duration.value.trim(),
+    cost: editorEls.cost.value === "" ? 0 : Number(editorEls.cost.value),
+    neighborhood: editorEls.neighborhood.value.trim(),
+    bestTime: editorEls.bestTime.value.trim(),
+    knownFor: editorEls.knownFor.value.trim(),
+    notes: editorEls.notes.value.trim(),
+    website: editorEls.website.value.trim(),
+    menu: editorEls.menu.value.trim(),
+    route: editorEls.route.value.trim()
+  };
+}
+
+function submitEditor() {
+  const mode = editorEls.mode.value;
+  const stop = buildStopFromForm();
+  const day = findDay(editorEls.day.value);
+  const segment = day?.segments.find((entry) => entry.label === editorEls.segment.value);
+  if (!day || !segment || !stop.name) {
+    return;
+  }
+
+  if (mode === "replace") {
+    replaceStop(editorEls.targetUid.value, stop, day.id, segment.label);
+  } else if (mode === "insert-after") {
+    insertStopAfter(editorEls.targetUid.value, stop, day.id, segment.label);
+  } else {
+    addStopToSegment(day.id, segment.label, stop);
+  }
+
+  closeEditor();
+}
+
+function addStopToSegment(dayId, segmentLabel, stop) {
+  const day = findDay(dayId);
+  const segment = day?.segments.find((entry) => entry.label === segmentLabel);
+  if (!segment) return;
+  segment.items.push(stop);
+  persistAndRender();
+}
+
+function insertStopAfter(uid, stop, dayId, segmentLabel) {
+  const context = findStopContext(uid);
+  if (!context) {
+    addStopToSegment(dayId, segmentLabel, stop);
+    return;
+  }
+
+  if (context.day.id === dayId && context.segment.label === segmentLabel) {
+    context.segment.items.splice(context.stopIndex + 1, 0, stop);
+  } else {
+    const day = findDay(dayId);
+    const segment = day?.segments.find((entry) => entry.label === segmentLabel);
+    if (!segment) return;
+    segment.items.push(stop);
+  }
+  persistAndRender();
+}
+
+function replaceStop(uid, stop, dayId, segmentLabel) {
+  const context = findStopContext(uid);
+  if (!context) return;
+  if (context.day.id === dayId && context.segment.label === segmentLabel) {
+    stop._uid = context.stop._uid;
+    context.segment.items.splice(context.stopIndex, 1, stop);
+  } else {
+    context.segment.items.splice(context.stopIndex, 1);
+    const day = findDay(dayId);
+    const segment = day?.segments.find((entry) => entry.label === segmentLabel);
+    if (!segment) return;
+    segment.items.push(stop);
+  }
+  persistAndRender();
+}
+
+function removeStop(uid) {
+  const context = findStopContext(uid);
+  if (!context) return;
+  context.segment.items.splice(context.stopIndex, 1);
+  persistAndRender();
+}
+
+function persistAndRender() {
+  recalculateDayTotalsAndBudget();
+  saveState();
+  rerenderApp();
+}
+
+function rerenderApp() {
+  initHero();
+  renderSummary();
+  renderItinerary(currentFilter);
+  renderBudget();
+  renderGuide(currentGuide);
+  renderTransitAndSources();
+  populateDayOptions(editorEls.day.value || data.itinerary[0]?.id);
+}

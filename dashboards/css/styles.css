@@ -140,7 +140,8 @@ h3 {
 .hero-actions,
 .card-actions,
 .guide-card-actions,
-.day-meta {
+.day-meta,
+.editor-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -151,7 +152,8 @@ h3 {
 .chip,
 .tab,
 .alternate-toggle,
-.alternate-remove {
+.alternate-remove,
+.stop-action {
   min-height: 42px;
   padding: 0 16px;
   border-radius: 999px;
@@ -168,7 +170,8 @@ h3 {
 .chip,
 .tab,
 .alternate-toggle,
-.alternate-remove {
+.alternate-remove,
+.stop-action {
   border: 1px solid var(--line-strong);
   background: #fff;
   color: var(--ink);
@@ -186,7 +189,9 @@ h3 {
 .alternate-toggle:hover,
 .alternate-toggle:focus-visible,
 .alternate-remove:hover,
-.alternate-remove:focus-visible {
+.alternate-remove:focus-visible,
+.stop-action:hover,
+.stop-action:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 14px 26px rgba(15, 23, 42, 0.08);
   outline: none;
@@ -312,6 +317,32 @@ h3 {
 .days {
   display: grid;
   gap: 20px;
+}
+
+.editor-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.editor-title {
+  margin: 0 0 6px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.editor-copy {
+  margin: 0;
+  max-width: 860px;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 .day-card {
@@ -496,6 +527,81 @@ h3 {
   color: var(--muted);
 }
 
+.editor-dialog {
+  width: min(860px, calc(100% - 24px));
+  border: none;
+  border-radius: 28px;
+  padding: 0;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.24);
+}
+
+.editor-dialog::backdrop {
+  background: rgba(15, 23, 42, 0.52);
+  backdrop-filter: blur(6px);
+}
+
+.editor-form {
+  padding: 28px;
+  background: #fff;
+}
+
+.editor-form-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.editor-grid label {
+  display: grid;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.editor-grid input,
+.editor-grid select,
+.editor-grid textarea {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  padding: 13px 14px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.editor-grid input:focus-visible,
+.editor-grid select:focus-visible,
+.editor-grid textarea:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 2px;
+  border-color: #93c5fd;
+}
+
+.editor-grid textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.editor-wide {
+  grid-column: 1 / -1;
+}
+
+.footer-actions {
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
 .transit-grid,
 .sources-list {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -516,7 +622,8 @@ h3 {
 .chip:focus-visible,
 .tab:focus-visible,
 .alternate-toggle:focus-visible,
-.alternate-remove:focus-visible {
+.alternate-remove:focus-visible,
+.stop-action:focus-visible {
   outline: 3px solid rgba(37, 99, 235, 0.26);
   outline-offset: 3px;
 }
@@ -560,8 +667,14 @@ h3 {
 
   .row-heading,
   .day-head,
-  .stop-top {
+  .stop-top,
+  .editor-form-head {
     display: block;
+  }
+
+  .editor-bar,
+  .editor-grid {
+    grid-template-columns: 1fr;
   }
 
   .day-total {
@@ -602,7 +715,8 @@ h3 {
   .filters,
   .tabs,
   .guide-card-actions,
-  .day-toggle {
+  .day-toggle,
+  .editor-bar {
     display: none;
   }
 
