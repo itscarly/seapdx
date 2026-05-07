@@ -24,3 +24,4 @@
 - Portland hotel base later changed from Hotel Rose to Hotel Vance, with Portland hotel-dependent route text and meetup guidance re-centered on the new base.
 - Dashboard later upgraded to a white-first UI with clearer timing, hotel anchors, SVG icons, richer skipped-place reasons, and interactive alternates that can be added into the itinerary without changing the default plan.
 - Dashboard now includes a real browser-saved itinerary editor for adding custom places, replacing stops, removing stops, resetting edits, and promoting skipped places into real itinerary stops without adding a backend.
+- Dashboard now lets users export browser-saved itinerary edits as JSON and copy a plain-language change summary for permanent repo updates in a later chat.
