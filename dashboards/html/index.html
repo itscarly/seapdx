@@ -34,15 +34,33 @@
           <strong id="heroSpend">$0</strong>
           <p id="heroRemaining">Calculating...</p>
           <div class="meter"><span id="heroMeter"></span></div>
+          <div class="fx-panel">
+            <p class="fx-label">Live USD to PHP + 1.85% fee</p>
+            <strong id="fxRateDisplay">Loading latest rate...</strong>
+            <p id="fxMeta">Using saved fallback while live rate loads.</p>
+          </div>
         </aside>
       </section>
     </header>
 
     <main>
+      <section id="visuals" class="section visual-section">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Location moodboard</p>
+            <h2>Places that shape the trip</h2>
+            <p class="section-copy">Real scenery and neighborhood visuals make the plan feel more like a travel site and less like a plain checklist.</p>
+          </div>
+        </div>
+        <div id="visualStrip" class="visual-strip" aria-label="Trip photo highlights"></div>
+      </section>
+
       <section id="summary" class="section">
         <div class="section-heading">
-          <p class="eyebrow">Executive summary</p>
-          <h2>Optimized around location, energy, and budget</h2>
+          <div>
+            <p class="eyebrow">Executive summary</p>
+            <h2>Optimized around location, energy, and budget</h2>
+          </div>
         </div>
         <div class="summary-grid" id="summaryGrid"></div>
       </section>
