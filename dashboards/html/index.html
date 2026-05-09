@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f3">
     <title>Seattle + Portland Travel Dashboard</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-05-09-design">
   </head>
   <body>
     <header class="hero">
@@ -80,7 +81,7 @@
       <section id="budget" class="section">
         <div class="section-heading">
           <p class="eyebrow">Budget dashboard</p>
-          <h2>Target: $800 excluding airfare and hotels; $900 absolute ceiling</h2>
+          <h2 id="budgetHeading">Target budget excluding airfare and hotels</h2>
         </div>
         <div class="budget-layout">
           <div class="budget-panel">
@@ -118,7 +119,7 @@
       <section id="sources" class="section">
         <div class="section-heading">
           <p class="eyebrow">Verification sources</p>
-          <h2>Checked on May 5, 2026</h2>
+          <h2>Checked on May 9, 2026</h2>
         </div>
         <div id="sourcesList" class="sources-list"></div>
       </section>
@@ -246,7 +247,7 @@
       </form>
     </dialog>
 
-    <script src="../../data/trip-data.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="../../data/trip-data.js?v=2026-05-09-design"></script>
+    <script src="../js/app.js?v=2026-05-09-design"></script>
   </body>
 </html>

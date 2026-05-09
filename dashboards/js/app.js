@@ -1,4 +1,7 @@
 const STORAGE_KEY = "trip-dashboard-custom-data-v2";
+const USD_TO_PHP_RATE = 60.4459704;
+const FOREIGN_TRANSACTION_FEE_RATE = 0.0185;
+const EFFECTIVE_USD_TO_PHP_RATE = USD_TO_PHP_RATE * (1 + FOREIGN_TRANSACTION_FEE_RATE);
 
 const baseData = cloneData(window.TRIP_DATA);
 assignStopUids(baseData);
@@ -170,8 +173,16 @@ function recalculateDayTotalsAndBudget() {
   data.budget.projectedTotal = baseData.budget.projectedTotal + delta;
 }
 
-function money(value) {
+function usdMoney(value) {
   return `$${Math.round(Number(value) || 0).toLocaleString()}`;
+}
+
+function phpMoney(value) {
+  return `PHP ${Math.round((Number(value) || 0) * EFFECTIVE_USD_TO_PHP_RATE).toLocaleString()}`;
+}
+
+function money(value) {
+  return `${usdMoney(value)} (${phpMoney(value)})`;
 }
 
 function iconCoffee() {
@@ -219,6 +230,7 @@ function initHero() {
   const remaining = data.budget.cap - total;
   document.getElementById("heroSpend").textContent = money(total);
   document.getElementById("heroRemaining").textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
+  document.getElementById("budgetHeading").textContent = `Target: ${money(data.budget.cap)} excluding airfare and hotels; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
   document.getElementById("heroMeter").style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
 }
 
@@ -357,8 +369,8 @@ function renderItinerary(filter = "all") {
     const alternates = renderAlternates(day, filter);
     if (!visibleSegments && !getDayAlternates(day).length) return "";
     return `
-      <article class="day-card ${index < 2 ? "open" : ""}" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
-        <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="${index < 2 ? "true" : "false"}" aria-label="Toggle ${day.date}">
+      <article class="day-card" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
+        <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle ${day.date}">
           <div>
             <span class="badge">${day.city}</span>
             <h3>${day.date}: ${day.title}</h3>
@@ -419,7 +431,7 @@ function renderBudget() {
 
   const canvas = document.getElementById("budgetCanvas");
   const ctx = canvas.getContext("2d");
-  const colors = ["#0f766e", "#2563eb", "#b45309", "#7c3aed", "#1d4ed8", "#0369a1", "#64748b"];
+  const colors = ["#fc5c33", "#0f766e", "#1749db", "#f4b231", "#6d28d9", "#0284c7", "#64748b"];
   const total = data.budget.categories.reduce((sum, item) => sum + item.amount, 0);
   let start = -Math.PI / 2;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -437,18 +449,18 @@ function renderBudget() {
   ctx.arc(130, 130, 62, 0, Math.PI * 2);
   ctx.fillStyle = "#ffffff";
   ctx.fill();
-  ctx.fillStyle = "#0f172a";
-  ctx.font = "800 24px Inter";
-  ctx.fillText(money(data.budget.projectedTotal), 88, 124);
-  ctx.font = "600 13px Inter";
-  ctx.fillText(`of ${money(data.budget.cap)} target`, 82, 146);
+  ctx.fillStyle = "#161714";
+  ctx.font = "800 22px Manrope";
+  ctx.fillText(money(data.budget.projectedTotal), 82, 124);
+  ctx.font = "700 12px Manrope";
+  ctx.fillText(`of ${money(data.budget.cap)} target`, 84, 146);
 
   data.budget.categories.forEach((item, index) => {
     const y = 34 + index * 28;
     ctx.fillStyle = colors[index % colors.length];
     ctx.fillRect(275, y - 12, 14, 14);
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "700 13px Inter";
+    ctx.fillStyle = "#161714";
+    ctx.font = "700 13px Manrope";
     ctx.fillText(`${item.name} ${money(item.amount)}`, 300, y);
   });
 }
