@@ -51,3 +51,4 @@
 - Obsidian notes workflow added: `notes/Project Log.md` must be updated alongside meaningful project changes, and new notes should be created when new features or decisions need their own documentation.
 - The current visual pass swaps in a younger editorial font pairing, expands the desktop canvas, and turns expanded day sections into multi-column panels so the dashboard reads shorter and denser.
 - A second visual cleanup pass removed the oversized empty hero card, fixed the crowded heading feel, added motion and photo-driven location cards, and made PHP values refresh from a live exchange-rate feed.
+- A follow-up spacing pass tightened the navigation pill, reduced the hero's empty vertical area, and made the budget section read as a balanced two-column layout instead of a stretched chart card.
