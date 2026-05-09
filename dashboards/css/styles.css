@@ -89,7 +89,7 @@ h3 {
 
 .hero {
   position: relative;
-  min-height: 72vh;
+  min-height: auto;
   overflow: clip;
   border-bottom: 1px solid var(--line);
 }
@@ -123,9 +123,10 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 20;
-  width: var(--content);
+  width: fit-content;
+  max-width: calc(100% - 40px);
   margin: 0 auto;
-  padding: 18px 0;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -135,9 +136,8 @@ h3 {
 .topbar::before {
   content: "";
   position: absolute;
-  inset: 8px 0 auto;
-  height: calc(100% - 8px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  inset: 0;
+  border: 1px solid rgba(22, 23, 20, 0.08);
   background: rgba(247, 248, 244, 0.76);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
@@ -170,7 +170,7 @@ h3 {
 .hero-grid {
   width: var(--content);
   margin: 0 auto;
-  padding: 42px 0 34px;
+  padding: 24px 0 18px;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
   gap: 22px;
@@ -222,7 +222,7 @@ h3 {
 }
 
 .hero-actions {
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .button,
@@ -388,7 +388,7 @@ h3 {
 .section {
   width: var(--content);
   margin: 0 auto;
-  padding: 40px 0 0;
+  padding: 28px 0 0;
 }
 
 .section-heading {
@@ -719,9 +719,13 @@ h3 {
   display: grid;
   grid-template-columns: minmax(420px, 0.86fr) minmax(0, 1.14fr);
   gap: 16px;
+  align-items: start;
 }
 
 .budget-panel {
+  width: min(100%, 520px);
+  justify-self: start;
+  align-self: start;
   padding: 18px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 245, 0.9)),
@@ -959,7 +963,8 @@ h3 {
   .topbar {
     justify-content: flex-start;
     overflow-x: auto;
-    padding-bottom: 14px;
+    width: calc(100% - 26px);
+    padding: 10px 14px;
   }
 
   .hero-grid,
