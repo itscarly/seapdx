@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
 
 :root {
   --bg: #f4f6f3;
@@ -67,17 +67,19 @@ h3 {
 
 h1,
 h2 {
-  font-family: "Syne", ui-sans-serif, sans-serif;
+  font-family: "Sora", ui-sans-serif, sans-serif;
   letter-spacing: -0.04em;
 }
 
 h1 {
   max-width: 9ch;
-  font-size: clamp(3.9rem, 8vw, 7.4rem);
+  font-size: clamp(3.1rem, 6vw, 5.8rem);
+  line-height: 1.02;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 3.2vw, 3.6rem);
+  font-size: clamp(1.55rem, 2.7vw, 2.8rem);
+  line-height: 1.08;
 }
 
 h3 {
@@ -168,11 +170,11 @@ h3 {
 .hero-grid {
   width: var(--content);
   margin: 0 auto;
-  padding: 68px 0 42px;
+  padding: 42px 0 34px;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
   gap: 22px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .hero-grid > div:first-child,
@@ -312,6 +314,7 @@ h3 {
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 248, 244, 0.9)),
     linear-gradient(135deg, rgba(252, 92, 51, 0.06), transparent 45%);
+  align-self: start;
 }
 
 .status-dot {
@@ -327,8 +330,8 @@ h3 {
 .trip-card strong {
   display: block;
   margin: 16px 0 6px;
-  font-size: clamp(2.5rem, 4vw, 3.7rem);
-  line-height: 0.94;
+  font-size: clamp(2.15rem, 3.5vw, 3.25rem);
+  line-height: 1;
 }
 
 .trip-card p,
@@ -357,6 +360,31 @@ h3 {
   background: linear-gradient(90deg, var(--accent), var(--accent-4), var(--accent-2));
 }
 
+.fx-panel {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.fx-label {
+  margin: 0 0 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-3);
+}
+
+.fx-panel strong {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#fxMeta {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+}
+
 .section {
   width: var(--content);
   margin: 0 auto;
@@ -371,13 +399,22 @@ h3 {
   margin-bottom: 22px;
 }
 
+.compact-heading,
+#summary .section-heading,
+#budget .section-heading,
+#sources .section-heading,
+#maps .section-heading,
+#automation .section-heading {
+  grid-template-columns: 1fr;
+}
+
 .row-heading {
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -407,8 +444,14 @@ h3 {
 .summary-card strong {
   display: block;
   margin-top: 10px;
-  font-size: clamp(1.7rem, 2vw, 2.4rem);
-  line-height: 1;
+  font-size: clamp(1.4rem, 1.7vw, 2rem);
+  line-height: 1.05;
+}
+
+#budgetHeading {
+  max-width: 24ch;
+  font-size: clamp(1.25rem, 1.95vw, 2rem);
+  line-height: 1.12;
 }
 
 .days {
@@ -455,10 +498,25 @@ h3 {
 
 .day-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
   gap: 18px;
   padding: 22px 24px;
   cursor: pointer;
+}
+
+.day-visual {
+  overflow: hidden;
+  border-radius: 18px;
+  min-height: 132px;
+  background: rgba(22, 23, 20, 0.06);
+}
+
+.day-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
 }
 
 .day-head p {
@@ -659,7 +717,7 @@ h3 {
 
 .budget-layout {
   display: grid;
-  grid-template-columns: 500px minmax(0, 1fr);
+  grid-template-columns: minmax(420px, 0.86fr) minmax(0, 1.14fr);
   gap: 16px;
 }
 
@@ -685,6 +743,59 @@ h3 {
 
 .budget-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.visual-section {
+  overflow: clip;
+}
+
+.visual-strip {
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.visual-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: visual-marquee 42s linear infinite;
+}
+
+.visual-strip:hover .visual-track {
+  animation-play-state: paused;
+}
+
+.visual-card {
+  width: 320px;
+  flex: 0 0 320px;
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background: var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.visual-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.visual-card-copy {
+  padding: 16px;
+}
+
+.visual-card-copy h3 {
+  margin-top: 10px;
+  font-size: 1.05rem;
+}
+
+.visual-card-copy p {
+  margin: 10px 0 14px;
+  color: var(--muted);
+  line-height: 1.58;
 }
 
 .guide-panel {
@@ -875,6 +986,11 @@ h3 {
     display: block;
   }
 
+  .day-visual {
+    margin-bottom: 14px;
+    min-height: 180px;
+  }
+
   .day-total {
     text-align: left;
     margin-top: 12px;
@@ -886,6 +1002,15 @@ h3 {
 
   h1 {
     font-size: clamp(3.1rem, 14vw, 4.8rem);
+  }
+}
+
+@keyframes visual-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 7px));
   }
 }
 

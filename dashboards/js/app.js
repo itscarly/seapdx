@@ -1,7 +1,62 @@
 const STORAGE_KEY = "trip-dashboard-custom-data-v2";
-const USD_TO_PHP_RATE = 60.4459704;
+const FALLBACK_USD_TO_PHP_RATE = 60.4459704;
 const FOREIGN_TRANSACTION_FEE_RATE = 0.0185;
-const EFFECTIVE_USD_TO_PHP_RATE = USD_TO_PHP_RATE * (1 + FOREIGN_TRANSACTION_FEE_RATE);
+const FX_REFRESH_MS = 60 * 60 * 1000;
+
+let usdToPhpRate = FALLBACK_USD_TO_PHP_RATE;
+let effectiveUsdToPhpRate = usdToPhpRate * (1 + FOREIGN_TRANSACTION_FEE_RATE);
+let fxMeta = {
+  provider: "Fallback snapshot",
+  updatedLabel: "May 9, 2026",
+  live: false
+};
+
+const TRIP_VISUALS = [
+  {
+    name: "Pike Place Market",
+    city: "Seattle",
+    caption: "Market energy, neon, and one of the best-looking starts to the Seattle stretch.",
+    image: "https://unsplash.com/photos/kLloEbsWzag/download?force=true",
+    creditLabel: "Unsplash",
+    creditLink: "https://unsplash.com/photos/a-public-market-with-neon-signs-and-people-E7cnqNDSToA"
+  },
+  {
+    name: "Bainbridge ferry view",
+    city: "Bainbridge",
+    caption: "The ferry day works better when it looks like an actual destination and not just transit.",
+    image: "https://unsplash.com/photos/DbKuSqrzC1s/download?force=true",
+    creditLabel: "Unsplash",
+    creditLink: "https://unsplash.com/photos/a-ferry-sails-across-the-water-with-a-skyline-view-DbKuSqrzC1s"
+  },
+  {
+    name: "Portland Japanese Garden",
+    city: "Portland",
+    caption: "A softer Portland anchor that makes the garden day read like a real highlight.",
+    image: "https://unsplash.com/photos/d5p4C3jKbH4/download?force=true",
+    creditLabel: "Unsplash",
+    creditLink: "https://unsplash.com/photos/body-of-water-beside-tree-d5p4C3jKbH4"
+  },
+  {
+    name: "Downtown Portland",
+    city: "Portland",
+    caption: "Use this to visually carry Powell's, downtown coffee, cocktails, and the last full-day loop.",
+    image: "https://unsplash.com/photos/sxH6PfOV530/download?force=true",
+    creditLabel: "Unsplash",
+    creditLink: "https://unsplash.com/photos/a-city-skyline-with-a-river-sxH6PfOV530"
+  }
+];
+
+const DAY_VISUALS = {
+  "day-1": TRIP_VISUALS[0],
+  "day-2": TRIP_VISUALS[0],
+  "day-3": TRIP_VISUALS[1],
+  "day-4": TRIP_VISUALS[3],
+  "day-5": TRIP_VISUALS[2],
+  "day-6": TRIP_VISUALS[3],
+  "day-7": TRIP_VISUALS[3],
+  "day-8": TRIP_VISUALS[3],
+  "day-9": TRIP_VISUALS[3]
+};
 
 const baseData = cloneData(window.TRIP_DATA);
 assignStopUids(baseData);
@@ -56,6 +111,7 @@ const editorEls = {
 };
 
 initHero();
+renderVisualStrip();
 renderSummary();
 renderItinerary();
 initFilters();
@@ -65,6 +121,8 @@ initTabs();
 renderTransitAndSources();
 bindEditorChrome();
 initReveal();
+refreshExchangeRate();
+window.setInterval(refreshExchangeRate, FX_REFRESH_MS);
 
 function cloneData(value) {
   if (typeof structuredClone === "function") {
@@ -178,7 +236,7 @@ function usdMoney(value) {
 }
 
 function phpMoney(value) {
-  return `PHP ${Math.round((Number(value) || 0) * EFFECTIVE_USD_TO_PHP_RATE).toLocaleString()}`;
+  return `PHP ${Math.round((Number(value) || 0) * effectiveUsdToPhpRate).toLocaleString()}`;
 }
 
 function money(value) {
@@ -232,6 +290,68 @@ function initHero() {
   document.getElementById("heroRemaining").textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
   document.getElementById("budgetHeading").textContent = `Target: ${money(data.budget.cap)} excluding airfare and hotels; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
   document.getElementById("heroMeter").style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
+  document.getElementById("fxRateDisplay").textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
+  document.getElementById("fxMeta").textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
+}
+
+function renderVisualStrip() {
+  const strip = document.getElementById("visualStrip");
+  const cards = TRIP_VISUALS.map((item) => `
+    <article class="visual-card">
+      <img src="${item.image}" alt="${item.name}">
+      <div class="visual-card-copy">
+        <span class="badge">${item.city}</span>
+        <h3>${item.name}</h3>
+        <p>${item.caption}</p>
+        <a class="link-button" href="${item.creditLink}" target="_blank" rel="noreferrer">Photo ${item.creditLabel}</a>
+      </div>
+    </article>
+  `).join("");
+  strip.innerHTML = `<div class="visual-track">${cards}${cards}</div>`;
+}
+
+function getDayVisual(dayId) {
+  return DAY_VISUALS[dayId] || TRIP_VISUALS[0];
+}
+
+function rerenderMoneyViews() {
+  initHero();
+  renderSummary();
+  renderItinerary(currentFilter);
+  renderBudget();
+}
+
+async function refreshExchangeRate() {
+  try {
+    const response = await fetch("https://open.er-api.com/v6/latest/USD", {
+      headers: { Accept: "application/json" }
+    });
+    if (!response.ok) {
+      throw new Error(`FX request failed with ${response.status}`);
+    }
+    const payload = await response.json();
+    const latestRate = Number(payload?.rates?.PHP);
+    if (!Number.isFinite(latestRate) || latestRate <= 0) {
+      throw new Error("FX payload missing PHP rate.");
+    }
+    usdToPhpRate = latestRate;
+    effectiveUsdToPhpRate = usdToPhpRate * (1 + FOREIGN_TRANSACTION_FEE_RATE);
+    fxMeta = {
+      provider: "ExchangeRate-API",
+      updatedLabel: payload.time_last_update_utc || new Date().toLocaleString(),
+      live: true
+    };
+  } catch (error) {
+    console.warn("Could not refresh USD to PHP exchange rate.", error);
+    usdToPhpRate = FALLBACK_USD_TO_PHP_RATE;
+    effectiveUsdToPhpRate = usdToPhpRate * (1 + FOREIGN_TRANSACTION_FEE_RATE);
+    fxMeta = {
+      provider: "saved fallback snapshot",
+      updatedLabel: "May 9, 2026",
+      live: false
+    };
+  }
+  rerenderMoneyViews();
 }
 
 function getHotelBase(day) {
@@ -355,6 +475,7 @@ function renderItinerary(filter = "all") {
   currentFilter = filter;
   const daysEl = document.getElementById("days");
   const dayHtml = data.itinerary.map((day, index) => {
+    const visual = getDayVisual(day.id);
     const visibleSegments = day.segments.map((segment) => {
       const stops = segment.items.filter((stop) => stopMatches(stop, filter, day));
       if (!stops.length) return "";
@@ -371,6 +492,9 @@ function renderItinerary(filter = "all") {
     return `
       <article class="day-card" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
         <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle ${day.date}">
+          <div class="day-visual">
+            <img src="${visual.image}" alt="${visual.name}">
+          </div>
           <div>
             <span class="badge">${day.city}</span>
             <h3>${day.date}: ${day.title}</h3>
@@ -438,31 +562,22 @@ function renderBudget() {
   data.budget.categories.forEach((item, index) => {
     const angle = (item.amount / total) * Math.PI * 2;
     ctx.beginPath();
-    ctx.moveTo(130, 130);
-    ctx.arc(130, 130, 105, start, start + angle);
+    ctx.moveTo(170, 130);
+    ctx.arc(170, 130, 105, start, start + angle);
     ctx.closePath();
     ctx.fillStyle = colors[index % colors.length];
     ctx.fill();
     start += angle;
   });
   ctx.beginPath();
-  ctx.arc(130, 130, 62, 0, Math.PI * 2);
+  ctx.arc(170, 130, 62, 0, Math.PI * 2);
   ctx.fillStyle = "#ffffff";
   ctx.fill();
   ctx.fillStyle = "#161714";
   ctx.font = "800 22px Manrope";
-  ctx.fillText(money(data.budget.projectedTotal), 82, 124);
+  ctx.fillText(money(data.budget.projectedTotal), 120, 124);
   ctx.font = "700 12px Manrope";
-  ctx.fillText(`of ${money(data.budget.cap)} target`, 84, 146);
-
-  data.budget.categories.forEach((item, index) => {
-    const y = 34 + index * 28;
-    ctx.fillStyle = colors[index % colors.length];
-    ctx.fillRect(275, y - 12, 14, 14);
-    ctx.fillStyle = "#161714";
-    ctx.font = "700 13px Manrope";
-    ctx.fillText(`${item.name} ${money(item.amount)}`, 300, y);
-  });
+  ctx.fillText(`of ${money(data.budget.cap)} target`, 122, 146);
 }
 
 function renderGuide(type = "reservations") {
