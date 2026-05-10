@@ -2,6 +2,24 @@
 
 This is the running log for project changes.
 
+## 2026-05-10
+
+### AGENTS workflow refresh
+
+- Added a small repo-specific workflow section to `AGENTS.md`.
+- Recorded the current command pattern for this project: check prerequisites first, use `npm run serve` for the local static server, and use `npm run validate` after data or dashboard script edits.
+- Added the production Netlify root URL so future live checks use the right public site instead of older snapshot links.
+- Captured one editor-specific reminder: changes to the itinerary editor should be checked for browser-saved state and the export buttons, not only page layout.
+
+Files touched:
+
+- `AGENTS.md`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- If the deployment URL or verification commands change later, update this note and the matching `AGENTS.md` bullets together.
+
 ## 2026-05-09
 
 ### Seattle and Portland food rework
@@ -22,6 +40,7 @@ This is the running log for project changes.
 - Reworked the dashboard presentation with younger editorial typography, wider desktop spacing, and multi-column itinerary sections so the trip is easier to scan without endless vertical scrolling.
 - Tightened the redesign after visual review: swapped to a cleaner heading font, removed the stretched projected-spend whitespace, added a moving photo strip plus day thumbnails, and changed PHP conversion from a fixed snapshot to a live USD to PHP fetch with the 1.85% fee applied on top.
 - Tightened spacing again after screenshot review by shrinking the oversized top navigation shell, reducing the hero height, and stopping the budget chart card from visually overpowering the category list.
+- Rebuilt the budget dashboard after another visual review: removed the pie chart, added a compact summary strip, and turned the category breakdown into always-visible dashboard meters so the section no longer looks empty or broken.
 
 Files touched:
 

@@ -10,6 +10,7 @@
 - [x] Add PHP equivalents using the live USD to PHP rate plus a 1.85% foreign transaction fee, and make the itinerary start collapsed.
 - [x] Update sushi stops to AYCE-oriented plans, expand cocktail stops to two drinks plus one lighter food order, add Bainbridge food/souvenir details, and tighten coffee bean prices to current bag numbers.
 - [x] Redesign the visual layout so it feels more modern and young, uses screen width better, and still works locally and on Netlify.
+- [x] Replace the broken pie-chart budget section with a compact gauge-meter dashboard that shows the breakdown immediately.
 
 ## Checklist
 
@@ -52,3 +53,4 @@
 - The current visual pass swaps in a younger editorial font pairing, expands the desktop canvas, and turns expanded day sections into multi-column panels so the dashboard reads shorter and denser.
 - A second visual cleanup pass removed the oversized empty hero card, fixed the crowded heading feel, added motion and photo-driven location cards, and made PHP values refresh from a live exchange-rate feed.
 - A follow-up spacing pass tightened the navigation pill, reduced the hero's empty vertical area, and made the budget section read as a balanced two-column layout instead of a stretched chart card.
+- The budget section now drops the pie chart entirely in favor of a dashboard-style summary strip plus visible gauge meters, which removes the blank panel problem and keeps category breakdowns on screen immediately.
