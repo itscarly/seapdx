@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T15:20:44.688Z",
+  "generatedAt": "2026-05-10T16:34:47.204Z",
   "targets": {
     "journey-arrival-2026-11-01-status": {
       "id": "journey-arrival-2026-11-01-status",
@@ -9,15 +9,15 @@
       "type": "status",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-10T15:20:40.844Z",
+      "checkedAt": "2026-05-10T16:34:45.067Z",
       "finalUrl": "https://flyasiana.com/C/US/EN/index",
-      "digest": "bc21fec2dce250013f2f5f652440654244084e808a6e3315c8fea21a76fa7cb6",
+      "digest": "33ab2020049ac8963002eab8d8b5ab865992d91755de5eebd0ddcd74e510a0b4",
       "signals": [
         "gate",
         "terminal",
         "boarding"
       ],
-      "excerpt": "GEOOrigin : [PH] NATION : [US] --> ASIANA AIRLINES Content shortcut Home Asiana Airlines uses cookies to provide online services. Please confirm to use the website. View details OK Asiana Duty Free Asiana Corporate Plus Business Travel Go to Asiana Corporate Plus Asiana Corporate Plus is the Asiana Airlines special corporate priority program for business customers. Please note that individual special prices, benefits and conditions may differ, so please keep this in mind when making reservations. (However, corporate priority benefits only apply when issuing corporate priority tickets) Cancel O"
+      "excerpt": "GEOOrigin : [US] NATION : [US] --> ASIANA AIRLINES Content shortcut Home Asiana Airlines uses cookies to provide online services. Please confirm to use the website. View details OK Asiana Duty Free Asiana Corporate Plus Business Travel Go to Asiana Corporate Plus Asiana Corporate Plus is the Asiana Airlines special corporate priority program for business customers. Please note that individual special prices, benefits and conditions may differ, so please keep this in mind when making reservations. (However, corporate priority benefits only apply when issuing corporate priority tickets) Cancel O"
     },
     "journey-arrival-2026-11-01-airport": {
       "id": "journey-arrival-2026-11-01-airport",
@@ -27,7 +27,7 @@
       "type": "airport",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-10T15:20:42.576Z",
+      "checkedAt": "2026-05-10T16:34:46.094Z",
       "finalUrl": "https://www.portseattle.org/sea/flight-status",
       "digest": "9a2f3e7d7c9aae0ea3acaa3b95d6cc02bf588cec6ffb913afee7bf0f7858fb8a",
       "signals": [
@@ -43,7 +43,7 @@
       "type": "status",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-10T15:20:42.921Z",
+      "checkedAt": "2026-05-10T16:34:46.456Z",
       "finalUrl": "https://www.aa.com/travelInformation/flights/status",
       "digest": "71cfb74f4f74731555ad73d5dca300377f8b9340ca30eb7ed17d7830d4f0fc1b",
       "signals": [],
@@ -57,7 +57,7 @@
       "type": "airport",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-10T15:20:43.726Z",
+      "checkedAt": "2026-05-10T16:34:46.853Z",
       "finalUrl": "https://www.flypdx.com/Flights",
       "digest": "436d64190dc224cc43bb7ed2d8b719fb315eeba0d15e9d1a255dbe092186f294",
       "signals": [],
@@ -71,7 +71,7 @@
       "type": "status",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-10T15:20:44.126Z",
+      "checkedAt": "2026-05-10T16:34:47.072Z",
       "finalUrl": "https://www.aa.com/travelInformation/flights/status",
       "digest": "71cfb74f4f74731555ad73d5dca300377f8b9340ca30eb7ed17d7830d4f0fc1b",
       "signals": [],
@@ -85,7 +85,7 @@
       "type": "airport",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-10T15:20:44.687Z",
+      "checkedAt": "2026-05-10T16:34:47.203Z",
       "finalUrl": "https://www.dfwairport.com/flights/",
       "digest": "2af3857e745d592870de4001ce83f4e4a66a397a0f83fceb9fa74f103c94f488",
       "signals": [

@@ -1,8 +1,8 @@
 # Flight Monitor Report
 
-Generated: 2026-05-10T15:20:44.689Z
+Generated: 2026-05-10T16:34:47.204Z
 Targets checked: 6
-Changes detected: 0
+Changes detected: 1
 Email attempted: no
 
 ## Notes
@@ -13,7 +13,10 @@ Email attempted: no
 
 ## Changes
 
-No changes detected compared with the previous snapshot.
+### page-change: Manila to Seattle via Incheon status
+- URL: https://flyasiana.com/C/US/EN/index
+- Before: "bc21fec2dce250013f2f5f652440654244084e808a6e3315c8fea21a76fa7cb6"
+- After: "33ab2020049ac8963002eab8d8b5ab865992d91755de5eebd0ddcd74e510a0b4"
 
 ## Current Source Signals
 
@@ -21,7 +24,7 @@ No changes detected compared with the previous snapshot.
 - URL: https://flyasiana.com/C/US/EN/index
 - HTTP status: 200
 - Signals: gate, terminal, boarding
-- Excerpt: GEOOrigin : [PH] NATION : [US] --> ASIANA AIRLINES Content shortcut Home Asiana Airlines uses cookies to provide online services. Please confirm to use the website. View details OK Asiana Duty Free Asiana Corporate Plus Business Travel Go to Asiana Corporate Plus Asiana Corporate Plus is the Asiana Airlines special corporate priority program for business customers. Please note that individual special prices, benefits and conditions may differ, so please keep this in mind when making reservations. (However, corporate priority benefits only apply when issuing corporate priority tickets) Cancel O
+- Excerpt: GEOOrigin : [US] NATION : [US] --> ASIANA AIRLINES Content shortcut Home Asiana Airlines uses cookies to provide online services. Please confirm to use the website. View details OK Asiana Duty Free Asiana Corporate Plus Business Travel Go to Asiana Corporate Plus Asiana Corporate Plus is the Asiana Airlines special corporate priority program for business customers. Please note that individual special prices, benefits and conditions may differ, so please keep this in mind when making reservations. (However, corporate priority benefits only apply when issuing corporate priority tickets) Cancel O
 
 ### Manila to Seattle via Incheon airport board
 - URL: https://www.portseattle.org/sea-tac/flight-status
