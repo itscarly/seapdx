@@ -11,60 +11,62 @@ let fxMeta = {
   live: false
 };
 
+const IMAGE_BASE = "../assets/images/";
+
 const TRIP_VISUALS = [
   {
     name: "Pike Place Market",
     city: "Seattle",
     caption: "Market energy, neon, and one of the best-looking starts to the Seattle stretch.",
-    image: "https://images.unsplash.com/photo-1560864495-a6c27f7c3b46?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}pike-place-market.jpg`
   },
   {
     name: "Bainbridge ferry view",
     city: "Bainbridge",
-    caption: "The ferry day works better when it looks like an actual destination and not just transit.",
-    image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=80"
+    caption: "A real Bainbridge ferry visual for the island day, not a generic bridge or California scene.",
+    image: `${IMAGE_BASE}bainbridge-ferry.jpg`
   },
   {
     name: "Portland Japanese Garden",
     city: "Portland",
     caption: "A softer Portland anchor that makes the garden day read like a real highlight.",
-    image: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}portland-japanese-garden.jpg`
   },
   {
     name: "Downtown Portland",
     city: "Portland",
     caption: "Use this to visually carry Powell's, downtown coffee, cocktails, and the last full-day loop.",
-    image: "https://images.unsplash.com/photo-1567446537738-6d9c8c4ce0c5?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}downtown-portland.jpg`
   },
   {
     name: "Incheon International Airport",
     city: "ICN",
     caption: "International transfer anchor for the long-haul arrival routing into Seattle.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}icn-airport.jpg`
   },
   {
     name: "Seattle-Tacoma International Airport",
     city: "SEA",
     caption: "Sea-Tac sets the first transit decisions and arrival buffer for the Seattle leg.",
-    image: "https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}sea-airport.jpg`
   },
   {
     name: "Portland International Airport",
     city: "PDX",
     caption: "PDX drives the final-day buffer and the domestic departure timing out of Portland.",
-    image: "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}pdx-airport.jpg`
   },
   {
     name: "Dallas/Fort Worth International Airport",
     city: "DFW",
     caption: "DFW is the key connection point in both the November return and the later February booking.",
-    image: "https://images.unsplash.com/photo-1540339832862-474599807836?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}dfw-airport.jpg`
   },
   {
     name: "Corpus Christi International Airport",
     city: "CRP",
     caption: "Corpus Christi is the final arrival point for the November return journey.",
-    image: "https://images.unsplash.com/photo-1496567643440-e1c8bd3d7f3b?auto=format&fit=crop&w=1400&q=80"
+    image: `${IMAGE_BASE}crp-airport.jpg`
   }
 ];
 
@@ -339,8 +341,8 @@ function renderVisualStrip() {
   const strip = document.getElementById("visualStrip");
   const cards = TRIP_VISUALS.map((item) => `
     <article class="visual-card">
-      <a class="visual-card-link" href="${item.image}" target="_blank" rel="noreferrer">
-        <img src="${item.image}" alt="${item.name}">
+      <a class="visual-card-link image-frame" href="${item.image}" target="_blank" rel="noreferrer" aria-label="Open ${item.name} image">
+        <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" onerror="handleImageError(this)">
       </a>
       <div class="visual-card-copy">
         <span class="badge">${item.city}</span>
@@ -354,6 +356,17 @@ function renderVisualStrip() {
 
 function getDayVisual(dayId) {
   return DAY_VISUALS[dayId] || TRIP_VISUALS[0];
+}
+
+function handleImageError(img) {
+  const frame = img.closest(".image-frame") || img.parentElement;
+  img.hidden = true;
+  img.removeAttribute("src");
+  if (!frame || frame.querySelector(".image-fallback")) return;
+  const fallback = document.createElement("span");
+  fallback.className = "image-fallback";
+  fallback.textContent = "Image unavailable";
+  frame.appendChild(fallback);
 }
 
 function rerenderMoneyViews() {
@@ -534,7 +547,7 @@ function renderFlights() {
   `;
 
   futureBoard.innerHTML = futureJourneys.length ? `
-    <section class="flight-shell" data-reveal>
+    <section class="flight-shell future-flight-shell" data-reveal>
       <div class="flight-shell-head">
         <div>
           <p class="eyebrow">Additional booking</p>
@@ -686,8 +699,8 @@ function renderItinerary(filter = "all") {
     return `
       <article class="day-card" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
         <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle ${day.date}">
-          <div class="day-visual">
-            <img src="${visual.image}" alt="${visual.name}">
+          <div class="day-visual image-frame">
+            <img src="${visual.image}" alt="${visual.name}" loading="lazy" decoding="async" onerror="handleImageError(this)">
           </div>
           <div>
             <span class="badge">${day.city}</span>

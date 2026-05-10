@@ -14,6 +14,7 @@
 - [x] Expand the budget/dashboard section to use full desktop width, restore the guides heading to the left, and add a structured flight layer with separate airfare visibility.
 - [x] Add airport visuals and remove the external photo-source buttons from the trip moodboard.
 - [x] Add a 15-minute flight-monitor workflow with dashboard status visibility and email-ready alert support.
+- [x] Replace broken/misleading remote images with verified local assets and fix the future-flight blank-space layout.
 
 ## Checklist
 
@@ -61,3 +62,4 @@
 - The itinerary now carries structured flight journeys for the November 1 arrival, November 9 return, and the later February 27 booking screenshot, with airport leave-by guidance and status-watch links.
 - The moodboard keeps the images but removes the external Unsplash buttons, and airport visuals were added for ICN, SEA, PDX, DFW, and CRP.
 - Flight monitoring now has a dedicated workflow and script designed for 15-minute polling plus email-ready alerts when provider secrets are configured, while still honestly presenting the system as near-real-time polling rather than airline push infrastructure.
+- The latest visual cleanup replaces hotlinked stock photos with local verified images, corrects Bainbridge to an actual ferry view, and makes the future booked flight block compact instead of leaving a large empty right column.

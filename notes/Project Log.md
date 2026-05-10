@@ -4,6 +4,25 @@ This is the running log for project changes.
 
 ## 2026-05-10
 
+### Accurate image and future-flight layout fix
+
+- Replaced the dashboard's brittle remote photo hotlinks with local, verified image assets for Pike Place, Bainbridge ferry day, Portland, and the ICN, SEA, PDX, DFW, and CRP airport visuals.
+- Corrected the Bainbridge day image so it no longer shows a San Francisco/Golden Gate scene.
+- Added an image fallback state so a future missing file shows `Image unavailable` instead of broken alt text.
+- Tightened the future booked flight section so the single February booking no longer leaves a large empty right-side column.
+
+Files touched:
+
+- `dashboards/assets/images/`
+- `dashboards/css/styles.css`
+- `dashboards/html/index.html`
+- `dashboards/js/app.js`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- If any image feels visually off later, replace it with another verified local asset rather than using a generic remote stock URL.
+
 ### AGENTS workflow refresh
 
 - Added a small repo-specific workflow section to `AGENTS.md`.
