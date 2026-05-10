@@ -16,33 +16,55 @@ const TRIP_VISUALS = [
     name: "Pike Place Market",
     city: "Seattle",
     caption: "Market energy, neon, and one of the best-looking starts to the Seattle stretch.",
-    image: "https://unsplash.com/photos/kLloEbsWzag/download?force=true",
-    creditLabel: "Unsplash",
-    creditLink: "https://unsplash.com/photos/a-public-market-with-neon-signs-and-people-E7cnqNDSToA"
+    image: "https://images.unsplash.com/photo-1560864495-a6c27f7c3b46?auto=format&fit=crop&w=1400&q=80"
   },
   {
     name: "Bainbridge ferry view",
     city: "Bainbridge",
     caption: "The ferry day works better when it looks like an actual destination and not just transit.",
-    image: "https://unsplash.com/photos/DbKuSqrzC1s/download?force=true",
-    creditLabel: "Unsplash",
-    creditLink: "https://unsplash.com/photos/a-ferry-sails-across-the-water-with-a-skyline-view-DbKuSqrzC1s"
+    image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=80"
   },
   {
     name: "Portland Japanese Garden",
     city: "Portland",
     caption: "A softer Portland anchor that makes the garden day read like a real highlight.",
-    image: "https://unsplash.com/photos/d5p4C3jKbH4/download?force=true",
-    creditLabel: "Unsplash",
-    creditLink: "https://unsplash.com/photos/body-of-water-beside-tree-d5p4C3jKbH4"
+    image: "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=1400&q=80"
   },
   {
     name: "Downtown Portland",
     city: "Portland",
     caption: "Use this to visually carry Powell's, downtown coffee, cocktails, and the last full-day loop.",
-    image: "https://unsplash.com/photos/sxH6PfOV530/download?force=true",
-    creditLabel: "Unsplash",
-    creditLink: "https://unsplash.com/photos/a-city-skyline-with-a-river-sxH6PfOV530"
+    image: "https://images.unsplash.com/photo-1567446537738-6d9c8c4ce0c5?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    name: "Incheon International Airport",
+    city: "ICN",
+    caption: "International transfer anchor for the long-haul arrival routing into Seattle.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    name: "Seattle-Tacoma International Airport",
+    city: "SEA",
+    caption: "Sea-Tac sets the first transit decisions and arrival buffer for the Seattle leg.",
+    image: "https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    name: "Portland International Airport",
+    city: "PDX",
+    caption: "PDX drives the final-day buffer and the domestic departure timing out of Portland.",
+    image: "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    name: "Dallas/Fort Worth International Airport",
+    city: "DFW",
+    caption: "DFW is the key connection point in both the November return and the later February booking.",
+    image: "https://images.unsplash.com/photo-1540339832862-474599807836?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    name: "Corpus Christi International Airport",
+    city: "CRP",
+    caption: "Corpus Christi is the final arrival point for the November return journey.",
+    image: "https://images.unsplash.com/photo-1496567643440-e1c8bd3d7f3b?auto=format&fit=crop&w=1400&q=80"
   }
 ];
 
@@ -137,7 +159,18 @@ function hydrateFromStorage() {
     if (!raw) return;
     const parsed = JSON.parse(raw);
     if (parsed?.data?.itinerary && parsed?.data?.budget) {
-      data = cloneData(parsed.data);
+      data = {
+        ...cloneData(baseData),
+        ...cloneData(parsed.data),
+        meta: { ...cloneData(baseData.meta), ...(parsed.data.meta || {}) },
+        budget: { ...cloneData(baseData.budget), ...(parsed.data.budget || {}) },
+        transit: parsed.data.transit || cloneData(baseData.transit),
+        guides: parsed.data.guides || cloneData(baseData.guides),
+        exclusions: parsed.data.exclusions || cloneData(baseData.exclusions),
+        sources: parsed.data.sources || cloneData(baseData.sources),
+        flights: parsed.data.flights || cloneData(baseData.flights),
+        flightMonitor: parsed.data.flightMonitor || cloneData(baseData.flightMonitor)
+      };
       assignStopUids(data);
     }
     if (Array.isArray(parsed?.activeAlternates)) {
@@ -235,12 +268,20 @@ function usdMoney(value) {
   return `$${Math.round(Number(value) || 0).toLocaleString()}`;
 }
 
+function usdMoneyPrecise(value) {
+  return `$${(Number(value) || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
 function phpMoney(value) {
   return `PHP ${Math.round((Number(value) || 0) * effectiveUsdToPhpRate).toLocaleString()}`;
 }
 
 function money(value) {
   return `${usdMoney(value)} (${phpMoney(value)})`;
+}
+
+function moneyPrecise(value) {
+  return `${usdMoneyPrecise(value)} (${phpMoney(value)})`;
 }
 
 function iconCoffee() {
@@ -298,12 +339,13 @@ function renderVisualStrip() {
   const strip = document.getElementById("visualStrip");
   const cards = TRIP_VISUALS.map((item) => `
     <article class="visual-card">
-      <img src="${item.image}" alt="${item.name}">
+      <a class="visual-card-link" href="${item.image}" target="_blank" rel="noreferrer">
+        <img src="${item.image}" alt="${item.name}">
+      </a>
       <div class="visual-card-copy">
         <span class="badge">${item.city}</span>
         <h3>${item.name}</h3>
         <p>${item.caption}</p>
-        <a class="link-button" href="${item.creditLink}" target="_blank" rel="noreferrer">Photo ${item.creditLabel}</a>
       </div>
     </article>
   `).join("");
@@ -364,6 +406,14 @@ function getDayAlternates(day) {
   return data.exclusions.filter((item) => activeAlternates.has(item.name) && item.bestDay === day.id);
 }
 
+function getFlightJourneysForDay(dayId) {
+  return (data.flights?.journeys || []).filter((journey) => journey.tripDayId === dayId);
+}
+
+function getFutureFlightJourneys() {
+  return (data.flights?.journeys || []).filter((journey) => !journey.tripDayId);
+}
+
 function stopMatches(stop, filter, day) {
   if (filter === "all") return true;
   if (filter === "Seattle") return day.city.includes("Seattle");
@@ -378,6 +428,7 @@ function renderSummary() {
   const cards = [
     ["Trip days", days],
     ["Projected total", money(data.budget.projectedTotal)],
+    ["Airfare (excluded)", moneyPrecise(data.flights?.airfareTotal || 0)],
     ["Target cap", money(data.budget.cap)],
     ["Seattle/intercity", money(seattleSpend)],
     ["Portland/departure", money(portlandSpend)]
@@ -388,6 +439,148 @@ function renderSummary() {
       <strong>${value}</strong>
     </article>
   `).join("");
+}
+
+function renderFlightLeg(leg) {
+  return `
+    <article class="flight-leg">
+      <div class="flight-route">
+        <div class="flight-route-points">
+          <div class="flight-point depart">
+            <strong>${leg.from.code}</strong>
+            <span>${leg.from.city}</span>
+            <time>${leg.departureTime}</time>
+          </div>
+          <div class="flight-connector">${leg.duration || "Flight"}${leg.connectionNote ? `<br>${leg.connectionNote}` : ""}</div>
+          <div class="flight-point arrive">
+            <strong>${leg.to.code}</strong>
+            <span>${leg.to.city}</span>
+            <time>${leg.arrivalTime}</time>
+          </div>
+        </div>
+      </div>
+      <div class="flight-leg-card">
+        <h4>${leg.flightNumber}</h4>
+        <strong>${leg.aircraft || leg.operator || ""}</strong>
+        <div class="flight-leg-meta">
+          ${leg.seat ? `<span>Seat: ${leg.seat}</span>` : ""}
+          ${leg.cabin ? `<span>Class: ${leg.cabin}</span>` : ""}
+          ${leg.meals ? `<span>Meals: ${leg.meals}</span>` : ""}
+          ${leg.mileage ? `<span>${leg.mileage}</span>` : ""}
+          ${leg.operator ? `<span>${leg.operator}</span>` : ""}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderFlightJourney(journey) {
+  return `
+    <article class="flight-journey" data-reveal>
+      <div class="flight-journey-head">
+        <div>
+          <span class="badge">${journey.kind}</span>
+          <h3>${journey.title}</h3>
+          <p>${journey.dateLabel}. ${journey.visibilityNote}</p>
+        </div>
+        <span class="flight-airfare">${journey.ticketCost != null ? moneyPrecise(journey.ticketCost) : "Cost not shown"}</span>
+      </div>
+      <div class="flight-alert-banner">
+        <strong>${journey.statusLabel}</strong>
+        <span>${journey.alertCopy}</span>
+      </div>
+      <div class="flight-legs">
+        ${journey.legs.map((leg) => renderFlightLeg(leg)).join("")}
+      </div>
+      <div class="flight-journey-links">
+        ${journey.statusSource ? `<a class="link-button" href="${journey.statusSource}" target="_blank" rel="noreferrer">Flight status source</a>` : ""}
+        ${journey.airportSource ? `<a class="link-button" href="${journey.airportSource}" target="_blank" rel="noreferrer">Airport status board</a>` : ""}
+      </div>
+    </article>
+  `;
+}
+
+function renderFlights() {
+  const board = document.getElementById("flightBoard");
+  const futureBoard = document.getElementById("futureFlightBoard");
+  const mainJourneys = (data.flights?.journeys || []).filter((journey) => journey.tripDayId);
+  const futureJourneys = getFutureFlightJourneys();
+  const monitor = data.flightMonitor || {};
+
+  board.innerHTML = `
+    <section class="flight-shell" data-reveal>
+      <div class="flight-shell-head">
+        <div>
+          <p class="eyebrow">Booked flights</p>
+          <h2>Flight timing and airport buffers</h2>
+          <p class="flight-shell-copy">Airfare stays outside the $800 trip budget, but the flight board is visible here so airport timing, layovers, and monitoring are all easy to scan.</p>
+        </div>
+        <article class="budget-summary-card airfare">
+          <span class="budget-kicker">Airfare visibility</span>
+          <div class="budget-capline">
+            <strong>${moneyPrecise(data.flights?.airfareTotal || 0)}</strong>
+            <p>Shown for visibility only. This total is excluded from the Seattle and Portland activity budget.</p>
+          </div>
+        </article>
+      </div>
+      <div class="flight-alert-banner">
+        <strong>${monitor.displayTitle || "15-minute flight watch"}</strong>
+        <span>${monitor.displayNote || ""}</span>
+      </div>
+      <div class="flight-journeys">
+        ${mainJourneys.map((journey) => renderFlightJourney(journey)).join("")}
+      </div>
+    </section>
+  `;
+
+  futureBoard.innerHTML = futureJourneys.length ? `
+    <section class="flight-shell" data-reveal>
+      <div class="flight-shell-head">
+        <div>
+          <p class="eyebrow">Additional booking</p>
+          <h2>Future booked flight kept for visibility</h2>
+          <p class="flight-shell-copy">This journey sits outside the November 1-9, 2026 trip window, but it is included here because it appeared in your screenshots and you wanted every booked flight visible.</p>
+        </div>
+      </div>
+      <div class="flight-journeys">
+        ${futureJourneys.map((journey) => renderFlightJourney(journey)).join("")}
+      </div>
+    </section>
+  ` : "";
+}
+
+function renderDayFlightSummary(day) {
+  const journeys = getFlightJourneysForDay(day.id);
+  if (!journeys.length) return "";
+  return `
+    <section class="segment">
+      <div class="segment-title">${iconTrain()}<span>Flight plan for this day</span></div>
+      ${journeys.map((journey) => `
+        <article class="stop is-alternate" data-type="flight" data-reveal>
+          <div class="stop-top">
+            <div>
+              <span class="badge">flight</span>
+              <h3>${journey.title}</h3>
+              <p>${journey.dateLabel}</p>
+            </div>
+            <strong>${journey.ticketCost != null ? moneyPrecise(journey.ticketCost) : "Cost not shown"}</strong>
+          </div>
+          <p>${journey.visibilityNote}</p>
+          <div class="details">
+            <div class="detail"><b>Airport leave-by</b>${journey.airportLeaveBy}</div>
+            <div class="detail"><b>Status watch</b>${journey.statusLabel}</div>
+            <div class="detail"><b>Monitor cadence</b>${data.flightMonitor?.cadenceLabel || "15-minute checks"}</div>
+            <div class="detail"><b>Budget treatment</b>Airfare is visible only and excluded from the $800 trip target.</div>
+          </div>
+          <div class="card-actions">
+            ${journey.statusSource ? `<a class="link-button" href="${journey.statusSource}" target="_blank" rel="noreferrer">Flight status</a>` : ""}
+            ${journey.airportSource ? `<a class="link-button" href="${journey.airportSource}" target="_blank" rel="noreferrer">Airport board</a>` : ""}
+            <a class="link-button" href="#flightBoard">Open full flight details</a>
+          </div>
+        </article>
+      `).join("")}
+    </section>
+  `;
 }
 
 function renderTiming(stop) {
@@ -488,7 +681,8 @@ function renderItinerary(filter = "all") {
     }).join("");
     const hotelBase = getHotelBase(day);
     const alternates = renderAlternates(day, filter);
-    if (!visibleSegments && !getDayAlternates(day).length) return "";
+    const flightSummary = renderDayFlightSummary(day);
+    if (!visibleSegments && !getDayAlternates(day).length && !flightSummary) return "";
     return `
       <article class="day-card" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
         <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle ${day.date}">
@@ -507,7 +701,7 @@ function renderItinerary(filter = "all") {
           </div>
           <div class="day-total">${money(day.dayTotal)}<br><span class="badge">daily estimate</span></div>
         </header>
-        <div class="segments">${visibleSegments}${alternates}</div>
+        <div class="segments">${flightSummary}${visibleSegments}${alternates}</div>
       </article>
     `;
   }).join("");
@@ -525,6 +719,7 @@ function renderItinerary(filter = "all") {
 
   bindStopActions();
   bindAlternateRemove();
+  renderFlights();
   initReveal();
 }
 
@@ -573,6 +768,13 @@ function renderBudget() {
       <div class="budget-capline">
         <strong>${money(Math.abs(ceiling - projected))}</strong>
         <p>${projected <= ceiling ? "Remaining before the hard ceiling is hit." : "Trip spend now exceeds the hard ceiling."}</p>
+      </div>
+    </article>
+    <article class="budget-summary-card airfare">
+      <span class="budget-kicker">Airfare</span>
+      <div class="budget-capline">
+        <strong>${moneyPrecise(data.flights?.airfareTotal || 0)}</strong>
+        <p>Visible here for planning clarity, but excluded from the activity budget and its category meters.</p>
       </div>
     </article>
   `;

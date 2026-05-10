@@ -11,6 +11,7 @@ window.TRIP_DATA = {
     absoluteCeiling: 900,
     assumptions: [
       "Airfare and hotels are excluded.",
+      "Booked flight costs are displayed separately for visibility and timing, but they do not count toward the $800 activity budget or the $900 ceiling.",
       "Amtrak Cascades 517 is included in the activity budget because the user listed it under intercity transportation.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
@@ -58,6 +59,137 @@ window.TRIP_DATA = {
       link: "https://go.trimet.org/fares/index.htm"
     }
   ],
+  flights: {
+    airfareTotal: 1286.84,
+    journeys: [
+      {
+        id: "journey-arrival-2026-11-01",
+        tripDayId: "day-1",
+        kind: "Arrival journey",
+        title: "Manila to Seattle via Incheon",
+        dateLabel: "Sunday, November 1, 2026",
+        ticketCost: 540.43,
+        airportLeaveBy: "Be at Manila airport by 9:05 AM for the 12:05 PM international departure.",
+        visibilityNote: "This is the long-haul arrival chain that feeds directly into the Seattle day-one plan.",
+        statusLabel: "Booked and confirmed; monitor for gate, delay, and schedule changes.",
+        alertCopy: "Near-real-time polling is set up around official airline and airport status pages every 15 minutes, with email alerts intended when the monitor detects a change and email credentials are configured.",
+        statusSource: "https://flyasiana.com/C/US/EN/index",
+        airportSource: "https://www.portseattle.org/sea-tac/flight-status",
+        legs: [
+          {
+            from: { code: "MNL", city: "Manila" },
+            to: { code: "ICN", city: "Seoul / Incheon" },
+            departureTime: "12:05 PM",
+            arrivalTime: "4:40 PM",
+            duration: "Non-stop",
+            connectionNote: "4 hr 20 min transit",
+            flightNumber: "OZ702",
+            aircraft: "A330",
+            cabin: "Economy (V)",
+            mileage: "1139 miles; mileage upgrade unavailable"
+          },
+          {
+            from: { code: "ICN", city: "Seoul / Incheon" },
+            to: { code: "SEA", city: "Seattle" },
+            departureTime: "9:00 PM",
+            arrivalTime: "1:55 PM",
+            duration: "Non-stop",
+            connectionNote: "Same-day Seattle arrival",
+            flightNumber: "OZ272",
+            aircraft: "B777",
+            cabin: "Economy (V)",
+            mileage: "3637 miles; mileage upgrade unavailable"
+          }
+        ]
+      },
+      {
+        id: "journey-return-2026-11-09",
+        tripDayId: "day-9",
+        kind: "Return journey",
+        title: "Portland to Corpus Christi via Dallas/Fort Worth",
+        dateLabel: "Monday, November 9, 2026",
+        ticketCost: 746.41,
+        airportLeaveBy: "Leave Hotel Vance by 11:00 AM and aim to be inside PDX by 11:15 AM for the 1:47 PM departure.",
+        visibilityNote: "This is the November departure routing that replaces the old generic flight-dependent buffer language.",
+        statusLabel: "Booked and ticketed; watch for PDX departure updates and DFW connection changes.",
+        alertCopy: "The dashboard should surface the latest known status, while the 15-minute monitor is designed to email delay or gate-change alerts when the provider-side email secrets are configured.",
+        statusSource: "https://www.aa.com/travelInformation/flights/status",
+        airportSource: "https://www.flypdx.com/Flights#/arrivals-and-departures",
+        legs: [
+          {
+            from: { code: "PDX", city: "Portland" },
+            to: { code: "DFW", city: "Dallas / Fort Worth" },
+            departureTime: "1:47 PM",
+            arrivalTime: "7:34 PM",
+            duration: "Non-stop",
+            connectionNote: "1 hr 36 min connection",
+            flightNumber: "AA 2496",
+            cabin: "Economy (S)",
+            seat: "8F",
+            meals: "Food for purchase"
+          },
+          {
+            from: { code: "DFW", city: "Dallas / Fort Worth" },
+            to: { code: "CRP", city: "Corpus Christi" },
+            departureTime: "9:10 PM",
+            arrivalTime: "10:45 PM",
+            duration: "Regional connection",
+            connectionNote: "Final November-trip leg",
+            flightNumber: "AA 5273",
+            cabin: "Economy (S)",
+            seat: "8F",
+            operator: "Operated by PSA Airlines as American Eagle"
+          }
+        ]
+      },
+      {
+        id: "journey-future-2027-02-27",
+        kind: "Future journey",
+        title: "Corpus Christi to San Francisco via Dallas/Fort Worth",
+        dateLabel: "Saturday, February 27, 2027",
+        ticketCost: null,
+        airportLeaveBy: "Be at CRP by about 8:10 AM if you keep the same 10:11 AM departure.",
+        visibilityNote: "Outside the Seattle-Portland travel window, but kept visible because it appeared in your booking screenshots.",
+        statusLabel: "Future booked routing; monitor closer to February 27, 2027.",
+        alertCopy: "This later booking can share the same flight-watch structure, but it should not affect the November 2026 activity budget.",
+        statusSource: "https://www.aa.com/travelInformation/flights/status",
+        airportSource: "https://www.dfwairport.com/flights/",
+        legs: [
+          {
+            from: { code: "CRP", city: "Corpus Christi" },
+            to: { code: "DFW", city: "Dallas / Fort Worth" },
+            departureTime: "10:11 AM",
+            arrivalTime: "11:40 AM",
+            duration: "Regional connection",
+            connectionNote: "1 hr 35 min transit",
+            flightNumber: "AA 3774",
+            cabin: "Economy (N)",
+            seat: "8C",
+            operator: "Operated by Envoy Air as American Eagle"
+          },
+          {
+            from: { code: "DFW", city: "Dallas / Fort Worth" },
+            to: { code: "SFO", city: "San Francisco" },
+            departureTime: "1:15 PM",
+            arrivalTime: "3:14 PM",
+            duration: "Non-stop",
+            connectionNote: "Future trip final leg",
+            flightNumber: "AA 701",
+            cabin: "Economy (N)",
+            seat: "8F",
+            meals: "Food for purchase"
+          }
+        ]
+      }
+    ]
+  },
+  flightMonitor: {
+    cadenceMinutes: 15,
+    cadenceLabel: "Every 15 minutes",
+    channel: "Email alerts plus dashboard status visibility",
+    displayTitle: "15-minute flight watch",
+    displayNote: "This project treats flight updates as near-real-time polling rather than true airline push alerts. The dashboard can show the latest known status, and the monitor is structured to send email alerts when its provider credentials are configured."
+  },
   itinerary: [
     {
       id: "day-1",
@@ -987,8 +1119,8 @@ window.TRIP_DATA = {
           label: "Morning",
           items: [
             {
-              time: "Flight-dependent",
-              leaveTime: "2.5 hours before departure",
+              time: "10:40 AM",
+              leaveTime: "10:20 AM",
               name: "Check out of Hotel Vance",
               type: "hotel",
               anchorType: "hotel-departure",
@@ -996,17 +1128,17 @@ window.TRIP_DATA = {
               neighborhood: "Downtown / Cultural District",
               duration: "15-20 min",
               cost: 0,
-              notes: "Leave extra lobby and elevator time if morning weather is rough."
+              notes: "This lines up with the 1:47 PM PDX departure and still leaves space for rain, elevator delays, and a MAX backup."
             },
             {
-              time: "Flight-dependent",
-              leaveTime: "2.25 hours before departure",
+              time: "11:00 AM",
+              leaveTime: "10:55 AM",
               name: "Hotel Vance to PDX",
               type: "transit",
               neighborhood: "Downtown to airport",
               duration: "45-60 min",
               cost: 3,
-              bestTime: "Leave at least 2.5 hours before domestic departure.",
+              bestTime: "Leave around 11 AM to be inside PDX by about 11:15 AM.",
               knownFor: "MAX Red Line / transit-first airport transfer.",
               sentiment: "Best value.",
               reservation: "None.",
@@ -1016,7 +1148,7 @@ window.TRIP_DATA = {
               route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Portland+International+Airport"
             },
             {
-              time: "Before departure",
+              time: "11:30 AM",
               name: "Airport coffee/snack buffer",
               type: "food",
               neighborhood: "PDX",
@@ -1098,6 +1230,11 @@ window.TRIP_DATA = {
     { label: "TriMet fares", url: "https://go.trimet.org/fares/index.htm" },
     { label: "Wise USD to PHP rate", url: "https://wise.com/us/currency-converter/usd-to-php-rate" },
     { label: "Wise PHP history for May 9, 2026", url: "https://wise.com/us/currency-converter/currencies/php-philippine-peso/history" },
+    { label: "American Airlines flight status", url: "https://www.aa.com/travelInformation/flights/status" },
+    { label: "Asiana Airlines main status portal", url: "https://flyasiana.com/C/US/EN/index" },
+    { label: "Portland International Airport flight board", url: "https://www.flypdx.com/Flights#/arrivals-and-departures" },
+    { label: "Seattle-Tacoma International Airport flight status", url: "https://www.portseattle.org/sea-tac/flight-status" },
+    { label: "DFW Airport flight board", url: "https://www.dfwairport.com/flights/" },
     { label: "Pike Place Market visit info", url: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
     { label: "Sky View Observatory hours/directions", url: "https://skyviewobservatory.com/location/" },
     { label: "Sky View bar menu PDF", url: "https://www.skyviewobservatory.com/wp-content/themes/skyview/assets/images/cafe/SVO_Menu_Book_2022.pdf" },

@@ -414,7 +414,7 @@ h3 {
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -720,10 +720,11 @@ h3 {
   grid-template-columns: 1fr;
   gap: 18px;
   align-items: start;
+  width: 100%;
 }
 
 .budget-panel {
-  width: min(100%, 1080px);
+  width: 100%;
   justify-self: start;
   align-self: start;
   display: grid;
@@ -737,7 +738,7 @@ h3 {
 
 .budget-summary {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(180px, 0.4fr));
+  grid-template-columns: minmax(0, 1.45fr) repeat(3, minmax(180px, 0.52fr));
   gap: 14px;
   align-items: stretch;
 }
@@ -849,7 +850,7 @@ h3 {
 }
 
 .budget-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-content: start;
 }
 
@@ -910,9 +911,217 @@ h3 {
   line-height: 1.58;
 }
 
+.visual-card-link,
+.visual-card-link:hover,
+.visual-card-link:focus-visible {
+  color: inherit;
+  text-decoration: none;
+}
+
+.visual-card-link:focus-visible {
+  outline: 3px solid rgba(23, 73, 219, 0.22);
+  outline-offset: 4px;
+}
+
 .guide-panel {
   margin-top: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.flight-board {
+  display: grid;
+  gap: 16px;
+  margin: 18px 0 8px;
+}
+
+.future-flight-board {
+  margin-top: 16px;
+}
+
+.flight-shell {
+  padding: 22px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 248, 244, 0.9)),
+    linear-gradient(135deg, rgba(23, 73, 219, 0.05), transparent 60%);
+  box-shadow: var(--shadow);
+}
+
+.flight-shell-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.flight-shell-copy,
+.flight-journey-head p,
+.flight-leg-meta,
+.flight-summary-copy {
+  color: var(--muted);
+}
+
+.flight-shell-copy {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.flight-journeys {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.flight-journey {
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(22, 23, 20, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94)),
+    linear-gradient(135deg, rgba(252, 92, 51, 0.05), transparent 52%);
+  box-shadow: var(--shadow-soft);
+}
+
+.flight-journey-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.flight-airfare {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(22, 23, 20, 0.04);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.flight-alert-banner {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(23, 73, 219, 0.06);
+  border: 1px solid rgba(23, 73, 219, 0.08);
+  margin-bottom: 16px;
+}
+
+.flight-alert-banner strong {
+  font-size: 0.95rem;
+}
+
+.flight-legs {
+  display: grid;
+  gap: 14px;
+}
+
+.flight-leg {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 16px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(22, 23, 20, 0.03);
+  border: 1px solid rgba(22, 23, 20, 0.06);
+}
+
+.flight-route {
+  display: grid;
+  gap: 12px;
+}
+
+.flight-route-points {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.flight-point strong {
+  display: block;
+  font-family: "Sora", ui-sans-serif, sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.flight-point span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.flight-point time {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.flight-point.arrive {
+  text-align: right;
+}
+
+.flight-connector {
+  min-width: 120px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.flight-connector::before {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(23, 73, 219, 0.22), rgba(252, 92, 51, 0.22));
+}
+
+.flight-leg-card {
+  display: grid;
+  gap: 10px;
+}
+
+.flight-leg-card h4 {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.2;
+}
+
+.flight-leg-card strong {
+  font-size: 0.92rem;
+}
+
+.flight-leg-meta {
+  display: grid;
+  gap: 4px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.flight-journey-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.budget-summary-card.airfare {
+  background:
+    radial-gradient(circle at top right, rgba(23, 73, 219, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94));
 }
 
 .guide-card.exclusion-card {
@@ -941,6 +1150,10 @@ h3 {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 248, 243, 0.92)),
     linear-gradient(135deg, rgba(23, 73, 219, 0.05), transparent 58%);
+}
+
+.budget-list .budget-item:last-child {
+  grid-column: 1 / -1;
 }
 
 .budget-item::after {
@@ -1157,7 +1370,7 @@ h3 {
 
 @media (max-width: 1280px) {
   .budget-summary {
-    grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, 0.6fr));
+    grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 0.7fr));
   }
 
   .summary-grid,
@@ -1169,6 +1382,7 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .flight-journeys,
   .guide-panel,
   .segments {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1197,6 +1411,9 @@ h3 {
   .editor-bar,
   .budget-summary,
   .budget-panel,
+  .flight-shell-head,
+  .flight-journeys,
+  .flight-leg,
   .summary-grid,
   .budget-list,
   .guide-panel,
@@ -1208,6 +1425,15 @@ h3 {
 
   .hero-grid {
     padding: 56px 0 28px;
+  }
+
+  .flight-route-points {
+    grid-template-columns: 1fr;
+  }
+
+  .flight-point.arrive,
+  .flight-connector {
+    text-align: left;
   }
 
   .day-head,
