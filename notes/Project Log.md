@@ -2,6 +2,26 @@
 
 This is the running log for project changes.
 
+## 2026-05-10 (Evening)
+
+### Google Calendar integration: Seattle & Portland itinerary
+
+- Created new Google Calendar: "Seattle & Portland 2026" (timezone: America/Los_Angeles).
+- Populated calendar with all 48 events from trip-data.js: flights, hotels, activities, meals, transit.
+- Includes full November 1-9, 2026 trip + February 27, 2027 return flights (Dallas/Fort Worth, Corpus Christi connections).
+- Each event has location, duration, and cost noted in description where applicable.
+- Used gws CLI with Google Calendar API to insert events batch-style.
+
+Calendar ID: `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com`
+
+Files touched:
+- Google Calendar (new "Seattle & Portland 2026" calendar)
+- `notes/Project Log.md`
+
+Follow-up:
+- Calendar is now live and ready to see how the full schedule maps across the actual travel dates.
+- If itinerary data changes later (new stops, time adjustments), calendar events should be updated or recreated using the same script pattern.
+
 ## 2026-05-10
 
 ### Accurate image and future-flight layout fix
