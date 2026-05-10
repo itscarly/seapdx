@@ -288,7 +288,7 @@ function initHero() {
   const remaining = data.budget.cap - total;
   document.getElementById("heroSpend").textContent = money(total);
   document.getElementById("heroRemaining").textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
-  document.getElementById("budgetHeading").textContent = `Target: ${money(data.budget.cap)} excluding airfare and hotels; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
+  document.getElementById("budgetHeading").textContent = `Budget snapshot: ${money(data.budget.cap)} target, ${money(data.budget.absoluteCeiling || data.budget.cap)} ceiling`;
   document.getElementById("heroMeter").style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
   document.getElementById("fxRateDisplay").textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   document.getElementById("fxMeta").textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
@@ -545,39 +545,63 @@ function initFilters() {
 }
 
 function renderBudget() {
-  document.getElementById("budgetList").innerHTML = data.budget.categories.map((category, index) => `
-    <article class="budget-item" data-reveal style="transition-delay:${index * 30}ms">
-      <h3>${category.name}: ${money(category.amount)}</h3>
-      <div class="meter"><span style="width:${(category.amount / data.budget.cap) * 100}%"></span></div>
-      <p>${category.note}</p>
-    </article>
-  `).join("");
+  const projected = data.budget.projectedTotal;
+  const cap = data.budget.cap;
+  const ceiling = data.budget.absoluteCeiling || cap;
+  const remaining = cap - projected;
+  const overage = projected - cap;
+  const capRatio = Math.min(100, Math.max(0, (projected / cap) * 100));
 
-  const canvas = document.getElementById("budgetCanvas");
-  const ctx = canvas.getContext("2d");
-  const colors = ["#fc5c33", "#0f766e", "#1749db", "#f4b231", "#6d28d9", "#0284c7", "#64748b"];
-  const total = data.budget.categories.reduce((sum, item) => sum + item.amount, 0);
-  let start = -Math.PI / 2;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  data.budget.categories.forEach((item, index) => {
-    const angle = (item.amount / total) * Math.PI * 2;
-    ctx.beginPath();
-    ctx.moveTo(170, 130);
-    ctx.arc(170, 130, 105, start, start + angle);
-    ctx.closePath();
-    ctx.fillStyle = colors[index % colors.length];
-    ctx.fill();
-    start += angle;
-  });
-  ctx.beginPath();
-  ctx.arc(170, 130, 62, 0, Math.PI * 2);
-  ctx.fillStyle = "#ffffff";
-  ctx.fill();
-  ctx.fillStyle = "#161714";
-  ctx.font = "800 22px Manrope";
-  ctx.fillText(money(data.budget.projectedTotal), 120, 124);
-  ctx.font = "700 12px Manrope";
-  ctx.fillText(`of ${money(data.budget.cap)} target`, 122, 146);
+  document.getElementById("budgetSummary").innerHTML = `
+    <article class="budget-summary-card main">
+      <span class="budget-kicker">Budget status</span>
+      <strong class="budget-total">${money(projected)}</strong>
+      <p class="budget-copy">${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"} with ${money(ceiling)} set as the hard ceiling for the trip.</p>
+      <div class="budget-main-meter" aria-hidden="true">
+        <span style="width:${capRatio}%"></span>
+      </div>
+    </article>
+    <article class="budget-summary-card">
+      <span class="budget-kicker">Target cap</span>
+      <div class="budget-capline">
+        <strong>${money(cap)}</strong>
+        <p>Primary trip budget before airfare and hotels.</p>
+      </div>
+    </article>
+    <article class="budget-summary-card">
+      <span class="budget-kicker">${projected <= ceiling ? "Buffer left" : "Above ceiling"}</span>
+      <div class="budget-capline">
+        <strong>${money(Math.abs(ceiling - projected))}</strong>
+        <p>${projected <= ceiling ? "Remaining before the hard ceiling is hit." : "Trip spend now exceeds the hard ceiling."}</p>
+      </div>
+    </article>
+  `;
+
+  const colors = ["#fc5c33", "#0f766e", "#1749db", "#f4b231", "#7c3aed", "#0284c7", "#64748b"];
+  document.getElementById("budgetList").innerHTML = data.budget.categories.map((category, index) => {
+    const share = (category.amount / cap) * 100;
+    const normalized = Math.min(100, Math.max(6, share));
+    const color = colors[index % colors.length];
+    return `
+      <article class="budget-item" style="--budget-color:${color}">
+        <div class="budget-item-top">
+          <div>
+            <h3>${category.name}</h3>
+            <strong>${money(category.amount)}</strong>
+          </div>
+          <span class="budget-item-share">${Math.round(share)}%</span>
+        </div>
+        <div class="budget-gauge" aria-hidden="true">
+          <span class="budget-gauge-fill" style="width:${normalized}%"></span>
+        </div>
+        <div class="budget-meter-labels">
+          <span>Share of target</span>
+          <span>${usdMoney(category.amount)} of ${usdMoney(cap)}</span>
+        </div>
+        <p>${category.note}</p>
+      </article>
+    `;
+  }).join("");
 }
 
 function renderGuide(type = "reservations") {
