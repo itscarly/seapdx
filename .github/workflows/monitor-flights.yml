@@ -1,0 +1,76 @@
+name: Monitor flights
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run flight monitor
+        id: monitor
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FLIGHT_ALERT_EMAIL_TO: ${{ secrets.FLIGHT_ALERT_EMAIL_TO }}
+          FLIGHT_ALERT_FROM: ${{ secrets.FLIGHT_ALERT_FROM }}
+        run: |
+          npm run monitor:flights
+          cat research/flights/latest-summary.json
+          echo "changes=$(node -e "console.log(require('./research/flights/latest-summary.json').changes)")" >> "$GITHUB_OUTPUT"
+
+      - name: Upload flight monitor report
+        uses: actions/upload-artifact@v4
+        with:
+          name: flight-monitor-report
+          path: |
+            research/flights/latest-report.md
+            research/flights/latest-summary.json
+            data/flight-monitor-snapshot.json
+
+      - name: Commit flight monitor snapshot and report
+        if: always()
+        run: |
+          git config user.name "flight-monitor[bot]"
+          git config user.email "flight-monitor[bot]@users.noreply.github.com"
+          git add -f data/flight-monitor-snapshot.json research/flights/latest-report.md research/flights/latest-summary.json
+          if git diff --cached --quiet; then
+            echo "No flight monitor file changes to commit."
+          else
+            git commit -m "Update flight monitor report"
+            git push
+          fi
+
+      - name: Open issue when flight-source changes are detected
+        if: steps.monitor.outputs.changes != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = JSON.parse(fs.readFileSync('research/flights/latest-summary.json', 'utf8'));
+            const report = fs.readFileSync('research/flights/latest-report.md', 'utf8').slice(0, 60000);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Flight monitor found ${summary.changes} source changes`,
+              body: [
+                'The scheduled flight monitor detected one or more source changes.',
+                '',
+                'Review the report before assuming a delay, gate shift, or other flight-status change is actionable.',
+                '',
+                report
+              ].join('\n')
+            });

@@ -11,6 +11,9 @@
 - [x] Update sushi stops to AYCE-oriented plans, expand cocktail stops to two drinks plus one lighter food order, add Bainbridge food/souvenir details, and tighten coffee bean prices to current bag numbers.
 - [x] Redesign the visual layout so it feels more modern and young, uses screen width better, and still works locally and on Netlify.
 - [x] Replace the broken pie-chart budget section with a compact gauge-meter dashboard that shows the breakdown immediately.
+- [x] Expand the budget/dashboard section to use full desktop width, restore the guides heading to the left, and add a structured flight layer with separate airfare visibility.
+- [x] Add airport visuals and remove the external photo-source buttons from the trip moodboard.
+- [x] Add a 15-minute flight-monitor workflow with dashboard status visibility and email-ready alert support.
 
 ## Checklist
 
@@ -54,3 +57,7 @@
 - A second visual cleanup pass removed the oversized empty hero card, fixed the crowded heading feel, added motion and photo-driven location cards, and made PHP values refresh from a live exchange-rate feed.
 - A follow-up spacing pass tightened the navigation pill, reduced the hero's empty vertical area, and made the budget section read as a balanced two-column layout instead of a stretched chart card.
 - The budget section now drops the pie chart entirely in favor of a dashboard-style summary strip plus visible gauge meters, which removes the blank panel problem and keeps category breakdowns on screen immediately.
+- The next layout pass lets the budget section use the full desktop width, anchors the planning-guides heading back to the left, and adds separate airfare visibility so flights are visible without contaminating the `$800` activity budget.
+- The itinerary now carries structured flight journeys for the November 1 arrival, November 9 return, and the later February 27 booking screenshot, with airport leave-by guidance and status-watch links.
+- The moodboard keeps the images but removes the external Unsplash buttons, and airport visuals were added for ICN, SEA, PDX, DFW, and CRP.
+- Flight monitoring now has a dedicated workflow and script designed for 15-minute polling plus email-ready alerts when provider secrets are configured, while still honestly presenting the system as near-real-time polling rather than airline push infrastructure.

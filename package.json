@@ -7,7 +7,8 @@
     "serve": "python3 -m http.server 4173",
     "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js",
     "audit:budget": "node scripts/audit-budget.js",
-    "monitor:itinerary": "node scripts/monitor-itinerary.js"
+    "monitor:itinerary": "node scripts/monitor-itinerary.js",
+    "monitor:flights": "node scripts/monitor-flights.js"
   },
   "engines": {
     "node": ">=20"
