@@ -24,6 +24,7 @@ Follow-up:
 
 - Recheck November 2026 hours and exact happy-hour pricing for Saint John's, Poquitos, Nue, Stoup, Harbour Public House, and Bruciato closer to the trip.
 - If the Google Maps saved list changes again, compare against the current exclusions before adding more default spend.
+- Netlify production deploy is currently blocked by account credit usage exceeded; GitHub has the update, but the public site will remain stale until Netlify can deploy again.
 
 ## 2026-05-10 (Evening)
 
