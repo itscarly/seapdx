@@ -1,8 +1,8 @@
 # Flight Monitor Report
 
-Generated: 2026-05-11T04:22:00.894Z
+Generated: 2026-05-11T07:59:09.153Z
 Targets checked: 6
-Changes detected: 0
+Changes detected: 1
 Email attempted: no
 
 ## Notes
@@ -13,7 +13,10 @@ Email attempted: no
 
 ## Changes
 
-No changes detected compared with the previous snapshot.
+### page-change: Manila to Seattle via Incheon airport board
+- URL: https://www.portseattle.org/sea-tac/flight-status
+- Before: "9a2f3e7d7c9aae0ea3acaa3b95d6cc02bf588cec6ffb913afee7bf0f7858fb8a"
+- After: "775d8d64ab8cb64e36ccdb3da1d1ccbf1e5f8ccf9aef8c75b7795dcd512792d2"
 
 ## Current Source Signals
 
