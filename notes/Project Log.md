@@ -2,6 +2,29 @@
 
 This is the running log for project changes.
 
+## 2026-05-11
+
+### Seattle and Bainbridge saved-places rework
+
+- Reworked the Seattle default route around the shared Google Maps saved list and closer Capitol Hill/The Boylston Hotel stops.
+- Replaced the old Canon-heavy arrival plan with Tailwind Cafe, Saint John's, and Poquitos as the first-night Capitol Hill cluster.
+- Kept Pike Place and the waterfront as sightseeing, but moved more default food back to Capitol Hill with Victrola, Biang Biang Noodles, and Salt & Straw.
+- Rebuilt Bainbridge as an early ferry, Madison Diner breakfast, Waterfront Park & City Dock, Pegasus/Commuter Comforts coffee, Island Cool, and a Capitol Hill noodle/karaoke return.
+- Added saved-list alternates and skipped-place reasons for Nue, Stoup, Dave's Hot Chicken, Koko's, Dick's, Harbour Public House, Bruciato, Cups, Seasmith, Gearhouse, and Espresso Vivace SLU.
+- Updated the verified date, budget category notes, happy-hour guide, coffee guide, and source list. The projected activity total is now `$763`, leaving `$37` under the `$800` target.
+
+Files touched:
+
+- `data/trip-data.js`
+- `dashboards/html/index.html`
+- `notes/Project Log.md`
+- `tasks/todo.md`
+
+Follow-up:
+
+- Recheck November 2026 hours and exact happy-hour pricing for Saint John's, Poquitos, Nue, Stoup, Harbour Public House, and Bruciato closer to the trip.
+- If the Google Maps saved list changes again, compare against the current exclusions before adding more default spend.
+
 ## 2026-05-10 (Evening)
 
 ### Google Calendar integration: Seattle & Portland itinerary

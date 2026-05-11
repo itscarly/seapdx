@@ -15,6 +15,7 @@
 - [x] Add airport visuals and remove the external photo-source buttons from the trip moodboard.
 - [x] Add a 15-minute flight-monitor workflow with dashboard status visibility and email-ready alert support.
 - [x] Replace broken/misleading remote images with verified local assets and fix the future-flight blank-space layout.
+- [x] Rework Seattle and Bainbridge around the shared Google Maps saved list, with Capitol Hill clusters and Bainbridge breakfast routing.
 
 ## Checklist
 
@@ -63,3 +64,4 @@
 - The moodboard keeps the images but removes the external Unsplash buttons, and airport visuals were added for ICN, SEA, PDX, DFW, and CRP.
 - Flight monitoring now has a dedicated workflow and script designed for 15-minute polling plus email-ready alerts when provider secrets are configured, while still honestly presenting the system as near-real-time polling rather than airline push infrastructure.
 - The latest visual cleanup replaces hotlinked stock photos with local verified images, corrects Bainbridge to an actual ferry view, and makes the future booked flight block compact instead of leaving a large empty right column.
+- Seattle now prioritizes hotel-adjacent Capitol Hill saved places, Bainbridge now defaults to an early ferry plus Madison Diner/Waterfront Park/Pegasus-style morning loop, and the activity budget validates at $763.
