@@ -150,3 +150,10 @@ Follow-up:
 - Add new feature-specific notes when the project grows beyond the current overview notes.
 - Added folder-based note structure for features, sessions, ideas, and decisions.
 - Added example connected notes so the graph view has a clearer starting shape.
+# 2026-05-16
+
+- Reorganized the repository so the root focuses on source files rather than reference clutter.
+- Moved rule and checklist documents into `docs/rules/`.
+- Moved large visual review images into `docs/review-assets/`.
+- Archived the legacy root `TASKS.md` as `docs/archive/TASKS-legacy.md` and kept `tasks/todo.md` as the active task log.
+- Stopped tracking `.obsidian/workspace.json` because it is local editor state, not shared project content.

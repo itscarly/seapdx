@@ -26,6 +26,9 @@ This project is intentionally static-only, so the same files work:
 - `dashboards/css/styles.css` contains the responsive visual design.
 - `dashboards/js/app.js` renders tabs, cards, budget summaries, filters, and route links.
 - `itinerary/final/` and `research/` are reserved for future deeper research snapshots and exports.
+- `docs/rules/` holds the project operating rules, budget constraints, route rules, and QA guidance.
+- `docs/review-assets/` stores large visual review artifacts so the repo root stays focused on source files.
+- `tasks/todo.md` is the active work log; `docs/archive/TASKS-legacy.md` is retained only as historical context.
 
 ## Verification Note
 
@@ -38,6 +41,12 @@ See `docs/deployment.md` for public hosting options. Netlify is the recommended 
 ## Local Workflow
 
 See `docs/local-development.md` for the preferred local static-server workflow and path expectations.
+
+## Repository Hygiene
+
+- Treat iCloud or local files as the source of truth for large binaries, installers, and temporary exports.
+- Keep new screenshots, review renders, and visual comparison files under `docs/review-assets/` instead of the repo root.
+- Avoid committing `.obsidian/workspace.json`; it stores local window state rather than shared project content.
 
 ## Automation
 
