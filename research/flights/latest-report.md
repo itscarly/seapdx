@@ -1,8 +1,8 @@
 # Flight Monitor Report
 
-Generated: 2026-05-16T17:40:35.139Z
+Generated: 2026-05-16T18:38:29.031Z
 Targets checked: 6
-Changes detected: 1
+Changes detected: 0
 Email attempted: no
 
 ## Notes
@@ -13,10 +13,7 @@ Email attempted: no
 
 ## Changes
 
-### page-change: Manila to Seattle via Incheon status
-- URL: https://flyasiana.com/C/US/EN/index
-- Before: "f6be0136354d764b5e3b3c768476fd199ff8aa64d70a021b7e1856ce67f9b793"
-- After: "7b2fe1e603348e8e6ffd47442fd311733b373c2947ee6552bca4f32c59ebfb3e"
+No changes detected compared with the previous snapshot.
 
 ## Current Source Signals
 
