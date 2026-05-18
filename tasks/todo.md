@@ -1,5 +1,21 @@
 # Local + Public Access Plan
 
+## 2026-05-16 Shared Memory System
+
+- [x] Replace the older lightweight note structure with standardized active project memory notes.
+- [x] Add active, archive, and permanent memory layers under `notes/memory/`.
+- [x] Add a reusable post-task maintenance checklist for both Codex and Claude.
+- [x] Update `AGENTS.md` and `CLAUDE.md` so both agents follow the same reconciliation rules.
+- [x] Add a lightweight notes audit utility so the structure can be verified quickly.
+
+## 2026-05-15 Localhost Auto-Restart
+
+- [x] Add a health script that checks `http://127.0.0.1:4173/`.
+- [x] Start the same static preview used by `npm run serve` automatically when localhost is down.
+- [x] Add a macOS LaunchAgent setup file for repeated local checks.
+- [x] Add a Hookify stop-rule reminder for future localhost verification.
+- [x] Document install, check, and disable steps.
+
 ## 2026-05-09 Food Rework
 
 - [x] Replace at least two higher-cost default meals with cheaper Seattle and Portland stops.

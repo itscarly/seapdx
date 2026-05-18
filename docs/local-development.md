@@ -26,6 +26,40 @@ What to expect:
 - the root entry redirects to `dashboards/html/index.html`
 - CSS, JavaScript, and `data/trip-data.js` load through the same relative paths used in production
 
+## Keep Localhost Online Automatically
+
+This project includes a local health check for this Mac. It checks `http://127.0.0.1:4173/` and starts the same static preview used by `npm run serve` if the local preview is down.
+
+To turn it on:
+
+```sh
+/Users/kicker/Downloads/codexproject/scripts/install-localhost-launchagent.sh
+```
+
+After that, macOS checks the local preview at login and about every two minutes.
+The installer copies a small helper to `~/Library/Application Support/codexproject-localhost/` because macOS background jobs should not run directly from `Downloads`.
+
+Useful checks:
+
+```sh
+/Users/kicker/Downloads/codexproject/scripts/ensure-localhost.sh
+open http://localhost:4173/
+tail -n 20 /Users/kicker/Downloads/codexproject/logs/localhost-health.log
+```
+
+To turn it off:
+
+```sh
+launchctl bootout "gui/$(id -u)" "$HOME/Library/LaunchAgents/com.kicker.codexproject.localhost.plist"
+```
+
+Then remove the copied LaunchAgent file if you no longer want it:
+
+```sh
+rm "$HOME/Library/LaunchAgents/com.kicker.codexproject.localhost.plist"
+rm -rf "$HOME/Library/Application Support/codexproject-localhost"
+```
+
 ## Using `localserv`
 
 If you prefer `localserv` or another static host, point it at the project root, not the `dashboards/` folder.

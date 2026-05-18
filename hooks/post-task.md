@@ -1,0 +1,33 @@
+# Post-Task Maintenance Hook
+
+Use this after every meaningful completed task in this project.
+
+## Required check
+
+- What changed in the code, data, workflow, or automation?
+- Which standardized notes are now stale?
+- Does any old note need rewriting or archiving?
+
+## Required updates
+
+- Update `notes/Project Log.md`
+- Update only the relevant active notes:
+  - `notes/PROJECT_CONTEXT.md`
+  - `notes/ARCHITECTURE.md`
+  - `notes/DECISIONS.md`
+  - `notes/CHANGELOG.md`
+  - `notes/TASKS.md`
+  - `notes/LEARNINGS.md`
+  - `notes/KNOWN_ISSUES.md`
+  - `notes/MAINTENANCE.md`
+
+## Safety rules
+
+- archive before destructive cleanup
+- do not rewrite architecture notes without verified evidence
+- do not delete unresolved issues automatically
+- do not append duplicate notes when a rewrite is cleaner
+
+## Success condition
+
+The active notes should describe the current verified state of the project without obvious duplicates or stale instructions.

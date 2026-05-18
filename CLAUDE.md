@@ -2,21 +2,92 @@
 
 This file provides project-specific guidance to Claude Code for `codexproject`.
 
-## Obsidian Notes Workflow
+## Shared Memory System
 
-- This project uses Obsidian notes stored in `notes/`.
-- Treat note maintenance as part of the definition of done for meaningful project changes.
-- After creating, changing, or removing project content, also update the relevant notes in `notes/` during the same session.
-- Always update `notes/Project Log.md` with a dated summary of what changed, what files were affected, and any follow-up items.
-- If the work introduces a new feature, workflow, decision, or operating rule that does not fit an existing note, create a new note in `notes/` and link it from `notes/Home.md`.
-- Prefer plain-language notes written for a non-technical reader.
-- If a change is too small to justify a new note, still add it to `notes/Project Log.md`.
+This project uses one shared note system for Claude Code, Codex, and Obsidian.
 
-## Preferred Note Structure
+The notes live in `notes/`.
 
-- `notes/Home.md`
+Treat note maintenance as part of the definition of done for meaningful completed work.
+
+## Standard Active Notes
+
+Keep these files as the main clean project memory:
+
+- `notes/PROJECT_CONTEXT.md`
+- `notes/ARCHITECTURE.md`
+- `notes/DECISIONS.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/MAINTENANCE.md`
 - `notes/Project Log.md`
-- `notes/Features/`
-- `notes/Sessions/`
-- `notes/Ideas/`
-- `notes/Decisions/`
+
+## Reconciliation Rule
+
+Do not treat project memory as append-only.
+
+After meaningful completed work:
+
+- update only the notes affected by the change
+- rewrite stale guidance when needed
+- deduplicate instead of stacking similar notes
+- archive outdated context before deleting important history
+
+## Memory Layers
+
+- `notes/memory/active/` for current live guidance
+- `notes/memory/archive/` for superseded but useful history
+- `notes/memory/permanent/` for stable long-term patterns
+
+## Confidence Rules
+
+- Do not rewrite architecture notes unless code or runtime structure was verified to change.
+- Do not rewrite decisions unless the choice is real and durable.
+- If confidence is low, leave a short follow-up note instead of inventing a clean story.
+
+## Post-Task Maintenance
+
+After meaningful completed work:
+
+- update `notes/Project Log.md`
+- update the relevant standardized notes
+- check whether any active note is now stale or conflicting
+- use `hooks/post-task.md` as the maintenance checklist
+
+## Obsidian Use
+
+Obsidian should open `notes/Home.md` and treat the standardized note set as the main project map.
+
+Prefer plain-language notes written for a non-technical reader.
+
+## Token Discipline And Plan-First Default
+
+- Default to compressed, high-signal communication and avoid low-value filler.
+- Prefer caveman-style brevity by default for internal reasoning, status updates, and short user-facing replies when clarity survives.
+- Keep final user-facing answers plain-language and readable.
+- For non-trivial work, start with a short plan even if the app is not formally in Plan mode.
+- If scope expands or assumptions break, stop and re-plan instead of continuing with stale context.
+
+## Post-Work Cleanup Default
+
+- After meaningful work, always run a short cleanup pass before calling the task done.
+- Update the relevant notes, task files, handoff text, and instruction files touched by the change.
+- Remove or rewrite stale lines when a newer verified state exists. Do not leave conflicting instructions behind.
+- Record root cause, what changed, and the prevention rule when a fix involved drift, confusion, or a repeated mistake.
+- End each meaningful session with a short handoff note in `notes/Project Log.md` or another active note.
+
+## Long Chat And Screenshot Default
+
+- If a chat becomes long, noisy, or token-heavy, stop and recommend starting a new chat instead of dragging stale context forward.
+- Before switching chats, write a short handoff summary in `notes/Project Log.md` or another relevant active note.
+- Do not take screenshots by default.
+- Prefer text inspection, file inspection, DOM inspection, logs, links, and concise user descriptions before using screenshots.
+- Only use screenshots when the user explicitly wants them or when the issue is genuinely visual and cannot be understood well enough another way.
+- If the user is struggling to describe something visual, ask for:
+  - the page or file path
+  - the exact text they see
+  - what looks wrong
+  - what they expected instead
+  instead of jumping straight to screenshots.

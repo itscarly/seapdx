@@ -6,7 +6,13 @@
     <meta name="theme-color" content="#f4f6f3">
     <title>Seattle + Portland Travel Dashboard</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css?v=2026-05-11-saved-places">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-05-16-trip-atlas">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    >
   </head>
   <body>
     <header class="hero">
@@ -131,8 +137,9 @@
       <section id="maps" class="section">
         <div class="section-heading">
           <p class="eyebrow">Maps and transit</p>
-          <h2>Transit-first route references</h2>
+          <h2>Trip atlas, route spacing, and transit references</h2>
         </div>
+        <div id="tripAtlas" class="trip-atlas"></div>
         <div id="transitCards" class="transit-grid"></div>
       </section>
 
@@ -273,7 +280,12 @@
       </form>
     </dialog>
 
-    <script src="../../data/trip-data.js?v=2026-05-11-saved-places"></script>
-    <script src="../js/app.js?v=2026-05-11-saved-places"></script>
+    <script src="../../data/trip-data.js?v=2026-05-16-trip-atlas"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="../js/app.js?v=2026-05-16-trip-atlas"></script>
   </body>
 </html>
