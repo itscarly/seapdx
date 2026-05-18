@@ -82,6 +82,104 @@ const DAY_VISUALS = {
   "day-9": TRIP_VISUALS[3]
 };
 
+const TRIP_MAP_CONFIG = {
+  seattle: {
+    scope: "Seattle + Bainbridge",
+    mapId: "seattleTripMap",
+    summaryId: "seattleTripSummary",
+    center: [47.6145, -122.3368],
+    zoom: 12,
+    boundsPadding: [22, 22],
+    dayIds: ["day-1", "day-2", "day-3", "day-4"],
+    bounds: {
+      minLat: 47.44,
+      maxLat: 47.7,
+      minLng: -122.56,
+      maxLng: -122.27
+    },
+    colors: {
+      "day-1": "#fc5c33",
+      "day-2": "#1749db",
+      "day-3": "#0f766e",
+      "day-4": "#f4b231"
+    }
+  },
+  portland: {
+    scope: "Portland",
+    mapId: "portlandTripMap",
+    summaryId: "portlandTripSummary",
+    center: [45.5211, -122.6765],
+    zoom: 12,
+    boundsPadding: [22, 22],
+    dayIds: ["day-5", "day-6", "day-7", "day-8", "day-9"],
+    bounds: {
+      minLat: 45.34,
+      maxLat: 45.61,
+      minLng: -122.75,
+      maxLng: -122.55
+    },
+    colors: {
+      "day-5": "#fc5c33",
+      "day-6": "#0f766e",
+      "day-7": "#1749db",
+      "day-8": "#7c3aed",
+      "day-9": "#f4b231"
+    }
+  }
+};
+
+const STOP_COORDINATES = {
+  "Arrive SEA, Link light rail to Capitol Hill": { lat: 47.4502, lng: -122.3088, label: "SEA Airport" },
+  "Check in at The Boylston Hotel Capitol Hill": { lat: 47.6158, lng: -122.3206, label: "The Boylston Hotel" },
+  "Tailwind Cafe at Good Weather": { lat: 47.618, lng: -122.3209, label: "Tailwind Cafe" },
+  "Saint John's Bar and Eatery": { lat: 47.6154, lng: -122.3168, label: "Saint John's" },
+  "Poquitos Capitol Hill": { lat: 47.6162, lng: -122.3201, label: "Poquitos" },
+  "Victrola Coffee Roasters - Capitol Hill": { lat: 47.6185, lng: -122.3212, label: "Victrola" },
+  "Pike Place Market light grazing route": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
+  "Seattle Waterfront + Olympic Sculpture Park": { lat: 47.6159, lng: -122.3554, label: "Olympic Sculpture Park" },
+  "Seattle Starbucks city mug + Pike Place magnet stop": { lat: 47.6101, lng: -122.3426, label: "Seattle Starbucks + souvenirs" },
+  "Columbia Center Sky View Observatory": { lat: 47.6042, lng: -122.3305, label: "Sky View Observatory" },
+  "Biang Biang Noodles - Capitol Hill": { lat: 47.6177, lng: -122.3204, label: "Biang Biang" },
+  "Salt & Straw Capitol Hill": { lat: 47.6147, lng: -122.3184, label: "Salt & Straw" },
+  "Walk/transit to Seattle Ferry Terminal": { lat: 47.6027, lng: -122.3381, label: "Seattle Ferry Terminal" },
+  "Bainbridge ferry fare + Winslow arrival": { lat: 47.6237, lng: -122.5097, label: "Bainbridge ferry terminal" },
+  "Madison Diner breakfast": { lat: 47.6245, lng: -122.5205, label: "Madison Diner" },
+  "Waterfront Park & City Dock": { lat: 47.6257, lng: -122.5218, label: "Waterfront Park & City Dock" },
+  "Pegasus Coffee House or Commuter Comforts": { lat: 47.6268, lng: -122.5201, label: "Pegasus Coffee House" },
+  "Island Cool Ice Cream": { lat: 47.626, lng: -122.5195, label: "Island Cool" },
+  "Menya Musashi or Kajiken Capitol Hill dinner": { lat: 47.6171, lng: -122.3169, label: "Kajiken / Menya area" },
+  "Rock Box karaoke": { lat: 47.614, lng: -122.318, label: "Rock Box" },
+  "Glo's Capitol Hill breakfast": { lat: 47.6157, lng: -122.3192, label: "Glo's" },
+  "Phê Vietnamese coffee or Victrola backup": { lat: 47.6118, lng: -122.3172, label: "Phê" },
+  "Walgreens Pharmacy Capitol Hill": { lat: 47.6159, lng: -122.3201, label: "Walgreens Broadway" },
+  "Check in at Hotel Vance": { lat: 45.5152, lng: -122.6828, label: "Hotel Vance" },
+  "Powell's City of Books + Life of Pie NW": { lat: 45.5231, lng: -122.6818, label: "Powell's / Pearl start" },
+  "Vance + Vine breakfast or Stumptown Downtown breakfast": { lat: 45.5152, lng: -122.6828, label: "Hotel Vance / Downtown breakfast" },
+  "Washington Park + Portland Japanese Garden": { lat: 45.5186, lng: -122.7081, label: "Portland Japanese Garden" },
+  "Tasty Corner PDX lunch": { lat: 45.5114, lng: -122.6837, label: "Tasty Corner" },
+  "Powell's City of Books + Hello From Portland": { lat: 45.5232, lng: -122.6816, label: "Powell's / Hello From Portland" },
+  "Life of Pie, Powell's-area fallback, or simple downtown dinner": { lat: 45.5297, lng: -122.698, label: "Life of Pie NW" },
+  "Coava Coffee Roasters Flagship": { lat: 45.5176, lng: -122.6554, label: "Coava Flagship" },
+  "Central Eastside walk: Deadstock / Smith Teamaker / waterfront crossing": { lat: 45.5221, lng: -122.6586, label: "Central Eastside walk" },
+  "Hat Yai": { lat: 45.5169, lng: -122.6524, label: "Hat Yai Belmont" },
+  "Belmont / Mississippi browse + Nate's Oatmeal Cookies": { lat: 45.548, lng: -122.6751, label: "Mississippi / Nate's" },
+  "Stumptown Downtown": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
+  "Portland Saturday Market + Waterfront Park": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
+  "Eem": { lat: 45.5417, lng: -122.6661, label: "Eem" },
+  "Novel Book Bar": { lat: 45.5259, lng: -122.6743, label: "Novel Book Bar" },
+  "Tope or rooftop backup near downtown": { lat: 45.5185, lng: -122.6767, label: "Tope" },
+  "Heart Coffee or Good Coffee": { lat: 45.5354, lng: -122.6988, label: "Heart Coffee" },
+  "Alberta Arts / Mississippi backup loop": { lat: 45.5592, lng: -122.6432, label: "Alberta Arts" },
+  "Screen Door, Gabbiano's, or Cubo de Cuba value lunch": { lat: 45.5279, lng: -122.6981, label: "Screen Door Pearl" },
+  "Sumo Sushi & Grill AYCE Oregon City dinner detour": { lat: 45.3577, lng: -122.6072, label: "Sumo AYCE Oregon City" },
+  "Big Legrowlski open jam social night": { lat: 45.511, lng: -122.6146, label: "Big Legrowlski" },
+  "Check out of Hotel Vance": { lat: 45.5152, lng: -122.6828, label: "Hotel Vance" },
+  "Hotel Vance to PDX": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" },
+  "Airport coffee/snack buffer": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" }
+};
+
+const mapRegistry = {};
+
 const baseData = cloneData(window.TRIP_DATA);
 assignStopUids(baseData);
 
@@ -907,6 +1005,8 @@ function initTabs() {
 }
 
 function renderTransitAndSources() {
+  renderTripAtlas();
+
   document.getElementById("transitCards").innerHTML = data.transit.map((item, index) => `
     <article class="transit-card" data-reveal style="transition-delay:${index * 25}ms">
       <span class="badge">${item.city}</span>
@@ -923,6 +1023,203 @@ function renderTransitAndSources() {
       <a href="${source.url}" target="_blank" rel="noreferrer">${source.url}</a>
     </article>
   `).join("");
+}
+
+function renderTripAtlas() {
+  const atlas = document.getElementById("tripAtlas");
+  if (!atlas) return;
+
+  atlas.innerHTML = `
+    <article class="atlas-card" data-reveal>
+      <div class="atlas-head">
+        <div>
+          <span class="badge">Seattle + Bainbridge</span>
+          <h3>Hotel-to-ferry-to-Capitol Hill flow</h3>
+          <p>Shows how tight the Capitol Hill cluster is, where the Bainbridge day breaks out, and which Seattle moves are still walk-first.</p>
+        </div>
+        <div id="${TRIP_MAP_CONFIG.seattle.summaryId}" class="atlas-summary"></div>
+      </div>
+      <div id="${TRIP_MAP_CONFIG.seattle.mapId}" class="atlas-map" aria-label="Seattle and Bainbridge itinerary map"></div>
+    </article>
+    <article class="atlas-card" data-reveal>
+      <div class="atlas-head">
+        <div>
+          <span class="badge">Portland</span>
+          <h3>Hotel Vance base, eastside swings, airport departure</h3>
+          <p>Shows what stays close to the hotel, where you start needing transit, and how far the outer detours really push the route.</p>
+        </div>
+        <div id="${TRIP_MAP_CONFIG.portland.summaryId}" class="atlas-summary"></div>
+      </div>
+      <div id="${TRIP_MAP_CONFIG.portland.mapId}" class="atlas-map" aria-label="Portland itinerary map"></div>
+    </article>
+  `;
+
+  renderCityAtlas("seattle");
+  renderCityAtlas("portland");
+  initReveal();
+}
+
+function renderCityAtlas(scopeKey) {
+  if (typeof window.L === "undefined") return;
+  const config = TRIP_MAP_CONFIG[scopeKey];
+  const container = document.getElementById(config.mapId);
+  const summary = document.getElementById(config.summaryId);
+  if (!container || !summary) return;
+
+  if (mapRegistry[scopeKey]) {
+    mapRegistry[scopeKey].remove();
+  }
+
+  const map = window.L.map(container, {
+    zoomControl: true,
+    scrollWheelZoom: false
+  }).setView(config.center, config.zoom);
+
+  mapRegistry[scopeKey] = map;
+
+  window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap"
+  }).addTo(map);
+
+  const routeDays = config.dayIds
+    .map((dayId) => data.itinerary.find((day) => day.id === dayId))
+    .filter(Boolean)
+    .map((day) => buildRouteDay(day, config));
+
+  const visiblePoints = [];
+  const seenMarkers = new Set();
+
+  routeDays.forEach((routeDay) => {
+    if (routeDay.points.length >= 2) {
+      const polyline = window.L.polyline(routeDay.points.map((point) => [point.lat, point.lng]), {
+        color: routeDay.color,
+        weight: 5,
+        opacity: 0.9
+      }).addTo(map);
+      polyline.bindPopup(`
+        <strong>${routeDay.day.date}: ${routeDay.day.title}</strong><br>
+        ${routeDay.points.length} mapped stops<br>
+        Approx route distance: ${routeDay.distanceMiles.toFixed(1)} mi<br>
+        ${routeDay.walkability}
+      `);
+    }
+
+    routeDay.points.forEach((point, index) => {
+      const markerKey = `${point.name}-${point.lat}-${point.lng}`;
+      visiblePoints.push([point.lat, point.lng]);
+      if (seenMarkers.has(markerKey)) return;
+      seenMarkers.add(markerKey);
+      const marker = window.L.circleMarker([point.lat, point.lng], {
+        radius: point.type === "hotel" ? 8 : 6,
+        color: routeDay.color,
+        weight: 2,
+        fillColor: "#ffffff",
+        fillOpacity: 0.95
+      }).addTo(map);
+      marker.bindPopup(`
+        <strong>${point.name}</strong><br>
+        ${point.label || point.name}<br>
+        ${point.dayDate}: ${point.dayTitle}<br>
+        ${point.type ? `Type: ${labelize(point.type)}` : ""}
+      `);
+      if (index === 0) {
+        marker.bindTooltip(routeDay.day.id === "day-3" ? "Bainbridge start" : "Route anchor", { direction: "top" });
+      }
+    });
+  });
+
+  if (visiblePoints.length) {
+    map.fitBounds(visiblePoints, { padding: config.boundsPadding });
+  }
+
+  summary.innerHTML = routeDays.map((routeDay) => `
+    <button class="atlas-day-pill" type="button" data-map-scope="${scopeKey}" data-map-day="${routeDay.day.id}" style="--atlas-color:${routeDay.color}">
+      <span>${routeDay.day.date}</span>
+      <strong>${routeDay.distanceMiles.toFixed(1)} mi</strong>
+      <em>${routeDay.walkability}</em>
+    </button>
+  `).join("");
+
+  summary.querySelectorAll("[data-map-day]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const routeDay = routeDays.find((item) => item.day.id === button.dataset.mapDay);
+      if (!routeDay || !routeDay.points.length) return;
+      map.fitBounds(routeDay.points.map((point) => [point.lat, point.lng]), { padding: [28, 28] });
+    });
+  });
+}
+
+function buildRouteDay(day, config) {
+  const points = [];
+  day.segments.forEach((segment) => {
+    segment.items.forEach((stop) => {
+      const coordinate = STOP_COORDINATES[stop.name];
+      if (!coordinate) return;
+      if (!coordinateInScope(coordinate, config.bounds)) return;
+      const previous = points[points.length - 1];
+      if (previous && previous.name === stop.name) return;
+      points.push({
+        ...coordinate,
+        name: stop.name,
+        type: stop.type,
+        dayDate: day.date,
+        dayTitle: day.title
+      });
+    });
+  });
+
+  const distanceMiles = calculateRouteMiles(points);
+  return {
+    day,
+    color: config.colors[day.id] || "#1749db",
+    points,
+    distanceMiles,
+    walkability: describeWalkability(points, distanceMiles)
+  };
+}
+
+function coordinateInScope(coordinate, bounds) {
+  if (!bounds) return true;
+  return coordinate.lat >= bounds.minLat
+    && coordinate.lat <= bounds.maxLat
+    && coordinate.lng >= bounds.minLng
+    && coordinate.lng <= bounds.maxLng;
+}
+
+function calculateRouteMiles(points) {
+  let distance = 0;
+  for (let index = 1; index < points.length; index += 1) {
+    distance += haversineMiles(points[index - 1], points[index]);
+  }
+  return distance;
+}
+
+function describeWalkability(points, totalMiles) {
+  if (points.length < 2) return "Single-anchor day";
+  let walkableSegments = 0;
+  let longSegments = 0;
+  for (let index = 1; index < points.length; index += 1) {
+    const legMiles = haversineMiles(points[index - 1], points[index]);
+    if (legMiles <= 1.2) walkableSegments += 1;
+    if (legMiles >= 3) longSegments += 1;
+  }
+  const totalSegments = points.length - 1;
+  if (walkableSegments / totalSegments >= 0.6 && longSegments === 0) return "Mostly walkable";
+  if (longSegments >= 2 || totalMiles >= 12) return "Transit-heavy";
+  return "Mixed walk + transit";
+}
+
+function haversineMiles(a, b) {
+  const toRadians = (value) => value * (Math.PI / 180);
+  const earthRadiusMiles = 3958.8;
+  const latDelta = toRadians(b.lat - a.lat);
+  const lngDelta = toRadians(b.lng - a.lng);
+  const lat1 = toRadians(a.lat);
+  const lat2 = toRadians(b.lat);
+  const haversine = Math.sin(latDelta / 2) ** 2
+    + Math.cos(lat1) * Math.cos(lat2) * Math.sin(lngDelta / 2) ** 2;
+  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(haversine));
 }
 
 function escapeAttribute(value) {

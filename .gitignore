@@ -2,6 +2,7 @@
 Icon?
 node_modules/
 .obsidian/workspace.json
+logs/
 research/pricing/latest-report.md
 research/pricing/latest-summary.json
 data/monitor-snapshot.json

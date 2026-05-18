@@ -1,34 +1,36 @@
 # Project Notes Home
 
-This is the notes home for the `codexproject` vault.
+This vault is the clean working memory for `codexproject`.
 
-## Main notes
+## Start here
 
+- [[PROJECT_CONTEXT]]
+- [[ARCHITECTURE]]
+- [[DECISIONS]]
+- [[TASKS]]
+- [[CHANGELOG]]
+- [[LEARNINGS]]
+- [[KNOWN_ISSUES]]
+- [[MAINTENANCE]]
 - [[Project Log]]
-- [[Project Overview]]
-- [[Workflows]]
-- [[Decisions]]
 
-## Folders
+## Memory folders
+
+- [[memory/active/README|Active memory]]
+- [[memory/archive/README|Archived memory]]
+- [[memory/permanent/README|Permanent memory]]
+
+## Supporting folders
 
 - [[Features/README|Features]]
 - [[Sessions/README|Sessions]]
 - [[Ideas/README|Ideas]]
-- [[Decisions/README|Decision Folder]]
 
-## How this works
+## Legacy notes
 
-- Use `Project Log` as the running history of work.
-- Use separate notes when something deserves its own page.
-- Link notes with `[[double brackets]]` so they show up in Obsidian's graph view.
+- [[Project Overview]]
+- [[Workflows]]
+- [[Decisions]]
+- [[Welcome]]
 
-## Example connected notes
-
-- [[Features/Interactive Itinerary Editor]]
-- [[Sessions/2026-05-06 Obsidian Notes Setup]]
-
-## Good prompts for Codex
-
-- "Update the project notes after today's changes"
-- "Create a note for this new feature"
-- "Summarize the latest project work in plain language"
+These older notes stay available for history and transition, but the standardized files above are now the main system.

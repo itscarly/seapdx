@@ -1,11 +1,35 @@
 # Decisions
 
-## Obsidian vault structure
+## Active decisions
 
-- Decision: use `notes/` as the Obsidian vault instead of the whole project folder.
-- Why: this keeps Obsidian clean while still letting Codex work with both notes and project files.
+### Notes live in `notes/`
 
-## Note update rule
+- Status: active
+- Why: keeps Obsidian focused while letting Codex and Claude work in the repo normally
 
-- Decision: meaningful project changes should also update the notes in the same work session.
-- Why: this keeps the running log current without needing repeated reminders.
+### Notes are updated after meaningful completed work
+
+- Status: active
+- Why: prevents project context from drifting between sessions
+
+### `data/trip-data.js` is the itinerary source of truth
+
+- Status: active
+- Why: the site, budget, trip assumptions, and route logic all depend on one central data file
+
+### Documentation cleanup should be conservative
+
+- Status: active
+- Why: stale notes should be rewritten or archived carefully, not deleted blindly
+
+### Shared agent memory should use active, archive, and permanent layers
+
+- Status: active
+- Why: prevents short-term task noise from polluting long-term project memory
+
+## Archived decision handling
+
+If a decision stops being true:
+
+- move it to `notes/memory/archive/`
+- keep a short replacement note in this file if the project still needs the history
