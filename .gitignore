@@ -7,3 +7,7 @@ research/pricing/latest-report.md
 research/pricing/latest-summary.json
 data/monitor-snapshot.json
 .playwright-mcp/
+.claude/
+.netlify/
+automation/*.plist
+*.png
