@@ -4,6 +4,22 @@ This is the running log for project changes.
 
 ## 2026-05-17
 
+### GitHub Pages fallback added
+
+- Added a GitHub Pages deployment workflow so the static trip site still has a free public-hosting path when Netlify cannot deploy.
+- Kept the workflow simple: validate first, then publish a filtered static artifact from the project root.
+- Documented the expected Pages URL and workflow path in the deployment notes so future sessions can fall back quickly without rebuilding the site for another host.
+
+Files touched:
+
+- `.github/workflows/deploy-pages.yml`
+- `docs/deployment.md`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- After the workflow runs on GitHub, confirm the public site resolves at `https://limcarl83-maker.github.io/my_projects/`.
+
 ### Global cleanup and handoff defaults tightened
 
 - Tightened the shared Codex and Claude defaults so meaningful work now explicitly includes a post-work cleanup pass, stale-line removal, root-cause capture, prevention-rule capture, and a short next-session handoff note.
