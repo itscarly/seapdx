@@ -6,6 +6,7 @@ The dashboard is a static site: HTML, CSS, JavaScript, and data files. The same 
 
 - Local use: serve the project root with a static server or `localserv`.
 - Public use: deploy the same project root to Netlify.
+- Backup public use: deploy the same project root to GitHub Pages.
 - Shared contract: `/` must resolve to the dashboard entry, and relative asset paths must stay unchanged.
 
 For the local workflow, see `docs/local-development.md`.
@@ -59,6 +60,24 @@ Why this fits:
 - GitHub Actions can run scheduled checks and publish changes.
 
 Official docs: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+
+### GitHub Pages fallback in this repo
+
+This repo now includes a direct GitHub Pages workflow:
+
+- Workflow file: `.github/workflows/deploy-pages.yml`
+- Trigger: pushes to `main` or manual run
+- Publish style: upload the static project root as an artifact after validation
+
+Expected public URL:
+
+- `https://limcarl83-maker.github.io/my_projects/`
+
+Why this workflow exists:
+
+- Netlify can be blocked by account-credit limits.
+- This project does not need a backend or build system to publish.
+- The workflow excludes local-only clutter like logs, screenshots, editor state, and app-specific folders before publishing.
 
 ## Good Option: Vercel
 
