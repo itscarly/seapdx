@@ -2,6 +2,24 @@
 
 This is the running log for project changes.
 
+## 2026-05-18
+
+### Scheduled Seattle-Portland review: minor current-source refresh only
+
+- Rechecked core transit, hours, coffee, and cocktail assumptions against current official or primary public pages.
+- Updated `data/trip-data.js` where current sources actually drifted: Tailwind now shows `Tue-Sun 9 AM-7 PM`, `Mon closed`, a posted `5 PM-7 PM` happy hour, and a tip-free policy; Heart's current `Phono` bean reference is now `$15.50` while Stumptown `Holler Mountain` remains `$20`.
+- Confirmed the currently modeled Seattle Streetcar fare, TriMet fare/day cap, Seattle-to-Bainbridge ferry fare structure, Glo's hours, Victrola hours, Portland Japanese Garden admission, Stumptown Downtown hours, Coava Flagship hours, Big Legrowlski open-jam timing, and the Amtrak Cascades `12:10 PM` Seattle departure / `3:35 PM` Portland arrival assumption still match the live planning model closely enough.
+- No material budget or routing change came out of this pass, so the projected total remains `$820` and no summary email was sent.
+
+Files touched:
+
+- `data/trip-data.js`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- Recheck November-specific business hours again closer to the trip, especially any Sunday or holiday edge cases that are not yet season-specific.
+
 ## 2026-05-17
 
 ### GitHub Pages fallback added
@@ -463,6 +481,44 @@ Follow-up:
 
 ## 2026-05-17
 
+### Full note and workflow reconciliation pass
+
+- Rechecked the active notes, deployment guide, scratch task files, and repo instruction files after the itinerary, calendar, and public-hosting changes.
+- Rewrote stale Netlify-first wording so the project now clearly treats GitHub Pages as the working public fallback and Netlify as optional or potentially blocked by account-credit limits.
+- Rewrote the active notes so they reflect the exact-itinerary rule: no vague active `or` blocks, explicit travel legs, and explicit hotel departure or return behavior when the schedule needs it.
+- Added a stronger cleanup rule to both agent instruction files: if a change touches hosting, workflow rules, or the source-of-truth itinerary file, do a wider stale-state pass across docs and scratch task files before stopping.
+- Added `tasks/lessons.md` so the root-cause and prevention pattern now lives in the repo instead of only in chat.
+
+Files touched:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `docs/deployment.md`
+- `docs/SETUP_SHARED_CODEX_CLAUDE_OBSIDIAN.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/ARCHITECTURE.md`
+- `notes/DECISIONS.md`
+- `notes/CHANGELOG.md`
+- `notes/LEARNINGS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/TASKS.md`
+- `notes/Project Log.md`
+- `tasks/todo.md`
+- `tasks/lessons.md`
+
+Root cause:
+
+- The earlier passes updated implementation and some notes, but not every active workflow and deployment note that still described the older project state.
+
+Prevention:
+
+- After meaningful changes, do not stop at `Project Log` only.
+- If the change touches hosting, workflow rules, or `data/trip-data.js`, run a wider stale-state pass across active notes, deployment docs, task scratch files, and repo instruction files.
+
+Handoff:
+
+- Next run: if the itinerary or calendar changes again, update `data/trip-data.js`, the shared calendar, the active notes, and `docs/deployment.md` together so the project does not split into two states.
+
 ### AGENTS workflow refresh
 
 - Updated `AGENTS.md` with the verified localhost self-healing workflow from `docs/local-development.md`.
@@ -496,3 +552,43 @@ Follow-up:
 
 - Keep the existing day-of checks for the AA and Asiana flight-status pages because live flight-status detail is still closer-to-departure rather than months ahead.
 - Keep the existing Portland airport buffer because PDX still warns that some terminal walks are longer during construction even when checkpoint waits are reasonable.
+
+## 2026-05-18
+
+### Verification sources date made dynamic
+
+- Removed the stale hardcoded `Checked on May 11, 2026` heading from the verification-sources section and made the dashboard read its verification timing from `data/trip-data.js` instead.
+- Added a structured `verificationSummary` block to the trip data so the page can show one overall `Last verified` date plus compact watch summaries for the pre-trip and travel-week flight/transit checks.
+- Updated the dashboard renderer so future watch runs only need to refresh data values; the HTML section can no longer drift on its own from the latest checked date.
+- Added `scripts/update-verification-summary.js` plus `npm run update:verification` so future pre-trip and travel-week watch runs can update the dashboard verification cards and `meta.verifiedOn` through one stable helper instead of patching the data file by hand.
+
+Files touched:
+
+- `data/trip-data.js`
+- `dashboards/html/index.html`
+- `dashboards/js/app.js`
+- `dashboards/css/styles.css`
+- `scripts/update-verification-summary.js`
+- `package.json`
+- `automation/flight-monitoring-workflow.md`
+- `notes/Project Log.md`
+
+### Travel-week flight and transit watch
+
+- Rechecked the booked flight-status portals, SEA and PDX airport guidance, Amtrak Cascades timing, Washington State Ferries fare and service pages, Sound Transit Link alerts, and TriMet fare/service pages.
+- Found no material travel-week updates to hard-code into `data/trip-data.js`: the Bainbridge walk-on fare is still `$11.35` before the card surcharge, TriMet adult fare/day cap is still `$2.80`/`$5.60`, and Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle to `3:35 PM` Portland transfer block.
+- Current active transit notices remain day-of monitoring items rather than November itinerary rewrites, and the existing airport buffers still remain conservative enough even though PDX's official site now says its permanent shorter exit lanes are open.
+
+Files touched:
+
+- `notes/Project Log.md`
+
+### Pre-trip flight and transit watch: no material updates
+
+- Rechecked the official watch points on May 18, 2026: the Asiana and American Airlines flight-status portals, SEA departure guidance, PDX departure guidance, the current Amtrak Cascades timetable, Washington State Ferries fares and alerts, Sound Transit Link alerts, and TriMet Red Line fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js`. SEA still advises arriving two hours before domestic departures and three hours before international departures, PDX still advises about two hours before domestic departures during busy periods and two-and-a-half hours before international departures, the Seattle-to-Bainbridge adult walk-on fare is still `$11.35` before card surcharge, and the Portland MAX Red Line still shows about a `38`-minute downtown trip with the same `$2.80` adult fare and `$5.60` day cap.
+- The current Sound Transit and WSDOT notices are either accessibility-specific or tied to late-May temporary work, not the November 2026 trip window, so this pre-trip watch stays in monitor-only mode with no traveler action or email summary needed.
+
+Files touched:
+
+- `notes/Project Log.md`

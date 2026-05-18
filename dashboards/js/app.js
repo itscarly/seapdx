@@ -1006,6 +1006,39 @@ function initTabs() {
 
 function renderTransitAndSources() {
   renderTripAtlas();
+  const verificationSummary = data.verificationSummary || {};
+  const watches = verificationSummary.watches || [];
+  const verificationHeading = document.getElementById("verificationHeading");
+  const verificationCopy = document.getElementById("verificationCopy");
+  const verificationWatchSummary = document.getElementById("verificationWatchSummary");
+
+  if (verificationHeading) {
+    const overallLabel = verificationSummary.overallLabel || "Last verified";
+    verificationHeading.textContent = `${overallLabel}: ${data.meta.verifiedOn}`;
+  }
+
+  if (verificationCopy) {
+    verificationCopy.textContent = watches.length
+      ? "Latest scheduled watch results stay visible here, so the verification date cannot drift away from the current trip data."
+      : "Current source links for fares, flights, hours, and route assumptions.";
+  }
+
+  if (verificationWatchSummary) {
+    const statusLabels = {
+      "no-material-updates": "No material updates",
+      "material-update": "Material update logged",
+      "monitor-only": "Monitor only"
+    };
+
+    verificationWatchSummary.innerHTML = watches.map((watch, index) => `
+      <article class="transit-card verification-card" data-reveal style="transition-delay:${index * 25}ms">
+        <span class="badge">${statusLabels[watch.status] || watch.status}</span>
+        <h3>${watch.label}</h3>
+        <p><b>Checked:</b> ${watch.checkedOn}</p>
+        <p>${watch.note}</p>
+      </article>
+    `).join("");
+  }
 
   document.getElementById("transitCards").innerHTML = data.transit.map((item, index) => `
     <article class="transit-card" data-reveal style="transition-delay:${index * 25}ms">

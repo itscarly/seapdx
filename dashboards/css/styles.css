@@ -1286,6 +1286,14 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.verification-card {
+  min-height: 100%;
+}
+
+#verificationWatchSummary {
+  margin-bottom: 12px;
+}
+
 .sources-list {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }

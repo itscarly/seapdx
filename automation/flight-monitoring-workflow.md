@@ -10,6 +10,7 @@ Watch booked flights on a 15-minute cadence, surface the latest known status in 
 - Checks the official airline and airport status pages listed in `data/trip-data.js`.
 - Writes a report to `research/flights/latest-report.md`.
 - Saves a snapshot to `data/flight-monitor-snapshot.json`.
+- Can update the dashboard verification summary with `npm run update:verification -- ...` after each manual or scheduled watch pass.
 - Sends email alerts when:
   - `RESEND_API_KEY`
   - `FLIGHT_ALERT_EMAIL_TO`
@@ -31,6 +32,36 @@ Watch booked flights on a 15-minute cadence, surface the latest known status in 
 
 - Keep airline-app notifications enabled as the fastest source of boarding and gate changes.
 - Treat the dashboard monitor as a second layer that adds visibility, archived reports, and email-based change summaries.
+
+## Dashboard Verification Sync
+
+After a pre-trip or travel-week watch pass, update `data/trip-data.js` through the helper instead of editing the verification cards by hand.
+
+Example commands:
+
+```bash
+npm run update:verification -- \
+  --watch-id pre-trip-flight-transit \
+  --label "Pre-trip flight and transit watch" \
+  --checked-on "May 18, 2026" \
+  --status no-material-updates \
+  --note "Official airline, airport, ferry, rail, Link, and TriMet checks found no November itinerary rewrite or traveler-action change."
+```
+
+```bash
+npm run update:verification -- \
+  --watch-id travel-week-flight-transit \
+  --label "Travel-week flight and transit watch" \
+  --checked-on "May 18, 2026" \
+  --status no-material-updates \
+  --note "Weekly watch still supports the current train, ferry, airport-buffer, and local-transit assumptions."
+```
+
+Notes:
+
+- `--verified-on` is optional. If omitted, the helper uses `--checked-on` for `meta.verifiedOn`.
+- Valid statuses are `no-material-updates`, `material-update`, and `monitor-only`.
+- Run `npm run validate` after using the helper.
 
 ## Secrets Needed For Email
 

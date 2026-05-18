@@ -6,7 +6,7 @@ window.TRIP_DATA = {
       seattle: "The Boylston Hotel Capitol Hill",
       portland: "Hotel Vance, Portland, a Tribute Portfolio Hotel"
     },
-    verifiedOn: "May 17, 2026",
+    verifiedOn: "May 18, 2026",
     budgetCap: 880,
     absoluteCeiling: 920,
     assumptions: [
@@ -20,9 +20,28 @@ window.TRIP_DATA = {
       "Portland home base is Hotel Vance, Portland, a Tribute Portfolio Hotel, 1455 Southwest Broadway, Portland, Oregon 97201, United States.",
       "November 2026 hours are not fully published for many businesses, so the dashboard flags current verified status and recommends rechecking before booking.",
       "The plan is curated best-fit; not every candidate location is included.",
-      "May 17 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
+      "May 18 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
       "A 20% realism buffer is now treated as the planning default for flexible paid categories such as food, coffee, cocktails, and small shopping so the live budget reflects real-world drift better than the earlier tighter draft.",
       "Souvenir pricing should stay explicit whenever possible: Starbucks city mugs, one coffee with each mug errand, coffee-bean buys, and small magnet-style gifts are now modeled directly instead of being hidden inside generic buffers."
+    ]
+  },
+  verificationSummary: {
+    overallLabel: "Last verified",
+    watches: [
+      {
+        id: "pre-trip-flight-transit",
+        label: "Pre-trip flight and transit watch",
+        checkedOn: "May 18, 2026",
+        status: "no-material-updates",
+        note: "Official airline, airport, ferry, rail, Link, and TriMet checks found no November itinerary rewrite or traveler-action change."
+      },
+      {
+        id: "travel-week-flight-transit",
+        label: "Travel-week flight and transit watch",
+        checkedOn: "May 18, 2026",
+        status: "no-material-updates",
+        note: "Weekly watch still supports the current train, ferry, airport-buffer, and local-transit assumptions."
+      }
     ]
   },
   budget: {
@@ -261,10 +280,10 @@ window.TRIP_DATA = {
               knownFor: "New cafe/bar inside Good Weather's Capitol Hill bike shop space, with coffee, breakfast, sandwiches, beer, and wine.",
               sentiment: "Closest useful saved-list cafe for a low-pressure arrival reset near the hotel.",
               payment: "Cards expected.",
-              taxTipIncluded: "Estimate assumes one coffee or nonalcoholic drink plus Seattle tax and a $1 tip.",
-              tipGuidance: "$1 is enough for coffee. If you order table-service food, use 15%.",
-              hours: "Official site currently shows Tue-Sat 9 AM-9 PM and Sun 9 AM-5 PM, with breakfast Wed-Fri 9 AM-noon, breakfast tacos Sat-Sun 9 AM-2 PM, and sandwiches Wed-Sun noon-close.",
-              happyHour: "Happy hour not verified; official site says happy hour is coming soon.",
+              taxTipIncluded: "Estimate assumes one coffee or nonalcoholic drink with Seattle tax; Tailwind now operates tip-free.",
+              tipGuidance: "No tip needed here unless the business changes its current tip-free policy.",
+              hours: "Official site currently shows Tue-Sun 9 AM-7 PM and Mon closed. The current menus also show breakfast and lunch 9 AM-3 PM, lunch/evening service through 7 PM on Tue-Fri plus Sat 4 PM-8 PM.",
+              happyHour: "Current Tailwind menu shows happy hour from 5 PM-7 PM with a cheap beer can at $4, draft beer or cider $2 off, and all wine and cocktails $2 off.",
               website: "https://tailwindcafe.com/",
               route: "https://www.google.com/maps/dir/The+Boylston+Hotel+Capitol+Hill+Seattle/Tailwind+Cafe+Good+Weather+Seattle"
             }
@@ -1410,7 +1429,7 @@ window.TRIP_DATA = {
               bestTime: "Morning bean purchase.",
               knownFor: "Portland roaster with a lighter roast profile and a stronger bean-buy identity than keeping Good Coffee as a backup inside the active plan.",
               sentiment: "Best exact final Portland coffee stop for this route.",
-              beans: "No default bean purchase here; if you intentionally add a final bag, Heart's current Phono pricing is $20 for 10.5 oz and Stumptown's Holler Mountain is $20.",
+              beans: "No default bean purchase here; if you intentionally add a final bag, Heart's current Phono pricing is $15.50 and Stumptown's 12 oz Holler Mountain is $20.",
               reservation: "None.",
               payment: "Cards accepted.",
               taxTipIncluded: "Drink estimate includes tax plus $1 coffee tip.",
