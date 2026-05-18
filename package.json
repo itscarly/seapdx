@@ -8,6 +8,7 @@
     "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js",
     "audit:notes": "node scripts/audit-notes.js",
     "audit:budget": "node scripts/audit-budget.js",
+    "update:verification": "node scripts/update-verification-summary.js",
     "monitor:itinerary": "node scripts/monitor-itinerary.js",
     "monitor:flights": "node scripts/monitor-flights.js"
   },
