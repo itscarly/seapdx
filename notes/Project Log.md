@@ -9,10 +9,12 @@ This is the running log for project changes.
 - Added a GitHub Pages deployment workflow so the static trip site still has a free public-hosting path when Netlify cannot deploy.
 - Kept the workflow simple: validate first, then publish a filtered static artifact from the project root.
 - Documented the expected Pages URL and workflow path in the deployment notes so future sessions can fall back quickly without rebuilding the site for another host.
+- Added `.nojekyll` so GitHub Pages can publish the static files directly without Jekyll processing getting in the way of the root redirect and asset layout.
 
 Files touched:
 
 - `.github/workflows/deploy-pages.yml`
+- `.nojekyll`
 - `docs/deployment.md`
 - `notes/Project Log.md`
 
