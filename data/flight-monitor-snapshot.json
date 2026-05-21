@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T08:19:50.155Z",
+  "generatedAt": "2026-05-21T11:41:38.841Z",
   "targets": {
     "journey-arrival-2026-11-01-status": {
       "id": "journey-arrival-2026-11-01-status",
@@ -9,7 +9,7 @@
       "type": "status",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-21T08:19:48.287Z",
+      "checkedAt": "2026-05-21T11:41:37.257Z",
       "finalUrl": "https://flyasiana.com/C/US/EN/index",
       "digest": "d463a5837787ed72a50a9537c9d422770566fddc20f59604203ed9b507a17133",
       "signals": [
@@ -27,7 +27,7 @@
       "type": "airport",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-21T08:19:48.901Z",
+      "checkedAt": "2026-05-21T11:41:37.818Z",
       "finalUrl": "https://www.portseattle.org/sea/flight-status",
       "digest": "01d364ff865d98cd248708337a3fad3ba0ea8ef0a506e088ea506ab0dff2916d",
       "signals": [
@@ -43,7 +43,7 @@
       "type": "status",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-21T08:19:49.107Z",
+      "checkedAt": "2026-05-21T11:41:38.038Z",
       "finalUrl": "https://www.aa.com/travelInformation/flights/status",
       "digest": "71cfb74f4f74731555ad73d5dca300377f8b9340ca30eb7ed17d7830d4f0fc1b",
       "signals": [],
@@ -57,7 +57,7 @@
       "type": "airport",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-21T08:19:49.696Z",
+      "checkedAt": "2026-05-21T11:41:38.439Z",
       "finalUrl": "https://www.flypdx.com/Flights",
       "digest": "47cbf64909f0f100bb7af5ed6ae699952280d576acf77df2060c84c31173effe",
       "signals": [],
@@ -71,7 +71,7 @@
       "type": "status",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-21T08:19:49.966Z",
+      "checkedAt": "2026-05-21T11:41:38.587Z",
       "finalUrl": "https://www.aa.com/travelInformation/flights/status",
       "digest": "71cfb74f4f74731555ad73d5dca300377f8b9340ca30eb7ed17d7830d4f0fc1b",
       "signals": [],
@@ -85,7 +85,7 @@
       "type": "airport",
       "ok": true,
       "status": 200,
-      "checkedAt": "2026-05-21T08:19:50.154Z",
+      "checkedAt": "2026-05-21T11:41:38.841Z",
       "finalUrl": "https://www.dfwairport.com/flights/",
       "digest": "2af3857e745d592870de4001ce83f4e4a66a397a0f83fceb9fa74f103c94f488",
       "signals": [
