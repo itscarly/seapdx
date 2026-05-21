@@ -1,8 +1,8 @@
 # Flight Monitor Report
 
-Generated: 2026-05-20T22:52:49.562Z
+Generated: 2026-05-21T00:00:20.031Z
 Targets checked: 6
-Changes detected: 0
+Changes detected: 1
 Email attempted: no
 
 ## Notes
@@ -13,7 +13,10 @@ Email attempted: no
 
 ## Changes
 
-No changes detected compared with the previous snapshot.
+### page-change: Portland to Corpus Christi via Dallas/Fort Worth airport board
+- URL: https://www.flypdx.com/Flights#/arrivals-and-departures
+- Before: "436d64190dc224cc43bb7ed2d8b719fb315eeba0d15e9d1a255dbe092186f294"
+- After: "47cbf64909f0f100bb7af5ed6ae699952280d576acf77df2060c84c31173effe"
 
 ## Current Source Signals
 
@@ -39,7 +42,7 @@ No changes detected compared with the previous snapshot.
 - URL: https://www.flypdx.com/Flights#/arrivals-and-departures
 - HTTP status: 200
 - Signals: none found
-- Excerpt: FlyPDX - Flights Skip to main content PDX is guided by the Port of Portland . PDX is guided by the Port of Portland , an engine for economic growth and connectivity. The Port’s airports, marine terminals, and business parks create opportunities for people to connect, businesses to grow, and our region to thrive. Construction New Exit Lanes PDX’s permanent exit lanes have opened! The temporary exit has closed. Follow signs to the new, shorter paths from your concourse. While baggage claim updates continue, signs will direct you around limited access to the north pedestrian tunnel.&nbsp; Got it 
+- Excerpt: FlyPDX - Flights Skip to main content --> PDX is guided by the Port of Portland . PDX is guided by the Port of Portland , an engine for economic growth and connectivity. The Port’s airports, marine terminals, and business parks create opportunities for people to connect, businesses to grow, and our region to thrive. Construction New Exit Lanes PDX’s permanent exit lanes have opened! The temporary exit has closed. Follow signs to the new, shorter paths from your concourse. While baggage claim updates continue, signs will direct you around limited access to the north pedestrian tunnel.&nbsp; Got
 
 ### Corpus Christi to San Francisco via Dallas/Fort Worth status
 - URL: https://www.aa.com/travelInformation/flights/status
