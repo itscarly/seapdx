@@ -9,6 +9,8 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ## Current active work
 
 - Keep the Seattle and Portland itinerary current as prices, hours, and transit assumptions change.
+- Keep the March 2027 Manila airfare tracker current until the fare is locked through airline-direct booking, with discovery signals and verified fares kept separate.
+- Keep the Seattle hotel tracker refreshed when refundable direct-site prices, fees, or cancellation terms change.
 - Keep the local dashboard verified after meaningful data or UI edits.
 - Keep the note system reconciled so active guidance stays current and old context gets archived instead of duplicated.
 

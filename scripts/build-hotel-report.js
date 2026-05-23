@@ -7,12 +7,20 @@ const reportPath = path.join(rootDir, "data", "hotel-monitor-report.json");
 const markdownDir = path.join(rootDir, "research", "hotels");
 const markdownPath = path.join(markdownDir, "latest-report.md");
 
+function formatMoney(value) {
+  return typeof value === "number" ? `$${value.toFixed(2)}` : "Unavailable";
+}
+
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+const cap = source.seattle.trip.budgetCap;
 const benchmark = source.seattle.currentReservation;
-const excluded = source.seattle.watchlist.map((hotel) => ({
-  ...hotel,
-  qualityFailures: [`Total cost $${hotel.trueTotalCost.toFixed(2)} exceeds cap $${source.seattle.trip.budgetCap.toFixed(2)}`]
-}));
+
+const excluded = source.seattle.watchlist
+  .map((hotel) => ({
+    ...hotel,
+    qualityFailures: [`Total cost ${formatMoney(hotel.trueTotalCost)} exceeds cap ${formatMoney(cap)}`]
+  }))
+  .sort((a, b) => a.trueTotalCost - b.trueTotalCost);
 
 const report = {
   meta: source.meta,
@@ -27,9 +35,15 @@ const report = {
       benchmark: {
         hotelId: benchmark.id,
         score: benchmark.transitScore,
-        reasons: ["Direct benchmark reference retained while alternatives remain over cap."]
+        reasons: [
+          "Capitol Hill remains the preferred base if Boylston becomes bookable again at an acceptable direct refundable rate."
+        ]
       },
-      leaders: []
+      leaders: excluded.slice(0, 2).map((hotel) => ({
+        hotelId: hotel.id,
+        score: hotel.transitScore,
+        reason: `Still over cap at ${formatMoney(hotel.trueTotalCost)}.`
+      }))
     },
     categories: [],
     monitoringCadence: [
@@ -45,11 +59,11 @@ const report = {
       }
     ],
     marketStrategy: {
-      currentRead: "Automated direct-site watch mode. Hold Boylston unless a direct hotel quote for Nov 1-4, 2026 drops under the $400 total cap with refundable terms.",
+      currentRead: "No Seattle direct-booking alternative is under the $400 total cap. Hold the current Seattle lodging plan unless Boylston becomes directly bookable again or another refundable direct quote drops materially.",
       triggers: [
         "Direct-site refundable quote under $400 total",
-        "Same-price move with clearly better transit and room value",
-        "Cancellation deadline approaching on the current hold"
+        "Boylston direct booking path becomes stable again with an acceptable total",
+        "A same-price move offers materially better transit, room quality, or cancellation flexibility"
       ]
     },
     recommendationMatrix: [
@@ -57,7 +71,7 @@ const report = {
         hotelId: benchmark.id,
         hotelName: benchmark.name,
         recommendation: "HOLD CURRENT",
-        rationale: "No currently checked Seattle alternative is both direct-site verified and inside the $400 total cap for Nov 1-4, 2026."
+        rationale: "All currently verified direct-site Seattle alternatives remain above the $400 total cap, and Boylston itself could not be freshly quoted in a working direct booking flow."
       }
     ]
   },
@@ -80,24 +94,25 @@ const lines = [
   "",
   `Generated from direct-site watch snapshot: ${source.meta.snapshotDate}`,
   "",
-  `- Benchmark booking: ${benchmark.name}`,
-  `- Benchmark total: $${benchmark.trueTotalCost.toFixed(2)}`,
-  `- Seattle cap: $${source.seattle.trip.budgetCap.toFixed(2)}`,
+  `- Seattle cap: ${formatMoney(cap)}`,
   `- Active automation cadence: ${source.meta.automation.activeSchedule}`,
   `- Upcoming automation cadence: ${source.meta.automation.upcomingSchedule}`,
   `- Last automated check: ${source.meta.automation.lastAutomatedCheckAt || "pending first run"}`,
+  `- Summary: ${source.meta.automation.lastAutomatedSummary}`,
   `- Disclaimer: ${source.meta.disclaimer}`,
   "",
-  "## Seattle watchlist",
+  "## Seattle outcome",
   "",
-  "No Seattle alternatives currently qualify under the cap.",
+  `- Boylston benchmark status: ${benchmark.priceVerification.status}`,
+  `- Boylston note: ${benchmark.priceVerification.evidenceNote}`,
+  "- No Seattle direct-booking alternative currently qualifies under the $400 total cap.",
   "",
   "## Excluded candidates",
   ""
 ];
 
 for (const hotel of excluded) {
-  lines.push(`- ${hotel.name}: Total cost $${hotel.trueTotalCost.toFixed(2)} exceeds cap $${source.seattle.trip.budgetCap.toFixed(2)}`);
+  lines.push(`- ${hotel.name}: ${formatMoney(hotel.trueTotalCost)} total | refundable ${hotel.refundable ? "yes" : "unknown"} | cancel by ${hotel.cancellationDeadline}`);
 }
 
 lines.push("", "## Portland status", "");

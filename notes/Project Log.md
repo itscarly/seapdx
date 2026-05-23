@@ -4,6 +4,35 @@ This is the running log for project changes.
 
 ## 2026-05-23
 
+### Airfare tracker restore and repo reconciliation
+
+- Found that the current `main` branch had kept the Seattle hotel restore but had deleted the Manila airfare subsystem files, validation hooks, generated airfare report artifacts, and the dashboard link back to the airfare tracker.
+- Restored the missing airfare files from the earlier good commit, then rewired `package.json`, `dashboards/html/index.html`, and `automation/README.md` so the airfare and hotel tracker states match the actual repo again.
+- Reconciled the active notes so the project context, architecture, decisions, tasks, changelog, and known-issues files all reflect the restored dual-tracker state instead of the temporary hotel-only fallback.
+
+Files touched:
+
+- `automation/airfare-monitoring-workflow.md`
+- `automation/README.md`
+- `dashboards/html/airfare.html`
+- `dashboards/html/index.html`
+- `dashboards/js/airfare.js`
+- `data/airfare-watch.json`
+- `research/airfare/latest-report.md`
+- `research/airfare/latest-summary.json`
+- `scripts/build-airfare-report.js`
+- `scripts/lib/airfare-monitor.js`
+- `scripts/validate-airfare-monitor.js`
+- `tests/airfare-monitor.test.js`
+- `package.json`
+- `notes/TASKS.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/ARCHITECTURE.md`
+- `notes/Decisions.md`
+- `notes/CHANGELOG.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+
 ### Hotel tracker restore and automation publish cleanup
 
 - Restored the missing Seattle hotel tracker files after the repo drifted into a broken state with links pointing at deleted pages.

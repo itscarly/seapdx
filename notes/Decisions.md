@@ -17,6 +17,21 @@
 - Status: active
 - Why: the site, budget, trip assumptions, and route logic all depend on one central data file
 
+### Airfare intelligence lives outside `data/trip-data.js`
+
+- Status: active
+- Why: airfare monitoring has its own watch schema, airline-direct verification rules, ranking logic, and generated report flow
+
+### Hotel intelligence lives outside `data/trip-data.js`
+
+- Status: active
+- Why: hotel monitoring has a separate source dataset, generated report, and rebooking workflow that should not be tangled into itinerary data
+
+### Airfare booking calls require airline-direct proof
+
+- Status: active
+- Why: discovery fares are useful leads, but they are not trustworthy enough for a real booking recommendation without checkout verification
+
 ### Documentation cleanup should be conservative
 
 - Status: active

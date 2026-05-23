@@ -7,16 +7,25 @@ This project is a static dashboard, not a backend app.
 The main layers are:
 
 - trip data in `data/trip-data.js`
+- airfare watch source data in `data/airfare-watch.json`
+- hotel monitor source data in `data/hotel-monitor-source.json`
+- airfare generated report in `research/airfare/latest-summary.json` and `research/airfare/latest-report.md`
+- hotel generated report in `data/hotel-monitor-report.json` and `research/hotels/latest-report.md`
 - HTML structure in `dashboards/html/index.html`
+- airfare monitor HTML in `dashboards/html/airfare.html`
+- hotel monitor HTML in `dashboards/html/hotels.html`
 - presentation in `dashboards/css/styles.css`
 - interactivity in `dashboards/js/app.js`
+- airfare monitor interactivity in `dashboards/js/airfare.js`
+- hotel monitor interactivity in `dashboards/js/hotels.js`
 - small support scripts in `scripts/`
 
 ## Runtime model
 
 - Local preview uses a static server from the project root.
-- Public hosting is Netlify-style static hosting.
+- Public hosting uses the same static files and currently has GitHub Pages as the clean fallback path.
 - Notes live in `notes/` and are meant for Obsidian plus agent maintenance.
+- The airfare and hotel trackers are still static-first: repo data plus local report-generation scripts, then browser rendering from generated files.
 
 ## Documentation safety rule
 

@@ -8,8 +8,8 @@
       "currentBand": "2-3x weekly direct-site checks",
       "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
       "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
-      "lastAutomatedCheckAt": null,
-      "lastAutomatedSummary": "Automation scheduled. First automated direct-site run has not completed yet."
+      "lastAutomatedCheckAt": "2026-05-23T20:58:33.329Z",
+      "lastAutomatedSummary": "Boylston could not be live-quoted on a working direct booking flow; live direct quotes were captured for Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), and The State Hotel ($909.46). No Seattle hotel qualifies under the $400 total cap."
     }
   },
   "seattle": {
@@ -24,35 +24,36 @@
     },
     "currentReservation": {
       "id": "boylston-current",
-      "name": "Boylston Hotel",
+      "name": "The Boylston Hotel Capitol Hill",
       "zone": "Capitol Hill",
-      "directBookingUrl": "https://www.theboylstonseattle.com/",
-      "trueTotalCost": 384.13,
-      "reviewScore": 4.2,
+      "directBookingUrl": "https://www.sonder.com/en-gb/destinations/seattle/the-boylston/c32505",
+      "trueTotalCost": null,
+      "reviewScore": null,
       "transitScore": 99,
-      "cancellationDeadline": "2026-10-30T18:00:00-07:00",
+      "cancellationDeadline": null,
       "priceVerification": {
-        "status": "live-verified",
+        "status": "blocked",
         "quotedStay": {
           "checkIn": "2026-11-01",
           "checkOut": "2026-11-04",
           "nights": 3,
           "guests": 2
         },
-        "evidenceNote": "User-held refundable booking total."
+        "evidenceNote": "Direct Sonder property page was rate-limited by Cloudflare during this run, and Marriott's official Sonder FAQ says this former Sonder by Marriott Bonvoy property is not accepting new Marriott bookings."
       },
-      "notes": "Current held refundable benchmark."
+      "notes": "Preferred Seattle base remains on the watchlist, but no live direct quote was exposed during this run."
     },
     "watchlist": [
       {
-        "id": "coast-seattle-downtown",
-        "name": "Coast Seattle Downtown Hotel",
-        "zone": "University Street",
-        "directBookingUrl": "https://www.coasthotels.com/coast-seattle-downtown-hotel-by-apa",
-        "trueTotalCost": 560,
-        "reviewScore": 4.0,
-        "transitScore": 108,
-        "cancellationDeadline": "2026-10-29T18:00:00-07:00",
+        "id": "hotel-max",
+        "name": "Hotel Max",
+        "zone": "Downtown Seattle",
+        "directBookingUrl": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=21123&child=0&currency=USD&depart=2026-11-04&hotel=76786&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
+        "trueTotalCost": 777.68,
+        "reviewScore": null,
+        "transitScore": 88,
+        "cancellationDeadline": "2026-10-30T16:00:00-07:00",
+        "refundable": true,
         "priceVerification": {
           "status": "live-verified",
           "quotedStay": {
@@ -61,19 +62,20 @@
             "nights": 3,
             "guests": 2
           },
-          "evidenceNote": "User screenshot from Coast direct site shows 560 USD total member rate for Nov 1-4, 2026."
+          "evidenceNote": "SynXis direct booking flow. Modern Rooms Queen, Stay More Save More rate. Cart total verified at $777.68 including taxes and fees."
         },
-        "notes": "Excluded because total is over cap."
+        "notes": "Cancel by 4 PM local hotel time two days prior to arrival to avoid one night room and tax."
       },
       {
-        "id": "citizenm-pioneer-square",
-        "name": "citizenM Seattle Pioneer Square",
-        "zone": "Pioneer Square",
-        "directBookingUrl": "https://www.citizenm.com/hotels/united-states/seattle/seattle-pioneer-square-hotel",
-        "trueTotalCost": 892,
-        "reviewScore": 4.4,
-        "transitScore": 108,
-        "cancellationDeadline": "2026-10-31T18:00:00-07:00",
+        "id": "paramount-hotel-seattle",
+        "name": "Paramount Hotel Seattle",
+        "zone": "Downtown Seattle",
+        "directBookingUrl": "https://bookings.travelclick.com/104207?adults=2&children=0&datein=11/01/2026&dateout=11/04/2026&HotelId=104207&languageid=1&rooms=1#/total",
+        "trueTotalCost": 731.6,
+        "reviewScore": null,
+        "transitScore": 86,
+        "cancellationDeadline": "2026-11-01T12:00:00-07:00",
+        "refundable": true,
         "priceVerification": {
           "status": "live-verified",
           "quotedStay": {
@@ -82,9 +84,31 @@
             "nights": 3,
             "guests": 2
           },
-          "evidenceNote": "User screenshot from citizenM direct site shows 892 USD total with taxes and fees."
+          "evidenceNote": "TravelClick direct booking flow. Paramount Double Queen Flexible Rate total verified at $731.60 on the direct checkout page."
         },
-        "notes": "Excluded because total is over cap."
+        "notes": "Flexible rate includes a $20 dining credit and allows cancellation until 12 PM local time on arrival day."
+      },
+      {
+        "id": "state-hotel",
+        "name": "The State Hotel",
+        "zone": "Downtown Seattle / Pike Place",
+        "directBookingUrl": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=8517&child=0&currency=USD&depart=2026-11-04&hotel=4079&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
+        "trueTotalCost": 909.46,
+        "reviewScore": null,
+        "transitScore": 84,
+        "cancellationDeadline": "2026-10-30T16:00:00-07:00",
+        "refundable": true,
+        "priceVerification": {
+          "status": "live-verified",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "SynXis direct booking flow. Classic Rooms Queen Best Available Rate details showed $909.46 total with taxes and amenity fee."
+        },
+        "notes": "Cancellation deadline is 4 PM two days prior. Includes a $29/night amenity fee inside the nightly price plus taxes on top."
       }
     ]
   }

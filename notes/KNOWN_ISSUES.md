@@ -7,6 +7,11 @@
 - Status: open
 - Detail: local project files and the localhost preview can be current even when the public deploy is stale or blocked by hosting/account limits
 
+### Tracker subsystems can drift if one restore overwrites another
+
+- Status: open
+- Detail: the airfare and hotel tracker files are separate static subsystems, so partial restore commits can accidentally remove one while fixing the other unless the dashboard, scripts, and notes are checked together
+
 ### November 2026 business hours are still partly provisional
 
 - Status: open

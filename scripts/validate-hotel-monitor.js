@@ -13,13 +13,28 @@ if (report.seattle.trip.guests !== 2) {
   failures.push("Seattle hotel tracker does not enforce 2 guests.");
 }
 
-if (!Array.isArray(report.seattle.excluded) || report.seattle.excluded.length < 2) {
-  failures.push("Seattle hotel tracker should surface excluded direct-site quotes.");
+if (report.meta.automation.lastAutomatedCheckAt !== "2026-05-23T20:58:33.329Z") {
+  failures.push("Seattle hotel tracker is not carrying the latest automated check timestamp.");
+}
+
+if (!report.meta.automation.lastAutomatedSummary || !report.meta.automation.lastAutomatedSummary.includes("No Seattle hotel qualifies")) {
+  failures.push("Seattle hotel tracker summary is not explicit about the cap result.");
+}
+
+if (report.seattle.benchmark.priceVerification.status !== "blocked") {
+  failures.push("Boylston benchmark status should reflect the blocked direct quote path from this run.");
+}
+
+if (!Array.isArray(report.seattle.excluded) || report.seattle.excluded.length < 3) {
+  failures.push("Seattle hotel tracker should surface the three direct-site quotes captured in this run.");
 }
 
 for (const hotel of report.seattle.excluded) {
   if (!hotel.directBookingUrl || !hotel.directBookingUrl.startsWith("https://")) {
     failures.push(`${hotel.id} is missing a direct HTTPS booking link.`);
+  }
+  if (typeof hotel.trueTotalCost !== "number") {
+    failures.push(`${hotel.id} is missing a numeric total stay quote.`);
   }
 }
 

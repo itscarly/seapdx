@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f3">
+    <title>Manila Airfare Intelligence</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-05-23-airfare-intelligence-v2">
+  </head>
+  <body class="airfare-page">
+    <header class="hero airfare-hero">
+      <nav class="topbar" aria-label="Airfare tracker navigation">
+        <a href="./index.html">Trip dashboard</a>
+        <a href="#verified">Verified</a>
+        <a href="#signals">Signals</a>
+        <a href="#rules">Rules</a>
+      </nav>
+      <section class="hero-grid airfare-hero-grid">
+        <div>
+          <p class="eyebrow">March 7-13, 2027</p>
+          <h1>Manila airfare intelligence</h1>
+          <p class="lede">Airline-direct booking intelligence for one-way economy flights from SFO or ORD to Manila, with route quality scoring and buy-window judgment.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#verified">View verified fares</a>
+            <a class="button" href="../../research/airfare/latest-report.md">Open report</a>
+          </div>
+          <div id="airfareCallout" class="airfare-callout">Loading recommendation state.</div>
+        </div>
+        <aside class="trip-card" aria-label="Best current airfare signal">
+          <span class="status-dot"></span>
+          <h2>Best current path</h2>
+          <strong id="bestFare">Loading...</strong>
+          <p id="bestFareMeta">Reading airfare watch data.</p>
+          <div class="meter"><span id="airfareMeter"></span></div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Market snapshot</p>
+          <h2>Verified pressure, signal quality, and buy-window context</h2>
+          <p class="section-copy">This view keeps discovery signals separate from verified fares so weak aggregator pricing never masquerades as a booking recommendation.</p>
+        </div>
+        <div id="airfareSummary" class="airfare-summary-grid"></div>
+      </section>
+
+      <section id="verified" class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Verified fare rankings</p>
+          <h2>Airline-direct fares only</h2>
+          <p class="section-copy">These itineraries have a recorded direct checkout total and can compete for actual booking guidance.</p>
+        </div>
+        <div class="airfare-table-wrap">
+          <table class="airfare-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Origin</th>
+                <th>Depart</th>
+                <th>Airline</th>
+                <th>Route</th>
+                <th>Total</th>
+                <th>Quality</th>
+                <th>Confidence</th>
+                <th>Status</th>
+                <th>Verification</th>
+              </tr>
+            </thead>
+            <tbody id="verifiedAirfareRows">
+              <tr>
+                <td colspan="10">Loading verified fares...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="signals" class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Discovery signals</p>
+          <h2>Interesting prices still awaiting checkout proof</h2>
+          <p class="section-copy">These are useful leads, not booking calls. The table tells you what is still missing before a direct-airline recommendation is allowed.</p>
+        </div>
+        <div class="airfare-table-wrap">
+          <table class="airfare-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Origin</th>
+                <th>Depart</th>
+                <th>Airline</th>
+                <th>Route</th>
+                <th>Signal</th>
+                <th>Quality</th>
+                <th>Confidence</th>
+                <th>Status</th>
+                <th>Missing proof</th>
+              </tr>
+            </thead>
+            <tbody id="discoveryAirfareRows">
+              <tr>
+                <td colspan="10">Loading discovery signals...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Analyst view</p>
+          <h2>What the system is seeing</h2>
+        </div>
+        <div id="airfareInsights" class="transit-grid"></div>
+      </section>
+
+      <section id="rules" class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Decision standards</p>
+          <h2>How every itinerary is judged</h2>
+        </div>
+        <div id="airfareRules" class="transit-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Final booking calls require airline-direct price, baggage, protected-routing, and fare-rule confirmation.</p>
+    </footer>
+
+    <script src="../js/airfare.js?v=2026-05-23-airfare-intelligence-v2"></script>
+  </body>
+</html>
