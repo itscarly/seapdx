@@ -4,8 +4,9 @@
 
 ### Public deploy may lag local updates
 
-- Status: closed (as of 2026-05-23 session 2)
-- Detail: pushed all local changes to GitHub. GitHub Pages should reflect current state within 1-2 minutes of the push. Reopen this issue if future sessions leave local changes unpushed.
+- Status: closed (as of 2026-05-23 session 3) — pushed hotels.html, hotels.js, styles.css + inline dark theme fix
+- Detail: this issue recurred in session 3 — 626 lines of hotel tracker changes sat uncommitted. Prevention: run `git status` at session start and push any uncommitted files before starting new work.
+- See LEARNINGS for the diff-based diagnosis technique.
 
 ### Tracker subsystems can drift if one restore overwrites another
 

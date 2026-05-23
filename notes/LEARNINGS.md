@@ -2,6 +2,23 @@
 
 ## Reusable patterns
 
+### GitHub Pages only updates when you push — always check git status first
+
+- The live site at `limcarl83-maker.github.io/my_projects/` serves from `origin/main`. Local changes are invisible until committed and pushed.
+- Root cause of the 2026-05-23 session 3 "broken" appearance: 626 lines of hotel tracker changes (hotels.html, hotels.js, styles.css) sat uncommitted while the live site served the old version.
+- Prevention: at the start of any session that follows UI work, run `git status` before anything else. If modified files exist, push them immediately.
+
+### Dark theme requires an inline body override — do not remove it
+
+- The base `body` style in `styles.css` sets a light beige background (`#f8faf6`). The `.dark-tracker` class overrides it, but cascade issues on GitHub Pages can let the light version bleed through.
+- Fix applied 2026-05-23: added `<style>body { background: #0d1117; color: #e6edf3; }</style>` inside the `<head>` of both `airfare.html` and `hotels.html`. This is load-order safe and cannot be overridden by the external stylesheet.
+- If the pages ever look light/beige again: check this inline style is present in the committed HTML. Do not remove it as "redundant."
+
+### When the live site looks wrong, diff live vs local before assuming code is broken
+
+- Use `curl -s <live-url> | diff - <local-file>` to instantly see what the live site is actually serving.
+- This takes 5 seconds and immediately reveals whether the problem is a deployment gap (unpushed changes) vs a real code bug.
+
 ### Airfare tracker is now a PAL award tax monitor, not a cash-fare system
 
 - `data/airfare-watch.json` holds two routes: SFO→MNL (58k mi + $370.50) and ORD→MNL (67k mi + $375.50). To update: add a new `taxHistory` entry with today's date and the new tax amount, update `currentTax` and `lastChecked`. No scripts to run — commit and push the JSON.

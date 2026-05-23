@@ -2,6 +2,42 @@
 
 This is the running log for project changes.
 
+## 2026-05-23 (session 3)
+
+### Dashboard dark theme fixed and deployment gap closed
+
+**Problem:** Both `airfare.html` and `hotels.html` were rendering with a light beige background below the hero on GitHub Pages. Hotels page was serving a stale version missing the dark-tracker class, tracker-hero layout, and summary section entirely.
+
+**Root causes (two separate issues):**
+
+1. **Deployment gap** — 626 lines of hotel tracker changes (hotels.html, hotels.js, styles.css) were committed locally but never pushed. The live site was serving the old version from the previous push.
+2. **CSS cascade bleed** — The base `body` style in `styles.css` sets a light background (`#f8faf6`). The `.dark-tracker` class overrides it, but on GitHub Pages the light base was winning below the hero section.
+
+**Fixes applied:**
+
+- Committed and pushed the 3 modified files (hotels.html, hotels.js, styles.css) to sync GitHub Pages with local state.
+- Added `<style>body { background: #0d1117; color: #e6edf3; }</style>` inside the `<head>` of both `airfare.html` and `hotels.html`. This inline override is load-order safe and cannot be lost to CSS cascade issues.
+- Fixed `hotels.html` `theme-color` meta tag from light `#f4f6f3` to dark `#0d1117`.
+
+**Diagnosis technique used:** `curl -s <live-url> | diff - <local-file>` instantly revealed the deployment gap — 0 diff on airfare (in sync), large diff on hotels (stale).
+
+**Prevention rules added to LEARNINGS:**
+- Always `git status` at session start — push any uncommitted changes before new work
+- Never remove the inline body background override — it is intentional
+- Use curl diff to diagnose live vs local before assuming code is broken
+
+Files touched:
+- `dashboards/html/airfare.html`
+- `dashboards/html/hotels.html`
+- `notes/LEARNINGS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+- Memory: `project_current_state.md`
+
+**Next session handoff:** Both tracker pages are dark, deployed, and correct. No UI work needed. Resume with periodic data updates: PAL tax check (weekly) and hotel monitor check (Mon/Wed/Fri).
+
+---
+
 ## 2026-05-23 (session 2)
 
 ### Hotel benchmark confirmed + Airfare tracker replaced with PAL Award Tax Monitor
