@@ -20,17 +20,17 @@
 ### Airfare intelligence lives outside `data/trip-data.js`
 
 - Status: active
-- Why: airfare monitoring has its own watch schema, airline-direct verification rules, ranking logic, and generated report flow
+- Why: the airfare tracker is now a PAL Award Tax Monitor (Mabuhay Miles redemptions). It has its own watch schema in `data/airfare-watch.json` with per-route tax history. No generated report or airline-direct verification rules — the dashboard reads the JSON directly.
 
 ### Hotel intelligence lives outside `data/trip-data.js`
 
 - Status: active
-- Why: hotel monitoring has a separate source dataset, generated report, and rebooking workflow that should not be tangled into itinerary data
+- Why: hotel monitoring has its own report JSON, confirmed reservation details, watchlist, and rebooking logic that should not be tangled into itinerary data.
 
-### Airfare booking calls require airline-direct proof
+### PAL award taxes are the airfare metric, not cash fares
 
 - Status: active
-- Why: discovery fares are useful leads, but they are not trustworthy enough for a real booking recommendation without checkout verification
+- Why: user is redeeming Mabuhay Miles for Business Class flights, not buying cash fares. The relevant number is the government/carrier tax paid in cash. Any tax drop on either route = better value per mile.
 
 ### Documentation cleanup should be conservative
 

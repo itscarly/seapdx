@@ -7,10 +7,8 @@ This project is a static dashboard, not a backend app.
 The main layers are:
 
 - trip data in `data/trip-data.js`
-- airfare watch source data in `data/airfare-watch.json`
-- hotel monitor source data in `data/hotel-monitor-source.json`
-- airfare generated report in `research/airfare/latest-summary.json` and `research/airfare/latest-report.md`
-- hotel generated report in `data/hotel-monitor-report.json` and `research/hotels/latest-report.md`
+- PAL award tax watch data in `data/airfare-watch.json` (routes, current taxes, tax history — no generated report needed)
+- hotel monitor report in `data/hotel-monitor-report.json` (confirmed booking + watchlist + market strategy)
 - HTML structure in `dashboards/html/index.html`
 - airfare monitor HTML in `dashboards/html/airfare.html`
 - hotel monitor HTML in `dashboards/html/hotels.html`
@@ -25,7 +23,8 @@ The main layers are:
 - Local preview uses a static server from the project root.
 - Public hosting uses the same static files and currently has GitHub Pages as the clean fallback path.
 - Notes live in `notes/` and are meant for Obsidian plus agent maintenance.
-- The airfare and hotel trackers are still static-first: repo data plus local report-generation scripts, then browser rendering from generated files.
+- The airfare tracker reads directly from `data/airfare-watch.json` — no generation step. Update the JSON with new tax snapshots, commit, push.
+- The hotel tracker reads from `data/hotel-monitor-report.json` — update the JSON when hotel prices change or the benchmark shifts.
 
 ## Documentation safety rule
 

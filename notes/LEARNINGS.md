@@ -2,6 +2,14 @@
 
 ## Reusable patterns
 
+### Airfare tracker is now a PAL award tax monitor, not a cash-fare system
+
+- `data/airfare-watch.json` holds two routes: SFO→MNL (58k mi + $370.50) and ORD→MNL (67k mi + $375.50). To update: add a new `taxHistory` entry with today's date and the new tax amount, update `currentTax` and `lastChecked`. No scripts to run — commit and push the JSON.
+
+### Hotel benchmark is a confirmed booking, not a watch candidate
+
+- Boylston (RES ID [redacted], $384.13 total) is locked in. Monitor only hunts for a refundable sub-$400 option near King Street Amtrak or Link Light Rail. Do not reopen the benchmark status unless the reservation is cancelled.
+
 ### Static-site verification beats guesswork
 
 - When localhost looks broken in this project, verify the local server and direct URLs before assuming app code is broken.
