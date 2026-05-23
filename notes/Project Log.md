@@ -2,7 +2,98 @@
 
 This is the running log for project changes.
 
-## 2026-05-23
+## 2026-05-23 (session 2)
+
+### Hotel benchmark confirmed + Airfare tracker replaced with PAL Award Tax Monitor
+
+**Hotel tracker:**
+
+- Locked in the Boylston Hotel confirmed reservation (RES ID [redacted], Standard Queen High Floor, Nov 1-4 2026, $384.13 total / $0 paid / $384.13 balance due) as the hotel benchmark in `data/hotel-monitor-report.json`.
+- Status changed from `blocked` to `confirmed-reservation`. Previous "blocked" evidence note replaced with full reservation breakdown.
+- Added `monitoringCriteria` block: refundable only, hard cap $400, transit priority = King Street Amtrak walking distance + Link Light Rail SeaTac line. Switch triggers documented.
+- Updated automation summary, market strategy, and recommendation matrix to reflect the confirmed booking state.
+
+**Airfare tracker:**
+
+- Replaced the old cash-fare tracking system entirely with a PAL Award Tax Monitor for Philippine Airlines Mabuhay Miles redemptions.
+- New `data/airfare-watch.json` tracks two routes: SFO→MNL (58,000 mi + $370.50 taxes) and ORD→MNL (67,000 mi + $375.50 taxes). Departure dates Mar 3-7, 2027, Business Class.
+- New `dashboards/html/airfare.html`: PAL Award Tax Monitor page with route cards, sparkline trend bars, tax change color-coding (green = dropped, amber = stable, red = rose), tax history table, and strategy panel.
+- New `dashboards/js/airfare.js`: reads from `airfare-watch.json`, renders route cards with change detection, history table from `taxHistory` arrays, and overall status pill.
+
+**GitHub push:**
+
+- All changes committed and pushed to GitHub. GitHub Pages now reflects current state.
+
+Files touched:
+
+- `data/hotel-monitor-report.json`
+- `data/airfare-watch.json`
+- `dashboards/html/airfare.html`
+- `dashboards/js/airfare.js`
+- `notes/CHANGELOG.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/TASKS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+
+**Next session handoff:**
+
+- To update PAL taxes: open PAL.com, check Business class award for Mar 3-7 2027 on both routes, add a new `taxHistory` entry to `data/airfare-watch.json` and update `currentTax` and `lastChecked`. Commit and push.
+- To update hotel watchlist: run a direct-site check for the Nov 1-4 stay on the hotels in the watchlist. If any qualify under $400 refundable with good transit access, update `data/hotel-monitor-report.json` and move to `eligible`. Commit and push.
+
+## 2026-05-23 (session 1)
+
+### Dark premium UI applied to airfare and hotel tracker pages
+
+- Applied a `.dark-tracker` CSS theme to both `dashboards/html/airfare.html` and `dashboards/html/hotels.html`.
+- Theme: deep navy-black background (`#0d1117`), glassy dark cards, gold/teal/blue accent palette, status-coded pills (teal = good, gold = watch, red = avoid), frosted dark topbar, and executive-style typography hierarchy.
+- Updated `hotels.js` so all hotel cards now show a clearly labeled, clickable booking link: Boylston shows "Check availability" (rate-limited status), Paramount/Hotel Max/The State Hotel each show "Book direct →" pointing to their verified TravelClick/SynXis direct booking URLs.
+- Confirmed the local server launchd agent (`com.kicker.codexproject.localhost`) is already installed and running at `http://localhost:4173/` — no additional setup needed.
+- Validation passed: 5/5 airfare tests, hotel monitor ok, budget ok.
+
+Files touched:
+
+- `dashboards/css/styles.css`
+- `dashboards/html/airfare.html`
+- `dashboards/html/hotels.html`
+- `dashboards/js/hotels.js`
+- `notes/CHANGELOG.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+
+### Claude continuation pack added for the remaining airfare UI work
+
+- Added a dedicated continuation brief at `docs/2026-05-23-airfare-ui-continuation.md` so the next Claude Code session can continue the airfare tracker UI work without depending on raw chat history.
+- Wrote the brief narrowly around the remaining airfare tracker polish task and included explicit scope limits, allowed edit files, preserved files, validation steps, and a definition of done.
+- Updated the active project context, tasks, and known-issues notes so the next session sees the airfare tracker as the main unfinished UI task and also sees the file-preservation guardrails up front.
+
+Files touched:
+
+- `docs/2026-05-23-airfare-ui-continuation.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/TASKS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+- `tasks/todo.md`
+
+### Hotel and airfare tracker layout pass aligned to the main dashboard
+
+- Reworked both tracker pages so they now follow the main dashboard's card-first layout rhythm instead of leaving wide empty gaps, uneven columns, and table-heavy dead space.
+- Tightened the hotel tracker with a real top summary strip, cleaner benchmark/watchlist cards, and a clearer hold-vs-switch callout using the same palette logic as the main itinerary dashboard.
+- Replaced the airfare tracker's wide data tables with responsive fare cards so verified and discovery states spread across desktop width properly and remain readable on smaller screens.
+- Added shared tracker styling for summary strips, state pills, meta grids, and responsive tracker card layouts so future tracker additions inherit the same UI language instead of drifting again.
+- Validation passed after the UI pass.
+
+Files touched:
+
+- `dashboards/html/hotels.html`
+- `dashboards/html/airfare.html`
+- `dashboards/js/hotels.js`
+- `dashboards/js/airfare.js`
+- `dashboards/css/styles.css`
+- `tasks/todo.md`
+- `notes/Project Log.md`
+- `notes/CHANGELOG.md`
 
 ### Seattle hotel watch rebuilt and reverified from direct booking flows
 

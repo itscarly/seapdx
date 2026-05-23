@@ -9,7 +9,7 @@
       "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
       "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
       "lastAutomatedCheckAt": "2026-05-23T20:58:33.329Z",
-      "lastAutomatedSummary": "Boylston could not be live-quoted on a working direct booking flow; live direct quotes were captured for Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), and The State Hotel ($909.46). No Seattle hotel qualifies under the $400 total cap."
+      "lastAutomatedSummary": "Boylston is confirmed at $384.13 total (RES ID [redacted]). Live direct quotes: Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), The State Hotel ($909.46). No alternative qualifies under the $400 cap. Monitor continues watching for a refundable sub-$400 option near King Street Amtrak or Link Light Rail."
     }
   },
   "seattle": {
@@ -28,28 +28,43 @@
       "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
       "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
       "lastAutomatedCheckAt": "2026-05-23T20:58:33.329Z",
-      "lastAutomatedSummary": "Boylston could not be live-quoted on a working direct booking flow; live direct quotes were captured for Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), and The State Hotel ($909.46). No Seattle hotel qualifies under the $400 total cap."
+      "lastAutomatedSummary": "Boylston is confirmed at $384.13 total (RES ID [redacted]). Live direct quotes: Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), The State Hotel ($909.46). No alternative qualifies under the $400 cap. Monitor continues watching for a refundable sub-$400 option near King Street Amtrak or Link Light Rail."
+    },
+    "monitoringCriteria": {
+      "hardCap": 400,
+      "mustBeRefundable": true,
+      "transitPriority": ["King Street Amtrak station (walking distance preferred)", "Link Light Rail SeaTac line access", "Safe neighborhood"],
+      "switchTriggers": [
+        "Refundable direct-site total under $400 with transit proximity to King Street or Link Light Rail",
+        "Same or lower price with materially better neighborhood safety or transit access",
+        "Boylston rate drops significantly below $384.13 on a bookable direct path"
+      ]
     },
     "benchmark": {
       "id": "boylston-current",
       "name": "The Boylston Hotel Capitol Hill",
       "zone": "Capitol Hill",
       "directBookingUrl": "https://www.sonder.com/en-gb/destinations/seattle/the-boylston/c32505",
-      "trueTotalCost": null,
+      "trueTotalCost": 384.13,
+      "roomType": "Standard Queen High Floor",
+      "reservationId": "[redacted]",
+      "reservationStatus": "confirmed",
+      "amountPaid": 0,
+      "balanceDue": 384.13,
       "reviewScore": null,
       "transitScore": 99,
       "cancellationDeadline": null,
       "priceVerification": {
-        "status": "blocked",
+        "status": "confirmed-reservation",
         "quotedStay": {
           "checkIn": "2026-11-01",
           "checkOut": "2026-11-04",
           "nights": 3,
           "guests": 2
         },
-        "evidenceNote": "Direct Sonder property page was rate-limited by Cloudflare during this run, and Marriott's official Sonder FAQ says this former Sonder by Marriott Bonvoy property is not accepting new Marriott bookings."
+        "evidenceNote": "Confirmed reservation RES ID [redacted]. Subtotal $332.00 + Convention and Trade Center $23.24 + Local City/County Sales and Use Tax $7.31 + State Sales Tax $21.58 = Grand Total $384.13. Balance due at hotel."
       },
-      "notes": "Preferred Seattle base remains on the watchlist, but no live direct quote was exposed during this run."
+      "notes": "Confirmed booking at $384.13 total — within the $400 cap. Monitor is now hunting for a refundable sub-$400 alternative with materially better proximity to King Street Amtrak station or Link Light Rail (SeaTac line). Hold unless a clear upgrade appears."
     },
     "eligible": [],
     "excluded": [
@@ -165,19 +180,19 @@
       }
     ],
     "marketStrategy": {
-      "currentRead": "No Seattle direct-booking alternative is under the $400 total cap. Hold the current Seattle lodging plan unless Boylston becomes directly bookable again or another refundable direct quote drops materially.",
+      "currentRead": "Boylston is confirmed at $384.13 total (RES ID [redacted]) — within the $400 cap. All monitored alternatives ($731–$909) exceed the cap by a wide margin. Hold the Boylston booking. Monitor continues watching for a refundable sub-$400 alternative with meaningfully better proximity to King Street Amtrak or Link Light Rail SeaTac line.",
       "triggers": [
-        "Direct-site refundable quote under $400 total",
-        "Boylston direct booking path becomes stable again with an acceptable total",
-        "A same-price move offers materially better transit, room quality, or cancellation flexibility"
+        "Refundable direct-site total under $400 with King Street Amtrak walking distance or Link Light Rail access",
+        "Same or lower price with materially better neighborhood safety or room quality",
+        "Boylston rate drops significantly below $384.13 on a bookable direct path"
       ]
     },
     "recommendationMatrix": [
       {
         "hotelId": "boylston-current",
         "hotelName": "The Boylston Hotel Capitol Hill",
-        "recommendation": "HOLD CURRENT",
-        "rationale": "All currently verified direct-site Seattle alternatives remain above the $400 total cap, and Boylston itself could not be freshly quoted in a working direct booking flow."
+        "recommendation": "HOLD — CONFIRMED BOOKING",
+        "rationale": "Confirmed reservation at $384.13 total (within $400 cap). All verified alternatives are $730+ over cap. Continue monitoring; switch only if a sub-$400 refundable option appears with better transit access to King Street Amtrak or Link Light Rail."
       }
     ]
   },

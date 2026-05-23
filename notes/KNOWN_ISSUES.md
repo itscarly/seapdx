@@ -4,13 +4,23 @@
 
 ### Public deploy may lag local updates
 
-- Status: open
-- Detail: local project files and the localhost preview can be current even when the public deploy is stale or blocked by hosting/account limits
+- Status: closed (as of 2026-05-23 session 2)
+- Detail: pushed all local changes to GitHub. GitHub Pages should reflect current state within 1-2 minutes of the push. Reopen this issue if future sessions leave local changes unpushed.
 
 ### Tracker subsystems can drift if one restore overwrites another
 
 - Status: open
 - Detail: the airfare and hotel tracker files are separate static subsystems, so partial restore commits can accidentally remove one while fixing the other unless the dashboard, scripts, and notes are checked together
+
+### Airfare tracker UI is still below the main dashboard quality bar
+
+- Status: closed
+- Detail: both tracker pages now use a dark premium theme with navy/charcoal backgrounds, gold/teal/blue accents, proper card hierarchy, and executive-style visual polish. All hotel booking links are clickable. Local server auto-start was already in place via launchd.
+
+### Agent continuation work needs explicit file-preservation guardrails
+
+- Status: open
+- Detail: previous agent work drifted into deleting or removing working tracker files, so continuation tasks should explicitly name allowed edit files, preserved files, and required validation before any cleanup logic is attempted
 
 ### November 2026 business hours are still partly provisional
 
