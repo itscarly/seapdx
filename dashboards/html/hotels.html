@@ -8,23 +8,24 @@
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/styles.css">
   </head>
-  <body>
-    <header class="hero">
+  <body class="dark-tracker tracker-page hotels-page">
+    <header class="hero tracker-hero">
       <nav class="topbar" aria-label="Hotel tracker sections">
+        <a href="./index.html">Main dashboard</a>
         <a href="#benchmark">Benchmark</a>
         <a href="#rankings">Watchlist</a>
         <a href="#strategy">Strategy</a>
-        <a href="./index.html#automation">Trip dashboard</a>
       </nav>
-      <section class="hero-grid">
+      <section class="hero-grid tracker-hero-grid">
         <div>
-          <p class="eyebrow">Seattle first, Portland scaffolded</p>
+          <p class="eyebrow">Seattle stay watch</p>
           <h1>Hotel price intelligence tracker</h1>
-          <p class="lede">Direct hotel-site monitoring for the Seattle stay, using the exact Nov 1-4, 2026 stay window and a hard $400 total cap.</p>
+          <p class="lede">A cleaner direct-site hotel watch for the Nov 1-4 Seattle stay, tuned to the same visual rhythm as the main trip dashboard and centered on refundable booking decisions.</p>
           <div class="hero-actions">
             <a class="button primary" href="#rankings">View Seattle watch</a>
             <a class="button" href="../../research/hotels/latest-report.md">Open report</a>
           </div>
+          <div id="hotelCallout" class="tracker-callout">Loading booking stance.</div>
         </div>
         <aside class="trip-card" aria-label="Tracker status">
           <span class="status-dot"></span>
@@ -42,38 +43,47 @@
     </header>
 
     <main id="hotelApp">
+      <section class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Market snapshot</p>
+          <h2>Benchmark, cap pressure, and active alternative count</h2>
+          <p class="section-copy">This top strip mirrors the main dashboard so the important answer reads first: hold, switch, or wait.</p>
+        </div>
+        <div id="hotelSummary" class="summary-grid tracker-summary-grid"></div>
+      </section>
+
       <section id="benchmark" class="section">
-        <div class="section-heading">
+        <div class="section-heading compact-heading">
           <div>
-            <p class="eyebrow">Section 1</p>
+            <p class="eyebrow">Benchmark</p>
             <h2>Current reservation benchmark</h2>
             <p class="section-copy">Boylston stays the fallback until a direct-site Seattle quote lands under the hard cap.</p>
           </div>
         </div>
-        <div id="benchmarkPanel" class="summary-grid"></div>
+        <div id="benchmarkPanel" class="tracker-panel-grid"></div>
       </section>
 
       <section id="rankings" class="section">
-        <div class="section-heading">
+        <div class="section-heading compact-heading">
           <div>
-            <p class="eyebrow">Section 2</p>
+            <p class="eyebrow">Watchlist</p>
             <h2>Seattle direct-site watchlist</h2>
             <p class="section-copy">Every quote shown here is tied to the exact Nov 1-4, 2026 / 2 guest stay scope.</p>
           </div>
         </div>
-        <div id="watchSummary" class="summary-grid"></div>
-        <div id="excludedPanel" class="transit-grid"></div>
+        <div id="watchSummary" class="tracker-panel-grid"></div>
+        <div id="excludedPanel" class="tracker-card-grid"></div>
       </section>
 
       <section id="strategy" class="section">
-        <div class="section-heading">
+        <div class="section-heading compact-heading">
           <div>
-            <p class="eyebrow">Section 3</p>
+            <p class="eyebrow">Booking strategy</p>
             <h2>Automation cadence and booking strategy</h2>
             <p class="section-copy">The hotel watch now has real recurring automation rather than placeholder cadence text.</p>
           </div>
         </div>
-        <div class="transit-grid">
+        <div class="tracker-card-grid tracker-card-grid-wide">
           <article class="transit-card" id="cadencePanel"></article>
           <article class="transit-card" id="strategyPanel"></article>
         </div>
