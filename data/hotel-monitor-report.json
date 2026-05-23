@@ -1,0 +1,1500 @@
+{
+  "meta": {
+    "title": "Seattle Hotel Intelligence Tracker",
+    "generatedFor": "Manual market monitoring and refundable rebooking decisions",
+    "snapshotLabel": "Seed planning dataset",
+    "snapshotDate": "2026-05-23",
+    "currency": "USD",
+    "disclaimer": "Direct hotel-site quotes only. Every price, cancellation rule, and room match must be rechecked live before booking or rebooking.",
+    "automation": {
+      "enabled": true,
+      "currentBand": "2-3x weekly direct-site checks",
+      "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
+      "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
+      "lastAutomatedCheckAt": null,
+      "lastAutomatedSummary": "Automation scheduled. First automated direct-site run has not completed yet."
+    }
+  },
+  "seattle": {
+    "trip": {
+      "city": "Seattle",
+      "dateRange": "Nov 1-4, 2026",
+      "nights": 3,
+      "guests": 2,
+      "budgetCap": 400,
+      "refundabilityRequired": true,
+      "nonRefundableAllowed": false
+    },
+    "automation": {
+      "enabled": true,
+      "currentBand": "2-3x weekly direct-site checks",
+      "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
+      "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
+      "lastAutomatedCheckAt": null,
+      "lastAutomatedSummary": "Automation scheduled. First automated direct-site run has not completed yet."
+    },
+    "benchmark": {
+      "id": "boylston-current",
+      "name": "Boylston Hotel",
+      "brandType": "boutique",
+      "zone": "Capitol Hill",
+      "sourceType": "current-booking",
+      "bookingChannels": [
+        "direct"
+      ],
+      "homepage": "https://www.theboylstonseattle.com/",
+      "directBookingUrl": "https://www.theboylstonseattle.com/",
+      "priceVerification": {
+        "status": "live-verified",
+        "verifiedAt": "2026-05-23",
+        "quotedStay": {
+          "checkIn": "2026-11-01",
+          "checkOut": "2026-11-04",
+          "nights": 3,
+          "guests": 2
+        },
+        "evidenceNote": "User-held refundable booking total."
+      },
+      "room": {
+        "label": "Standard Queen High Floor",
+        "beds": "1 Queen",
+        "privateBath": true,
+        "roomEquivalencyAccepted": true
+      },
+      "pricing": {
+        "nightlyRates": [
+          102.33,
+          102.33,
+          102.33
+        ],
+        "taxes": 54.14,
+        "mandatoryFees": [],
+        "refundable": true,
+        "cancellationDeadline": "2026-10-30T18:00:00-07:00",
+        "breakfastIncluded": false,
+        "loungeAccess": false,
+        "lateCheckoutPossible": false,
+        "corporateEligible": false,
+        "memberRateVisible": false
+      },
+      "quality": {
+        "reviewScore": 4.2,
+        "reviewCount": 420,
+        "condition": "renovated",
+        "cleanliness": 4,
+        "soundproofing": 3,
+        "serviceConsistency": 4,
+        "safeWalkable": true,
+        "luggageFriendly": 3,
+        "flags": []
+      },
+      "transit": {
+        "linkWalkMinutes": 9,
+        "airportMinutes": 38,
+        "kingStreetMinutes": 18,
+        "transferCount": 0,
+        "luggageEase": 3,
+        "hillDifficulty": 3,
+        "lateNightConvenience": 4,
+        "arrivalSafety": 4
+      },
+      "marketSignals": {
+        "inventoryPressure": "stable",
+        "expectedPriceMovement": "stable",
+        "seasonality": "moderate-fall-demand",
+        "notes": "Capitol Hill base remains strong for walking-first Seattle days."
+      },
+      "notes": "Grandfathered benchmark despite 1 Queen room because it is the existing held refundable booking.",
+      "isCurrentReservation": true,
+      "trueTotalCost": 361.13,
+      "transitScore": 99,
+      "transitReasons": [
+        "9 min walk to Link",
+        "38 min airport trip",
+        "18 min King Street access",
+        "0 transfers",
+        "luggage ease 3/5",
+        "hill difficulty 3/5",
+        "late-night 4/5",
+        "arrival safety 4/5",
+        "priority zone bonus for Capitol Hill"
+      ],
+      "qualityPass": true,
+      "qualityFailures": [],
+      "valueBenefit": 23,
+      "valueBenefitReasons": [
+        "Newer room condition",
+        "More consistent service pattern"
+      ],
+      "valueAdjustedTotal": 338.13,
+      "savingsVsCurrent": 0,
+      "recommendation": "HOLD CURRENT",
+      "alerts": []
+    },
+    "ranked": [
+      {
+        "id": "hyatt-place-downtown",
+        "name": "Hyatt Place Seattle Downtown",
+        "brandType": "chain",
+        "chainFamily": "Hyatt",
+        "zone": "Westlake",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "member",
+          "aaa",
+          "corp-eligible"
+        ],
+        "homepage": "https://www.hyatt.com/en-US/hotel/washington/hyatt-place-seattle-downtown/seazd",
+        "directBookingUrl": "https://www.hyatt.com/en-US/hotel/washington/hyatt-place-seattle-downtown/seazd",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "1 King Bed",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            118,
+            118,
+            118
+          ],
+          "taxes": 57.04,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T15:00:00-07:00",
+          "breakfastIncluded": true,
+          "loungeAccess": false,
+          "lateCheckoutPossible": true,
+          "corporateEligible": true,
+          "memberRateVisible": true
+        },
+        "quality": {
+          "reviewScore": 4.2,
+          "reviewCount": 1400,
+          "condition": "renovated",
+          "cleanliness": 4,
+          "soundproofing": 4,
+          "serviceConsistency": 4,
+          "safeWalkable": true,
+          "luggageFriendly": 5,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 8,
+          "airportMinutes": 36,
+          "kingStreetMinutes": 16,
+          "transferCount": 0,
+          "luggageEase": 5,
+          "hillDifficulty": 4,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "stable",
+          "seasonality": "steady-corporate",
+          "notes": "Breakfast and Hyatt benefits make the cash rate more competitive than it first looks."
+        },
+        "notes": "Best full-service chain-style value if breakfast remains included.",
+        "trueTotalCost": 411.04,
+        "transitScore": 109,
+        "transitReasons": [
+          "8 min walk to Link",
+          "36 min airport trip",
+          "16 min King Street access",
+          "0 transfers",
+          "luggage ease 5/5",
+          "hill difficulty 4/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for Westlake"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $411.04 exceeds cap $400.00"
+        ],
+        "valueBenefit": 97,
+        "valueBenefitReasons": [
+          "Breakfast inclusion value",
+          "Late checkout flexibility",
+          "Corporate-eligible opportunity",
+          "Member-rate opportunity",
+          "Newer room condition",
+          "More consistent service pattern"
+        ],
+        "valueAdjustedTotal": 314.04,
+        "savingsVsCurrent": -49.91,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "executive-pacific",
+        "name": "Executive Hotel Pacific",
+        "brandType": "independent",
+        "zone": "University Street",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota"
+        ],
+        "homepage": "https://www.executivehotelpacific.com/",
+        "directBookingUrl": "https://www.executivehotelpacific.com/",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "1 Queen Bed",
+          "beds": "1 Queen",
+          "privateBath": true,
+          "roomEquivalencyAccepted": false
+        },
+        "pricing": {
+          "nightlyRates": [
+            92,
+            92,
+            92
+          ],
+          "taxes": 48.67,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-29T18:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": false,
+          "corporateEligible": false,
+          "memberRateVisible": false
+        },
+        "quality": {
+          "reviewScore": 4,
+          "reviewCount": 1200,
+          "condition": "dated",
+          "cleanliness": 3,
+          "soundproofing": 2,
+          "serviceConsistency": 3,
+          "safeWalkable": true,
+          "luggageFriendly": 3,
+          "flags": [
+            "dated interiors",
+            "soundproofing complaints"
+          ]
+        },
+        "transit": {
+          "linkWalkMinutes": 5,
+          "airportMinutes": 31,
+          "kingStreetMinutes": 13,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 5,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "stable",
+          "seasonality": "budget-demand",
+          "notes": "Looks cheap at first glance, but the quality screen should reject it."
+        },
+        "notes": "Included to prove the filter keeps cheap-looking options from floating up.",
+        "trueTotalCost": 324.67,
+        "transitScore": 111,
+        "transitReasons": [
+          "5 min walk to Link",
+          "31 min airport trip",
+          "13 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 5/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for University Street"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Room standard below 1 King or 2 Queen equivalent",
+          "Recurring cleanliness risk",
+          "Soundproofing risk too high",
+          "Condition too dated"
+        ],
+        "valueBenefit": 0,
+        "valueBenefitReasons": [],
+        "valueAdjustedTotal": 324.67,
+        "savingsVsCurrent": 36.46,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "moxy-seattle-downtown",
+        "name": "MOXY Seattle Downtown",
+        "brandType": "chain",
+        "chainFamily": "Marriott",
+        "zone": "Capitol Hill",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "member",
+          "corp-eligible"
+        ],
+        "homepage": "https://www.marriott.com/en-us/hotels/seamx-moxy-seattle-downtown/overview/",
+        "directBookingUrl": "https://www.marriott.com/en-us/hotels/seamx-moxy-seattle-downtown/overview/",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "1 King Bed",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            121,
+            121,
+            121
+          ],
+          "taxes": 58.49,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T23:59:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": true,
+          "corporateEligible": true,
+          "memberRateVisible": true
+        },
+        "quality": {
+          "reviewScore": 4.1,
+          "reviewCount": 500,
+          "condition": "modern",
+          "cleanliness": 4,
+          "soundproofing": 3,
+          "serviceConsistency": 4,
+          "safeWalkable": true,
+          "luggageFriendly": 3,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 10,
+          "airportMinutes": 39,
+          "kingStreetMinutes": 19,
+          "transferCount": 0,
+          "luggageEase": 3,
+          "hillDifficulty": 3,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "tightening",
+          "expectedPriceMovement": "up",
+          "seasonality": "young-leisure",
+          "notes": "Useful if Marriott benefits matter, but it needs a member or corp dip to beat Boylston."
+        },
+        "notes": "Good neighborhood fit, weaker price discipline.",
+        "trueTotalCost": 421.49,
+        "transitScore": 96,
+        "transitReasons": [
+          "10 min walk to Link",
+          "39 min airport trip",
+          "19 min King Street access",
+          "0 transfers",
+          "luggage ease 3/5",
+          "hill difficulty 3/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for Capitol Hill"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $421.49 exceeds cap $400.00"
+        ],
+        "valueBenefit": 61,
+        "valueBenefitReasons": [
+          "Late checkout flexibility",
+          "Corporate-eligible opportunity",
+          "Member-rate opportunity",
+          "Newer room condition",
+          "More consistent service pattern"
+        ],
+        "valueAdjustedTotal": 360.49,
+        "savingsVsCurrent": -60.36,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "sonder-railspur",
+        "name": "Sonder RailSpur",
+        "brandType": "boutique",
+        "zone": "Pioneer Square",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota"
+        ],
+        "homepage": "https://www.sonder.com/destinations/seattle/RailSpur/c31644",
+        "directBookingUrl": "https://www.sonder.com/destinations/seattle/RailSpur/c31644",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "King room",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            116,
+            116,
+            116
+          ],
+          "taxes": 56.08,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-30T16:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": false,
+          "corporateEligible": false,
+          "memberRateVisible": false
+        },
+        "quality": {
+          "reviewScore": 4.3,
+          "reviewCount": 320,
+          "condition": "modern",
+          "cleanliness": 4,
+          "soundproofing": 3,
+          "serviceConsistency": 3,
+          "safeWalkable": true,
+          "luggageFriendly": 4,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 6,
+          "airportMinutes": 34,
+          "kingStreetMinutes": 11,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 4,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 3
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "likely-drop",
+          "seasonality": "shoulder-demand",
+          "notes": "Worth watching for OTA undercuts if Pioneer Square softens."
+        },
+        "notes": "Clean design fit but currently above the soft rebook line.",
+        "trueTotalCost": 404.08,
+        "transitScore": 109,
+        "transitReasons": [
+          "6 min walk to Link",
+          "34 min airport trip",
+          "11 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 4/5",
+          "late-night 4/5",
+          "arrival safety 3/5",
+          "priority zone bonus for Pioneer Square"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $404.08 exceeds cap $400.00"
+        ],
+        "valueBenefit": 15,
+        "valueBenefitReasons": [
+          "Newer room condition"
+        ],
+        "valueAdjustedTotal": 389.08,
+        "savingsVsCurrent": -42.95,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "coast-seattle-downtown",
+        "name": "Coast Seattle Downtown Hotel",
+        "brandType": "chain",
+        "zone": "University Street",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota",
+          "aaa"
+        ],
+        "homepage": "https://www.coasthotels.com/coast-seattle-downtown-hotel-by-apa",
+        "directBookingUrl": "https://www.coasthotels.com/coast-seattle-downtown-hotel-by-apa",
+        "priceVerification": {
+          "status": "live-verified",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "User screenshot from Coast direct site shows 560 USD total member rate for Nov 1-4, 2026."
+        },
+        "room": {
+          "label": "1 King Bed",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            186.67,
+            186.67,
+            186.66
+          ],
+          "taxes": 0,
+          "mandatoryFees": [
+            {
+              "label": "included in quoted total",
+              "amount": 0
+            }
+          ],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-29T18:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": false,
+          "corporateEligible": true,
+          "memberRateVisible": false
+        },
+        "quality": {
+          "reviewScore": 4,
+          "reviewCount": 900,
+          "condition": "mixed",
+          "cleanliness": 4,
+          "soundproofing": 3,
+          "serviceConsistency": 3,
+          "safeWalkable": true,
+          "luggageFriendly": 4,
+          "flags": [
+            "some rooms feel dated"
+          ]
+        },
+        "transit": {
+          "linkWalkMinutes": 6,
+          "airportMinutes": 31,
+          "kingStreetMinutes": 14,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 5,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "likely-drop",
+          "seasonality": "conference-sensitive",
+          "notes": "Fee structure and dated-room risk keep this in watch territory."
+        },
+        "notes": "Good airport line access but only a secondary option because of quality variance.",
+        "trueTotalCost": 560,
+        "transitScore": 108,
+        "transitReasons": [
+          "6 min walk to Link",
+          "31 min airport trip",
+          "14 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 5/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for University Street"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $560.00 exceeds cap $400.00"
+        ],
+        "valueBenefit": 12,
+        "valueBenefitReasons": [
+          "Corporate-eligible opportunity"
+        ],
+        "valueAdjustedTotal": 548,
+        "savingsVsCurrent": -198.87,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "citizenm-pioneer-square",
+        "name": "citizenM Seattle Pioneer Square",
+        "brandType": "boutique",
+        "zone": "Pioneer Square",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota",
+          "member"
+        ],
+        "homepage": "https://www.citizenm.com/hotels/united-states/seattle/seattle-pioneer-square-hotel",
+        "directBookingUrl": "https://www.citizenm.com/hotels/united-states/seattle/seattle-pioneer-square-hotel",
+        "priceVerification": {
+          "status": "live-verified",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "User screenshot from citizenM direct site shows 892 USD total with taxes and fees."
+        },
+        "room": {
+          "label": "King room",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            297,
+            297,
+            297
+          ],
+          "taxes": 1,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T18:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": true,
+          "corporateEligible": true,
+          "memberRateVisible": true
+        },
+        "quality": {
+          "reviewScore": 4.4,
+          "reviewCount": 1800,
+          "condition": "modern",
+          "cleanliness": 4,
+          "soundproofing": 4,
+          "serviceConsistency": 4,
+          "safeWalkable": true,
+          "luggageFriendly": 4,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 5,
+          "airportMinutes": 33,
+          "kingStreetMinutes": 10,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 5,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 3
+        },
+        "marketSignals": {
+          "inventoryPressure": "tightening",
+          "expectedPriceMovement": "up",
+          "seasonality": "event-sensitive",
+          "notes": "Strong station adjacency and a rare chance to land a modern room near the benchmark price."
+        },
+        "notes": "Transit-forward alternative if the manual rate stays under cap.",
+        "trueTotalCost": 892,
+        "transitScore": 108,
+        "transitReasons": [
+          "5 min walk to Link",
+          "33 min airport trip",
+          "10 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 5/5",
+          "late-night 4/5",
+          "arrival safety 3/5",
+          "priority zone bonus for Pioneer Square"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $892.00 exceeds cap $400.00"
+        ],
+        "valueBenefit": 61,
+        "valueBenefitReasons": [
+          "Late checkout flexibility",
+          "Corporate-eligible opportunity",
+          "Member-rate opportunity",
+          "Newer room condition",
+          "More consistent service pattern"
+        ],
+        "valueAdjustedTotal": 831,
+        "savingsVsCurrent": -530.87,
+        "recommendation": "WATCH",
+        "alerts": []
+      }
+    ],
+    "eligible": [],
+    "excluded": [
+      {
+        "id": "hyatt-place-downtown",
+        "name": "Hyatt Place Seattle Downtown",
+        "brandType": "chain",
+        "chainFamily": "Hyatt",
+        "zone": "Westlake",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "member",
+          "aaa",
+          "corp-eligible"
+        ],
+        "homepage": "https://www.hyatt.com/en-US/hotel/washington/hyatt-place-seattle-downtown/seazd",
+        "directBookingUrl": "https://www.hyatt.com/en-US/hotel/washington/hyatt-place-seattle-downtown/seazd",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "1 King Bed",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            118,
+            118,
+            118
+          ],
+          "taxes": 57.04,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T15:00:00-07:00",
+          "breakfastIncluded": true,
+          "loungeAccess": false,
+          "lateCheckoutPossible": true,
+          "corporateEligible": true,
+          "memberRateVisible": true
+        },
+        "quality": {
+          "reviewScore": 4.2,
+          "reviewCount": 1400,
+          "condition": "renovated",
+          "cleanliness": 4,
+          "soundproofing": 4,
+          "serviceConsistency": 4,
+          "safeWalkable": true,
+          "luggageFriendly": 5,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 8,
+          "airportMinutes": 36,
+          "kingStreetMinutes": 16,
+          "transferCount": 0,
+          "luggageEase": 5,
+          "hillDifficulty": 4,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "stable",
+          "seasonality": "steady-corporate",
+          "notes": "Breakfast and Hyatt benefits make the cash rate more competitive than it first looks."
+        },
+        "notes": "Best full-service chain-style value if breakfast remains included.",
+        "trueTotalCost": 411.04,
+        "transitScore": 109,
+        "transitReasons": [
+          "8 min walk to Link",
+          "36 min airport trip",
+          "16 min King Street access",
+          "0 transfers",
+          "luggage ease 5/5",
+          "hill difficulty 4/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for Westlake"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $411.04 exceeds cap $400.00"
+        ],
+        "valueBenefit": 97,
+        "valueBenefitReasons": [
+          "Breakfast inclusion value",
+          "Late checkout flexibility",
+          "Corporate-eligible opportunity",
+          "Member-rate opportunity",
+          "Newer room condition",
+          "More consistent service pattern"
+        ],
+        "valueAdjustedTotal": 314.04,
+        "savingsVsCurrent": -49.91,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "executive-pacific",
+        "name": "Executive Hotel Pacific",
+        "brandType": "independent",
+        "zone": "University Street",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota"
+        ],
+        "homepage": "https://www.executivehotelpacific.com/",
+        "directBookingUrl": "https://www.executivehotelpacific.com/",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "1 Queen Bed",
+          "beds": "1 Queen",
+          "privateBath": true,
+          "roomEquivalencyAccepted": false
+        },
+        "pricing": {
+          "nightlyRates": [
+            92,
+            92,
+            92
+          ],
+          "taxes": 48.67,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-29T18:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": false,
+          "corporateEligible": false,
+          "memberRateVisible": false
+        },
+        "quality": {
+          "reviewScore": 4,
+          "reviewCount": 1200,
+          "condition": "dated",
+          "cleanliness": 3,
+          "soundproofing": 2,
+          "serviceConsistency": 3,
+          "safeWalkable": true,
+          "luggageFriendly": 3,
+          "flags": [
+            "dated interiors",
+            "soundproofing complaints"
+          ]
+        },
+        "transit": {
+          "linkWalkMinutes": 5,
+          "airportMinutes": 31,
+          "kingStreetMinutes": 13,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 5,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "stable",
+          "seasonality": "budget-demand",
+          "notes": "Looks cheap at first glance, but the quality screen should reject it."
+        },
+        "notes": "Included to prove the filter keeps cheap-looking options from floating up.",
+        "trueTotalCost": 324.67,
+        "transitScore": 111,
+        "transitReasons": [
+          "5 min walk to Link",
+          "31 min airport trip",
+          "13 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 5/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for University Street"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Room standard below 1 King or 2 Queen equivalent",
+          "Recurring cleanliness risk",
+          "Soundproofing risk too high",
+          "Condition too dated"
+        ],
+        "valueBenefit": 0,
+        "valueBenefitReasons": [],
+        "valueAdjustedTotal": 324.67,
+        "savingsVsCurrent": 36.46,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "moxy-seattle-downtown",
+        "name": "MOXY Seattle Downtown",
+        "brandType": "chain",
+        "chainFamily": "Marriott",
+        "zone": "Capitol Hill",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "member",
+          "corp-eligible"
+        ],
+        "homepage": "https://www.marriott.com/en-us/hotels/seamx-moxy-seattle-downtown/overview/",
+        "directBookingUrl": "https://www.marriott.com/en-us/hotels/seamx-moxy-seattle-downtown/overview/",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "1 King Bed",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            121,
+            121,
+            121
+          ],
+          "taxes": 58.49,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T23:59:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": true,
+          "corporateEligible": true,
+          "memberRateVisible": true
+        },
+        "quality": {
+          "reviewScore": 4.1,
+          "reviewCount": 500,
+          "condition": "modern",
+          "cleanliness": 4,
+          "soundproofing": 3,
+          "serviceConsistency": 4,
+          "safeWalkable": true,
+          "luggageFriendly": 3,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 10,
+          "airportMinutes": 39,
+          "kingStreetMinutes": 19,
+          "transferCount": 0,
+          "luggageEase": 3,
+          "hillDifficulty": 3,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "tightening",
+          "expectedPriceMovement": "up",
+          "seasonality": "young-leisure",
+          "notes": "Useful if Marriott benefits matter, but it needs a member or corp dip to beat Boylston."
+        },
+        "notes": "Good neighborhood fit, weaker price discipline.",
+        "trueTotalCost": 421.49,
+        "transitScore": 96,
+        "transitReasons": [
+          "10 min walk to Link",
+          "39 min airport trip",
+          "19 min King Street access",
+          "0 transfers",
+          "luggage ease 3/5",
+          "hill difficulty 3/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for Capitol Hill"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $421.49 exceeds cap $400.00"
+        ],
+        "valueBenefit": 61,
+        "valueBenefitReasons": [
+          "Late checkout flexibility",
+          "Corporate-eligible opportunity",
+          "Member-rate opportunity",
+          "Newer room condition",
+          "More consistent service pattern"
+        ],
+        "valueAdjustedTotal": 360.49,
+        "savingsVsCurrent": -60.36,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "sonder-railspur",
+        "name": "Sonder RailSpur",
+        "brandType": "boutique",
+        "zone": "Pioneer Square",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota"
+        ],
+        "homepage": "https://www.sonder.com/destinations/seattle/RailSpur/c31644",
+        "directBookingUrl": "https://www.sonder.com/destinations/seattle/RailSpur/c31644",
+        "priceVerification": {
+          "status": "manual-estimate",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "Seed planning estimate only. Must recheck on direct site."
+        },
+        "room": {
+          "label": "King room",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            116,
+            116,
+            116
+          ],
+          "taxes": 56.08,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-30T16:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": false,
+          "corporateEligible": false,
+          "memberRateVisible": false
+        },
+        "quality": {
+          "reviewScore": 4.3,
+          "reviewCount": 320,
+          "condition": "modern",
+          "cleanliness": 4,
+          "soundproofing": 3,
+          "serviceConsistency": 3,
+          "safeWalkable": true,
+          "luggageFriendly": 4,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 6,
+          "airportMinutes": 34,
+          "kingStreetMinutes": 11,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 4,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 3
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "likely-drop",
+          "seasonality": "shoulder-demand",
+          "notes": "Worth watching for OTA undercuts if Pioneer Square softens."
+        },
+        "notes": "Clean design fit but currently above the soft rebook line.",
+        "trueTotalCost": 404.08,
+        "transitScore": 109,
+        "transitReasons": [
+          "6 min walk to Link",
+          "34 min airport trip",
+          "11 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 4/5",
+          "late-night 4/5",
+          "arrival safety 3/5",
+          "priority zone bonus for Pioneer Square"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $404.08 exceeds cap $400.00"
+        ],
+        "valueBenefit": 15,
+        "valueBenefitReasons": [
+          "Newer room condition"
+        ],
+        "valueAdjustedTotal": 389.08,
+        "savingsVsCurrent": -42.95,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "coast-seattle-downtown",
+        "name": "Coast Seattle Downtown Hotel",
+        "brandType": "chain",
+        "zone": "University Street",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota",
+          "aaa"
+        ],
+        "homepage": "https://www.coasthotels.com/coast-seattle-downtown-hotel-by-apa",
+        "directBookingUrl": "https://www.coasthotels.com/coast-seattle-downtown-hotel-by-apa",
+        "priceVerification": {
+          "status": "live-verified",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "User screenshot from Coast direct site shows 560 USD total member rate for Nov 1-4, 2026."
+        },
+        "room": {
+          "label": "1 King Bed",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            186.67,
+            186.67,
+            186.66
+          ],
+          "taxes": 0,
+          "mandatoryFees": [
+            {
+              "label": "included in quoted total",
+              "amount": 0
+            }
+          ],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-29T18:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": false,
+          "corporateEligible": true,
+          "memberRateVisible": false
+        },
+        "quality": {
+          "reviewScore": 4,
+          "reviewCount": 900,
+          "condition": "mixed",
+          "cleanliness": 4,
+          "soundproofing": 3,
+          "serviceConsistency": 3,
+          "safeWalkable": true,
+          "luggageFriendly": 4,
+          "flags": [
+            "some rooms feel dated"
+          ]
+        },
+        "transit": {
+          "linkWalkMinutes": 6,
+          "airportMinutes": 31,
+          "kingStreetMinutes": 14,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 5,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 4
+        },
+        "marketSignals": {
+          "inventoryPressure": "stable",
+          "expectedPriceMovement": "likely-drop",
+          "seasonality": "conference-sensitive",
+          "notes": "Fee structure and dated-room risk keep this in watch territory."
+        },
+        "notes": "Good airport line access but only a secondary option because of quality variance.",
+        "trueTotalCost": 560,
+        "transitScore": 108,
+        "transitReasons": [
+          "6 min walk to Link",
+          "31 min airport trip",
+          "14 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 5/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for University Street"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $560.00 exceeds cap $400.00"
+        ],
+        "valueBenefit": 12,
+        "valueBenefitReasons": [
+          "Corporate-eligible opportunity"
+        ],
+        "valueAdjustedTotal": 548,
+        "savingsVsCurrent": -198.87,
+        "recommendation": "WATCH",
+        "alerts": []
+      },
+      {
+        "id": "citizenm-pioneer-square",
+        "name": "citizenM Seattle Pioneer Square",
+        "brandType": "boutique",
+        "zone": "Pioneer Square",
+        "sourceType": "manual-watch",
+        "bookingChannels": [
+          "direct",
+          "ota",
+          "member"
+        ],
+        "homepage": "https://www.citizenm.com/hotels/united-states/seattle/seattle-pioneer-square-hotel",
+        "directBookingUrl": "https://www.citizenm.com/hotels/united-states/seattle/seattle-pioneer-square-hotel",
+        "priceVerification": {
+          "status": "live-verified",
+          "verifiedAt": "2026-05-23",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "User screenshot from citizenM direct site shows 892 USD total with taxes and fees."
+        },
+        "room": {
+          "label": "King room",
+          "beds": "1 King",
+          "privateBath": true,
+          "roomEquivalencyAccepted": true
+        },
+        "pricing": {
+          "nightlyRates": [
+            297,
+            297,
+            297
+          ],
+          "taxes": 1,
+          "mandatoryFees": [],
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T18:00:00-07:00",
+          "breakfastIncluded": false,
+          "loungeAccess": false,
+          "lateCheckoutPossible": true,
+          "corporateEligible": true,
+          "memberRateVisible": true
+        },
+        "quality": {
+          "reviewScore": 4.4,
+          "reviewCount": 1800,
+          "condition": "modern",
+          "cleanliness": 4,
+          "soundproofing": 4,
+          "serviceConsistency": 4,
+          "safeWalkable": true,
+          "luggageFriendly": 4,
+          "flags": []
+        },
+        "transit": {
+          "linkWalkMinutes": 5,
+          "airportMinutes": 33,
+          "kingStreetMinutes": 10,
+          "transferCount": 0,
+          "luggageEase": 4,
+          "hillDifficulty": 5,
+          "lateNightConvenience": 4,
+          "arrivalSafety": 3
+        },
+        "marketSignals": {
+          "inventoryPressure": "tightening",
+          "expectedPriceMovement": "up",
+          "seasonality": "event-sensitive",
+          "notes": "Strong station adjacency and a rare chance to land a modern room near the benchmark price."
+        },
+        "notes": "Transit-forward alternative if the manual rate stays under cap.",
+        "trueTotalCost": 892,
+        "transitScore": 108,
+        "transitReasons": [
+          "5 min walk to Link",
+          "33 min airport trip",
+          "10 min King Street access",
+          "0 transfers",
+          "luggage ease 4/5",
+          "hill difficulty 5/5",
+          "late-night 4/5",
+          "arrival safety 3/5",
+          "priority zone bonus for Pioneer Square"
+        ],
+        "qualityPass": false,
+        "qualityFailures": [
+          "Total cost $892.00 exceeds cap $400.00"
+        ],
+        "valueBenefit": 61,
+        "valueBenefitReasons": [
+          "Late checkout flexibility",
+          "Corporate-eligible opportunity",
+          "Member-rate opportunity",
+          "Newer room condition",
+          "More consistent service pattern"
+        ],
+        "valueAdjustedTotal": 831,
+        "savingsVsCurrent": -530.87,
+        "recommendation": "WATCH",
+        "alerts": []
+      }
+    ],
+    "unverified": [],
+    "verifiedEligible": [],
+    "categories": [],
+    "monitoringCadence": [
+      {
+        "window": ">180 days out",
+        "cadence": "Weekly",
+        "rationale": "Enough distance for broad market reads without overreacting to noise."
+      },
+      {
+        "window": "120-180 days out",
+        "cadence": "2-3x weekly",
+        "rationale": "Start watching convention compression, direct-vs-OTA drift, and member-rate drops."
+      },
+      {
+        "window": "0-45 days out",
+        "cadence": "Daily",
+        "rationale": "This is the high-yield window for cancellation churn, flash sales, and rebook timing."
+      }
+    ],
+    "transitSummary": {
+      "benchmark": {
+        "hotelId": "boylston-current",
+        "score": 99,
+        "reasons": [
+          "9 min walk to Link",
+          "38 min airport trip",
+          "18 min King Street access",
+          "0 transfers",
+          "luggage ease 3/5",
+          "hill difficulty 3/5",
+          "late-night 4/5",
+          "arrival safety 4/5",
+          "priority zone bonus for Capitol Hill"
+        ]
+      },
+      "leaders": []
+    },
+    "recommendationMatrix": [
+      {
+        "hotelId": "hyatt-place-downtown",
+        "hotelName": "Hyatt Place Seattle Downtown",
+        "recommendation": "WATCH",
+        "rationale": "excluded because total cost $411.04 exceeds cap $400.00"
+      },
+      {
+        "hotelId": "executive-pacific",
+        "hotelName": "Executive Hotel Pacific",
+        "recommendation": "WATCH",
+        "rationale": "excluded because room standard below 1 king or 2 queen equivalent, recurring cleanliness risk, soundproofing risk too high, condition too dated"
+      },
+      {
+        "hotelId": "moxy-seattle-downtown",
+        "hotelName": "MOXY Seattle Downtown",
+        "recommendation": "WATCH",
+        "rationale": "excluded because total cost $421.49 exceeds cap $400.00"
+      },
+      {
+        "hotelId": "sonder-railspur",
+        "hotelName": "Sonder RailSpur",
+        "recommendation": "WATCH",
+        "rationale": "excluded because total cost $404.08 exceeds cap $400.00"
+      },
+      {
+        "hotelId": "coast-seattle-downtown",
+        "hotelName": "Coast Seattle Downtown Hotel",
+        "recommendation": "WATCH",
+        "rationale": "excluded because total cost $560.00 exceeds cap $400.00"
+      },
+      {
+        "hotelId": "citizenm-pioneer-square",
+        "hotelName": "citizenM Seattle Pioneer Square",
+        "recommendation": "WATCH",
+        "rationale": "excluded because total cost $892.00 exceeds cap $400.00"
+      }
+    ],
+    "marketStrategy": {
+      "currentRead": "Automated direct-site watch mode. Use the scored watch list to decide whether to hold Boylston, wait for a softening, or rebook when a clearly better refundable option lands inside the cap.",
+      "triggers": [
+        "Savings of $40 or more versus Boylston",
+        "Same-price move with better transit score",
+        "Breakfast or elite-style perk inclusion",
+        "Improved room standard or premium-condition bump",
+        "Cancellation window approaching",
+        "Inventory tightening or OTA undercut signals"
+      ]
+    }
+  },
+  "portland": {
+    "enabled": false,
+    "trip": {
+      "city": "Portland",
+      "dateRange": "Nov 4-9, 2026",
+      "nights": 5,
+      "guests": 2,
+      "budgetCap": null
+    },
+    "inputsNeeded": [
+      "total lodging budget cap including taxes and mandatory fees",
+      "preferred zone: Pearl District, Downtown Core, or airport/MAX optimization",
+      "breakfast preference confirmation",
+      "boutique hotel acceptance confirmation",
+      "priority between nightlife, transit convenience, and quieter business-friendly blocks"
+    ],
+    "defaults": {
+      "refundabilityRequired": true,
+      "breakfastPreferredOptional": true,
+      "boutiqueAllowed": true,
+      "transitPriority": "downtown-and-max-balance"
+    }
+  }
+}

@@ -1,5 +1,30 @@
 # Local + Public Access Plan
 
+## 2026-05-23 Enterprise airfare intelligence upgrade
+
+- [x] Add a shared airfare scoring module with recommendation-state, route-quality, and verification-gate logic.
+- [x] Expand the airfare watch dataset to include discovery, verification, route-quality, and historical-intelligence fields.
+- [x] Rebuild the airfare report and summary outputs around verified-vs-signal separation and strategic booking guidance.
+- [x] Upgrade the airfare dashboard to show recommendation badges, quality scores, confidence, and separated verified/discovery tables.
+- [x] Add airfare-specific automated validation and run local UI verification plus notes reconciliation.
+
+## 2026-05-23 Seattle hotel intelligence tracker
+
+- [x] Add a separate hotel-monitor data model, generated report artifact, and validation/scoring scripts.
+- [x] Build a dedicated Seattle hotel intelligence dashboard and link it from the main trip dashboard.
+- [x] Add Seattle transit scoring, rebooking logic, alert logic, and Portland replication scaffolding.
+- [x] Extend repo workflows and commands for manual hotel-refresh verification.
+- [x] Reconcile active notes, changelog, known issues, and project log for the new hotel-monitor subsystem.
+- [x] Run validation checks and local browser verification for both the new hotel dashboard and the existing itinerary dashboard.
+
+## 2026-05-17 Exact itinerary + public fallback cleanup
+
+- [x] Replace remaining generic active itinerary wording with exact named stops where the route is now decided.
+- [x] Move Seattle breakfast and errand blocks to match the user-approved timing.
+- [x] Add GitHub Pages as a real public fallback when Netlify credits block deploys.
+- [x] Reconcile active notes, deployment docs, and workflow rules so they reflect the new public-host and exact-itinerary state.
+- [x] Add a short handoff in `notes/Project Log.md` instead of leaving the state only in chat.
+
 ## 2026-05-16 Shared Memory System
 
 - [x] Replace the older lightweight note structure with standardized active project memory notes.
@@ -45,6 +70,17 @@
 - [x] Reconcile automation notes with the live GitHub + Netlify setup.
 
 ## Review
+
+- Treat older review bullets below as historical implementation history, not current source of truth.
+- Current source of truth is:
+  - itinerary and budget: `data/trip-data.js`
+  - active notes: `notes/`
+  - public fallback: GitHub Pages
+  - current handoff: latest `notes/Project Log.md`
+
+- GitHub Pages is now live as a working public fallback at `https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html`.
+- The active itinerary now leans toward exact stops, exact travel legs, and explicit hotel-return behavior instead of vague grouped placeholders.
+- The notes system and workflow docs were reconciled again so the current source of truth is visible outside the chat thread.
 
 - Food plan now defaults to cheaper Seattle and Portland meals instead of relying on Spinasse and Gado Gado as budget-path anchors.
 - `data/trip-data.js` now uses a `15%` sit-down tip default, keeps `18%` for bars, and explicitly treats counter service as `0-10%`.

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f3">
+    <title>Seattle Hotel Intelligence Tracker</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-05-23-hotel-monitor">
+  </head>
+  <body>
+    <header class="hero hotel-hero">
+      <nav class="topbar" aria-label="Hotel intelligence sections">
+        <a href="#benchmark">Benchmark</a>
+        <a href="#rankings">Alternatives</a>
+        <a href="#transit">Transit</a>
+        <a href="#strategy">Strategy</a>
+        <a href="#portland">Portland</a>
+        <a href="./index.html">Trip dashboard</a>
+      </nav>
+      <section class="hero-grid hotel-hero-grid">
+        <div>
+          <p class="eyebrow">Seattle first, Portland scaffolded</p>
+          <h1>Hotel price intelligence tracker</h1>
+          <p class="lede">Advisor-style refundable hotel monitoring for Seattle, with true total cost, transit convenience, quality filters, and rebooking logic.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#rankings">View Seattle ranking</a>
+            <a class="button" href="../../research/hotels/latest-report.md">Open latest report</a>
+          </div>
+        </div>
+        <aside class="trip-card hotel-status-card" aria-label="Tracker status">
+          <span class="status-dot"></span>
+          <h2>Seattle watch status</h2>
+          <strong id="trackerHeadline">Loading...</strong>
+          <p id="trackerSubhead">Preparing benchmark and hotel alternatives.</p>
+          <div class="meter"><span id="trackerMeter"></span></div>
+          <div class="hotel-disclaimer-box">
+            <p class="fx-label">Decision safety</p>
+            <strong>Refundable only</strong>
+            <p id="trackerDisclaimer">Every quote in this tracker must be rechecked live before any booking change.</p>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main id="hotelApp">
+      <section id="benchmark" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 1</p>
+            <h2>Current reservation benchmark</h2>
+            <p class="section-copy">Boylston stays the fallback until a clearly superior refundable option appears.</p>
+          </div>
+        </div>
+        <div id="benchmarkPanel" class="hotel-grid hotel-grid-2"></div>
+      </section>
+
+      <section id="rankings" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 2</p>
+            <h2>Ranked Seattle alternatives</h2>
+            <p class="section-copy">The ranking uses hard quality screens first, then value-adjusted cost, transit strength, and rebooking logic.</p>
+          </div>
+        </div>
+        <div id="categoryStrip" class="hotel-category-strip"></div>
+        <div class="hotel-table-wrap">
+          <table class="hotel-table">
+            <thead>
+              <tr>
+                <th>Hotel</th>
+                <th>Status</th>
+                <th>Quote</th>
+                <th>Total</th>
+                <th>Value-adjusted</th>
+                <th>Transit</th>
+                <th>Review</th>
+                <th>Cancellation</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody id="rankingsTable"></tbody>
+          </table>
+        </div>
+        <div id="excludedPanel" class="hotel-grid hotel-grid-2"></div>
+      </section>
+
+      <section id="transit" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 3</p>
+            <h2>Transit connectivity analysis</h2>
+            <p class="section-copy">Scores favor SEA airport and King Street access, low transfer counts, and luggage-friendly arrival paths.</p>
+          </div>
+        </div>
+        <div id="transitLeaders" class="transit-grid"></div>
+      </section>
+
+      <section id="strategy" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 4 + 5</p>
+            <h2>Monitoring cadence and rebooking strategy</h2>
+            <p class="section-copy">Scheduled direct-site checks are active. The page shows the live cadence, current hold/read, and the latest automation state.</p>
+          </div>
+        </div>
+        <div class="hotel-grid hotel-grid-2">
+          <div id="cadencePanel" class="hotel-panel"></div>
+          <div id="strategyPanel" class="hotel-panel"></div>
+        </div>
+        <div id="recommendationCards" class="hotel-grid hotel-grid-3"></div>
+      </section>
+
+      <section id="portland" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 6</p>
+            <h2>Portland replication framework</h2>
+            <p class="section-copy">The scoring pipeline is reusable, but Portland remains intentionally blocked on the missing total lodging cap.</p>
+          </div>
+        </div>
+        <div id="portlandPanel" class="hotel-grid hotel-grid-2"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Manual snapshot only. Recheck every quote, fee, deadline, and room match before replacing a held reservation.</p>
+    </footer>
+
+    <script src="../js/hotels.js?v=2026-05-23-hotel-monitor"></script>
+  </body>
+</html>

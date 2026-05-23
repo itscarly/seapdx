@@ -6,7 +6,7 @@ window.TRIP_DATA = {
       seattle: "The Boylston Hotel Capitol Hill",
       portland: "Hotel Vance, Portland, a Tribute Portfolio Hotel"
     },
-    verifiedOn: "May 18, 2026",
+    verifiedOn: "May 21, 2026",
     budgetCap: 880,
     absoluteCeiling: 920,
     assumptions: [
@@ -20,7 +20,7 @@ window.TRIP_DATA = {
       "Portland home base is Hotel Vance, Portland, a Tribute Portfolio Hotel, 1455 Southwest Broadway, Portland, Oregon 97201, United States.",
       "November 2026 hours are not fully published for many businesses, so the dashboard flags current verified status and recommends rechecking before booking.",
       "The plan is curated best-fit; not every candidate location is included.",
-      "May 18 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
+      "May 21 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
       "A 20% realism buffer is now treated as the planning default for flexible paid categories such as food, coffee, cocktails, and small shopping so the live budget reflects real-world drift better than the earlier tighter draft.",
       "Souvenir pricing should stay explicit whenever possible: Starbucks city mugs, one coffee with each mug errand, coffee-bean buys, and small magnet-style gifts are now modeled directly instead of being hidden inside generic buffers."
     ]
@@ -282,8 +282,8 @@ window.TRIP_DATA = {
               payment: "Cards expected.",
               taxTipIncluded: "Estimate assumes one coffee or nonalcoholic drink with Seattle tax; Tailwind now operates tip-free.",
               tipGuidance: "No tip needed here unless the business changes its current tip-free policy.",
-              hours: "Official site currently shows Tue-Sun 9 AM-7 PM and Mon closed. The current menus also show breakfast and lunch 9 AM-3 PM, lunch/evening service through 7 PM on Tue-Fri plus Sat 4 PM-8 PM.",
-              happyHour: "Current Tailwind menu shows happy hour from 5 PM-7 PM with a cheap beer can at $4, draft beer or cider $2 off, and all wine and cocktails $2 off.",
+              hours: "Tailwind's current official pages are conflicting again: the root page shows Tue-Sun 9 AM-7 PM and Mon closed, the current home page shows Tue-Sat 9 AM-9 PM and Sun 9 AM-5 PM, and the menu pages still show breakfast/lunch 9 AM-3 PM with Tue-Fri lunch/evening service 11:30 AM-7 PM and Sat 4 PM-8 PM.",
+              happyHour: "Tailwind's live pages currently disagree: the home page says happy hour is coming soon, while the menu page still lists 5 PM-7 PM with a $4 cheap beer can and $2 off draft, wine, and cocktails. Treat happy hour as unverified until the official pages converge again.",
               website: "https://tailwindcafe.com/",
               route: "https://www.google.com/maps/dir/The+Boylston+Hotel+Capitol+Hill+Seattle/Tailwind+Cafe+Good+Weather+Seattle"
             }
@@ -303,14 +303,14 @@ window.TRIP_DATA = {
               bestTime: "Arrival-night happy hour if timing works.",
               knownFor: "Capitol Hill neighborhood bar, casual food, and a cheaper saved-list happy-hour replacement for Canon.",
               sentiment: "Better fit than Canon when you want close, social, and budget-aware after a long flight.",
-              happyHour: "Official happy hour is Mon-Fri 2 PM-6 PM, with drinks like Rainier at $2, sangria/cava at $3, house wine at $4, Lemon-Aid Kit or Dickel Sweet Tea at $5, and margaritas at $6 plus discounted snacks.",
+              happyHour: "Official happy hour is Mon-Fri 2 PM-6 PM, with Rainier at $2, sangria at $3, house wine or cava at $4, Lemon + Aid Kits or draft IPA at $5, and the current featured cocktail/happy-hour margarita tier now closer to $6-$7 plus discounted snacks.",
               recommended: "Use this for one or two lower-cost happy-hour drinks and a light bite instead of a full two-cocktail splurge on arrival night.",
               reservation: "Walk-in is the safe assumption.",
               payment: "Cards accepted.",
               taxTipIncluded: "Estimate assumes happy-hour drink(s), a light food order, Seattle tax, and an 18% bar tip.",
               tipGuidance: "For bar service with food, 18% is still the right default.",
               hours: "Current official menus show lunch Mon-Fri 11 AM-2 PM, happy hour Mon-Fri 2 PM-6 PM, dinner Mon-Thu 5 PM-10 PM, Fri 5 PM-11 PM, Sat 4 PM-11 PM, and Sun 4 PM-10 PM.",
-              website: "https://www.saintjohnsseattle.com/happyhour-v1",
+              website: "https://www.saintjohnsseattle.com/happyhour-2",
               route: "https://www.google.com/maps/dir/Tailwind+Cafe+Good+Weather+Seattle/Saint+John's+Bar+and+Eatery+Seattle"
             },
             {
@@ -1629,7 +1629,7 @@ window.TRIP_DATA = {
       { name: "Seattle Kraken / hockey game", status: "TBD", note: "2026-27 schedule is not reliable yet. Add only if a home game fits Nov 1-4 without breaking budget.", link: "https://www.nhl.com/kraken/schedule" }
     ],
     happyHour: [
-      { name: "Saint John's Bar and Eatery", city: "Seattle", deal: "Official happy hour runs Mon-Fri 2 PM-6 PM, with Rainier at $2, sangria/cava at $3, house wine at $4, Lemon-Aid Kit or Dickel Sweet Tea at $5, margaritas at $6, and discounted food.", drink: "Use this as the lower-cost arrival-night bar instead of Canon.", link: "https://www.saintjohnsseattle.com/happyhour-v1" },
+      { name: "Saint John's Bar and Eatery", city: "Seattle", deal: "Official happy hour runs Mon-Fri 2 PM-6 PM, with Rainier at $2, sangria at $3, house wine or cava at $4, Lemon + Aid Kits or draft IPA at $5, and a current featured-cocktail tier around $6-$7 plus discounted food.", drink: "Use this as the lower-cost arrival-night bar instead of Canon.", link: "https://www.saintjohnsseattle.com/happyhour-2" },
       { name: "Poquitos Capitol Hill", city: "Seattle", deal: "Official Ocho Hour: $8 select tacos, nachos, margaritas, beer, wine, and more.", drink: "Best Capitol Hill dinner-and-drink value if timing lines up and the strongest two-cocktail budget fit in Seattle.", link: "https://www.vivapoquitos.com/" },
       { name: "Nue", city: "Seattle", deal: "Official happy-hour page lists discounted food/drink specials, but it is not defaulted because Biang Biang/Menya/Kajiken are more budget-direct.", drink: "Use if you want more adventurous food and can accept a higher dinner total.", link: "https://www.nueseattle.com/happy-hour" },
       { name: "Stoup Brewing Capitol Hill", city: "Seattle", deal: "Happy hour not verified from an official current price page; treat it as a beer/food-truck alternate, not default spend.", drink: "Good weather-friendly beer backup near Capitol Hill.", link: "https://www.stoupbrewing.com/capitol-hill/" },
@@ -1640,7 +1640,7 @@ window.TRIP_DATA = {
     coffee: [
       { name: "Victrola Coffee Roasters", city: "Seattle", buy: "New default Seattle bean stop because it is closer to the hotel and on the saved list.", roast: "Capitol Hill specialty coffee; keep one bag plus one drink inside the $60 two-city bean cap.", budget: "Use about $19-$24 for beans plus drink/tip/tax buffer; Seattle Starbucks is a separate mug-and-one-coffee souvenir errand with the city mug still treated as a mid-teens souvenir assumption before tax.", link: "https://www.victrolacoffee.com/" },
       { name: "Phê", city: "Seattle", buy: "Drink-only stop; do not use as the bean purchase unless you intentionally skip Victrola.", roast: "Vietnamese coffee / matcha-style cafe stop near Capitol Hill/First Hill.", budget: "$8 drink estimate with tax and $1 tip.", link: "https://www.google.com/maps/search/Ph%C3%AA+Seattle+Capitol+Hill" },
-      { name: "Tailwind Cafe at Good Weather", city: "Seattle", buy: "Breakfast/cafe option, not a bean-buying default.", roast: "Best for hotel-adjacent breakfast or arrival reset.", budget: "$10 drink/snack buffer; happy hour coming soon, not priced.", link: "https://tailwindcafe.com/" },
+      { name: "Tailwind Cafe at Good Weather", city: "Seattle", buy: "Breakfast/cafe option, not a bean-buying default.", roast: "Best for hotel-adjacent breakfast or arrival reset.", budget: "$10 drink/snack buffer; keep it modeled as coffee or a simple snack until Tailwind republishes a stable happy-hour offer.", link: "https://tailwindcafe.com/" },
       { name: "Coava", city: "Portland", buy: "Default Portland bag: one current 300g single-origin bag from the flagship.", roast: "Balanced specialty, strong pour-over choice.", budget: "$22-$24 current bag range; Portland Starbucks is a separate mug-and-one-coffee souvenir errand with the city mug still treated as a mid-teens tax-free souvenir assumption.", link: "https://coavacoffee.com/locations" },
       { name: "Anchorhead or Olympia Coffee", city: "Seattle", buy: "Alternate Seattle bag only if you skip Victrola.", roast: "Anchorhead is modern/giftable; Olympia is clean and lighter.", budget: "$19-$20.50 current bag reference.", link: "https://anchorheadcoffee.com/pages/locations" },
       { name: "Stumptown or Heart", city: "Portland", buy: "Alternate Portland bag only if you skip Coava.", roast: "Stumptown is classic/giftable; Heart is lighter and filter-focused.", budget: "$20 for Holler Mountain or Heart Phono", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" }
@@ -1721,7 +1721,7 @@ window.TRIP_DATA = {
     { label: "Madrona Arms food menu reference", url: "https://www.allmenus.com/wa/seattle/671643-madrona-arms/menu/" },
     { label: "Google Maps saved places list", url: "https://maps.app.goo.gl/ybW66FUtbNxLsLwcA" },
     { label: "Tailwind Cafe at Good Weather", url: "https://tailwindcafe.com/" },
-    { label: "Saint John's happy hour", url: "https://www.saintjohnsseattle.com/happyhour-v1" },
+    { label: "Saint John's happy hour", url: "https://www.saintjohnsseattle.com/happyhour-2" },
     { label: "Poquitos Capitol Hill", url: "https://www.vivapoquitos.com/" },
     { label: "Nue happy hour", url: "https://www.nueseattle.com/happy-hour" },
     { label: "Stoup Brewing Capitol Hill", url: "https://www.stoupbrewing.com/capitol-hill/" },

@@ -19,12 +19,30 @@ npm run serve
 Then open:
 
 - `http://localhost:4173/`
+- `http://localhost:4173/dashboards/html/hotels.html` for the Seattle hotel tracker
 
 What to expect:
 
 - `/` serves the root entry page
 - the root entry redirects to `dashboards/html/index.html`
 - CSS, JavaScript, and `data/trip-data.js` load through the same relative paths used in production
+- the hotel tracker reads its generated report from `data/hotel-monitor-report.json`
+
+## Hotel Tracker Refresh
+
+The Seattle hotel page is a generated static view backed by `data/hotel-monitor-source.json`.
+
+When hotel pricing or cancellation terms change:
+
+```sh
+npm run build:hotels
+npm run validate:hotels
+```
+
+That refreshes:
+
+- `data/hotel-monitor-report.json`
+- `research/hotels/latest-report.md`
 
 ## Keep Localhost Online Automatically
 

@@ -96,8 +96,8 @@ For this project:
 
 1. Create a GitHub repository.
 2. Push this project to GitHub.
-3. Connect the repository to Netlify.
-4. Set Netlify to redeploy on every push.
+3. Keep GitHub Pages enabled from `main` or the repo workflow so there is always one no-credit public fallback.
+4. Use Netlify only when its account state is healthy and you still want its alternate host path.
 5. Add scheduled monitoring via GitHub Actions later.
 
-This gives both public access and a clean path for automatic itinerary updates.
+This gives one stable public fallback plus an optional second host path.

@@ -25,6 +25,7 @@ This setup does not force hidden app-level modes, but it creates the strongest i
 - biases both tools toward plan-first behavior for non-trivial work
 - tells both tools to run a cleanup pass after meaningful work
 - tells both tools to update relevant notes, task files, handoff notes, and instruction files in the same session
+- tells both tools to do a repo-wide stale-state pass when the change also affects hosting, workflow rules, or a project source-of-truth file
 - tells both tools to remove or rewrite stale conflicting lines instead of leaving drift behind
 - tells both tools to record root cause plus the prevention rule when a fix exposed confusion or a repeated mistake
 - tells both tools to split long chats with a short handoff summary instead of dragging stale context forward
@@ -230,9 +231,23 @@ Carry these rules into every real project:
 - plan first for non-trivial work
 - after meaningful work, run a cleanup pass before saying done
 - update relevant notes, task files, and instruction files in the same session
+- if the change affects public hosting, workflow rules, or a source-of-truth file, do a wider stale-state pass across docs and task scratch files too
 - remove or rewrite stale lines instead of leaving drift behind
 - record root cause plus the prevention rule when a mistake or confusing state was discovered
 - leave a short next-session handoff note
+
+## Definition of done
+
+For meaningful work, done means:
+
+- main implementation changed
+- fast verification passed
+- relevant active notes updated
+- stale conflicting lines removed
+- task scratch files updated when still in use
+- handoff note added
+
+If one of those is missing, the session is not really done.
 
 ## Visual-description fallback
 

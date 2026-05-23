@@ -91,7 +91,7 @@ Access 495k tokens of past work via get_observations([IDs]) or mem-search skill.
 - Before project commands, verify prerequisites with `which node`, `which npm`, `which python3`, and `which uv`. This repo's `npm` scripts require Node `>=20`, while local serving uses `python3 -m http.server 4173` through `npm run serve`.
 - After editing itinerary data or dashboard JavaScript, run `npm run validate`. It checks `data/trip-data.js`, `dashboards/js/app.js`, and the budget audit script, and it is the fastest regression check in this repo.
 - When localhost reliability matters on this Mac, install the self-healing preview with `./scripts/install-localhost-launchagent.sh`. For checks and recovery, use `./scripts/ensure-localhost.sh` and `tail -n 20 logs/localhost-health.log`.
-- For public verification, use the production Netlify root URL `https://cheerful-cupcake-75ba93.netlify.app/`. Do not rely on older deploy-specific snapshot URLs when checking whether the live site updated.
+- For public verification, prefer the GitHub Pages dashboard URL `https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html`. Netlify can still be checked as a secondary host, but treat GitHub Pages as the stable no-credit fallback.
 - The itinerary editor is browser-saved. When changing editor behavior, verify `window.localStorage` persistence and the export actions labeled `Download my edits` and `Copy update summary`, not just the static page render.
 
 # Token Discipline And Plan-First Default
@@ -109,6 +109,7 @@ Access 495k tokens of past work via get_observations([IDs]) or mem-search skill.
 - Remove or rewrite stale lines when a newer verified state exists. Do not leave conflicting instructions behind.
 - Record root cause, what changed, and the prevention rule when a fix involved drift, confusion, or a repeated mistake.
 - End each meaningful session with a short handoff note in `notes/Project Log.md` or another active note.
+- If the change affects hosting, workflow rules, or a source-of-truth file, do a wider stale-state pass across docs and scratch task files before stopping.
 
 # Long Chat And Screenshot Default
 

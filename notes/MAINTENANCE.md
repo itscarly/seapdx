@@ -18,6 +18,12 @@ The goal is to keep active notes accurate without turning the notes folder into 
 8. Re-check for conflicts between active notes.
 9. Add a short next-session handoff note so the next run does not depend on raw chat history.
 
+For the airfare subsystem specifically:
+
+- run `npm run monitor:airfare` after changing airfare watch data or scoring logic
+- run `npm run validate:airfare` before calling airfare changes done
+- keep discovery-only fares visibly separate from verified fares in reports and UI
+
 ## Confidence rules
 
 - Update architecture notes only when code or runtime structure is verified to have changed.

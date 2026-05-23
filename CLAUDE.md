@@ -77,6 +77,7 @@ Prefer plain-language notes written for a non-technical reader.
 - Remove or rewrite stale lines when a newer verified state exists. Do not leave conflicting instructions behind.
 - Record root cause, what changed, and the prevention rule when a fix involved drift, confusion, or a repeated mistake.
 - End each meaningful session with a short handoff note in `notes/Project Log.md` or another active note.
+- If the change affects hosting, workflow rules, or a source-of-truth file, do a wider stale-state pass across docs and scratch task files before stopping.
 
 ## Long Chat And Screenshot Default
 

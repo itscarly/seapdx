@@ -2,6 +2,254 @@
 
 This is the running log for project changes.
 
+## 2026-05-23
+
+### Enterprise airfare intelligence upgrade
+
+- Rebuilt the Manila airfare tracker from a simple direct-vs-signal watch into a static intelligence subsystem with airline-direct verification gates, route-quality scoring, historical-low context, volatility, urgency, and constrained recommendation states.
+- Added `scripts/lib/airfare-monitor.js` as the shared scoring and recommendation engine, then rewired `scripts/build-airfare-report.js` to generate an executive summary, verified fare rankings, historical analysis, strategic booking guidance, and operations guidance.
+- Expanded `data/airfare-watch.json` so each observation now records discovery data, airline-direct checkout evidence, route-quality inputs, and historical-pricing intelligence instead of only a headline fare and a loose watch label.
+- Added `tests/airfare-monitor.test.js` plus `scripts/validate-airfare-monitor.js`, and wired `npm run validate:airfare` into the main repo validation path.
+- Reworked `dashboards/html/airfare.html` and `dashboards/js/airfare.js` so the page now separates verified fares from discovery signals, shows route-quality and confidence scores, and surfaces recommendation badges that match the generated summary output.
+- Rewrote `automation/airfare-monitoring-workflow.md` so the operating rules match the new verification evidence, ranking logic, and escalation standards.
+- Verified the browser render locally at `http://127.0.0.1:4173/dashboards/html/airfare.html?refresh=2` after regenerating `research/airfare/latest-report.md` and `research/airfare/latest-summary.json`.
+
+Files touched:
+
+- `data/airfare-watch.json`
+- `scripts/lib/airfare-monitor.js`
+- `scripts/build-airfare-report.js`
+- `scripts/validate-airfare-monitor.js`
+- `tests/airfare-monitor.test.js`
+- `dashboards/html/airfare.html`
+- `dashboards/js/airfare.js`
+- `dashboards/css/styles.css`
+- `research/airfare/latest-report.md`
+- `research/airfare/latest-summary.json`
+- `automation/airfare-monitoring-workflow.md`
+- `package.json`
+- `tasks/todo.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/ARCHITECTURE.md`
+- `notes/Decisions.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/MAINTENANCE.md`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- Replace the seeded airfare observations with fresh airline-direct checkout evidence when the next real monitoring pass runs.
+- If public hosting should always refresh the richer airfare tables immediately, keep bumping the `airfare.html` asset version when the client-side rendering contract changes.
+
+### Seattle hotel intelligence tracker added
+
+- Added a separate static hotel-monitor subsystem for the Seattle stay instead of folding hotel logic into the main itinerary data file.
+- Added `data/hotel-monitor-source.json` for manual hotel watch inputs and `scripts/build-hotel-report.js` plus `scripts/validate-hotel-monitor.js` for generated report and rule checks.
+- Generated `data/hotel-monitor-report.json` and `research/hotels/latest-report.md` so the hotel page can render benchmark totals, ranked alternatives, transit analysis, category winners, and rebooking recommendations.
+- Added `dashboards/html/hotels.html` and `dashboards/js/hotels.js`, then linked the new page from the main trip dashboard.
+- Added `automation/hotel-monitoring-workflow.md` and updated local-development instructions for the hotel refresh path.
+- Added live Seattle hotel-watch automation cadence metadata to the site and created active Codex cron automations:
+  - `seattle-hotel-watch-mwf`
+  - `seattle-hotel-watch-daily-pre-trip`
+- Tightened the hotel tracker so it only accepts exact `Nov 1-4, 2026` / `2 guests` quote scope and can explicitly show when zero verified alternatives remain under the `$400` cap.
+- Portland hotel logic is scaffolded only. The ranking remains intentionally blocked until the Portland total lodging cap is supplied.
+
+Files touched:
+
+- `data/hotel-monitor-source.json`
+- `data/hotel-monitor-report.json`
+- `research/hotels/latest-report.md`
+- `scripts/hotel-monitor-lib.js`
+- `scripts/build-hotel-report.js`
+- `scripts/validate-hotel-monitor.js`
+- `dashboards/html/hotels.html`
+- `dashboards/js/hotels.js`
+- `dashboards/html/index.html`
+- `dashboards/css/styles.css`
+- `package.json`
+- `automation/hotel-monitoring-workflow.md`
+- `automation/README.md`
+- `docs/local-development.md`
+- `notes/ARCHITECTURE.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/Decisions.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- Replace the seeded Seattle hotel snapshot with live quote updates before making any actual rebooking move.
+- Supply the Portland total post-tax lodging cap before enabling Portland hotel ranking.
+
+### Direct-airline Manila fare watch added
+
+- Added a direct-airline-only airfare tracker for one-way `SFO` or `ORD` to `MNL` departures from March 7-13, 2027.
+- Seeded the tracker with the current discovery signals: United nonstop from SFO around `$524` and Korean Air via Seoul from ORD around `$540`, both marked as not airline-direct verified yet.
+- Added a report builder so each fare check can regenerate `research/airfare/latest-report.md` and `research/airfare/latest-summary.json`.
+- Added a browser-viewable airfare tracker page at `dashboards/html/airfare.html` and linked it from the dashboard Automation section.
+- Created recurring Codex airfare checks for weekly monitoring through August, twice-weekly September checks, and three-times-weekly October checks.
+
+Files touched:
+
+- `data/airfare-watch.json`
+- `scripts/build-airfare-report.js`
+- `dashboards/html/airfare.html`
+- `dashboards/js/airfare.js`
+- `dashboards/html/index.html`
+- `dashboards/css/styles.css`
+- `research/airfare/latest-report.md`
+- `research/airfare/latest-summary.json`
+- `automation/airfare-monitoring-workflow.md`
+- `automation/README.md`
+- `package.json`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- The next airfare check must verify any finalist on the airline's own checkout flow before recommending a purchase.
+
+### GitHub Actions Node 20 warning fixed
+
+- Confirmed the `monitor` warning came from the GitHub Actions monitor workflows, not from the dashboard runtime.
+- Kept the itinerary and flight monitor workflows because they are recent intentional project automation.
+- Updated the GitHub Actions workflow dependencies from the Node-20-based action majors to current Node-24-ready action majors, including the conditional monitor issue step and GitHub Pages deploy actions, and moved CI `node-version` from `20` to `24` for validation, deploy, and monitor jobs.
+
+Files touched:
+
+- `.github/workflows/monitor-flights.yml`
+- `.github/workflows/monitor-itinerary.yml`
+- `.github/workflows/validate.yml`
+- `.github/workflows/deploy-pages.yml`
+- `notes/Project Log.md`
+
+## 2026-05-21
+
+### Weekly price watch: Tailwind and Saint John's source drift
+
+- Rechecked the current weekly price-watch sources on May 21, 2026 for transit fares, admissions, coffee, cocktails, souvenirs, and the price-sensitive Seattle/Portland venue hours already modeled in the itinerary, using official or primary public pages where possible.
+- Found two material itinerary-source drifts. Tailwind Cafe's live official pages are conflicting again: the root page still shows `Tue-Sun 9 AM-7 PM`, the current home page shows `Tue-Sat 9 AM-9 PM` and `Sun 9 AM-5 PM`, and the menu pages still carry narrower food-service windows plus the older `5 PM-7 PM` happy-hour menu. Saint John's current official happy-hour page also moved off the older repo-linked version and now shows the newer `Mon-Fri 2 PM-6 PM` lineup with `sangria $3`, `house wine or cava $4`, `Lemon + Aid Kits or draft IPA $5`, and a current featured-cocktail tier around `6-$7`.
+- Updated `data/trip-data.js` to roll the overall verified date forward to May 21, 2026, rewrite the Tailwind hours and happy-hour notes more conservatively around the live page conflict, and point Saint John's at the newer official happy-hour page and pricing structure.
+- Confirmed the currently modeled Seattle Streetcar fare, Seattle-to-Bainbridge walk-on ferry fare structure, TriMet fare/day cap, Portland Japanese Garden admission framing, Rock Box operating assumptions, Victrola hours, Glo's hours, Hotel Vance dining hours, Stumptown Downtown hours, Coava flagship hours and bag-range assumption, Heart `Phono` pricing, Big Legrowlski open-jam timing, Amtrak Cascades train `517` timing, and the Seattle/Portland souvenir assumptions still match the live planning model closely enough.
+- No budget totals changed from this refresh, so the projected total remains `$820`.
+
+Files touched:
+
+- `data/trip-data.js`
+- `notes/Project Log.md`
+
+### Daily pre-trip price watch: no additional material updates
+
+- Rechecked the current pre-trip price-watch sources on May 21, 2026 against the already-updated May 21 itinerary baseline, using official or primary public pages where possible for transit fares, admissions, coffee beans, souvenir assumptions, cocktails, and key Seattle/Portland venue hours.
+- Found no additional material drift beyond the separate Tailwind and Saint John's updates already recorded above. The current model still lines up closely enough with live source signals: Rock Box still lists the same room happy-hour pricing, Victrola still shows daily `6 AM-7 PM`, Glo's still shows daily `8 AM-3 PM`, Portland Japanese Garden still starts adult admission at `$22.50`, Hotel Vance still lists the same Vance + Vine and Starbucks hours, Coava flagship hours still hold and its current single-origin bag range remains in the low-to-mid `$20s`, Stumptown `Holler Mountain` is still `$20`, Heart `Phono` is still `$15.50`, Washington State Ferries still lists the Seattle-to-Bainbridge adult walk-on fare at `$11.35` before the `3%` card surcharge, and TriMet still prices adult fare at `$2.80` with a `$5.60` daily cap.
+- No new edit to `data/trip-data.js` was needed from this daily pass, the projected total remains `$820`, and no summary email was sent.
+
+Files touched:
+
+- `notes/Project Log.md`
+
+## 2026-05-21
+
+### Pre-trip flight and transit watch: no material updates
+
+- Rechecked the official watch points on May 21, 2026: the Asiana and American Airlines flight-status portals, SEA departure guidance, PDX departure guidance, the current Amtrak Cascades timetable, Washington State Ferries fares and alerts, Sound Transit Link alerts, and TriMet Red Line fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js`. SEA still advises arriving two hours before domestic departures and three hours before international departures, PDX still continues to advise roughly two hours before domestic departures during busy periods while the project's Portland departure plan still preserves about a three-hour buffer, the Seattle-to-Bainbridge adult walk-on fare is still `$11.35` before the card-processing surcharge, and the Portland MAX Red Line still shows about a `38`-minute downtown trip with the same `$2.80` adult fare and `$5.60` day cap.
+- The currently visible Sound Transit and WSDOT notices remain operational watch items rather than November itinerary rewrites: Sound Transit still flags SeaTac/Airport Station elevator and walkway construction while keeping the pedestrian bridge to the airport available, and current WSDOT ferry delay bulletins are tied to near-term terminal traffic and schedule conditions rather than a November planning change.
+- No traveler-action email was sent because the pre-trip watch stayed in monitor-only mode.
+
+Files touched:
+
+- `notes/Project Log.md`
+
+### Travel-week flight and transit watch: no material updates
+
+- Rechecked the official travel-week watch points on May 21, 2026: the Asiana and American flight-status portals, SEA departure guidance, PDX departure guidance and construction notes, the current Amtrak Cascades timetable, Washington State Ferries fares and alerts, Sound Transit Link alerts, and TriMet fare and Red Line service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js`. SEA still advises arriving about `2` hours before domestic departures and `3` hours before international departures, PDX still recommends `2` hours before domestic departures during busy periods and `3` hours before international departures, Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle departure / `3:35 PM` Portland arrival block, the Seattle-to-Bainbridge adult walk-on fare is still `$11.35` before the `3%` card surcharge, and TriMet adult fare/day cap is still `$2.80` / `$5.60`.
+- Current notice-level issues remain monitor-only rather than November itinerary rewrites: American's public flight-status page is currently reporting a temporary system problem, Sound Transit still shows temporary 1 Line and elevator advisories around Capitol Hill and SeaTac/Airport, WSF still shows short-lived Seattle/Bainbridge terminal-access alerts, and PDX still has active construction wayfinding notes. The existing airport and transit buffers remain conservative enough, so no traveler-action email was sent.
+
+Follow-up:
+
+- Recheck Tailwind again closer to November because its food-service windows and happy-hour status are still evolving.
+
+## 2026-05-20
+
+### Pre-trip flight and transit watch: no material updates
+
+- Rechecked the official pre-trip watch points on May 20, 2026: the Asiana and American flight-status resources, SEA departure guidance, PDX departure guidance, the current Amtrak Cascades timetable, Washington State Ferries fare/service pages, Sound Transit Link alerts, and TriMet Red Line fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js` or sending an email summary. SEA still advises about `2 hours` before domestic departures and `3 hours` before international departures, PDX still recommends about `2 hours` before busy domestic departures and `2.5 hours` before international departures, Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle departure / `3:35 PM` Portland arrival block, the Seattle-to-Bainbridge adult walk-on fare is still `$11.35` before the `3%` card surcharge, and TriMet still prices the airport trip at `$2.80` with a `$5.60` daily cap.
+- Current Link, ferry, and TriMet notices remain short-lived operational watch items rather than November itinerary rewrites, so no traveler email was sent.
+
+Files touched:
+
+- `notes/Project Log.md`
+
+### Daily pre-trip price watch: Tailwind hours tightened again
+
+- Rechecked the current pre-trip price-watch sources for transit fares, admissions, coffee, cocktails, souvenirs, and key Seattle/Portland venue hours using official or primary public pages where possible.
+- Found one material itinerary-source drift: Tailwind Cafe's public-facing site now shows `Tue-Sun 9 AM-7 PM` and `Mon closed`, while its menu/service pages still show breakfast/lunch `9 AM-3 PM`, Tue-Fri lunch/evening service `11:30 AM-7 PM`, Saturday evening service `4 PM-8 PM`, and the same `5 PM-7 PM` happy-hour structure.
+- Updated `data/trip-data.js` to roll the overall verified date forward to May 20, 2026 and rewrite the Tailwind hours note so it reflects the newer top-level hours plus the still-conflicting menu/service windows more conservatively.
+- Confirmed the currently modeled Seattle Streetcar fare, Seattle-to-Bainbridge walk-on ferry fare structure, TriMet fare/day cap, Portland Japanese Garden admission framing, Saint John's happy-hour structure, Rock Box happy-hour assumptions, Victrola hours, Glo's hours, Hotel Vance breakfast framing, Stumptown Downtown hours, Coava flagship hours and bag range, Heart `Phono` pricing, Seattle/Portland Starbucks mug assumptions, and Sky View timed-ticket guidance still match the live planning model closely enough.
+- No budget totals changed from this refresh, so the projected total remains `$820`.
+
+Files touched:
+
+- `data/trip-data.js`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- Recheck Tailwind again closer to November because its home page and menu/service pages are still not fully aligned.
+
+## 2026-05-20
+
+### Travel-week flight and transit watch: no material updates
+
+- Rechecked the official travel-week watch points on May 20, 2026: the Asiana and American Airlines flight-status portals, SEA departure guidance, PDX departure guidance and terminal-construction notes, the current Amtrak Cascades timetable, Washington State Ferries fares and service alerts, Sound Transit Link alerts, and TriMet fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js`. SEA still advises arriving about `2` hours before domestic departures and `3` hours before international departures, the current Seattle-to-Bainbridge adult walk-on fare still aligns with the existing `$11.35` plus card-surcharge assumption, TriMet adult fare/day cap is still `$2.80` / `$5.60`, and Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle to `3:35 PM` Portland transfer block.
+- Current transit notices remain monitor-only items rather than November itinerary rewrites: Sound Transit is still carrying station-access and construction notices around the Link system, and PDX still has active terminal wayfinding notes even though its permanent shorter exit lanes are now open. The existing Seattle and Portland airport buffers remain conservative enough, so no traveler-action email was sent.
+
+## 2026-05-19
+
+### Scheduled Seattle-Portland review: Tailwind hours refreshed
+
+- Rechecked the highest-signal pre-trip price-watch sources for transit fares, admissions, coffee, and key Seattle/Portland venue hours using current official or primary public pages.
+- Found one material itinerary-source drift: Tailwind Cafe now posts broader open hours of `Tue-Sat 9 AM-9 PM`, `Sun 9 AM-5 PM`, `Mon closed`, while its current menu still shows breakfast/lunch `9 AM-3 PM`, Tue-Fri lunch/evening service `11:30 AM-7 PM`, Saturday evening service `4 PM-8 PM`, and the existing `5 PM-7 PM` happy-hour discount structure.
+- Updated `data/trip-data.js` to refresh the Tailwind hours text, keep the happy-hour note aligned with the current menu, and roll the overall verified date forward to May 19, 2026.
+- Confirmed the currently modeled Seattle Streetcar fare, Seattle-to-Bainbridge walk-on ferry fare structure, TriMet fare/day cap, Portland Japanese Garden admission framing, Victrola hours, Glo's hours, Stumptown Downtown hours, Heart `Phono` pricing, Coava flagship hours and current single-origin bag range, Sky View timed-ticket guidance, and Rock Box operating assumptions still match the live planning model closely enough.
+- No budget totals changed from this refresh, so the projected total remains `$820`.
+
+Files touched:
+
+- `data/trip-data.js`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- Recheck Tailwind again closer to November in case the home page and menu page finish converging on one published hours layout.
+
+### Pre-trip flight and transit watch: no material updates
+
+- Rechecked the official pre-trip watch points on May 19, 2026: the Asiana and American flight-status resources, SEA departure guidance, PDX departure guidance, the current Amtrak Cascades timetable, Washington State Ferries fare/rider pages, Sound Transit Link alerts, and TriMet Red Line fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js` or sending an email summary. SEA still advises about `2 hours` before domestic departures and `3 hours` before international departures, Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle departure / `3:35 PM` Portland arrival block, the Seattle-to-Bainbridge adult walk-on fare is still `$11.35` before the `3%` card surcharge, and TriMet still prices the airport trip at `$2.80` with a `$5.60` daily cap.
+- The active caution items remain monitor-only: PDX is still warning about longer walks and temporary north-pedestrian-tunnel limits during construction, and Sound Transit still shows ongoing SeaTac/Airport elevator construction plus a Capitol Hill elevator outage that matter more for accessibility and day-of routing than for a November itinerary rewrite.
+- No traveler email was sent because the watch found no material change.
+
+Files touched:
+
+- `notes/Project Log.md`
+
+### Travel-week flight and transit watch: no material updates
+
+- Rechecked the live travel-week watch points on May 19, 2026: the Asiana and American Airlines flight-status portals, SEA departure guidance, PDX departure guidance, the current Amtrak Cascades timetable, Washington State Ferries fare/service pages, Sound Transit Link alerts, and TriMet Red Line fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js`. SEA still advises roughly `2 hours` before domestic departures and `3 hours` before international departures, PDX's current guidance still leaves the modeled `10:15 AM` hotel departure for the `1:47 PM` flight comfortably conservative, Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle departure / `3:35 PM` Portland arrival block, and the Seattle-to-Bainbridge adult walk-on fare still sits at `$11.35` before the card surcharge.
+- Current ferry, Link, and TriMet notices remain short-lived operational watch items rather than November itinerary rewrites, so no traveler email was sent.
+
+Files touched:
+
+- `notes/Project Log.md`
+
 ## 2026-05-18
 
 ### Scheduled Seattle-Portland review: minor current-source refresh only

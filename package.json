@@ -5,14 +5,21 @@
   "description": "Static Seattle and Portland travel itinerary dashboard with budget and monitoring scripts.",
   "scripts": {
     "serve": "python3 -m http.server 4173",
-    "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js",
+    "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node --check dashboards/js/hotels.js && node --check dashboards/js/airfare.js && node scripts/audit-budget.js && node scripts/validate-hotel-monitor.js && npm run validate:airfare",
     "audit:notes": "node scripts/audit-notes.js",
     "audit:budget": "node scripts/audit-budget.js",
+    "build:hotels": "node scripts/build-hotel-report.js",
+    "validate:hotels": "node scripts/validate-hotel-monitor.js",
+    "validate:airfare": "node --test tests/airfare-monitor.test.js && node scripts/validate-airfare-monitor.js",
     "update:verification": "node scripts/update-verification-summary.js",
+    "monitor:airfare": "node scripts/build-airfare-report.js",
     "monitor:itinerary": "node scripts/monitor-itinerary.js",
     "monitor:flights": "node scripts/monitor-flights.js"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.60.0"
   }
 }

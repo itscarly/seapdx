@@ -30,6 +30,18 @@
 
 - For most work, text descriptions, file paths, logs, and direct page details are cheaper and clearer than screenshots.
 
+### Exact travel schedules need exact events
+
+- If the user asks for a plotted day, do not hide several real actions inside one summary event. Break stops, travel, hotel resets, and ticket buffers into separate items.
+
+### Public static fallback should not depend on one host
+
+- When one static host blocks deploys for account reasons, the clean fix is to keep the same root layout and add a second static host instead of changing the app model.
+
+### Static dashboard asset versions matter after UI logic changes
+
+- When a locally served or publicly hosted dashboard still shows stale behavior after a JavaScript change, bump the HTML asset query string instead of assuming the code path is wrong.
+
 ## How to use this note
 
 Add only patterns that should help future sessions.
