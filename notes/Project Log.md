@@ -4,6 +4,28 @@ This is the running log for project changes.
 
 ## 2026-05-23
 
+### Seattle hotel watch rebuilt and reverified from direct booking flows
+
+- Repaired the missing Seattle hotel monitor source/build path after the repo lost its live hotel-watch data and the generated watch artifacts drifted back to stale placeholder values.
+- Rechecked the direct booking flows for the exact Nov 1-4, 2026 / 2 guest Seattle stay and updated the hotel monitor with fresh direct-site results only: `Paramount Hotel Seattle` at `$731.60`, `Hotel Max` at `$777.68`, and `The State Hotel` at `$909.46`.
+- Kept `The Boylston Hotel Capitol Hill` on the benchmark watchlist, but marked it as blocked for this run because the direct Sonder path was rate-limited and no working direct booking quote was exposed.
+- Regenerated `data/hotel-monitor-report.json` and `research/hotels/latest-report.md`, and kept the result explicit that no Seattle hotel currently qualifies under the `$400` total cap.
+- Validation passed after the rebuild, including the hotel monitor validation and the existing airfare validation suite.
+
+Files touched:
+
+- `data/hotel-monitor-source.json`
+- `data/hotel-monitor-report.json`
+- `research/hotels/latest-report.md`
+- `dashboards/js/hotels.js`
+- `scripts/build-hotel-report.js`
+- `scripts/validate-hotel-monitor.js`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- Recheck Boylston again on the next run in case the direct Sonder booking path becomes stable enough to surface a real refundable quote.
+
 ### Airfare tracker restore and repo reconciliation
 
 - Found that the current `main` branch had kept the Seattle hotel restore but had deleted the Manila airfare subsystem files, validation hooks, generated airfare report artifacts, and the dashboard link back to the airfare tracker.
