@@ -2,6 +2,32 @@
 
 This is the running log for project changes.
 
+## 2026-05-23
+
+### Hotel tracker restore and automation publish cleanup
+
+- Restored the missing Seattle hotel tracker files after the repo drifted into a broken state with links pointing at deleted pages.
+- Repaired the root `index.html` so it safely redirects again instead of serving a broken duplicate dashboard with invalid relative asset paths.
+- Replaced the broken Automation-section links with a working Seattle hotel tracker entry and removed the missing airfare tracker link from the published dashboard.
+- Recreated the hotel tracker source data, report JSON, markdown summary, builder script, validator, workflow note, and standalone `dashboards/html/hotels.html` page.
+- Kept the current Seattle watch result explicit: Boylston remains the hold because the currently verified direct-site alternatives are above the `$400` total cap.
+
+Files touched:
+
+- `index.html`
+- `dashboards/html/index.html`
+- `dashboards/html/hotels.html`
+- `dashboards/js/hotels.js`
+- `data/hotel-monitor-source.json`
+- `data/hotel-monitor-report.json`
+- `research/hotels/latest-report.md`
+- `scripts/build-hotel-report.js`
+- `scripts/validate-hotel-monitor.js`
+- `automation/hotel-monitoring-workflow.md`
+- `automation/README.md`
+- `package.json`
+- `notes/Project Log.md`
+
 ## 2026-05-18
 
 ### Scheduled Seattle-Portland review: minor current-source refresh only

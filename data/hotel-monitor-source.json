@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Seattle Hotel Intelligence Tracker",
+    "snapshotDate": "2026-05-23",
+    "disclaimer": "Direct hotel-site quotes only. Every price, cancellation rule, and room match must be rechecked live before booking or rebooking.",
+    "automation": {
+      "enabled": true,
+      "currentBand": "2-3x weekly direct-site checks",
+      "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
+      "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
+      "lastAutomatedCheckAt": null,
+      "lastAutomatedSummary": "Automation scheduled. First automated direct-site run has not completed yet."
+    }
+  },
+  "seattle": {
+    "trip": {
+      "city": "Seattle",
+      "dateRange": "Nov 1-4, 2026",
+      "checkIn": "2026-11-01",
+      "checkOut": "2026-11-04",
+      "nights": 3,
+      "guests": 2,
+      "budgetCap": 400
+    },
+    "currentReservation": {
+      "id": "boylston-current",
+      "name": "Boylston Hotel",
+      "zone": "Capitol Hill",
+      "directBookingUrl": "https://www.theboylstonseattle.com/",
+      "trueTotalCost": 384.13,
+      "reviewScore": 4.2,
+      "transitScore": 99,
+      "cancellationDeadline": "2026-10-30T18:00:00-07:00",
+      "priceVerification": {
+        "status": "live-verified",
+        "quotedStay": {
+          "checkIn": "2026-11-01",
+          "checkOut": "2026-11-04",
+          "nights": 3,
+          "guests": 2
+        },
+        "evidenceNote": "User-held refundable booking total."
+      },
+      "notes": "Current held refundable benchmark."
+    },
+    "watchlist": [
+      {
+        "id": "coast-seattle-downtown",
+        "name": "Coast Seattle Downtown Hotel",
+        "zone": "University Street",
+        "directBookingUrl": "https://www.coasthotels.com/coast-seattle-downtown-hotel-by-apa",
+        "trueTotalCost": 560,
+        "reviewScore": 4.0,
+        "transitScore": 108,
+        "cancellationDeadline": "2026-10-29T18:00:00-07:00",
+        "priceVerification": {
+          "status": "live-verified",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "User screenshot from Coast direct site shows 560 USD total member rate for Nov 1-4, 2026."
+        },
+        "notes": "Excluded because total is over cap."
+      },
+      {
+        "id": "citizenm-pioneer-square",
+        "name": "citizenM Seattle Pioneer Square",
+        "zone": "Pioneer Square",
+        "directBookingUrl": "https://www.citizenm.com/hotels/united-states/seattle/seattle-pioneer-square-hotel",
+        "trueTotalCost": 892,
+        "reviewScore": 4.4,
+        "transitScore": 108,
+        "cancellationDeadline": "2026-10-31T18:00:00-07:00",
+        "priceVerification": {
+          "status": "live-verified",
+          "quotedStay": {
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-11-04",
+            "nights": 3,
+            "guests": 2
+          },
+          "evidenceNote": "User screenshot from citizenM direct site shows 892 USD total with taxes and fees."
+        },
+        "notes": "Excluded because total is over cap."
+      }
+    ]
+  }
+}

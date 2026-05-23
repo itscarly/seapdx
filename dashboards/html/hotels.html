@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f3">
+    <title>Seattle Hotel Intelligence Tracker</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Hotel tracker sections">
+        <a href="#benchmark">Benchmark</a>
+        <a href="#rankings">Watchlist</a>
+        <a href="#strategy">Strategy</a>
+        <a href="./index.html#automation">Trip dashboard</a>
+      </nav>
+      <section class="hero-grid">
+        <div>
+          <p class="eyebrow">Seattle first, Portland scaffolded</p>
+          <h1>Hotel price intelligence tracker</h1>
+          <p class="lede">Direct hotel-site monitoring for the Seattle stay, using the exact Nov 1-4, 2026 stay window and a hard $400 total cap.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#rankings">View Seattle watch</a>
+            <a class="button" href="../../research/hotels/latest-report.md">Open report</a>
+          </div>
+        </div>
+        <aside class="trip-card" aria-label="Tracker status">
+          <span class="status-dot"></span>
+          <h2>Seattle watch status</h2>
+          <strong id="trackerHeadline">Loading...</strong>
+          <p id="trackerSubhead">Loading current hotel monitor state...</p>
+          <div class="meter"><span id="trackerMeter"></span></div>
+          <div class="fx-panel">
+            <p class="fx-label">Decision safety</p>
+            <strong>Refundable only</strong>
+            <p id="trackerDisclaimer">Loading current quote rules...</p>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main id="hotelApp">
+      <section id="benchmark" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 1</p>
+            <h2>Current reservation benchmark</h2>
+            <p class="section-copy">Boylston stays the fallback until a direct-site Seattle quote lands under the hard cap.</p>
+          </div>
+        </div>
+        <div id="benchmarkPanel" class="summary-grid"></div>
+      </section>
+
+      <section id="rankings" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 2</p>
+            <h2>Seattle direct-site watchlist</h2>
+            <p class="section-copy">Every quote shown here is tied to the exact Nov 1-4, 2026 / 2 guest stay scope.</p>
+          </div>
+        </div>
+        <div id="watchSummary" class="summary-grid"></div>
+        <div id="excludedPanel" class="transit-grid"></div>
+      </section>
+
+      <section id="strategy" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Section 3</p>
+            <h2>Automation cadence and booking strategy</h2>
+            <p class="section-copy">The hotel watch now has real recurring automation rather than placeholder cadence text.</p>
+          </div>
+        </div>
+        <div class="transit-grid">
+          <article class="transit-card" id="cadencePanel"></article>
+          <article class="transit-card" id="strategyPanel"></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Direct hotel-site quotes only. Recheck every price, fee, and cancellation deadline before replacing a held reservation.</p>
+    </footer>
+
+    <script src="../js/hotels.js"></script>
+  </body>
+</html>
