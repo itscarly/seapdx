@@ -7,7 +7,7 @@
       "enabled": true,
       "cadence": "Before Sep 1 2026: Tue/Fri. Sep 1–30 2026: Mon. Oct 1 2026+: daily. Date-gated in scripts/monitor-hotels.js.",
       "lastAutomatedCheckAt": "2026-05-24T06:15:44.482369+00:00",
-      "lastAutomatedSummary": "Manual update 2026-05-24: Full watchlist rebuild — Seattle 8 hotels, Portland 16 hotels. All prices user-verified."
+      "lastAutomatedSummary": "Manual update 2026-05-24: Added Courtyard by Marriott Portland City Center as second Portland booking ($487.85). Dropped all Portland watchlist hotels above $500. Portland monitoring complete — two bookings held, decision pending."
     }
   },
   "seattle": {
@@ -352,7 +352,7 @@
       "checkOut": "2026-11-09T11:00:00",
       "nights": 5,
       "guests": 2,
-      "notes": "Benchmark. Hold unless a qualifying challenger comes in under $620 with 4.0+ stars, elevator, and transit access.",
+      "notes": "Original benchmark. Hold unless Courtyard is confirmed better and Vance is cancelled.",
       "priceVerification": {
         "status": "blocked-direct",
         "evidenceNote": "marriott direct flow returned anti-bot.",
@@ -369,7 +369,48 @@
       },
       "fallbackAllowed": true
     },
-    "watchlist": [
+    "secondReservation": {
+      "id": "courtyard-portland-city-center",
+      "name": "Courtyard by Marriott Portland City Center",
+      "brand": "Courtyard (Marriott)",
+      "address": "550 SW Oak Street, Portland, Oregon USA, 97204",
+      "zone": "Downtown Portland",
+      "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxdt-courtyard-portland-city-center/",
+      "trueTotalCost": 487.85,
+      "reviewScore": null,
+      "hasElevator": true,
+      "freeBreakfast": false,
+      "refundable": true,
+      "guaranteeMethod": "American Express",
+      "confirmationNumber": "94187007",
+      "checkIn": "2026-11-04",
+      "checkOut": "2026-11-09",
+      "nights": 5,
+      "guests": 2,
+      "roomType": "Guest room, 1 King",
+      "ratePlan": "Stay Longer and Save",
+      "cancellationDeadline": "2026-11-03T23:59:00-08:00",
+      "cancellationPenalty": 94.13,
+      "nightlyRates": [83.30, 83.30, 83.30, 83.30, 83.30],
+      "totalCashRate": 416.49,
+      "estimatedTaxesAndFees": 54.69,
+      "conventionTourismFee": 12.50,
+      "localGovernmentFee": 4.17,
+      "totalForStay": 487.85,
+      "additionalCharges": "Valet parking $52/day (not included)",
+      "safeNeighborhood": true,
+      "priceVerification": {
+        "status": "confirmed-booked",
+        "evidenceNote": "User-booked: Stay Longer and Save, 1 King. 5x $83.30 = $416.49 + $54.69 taxes + $12.50 convention + $4.17 local = $487.85.",
+        "observedAt": "2026-05-24T00:00:00.000Z",
+        "source": "user-manual",
+        "confidence": "high"
+      },
+      "notes": "Booked 2026-05-24. $487.85 total — $140.61 cheaper than Hotel Vance ($628.46). Free cancellation before 11:59 PM Nov 3. Holding both until decision made. Cancel the more expensive one before Nov 3."
+    },
+    "watchlist": [],
+    "watchlistDroppedNote": "2026-05-24: All 16 Portland watchlist hotels dropped. Two bookings held (Hotel Vance $628.46 conf [redacted], Courtyard $487.85 conf [redacted]). Both refundable before Nov 3. Cancel Vance before Nov 3 unless a reason to keep it surfaces.",
+    "watchlistDropped_ARCHIVE": [
       {
         "id": "the-benson-portland",
         "name": "The Benson Portland, Curio Collection by Hilton",

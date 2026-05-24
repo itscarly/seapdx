@@ -49,30 +49,16 @@ Obsidian vault = repo root `/Users/kicker/Downloads/codexproject/`. Write Obsidi
 
 *Flash sale prices (~expires 2026-05-28) — re-check Staypineapple regular prices after sale ends.
 
-### Portland hotels (Nov 4–9, 5 nights, alert threshold $620)
+### Portland hotels (Nov 4–9, 5 nights)
 
-**Benchmark (booked):** Hotel Vance Tribute Portfolio — $628.46 confirmed (conf# [redacted]). Hold unless refundable challenger under $620 with 4.0+ stars, elevator, and transit.
+**TWO BOOKINGS HELD — both refundable before Nov 3:**
 
-**Watchlist (16 hotels, all priced except 3):**
+| Hotel | Total | Conf # | Cancel deadline |
+| ----- | ----- | ------ | --------------- |
+| Courtyard by Marriott Portland City Center | **$487.85** | 94187007 | Nov 3, 11:59 PM |
+| Hotel Vance Tribute Portfolio | $628.46 | [redacted] | (check policy) |
 
-| Hotel | Total | Breakfast | Cancel |
-| ----- | ----- | --------- | ------ |
-| Hyatt Centric Downtown Portland | $701.60 | — | Nov 3, 11:59 PM |
-| Holiday Inn Express Portland-NW | $741.26 | ✓ | Nov 3, 6 PM |
-| Embassy Suites Portland Downtown | $743.19 | ✓ | Nov 3, 11:59 PM |
-| Hotel Lucia | $760.49 | — | 48-hr policy |
-| Hyatt Regency Convention Center | $764.68 | — | Nov 2, 11:59 PM |
-| Hyatt House Portland/Downtown | $783.85 | ✓ | Nov 3, 11:59 PM |
-| The Benson Portland, Curio/Hilton | $794.87 | — | Nov 3, 11:59 PM |
-| Hampton Inn & Suites Pearl District | $795.06 | ✓ | Nov 2, 11:59 PM |
-| The Society Hotel (Suite) | $844.72 | — | cancel by 12pm day-of |
-| The Porter Portland, Curio/Hilton | $848.42 | — | Nov 3, 11:59 PM |
-| DoubleTree Portland | $913.72 | — | Nov 2, 11:59 PM |
-| Sentinel Hotel | $1,003.40 | — | TBD |
-| Hilton Portland Downtown | $1,025.58 | — | Nov 2, 11:59 PM |
-| Kimpton Hotel Vintage | needs price | — | — |
-| Hampton Inn Portland Downtown | needs price | ✓ | — |
-| Hyatt Place Portland/Downtown | needs price | ✓ | — |
+**Action required:** Cancel Hotel Vance before Nov 3 — Courtyard is $140.61 cheaper, same dates, same flexibility. No watchlist — all 16 options were above $500 and have been dropped.
 
 ### PAL taxes
 
