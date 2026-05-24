@@ -340,7 +340,7 @@
         "safetySource": "https://www.walkscore.com/score/1455-sw-broadway-portland-or-97201",
         "safetyNote": "South Park Blocks / PSU area \u2014 well-lit, university and arts district. Generally safe.",
         "hasElevator": true,
-        "transitScore": null,
+        "transitScore": 99,
         "transitNote": "SW Broadway & Clay \u2014 Portland Streetcar (NS line) 1 block. MAX Orange/Green lines at PSU Urban Center 4-min walk.",
         "freeBreakfast": false,
         "refundable": true,
