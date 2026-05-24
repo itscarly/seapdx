@@ -1,15 +1,13 @@
 {
   "meta": {
-    "title": "Seattle Hotel Intelligence Tracker",
+    "title": "Hotel Intelligence Tracker — Seattle & Portland",
     "snapshotDate": "2026-05-23",
     "disclaimer": "Direct hotel-site quotes only. Every price, cancellation rule, and room match must be rechecked live before booking or rebooking.",
     "automation": {
       "enabled": true,
-      "currentBand": "2-3x weekly direct-site checks",
-      "activeSchedule": "Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026",
-      "upcomingSchedule": "Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026",
+      "cadence": "Before Sep 1 2026: Tue/Fri. Sep 1–30 2026: Mon. Oct 1 2026+: daily. Date-gated in scripts/monitor-hotels.js.",
       "lastAutomatedCheckAt": "2026-05-23T20:58:33.329Z",
-      "lastAutomatedSummary": "Boylston could not be live-quoted on a working direct booking flow; live direct quotes were captured for Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), and The State Hotel ($909.46). No Seattle hotel qualifies under the $400 total cap."
+      "lastAutomatedSummary": "Seattle: Boylston Cloudflare-blocked; Hotel Max $777.68, Paramount $731.60, State Hotel $909.46 — all over $400 cap. Portland: initial watchlist seeded."
     }
   },
   "seattle": {
@@ -22,6 +20,7 @@
       "guests": 2,
       "budgetCap": 400
     },
+    "alertThreshold": 400,
     "currentReservation": {
       "id": "boylston-current",
       "name": "The Boylston Hotel Capitol Hill",
@@ -29,19 +28,19 @@
       "directBookingUrl": "https://www.sonder.com/en-gb/destinations/seattle/the-boylston/c32505",
       "trueTotalCost": null,
       "reviewScore": null,
+      "hasElevator": true,
       "transitScore": 99,
+      "transitNote": "Capitol Hill Link Light Rail station 5-min walk",
+      "freeBreakfast": false,
+      "refundable": true,
       "cancellationDeadline": null,
+      "confirmationNumber": "[redacted]",
+      "confirmedTotalPaid": 384.13,
       "priceVerification": {
         "status": "blocked",
-        "quotedStay": {
-          "checkIn": "2026-11-01",
-          "checkOut": "2026-11-04",
-          "nights": 3,
-          "guests": 2
-        },
-        "evidenceNote": "Direct Sonder property page was rate-limited by Cloudflare during this run, and Marriott's official Sonder FAQ says this former Sonder by Marriott Bonvoy property is not accepting new Marriott bookings."
+        "evidenceNote": "Direct Sonder property page was rate-limited by Cloudflare during last run. Marriott Bonvoy bookings not accepted."
       },
-      "notes": "Preferred Seattle base remains on the watchlist, but no live direct quote was exposed during this run."
+      "notes": "Preferred Seattle base. Hold unless a refundable direct quote under $400 appears on the watchlist."
     },
     "watchlist": [
       {
@@ -51,42 +50,36 @@
         "directBookingUrl": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=21123&child=0&currency=USD&depart=2026-11-04&hotel=76786&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
         "trueTotalCost": 777.68,
         "reviewScore": null,
+        "hasElevator": true,
         "transitScore": 88,
-        "cancellationDeadline": "2026-10-30T16:00:00-07:00",
+        "transitNote": "Downtown core, Link Light Rail 3rd & Pike 8-min walk",
+        "freeBreakfast": false,
         "refundable": true,
+        "cancellationDeadline": "2026-10-30T16:00:00-07:00",
         "priceVerification": {
           "status": "live-verified",
-          "quotedStay": {
-            "checkIn": "2026-11-01",
-            "checkOut": "2026-11-04",
-            "nights": 3,
-            "guests": 2
-          },
-          "evidenceNote": "SynXis direct booking flow. Modern Rooms Queen, Stay More Save More rate. Cart total verified at $777.68 including taxes and fees."
+          "evidenceNote": "SynXis direct booking flow. Modern Rooms Queen, Stay More Save More rate. Cart total $777.68 inc taxes."
         },
-        "notes": "Cancel by 4 PM local hotel time two days prior to arrival to avoid one night room and tax."
+        "notes": "Cancel by 4 PM local two days prior."
       },
       {
         "id": "paramount-hotel-seattle",
         "name": "Paramount Hotel Seattle",
         "zone": "Downtown Seattle",
         "directBookingUrl": "https://bookings.travelclick.com/104207?adults=2&children=0&datein=11/01/2026&dateout=11/04/2026&HotelId=104207&languageid=1&rooms=1#/total",
-        "trueTotalCost": 731.6,
+        "trueTotalCost": 731.60,
         "reviewScore": null,
+        "hasElevator": true,
         "transitScore": 86,
-        "cancellationDeadline": "2026-11-01T12:00:00-07:00",
+        "transitNote": "Downtown, Link Light Rail Pike St 6-min walk",
+        "freeBreakfast": false,
         "refundable": true,
+        "cancellationDeadline": "2026-11-01T12:00:00-07:00",
         "priceVerification": {
           "status": "live-verified",
-          "quotedStay": {
-            "checkIn": "2026-11-01",
-            "checkOut": "2026-11-04",
-            "nights": 3,
-            "guests": 2
-          },
-          "evidenceNote": "TravelClick direct booking flow. Paramount Double Queen Flexible Rate total verified at $731.60 on the direct checkout page."
+          "evidenceNote": "TravelClick direct. Paramount Double Queen Flexible Rate $731.60. Includes $20 dining credit."
         },
-        "notes": "Flexible rate includes a $20 dining credit and allows cancellation until 12 PM local time on arrival day."
+        "notes": "Cancel by 12 PM local on arrival day. $20 dining credit included."
       },
       {
         "id": "state-hotel",
@@ -95,20 +88,183 @@
         "directBookingUrl": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=8517&child=0&currency=USD&depart=2026-11-04&hotel=4079&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
         "trueTotalCost": 909.46,
         "reviewScore": null,
+        "hasElevator": true,
         "transitScore": 84,
-        "cancellationDeadline": "2026-10-30T16:00:00-07:00",
+        "transitNote": "Pike Place area, Link Light Rail 10-min walk",
+        "freeBreakfast": false,
         "refundable": true,
+        "cancellationDeadline": "2026-10-30T16:00:00-07:00",
         "priceVerification": {
           "status": "live-verified",
-          "quotedStay": {
-            "checkIn": "2026-11-01",
-            "checkOut": "2026-11-04",
-            "nights": 3,
-            "guests": 2
-          },
-          "evidenceNote": "SynXis direct booking flow. Classic Rooms Queen Best Available Rate details showed $909.46 total with taxes and amenity fee."
+          "evidenceNote": "SynXis direct. Classic Rooms Queen BAR $909.46 inc taxes and $29/night amenity fee."
         },
-        "notes": "Cancellation deadline is 4 PM two days prior. Includes a $29/night amenity fee inside the nightly price plus taxes on top."
+        "notes": "Cancel 4 PM two days prior. $29/night amenity fee baked in."
+      }
+    ]
+  },
+  "portland": {
+    "trip": {
+      "city": "Portland",
+      "dateRange": "Nov 4-9, 2026",
+      "checkIn": "2026-11-04",
+      "checkOut": "2026-11-09",
+      "nights": 5,
+      "guests": 2,
+      "room": "1 King"
+    },
+    "alertThreshold": 620,
+    "alertCriteria": {
+      "maxTotalCost": 620,
+      "minReviewScore": 4.0,
+      "requireElevator": true,
+      "requireRefundable": true,
+      "transitMaxWalkMinutes": 10,
+      "freeBreakfast": "bonus",
+      "boutiqueAccepted": true,
+      "safeNeighborhoodRequired": true
+    },
+    "currentReservation": {
+      "id": "hotel-vance-portland",
+      "name": "Hotel Vance, Portland — a Tribute Portfolio Hotel",
+      "brand": "Tribute Portfolio (Marriott)",
+      "address": "1455 SW Broadway, Portland, OR 97201",
+      "phone": "+1-503-334-2167",
+      "zone": "Downtown Portland / South Park Blocks",
+      "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxvt-hotel-vance-portland-a-tribute-portfolio-hotel/",
+      "trueTotalCost": 628.46,
+      "reviewScore": null,
+      "hasElevator": true,
+      "transitScore": null,
+      "transitNote": "SW Broadway & Clay — Portland Streetcar (NS line) 1 block. MAX Orange/Green lines at PSU Urban Center 4-min walk.",
+      "freeBreakfast": false,
+      "refundable": true,
+      "guaranteeMethod": "Credit Card Guarantee, American Express",
+      "confirmationNumber": "[redacted]",
+      "checkIn": "2026-11-04T16:00:00",
+      "checkOut": "2026-11-09T11:00:00",
+      "nights": 5,
+      "guests": 2,
+      "notes": "Benchmark. Hold unless a qualifying challenger comes in under $620 with 4.0+ stars, elevator, and transit access."
+    },
+    "watchlist": [
+      {
+        "id": "the-nines-portland",
+        "name": "The Nines Portland",
+        "brand": "Luxury Collection (Marriott)",
+        "zone": "Downtown / Morrison Bridge area",
+        "address": "525 SW Morrison St, Portland, OR 97204",
+        "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxlc-the-nines-portland-a-luxury-collection-hotel/",
+        "trueTotalCost": null,
+        "reviewScore": 4.5,
+        "hasElevator": true,
+        "transitNote": "MAX Red/Blue/Green/Yellow all within 3-min walk at Pioneer Courthouse Sq",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Upscale, design-forward atrium hotel in historic Meier & Frank building. Lively lobby bar.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check direct Marriott page for Nov 4–9 2026." }
+      },
+      {
+        "id": "hotel-deluxe-portland",
+        "name": "Hotel deLuxe",
+        "brand": "Independent boutique",
+        "zone": "Goose Hollow / NW Portland",
+        "address": "729 SW 15th Ave, Portland, OR 97205",
+        "directBookingUrl": "https://www.hoteldeluxeportland.com/",
+        "trueTotalCost": null,
+        "reviewScore": 4.3,
+        "hasElevator": true,
+        "transitNote": "Portland Streetcar (NS line) at SW 14th & Morrison 3-min walk. MAX Blue/Red at Providence Park 5-min walk.",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Art deco boutique. Old Hollywood glamour meets modern PDX. Young professional crowd. Very walkable.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026." }
+      },
+      {
+        "id": "the-benson-hotel",
+        "name": "The Benson Hotel",
+        "brand": "Independent (historic)",
+        "zone": "Downtown Portland",
+        "address": "309 SW Broadway, Portland, OR 97205",
+        "directBookingUrl": "https://www.bensonhotel.com/",
+        "trueTotalCost": null,
+        "reviewScore": 4.2,
+        "hasElevator": true,
+        "transitNote": "1 block from Hotel Vance. SW Broadway & Oak. MAX at Pioneer Sq 5-min walk. Streetcar at SW 10th 3-min walk.",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Classic Portland landmark. Grand lobby, walnut paneling. Solid midscale option if price drops.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026." }
+      },
+      {
+        "id": "kimpton-vintage-portland",
+        "name": "Kimpton Hotel Vintage Portland",
+        "brand": "Kimpton (IHG)",
+        "zone": "Downtown Portland",
+        "address": "422 SW Broadway, Portland, OR 97205",
+        "directBookingUrl": "https://www.hotelvintageportland.com/",
+        "trueTotalCost": null,
+        "reviewScore": 4.4,
+        "hasElevator": true,
+        "transitNote": "SW Broadway at SW Washington. MAX at Pioneer Sq 3-min walk. Streetcar at SW 10th & Washington 2-min walk.",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Wine-forward boutique. Daily hosted wine hour. Oregon winery theme. Strong guest reviews. Lively crowd.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026." }
+      },
+      {
+        "id": "graduate-portland",
+        "name": "Graduate Portland",
+        "brand": "Graduate Hotels (boutique chain)",
+        "zone": "Downtown Portland",
+        "address": "621 SW 10th Ave, Portland, OR 97205",
+        "directBookingUrl": "https://www.graduatehotels.com/portland/",
+        "trueTotalCost": null,
+        "reviewScore": 4.1,
+        "hasElevator": true,
+        "transitNote": "SW 10th & Alder. Streetcar at SW 10th & Alder 1-min walk. MAX at Pioneer Sq 4-min walk.",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Design-forward collegiate-inspired boutique. Tends to price lower than nearby chains. Good lobby energy.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026." }
+      },
+      {
+        "id": "the-society-hotel-portland",
+        "name": "The Society Hotel",
+        "brand": "Independent boutique",
+        "zone": "Old Town / Pearl District",
+        "address": "203 NW 3rd Ave, Portland, OR 97209",
+        "directBookingUrl": "https://www.thesocietyhotel.com/portland",
+        "trueTotalCost": null,
+        "reviewScore": 4.2,
+        "hasElevator": true,
+        "transitNote": "MAX Yellow at NW 5th & Couch 4-min walk. Pearl District streetcar 6-min walk.",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Converted 1880s sailor's boarding house. Industrial-chic, locally loved, very Portland. Strong vibe for young professionals.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026." }
+      },
+      {
+        "id": "sentinel-hotel-portland",
+        "name": "Sentinel Hotel",
+        "brand": "Autograph Collection (Marriott)",
+        "zone": "Downtown Portland",
+        "address": "614 SW 11th Ave, Portland, OR 97205",
+        "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxak-sentinel-hotel/",
+        "trueTotalCost": null,
+        "reviewScore": 4.3,
+        "hasElevator": true,
+        "transitNote": "SW 11th & Alder. Streetcar at SW 11th & Alder 1-min walk. MAX Pioneer Sq 5-min walk.",
+        "freeBreakfast": false,
+        "refundable": null,
+        "safeNeighborhood": true,
+        "vibeNote": "Historic design hotel. Classic Portland feel, upscale crowd, great location. Jake's Famous Crawfish on ground floor.",
+        "priceVerification": { "status": "needs-check", "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026." }
       }
     ]
   }

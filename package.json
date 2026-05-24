@@ -13,8 +13,11 @@
     "validate:airfare": "node --test tests/airfare-monitor.test.js && node scripts/validate-airfare-monitor.js",
     "update:verification": "node scripts/update-verification-summary.js",
     "monitor:airfare": "node scripts/build-airfare-report.js",
+    "monitor:pal-taxes": "node scripts/monitor-pal-taxes.js",
+    "monitor:hotels": "node scripts/monitor-hotels.js",
     "monitor:itinerary": "node scripts/monitor-itinerary.js",
-    "monitor:flights": "node scripts/monitor-flights.js"
+    "monitor:flights": "node scripts/monitor-flights.js",
+    "session-status": "node scripts/session-status.js"
   },
   "engines": {
     "node": ">=20"

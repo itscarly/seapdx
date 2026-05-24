@@ -1,6 +1,6 @@
 {
   "watchName": "Philippine Airlines Award Tax Monitor",
-  "updatedAt": "2026-05-23T00:00:00.000Z",
+  "updatedAt": "2026-05-24T01:31:13.294Z",
   "trip": {
     "type": "award-redemption",
     "airline": "Philippine Airlines",
@@ -17,15 +17,19 @@
       "destination": "MNL",
       "label": "SFO → MNL",
       "milesRequired": 58000,
-      "currentTax": 370.50,
+      "currentTax": 370.5,
       "currency": "USD",
       "taxHistory": [
-        { "date": "2026-05-23", "tax": 370.50, "note": "Initial capture from PAL.com direct" }
+        {
+          "date": "2026-05-23",
+          "tax": 370.5,
+          "note": "Initial capture from PAL.com direct"
+        }
       ],
       "alert": {
         "dropThreshold": null,
         "lastAlert": null,
-        "lastChecked": "2026-05-23"
+        "lastChecked": "2026-05-24"
       }
     },
     {
@@ -34,22 +38,26 @@
       "destination": "MNL",
       "label": "ORD → MNL",
       "milesRequired": 67000,
-      "currentTax": 375.50,
+      "currentTax": 375.5,
       "currency": "USD",
       "taxHistory": [
-        { "date": "2026-05-23", "tax": 375.50, "note": "Initial capture from PAL.com direct" }
+        {
+          "date": "2026-05-23",
+          "tax": 375.5,
+          "note": "Initial capture from PAL.com direct"
+        }
       ],
       "alert": {
         "dropThreshold": null,
         "lastAlert": null,
-        "lastChecked": "2026-05-23"
+        "lastChecked": "2026-05-24"
       }
     }
   ],
   "monitoringStrategy": {
     "goal": "Track PAL award taxes on both routes. Any tax drop = better cash outlay per redemption. Book when taxes are stable or falling heading into Mar 2027.",
     "checkSource": "PAL.com direct — Business class award calendar for the specific departure dates",
-    "cadence": "Weekly check through Dec 2026, then 2-3x weekly Jan-Feb 2027",
+    "cadence": "Before Sep 1 2026: weekly (Mondays). Sep 1–Dec 31 2026: 3x/week (Mon/Wed/Fri). Jan 1 2027+: daily. Date-gated in scripts/monitor-pal-taxes.js.",
     "alertTrigger": "Any tax decrease vs. previous recorded entry"
   }
 }

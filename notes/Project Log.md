@@ -2,6 +2,57 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 4)
+
+### Automation overhaul — PAL tax monitor, hotel monitor, session-start hook
+
+**What changed:**
+
+Full automation audit and overhaul. All monitors are now automated via GitHub Actions. Manual cadence instructions are retired.
+
+**PAL Award Tax Monitor (replaces old flight status poller):**
+- Old: 15-min poll of airline/airport status pages for 3 booked flights — wrong scope and wrong cadence
+- New: `scripts/monitor-pal-taxes.js` monitors PAL award taxes on SFO→MNL and ORD→MNL for March 2027 travel
+- Cadence: weekly Mon (now–Aug 2026) → Mon/Wed/Fri (Sep–Dec 2026) → daily (Jan 2027+), date-gated inside script
+- Email alert to limcarl83@gmail.com via Resend on any tax drop
+- GitHub Issue opened on any tax change
+- Workflow: `.github/workflows/monitor-flights.yml` rewritten, single daily cron, `workflow_dispatch` for manual test
+
+**Hotel Monitor — now fully automated (Seattle + Portland):**
+- New: `scripts/monitor-hotels.js` + `.github/workflows/monitor-hotels.yml`
+- Cadence: Tue/Fri (now–Aug 2026) → Mon (Sep 2026) → daily (Oct 2026+)
+- Seattle: benchmark Boylston $384.13, alert threshold $400, 3 watchlist hotels
+- Portland: benchmark Hotel Vance $628.46 conf# [redacted] (Nov 4–9), alert threshold $620, 7 watchlist hotels
+- Portland criteria: under $620 total, 4.0+ stars, elevator required, MAX/streetcar within 10-min walk, refundable direct booking, boutique hotels welcome
+- Free breakfast is a bonus flag, not a requirement
+- Email + GitHub Issue fires when any hotel clears all criteria and drops under threshold
+- Portland watchlist prices need first manual capture — open each direct booking URL and enter `trueTotalCost` in `data/hotel-monitor-source.json`
+
+**Session-start hook (Claude + Codex compatible):**
+- `scripts/session-status.js` prints PAL tax status + hotel monitor status at session open
+- Wired via `UserPromptSubmit` hook in `.claude/settings.local.json`
+
+**GitHub Secrets required for email alerts:**
+- `RESEND_API_KEY`, `ALERT_EMAIL_TO` (limcarl83@gmail.com), `ALERT_FROM`
+
+**Files created/modified:**
+- `scripts/monitor-pal-taxes.js` (new)
+- `scripts/monitor-hotels.js` (new)
+- `scripts/session-status.js` (new)
+- `.github/workflows/monitor-flights.yml` (rewritten)
+- `.github/workflows/monitor-hotels.yml` (new)
+- `package.json` — added `monitor:pal-taxes`, `monitor:hotels`, `session-status`
+- `data/airfare-watch.json` — cadence field updated
+- `data/hotel-monitor-source.json` — Portland benchmark + 7-hotel watchlist added
+- `.claude/settings.local.json` — session-start hook added
+- `notes/TASKS.md`, `notes/Project Log.md` — updated
+
+**All scripts tested locally — clean output, no crashes.**
+
+**Next session handoff:** Set GitHub Secrets (`RESEND_API_KEY`, `ALERT_EMAIL_TO`, `ALERT_FROM`) if not already set, then trigger each workflow manually via GitHub Actions → workflow_dispatch to verify end-to-end. Portland hotel prices need manual first-capture: open each watchlist hotel's direct booking URL for Nov 4–9 2026 and enter the total in `data/hotel-monitor-source.json`.
+
+---
+
 ## 2026-05-23 (session 3)
 
 ### Dashboard dark theme fixed and deployment gap closed

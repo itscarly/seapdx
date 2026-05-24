@@ -1,27 +1,46 @@
-# Seattle Hotel Intelligence Report
+# Hotel Monitor Report
 
-Generated from direct-site watch snapshot: 2026-05-23
+Generated: 2026-05-24T01:30:59.858Z
 
-- Seattle cap: $400.00
-- Active automation cadence: Mon, Wed, Fri at 10:00 AM America/New_York until Sep 16, 2026
-- Upcoming automation cadence: Daily at 10:00 AM America/New_York from Sep 17 through Oct 31, 2026
-- Last automated check: 2026-05-23T20:58:33.329Z
-- Summary: Boylston could not be live-quoted on a working direct booking flow; live direct quotes were captured for Hotel Max ($777.68), Paramount Hotel Seattle ($731.60), and The State Hotel ($909.46). No Seattle hotel qualifies under the $400 total cap.
-- Disclaimer: Direct hotel-site quotes only. Every price, cancellation rule, and room match must be rechecked live before booking or rebooking.
+## Seattle
 
-## Seattle outcome
+- Trip: 2026-11-01 – 2026-11-04 (3 nights, 2 guests)
+- Benchmark: unavailable
+- Alert threshold: $400.00
+- Hotels watched: 3
+- Alerts triggered: 0
 
-- Boylston benchmark status: blocked
-- Boylston note: Direct Sonder property page was rate-limited by Cloudflare during this run, and Marriott's official Sonder FAQ says this former Sonder by Marriott Bonvoy property is not accepting new Marriott bookings.
-- No Seattle direct-booking alternative currently qualifies under the $400 total cap.
+No hotels currently under the alert threshold.
 
-## Excluded candidates
+### Full Watchlist
 
-- Paramount Hotel Seattle: $731.60 total | refundable yes | cancel by 2026-11-01T12:00:00-07:00
-- Hotel Max: $777.68 total | refundable yes | cancel by 2026-10-30T16:00:00-07:00
-- The State Hotel: $909.46 total | refundable yes | cancel by 2026-10-30T16:00:00-07:00
+- ✗ Hotel Max: $777.68 | refundable: yes | stars: ? | URL: reachable
+- ✗ Paramount Hotel Seattle: $731.60 | refundable: yes | stars: ? | URL: reachable
+- ✗ The State Hotel: $909.46 | refundable: yes | stars: ? | URL: reachable
 
-## Portland status
+## Portland
 
-- Portland framework scaffolded only.
-- Exact ranking remains blocked until the total post-tax lodging cap is supplied.
+- Trip: 2026-11-04 – 2026-11-09 (5 nights, 2 guests)
+- Benchmark: $628.46
+- Alert threshold: $620.00
+- Hotels watched: 7
+- Alerts triggered: 0
+
+No hotels currently under the alert threshold.
+
+### Full Watchlist
+
+- ✗ The Nines Portland: unavailable | refundable: unknown | stars: 4.5 | URL: unreachable
+- ✗ Hotel deLuxe: unavailable | refundable: unknown | stars: 4.3 | URL: unreachable
+- ✗ The Benson Hotel: unavailable | refundable: unknown | stars: 4.2 | URL: reachable
+- ✗ Kimpton Hotel Vintage Portland: unavailable | refundable: unknown | stars: 4.4 | URL: reachable
+- ✗ Graduate Portland: unavailable | refundable: unknown | stars: 4.1 | URL: reachable
+- ✗ The Society Hotel: unavailable | refundable: unknown | stars: 4.2 | URL: reachable
+- ✗ Sentinel Hotel: unavailable | refundable: unknown | stars: 4.3 | URL: reachable
+
+## Notes
+
+- Hotel prices are manually updated in `data/hotel-monitor-source.json` after each direct-booking check.
+- This monitor cannot scrape live prices from JS-rendered booking engines.
+- To update a price: open the direct booking URL, verify the total, update `trueTotalCost` in the source file.
+- Re-run `npm run monitor:hotels` after manual price updates to refresh the report.

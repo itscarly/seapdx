@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-05-24T01:30:59.860Z",
+  "today": "2026-05-24",
+  "cadence": "2x/week cadence (before Sep 2026)",
+  "cities": [
+    {
+      "city": "seattle",
+      "hotelsChecked": 3,
+      "alerts": 0,
+      "benchmarkCost": null,
+      "threshold": 400
+    },
+    {
+      "city": "portland",
+      "hotelsChecked": 7,
+      "alerts": 0,
+      "benchmarkCost": 628.46,
+      "threshold": 620
+    }
+  ],
+  "totalAlerts": 0,
+  "emailAttempted": false,
+  "emailError": null
+}

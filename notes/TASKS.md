@@ -9,10 +9,19 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ## Current active work
 
 - Keep the Seattle and Portland itinerary current as prices, hours, and transit assumptions change.
-- **Hotel monitor**: Keep watching for a refundable sub-$400 option near King Street Amtrak or Link Light Rail. Boylston is confirmed at $384.13 — hold unless a materially better option appears.
-- **PAL Award Tax Monitor**: Check PAL.com weekly for tax changes on SFO→MNL (currently $370.50) and ORD→MNL (currently $375.50). When tax changes, add a new entry to `taxHistory` in `data/airfare-watch.json` and update `currentTax` and `lastChecked`.
+- **Seattle hotel monitor (automated)**: GitHub Actions checks Tue/Fri through Aug, weekly Sep, daily Oct+. Alert threshold $400. Boylston confirmed at $384.13 — hold unless a refundable direct quote under $400 appears.
+- **Portland hotel monitor (automated)**: Same GitHub Actions workflow. Alert threshold $620. Hotel Vance confirmed at $628.46 (conf# [redacted]). 7 challenger hotels in watchlist — prices need manual first-capture via direct booking URLs, then the monitor tracks changes.
+- **PAL Award Tax Monitor (automated)**: GitHub Actions runs weekly Mon through Aug, Mon/Wed/Fri Sep–Dec, daily Jan 2027+. Taxes auto-updated when detected; manual override always available by editing `data/airfare-watch.json`. Current: SFO→MNL $370.50, ORD→MNL $375.50.
+- **Portland hotel prices need first capture**: Open each watchlist hotel's direct booking URL for Nov 4–9 2026, verify total price, update `trueTotalCost` and `reviewScore` in `data/hotel-monitor-source.json`. Once entered, the monitor will track changes automatically.
 - Keep the local dashboard verified after meaningful data or UI edits.
 - Keep the note system reconciled so active guidance stays current.
+
+## GitHub Secrets needed for email alerts
+
+Ensure these are set in the repo's GitHub Actions secrets for email notifications to fire:
+- `RESEND_API_KEY` — Resend API key
+- `ALERT_EMAIL_TO` — limcarl83@gmail.com
+- `ALERT_FROM` — sender address
 
 ## Completed 2026-05-23 (session 2)
 
