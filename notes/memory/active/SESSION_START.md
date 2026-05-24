@@ -26,20 +26,22 @@ Obsidian vault = repo root `/Users/kicker/Downloads/codexproject/`. Write Obsidi
 | `dashboards/html/airfare.html` | PAL tax monitor page |
 | `dashboards/html/hotels.html` | Hotel monitor page |
 
-**Critical:** `hotels.html` reads from `hotel-monitor-source.json`. When editing hotel data, always sync BOTH files. The dashboard reads `currentReservation`, `secondReservation`, and `watchlist` from each city object — data stored under any other key is invisible.
+**Critical:** `hotels.html` reads from `hotel-monitor-source.json`. When editing hotel data, always sync BOTH files. The dashboard reads `currentReservation` and `watchlist` from each city object.
 
-## Current status (2026-05-24)
+---
 
-### ⚠️ Action required
+## Current status (as of 2026-05-24, end of session)
 
-**Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM local Portland time.**
-Courtyard by Marriott Portland City Center is already booked at $487.85 — $140.61 cheaper. Both are refundable before Nov 3.
+### ⚠️ One action still required
+
+**Cancel Hotel Vance (conf# [redacted], $628.46) before Nov 3, 11:59 PM Portland local time.**
+Courtyard is already booked and cheaper. This is the only open task.
 
 ---
 
 ### Seattle hotels (Nov 1–4, 3 nights, budget cap $400)
 
-**Booked:** The Boylston Hotel Capitol Hill — $384.13 confirmed (RES# [redacted]). Hold unless refundable sub-$400 appears.
+**Booked:** The Boylston Hotel Capitol Hill — $384.13 (RES# [redacted]). Hold unless refundable sub-$400 appears.
 
 **Watchlist (8 hotels, all over cap):**
 
@@ -58,13 +60,15 @@ Courtyard by Marriott Portland City Center is already booked at $487.85 — $140
 
 ### Portland hotels (Nov 4–9, 5 nights)
 
-**ACTIVE BOOKING:** Courtyard by Marriott Portland City Center — $487.85 (conf# [redacted]). Portland base. Dashboard and itinerary updated.
+**ACTIVE BOOKING:** Courtyard by Marriott Portland City Center — $487.85 (conf# [redacted])
+- Address: 550 SW Oak Street, Portland, OR 97204
+- Portland base for all itinerary, dashboard, and calendar events
 
-**Breakfast near Courtyard:** Fuller's Coffee Shop, 136 NW 9th Ave — 8-10 min walk, opens 7 AM Mon–Sat. Classic diner since 1947.
+**Breakfast:** Fuller's Coffee Shop, 136 NW 9th Ave — ~8-10 min walk from Courtyard, opens 7 AM Mon–Sat
 
-**⚠️ Still need to cancel:** Hotel Vance (conf# [redacted], $628.46) — cancel before Nov 3, 11:59 PM. Both are still technically held until then.
+**Cancel:** Hotel Vance (conf# [redacted]) — deadline Nov 3, 11:59 PM
 
-**Watchlist:** Empty — monitoring complete.
+**Watchlist:** Empty — monitoring complete, no Portland alternatives tracked
 
 ---
 
@@ -72,6 +76,26 @@ Courtyard by Marriott Portland City Center is already booked at $487.85 — $140
 
 - SFO→MNL $370.50 | ORD→MNL $375.50 (verified 2026-05-24)
 - Cadence: weekly Mon (now–Aug), Mon+Thu (Sep), Mon+Wed+Fri (Oct), stops Nov 1
+
+---
+
+## What was completed this session
+
+1. **Replaced Hotel Vance with Courtyard Portland** across all files:
+   - `data/trip-data.js` — all activity names, routes, hotel context strings
+   - `dashboards/js/app.js` — map coordinates, stop labels
+   - `dashboards/js/hotels.js` — strategy notes
+   - `data/hotel-monitor-source.json` — Courtyard promoted to `currentReservation`, Vance to `cancelReservation`
+   - `data/hotel-monitor-report.json` — benchmark updated to Courtyard
+   - Notes updated: `PROJECT_CONTEXT.md`, `SESSION_START.md`
+
+2. **Swapped Day 5 Portland breakfast**: Stumptown Downtown → Fuller's Coffee Shop
+
+3. **Updated Google Calendar**: 22 Portland events updated (Days 4–9) — hotel name, locations, route links, and breakfast event
+
+4. **Committed and pushed** to GitHub (commit `b778dd5`)
+
+---
 
 ## Commands
 
@@ -98,7 +122,7 @@ npm run validate            — run all tests + validators
 
 `RESEND_API_KEY`, `ALERT_EMAIL_TO`, `ALERT_FROM` — required for email alerts on hotel/tax changes
 
-## Notes to read for deeper context
+## Notes for deeper context
 
 - [[PROJECT_CONTEXT]] — full project shape and working rules
 - [[TASKS]] — active work and what's pending

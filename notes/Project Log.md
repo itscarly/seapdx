@@ -1218,3 +1218,31 @@ Files touched:
 Files touched:
 
 - `notes/Project Log.md`
+
+## 2026-05-24 (session 15 — Portland base swap + calendar sync)
+
+### Switched Portland base from Hotel Vance to Courtyard Portland
+
+**What changed:**
+
+- Courtyard by Marriott Portland City Center (conf# [redacted], $487.85) promoted to active Portland base.
+- Hotel Vance (conf# [redacted], $628.46) moved to `cancelReservation` stub — must be cancelled before Nov 3, 11:59 PM.
+- Day 5 breakfast updated: Stumptown Downtown → Fuller's Coffee Shop (136 NW 9th Ave, opens 7 AM Mon–Sat, ~8 min walk from Courtyard).
+- All Hotel Vance references replaced across codebase — activity names, route URLs, hotel context strings, map coordinates, strategy notes.
+- 22 Google Calendar events updated (Portland Days 4–9) — titles, locations, descriptions, and route links.
+- Committed and pushed: `b778dd5`.
+
+**Files touched:**
+
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `dashboards/js/hotels.js`
+- `data/hotel-monitor-source.json`
+- `data/hotel-monitor-report.json`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/memory/active/SESSION_START.md`
+- `notes/Project Log.md`
+
+**One open action:**
+
+Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM. Everything else is done.
