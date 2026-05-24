@@ -4,41 +4,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0d1117">
-    <title>Seattle Hotel Intelligence Tracker</title>
+    <title>Hotel Intelligence Tracker — Seattle &amp; Portland</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
       body { background: #0d1117; color: #e6edf3; }
+      .hotel-brand { color: var(--dt-muted, var(--muted)); font-size: 0.82rem; margin: 2px 0 4px; }
+      .tracker-badge-good { background: rgba(56,139,76,0.25); color: #3fb950; border: 1px solid rgba(56,139,76,0.4); }
+      .tracker-badge-pending { background: rgba(210,153,34,0.2); color: #e3b341; border: 1px solid rgba(210,153,34,0.35); }
+      .tracker-badge-muted { background: rgba(110,118,129,0.15); color: #8b949e; border: 1px solid rgba(110,118,129,0.25); }
+      .city-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2rem 0; }
     </style>
   </head>
   <body class="dark-tracker tracker-page hotels-page">
     <header class="hero tracker-hero">
       <nav class="topbar" aria-label="Hotel tracker sections">
         <a href="./index.html">Main dashboard</a>
-        <a href="#benchmark">Benchmark</a>
-        <a href="#rankings">Watchlist</a>
+        <a href="#seattle-benchmark">Seattle</a>
+        <a href="#portland-benchmark">Portland</a>
         <a href="#strategy">Strategy</a>
       </nav>
       <section class="hero-grid tracker-hero-grid">
         <div>
-          <p class="eyebrow">Seattle stay watch</p>
+          <p class="eyebrow">Seattle &amp; Portland stay watch</p>
           <h1>Hotel price intelligence tracker</h1>
-          <p class="lede">A cleaner direct-site hotel watch for the Nov 1-4 Seattle stay, tuned to the same visual rhythm as the main trip dashboard and centered on refundable booking decisions.</p>
+          <p class="lede">Direct-site hotel watch for both the Nov 1–4 Seattle stay and Nov 4–9 Portland stay. Tracks refundable options across boutique, Hilton, Hyatt, IHG, and Marriott properties against confirmed booking benchmarks.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#rankings">View Seattle watch</a>
-            <a class="button" href="../../research/hotels/latest-report.md">Open report</a>
+            <a class="button primary" href="#seattle-watchlist">Seattle watchlist</a>
+            <a class="button" href="#portland-watchlist">Portland watchlist</a>
           </div>
           <div id="hotelCallout" class="tracker-callout">Loading booking stance.</div>
         </div>
         <aside class="trip-card" aria-label="Tracker status">
           <span class="status-dot"></span>
-          <h2>Seattle watch status</h2>
+          <h2>Combined watch status</h2>
           <strong id="trackerHeadline">Loading...</strong>
           <p id="trackerSubhead">Loading current hotel monitor state...</p>
           <div class="meter"><span id="trackerMeter"></span></div>
           <div class="fx-panel">
             <p class="fx-label">Decision safety</p>
-            <strong>Refundable only</strong>
+            <strong>Refundable · Direct booking only</strong>
             <p id="trackerDisclaimer">Loading current quote rules...</p>
           </div>
         </aside>
@@ -46,55 +51,34 @@
     </header>
 
     <main id="hotelApp">
-      <section class="section">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Market snapshot</p>
-          <h2>Benchmark, cap pressure, and active alternative count</h2>
-          <p class="section-copy">This top strip mirrors the main dashboard so the important answer reads first: hold, switch, or wait.</p>
-        </div>
-        <div id="hotelSummary" class="summary-grid tracker-summary-grid"></div>
-      </section>
-
-      <section id="benchmark" class="section">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow">Benchmark</p>
-            <h2>Current reservation benchmark</h2>
-            <p class="section-copy">Boylston stays the fallback until a direct-site Seattle quote lands under the hard cap.</p>
-          </div>
-        </div>
-        <div id="benchmarkPanel" class="tracker-panel-grid"></div>
-      </section>
-
-      <section id="rankings" class="section">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow">Watchlist</p>
-            <h2>Seattle direct-site watchlist</h2>
-            <p class="section-copy">Every quote shown here is tied to the exact Nov 1-4, 2026 / 2 guest stay scope.</p>
-          </div>
-        </div>
-        <div id="watchSummary" class="tracker-panel-grid"></div>
-        <div id="excludedPanel" class="tracker-card-grid"></div>
-      </section>
-
-      <section id="strategy" class="section">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow">Booking strategy</p>
-            <h2>Automation cadence and booking strategy</h2>
-            <p class="section-copy">The hotel watch now has real recurring automation rather than placeholder cadence text.</p>
-          </div>
-        </div>
-        <div class="tracker-card-grid tracker-card-grid-wide">
-          <article class="transit-card" id="cadencePanel"></article>
-          <article class="transit-card" id="strategyPanel"></article>
-        </div>
-      </section>
+      <!-- City sections rendered dynamically by hotels.js -->
     </main>
 
+    <section id="strategy" class="section">
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="eyebrow">Booking strategy</p>
+          <h2>Automation cadence and booking strategy</h2>
+          <p class="section-copy">Hotel monitor runs on GitHub Actions. Email alert fires when any hotel drops under the threshold. Requires RESEND_API_KEY, ALERT_EMAIL_TO, and ALERT_FROM secrets in GitHub repo settings.</p>
+        </div>
+      </div>
+      <div class="tracker-card-grid tracker-card-grid-wide">
+        <article class="transit-card" id="cadencePanel">Loading automation cadence...</article>
+        <article class="transit-card">
+          <span class="badge">Alert criteria</span>
+          <h3>What triggers an email alert</h3>
+          <ul class="hotel-list">
+            <li>Seattle: total under $400 · refundable · 4.0+ stars · elevator · Link/Amtrak access</li>
+            <li>Portland: total under $620 · refundable · 4.0+ stars · elevator · MAX/streetcar ≤10 min</li>
+            <li>Free breakfast flagged as a bonus in the alert but not required</li>
+            <li>Boutique hotels and all major chains (Hilton, Hyatt, IHG, Marriott) in scope</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     <footer class="footer">
-      <p>Direct hotel-site quotes only. Recheck every price, fee, and cancellation deadline before replacing a held reservation.</p>
+      <p>Direct hotel-site quotes only. Recheck every price, fee, and cancellation deadline before replacing a held reservation. Elevator confirmed required for both cities — 1 large luggage.</p>
     </footer>
 
     <script src="../js/hotels.js"></script>

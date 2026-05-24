@@ -1,4 +1,5 @@
 const AIRFARE_DATA_URL = "../../data/airfare-watch.json";
+const BOOKING_DEADLINE = new Date("2026-11-01T00:00:00Z"); // Oct 31 is last day to book
 
 function formatMoney(value) {
   if (typeof value !== "number") return "—";
@@ -29,6 +30,56 @@ function taxChangeLabel(current, previous) {
   return `${sign} ${formatMoney(Math.abs(diff))}`;
 }
 
+// Returns "up", "down", or "stable" based on last 3+ history entries
+function calcTrend(history) {
+  if (!history || history.length < 2) return "stable";
+  const recent = history.slice(-3);
+  const first = recent[0].tax;
+  const last = recent[recent.length - 1].tax;
+  const diff = last - first;
+  if (diff < -0.50) return "down";
+  if (diff > 0.50) return "up";
+  return "stable";
+}
+
+function trendLabel(trend) {
+  if (trend === "down") return "▼ Falling";
+  if (trend === "up") return "▲ Rising";
+  return "→ Stable";
+}
+
+function trendClass(trend) {
+  if (trend === "down") return "is-dropped";
+  if (trend === "up") return "is-rose";
+  return "is-stable";
+}
+
+// Days until Oct 31 2026 (last booking day)
+function daysUntilDeadline() {
+  const now = new Date();
+  const diff = BOOKING_DEADLINE - now;
+  return Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+}
+
+function deadlineColorClass(days) {
+  if (days <= 0) return "deadline-passed";
+  if (days <= 7) return "deadline-critical";
+  if (days <= 30) return "deadline-red";
+  if (days <= 60) return "deadline-amber";
+  return "deadline-green";
+}
+
+// Booking recommendation based on trend + days to deadline
+function bookingRecommendation(trend, days) {
+  if (days <= 0) return { label: "DEADLINE PASSED", cls: "deadline-critical" };
+  if (days <= 7) return { label: "DEADLINE CRITICAL — BOOK TODAY", cls: "deadline-critical" };
+  if (days <= 30 && trend === "up") return { label: "BOOK NOW — taxes rising", cls: "deadline-red" };
+  if (days <= 30) return { label: "CONSIDER BOOKING", cls: "deadline-amber" };
+  if (trend === "up") return { label: "WATCH — taxes rising", cls: "deadline-amber" };
+  if (trend === "down") return { label: "WATCH — taxes falling", cls: "deadline-green" };
+  return { label: "WATCH", cls: "deadline-green" };
+}
+
 function buildSparkline(history) {
   if (!history || history.length === 0) return "";
   const values = history.map((h) => h.tax);
@@ -44,7 +95,30 @@ function buildSparkline(history) {
   </div>`;
 }
 
+function renderDeadlineBanner(days) {
+  const cls = deadlineColorClass(days);
+  const el = document.getElementById("deadlineBanner");
+  if (!el) return;
+
+  let message;
+  if (days <= 0) {
+    message = "Booking deadline has passed.";
+  } else if (days === 1) {
+    message = "⚠ 1 day left to book — book today.";
+  } else if (days <= 7) {
+    message = `⚠ ${days} days until booking deadline (Oct 31, 2026) — book this week.`;
+  } else if (days <= 30) {
+    message = `${days} days until booking deadline (Oct 31, 2026) — enter final decision window.`;
+  } else {
+    message = `${days} days until booking deadline (Oct 31, 2026).`;
+  }
+
+  el.className = `deadline-banner ${cls}`;
+  el.innerHTML = `<span class="deadline-label">Booking deadline</span><span class="deadline-text">${message}</span>`;
+}
+
 function renderRouteCards(routes) {
+  const days = daysUntilDeadline();
   const grid = document.getElementById("routeGrid");
   grid.innerHTML = routes.map((route) => {
     const history = route.taxHistory || [];
@@ -52,6 +126,8 @@ function renderRouteCards(routes) {
     const cls = taxChangeClass(route.currentTax, prev);
     const changeLabel = taxChangeLabel(route.currentTax, prev);
     const lastChecked = route.alert?.lastChecked || "—";
+    const trend = calcTrend(history);
+    const rec = bookingRecommendation(trend, days);
 
     return `
       <article class="route-card">
@@ -64,6 +140,10 @@ function renderRouteCards(routes) {
         </div>
         <p class="tax-label">Current taxes &amp; fees</p>
         <span class="tax-change-pill ${cls}">${changeLabel}</span>
+        <div class="route-trend">
+          <span class="trend-pill ${trendClass(trend)}">${trendLabel(trend)}</span>
+          <span class="recommendation-pill ${rec.cls}">${rec.label}</span>
+        </div>
         <div class="route-meta">Last checked: ${lastChecked}</div>
       </article>
     `;
@@ -115,7 +195,8 @@ function renderStrategy(watch) {
   const el = document.getElementById("strategyText");
   const s = watch.monitoringStrategy;
   if (!s) { el.textContent = "No strategy recorded."; return; }
-  el.textContent = `${s.goal} Check source: ${s.checkSource}. Cadence: ${s.cadence}. Alert trigger: ${s.alertTrigger}.`;
+  const deadlineNote = watch.bookingDeadlineNote ? ` BOOKING DEADLINE: ${watch.bookingDeadlineNote}` : "";
+  el.textContent = `${s.goal} Check source: ${s.checkSource}. Cadence: ${s.cadence}.${deadlineNote} Alert trigger: ${s.alertTrigger}.`;
 }
 
 function renderOverallStatus(routes) {
@@ -138,7 +219,9 @@ async function init() {
     if (!response.ok) throw new Error(`Unable to load airfare data: ${response.status}`);
     const watch = await response.json();
     const routes = watch.routes || [];
+    const days = daysUntilDeadline();
 
+    renderDeadlineBanner(days);
     renderOverallStatus(routes);
     renderRouteCards(routes);
     renderHistory(routes);

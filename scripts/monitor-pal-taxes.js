@@ -7,22 +7,30 @@ const reportDir = path.join(rootDir, "research", "airfare");
 const reportPath = path.join(reportDir, "latest-report.md");
 const summaryPath = path.join(reportDir, "latest-summary.json");
 
-// Date-gated cadence: returns true if today is a scheduled run day.
-// Before Sep 1 2026 → Mondays only
-// Sep 1 – Dec 31 2026 → Mon/Wed/Fri only
-// Jan 1 2027+ → every day
+// Hard booking deadline: Oct 31, 2026. Must book SFO or ORD → MNL by this date.
+// Cadence gates:
+//   Now → Aug 31 2026  : weekly (Mon only)
+//   Sep 1–30 2026      : 3x/week (Mon/Wed/Fri)
+//   Oct 1–31 2026      : daily — final month before hard deadline
+//   Nov 1 2026+        : deadline passed, script exits with notice
+const BOOKING_DEADLINE = new Date("2026-11-01T00:00:00Z");
+
 function shouldRunToday() {
   const now = new Date();
   const today = now.toISOString().slice(0, 10);
   const dayOfWeek = now.getUTCDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
 
-  const sep2026 = new Date("2026-09-01T00:00:00Z");
-  const jan2027 = new Date("2027-01-01T00:00:00Z");
+  if (now >= BOOKING_DEADLINE) {
+    return { run: false, deadline: true, reason: "Booking deadline passed (Oct 31 2026). PAL tax monitoring no longer needed.", today };
+  }
 
-  if (now >= jan2027) return { run: true, reason: "daily cadence (Jan 2027+)", today };
+  const sep2026 = new Date("2026-09-01T00:00:00Z");
+  const oct2026 = new Date("2026-10-01T00:00:00Z");
+
+  if (now >= oct2026) return { run: true, reason: "daily cadence — final month before Oct 31 booking deadline", today };
   if (now >= sep2026) {
     const run = [1, 3, 5].includes(dayOfWeek); // Mon/Wed/Fri
-    return { run, reason: "3x/week cadence (Sep–Dec 2026)", today };
+    return { run, reason: "3x/week cadence (Sep 2026)", today };
   }
   const run = dayOfWeek === 1; // Monday only
   return { run, reason: "weekly cadence (before Sep 2026)", today };
@@ -209,6 +217,16 @@ function writeReport(watch, results, drops, increases, emailSummary) {
 
 async function main() {
   const cadence = shouldRunToday();
+
+  if (cadence.deadline) {
+    console.log(JSON.stringify({
+      skipped: true,
+      deadline: true,
+      reason: cadence.reason,
+      today: cadence.today
+    }, null, 2));
+    process.exit(0);
+  }
 
   if (!cadence.run && !process.env.FORCE_RUN) {
     console.log(JSON.stringify({

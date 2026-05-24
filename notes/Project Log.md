@@ -2,6 +2,28 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 5)
+
+### Hotel + airfare dashboard expansion, cadence fix, validate overhaul
+
+**What changed:**
+
+- **Hotel watchlist expanded**: Seattle now has 15 hotels (added Hilton, Hampton, Canopy Capitol Hill, Hyatt Place/House, EVEN Hotel, Hotel Indigo, Moxy, AC Hotel, Courtyard SLU, Charter Hotel, Hotel Theodore). Portland now has 13 hotels (added Hilton Portland, Hampton Portland, Hyatt Place Portland, Hotel Lucia, Kimpton RiverPlace, Mark Spencer).
+- **build-hotel-report.js**: Rewritten to loop dynamically over `["seattle", "portland"]` — no city hardcoding. Output structure changed from `report.seattle` to `report.cities.seattle`.
+- **hotels.js + hotels.html**: Completely rewritten to render both cities from `hotel-monitor-report.json`. Nav, hero, and strategy section updated for both Seattle and Portland.
+- **airfare dashboard**: Added booking deadline countdown banner (Oct 31 hard deadline), tax trend indicators (up/down/stable based on last 3 history entries), booking recommendation pill (WATCH → CONSIDER BOOKING → BOOK NOW → DEADLINE CRITICAL).
+- **PAL cadence fixed**: `monitor-pal-taxes.js` now gates as weekly Mon → 3x/week Sep → daily Oct → HARD STOP Nov 1. Confirmed in `data/airfare-watch.json` cadence/bookingDeadline fields.
+- **validate-hotel-monitor.js**: Rewritten to use `report.cities.seattle` and `report.cities.portland` — removed stale hardcoded timestamp and summary string checks. Now validates both cities.
+- **validate-airfare-monitor.js**: Rewritten for PAL award tax data structure (`routes[]` with `taxHistory[]`). Old cash-fare observations system removed.
+- **tests/airfare-monitor.test.js**: Replaced 5 cash-fare tests with 8 PAL tax monitor tests: trend detection, cadence gating, hard deadline enforcement.
+- `npm run validate` passes clean — 8/8 tests, both validators OK.
+
+**Next:**
+
+- Commit and push to GitHub Pages
+- Enter prices for the 25 "needs-check" hotels (open direct booking URLs for Nov dates)
+- Set GitHub Secrets: RESEND_API_KEY, ALERT_EMAIL_TO, ALERT_FROM for email alerts
+
 ## 2026-05-24 (session 4)
 
 ### Automation overhaul — PAL tax monitor, hotel monitor, session-start hook

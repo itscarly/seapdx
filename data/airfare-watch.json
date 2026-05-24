@@ -1,6 +1,6 @@
 {
   "watchName": "Philippine Airlines Award Tax Monitor",
-  "updatedAt": "2026-05-24T01:36:03.747Z",
+  "updatedAt": "2026-05-24T01:50:05.991Z",
   "trip": {
     "type": "award-redemption",
     "airline": "Philippine Airlines",
@@ -57,7 +57,9 @@
   "monitoringStrategy": {
     "goal": "Track PAL award taxes on both routes. Any tax drop = better cash outlay per redemption. Book when taxes are stable or falling heading into Mar 2027.",
     "checkSource": "PAL.com direct — Business class award calendar for the specific departure dates",
-    "cadence": "Before Sep 1 2026: weekly (Mondays). Sep 1–Dec 31 2026: 3x/week (Mon/Wed/Fri). Jan 1 2027+: daily. Date-gated in scripts/monitor-pal-taxes.js.",
+    "cadence": "Before Sep 1 2026: weekly (Mondays). Sep 1–30 2026: 3x/week (Mon/Wed/Fri). Oct 1–31 2026: daily (final month before deadline). Nov 1 2026+: monitoring stops — deadline passed. Date-gated in scripts/monitor-pal-taxes.js.",
+    "bookingDeadline": "2026-10-31",
+    "bookingDeadlineNote": "HARD DEADLINE — must book SFO or ORD to MNL by Oct 31, 2026. Do not wait past this date.",
     "alertTrigger": "Any tax decrease vs. previous recorded entry"
   }
 }
