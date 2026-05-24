@@ -2,6 +2,25 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 6)
+
+### Playwright automation + full dashboard table rebuild
+
+**What changed:**
+
+- **Playwright installed**: `playwright` added as npm dependency, Chromium headless shell downloaded. Now used for all live scraping.
+- **monitor-pal-taxes.js rewritten**: Replaced failing raw HTTP fetch with Playwright headless Chromium. Navigates PAL.com award booking flow, waits for JS rendering, extracts tax from page text. Cadence corrected: weekly Mon → 2×/week Mon+Thu (Sep) → 3×/week Mon+Wed+Fri (Oct) → stops Nov 1.
+- **scrape-hotel-prices.js (new)**: Playwright scraper for all hotel direct booking URLs. Brand-aware selectors for Hilton, Hyatt, Marriott, IHG, SynXis, TravelClick, Sonder. Blocks images/fonts for speed. Updates `trueTotalCost` and `priceVerification` in `hotel-monitor-source.json`.
+- **hotels.html rebuilt**: Full-width table — hotel name (direct link), address (Google Maps link), chain, total price, rating, elevator, breakfast, cancellation, transit score, nearest station, area/landmark, safety, last check. Color-coded rows. Reads from `hotel-monitor-source.json`.
+- **airfare.html rebuilt**: Route cards with sparklines + verdict table + full tax history table with delta arrows + cadence cards. Reads from `airfare-watch.json`.
+- **package.json**: Added `scrape:hotels`, `scrape:pal`, `scrape:all` scripts.
+- **Notes updated**: PROJECT_CONTEXT, ARCHITECTURE, TASKS, Project Log reconciled.
+- **Stale docs removed**: `docs/2026-05-23-airfare-ui-continuation.md`, `docs/2026-05-23-handoff.md` deleted.
+
+**Handoff:** Run `npm run scrape:all` to refresh all prices. Hotel scraping may partially fail on Cloudflare-protected sites — update those manually in `hotel-monitor-source.json`. PAL scraping may need selector tuning if PAL changes their booking flow.
+
+---
+
 ## 2026-05-24 (session 5)
 
 ### Hotel + airfare dashboard expansion, cadence fix, validate overhaul

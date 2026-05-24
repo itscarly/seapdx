@@ -1,86 +1,327 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0d1117">
-    <title>Hotel Intelligence Tracker — Seattle &amp; Portland</title>
-    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css">
-    <style>
-      body { background: #0d1117; color: #e6edf3; }
-      .hotel-brand { color: var(--dt-muted, var(--muted)); font-size: 0.82rem; margin: 2px 0 4px; }
-      .tracker-badge-good { background: rgba(56,139,76,0.25); color: #3fb950; border: 1px solid rgba(56,139,76,0.4); }
-      .tracker-badge-pending { background: rgba(210,153,34,0.2); color: #e3b341; border: 1px solid rgba(210,153,34,0.35); }
-      .tracker-badge-muted { background: rgba(110,118,129,0.15); color: #8b949e; border: 1px solid rgba(110,118,129,0.25); }
-      .city-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 2rem 0; }
-    </style>
-  </head>
-  <body class="dark-tracker tracker-page hotels-page">
-    <header class="hero tracker-hero">
-      <nav class="topbar" aria-label="Hotel tracker sections">
-        <a href="./index.html">Main dashboard</a>
-        <a href="#seattle-benchmark">Seattle</a>
-        <a href="#portland-benchmark">Portland</a>
-        <a href="#strategy">Strategy</a>
-      </nav>
-      <section class="hero-grid tracker-hero-grid">
-        <div>
-          <p class="eyebrow">Seattle &amp; Portland stay watch</p>
-          <h1>Hotel price intelligence tracker</h1>
-          <p class="lede">Direct-site hotel watch for both the Nov 1–4 Seattle stay and Nov 4–9 Portland stay. Tracks refundable options across boutique, Hilton, Hyatt, IHG, and Marriott properties against confirmed booking benchmarks.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#seattle-watchlist">Seattle watchlist</a>
-            <a class="button" href="#portland-watchlist">Portland watchlist</a>
-          </div>
-          <div id="hotelCallout" class="tracker-callout">Loading booking stance.</div>
-        </div>
-        <aside class="trip-card" aria-label="Tracker status">
-          <span class="status-dot"></span>
-          <h2>Combined watch status</h2>
-          <strong id="trackerHeadline">Loading...</strong>
-          <p id="trackerSubhead">Loading current hotel monitor state...</p>
-          <div class="meter"><span id="trackerMeter"></span></div>
-          <div class="fx-panel">
-            <p class="fx-label">Decision safety</p>
-            <strong>Refundable · Direct booking only</strong>
-            <p id="trackerDisclaimer">Loading current quote rules...</p>
-          </div>
-        </aside>
-      </section>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <title>Hotel Price Tracker — Seattle &amp; Portland</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --green: #3fb950;
+      --green-bg: rgba(56,139,76,0.15);
+      --green-border: rgba(56,139,76,0.35);
+      --yellow: #e3b341;
+      --yellow-bg: rgba(210,153,34,0.15);
+      --yellow-border: rgba(210,153,34,0.30);
+      --red: #f85149;
+      --red-bg: rgba(248,81,73,0.12);
+      --red-border: rgba(248,81,73,0.30);
+      --blue: #58a6ff;
+      --blue-bg: rgba(88,166,255,0.10);
+      --blue-border: rgba(88,166,255,0.30);
+      --gold: #d4af37;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    <main id="hotelApp">
-      <!-- City sections rendered dynamically by hotels.js -->
-    </main>
+    /* Nav */
+    .topbar { display: flex; gap: 1.5rem; align-items: center; padding: 0.75rem 1.5rem; background: var(--bg2); border-bottom: 1px solid var(--border); font-size: 13px; flex-wrap: wrap; }
+    .topbar a { color: var(--muted); }
+    .topbar a:hover { color: var(--text); }
+    .topbar .title { color: var(--text); font-weight: 600; margin-right: auto; }
 
-    <section id="strategy" class="section">
-      <div class="section-heading compact-heading">
-        <div>
-          <p class="eyebrow">Booking strategy</p>
-          <h2>Automation cadence and booking strategy</h2>
-          <p class="section-copy">Hotel monitor runs on GitHub Actions. Email alert fires when any hotel drops under the threshold. Requires RESEND_API_KEY, ALERT_EMAIL_TO, and ALERT_FROM secrets in GitHub repo settings.</p>
-        </div>
-      </div>
-      <div class="tracker-card-grid tracker-card-grid-wide">
-        <article class="transit-card" id="cadencePanel">Loading automation cadence...</article>
-        <article class="transit-card">
-          <span class="badge">Alert criteria</span>
-          <h3>What triggers an email alert</h3>
-          <ul class="hotel-list">
-            <li>Seattle: total under $400 · refundable · 4.0+ stars · elevator · Link/Amtrak access</li>
-            <li>Portland: total under $620 · refundable · 4.0+ stars · elevator · MAX/streetcar ≤10 min</li>
-            <li>Free breakfast flagged as a bonus in the alert but not required</li>
-            <li>Boutique hotels and all major chains (Hilton, Hyatt, IHG, Marriott) in scope</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+    /* Header */
+    .page-header { padding: 2rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .page-header h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .page-header p { color: var(--muted); font-size: 13px; }
 
-    <footer class="footer">
-      <p>Direct hotel-site quotes only. Recheck every price, fee, and cancellation deadline before replacing a held reservation. Elevator confirmed required for both cities — 1 large luggage.</p>
-    </footer>
+    /* City section */
+    .city-section { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+    .city-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .city-header h2 { font-size: 1.1rem; font-weight: 700; }
+    .city-meta { color: var(--muted); font-size: 12px; }
+    .benchmark-bar { display: flex; align-items: center; gap: 0.75rem; background: var(--blue-bg); border: 1px solid var(--blue-border); border-radius: 6px; padding: 0.6rem 1rem; margin-bottom: 1rem; font-size: 13px; flex-wrap: wrap; }
+    .benchmark-bar strong { color: var(--blue); }
+    .benchmark-bar .bm-price { color: var(--text); font-weight: 600; }
+    .benchmark-bar .bm-label { color: var(--muted); font-size: 12px; }
 
-    <script src="../js/hotels.js"></script>
-  </body>
+    /* Table */
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th { background: var(--bg3); color: var(--muted); font-weight: 600; text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); white-space: nowrap; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 0.6rem 0.75rem; vertical-align: top; }
+    tbody tr:hover { background: rgba(255,255,255,0.025); }
+
+    /* Row states */
+    tr.row-current { background: var(--blue-bg); }
+    tr.row-current:hover { background: rgba(88,166,255,0.14); }
+    tr.row-good { background: var(--green-bg); }
+    tr.row-good:hover { background: rgba(56,139,76,0.20); }
+    tr.row-over { background: var(--red-bg); }
+    tr.row-over:hover { background: rgba(248,81,73,0.16); }
+    tr.row-needs-check { background: var(--yellow-bg); }
+    tr.row-needs-check:hover { background: rgba(210,153,34,0.20); }
+
+    /* Cell styles */
+    .hotel-name { font-weight: 600; color: var(--text); }
+    .hotel-brand { color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .price-val { font-weight: 700; font-size: 15px; }
+    .price-good { color: var(--green); }
+    .price-over { color: var(--red); }
+    .price-current { color: var(--blue); }
+    .price-unknown { color: var(--muted); font-size: 12px; font-style: italic; }
+    .badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .badge-yes { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .badge-no { background: rgba(110,118,129,0.12); color: var(--muted); border: 1px solid rgba(110,118,129,0.22); }
+    .badge-current { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+    .badge-good { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .badge-warn { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+    .badge-over { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+    .transit-score { font-weight: 700; }
+    .transit-score.high { color: var(--green); }
+    .transit-score.med { color: var(--yellow); }
+    .transit-score.low { color: var(--red); }
+    .cancel-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .addr-link { color: var(--muted); font-size: 11px; }
+    .addr-link:hover { color: var(--blue); }
+    .check-stamp { color: var(--muted); font-size: 11px; }
+    .stars { color: var(--gold); }
+
+    /* Legend */
+    .legend { display: flex; gap: 1rem; flex-wrap: wrap; padding: 1rem 1.5rem; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+    /* Footer */
+    footer { padding: 1.5rem; color: var(--muted); font-size: 12px; text-align: center; }
+
+    /* Loading state */
+    #loading { padding: 3rem; text-align: center; color: var(--muted); }
+    #error { padding: 2rem; color: var(--red); display: none; }
+  </style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="title">Hotel Price Tracker</span>
+  <a href="./index.html">← Main Dashboard</a>
+  <a href="#seattle">Seattle Nov 1–4</a>
+  <a href="#portland">Portland Nov 4–9</a>
+  <a href="./airfare.html">Airfare Taxes</a>
+</nav>
+
+<div class="page-header">
+  <h1>Hotel Price Intelligence — Seattle &amp; Portland 2026</h1>
+  <p id="report-meta">Loading data…</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#58a6ff;opacity:0.5"></div> Current reservation</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#3fb950;opacity:0.5"></div> Under threshold</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f85149;opacity:0.5"></div> Over threshold</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e3b341;opacity:0.5"></div> Price not yet checked</div>
+</div>
+
+<div id="loading">Loading hotel data…</div>
+<div id="error">Failed to load hotel data. Run <code>npm run build:hotels</code> first.</div>
+<div id="content"></div>
+
+<footer id="footer"></footer>
+
+<script>
+const COLS = [
+  { key: "name",        label: "Hotel" },
+  { key: "address",     label: "Address" },
+  { key: "chain",       label: "Chain" },
+  { key: "price",       label: "Total (taxes incl.)" },
+  { key: "rating",      label: "Rating" },
+  { key: "elevator",    label: "Elev." },
+  { key: "breakfast",   label: "Breakfast" },
+  { key: "cancel",      label: "Cancellation" },
+  { key: "transit",     label: "Transit" },
+  { key: "station",     label: "Nearest Station" },
+  { key: "area",        label: "Area / Landmark" },
+  { key: "safety",      label: "Safety" },
+  { key: "lastcheck",   label: "Last Check" },
+];
+
+function mapsLink(address) {
+  if (!address) return "—";
+  const q = encodeURIComponent(address);
+  return `<a class="addr-link" href="https://maps.google.com/?q=${q}" target="_blank" rel="noopener">${address} ↗</a>`;
+}
+
+function stars(score) {
+  if (score == null) return '<span class="muted">—</span>';
+  const full = Math.round(score * 2) / 2;
+  return `<span class="stars">★</span> ${full.toFixed(1)}`;
+}
+
+function transitClass(score) {
+  if (score == null) return "";
+  if (score >= 90) return "high";
+  if (score >= 70) return "med";
+  return "low";
+}
+
+function badge(val, yesLabel, noLabel) {
+  if (val === true)  return `<span class="badge badge-yes">${yesLabel || "Yes"}</span>`;
+  if (val === false) return `<span class="badge badge-no">${noLabel || "No"}</span>`;
+  return '<span style="color:#8b949e">—</span>';
+}
+
+function cancelCell(hotel) {
+  if (hotel.refundable === false) return '<span class="badge badge-over">Non-refundable</span>';
+  if (hotel.refundable === true) {
+    const d = hotel.cancellationDeadline;
+    if (d) {
+      const dt = new Date(d);
+      const fmt = dt.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/Los_Angeles" });
+      return `<span class="badge badge-good">Refundable</span><div class="cancel-date">by ${fmt}</div>`;
+    }
+    return '<span class="badge badge-good">Refundable</span>';
+  }
+  return '<span style="color:#8b949e">—</span>';
+}
+
+function lastCheckCell(hotel) {
+  const pv = hotel.priceVerification;
+  if (!pv) return '<span class="check-stamp">—</span>';
+  const ts = pv.lastScrapedAt || pv.lastAttemptedAt;
+  const d = ts ? new Date(ts).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : null;
+  if (pv.status === "playwright-scraped") return `<span class="badge badge-good">Auto</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "live-verified")      return `<span class="badge badge-good">Verified</span>`;
+  if (pv.status === "stale-price")        return `<span class="badge badge-warn">Stale</span>`;
+  if (pv.status === "needs-check")        return `<span class="badge badge-warn">Needs check</span>`;
+  if (pv.status === "scrape-failed")      return `<span class="badge badge-over">Failed</span>`;
+  if (pv.status === "blocked")            return `<span class="badge badge-warn">Blocked</span>`;
+  return `<span class="check-stamp">${pv.status}</span>`;
+}
+
+function priceCell(hotel, threshold, isCurrent) {
+  const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
+  if (price == null) return '<span class="price-unknown">Not yet checked</span>';
+  const cls = isCurrent ? "price-current" : (price <= threshold ? "price-good" : "price-over");
+  return `<span class="price-val ${cls}">$${price.toFixed(2)}</span>`;
+}
+
+function rowClass(hotel, threshold, isCurrent) {
+  if (isCurrent) return "row-current";
+  const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
+  if (price == null) return "row-needs-check";
+  return price <= threshold ? "row-good" : "row-over";
+}
+
+function statusBadge(hotel, threshold, isCurrent) {
+  if (isCurrent) return '<span class="badge badge-current">Current reservation</span>';
+  const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
+  if (price == null) return '<span class="badge badge-warn">Needs check</span>';
+  return price <= threshold
+    ? '<span class="badge badge-good">Under threshold</span>'
+    : '<span class="badge badge-over">Over threshold</span>';
+}
+
+function renderHotelRow(hotel, threshold, isCurrent) {
+  const rc = rowClass(hotel, threshold, isCurrent);
+  const tScore = hotel.transitScore;
+
+  return `<tr class="${rc}">
+    <td>
+      ${statusBadge(hotel, threshold, isCurrent)}
+      <div style="margin-top:4px"><a class="hotel-name" href="${hotel.directBookingUrl}" target="_blank" rel="noopener">${hotel.name} ↗</a></div>
+      ${hotel.brand ? `<div class="hotel-brand">${hotel.brand}</div>` : ""}
+    </td>
+    <td>${mapsLink(hotel.address)}</td>
+    <td style="white-space:nowrap;color:#8b949e;font-size:12px">${hotel.brand || "—"}</td>
+    <td>${priceCell(hotel, threshold, isCurrent)}</td>
+    <td>${stars(hotel.reviewScore)}</td>
+    <td>${badge(hotel.hasElevator, "Yes", "No")}</td>
+    <td>${badge(hotel.freeBreakfast, "Free", "No")}</td>
+    <td>${cancelCell(hotel)}</td>
+    <td>${tScore != null ? `<span class="transit-score ${transitClass(tScore)}">${tScore}</span>` : "—"}</td>
+    <td style="font-size:12px;max-width:200px">${hotel.transitNote || "—"}</td>
+    <td style="font-size:12px;max-width:180px">${hotel.zone || ""}${hotel.vibeNote ? `<div style="color:#8b949e;margin-top:2px">${hotel.vibeNote.slice(0,80)}${hotel.vibeNote.length>80?"…":""}</div>` : ""}</td>
+    <td>${hotel.safeNeighborhood === true ? '<span class="badge badge-good">Safe</span>' : hotel.safeNeighborhood === false ? '<span class="badge badge-over">Caution</span>' : "—"}</td>
+    <td>${lastCheckCell(hotel)}</td>
+  </tr>`;
+}
+
+function renderCitySection(cityKey, cityData) {
+  const { trip, alertThreshold, currentReservation, watchlist } = cityData;
+  const bm = currentReservation;
+  const bmPrice = bm ? (bm.confirmedTotalPaid || bm.trueTotalCost) : null;
+
+  let html = `<div class="city-section" id="${cityKey}">
+    <div class="city-header">
+      <h2>${trip.city} — ${trip.dateRange}</h2>
+      <span class="city-meta">${trip.nights} nights · ${trip.guests} guests · Budget cap $${alertThreshold}</span>
+    </div>`;
+
+  if (bm) {
+    html += `<div class="benchmark-bar">
+      <strong>Current reservation:</strong>
+      <span>${bm.name}</span>
+      ${bmPrice != null ? `<span class="bm-price">$${bmPrice.toFixed(2)}</span>` : ""}
+      <span class="bm-label">Conf# ${bm.confirmationNumber || "—"}</span>
+      ${bm.refundable ? '<span class="badge badge-good">Refundable</span>' : ""}
+      <span class="bm-label">Alert threshold: $${alertThreshold}</span>
+    </div>`;
+  }
+
+  html += `<div class="table-wrap"><table>
+    <thead><tr>${COLS.map(c => `<th>${c.label}</th>`).join("")}</tr></thead>
+    <tbody>`;
+
+  if (bm) html += renderHotelRow(bm, alertThreshold, true);
+  for (const h of (watchlist || [])) html += renderHotelRow(h, alertThreshold, false);
+
+  html += `</tbody></table></div></div>`;
+  return html;
+}
+
+async function init() {
+  try {
+    const resp = await fetch("../../data/hotel-monitor-source.json");
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    document.getElementById("loading").style.display = "none";
+
+    const snap = data.meta?.snapshotDate || "unknown";
+    const lastRun = data.meta?.automation?.lastAutomatedCheckAt
+      ? new Date(data.meta.automation.lastAutomatedCheckAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
+      : "unknown";
+    document.getElementById("report-meta").textContent =
+      `Snapshot: ${snap} · Last automated check: ${lastRun} · Direct hotel sites only — no third-party aggregators.`;
+
+    let html = "";
+    for (const city of ["seattle", "portland"]) {
+      if (data[city]) html += renderCitySection(city, data[city]);
+    }
+    document.getElementById("content").innerHTML = html;
+
+    document.getElementById("footer").innerHTML =
+      `Data from <code>data/hotel-monitor-source.json</code> · Run <code>npm run scrape:hotels</code> to refresh prices · <code>npm run build:hotels</code> to rebuild JSON report`;
+  } catch (err) {
+    document.getElementById("loading").style.display = "none";
+    const el = document.getElementById("error");
+    el.style.display = "block";
+    el.textContent = `Error loading data: ${err.message}`;
+  }
+}
+
+init();
+</script>
+</body>
 </html>

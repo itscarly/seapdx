@@ -29,11 +29,22 @@ It is built to be:
 
 ## Current next priority
 
-- Boylston Hotel is confirmed at $384.13 (RES ID [redacted]). Hotel monitor watches for a refundable sub-$400 alternative near King Street Amtrak or Link Light Rail.
-- Airfare tracker is now a PAL Award Tax Monitor for Mabuhay Miles redemptions (SFO→MNL: 58k mi + $370.50 tax; ORD→MNL: 67k mi + $375.50 tax). Update `data/airfare-watch.json` whenever PAL.com shows a different tax amount for the Mar 3-7, 2027 departure window.
-- Both trackers use a dark premium UI and are visually aligned with the main dashboard.
-- The local server auto-starts via launchd — no manual start needed.
-- Next ongoing work: periodic PAL tax checks (weekly), hotel monitor checks per the existing cadence (Mon/Wed/Fri through Sep 16, then daily), and itinerary rechecks as the trip approaches.
+- Boylston Hotel confirmed at $384.13 (RES ID [redacted]). Monitor watches for refundable sub-$400 alternative.
+- PAL Award Tax Monitor: SFO→MNL $370.50, ORD→MNL $375.50. Now scraped automatically via Playwright headless browser.
+- Hotel prices now scraped via Playwright from direct brand sites (Marriott, Hilton, Hyatt, IHG, etc.). Run `npm run scrape:hotels` to refresh all prices.
+- Both HTML dashboards rebuilt as full-width tables with all metadata visible at a glance.
+- Run `npm run scrape:all` to refresh everything: hotel prices + hotel report + PAL taxes.
+
+## Automation commands
+
+| Command | What it does |
+| --- | --- |
+| `npm run scrape:hotels` | Playwright scrapes all hotel direct sites, updates hotel-monitor-source.json |
+| `npm run scrape:pal` | Playwright scrapes PAL.com for current award taxes (force-runs regardless of cadence) |
+| `npm run monitor:pal-taxes` | PAL tax check — cadence-gated (only runs on scheduled days) |
+| `npm run build:hotels` | Rebuilds hotel-monitor-report.json from source |
+| `npm run scrape:all` | scrape:hotels + build:hotels + scrape:pal in sequence |
+| `npm run serve` | Local preview at `http://localhost:4173` |
 
 ## Main working rules
 

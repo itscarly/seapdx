@@ -1,353 +1,256 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0d1117">
-    <title>PAL Award Tax Monitor</title>
-    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css?v=2026-05-23-pal-tax-monitor-v1">
-    <style>
-      .pal-hero {
-        background: linear-gradient(135deg, #0d1117 0%, #0a1628 60%, #0d1117 100%);
-        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        padding: 2.5rem 2rem 2rem;
-      }
-      .pal-hero-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-      .pal-eyebrow {
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #d4af37;
-        margin-bottom: 0.4rem;
-      }
-      .pal-hero h1 {
-        font-size: clamp(1.6rem, 4vw, 2.4rem);
-        font-weight: 700;
-        color: #e8eaf0;
-        margin: 0 0 0.5rem;
-        line-height: 1.2;
-      }
-      .pal-hero .lede {
-        color: #8b9cb8;
-        font-size: 0.95rem;
-        max-width: 620px;
-        margin: 0 0 1.5rem;
-        line-height: 1.6;
-      }
-      .pal-status-pill {
-        display: inline-block;
-        background: rgba(212, 175, 55, 0.12);
-        border: 1px solid rgba(212, 175, 55, 0.35);
-        color: #d4af37;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 0.25rem 0.75rem;
-        border-radius: 99px;
-      }
-      .route-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.25rem;
-        max-width: 1100px;
-        margin: 2rem auto;
-        padding: 0 2rem;
-      }
-      .route-card {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 14px;
-        padding: 1.5rem;
-        position: relative;
-        transition: border-color 0.2s;
-      }
-      .route-card:hover {
-        border-color: rgba(212, 175, 55, 0.3);
-      }
-      .route-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: #8b9cb8;
-        margin-bottom: 0.5rem;
-      }
-      .route-name {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #e8eaf0;
-        margin: 0 0 0.25rem;
-      }
-      .route-miles {
-        font-size: 0.85rem;
-        color: #8b9cb8;
-        margin-bottom: 1.25rem;
-      }
-      .route-miles strong {
-        color: #b8c4d8;
-      }
-      .tax-display {
-        display: flex;
-        align-items: baseline;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .tax-amount {
-        font-size: 2.4rem;
-        font-weight: 800;
-        line-height: 1;
-      }
-      .tax-amount.is-stable { color: #d4af37; }
-      .tax-amount.is-dropped { color: #4ade80; }
-      .tax-amount.is-rose { color: #f87171; }
-      .tax-label {
-        font-size: 0.78rem;
-        color: #8b9cb8;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-      .tax-change-pill {
-        display: inline-block;
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 0.2rem 0.6rem;
-        border-radius: 99px;
-        margin-bottom: 1rem;
-      }
-      .tax-change-pill.is-stable {
-        background: rgba(212,175,55,0.12);
-        border: 1px solid rgba(212,175,55,0.3);
-        color: #d4af37;
-      }
-      .tax-change-pill.is-dropped {
-        background: rgba(74,222,128,0.12);
-        border: 1px solid rgba(74,222,128,0.3);
-        color: #4ade80;
-      }
-      .tax-change-pill.is-rose {
-        background: rgba(248,113,113,0.12);
-        border: 1px solid rgba(248,113,113,0.3);
-        color: #f87171;
-      }
-      .route-meta {
-        font-size: 0.78rem;
-        color: #8b9cb8;
-        border-top: 1px solid rgba(255,255,255,0.06);
-        padding-top: 0.75rem;
-        margin-top: 0.5rem;
-      }
-      .sparkline-bar {
-        display: flex;
-        align-items: flex-end;
-        gap: 3px;
-        height: 36px;
-        margin-bottom: 0.75rem;
-      }
-      .sparkline-bar span {
-        flex: 1;
-        background: rgba(212,175,55,0.3);
-        border-radius: 2px 2px 0 0;
-        min-height: 4px;
-        transition: background 0.2s;
-      }
-      .sparkline-bar span.is-min { background: rgba(74,222,128,0.5); }
-      .sparkline-bar span.is-max { background: rgba(248,113,113,0.4); }
-      .history-section {
-        max-width: 1100px;
-        margin: 0 auto 2.5rem;
-        padding: 0 2rem;
-      }
-      .history-section h2 {
-        font-size: 1rem;
-        font-weight: 700;
-        color: #e8eaf0;
-        margin-bottom: 0.25rem;
-      }
-      .history-section .section-sub {
-        font-size: 0.82rem;
-        color: #8b9cb8;
-        margin-bottom: 1rem;
-      }
-      .history-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.85rem;
-      }
-      .history-table th {
-        text-align: left;
-        padding: 0.6rem 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #8b9cb8;
-      }
-      .history-table td {
-        padding: 0.65rem 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.04);
-        color: #b8c4d8;
-      }
-      .history-table tr:last-child td { border-bottom: none; }
-      .history-table .td-change.is-dropped { color: #4ade80; }
-      .history-table .td-change.is-rose { color: #f87171; }
-      .history-table .td-change.is-stable { color: #8b9cb8; }
-      .strategy-section {
-        max-width: 1100px;
-        margin: 0 auto 3rem;
-        padding: 0 2rem;
-      }
-      .strategy-card {
-        background: rgba(212,175,55,0.06);
-        border: 1px solid rgba(212,175,55,0.2);
-        border-radius: 12px;
-        padding: 1.25rem 1.5rem;
-      }
-      .strategy-card h3 {
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #d4af37;
-        margin-bottom: 0.5rem;
-      }
-      .strategy-card p {
-        font-size: 0.88rem;
-        color: #b8c4d8;
-        line-height: 1.6;
-        margin: 0;
-      }
-      .route-trend {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin-bottom: 0.75rem;
-      }
-      .trend-pill, .recommendation-pill {
-        display: inline-block;
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 0.2rem 0.6rem;
-        border-radius: 99px;
-      }
-      .trend-pill.is-dropped { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
-      .trend-pill.is-rose { background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.3); color: #f87171; }
-      .trend-pill.is-stable { background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.25); color: #d4af37; }
-      .deadline-banner {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        max-width: 1100px;
-        margin: 1rem auto 0;
-        padding: 0.75rem 2rem;
-        border-radius: 10px;
-        font-size: 0.88rem;
-        font-weight: 600;
-      }
-      .deadline-label {
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        opacity: 0.7;
-        white-space: nowrap;
-      }
-      .deadline-green { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.25); color: #4ade80; }
-      .deadline-amber { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); color: #fbbf24; }
-      .deadline-red { background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.35); color: #f87171; }
-      .deadline-critical {
-        background: rgba(248,113,113,0.18);
-        border: 1px solid rgba(248,113,113,0.5);
-        color: #f87171;
-        animation: pulse-border 1.2s ease-in-out infinite;
-      }
-      .deadline-passed { background: rgba(110,118,129,0.12); border: 1px solid rgba(110,118,129,0.2); color: #8b949e; }
-      @keyframes pulse-border {
-        0%, 100% { border-color: rgba(248,113,113,0.5); }
-        50% { border-color: rgba(248,113,113,1); }
-      }
-      .recommendation-pill.deadline-green { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
-      .recommendation-pill.deadline-amber { background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.3); color: #fbbf24; }
-      .recommendation-pill.deadline-red { background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.3); color: #f87171; }
-      .recommendation-pill.deadline-critical { background: rgba(248,113,113,0.18); border: 1px solid rgba(248,113,113,0.5); color: #f87171; }
-      .recommendation-pill.deadline-passed { background: rgba(110,118,129,0.1); border: 1px solid rgba(110,118,129,0.2); color: #8b949e; }
-      .loading-text { color: #8b9cb8; }
-      .topbar a { color: #8b9cb8; text-decoration: none; font-size: 0.82rem; }
-      .topbar a:hover { color: #d4af37; }
-      .topbar { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
-      .page-footer {
-        text-align: center;
-        padding: 1.5rem 2rem;
-        font-size: 0.78rem;
-        color: #4a5568;
-        border-top: 1px solid rgba(255,255,255,0.05);
-      }
-      body {
-        background: #0d1117;
-        color: #e6edf3;
-      }
-    </style>
-  </head>
-  <body class="dark-tracker airfare-page">
-    <header class="pal-hero">
-      <div class="pal-hero-inner">
-        <nav class="topbar" aria-label="Navigation">
-          <a href="./index.html">Trip dashboard</a>
-          <a href="./hotels.html">Hotel tracker</a>
-          <a href="#history">Tax history</a>
-        </nav>
-        <p class="pal-eyebrow">Philippine Airlines · Business Class · Mar 3–7, 2027</p>
-        <h1>Award Tax Monitor</h1>
-        <p class="lede">Tracking government and carrier taxes for PAL Mabuhay Miles redemptions on both routes. Lower tax = better cash outlay per redemption. Any drop triggers a notification.</p>
-        <span class="pal-status-pill" id="overallStatus">Loading…</span>
-      </div>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAL Award Tax Monitor</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --green: #3fb950;
+      --green-bg: rgba(56,139,76,0.15);
+      --green-border: rgba(56,139,76,0.35);
+      --yellow: #e3b341;
+      --yellow-bg: rgba(210,153,34,0.15);
+      --yellow-border: rgba(210,153,34,0.30);
+      --red: #f85149;
+      --red-bg: rgba(248,81,73,0.12);
+      --red-border: rgba(248,81,73,0.30);
+      --blue: #58a6ff;
+      --gold: #d4af37;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    <div id="deadlineBanner" class="deadline-banner deadline-green" aria-live="polite">
-      <span class="deadline-label">Booking deadline</span>
-      <span class="deadline-text">Loading countdown…</span>
-    </div>
+    .topbar { display: flex; gap: 1.5rem; align-items: center; padding: 0.75rem 1.5rem; background: var(--bg2); border-bottom: 1px solid var(--border); font-size: 13px; flex-wrap: wrap; }
+    .topbar a { color: var(--muted); }
+    .topbar a:hover { color: var(--text); }
+    .topbar .title { color: var(--text); font-weight: 600; margin-right: auto; }
 
-    <div class="route-grid" id="routeGrid">
-      <div class="route-card"><p class="loading-text">Loading route data…</p></div>
-    </div>
+    .page-header { padding: 2rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .page-header h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .page-header p { color: var(--muted); font-size: 13px; }
 
-    <section class="history-section" id="history">
-      <h2>Tax history</h2>
-      <p class="section-sub">All recorded tax snapshots per route. A drop on any date means your cash cost went down.</p>
-      <table class="history-table" id="historyTable">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>SFO → MNL</th>
-            <th>ORD → MNL</th>
-            <th>SFO Change</th>
-            <th>ORD Change</th>
-          </tr>
-        </thead>
-        <tbody id="historyBody">
-          <tr><td colspan="5" class="loading-text">Loading…</td></tr>
-        </tbody>
-      </table>
-    </section>
+    .route-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; padding: 1.5rem; border-bottom: 1px solid var(--border); }
+    .route-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .route-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.35rem; }
+    .route-tax { font-size: 2.2rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 0.25rem; }
+    .route-miles { font-size: 12px; color: var(--muted); margin-bottom: 0.75rem; }
+    .trend-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 2px 9px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+    .trend-down  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .trend-up    { background: var(--red-bg);   color: var(--red);   border: 1px solid var(--red-border); }
+    .trend-flat  { background: rgba(110,118,129,0.12); color: var(--muted); border: 1px solid rgba(110,118,129,0.22); }
+    .route-last { font-size: 11px; color: var(--muted); margin-top: 0.75rem; }
 
-    <section class="strategy-section">
-      <div class="strategy-card">
-        <h3>Monitoring strategy</h3>
-        <p id="strategyText">Loading strategy…</p>
-      </div>
-    </section>
+    .sparkline { display: flex; align-items: flex-end; gap: 2px; height: 28px; margin: 0.6rem 0; }
+    .spark-bar { flex: 1; min-width: 8px; max-width: 18px; border-radius: 2px 2px 0 0; background: var(--blue); opacity: 0.6; }
+    .spark-bar-latest { flex: 1; min-width: 8px; max-width: 18px; border-radius: 2px 2px 0 0; opacity: 1; background: var(--gold); }
 
-    <footer class="page-footer">
-      Check PAL.com directly before redeeming — taxes and fees can change without notice. Always confirm the final cash amount at checkout.
-    </footer>
+    .section { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+    .section h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th { background: var(--bg3); color: var(--muted); font-weight: 600; text-align: left; padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--border); white-space: nowrap; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 0.55rem 0.85rem; vertical-align: middle; }
+    tbody tr:hover { background: rgba(255,255,255,0.025); }
+    tbody tr.row-latest { font-weight: 600; }
+    .price-big { font-weight: 700; font-size: 15px; }
+    .delta-down { color: var(--green); font-weight: 600; }
+    .delta-up   { color: var(--red);   font-weight: 600; }
+    .delta-flat { color: var(--muted); }
+    .verdict-buy   { display:inline-block;padding:2px 8px;border-radius:8px;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);font-size:11px;font-weight:700; }
+    .verdict-wait  { display:inline-block;padding:2px 8px;border-radius:8px;background:var(--yellow-bg);color:var(--yellow);border:1px solid var(--yellow-border);font-size:11px;font-weight:700; }
+    .verdict-watch { display:inline-block;padding:2px 8px;border-radius:8px;background:rgba(88,166,255,0.10);color:var(--blue);border:1px solid rgba(88,166,255,0.25);font-size:11px;font-weight:700; }
 
-    <script src="../js/airfare.js?v=2026-05-23-pal-tax-monitor-v1"></script>
-  </body>
+    .cadence-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
+    .cadence-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; }
+    .cadence-period { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 0.2rem; }
+    .cadence-freq { font-size: 13px; color: var(--text); }
+    .cadence-days { font-size: 11px; color: var(--muted); }
+    .note-cell { color: var(--muted); font-size: 12px; }
+
+    footer { padding: 1.5rem; color: var(--muted); font-size: 12px; text-align: center; }
+    #loading { padding: 3rem; text-align: center; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="title">PAL Award Tax Monitor</span>
+  <a href="./index.html">← Main Dashboard</a>
+  <a href="./hotels.html">Hotels</a>
+</nav>
+
+<div class="page-header">
+  <h1>Philippine Airlines — Award Tax Tracker</h1>
+  <p id="report-meta">Loading…</p>
+</div>
+
+<div id="loading">Loading airfare data…</div>
+<div id="content"></div>
+<footer id="footer"></footer>
+
+<script>
+function verdict(history) {
+  if (history.length < 2) return { label: "Watch", cls: "verdict-watch", tip: "Not enough data yet" };
+  const recent = history.slice(-4);
+  let drops = 0, rises = 0;
+  for (let i = 1; i < recent.length; i++) {
+    if (recent[i].tax < recent[i-1].tax) drops++;
+    else if (recent[i].tax > recent[i-1].tax) rises++;
+  }
+  if (drops >= 2) return { label: "Buy Now", cls: "verdict-buy", tip: "Tax has been dropping — favorable trend" };
+  if (rises >= 2) return { label: "Wait", cls: "verdict-wait", tip: "Tax has been rising — may drop again" };
+  return { label: "Watch", cls: "verdict-watch", tip: "Tax stable — monitor for movement" };
+}
+
+function sparkline(history) {
+  if (!history || history.length === 0) return "";
+  const taxes = history.map(function(e) { return e.tax; });
+  const min = Math.min.apply(null, taxes);
+  const max = Math.max.apply(null, taxes);
+  const range = max - min || 1;
+  var bars = taxes.map(function(t, i) {
+    var pct = Math.round(((t - min) / range) * 22) + 6;
+    var cls = (i === taxes.length - 1) ? "spark-bar-latest" : "spark-bar";
+    return '<div class="' + cls + '" style="height:' + pct + 'px" title="$' + t.toFixed(2) + ' on ' + history[i].date + '"></div>';
+  });
+  return '<div class="sparkline">' + bars.join("") + '</div>';
+}
+
+function trendPill(history) {
+  if (history.length < 2) return '<span class="trend-pill trend-flat">→ Stable</span>';
+  var last = history[history.length - 1].tax;
+  var prev = history[history.length - 2].tax;
+  var delta = last - prev;
+  if (Math.abs(delta) < 0.01) return '<span class="trend-pill trend-flat">→ No change</span>';
+  if (delta < 0) return '<span class="trend-pill trend-down">↓ Dropped $' + Math.abs(delta).toFixed(2) + '</span>';
+  return '<span class="trend-pill trend-up">↑ Rose $' + delta.toFixed(2) + '</span>';
+}
+
+function deltaCell(delta) {
+  if (delta === null) return '<span class="delta-flat">—</span>';
+  if (Math.abs(delta) < 0.01) return '<span class="delta-flat">No change</span>';
+  if (delta < 0) return '<span class="delta-down">↓ −$' + Math.abs(delta).toFixed(2) + '</span>';
+  return '<span class="delta-up">↑ +$' + delta.toFixed(2) + '</span>';
+}
+
+function renderRouteCards(routes) {
+  var cards = routes.map(function(route) {
+    var hist = route.taxHistory || [];
+    return '<div class="route-card">' +
+      '<div class="route-label">' + route.label + '</div>' +
+      '<div class="route-tax">$' + route.currentTax.toFixed(2) + '</div>' +
+      '<div class="route-miles">' + route.milesRequired.toLocaleString() + ' miles · Business Class · MNL</div>' +
+      trendPill(hist) +
+      sparkline(hist) +
+      '<div class="route-last">Last checked: ' + (route.alert && route.alert.lastChecked ? route.alert.lastChecked : '—') + '</div>' +
+    '</div>';
+  });
+  return '<div class="route-cards">' + cards.join("") + '</div>';
+}
+
+function renderVerdictTable(routes) {
+  var rows = routes.map(function(route) {
+    var hist = route.taxHistory || [];
+    var prev = hist.length >= 2 ? hist[hist.length - 2] : null;
+    var delta = prev ? route.currentTax - prev.tax : null;
+    var v = verdict(hist);
+    var recent4 = hist.slice(-4);
+    var trendText = recent4.length < 2 ? "—" : recent4.map(function(e){ return "$" + e.tax.toFixed(0); }).join(" → ");
+    return '<tr>' +
+      '<td style="font-weight:600">' + route.label + '</td>' +
+      '<td>' + route.milesRequired.toLocaleString() + '</td>' +
+      '<td><span class="price-big">$' + route.currentTax.toFixed(2) + '</span></td>' +
+      '<td>' + (prev ? "$" + prev.tax.toFixed(2) : "—") + '</td>' +
+      '<td>' + deltaCell(delta) + '</td>' +
+      '<td class="note-cell">' + trendText + '</td>' +
+      '<td>' + (route.alert && route.alert.lastChecked ? route.alert.lastChecked : "—") + '</td>' +
+      '<td><span class="' + v.cls + '" title="' + v.tip + '">' + v.label + '</span></td>' +
+    '</tr>';
+  });
+  return '<div class="section" id="verdicts"><h2>Route Comparison &amp; Verdict</h2>' +
+    '<div class="table-wrap"><table>' +
+    '<thead><tr><th>Route</th><th>Miles</th><th>Current Tax</th><th>Prev Tax</th><th>Change</th><th>Trend (last 4)</th><th>Last Checked</th><th>Verdict</th></tr></thead>' +
+    '<tbody>' + rows.join("") + '</tbody></table></div></div>';
+}
+
+function renderHistoryTable(routes) {
+  var rows = [];
+  routes.forEach(function(route) {
+    var hist = route.taxHistory || [];
+    hist.forEach(function(entry, i) {
+      var prev = i > 0 ? hist[i-1].tax : null;
+      var delta = prev !== null ? entry.tax - prev : null;
+      rows.push({ route: route.label, date: entry.date, tax: entry.tax, delta: delta, note: entry.note, isLatest: i === hist.length - 1 });
+    });
+  });
+  rows.sort(function(a, b) { return b.date > a.date ? 1 : b.date < a.date ? -1 : 0; });
+
+  var trs = rows.map(function(r) {
+    return '<tr' + (r.isLatest ? ' class="row-latest"' : "") + '>' +
+      '<td>' + r.date + '</td>' +
+      '<td>' + r.route + '</td>' +
+      '<td><span class="price-big">$' + r.tax.toFixed(2) + '</span></td>' +
+      '<td>' + deltaCell(r.delta) + '</td>' +
+      '<td class="note-cell">' + (r.note || "—") + '</td>' +
+    '</tr>';
+  });
+  return '<div class="section" id="history"><h2>Full Tax History</h2>' +
+    '<div class="table-wrap"><table>' +
+    '<thead><tr><th>Date</th><th>Route</th><th>Tax (USD)</th><th>Change vs Prior</th><th>Notes</th></tr></thead>' +
+    '<tbody>' + trs.join("") + '</tbody></table></div></div>';
+}
+
+function renderCadence() {
+  return '<div class="section" id="cadence"><h2>Monitoring Cadence</h2>' +
+    '<div class="cadence-grid">' +
+    '<div class="cadence-card"><div class="cadence-period">Now → Aug 31, 2026</div><div class="cadence-freq">Weekly</div><div class="cadence-days">Mondays only</div></div>' +
+    '<div class="cadence-card"><div class="cadence-period">Sep 1–30, 2026</div><div class="cadence-freq">2× per week</div><div class="cadence-days">Monday + Thursday</div></div>' +
+    '<div class="cadence-card"><div class="cadence-period">Oct 1–31, 2026</div><div class="cadence-freq">3× per week</div><div class="cadence-days">Mon + Wed + Fri — final month</div></div>' +
+    '<div class="cadence-card"><div class="cadence-period">Nov 1, 2026+</div><div class="cadence-freq">Stopped</div><div class="cadence-days">Booking deadline passed</div></div>' +
+    '</div></div>';
+}
+
+async function init() {
+  try {
+    var resp = await fetch("../../data/airfare-watch.json");
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data = await resp.json();
+
+    document.getElementById("loading").style.display = "none";
+
+    var updatedAt = data.updatedAt
+      ? new Date(data.updatedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
+      : "unknown";
+    document.getElementById("report-meta").textContent =
+      data.trip.airline + " · " + data.trip.cabin + " · " + data.trip.departureDates + " · Updated: " + updatedAt + " · Scraped via Playwright headless browser";
+
+    var html = "";
+    html += renderRouteCards(data.routes);
+    html += renderVerdictTable(data.routes);
+    html += renderHistoryTable(data.routes);
+    html += renderCadence();
+    document.getElementById("content").innerHTML = html;
+
+    document.getElementById("footer").innerHTML =
+      "Data from <code>data/airfare-watch.json</code> · Run <code>npm run monitor:pal-taxes</code> to check now · <code>FORCE_RUN=1 npm run monitor:pal-taxes</code> to bypass cadence gate";
+  } catch (err) {
+    document.getElementById("loading").textContent = "Error: " + err.message;
+  }
+}
+
+init();
+</script>
+</body>
 </html>

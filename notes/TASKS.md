@@ -9,12 +9,11 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ## Current active work
 
 - Keep the Seattle and Portland itinerary current as prices, hours, and transit assumptions change.
-- **Seattle hotel monitor (automated)**: GitHub Actions checks Tue/Fri through Aug, weekly Sep, daily Oct+. Alert threshold $400. Boylston confirmed at $384.13 — hold unless a refundable direct quote under $400 appears.
-- **Portland hotel monitor (automated)**: Same GitHub Actions workflow. Alert threshold $620. Hotel Vance confirmed at $628.46 (conf# [redacted]). 7 challenger hotels in watchlist — prices need manual first-capture via direct booking URLs, then the monitor tracks changes.
-- **PAL Award Tax Monitor (automated)**: GitHub Actions runs weekly Mon through Aug, Mon/Wed/Fri Sep, daily Oct 2026 (final month), HARD STOP after Oct 31. Must book SFO or ORD→MNL by Oct 31, 2026. Current taxes: SFO→MNL $370.50, ORD→MNL $375.50.
-- **Portland hotel prices need first capture**: Open each watchlist hotel's direct booking URL for Nov 4–9 2026, verify total price, update `trueTotalCost` and `reviewScore` in `data/hotel-monitor-source.json`. Once entered, the monitor will track changes automatically.
-- Keep the local dashboard verified after meaningful data or UI edits.
-- Keep the note system reconciled so active guidance stays current.
+- **Hotel prices**: Run `npm run scrape:hotels` to auto-scrape all direct hotel sites via Playwright. Where scraping fails (Cloudflare-blocked), manually update `trueTotalCost` in `data/hotel-monitor-source.json`.
+- **Seattle**: Alert threshold $400. Boylston confirmed $384.13 (RES [redacted]) — hold unless a refundable direct quote under $400 appears.
+- **Portland**: Alert threshold $620. Hotel Vance confirmed $628.46 (conf# [redacted]) — hold unless challenger comes in under $620.
+- **PAL Award Tax Monitor**: Now scraped via Playwright. Cadence: weekly Mon (now–Aug), 2×/week Mon+Thu (Sep), 3×/week Mon+Wed+Fri (Oct), stops Nov 1. Current taxes: SFO→MNL $370.50, ORD→MNL $375.50.
+- Keep note system reconciled after meaningful work.
 
 ## GitHub Secrets needed for email alerts
 
