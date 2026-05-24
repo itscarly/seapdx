@@ -394,7 +394,14 @@
         "cancellationDeadline": "2026-11-03T23:59:00-08:00",
         "cancellationPenalty": 94.13,
         "refundable": true,
-        "notes": "Booked 2026-05-24. $140.61 cheaper than Hotel Vance. Cancel Vance before Nov 3 deadline."
+        "notes": "Booked 2026-05-24. $140.61 cheaper than Hotel Vance. Cancel Vance before Nov 3 deadline.",
+        "reviewScore": 4.2,
+        "reviewUrl": "https://www.google.com/search?q=Courtyard+by+Marriott+Portland+City+Center+reviews",
+        "transitScore": 99,
+        "transitNote": "SW Oak & 5th Ave. MAX Red/Blue/Yellow at Old Town/Chinatown 2-min walk. Portland Streetcar at NW 5th & Couch 4-min walk.",
+        "safeNeighborhood": true,
+        "safetyNote": "SW Oak & 5th \u2014 Pearl District edge, active daytime area. Old Town adjacent; standard awareness at night.",
+        "safetySource": "https://www.walkscore.com/score/550-sw-oak-st-portland-or-97204"
       },
       "monitoringStatus": "complete",
       "monitoringNote": "2026-05-24: Portland monitoring complete. Two bookings held \u2014 Courtyard ($487.85, conf [redacted]) and Hotel Vance ($628.46, conf [redacted]). Both refundable before Nov 3. All other watchlist hotels dropped (all were above $500). Cancel Vance by Nov 3 unless reason to keep surfaces."
