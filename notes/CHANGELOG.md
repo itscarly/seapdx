@@ -13,6 +13,35 @@ Use it for:
 
 For detailed session-by-session history, use [[Project Log]].
 
+Related: [[TASKS]] · [[KNOWN_ISSUES]] · [[LEARNINGS]]
+
+## 2026-05-24 (session 12 — automation and repo cleanup)
+
+- Deleted 3 redundant saved automations: `seattle-portland-trip-review`, `seattle-portland-thread-summary-weekly`, and `update-agents-md`.
+- Confirmed 9 active saved automations remain across Seattle hotels, Seattle/Portland prices, Seattle/Portland transit checks, and SFO/ORD→MNL airfare.
+- Removed the stale GitHub Pages deploy workflow and `.nojekyll` because Netlify is the active public host.
+- Deleted the legacy `automation/flight-monitoring-workflow.md` note because it no longer matched the real monitor setup.
+- Cleared local clutter that no longer belongs in the repo root or project tree: old review PNGs, browser-capture logs, macOS metadata files, and the untitled scratch canvas file.
+- Reconciled the active docs, task notes, and session-start memory so Codex, Claude-style handoff notes, and Obsidian all reflect the trimmed automation set and current hosting model.
+
+## 2026-05-24 (session 14 — full hotel watchlist overhaul)
+
+**Seattle watchlist (8 hotels):**
+- Removed 7: Hotel Max, Paramount, EVEN Hotel, Moxy, Arctic Club, Hotel Andra, Alexis Royal Sonesta (over budget, unpriced, or dropped by user)
+- Added: citizenM Seattle South Lake Union ($580.56, cancel by Oct 30)
+- Updated: Warwick notes reflect Deluxe Room nightly breakdown + exact CX terms from screenshot
+- `hotel-monitor-source.json` (dashboard data source) fully synced from report
+
+**Portland watchlist (16 hotels, all with prices):**
+- Removed 5: The Nines, Hotel deLuxe, Graduate Portland, Kimpton RiverPlace, The Mark Spencer
+- Added 8 with full price captures: Embassy Suites ($743.19 + breakfast), Holiday Inn Express NW ($741.26 + breakfast), Hyatt Centric ($701.60), Hyatt House ($783.85 + breakfast), Hyatt Regency Convention Ctr ($764.68), The Porter Curio ($848.42), Hampton Inn Pearl District ($795.06 + breakfast), DoubleTree ($913.72)
+- Updated 5 with prices: The Benson Curio ($794.87), Society Hotel Suite ($844.72), Sentinel ($1,003.40), Hotel Lucia ($760.49), Hilton Portland Downtown ($1,025.58)
+- Lowest-priced Portland option with price: Hyatt Centric $701.60
+
+## 2026-05-24 (session 13 — stale monitor cleanup)
+
+Removed the orphaned legacy flight-status polling track: `scripts/monitor-flights.js`, `data/flight-monitor-snapshot.json`, and `research/flights/` artifacts. Dropped the unused `npm run monitor:flights` script entry. Kept the live monitor set intact: itinerary source watch, hotel watch, PAL tax watch, and their generated report artifacts.
+
 ## 2026-05-24 (session 4 — hotel watchlist rebuild)
 
 - Replaced all Seattle hotel booking URLs with correct direct booking links provided by user.

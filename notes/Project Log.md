@@ -2,6 +2,125 @@
 
 This is the running log for project changes.
 
+## 2026-05-24
+
+### Full hotel watchlist overhaul (session 14)
+
+Complete rebuild of both Seattle and Portland hotel watchlists. All hotel data synced across both JSON files.
+
+**Seattle (8 hotels):** Removed Hotel Max, Paramount, EVEN Hotel, Moxy, Arctic Club, Hotel Andra, Alexis Royal Sonesta. Added citizenM Seattle South Lake Union ($580.56). Updated Warwick with Deluxe Room nightly breakdown from screenshot.
+
+**Portland (16 hotels):** Removed The Nines, Hotel deLuxe, Graduate Portland, Kimpton RiverPlace, The Mark Spencer. Added 8 new hotels with full price captures: Embassy Suites ($743.19+bkfst), Holiday Inn Express NW ($741.26+bkfst), Hyatt Centric ($701.60), Hyatt House ($783.85+bkfst), Hyatt Regency Convention ($764.68), The Porter Curio ($848.42), Hampton Inn Pearl District ($795.06+bkfst), DoubleTree ($913.72). Updated 5 existing with prices: Benson Curio ($794.87), Society Hotel Suite ($844.72), Sentinel ($1,003.40), Hotel Lucia ($760.49), Hilton Portland Downtown ($1,025.58).
+
+**Key fix:** `hotel-monitor-source.json` (dashboard data source) was completely out of sync — had old 14/13 hotel lists. Rebuilt from report to 8/16. Rule added to memory: always sync both files.
+
+Files touched: `data/hotel-monitor-report.json`, `data/hotel-monitor-source.json`, `notes/CHANGELOG.md`, `notes/TASKS.md`, `notes/memory/active/SESSION_START.md`, `~/.claude/projects/.../memory/project_current_state.md`
+
+### Legacy flight monitor cleanup
+
+- Removed the orphaned old flight-status polling path that was no longer tied to a live workflow, dashboard surface, or saved automation.
+- Deleted:
+  - `scripts/monitor-flights.js`
+  - `data/flight-monitor-snapshot.json`
+  - `research/flights/latest-report.md`
+  - `research/flights/latest-summary.json`
+- Removed `monitor:flights` from `package.json`.
+- Kept the live monitors unchanged:
+  - PAL tax watch
+  - hotel watch
+  - itinerary source watch
+
+Files touched:
+
+- `package.json`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/Project Log.md`
+- `notes/memory/active/SESSION_START.md`
+- `tasks/todo.md`
+
+Follow-up:
+
+- The next cleanup candidates, if wanted later, are historical note sections in `notes/Project Log.md` that still mention older GitHub Pages or legacy monitor history. Those are history, not active clutter.
+
+## 2026-05-24
+
+### Automation and repo cleanup
+
+- Deleted 3 redundant saved automations from Codex:
+  - `seattle-portland-trip-review`
+  - `seattle-portland-thread-summary-weekly`
+  - `update-agents-md`
+- Confirmed 9 active saved automations remain, covering:
+  - Seattle hotel watch
+  - Seattle/Portland price watch
+  - Seattle/Portland flight-transit watch
+  - SFO/ORD→MNL airfare watch
+- Removed the stale GitHub Pages deploy path from the repo:
+  - deleted `.github/workflows/deploy-pages.yml`
+  - deleted `.nojekyll`
+- Deleted the legacy `automation/flight-monitoring-workflow.md` note because it no longer matched the real monitor setup.
+- Cleared old local clutter:
+  - root review PNGs
+  - `.playwright-mcp/` browser-capture logs
+  - macOS `.DS_Store` and `Icon` files
+  - `Untitled.canvas`
+- Rewrote active notes and handoff memory so the current state is consistent: Netlify is the active host, GitHub Actions remain for validation and monitors, and only the 9 kept automations are treated as live.
+
+Files touched:
+
+- `.github/workflows/deploy-pages.yml`
+- `.nojekyll`
+- `automation/README.md`
+- `automation/flight-monitoring-workflow.md`
+- `docs/deployment.md`
+- `README.md`
+- `notes/ARCHITECTURE.md`
+- `notes/CHANGELOG.md`
+- `notes/Decisions.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/LEARNINGS.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/TASKS.md`
+- `notes/Project Log.md`
+- `notes/memory/active/SESSION_START.md`
+- `tasks/todo.md`
+
+Follow-up:
+
+- If you still want more repo trimming, the next candidates are old monitor artifacts under `research/` and any no-longer-used monitor scripts, but those should be reviewed against the current GitHub Actions jobs before deleting.
+
+## 2026-05-24 (session 11 — daily pre-trip price watch)
+
+### Daily pre-trip watch found no new material itinerary updates
+
+Checked current official or primary public sources for the itinerary's transit fares, admission anchors, and representative Seattle/Portland coffee, cocktail, food, and souvenir stops. No new price or hours change was material enough to change `data/trip-data.js`, the budget totals, or the planned routing. A few vendor pages showed minor hour wording drift, but not in ways that changed the November trip assumptions.
+
+## 2026-05-24 (travel-week flight and transit watch)
+
+### Material inbound flight schedule risk found
+
+**What changed:**
+
+- Re-checked the travel-week watch sources for the booked flight status portals, SEA and PDX airport guidance, Amtrak Cascades timing, Washington State Ferries fares/service, Sound Transit Link alerts, and TriMet/PDX access assumptions.
+- Found one material risk that does justify a model update: Asiana's current route-schedule notice now lists `Seattle - Incheon OZ271/272` operating `Mon, Tue, Wed, Fri, Sat`, which does not match the booked `OZ272` Sunday, November 1, 2026 arrival chain currently modeled in `data/trip-data.js`.
+- Updated the arrival-journey status copy in `data/trip-data.js` so the dashboard now surfaces that schedule-risk mismatch and tells the traveler to verify the reservation directly with Asiana before relying on the current times.
+- Confirmed the other watch assumptions remain materially unchanged for now: SEA still advises arriving about two hours before domestic flights and three hours before international flights, the PDX departure plan is still conservative relative to current airport guidance, the Amtrak Cascades timetable still shows train `517` leaving Seattle at `12:10 PM` and arriving Portland at `3:35 PM`, TriMet adult fare/day cap still sits at `$2.80` / `$5.60`, and WSDOT still shows the `3%` ferry card surcharge that was already modeled.
+
+**Files touched:**
+
+- `data/trip-data.js`
+- `notes/Project Log.md`
+
+**Recommended traveler action:**
+
+- Contact Asiana or pull the live reservation directly from the airline account soon to confirm whether the November 1 `OZ272` SEA arrival remains ticketed as booked, has been retimed, or needs re-accommodation.
+- Keep the existing airport and rail timing buffers for now; no Amtrak, ferry-fare, SEA, PDX, Link, or TriMet change required a broader itinerary rewrite today.
+
+**Follow-up:**
+
+- Re-run the same watch closer to the trip window, especially once Asiana confirms whether the Sunday leg is still operating as booked.
+
 ## 2026-05-24 (session 4 — hotel watchlist rebuild)
 
 ### Seattle hotel watchlist fully rebuilt
@@ -678,6 +797,18 @@ Follow-up:
 - Linked the main vault to the global Claude and Codex instruction files so note-maintenance rules are easier to review in one place.
 - Linked the reusable `Project Starter` and `Example Project` note trees into the main vault for easier reuse.
 - Cleaned starter clutter and Finder junk from the main vault and tightened the Obsidian workspace so it opens into the new hub notes instead of a blank tab.
+
+Files touched:
+
+- `notes/Project Log.md`
+
+## 2026-05-24
+
+### Pre-trip flight and transit watch: no material updates
+
+- Rechecked the official watch points on May 24, 2026: the Asiana and American Airlines flight-status portals, SEA departure guidance, PDX departure guidance, the current Amtrak Cascades timetable, Washington State Ferries fares and alerts, Sound Transit Link alerts, and TriMet Red Line fare/service pages.
+- Found no material timing, fare, or disruption-risk change that warrants editing `data/trip-data.js`. SEA still advises arriving two hours before domestic departures and three hours before international departures, PDX guidance still leaves the current hotel-to-airport plan with a conservative buffer for the `1:47 PM` departure, Seattle-to-Bainbridge adult walk-on fare is still `$11.35` before the 3% card surcharge, TriMet adult fare/day cap is still `$2.80`/`$5.60`, and Amtrak Cascades train `517` still supports the current `12:10 PM` Seattle to `3:35 PM` Portland transfer block.
+- Current active ferry, Link, and TriMet notices remain temporary or accessibility-specific rather than November 2026 itinerary rewrites, so this pre-trip watch stays in monitor-only mode with no traveler action or email summary needed.
 
 Files touched:
 
