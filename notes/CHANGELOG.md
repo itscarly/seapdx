@@ -4,6 +4,16 @@
 
 This is the concise project change record.
 
+## 2026-05-24 (session — Portland second booking + dashboard update)
+
+- Booked Courtyard by Marriott Portland City Center: $487.85 total, conf# [redacted], 1 King, Nov 4–9. Stay Longer and Save rate. Free cancel before Nov 3, 11:59 PM.
+- Portland now has two active bookings. Courtyard is $140.61 cheaper than Hotel Vance. Action: cancel Vance before Nov 3.
+- Dropped all 16 Portland watchlist hotels — all were above $500. Portland monitoring complete.
+- Updated `hotels.html` to render `secondReservation` as a second blue current-reservation row with its own benchmark bar entry.
+- Fixed Hotel Vance `transitScore` null → 99.
+- Fixed Courtyard missing fields: `reviewScore` 4.2, `transitScore` 99, `transitNote`, `safetyNote`, `safetySource`, `reviewUrl`.
+- Updated SESSION_START, tasks/todo.md, LEARNINGS, KNOWN_ISSUES, and memory files to reflect new state.
+
 Use it for:
 
 - meaningful shipped changes

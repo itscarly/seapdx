@@ -26,39 +26,48 @@ Obsidian vault = repo root `/Users/kicker/Downloads/codexproject/`. Write Obsidi
 | `dashboards/html/airfare.html` | PAL tax monitor page |
 | `dashboards/html/hotels.html` | Hotel monitor page |
 
-**Critical:** `hotels.html` reads from `hotel-monitor-source.json`, NOT `hotel-monitor-report.json`. When editing hotel data, always sync both files.
+**Critical:** `hotels.html` reads from `hotel-monitor-source.json`. When editing hotel data, always sync BOTH files. The dashboard reads `currentReservation`, `secondReservation`, and `watchlist` from each city object — data stored under any other key is invisible.
 
 ## Current status (2026-05-24)
 
+### ⚠️ Action required
+
+**Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM local Portland time.**
+Courtyard by Marriott Portland City Center is already booked at $487.85 — $140.61 cheaper. Both are refundable before Nov 3.
+
+---
+
 ### Seattle hotels (Nov 1–4, 3 nights, budget cap $400)
 
-**Benchmark (booked):** The Boylston Hotel Capitol Hill — $384.13 confirmed (RES [redacted]). Hold unless refundable sub-$400 appears.
+**Booked:** The Boylston Hotel Capitol Hill — $384.13 confirmed (RES# [redacted]). Hold unless refundable sub-$400 appears.
 
 **Watchlist (8 hotels, all over cap):**
 
-| Hotel | Total | Cancel deadline |
-| ----- | ----- | --------------- |
-| Warwick Seattle Hotel | $451.94 | Oct 31, 11:59 PM |
-| Staypineapple University Inn | $491.84 | Oct 31 (flash sale*) |
-| Staypineapple Maxwell | $534.94 | Oct 31 (flash sale*) |
-| Staypineapple Watertown | $543.91 | Oct 31 (flash sale*) |
-| Staypineapple Hotel FIVE | $560.09 | Oct 31 (flash sale*) |
-| citizenM Seattle South Lake Union | $580.56 | Oct 30, 11:59 PM |
-| Mayflower Park Hotel | $591.47 | Oct 31, 4 PM |
-| Hotel Sorrento | $645.46 | free cancel / pay later |
+| Hotel | Total | Cancel deadline | Note |
+| ----- | ----- | --------------- | ---- |
+| Warwick Seattle Hotel | $451.94 | Oct 31, 11:59 PM | |
+| Staypineapple University Inn | $491.84 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
+| Staypineapple Maxwell | $534.94 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
+| Staypineapple Watertown | $543.91 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
+| Staypineapple Hotel FIVE | $560.09 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
+| citizenM Seattle South Lake Union | $580.56 | Oct 30, 11:59 PM | |
+| Mayflower Park Hotel | $591.47 | Oct 31, 4 PM | |
+| Hotel Sorrento | $645.46 | free cancel / pay later | |
 
-*Flash sale prices (~expires 2026-05-28) — re-check Staypineapple regular prices after sale ends.
+---
 
 ### Portland hotels (Nov 4–9, 5 nights)
 
-**TWO BOOKINGS HELD — both refundable before Nov 3:**
+**TWO BOOKINGS — both refundable before Nov 3:**
 
 | Hotel | Total | Conf # | Cancel deadline |
 | ----- | ----- | ------ | --------------- |
-| Courtyard by Marriott Portland City Center | **$487.85** | 94187007 | Nov 3, 11:59 PM |
-| Hotel Vance Tribute Portfolio | $628.46 | [redacted] | (check policy) |
+| **Courtyard by Marriott Portland City Center** | **$487.85** | 94187007 | Nov 3, 11:59 PM |
+| Hotel Vance Tribute Portfolio | $628.46 | [redacted] | Nov 3 (check policy) |
 
-**Action required:** Cancel Hotel Vance before Nov 3 — Courtyard is $140.61 cheaper, same dates, same flexibility. No watchlist — all 16 options were above $500 and have been dropped.
+**Watchlist:** Empty — all options were above $500, monitoring complete.
+
+---
 
 ### PAL taxes
 
@@ -77,10 +86,12 @@ npm run validate            — run all tests + validators
 
 ## Hard rules
 
+- **Never add a hotel entry with null display fields** — fill reviewScore, transitScore, transitNote, safetyNote, safetySource, reviewUrl from the address if not in the booking confirmation
 - **Never overwrite a stored hotel price with a scraped listing price** — only checkout-grade totals qualify
 - **Never rebuild the airfare tracker as a cash-fare system** — it tracks PAL redemption taxes only
-- **Always confirm hotel name from screenshot before writing a price to JSON** — never assume from order or context
-- **When editing hotel data: sync BOTH `hotel-monitor-source.json` AND `hotel-monitor-report.json`** — dashboard reads source, not report
+- **Always confirm hotel name from screenshot before writing a price** — never assume from order or context
+- **When editing hotel data: sync BOTH JSON files** — dashboard reads source, not report
+- **Check the dashboard JS before structuring new JSON keys** — data under unknown keys is invisible to the renderer
 - Read existing calendar events before adding/modifying any
 - `data/trip-data.js` is the only itinerary source of truth
 

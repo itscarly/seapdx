@@ -37,6 +37,11 @@
 - Status: active
 - Why: stale notes should be rewritten or archived carefully, not deleted blindly
 
+### Netlify is the active public host
+
+- Status: active
+- Why: the repo is static-only, Netlify already serves the live site, and GitHub Actions are better used here for validation and monitoring than for a second public deploy path
+
 ### Shared agent memory should use active, archive, and permanent layers
 
 - Status: active

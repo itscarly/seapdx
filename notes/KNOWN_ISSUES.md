@@ -1,10 +1,13 @@
 # Known Issues
 
+Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
+
 ## Current known issues
 
-### Public deploy may lag local updates
+### Public deploy lags until push lands and Pages rebuilds
 
-- Status: open (recurring) — always run `git status` at session start and push uncommitted files before new work.
+- Status: open (recurring)
+- Detail: GitHub Pages only reflects committed and pushed state. After a push, Actions takes 1–2 min to redeploy. Hard refresh (Cmd+Shift+R) required to bypass browser cache. Do not assume code is broken until push is confirmed and Pages has rebuilt.
 
 ### Tracker subsystems can drift if one restore overwrites another
 

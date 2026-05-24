@@ -15,8 +15,10 @@ The goal is to keep active notes accurate without turning the notes folder into 
 5. Archive older context when it still matters historically.
 6. Add reusable patterns to [[LEARNINGS]] only if they will help again.
 7. Update [[Project Log]] with the dated session summary.
-8. Re-check for conflicts between active notes.
-9. Add a short next-session handoff note so the next run does not depend on raw chat history.
+8. Check [[TASKS]] and [[KNOWN_ISSUES]] for anything now resolved or newly opened.
+9. Verify [[Decisions]] still reflects any choices made this session.
+10. Re-check for conflicts between active notes.
+11. Add a short next-session handoff note so the next run does not depend on raw chat history.
 
 ## Confidence rules
 

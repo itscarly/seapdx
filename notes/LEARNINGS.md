@@ -2,17 +2,38 @@
 
 ## Reusable patterns
 
-### GitHub Pages only updates when you push — always check git status first
+### When adding a new hotel entry, always fill ALL display fields immediately
 
-- The live site at `limcarl83-maker.github.io/my_projects/` serves from `origin/main`. Local changes are invisible until committed and pushed.
-- Root cause of the 2026-05-23 session 3 "broken" appearance: 626 lines of hotel tracker changes (hotels.html, hotels.js, styles.css) sat uncommitted while the live site served the old version.
-- Prevention: at the start of any session that follows UI work, run `git status` before anything else. If modified files exist, push them immediately.
+- Never leave `reviewScore`, `transitScore`, `transitNote`, `safetyNote`, `safetySource`, or `reviewUrl` as null.
+- The dashboard renders all of these — null produces blank columns that the user will have to ask to fix.
+- If the booking confirmation doesn't include these, look them up from the address (Walk Score, Google Maps, brand reviews). Do not defer.
 
-### Dark theme requires an inline body override — do not remove it
+### When editing hotel data, audit the full entry for completeness before committing
 
-- The base `body` style in `styles.css` sets a light beige background (`#f8faf6`). The `.dark-tracker` class overrides it, but cascade issues on GitHub Pages can let the light version bleed through.
-- Fix applied 2026-05-23: added `<style>body { background: #0d1117; color: #e6edf3; }</style>` inside the `<head>` of both `airfare.html` and `hotels.html`. This is load-order safe and cannot be overridden by the external stylesheet.
-- If the pages ever look light/beige again: check this inline style is present in the committed HTML. Do not remove it as "redundant."
+- Check every field the dashboard renders: rating, transit score, transit note, nearest station, area/landmark, safety note, safety source, elevator, breakfast, cancellation deadline.
+- A hotel that is already booked deserves the same data quality as a watchlist candidate.
+
+### The dashboard only renders what the code explicitly reads — check the JS before structuring JSON
+
+- `hotels.html` reads `currentReservation`, `secondReservation`, and `watchlist` from each city object.
+- Fields stored under any other key (e.g. a custom archive key) are invisible to the dashboard.
+- When adding new data structures, update the renderer at the same time, not after the user reports missing data.
+
+### Always sync BOTH hotel JSON files — source AND report
+
+- `hotels.html` reads `data/hotel-monitor-source.json`. The report JSON is for metadata and monitoring history.
+- Every hotel data change must land in both files before committing.
+
+### Null fields on a booked hotel are a bug, not a placeholder
+
+- A booked hotel is a confirmed entry. It should have complete data from the moment it is added.
+- Do not ship a commit with null display fields on any hotel row, booked or watchlist.
+
+### Public deploys only change after a push
+
+- The live site and any scheduled monitor outputs only reflect what is committed and pushed.
+- Root cause of the 2026-05-23 deploy confusion: large local tracker changes sat uncommitted while the public copy still served the older files.
+- Prevention: start UI or monitor follow-up sessions with `git status`. If the goal is to verify the public result, make sure the relevant files are actually committed and pushed first.
 
 ### When the live site looks wrong, diff live vs local before assuming code is broken
 
@@ -80,3 +101,10 @@
 Add only patterns that should help future sessions.
 
 Do not dump one-off scratch observations here.
+
+## Related notes
+
+- [[PROJECT_CONTEXT]]
+- [[KNOWN_ISSUES]]
+- [[CHANGELOG]]
+- [[Project Log]]

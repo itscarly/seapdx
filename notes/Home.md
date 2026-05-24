@@ -6,7 +6,7 @@ This vault is the clean working memory for `codexproject`.
 
 - [[PROJECT_CONTEXT]]
 - [[ARCHITECTURE]]
-- [[DECISIONS]]
+- [[Decisions]]
 - [[TASKS]]
 - [[CHANGELOG]]
 - [[LEARNINGS]]

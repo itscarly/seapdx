@@ -33,6 +33,7 @@ It is built to be:
 - **Staypineapple flash sale**: 4 Staypineapple prices were captured at 25% off (Memorial Day sale ~ends 2026-05-28). Re-check after sale expires.
 - **Portland**: Hotel Vance benchmark $628.46 (conf# [redacted]). Portland watchlist needs a price-check pass.
 - **PAL taxes**: SFO→MNL $370.50, ORD→MNL $375.50. Automated Playwright scraper still hits interaction gates on PAL.com — monitor continues on schedule.
+- **Saved automations**: 9 active automations remain after cleanup. Kept set = Seattle hotels, Seattle/Portland price watches, Seattle/Portland flight-transit watches, and SFO/ORD→MNL airfare watches.
 
 ## Automation commands
 

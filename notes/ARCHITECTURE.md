@@ -21,7 +21,7 @@ The main layers are:
 ## Runtime model
 
 - Local preview uses a static server from the project root.
-- Public hosting uses the same static files and currently has GitHub Pages as the clean fallback path.
+- Public hosting uses the same static files and currently runs through Netlify.
 - Notes live in `notes/` and are meant for Obsidian plus agent maintenance.
 - The airfare dashboard reads directly from `data/airfare-watch.json` — no generation step. PAL taxes are scraped via Playwright (`npm run scrape:pal` or `npm run monitor:pal-taxes` on cadence).
 - The hotel dashboard reads directly from `data/hotel-monitor-source.json`. Hotel prices are scraped via Playwright (`npm run scrape:hotels`). Run `npm run build:hotels` after scraping to regenerate the report JSON.
@@ -39,9 +39,10 @@ If confidence is low, add a short follow-up note instead of rewriting the active
 
 ## Maintenance boundaries
 
-- `PROJECT_CONTEXT.md` explains what the project is.
-- `ARCHITECTURE.md` explains how it is built.
-- `DECISIONS.md` explains why choices were made.
-- `CHANGELOG.md` tracks meaningful project changes.
-- `LEARNINGS.md` stores reusable patterns.
-- `KNOWN_ISSUES.md` stores unresolved risks or bugs.
+- [[PROJECT_CONTEXT]] explains what the project is.
+- [[ARCHITECTURE]] explains how it is built.
+- [[Decisions]] explains why choices were made.
+- [[CHANGELOG]] tracks meaningful project changes.
+- [[LEARNINGS]] stores reusable patterns.
+- [[KNOWN_ISSUES]] stores unresolved risks or bugs.
+- [[Project Log]] is the running dated session history.
