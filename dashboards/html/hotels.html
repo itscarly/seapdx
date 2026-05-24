@@ -162,10 +162,27 @@ function mapsLink(address) {
   return `<a class="addr-link" href="https://maps.google.com/?q=${q}" target="_blank" rel="noopener">${address} ↗</a>`;
 }
 
-function stars(score) {
-  if (score == null) return '<span class="muted">—</span>';
+function ratingCell(hotel) {
+  const score = hotel.reviewScore;
+  if (score == null) return '<span style="color:var(--muted)">—</span>';
   const full = Math.round(score * 2) / 2;
-  return `<span class="stars">★</span> ${full.toFixed(1)}`;
+  const stars = `<span class="stars">★</span> ${full.toFixed(1)}`;
+  if (hotel.reviewUrl) {
+    return `<a href="${hotel.reviewUrl}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">${stars} <span style="font-size:10px;color:var(--blue)">↗</span></a>`;
+  }
+  return stars;
+}
+
+function safetyCell(hotel) {
+  if (hotel.safeNeighborhood == null) return '<span style="color:var(--muted)">—</span>';
+  const badge = hotel.safeNeighborhood
+    ? '<span class="badge badge-good">Safe</span>'
+    : '<span class="badge badge-over">Caution</span>';
+  const note = hotel.safetyNote ? `<div style="font-size:10px;color:var(--muted);margin-top:2px;max-width:160px">${hotel.safetyNote}</div>` : '';
+  const src = hotel.safetySource
+    ? `<div style="margin-top:3px"><a href="${hotel.safetySource}" target="_blank" rel="noopener" style="font-size:10px;color:var(--blue)">Walk Score ↗</a></div>`
+    : '';
+  return badge + note + src;
 }
 
 function transitClass(score) {
@@ -245,14 +262,14 @@ function renderHotelRow(hotel, threshold, isCurrent) {
     <td>${mapsLink(hotel.address)}</td>
     <td style="white-space:nowrap;color:var(--muted);font-size:12px">${hotel.brand || "—"}</td>
     <td>${priceCell(hotel, threshold, isCurrent)}</td>
-    <td>${stars(hotel.reviewScore)}</td>
+    <td>${ratingCell(hotel)}</td>
     <td>${badge(hotel.hasElevator, "Yes", "No")}</td>
     <td>${badge(hotel.freeBreakfast, "Free", "No")}</td>
     <td>${cancelCell(hotel)}</td>
     <td>${tScore != null ? `<span class="transit-score ${transitClass(tScore)}">${tScore}</span>` : "—"}</td>
     <td style="font-size:12px;max-width:200px">${hotel.transitNote || "—"}</td>
     <td style="font-size:12px;max-width:180px">${hotel.zone || ""}${hotel.vibeNote ? `<div style="color:var(--muted);margin-top:2px">${hotel.vibeNote.slice(0,80)}${hotel.vibeNote.length>80?"…":""}</div>` : ""}</td>
-    <td>${hotel.safeNeighborhood === true ? '<span class="badge badge-good">Safe</span>' : hotel.safeNeighborhood === false ? '<span class="badge badge-over">Caution</span>' : "—"}</td>
+    <td>${safetyCell(hotel)}</td>
     <td>${lastCheckCell(hotel)}</td>
   </tr>`;
 }
