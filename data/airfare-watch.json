@@ -1,6 +1,6 @@
 {
   "watchName": "Philippine Airlines Award Tax Monitor",
-  "updatedAt": "2026-05-24T03:31:22.300Z",
+  "updatedAt": "2026-05-24T00:00:00.000Z",
   "trip": {
     "type": "award-redemption",
     "airline": "Philippine Airlines",
@@ -28,7 +28,7 @@
         {
           "date": "2026-05-24",
           "tax": 370.5,
-          "note": "Playwright scrape failed: Tax not found in rendered page. PAL flow may require additional interaction. Manual check needed."
+          "note": "Manual check: $370.50 confirmed unchanged (58,000 miles)"
         }
       ],
       "alert": {
@@ -54,7 +54,7 @@
         {
           "date": "2026-05-24",
           "tax": 375.5,
-          "note": "Playwright scrape failed: Tax not found in rendered page. PAL flow may require additional interaction. Manual check needed."
+          "note": "Manual check: $375.50 confirmed unchanged (67,000 miles)"
         }
       ],
       "alert": {
