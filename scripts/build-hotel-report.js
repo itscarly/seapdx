@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { computeHotelCollections } = require("./lib/hotel-pricing");
 
 const rootDir = path.join(__dirname, "..");
 const sourcePath = path.join(rootDir, "data", "hotel-monitor-source.json");
@@ -9,14 +10,6 @@ const markdownPath = path.join(markdownDir, "latest-report.md");
 
 function formatMoney(value) {
   return typeof value === "number" ? `$${value.toFixed(2)}` : "—";
-}
-
-function qualifies(hotel, alertThreshold) {
-  if (typeof hotel.trueTotalCost !== "number") return false;
-  if (hotel.trueTotalCost >= alertThreshold) return false;
-  if (hotel.refundable === false) return false;
-  if (typeof hotel.reviewScore === "number" && hotel.reviewScore < 4.0) return false;
-  return true;
 }
 
 const source = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
@@ -40,14 +33,10 @@ for (const cityKey of cityKeys) {
   const benchmark = city.currentReservation;
   const watchlist = city.watchlist || [];
 
-  const eligible = watchlist.filter(h => qualifies(h, threshold)).sort((a, b) => a.trueTotalCost - b.trueTotalCost);
-  const excluded = watchlist.filter(h => !qualifies(h, threshold)).sort((a, b) => {
-    const av = typeof a.trueTotalCost === "number" ? a.trueTotalCost : 99999;
-    const bv = typeof b.trueTotalCost === "number" ? b.trueTotalCost : 99999;
-    return av - bv;
+  const { eligible, excluded, needsCheck } = computeHotelCollections({
+    alertThreshold: threshold,
+    watchlist
   });
-
-  const needsCheck = watchlist.filter(h => h.trueTotalCost === null || h.trueTotalCost === undefined);
 
   cityReports[cityKey] = {
     trip: city.trip,
@@ -89,7 +78,8 @@ for (const cityKey of cityKeys) {
     markdownLines.push(`### Needs Price Check (${needsCheck.length} hotels)`);
     markdownLines.push("");
     for (const h of needsCheck) {
-      markdownLines.push(`- ${h.name} (${h.brand || "independent"}) | stars: ${h.reviewScore || "?"} | ${h.transitNote || ""}`);
+      const reason = h.priceVerification?.blockedReason || h.priceVerification?.status || "needs price";
+      markdownLines.push(`- ${h.name} (${h.brand || "independent"}) | stars: ${h.reviewScore || "?"} | ${h.transitNote || ""} | status: ${reason}`);
       markdownLines.push(`  Booking URL: ${h.directBookingUrl}`);
     }
     markdownLines.push("");
@@ -110,8 +100,9 @@ for (const cityKey of cityKeys) {
 markdownLines.push("## Notes");
 markdownLines.push("");
 markdownLines.push("- All prices must be verified live at the direct booking URL before rebooking.");
-markdownLines.push("- Hotels listed as 'needs price check' have no recorded price — open the booking URL, verify the total, and update `trueTotalCost` in `data/hotel-monitor-source.json`.");
-markdownLines.push("- Run `npm run build:hotels` after any manual price update to refresh this report.");
+markdownLines.push("- Hotels listed as 'needs price check' are blocked, stale, ambiguous, or still missing a trustworthy stay total.");
+markdownLines.push("- The layered monitor preserves the last trustworthy price and records blocker state instead of overwriting with a low-confidence scrape.");
+markdownLines.push("- Run `npm run scrape:hotels` and then `npm run build:hotels` to refresh this report.");
 markdownLines.push("");
 
 const report = {

@@ -2,6 +2,48 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 9)
+
+### Layered hotel monitor implementation and verification
+
+**What changed:**
+
+- Replaced the generic hotel text scraper with a layered direct-first monitor in `scripts/scrape-hotel-prices.js`.
+- Added shared hotel monitor logic in `scripts/lib/hotel-pricing.js` for engine routing, blocker classification, stay-total extraction, source-tier handling, and preservation of the last trustworthy total.
+- Added `tests/hotel-monitor.test.js` covering direct-engine routing, Hilton/Hyatt/IHG anti-bot classification, Marriott stale URL classification, nightly-vs-stay regression protection, checkout-engine rejection of listing-only prices, and watchlist collection routing.
+- Updated hotel report generation and both hotel dashboard surfaces so the repo now shows `blocked-direct`, `stale-direct-url`, `manual-review-needed`, source tier, and confidence-aware state instead of collapsing everything into generic scrape failures.
+- Ran a real monitor pass after a dry run. Final live outcome: **0 direct captures, 0 fallback captures, 19 blocked direct flows, 11 manual-review cases**. This is the correct state for the current sources and is safer than the old false-positive captures.
+
+**Files touched:**
+
+- `scripts/scrape-hotel-prices.js`
+- `scripts/lib/hotel-pricing.js`
+- `tests/hotel-monitor.test.js`
+- `scripts/build-hotel-report.js`
+- `package.json`
+- `dashboards/html/hotels.html`
+- `dashboards/js/hotels.js`
+- `data/hotel-monitor-source.json`
+- `data/hotel-monitor-report.json`
+- `research/hotels/latest-report.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+- `notes/KNOWN_ISSUES.md`
+- `tasks/todo.md`
+
+**Verification:**
+
+- `node --test tests/hotel-monitor.test.js`
+- `node scripts/build-hotel-report.js`
+- `npm run validate`
+- `node scripts/scrape-hotel-prices.js`
+
+**Handoff:**
+
+- The monitor is structurally much safer now, but the next leverage point is still source quality: repair stale Marriott/Hilton direct URLs, improve session-backed chain capture if possible, and only expand fallback capture once a fallback source proves it returns trustworthy stay totals.
+
 ## 2026-05-24 (session 8)
 
 ### Live hotel/PAL refresh, blocker cleanup, and handoff reset

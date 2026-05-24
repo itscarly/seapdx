@@ -41,8 +41,9 @@ function summaryCard(label, value, detail) {
 
 function hotelCard(hotel, threshold, mode) {
   const isEligible = mode === "eligible";
-  const isNeedsCheck = hotel.trueTotalCost === null || hotel.trueTotalCost === undefined;
-  const badgeLabel = isEligible ? "Qualifies" : isNeedsCheck ? "Needs price check" : "Over threshold";
+  const needsReviewStatuses = ["blocked-direct", "session-refresh-needed", "manual-review-needed", "stale-direct-url"];
+  const isNeedsCheck = hotel.trueTotalCost === null || hotel.trueTotalCost === undefined || needsReviewStatuses.includes(hotel.priceVerification?.status);
+  const badgeLabel = isEligible ? "Qualifies" : isNeedsCheck ? "Needs review" : "Over threshold";
   const badgeClass = isEligible ? "tracker-badge-good" : isNeedsCheck ? "tracker-badge-pending" : "tracker-badge-muted";
   const gap = typeof hotel.trueTotalCost === "number" ? hotel.trueTotalCost - threshold : null;
 
@@ -61,6 +62,9 @@ function hotelCard(hotel, threshold, mode) {
   ].filter(Boolean).join("");
 
   const evidenceNote = hotel.priceVerification?.evidenceNote || "";
+  const sourceLabel = hotel.priceVerification?.sourceTier
+    ? `<p style="font-size:0.78rem;margin:4px 0 0;opacity:0.7"><strong>Source:</strong> ${escapeHtml(hotel.priceVerification.sourceTier)}</p>`
+    : "";
 
   return `
     <article class="transit-card tracker-entry-card">
@@ -71,6 +75,7 @@ function hotelCard(hotel, threshold, mode) {
       ${hotel.transitNote ? `<p style="font-size:0.88rem;margin:0 0 8px"><span style="opacity:0.6">🚇</span> ${escapeHtml(hotel.transitNote)}</p>` : ""}
       ${hotel.vibeNote ? `<p style="font-size:0.85rem;font-style:italic;margin:0 0 8px;opacity:0.8">${escapeHtml(hotel.vibeNote)}</p>` : ""}
       <div class="tracker-meta-grid">${metaItems}</div>
+      ${sourceLabel}
       ${evidenceNote ? `<p style="font-size:0.82rem;margin:6px 0 0;opacity:0.7"><strong>Note:</strong> ${escapeHtml(evidenceNote)}</p>` : ""}
       <div class="card-actions">
         <a class="link-button" href="${escapeHtml(hotel.directBookingUrl)}" target="_blank" rel="noreferrer">

@@ -37,10 +37,11 @@ function formatMoney(v) {
 }
 
 // Attempt a HEAD fetch to verify the direct booking URL is still reachable.
-// We can't scrape live prices from hotel booking engines (Cloudflare blocks, JS-rendered).
-// The monitor records last-known prices and flags for manual re-verification.
-// When a new price IS manually entered into the source file, this script detects
-// the change vs the previous run and fires alerts.
+// The layered scraper in scripts/scrape-hotel-prices.js is responsible for
+// real capture attempts, blocker classification, and fallback logic.
+// This report monitor stays cheap: it reads the current source file state,
+// checks URL reachability, and alerts only when a trustworthy total already
+// exists in the source data.
 async function checkHotelUrl(url) {
   if (!url) return { reachable: false, status: null, note: "no URL" };
   const controller = new AbortController();
@@ -205,10 +206,10 @@ function writeReport(results, today) {
   lines.push(
     "## Notes",
     "",
-    "- Hotel prices are manually updated in `data/hotel-monitor-source.json` after each direct-booking check.",
-    "- This monitor cannot scrape live prices from JS-rendered booking engines.",
-    "- To update a price: open the direct booking URL, verify the total, update `trueTotalCost` in the source file.",
-    "- Re-run `npm run monitor:hotels` after manual price updates to refresh the report.",
+    "- Hotel prices are refreshed through the layered monitor in `npm run scrape:hotels`, which records direct captures, blockers, and fallback attempts in `data/hotel-monitor-source.json`.",
+    "- This report monitor does not scrape prices itself; it summarizes current source data and URL reachability.",
+    "- Re-run `npm run scrape:hotels` and `npm run build:hotels` before using this report for rebooking decisions.",
+    "- Treat fallback prices and blocker states as prompts for follow-up verification before any booking change.",
     ""
   );
 

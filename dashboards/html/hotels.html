@@ -130,7 +130,7 @@
   <div class="legend-item"><div class="legend-dot" style="background:#0969da;opacity:0.5"></div> Current reservation</div>
   <div class="legend-item"><div class="legend-dot" style="background:#1a7f37;opacity:0.5"></div> Under threshold</div>
   <div class="legend-item"><div class="legend-dot" style="background:#cf222e;opacity:0.5"></div> Over threshold</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#7d4e00;opacity:0.5"></div> Price not yet checked</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7d4e00;opacity:0.5"></div> Blocked, stale, or review needed</div>
 </div>
 
 <div id="loading">Loading hotel data…</div>
@@ -215,14 +215,19 @@ function cancelCell(hotel) {
 function lastCheckCell(hotel) {
   const pv = hotel.priceVerification;
   if (!pv) return '<span class="check-stamp">—</span>';
-  const ts = pv.lastScrapedAt || pv.lastAttemptedAt;
+  const ts = pv.observedAt || pv.lastScrapedAt || pv.lastAttemptedAt;
   const d = ts ? new Date(ts).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : null;
-  if (pv.status === "playwright-scraped") return `<span class="badge badge-good">Auto</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
-  if (pv.status === "live-verified")      return `<span class="badge badge-good">Verified</span>`;
-  if (pv.status === "stale-price")        return `<span class="badge badge-warn">Stale</span>`;
-  if (pv.status === "needs-check")        return `<span class="badge badge-warn">Needs check</span>`;
-  if (pv.status === "scrape-failed")      return `<span class="badge badge-over">Failed</span>`;
-  if (pv.status === "blocked")            return `<span class="badge badge-warn">Blocked</span>`;
+  if (pv.status === "playwright-scraped" || pv.status === "captured-direct-checkout") return `<span class="badge badge-good">Direct</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "captured-direct-api") return `<span class="badge badge-good">Direct API</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "captured-direct-listing") return `<span class="badge badge-warn">Direct list</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "captured-fallback")  return `<span class="badge badge-warn">Fallback</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "live-verified")      return `<span class="badge badge-good">Verified</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "stale-price")        return `<span class="badge badge-warn">Stale</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "needs-check" || pv.status === "manual-review-needed") return `<span class="badge badge-warn">Review</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "scrape-failed" || pv.status === "blocked-direct") return `<span class="badge badge-over">Blocked</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "blocked")            return `<span class="badge badge-warn">Blocked</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "stale-direct-url")   return `<span class="badge badge-over">Stale URL</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
+  if (pv.status === "session-refresh-needed") return `<span class="badge badge-warn">Refresh</span>${d ? `<div class="check-stamp">${d}</div>` : ""}`;
   return `<span class="check-stamp">${pv.status}</span>`;
 }
 
@@ -235,6 +240,10 @@ function priceCell(hotel, threshold, isCurrent) {
 
 function rowClass(hotel, threshold, isCurrent) {
   if (isCurrent) return "row-current";
+  const status = hotel.priceVerification?.status;
+  if (["blocked-direct", "session-refresh-needed", "manual-review-needed", "stale-direct-url"].includes(status)) {
+    return "row-needs-check";
+  }
   const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
   if (price == null) return "row-needs-check";
   return price <= threshold ? "row-good" : "row-over";
@@ -242,6 +251,12 @@ function rowClass(hotel, threshold, isCurrent) {
 
 function statusBadge(hotel, threshold, isCurrent) {
   if (isCurrent) return '<span class="badge badge-current">Current reservation</span>';
+  const status = hotel.priceVerification?.status;
+  if (status === "captured-fallback") return '<span class="badge badge-warn">Fallback price</span>';
+  if (status === "blocked-direct") return '<span class="badge badge-over">Direct blocked</span>';
+  if (status === "stale-direct-url") return '<span class="badge badge-over">Stale direct URL</span>';
+  if (status === "session-refresh-needed") return '<span class="badge badge-warn">Session refresh needed</span>';
+  if (status === "manual-review-needed") return '<span class="badge badge-warn">Manual review needed</span>';
   const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
   if (price == null) return '<span class="badge badge-warn">Needs check</span>';
   return price <= threshold
@@ -320,7 +335,7 @@ async function init() {
       ? new Date(data.meta.automation.lastAutomatedCheckAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
       : "unknown";
     document.getElementById("report-meta").textContent =
-      `Snapshot: ${snap} · Last automated check: ${lastRun} · Direct hotel sites only — no third-party aggregators.`;
+      `Snapshot: ${snap} · Last automated check: ${lastRun} · Direct-first monitor with fallback capture when chain sites block automation.`;
 
     let html = "";
     for (const city of ["seattle", "portland"]) {
@@ -329,7 +344,7 @@ async function init() {
     document.getElementById("content").innerHTML = html;
 
     document.getElementById("footer").innerHTML =
-      `Data from <code>data/hotel-monitor-source.json</code> · Run <code>npm run scrape:hotels</code> to refresh prices · <code>npm run build:hotels</code> to rebuild JSON report`;
+      `Data from <code>data/hotel-monitor-source.json</code> · Run <code>npm run scrape:hotels</code> for the layered monitor · <code>npm run build:hotels</code> to rebuild the report`;
   } catch (err) {
     document.getElementById("loading").style.display = "none";
     const el = document.getElementById("error");

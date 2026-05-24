@@ -1,147 +1,199 @@
-// Playwright-based hotel price scraper.
-// Navigates each hotel's direct booking URL, waits for the price to render,
-// and extracts the total cost inclusive of taxes for the configured stay dates.
-// Updates trueTotalCost and priceVerification in data/hotel-monitor-source.json.
-// Run: npm run scrape:hotels
-
 const fs = require("node:fs");
 const path = require("node:path");
 const { chromium } = require("playwright");
+const {
+  buildFallbackUrl,
+  buildPriceVerification,
+  classifyPageState,
+  deriveDirectEngine,
+  finalizeDirectPriceOutcome,
+  extractStayTotalFromText
+} = require("./lib/hotel-pricing");
 
 const rootDir = path.join(__dirname, "..");
 const sourcePath = path.join(rootDir, "data", "hotel-monitor-source.json");
+const persistentProfileDir = path.join(rootDir, ".cache", "hotel-monitor-profile");
 
-// Per-brand price extraction strategies.
-// Each entry has selectors to try and a fallback regex on page text.
-const BRAND_STRATEGIES = {
-  // Hilton direct (hilton.com)
-  "hilton.com": {
-    selectors: ["[data-testid='total-price']", ".total-price", "[class*='totalPrice']", "[class*='total-cost']", ".price-summary .total"],
-    waitFor: "[data-testid='total-price'], .price-summary, [class*='totalPrice']",
-    patterns: [/total\s*(?:for\s+\d+\s+nights?)?\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|inc\.?\s*tax)/i]
-  },
-  // Hyatt direct (hyatt.com)
-  "hyatt.com": {
-    selectors: ["[data-automation-id='total-price']", ".total-price", "[class*='totalPrice']", ".booking-summary-total", "[class*='grand-total']"],
-    waitFor: "[data-automation-id='total-price'], .booking-summary-total, [class*='totalPrice']",
-    patterns: [/total\s*(?:inc\.?\s*taxes?)?\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|per\s+stay)/i]
-  },
-  // Marriott direct (marriott.com)
-  "marriott.com": {
-    selectors: ["[id*='totalPrice']", "[class*='totalPrice']", ".t-price-total", "[data-testid='price-total']", ".rate-total"],
-    waitFor: "[class*='totalPrice'], .t-price-total, [data-testid='price-total']",
-    patterns: [/total\s*(?:cost|price|incl\.?\s*taxes?)?\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|including)/i]
-  },
-  // IHG / Kimpton (ihg.com)
-  "ihg.com": {
-    selectors: ["[class*='total-price']", "[class*='totalPrice']", ".price-total", "[data-testid='total']", ".booking-total"],
-    waitFor: "[class*='total-price'], .price-total, .booking-total",
-    patterns: [/total\s*[:\-]?\s*USD?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|per\s+stay)/i]
-  },
-  // SynXis engine (synxis.com — used by Hotel Max, State Hotel)
-  "synxis.com": {
-    selectors: ["[class*='totalPrice']", "[class*='total-price']", ".price-total", "[id*='totalAmount']"],
-    waitFor: "[class*='total'], .price-summary",
-    patterns: [/total\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|taxes?)/i]
-  },
-  // TravelClick engine (bookings.travelclick.com — used by Paramount)
-  "travelclick.com": {
-    selectors: ["[class*='total']", ".price-total", "[id*='total']"],
-    waitFor: "[class*='total'], .price-summary",
-    patterns: [/total\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|taxes?)/i]
-  },
-  // Sonder (sonder.com — used by Boylston)
-  "sonder.com": {
-    selectors: ["[class*='total']", "[data-testid*='total']", ".price-breakdown-total"],
-    waitFor: "[class*='total'], [data-testid*='total']",
-    patterns: [/total\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)\s*(?:total|incl)/i]
-  }
-};
+const HOTEL_MONITOR_HEADLESS = process.env.HOTEL_MONITOR_HEADLESS !== "false";
+const HOTEL_MONITOR_DRY_RUN = process.env.HOTEL_MONITOR_DRY_RUN === "1";
+const MATERIAL_VARIANCE_ABSOLUTE = 75;
+const MATERIAL_VARIANCE_PERCENT = 0.15;
 
-function getBrandStrategy(url) {
-  for (const domain of Object.keys(BRAND_STRATEGIES)) {
-    if (url.includes(domain)) return { domain, ...BRAND_STRATEGIES[domain] };
+const DIRECT_ADAPTERS = new Set(["travelclick", "synxis", "independent", "sonder"]);
+const SESSION_ADAPTERS = new Set(["hilton", "hyatt", "ihg", "marriott"]);
+
+function normalizeHotelMetadata(hotel) {
+  const engine = deriveDirectEngine(hotel.directBookingUrl);
+  hotel.priceVerification = {
+    ...(hotel.priceVerification || {}),
+    directEngine: hotel.priceVerification?.directEngine || engine
+  };
+  if (hotel.fallbackAllowed === undefined) hotel.fallbackAllowed = true;
+  return engine;
+}
+
+function looksMateriallyDifferent(previousTotal, nextTotal) {
+  if (typeof previousTotal !== "number" || typeof nextTotal !== "number") return false;
+  const absoluteGap = Math.abs(previousTotal - nextTotal);
+  return absoluteGap >= MATERIAL_VARIANCE_ABSOLUTE || absoluteGap / previousTotal >= MATERIAL_VARIANCE_PERCENT;
+}
+
+function shouldPersistOutcome(hotel, outcome) {
+  if (!outcome.found || typeof outcome.total !== "number") return false;
+  if (outcome.sourceTier === "fallback-provider" && hotel.trueTotalCost != null) {
+    return !looksMateriallyDifferent(hotel.trueTotalCost, outcome.total);
   }
-  // Generic fallback
+  return true;
+}
+
+async function capturePage(page, url) {
+  const responseLog = [];
+  page.on("response", (response) => {
+    if (responseLog.length >= 20) return;
+    const request = response.request();
+    if (!["xhr", "fetch", "document"].includes(request.resourceType())) return;
+    responseLog.push({
+      status: response.status(),
+      url: response.url()
+    });
+  });
+
+  await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
+  await page.waitForTimeout(4000);
+
+  const title = await page.title().catch(() => "");
+  const bodyText = await page.locator("body").innerText().catch(() => "");
   return {
-    domain: "generic",
-    selectors: ["[class*='total']", "[class*='price']"],
-    waitFor: "body",
-    patterns: [/total\s*[:\-]?\s*\$?([\d,]+\.?\d*)/i, /\$\s*([\d,]+\.?\d*)/]
+    finalUrl: page.url(),
+    title,
+    bodyText,
+    responseLog
   };
 }
 
-function extractPriceFromText(text, patterns, nights) {
-  // Try each pattern
-  for (const pattern of patterns) {
-    const match = text.match(pattern);
-    if (match) {
-      const value = parseFloat(match[1].replace(/,/g, ""));
-      if (value > 50 && value < 5000) return value;
-    }
-  }
-
-  // Fallback: collect all dollar amounts and pick the most likely "total"
-  const amounts = [...text.matchAll(/\$\s*([\d,]+\.\d{2})/g)]
-    .map(m => parseFloat(m[1].replace(/,/g, "")))
-    .filter(v => v > 100 && v < 5000)
-    .sort((a, b) => a - b);
-
-  if (amounts.length > 0) {
-    // Prefer amounts that look like multi-night totals (> nights * 80)
-    const plausible = amounts.filter(v => v > nights * 80);
-    if (plausible.length > 0) return plausible[0]; // lowest plausible total
-  }
-
-  return null;
+function buildStatusFromCapture(result, fallback = {}) {
+  const priceResult = extractStayTotalFromText({
+    bodyText: result.bodyText,
+    nights: fallback.nights || 1
+  });
+  return finalizeDirectPriceOutcome({
+    engine: fallback.engine,
+    extraction: priceResult,
+    finalUrl: result.responseLog[0]?.url || result.finalUrl,
+    source: fallback.source
+  });
 }
 
-async function scrapeHotelPrice(hotel, nights, browser) {
-  const url = hotel.directBookingUrl;
-  if (!url) return { found: false, note: "No directBookingUrl" };
-
-  const strategy = getBrandStrategy(url);
-  let context;
+async function attemptDirectCapture(hotel, trip, contexts) {
+  const engine = hotel.priceVerification?.directEngine || deriveDirectEngine(hotel.directBookingUrl);
+  const context = SESSION_ADAPTERS.has(engine) ? contexts.persistent : contexts.ephemeral;
+  const page = await context.newPage();
   try {
-    context = await browser.newContext({
-      userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-      locale: "en-US",
-      viewport: { width: 1280, height: 900 }
-    });
-    const page = await context.newPage();
-
-    // Block images/fonts to speed up loading
-    await page.route("**/*.{png,jpg,jpeg,gif,webp,svg,woff,woff2,ttf}", r => r.abort());
-
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 40000 });
-
-    // Wait for price selectors or a reasonable timeout
-    try {
-      await page.waitForSelector(strategy.waitFor, { timeout: 15000 });
-    } catch {
-      // Continue anyway — try text extraction
+    const capture = await capturePage(page, hotel.directBookingUrl);
+    const state = classifyPageState(capture);
+    if (state.status !== "ok") {
+      return {
+        found: false,
+        status: state.status,
+        blockedReason: state.blockedReason,
+        source: `playwright:${engine}`,
+        rawEvidenceRef: capture.finalUrl,
+        note: `${engine} direct flow returned ${state.blockedReason}.`
+      };
     }
 
-    // Extra wait for JS price rendering
-    await page.waitForTimeout(3000);
+    return buildStatusFromCapture(capture, {
+      engine,
+      nights: trip.nights,
+      source: `playwright:${engine}`,
+      label: `${engine} direct`
+    });
+  } catch (error) {
+    return {
+      found: false,
+      status: engine === "hilton" || engine === "hyatt" || engine === "ihg"
+        ? "session-refresh-needed"
+        : "manual-review-needed",
+      blockedReason: "navigation-failed",
+      source: `playwright:${engine}`,
+      note: error.message
+    };
+  } finally {
+    await page.close().catch(() => {});
+  }
+}
 
-    const pageText = await page.evaluate(() => document.body.innerText);
-    const price = extractPriceFromText(pageText, strategy.patterns, nights);
+async function attemptFallbackCapture(hotel, trip, context) {
+  if (hotel.fallbackAllowed === false) {
+    return {
+      found: false,
+      status: "manual-review-needed",
+      blockedReason: "fallback-disabled",
+      note: "Fallback provider disabled for this hotel."
+    };
+  }
 
-    if (price !== null) {
-      return { found: true, price, source: `playwright:${strategy.domain}`, url };
+  const fallbackUrl = buildFallbackUrl(hotel, trip);
+  const page = await context.newPage();
+  try {
+    const capture = await capturePage(page, fallbackUrl);
+    const extracted = extractStayTotalFromText({
+      bodyText: capture.bodyText,
+      nights: trip.nights
+    });
+    if (!extracted) {
+      return {
+        found: false,
+        status: "manual-review-needed",
+        blockedReason: "fallback-no-total",
+        source: "playwright:fallback-provider",
+        rawEvidenceRef: fallbackUrl,
+        note: "Fallback provider did not expose a trustworthy stay total."
+      };
     }
 
     return {
-      found: false, source: `playwright:${strategy.domain}`, url,
-      note: "Price not found in rendered page. Site may require interactive session.",
-      pageSnippet: pageText.slice(0, 400)
+      found: true,
+      total: extracted.total,
+      subtotal: extracted.subtotal,
+      taxes: extracted.taxes,
+      captureMethod: "fallback-provider",
+      sourceTier: "fallback-provider",
+      confidence: extracted.confidence === "high" ? "medium" : extracted.confidence,
+      status: "captured-fallback",
+      source: "playwright:fallback-provider",
+      rawEvidenceRef: fallbackUrl,
+      note: `Fallback provider capture for ${hotel.name}.`
     };
-  } catch (err) {
-    return { found: false, source: "playwright-error", url, error: err.message };
+  } catch (error) {
+    return {
+      found: false,
+      status: "manual-review-needed",
+      blockedReason: "fallback-failed",
+      source: "playwright:fallback-provider",
+      rawEvidenceRef: fallbackUrl,
+      note: error.message
+    };
   } finally {
-    if (context) await context.close();
+    await page.close().catch(() => {});
   }
+}
+
+function applyOutcome(hotel, outcome, now) {
+  const previousTotal = hotel.trueTotalCost;
+  const verification = buildPriceVerification({ hotel, outcome, now });
+  verification.directEngine = hotel.priceVerification?.directEngine || deriveDirectEngine(hotel.directBookingUrl);
+
+  if (shouldPersistOutcome(hotel, outcome)) {
+    hotel.trueTotalCost = outcome.total;
+  } else if (outcome.found && typeof previousTotal === "number") {
+    verification.status = outcome.status;
+    verification.sourceTier = "last-verified";
+    verification.confidence = "medium";
+    verification.evidenceNote = `${verification.evidenceNote} Preserved prior verified total $${previousTotal.toFixed(2)} because fallback variance was material.`;
+  }
+
+  hotel.priceVerification = verification;
 }
 
 async function main() {
@@ -149,66 +201,99 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10);
   const now = new Date().toISOString();
 
-  console.log("[Hotel Scraper] Starting Playwright headless Chromium...");
-  const browser = await chromium.launch({ headless: true });
+  fs.mkdirSync(persistentProfileDir, { recursive: true });
 
-  let updated = 0;
-  let failed = 0;
+  console.log(`[Hotel Scraper] Starting layered monitor (${HOTEL_MONITOR_HEADLESS ? "headless" : "headed"})...`);
+  const ephemeralBrowser = await chromium.launch({ headless: HOTEL_MONITOR_HEADLESS });
+  const ephemeral = await ephemeralBrowser.newContext({
+    locale: "en-US",
+    viewport: { width: 1440, height: 960 },
+    userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+  });
+  const persistent = await chromium.launchPersistentContext(persistentProfileDir, {
+    headless: HOTEL_MONITOR_HEADLESS,
+    viewport: { width: 1440, height: 960 },
+    locale: "en-US",
+    channel: process.env.HOTEL_MONITOR_CHANNEL || undefined
+  });
 
-  for (const city of ["seattle", "portland"]) {
-    const cityData = source[city];
-    if (!cityData) continue;
+  let directCaptures = 0;
+  let fallbackCaptures = 0;
+  let blocked = 0;
+  let reviews = 0;
 
-    const nights = cityData.trip.nights;
-    const hotels = [
-      ...(cityData.currentReservation ? [cityData.currentReservation] : []),
-      ...(cityData.watchlist || [])
-    ];
+  try {
+    for (const cityKey of ["seattle", "portland"]) {
+      const city = source[cityKey];
+      if (!city) continue;
 
-    console.log(`\n[Hotel Scraper] === ${city.toUpperCase()} — ${nights} nights ===`);
+      const hotels = [
+        ...(city.currentReservation ? [city.currentReservation] : []),
+        ...(city.watchlist || [])
+      ];
 
-    for (const hotel of hotels) {
-      process.stdout.write(`  ${hotel.name}... `);
-      const result = await scrapeHotelPrice(hotel, nights, browser);
+      console.log(`\n[Hotel Scraper] === ${cityKey.toUpperCase()} — ${city.trip.nights} nights ===`);
 
-      if (result.found) {
-        hotel.trueTotalCost = result.price;
-        hotel.priceVerification = {
-          status: "playwright-scraped",
-          evidenceNote: `Playwright headless scrape on ${today}. Total: $${result.price.toFixed(2)} (${result.source}).`,
-          lastScrapedAt: now,
-          source: result.source
-        };
-        console.log(`$${result.price.toFixed(2)} ✓`);
-        updated++;
-      } else {
-        // Keep existing price if we had one, update status
-        hotel.priceVerification = {
-          ...hotel.priceVerification,
-          status: hotel.trueTotalCost ? "stale-price" : "scrape-failed",
-          lastAttemptedAt: now,
-          lastScrapeNote: result.note || result.error || "scrape failed",
-          source: result.source
-        };
-        console.log(`failed — ${result.note || result.error || "unknown"}`);
-        failed++;
+      for (const hotel of hotels) {
+        const engine = normalizeHotelMetadata(hotel);
+        process.stdout.write(`  ${hotel.name} [${engine}]... `);
+
+        const directOutcome = await attemptDirectCapture(hotel, city.trip, { ephemeral, persistent });
+        let finalOutcome = directOutcome;
+
+        if (!directOutcome.found && ["blocked-direct", "stale-direct-url", "session-refresh-needed"].includes(directOutcome.status)) {
+          const fallbackOutcome = await attemptFallbackCapture(hotel, city.trip, ephemeral);
+          if (fallbackOutcome.found || fallbackOutcome.blockedReason !== "fallback-no-total") {
+            finalOutcome = fallbackOutcome.found ? fallbackOutcome : directOutcome;
+            if (fallbackOutcome.found && typeof hotel.trueTotalCost === "number" && looksMateriallyDifferent(hotel.trueTotalCost, fallbackOutcome.total)) {
+              finalOutcome = {
+                ...fallbackOutcome,
+                note: `${fallbackOutcome.note} Material variance against last verified direct total.`
+              };
+            }
+          }
+        }
+
+        applyOutcome(hotel, finalOutcome, now);
+
+        if (finalOutcome.found && finalOutcome.sourceTier === "fallback-provider") {
+          console.log(`fallback $${finalOutcome.total.toFixed(2)} ✓`);
+          fallbackCaptures++;
+        } else if (finalOutcome.found) {
+          console.log(`direct $${finalOutcome.total.toFixed(2)} ✓`);
+          directCaptures++;
+        } else if (finalOutcome.status === "manual-review-needed") {
+          console.log(`review — ${finalOutcome.blockedReason || finalOutcome.note}`);
+          reviews++;
+        } else {
+          console.log(`${finalOutcome.status} — ${finalOutcome.blockedReason || finalOutcome.note}`);
+          blocked++;
+        }
       }
     }
+
+    source.meta.snapshotDate = today;
+    source.meta.automation.lastAutomatedCheckAt = now;
+    source.meta.automation.lastAutomatedSummary = `Layered monitor ${today}: ${directCaptures} direct captures, ${fallbackCaptures} fallback captures, ${blocked} blocked, ${reviews} manual-review.`;
+
+    if (!HOTEL_MONITOR_DRY_RUN) {
+      fs.writeFileSync(sourcePath, `${JSON.stringify(source, null, 2)}\n`);
+    }
+
+    console.log(`\n[Hotel Scraper] Done. Direct: ${directCaptures}, fallback: ${fallbackCaptures}, blocked: ${blocked}, review: ${reviews}`);
+    if (HOTEL_MONITOR_DRY_RUN) {
+      console.log("[Hotel Scraper] Dry run only — source file not written.");
+    } else {
+      console.log("[Hotel Scraper] Run 'npm run build:hotels' to rebuild the hotel report.");
+    }
+  } finally {
+    await ephemeral.close().catch(() => {});
+    await ephemeralBrowser.close().catch(() => {});
+    await persistent.close().catch(() => {});
   }
-
-  source.meta.snapshotDate = today;
-  source.meta.automation.lastAutomatedCheckAt = now;
-  source.meta.automation.lastAutomatedSummary = `Playwright scrape ${today}: ${updated} prices updated, ${failed} failed.`;
-
-  fs.writeFileSync(sourcePath, `${JSON.stringify(source, null, 2)}\n`);
-
-  await browser.close();
-
-  console.log(`\n[Hotel Scraper] Done. Updated: ${updated}, Failed: ${failed}`);
-  console.log("[Hotel Scraper] Run 'npm run build:hotels' to rebuild the HTML dashboard.");
 }
 
-main().catch(err => {
-  console.error("[Hotel Scraper] Fatal:", err);
+main().catch((error) => {
+  console.error("[Hotel Scraper] Fatal:", error);
   process.exit(1);
 });

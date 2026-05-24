@@ -9,7 +9,7 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ## Current active work
 
 - Keep the Seattle and Portland itinerary current as prices, hours, and transit assumptions change.
-- **Hotel prices**: Run `npm run scrape:hotels` for a first pass, then manually verify any hotel whose direct booking flow only exposes a room-night price, hides the total behind interactive checkout, or returns a stale URL/Cloudflare block.
+- **Hotel prices**: Run `npm run scrape:hotels` for the layered direct-first monitor. Treat `blocked-direct`, `stale-direct-url`, `session-refresh-needed`, and `manual-review-needed` as real outputs, not generic failures. Only trust checkout-grade direct totals or clearly labeled fallback captures.
 - **Seattle**: Alert threshold $400. Boylston confirmed $384.13 (RES [redacted]) — hold unless a refundable direct quote under $400 appears.
 - **Portland**: Alert threshold $620. Hotel Vance confirmed $628.46 (conf# [redacted]) — hold unless challenger comes in under $620.
 - **PAL Award Tax Monitor**: Cadence: weekly Mon (now–Aug), 2×/week Mon+Thu (Sep), 3×/week Mon+Wed+Fri (Oct), stops Nov 1. Current taxes remain SFO→MNL $370.50, ORD→MNL $375.50 because the 2026-05-24 live run reached PAL but did not reach a tax result.
@@ -25,6 +25,7 @@ Ensure these are set in the repo's GitHub Actions secrets for email notification
 
 ## Completed 2026-05-24
 
+- Rebuilt hotel scraping as a layered direct-first monitor with per-chain routing, blocker classification, persistent browser profile support, fallback capture scaffolding, and regression tests.
 - Unified light/white theme across all 3 HTML pages (main dashboard, airfare tracker, hotels tracker). Dark GitHub-style theme removed.
 - Removed location moodboard section from main dashboard. Fixed `renderVisualStrip` null crash in `app.js`.
 - Added collapsible `<details>` blocks for: Booked Flights, Additional Booked Flights, Budget Breakdown, Verification Resources. All start collapsed.

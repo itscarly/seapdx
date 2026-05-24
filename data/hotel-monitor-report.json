@@ -6,11 +6,11 @@
     "automation": {
       "enabled": true,
       "cadence": "Before Sep 1 2026: Tue/Fri. Sep 1–30 2026: Mon. Oct 1 2026+: daily. Date-gated in scripts/monitor-hotels.js.",
-      "lastAutomatedCheckAt": "2026-05-24T03:31:09.601Z",
-      "lastAutomatedSummary": "Playwright scrape 2026-05-24: Paramount corrected to $731.60 after manual checkout verification; most direct booking flows still require interactive checkout or have stale URLs."
+      "lastAutomatedCheckAt": "2026-05-24T04:13:38.491Z",
+      "lastAutomatedSummary": "Layered monitor 2026-05-24: 0 direct captures, 0 fallback captures, 19 blocked, 11 manual-review."
     }
   },
-  "generatedAt": "2026-05-24T03:42:51.539Z",
+  "generatedAt": "2026-05-24T04:19:43.207Z",
   "cities": {
     "seattle": {
       "trip": {
@@ -45,43 +45,25 @@
         "confirmationNumber": "[redacted]",
         "confirmedTotalPaid": 384.13,
         "priceVerification": {
-          "status": "blocked",
-          "evidenceNote": "Direct Sonder property page is still rate-limited by Cloudflare. 2026-05-24 Playwright retry also failed to reach a live total.",
-          "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-          "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-          "source": "playwright:sonder.com"
+          "status": "manual-review-needed",
+          "evidenceNote": "sonder direct flow only exposed listing-grade pricing.",
+          "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+          "lastScrapeNote": "sonder direct flow only exposed listing-grade pricing.",
+          "source": "playwright:sonder",
+          "directEngine": "sonder",
+          "captureMethod": null,
+          "sourceTier": "last-verified",
+          "blockedReason": "ambiguous-total",
+          "observedAt": "2026-05-24T04:13:38.491Z",
+          "confidence": "low",
+          "rawEvidenceRef": "https://www.sonder.com/en-gb/destinations/seattle/the-boylston/c32505"
         },
-        "notes": "Preferred Seattle base. Hold unless a refundable direct quote under $400 appears on the watchlist."
+        "notes": "Preferred Seattle base. Hold unless a refundable direct quote under $400 appears on the watchlist.",
+        "fallbackAllowed": true
       },
       "eligible": [],
-      "excluded": [
-        {
-          "id": "paramount-hotel-seattle",
-          "name": "Paramount Hotel Seattle",
-          "brand": "Independent boutique",
-          "zone": "Downtown Seattle",
-          "address": "724 Pine St, Seattle, WA 98101",
-          "directBookingUrl": "https://bookings.travelclick.com/104207?adults=2&children=0&datein=11/01/2026&dateout=11/04/2026&HotelId=104207&languageid=1&rooms=1#/total",
-          "trueTotalCost": 731.6,
-          "reviewScore": 4.1,
-          "reviewUrl": "https://www.google.com/search?q=Paramount+Hotel+Seattle+reviews",
-          "safeNeighborhood": true,
-          "safetySource": "https://www.walkscore.com/score/724-pine-st-seattle-wa-98101",
-          "safetyNote": "Pine St downtown corridor — Pike Place Market area. Busy daytime, moderate evening activity.",
-          "hasElevator": true,
-          "transitScore": 86,
-          "transitNote": "Downtown, Link Light Rail Pike St 6-min walk",
-          "freeBreakfast": false,
-          "refundable": true,
-          "cancellationDeadline": "2026-11-01T12:00:00-07:00",
-          "priceVerification": {
-            "status": "live-verified",
-            "evidenceNote": "2026-05-24 manual checkout verification in TravelClick/Playwright: Flexible Rate - Includes $20 Dining Credit. Subtotal $620.00, taxes $111.60, total $731.60.",
-            "lastScrapedAt": "2026-05-24T03:31:09.601Z",
-            "source": "playwright:travelclick.com"
-          },
-          "notes": "Cancel by 12 PM local on arrival day. $20 dining credit included."
-        },
+      "excluded": [],
+      "needsCheck": [
         {
           "id": "hotel-max",
           "name": "Hotel Max",
@@ -102,13 +84,58 @@
           "refundable": true,
           "cancellationDeadline": "2026-10-30T16:00:00-07:00",
           "priceVerification": {
-            "status": "stale-price",
-            "evidenceNote": "SynXis direct booking flow. Modern Rooms Queen, Stay More Save More rate. Cart total $777.68 inc taxes.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:synxis.com"
+            "status": "manual-review-needed",
+            "evidenceNote": "synxis direct flow only exposed listing-grade pricing.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "synxis direct flow only exposed listing-grade pricing.",
+            "source": "playwright:synxis",
+            "directEngine": "synxis",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "medium",
+            "rawEvidenceRef": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=21123&child=0&currency=USD&depart=2026-11-04&hotel=76786&level=hotel&locale=en-US&productcurrency=USD&rooms=1"
           },
-          "notes": "Cancel by 4 PM local two days prior."
+          "notes": "Cancel by 4 PM local two days prior.",
+          "fallbackAllowed": true
+        },
+        {
+          "id": "paramount-hotel-seattle",
+          "name": "Paramount Hotel Seattle",
+          "brand": "Independent boutique",
+          "zone": "Downtown Seattle",
+          "address": "724 Pine St, Seattle, WA 98101",
+          "directBookingUrl": "https://bookings.travelclick.com/104207?adults=2&children=0&datein=11/01/2026&dateout=11/04/2026&HotelId=104207&languageid=1&rooms=1#/total",
+          "trueTotalCost": 731.6,
+          "reviewScore": 4.1,
+          "reviewUrl": "https://www.google.com/search?q=Paramount+Hotel+Seattle+reviews",
+          "safeNeighborhood": true,
+          "safetySource": "https://www.walkscore.com/score/724-pine-st-seattle-wa-98101",
+          "safetyNote": "Pine St downtown corridor — Pike Place Market area. Busy daytime, moderate evening activity.",
+          "hasElevator": true,
+          "transitScore": 86,
+          "transitNote": "Downtown, Link Light Rail Pike St 6-min walk",
+          "freeBreakfast": false,
+          "refundable": true,
+          "cancellationDeadline": "2026-11-01T12:00:00-07:00",
+          "priceVerification": {
+            "status": "manual-review-needed",
+            "evidenceNote": "travelclick direct flow only exposed listing-grade pricing.",
+            "lastScrapedAt": "2026-05-24T03:31:09.601Z",
+            "source": "playwright:travelclick",
+            "directEngine": "travelclick",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "medium",
+            "rawEvidenceRef": "https://bookings.travelclick.com/104207?adults=2&children=0&datein=11/01/2026&dateout=11/04/2026&HotelId=104207&languageid=1&rooms=1",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "travelclick direct flow only exposed listing-grade pricing."
+          },
+          "notes": "Cancel by 12 PM local on arrival day. $20 dining credit included.",
+          "fallbackAllowed": true
         },
         {
           "id": "state-hotel",
@@ -130,13 +157,21 @@
           "refundable": true,
           "cancellationDeadline": "2026-10-30T16:00:00-07:00",
           "priceVerification": {
-            "status": "stale-price",
-            "evidenceNote": "SynXis direct. Classic Rooms Queen BAR $909.46 inc taxes and $29/night amenity fee.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:synxis.com"
+            "status": "manual-review-needed",
+            "evidenceNote": "synxis direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "synxis direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:synxis",
+            "directEngine": "synxis",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "medium",
+            "rawEvidenceRef": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=8517&child=0&currency=USD&depart=2026-11-04&hotel=4079&level=hotel&locale=en-US&productcurrency=USD&rooms=1"
           },
-          "notes": "Cancel 4 PM two days prior. $29/night amenity fee baked in."
+          "notes": "Cancel 4 PM two days prior. $29/night amenity fee baked in.",
+          "fallbackAllowed": true
         },
         {
           "id": "hilton-seattle",
@@ -155,15 +190,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Full-service downtown Hilton. Solid reviews, business-friendly, central location.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "2026-05-24 Hilton direct URL returned a Hilton 404 page instead of availability for Nov 1–4 2026. Source URL likely stale and needs replacement before pricing can be captured.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hilton direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hilton direct flow returned anti-bot.",
+            "source": "playwright:hilton",
+            "directEngine": "hilton",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/hotels/seahitw-hilton-seattle/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hilton+Seattle+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/1301-6th-ave-seattle-wa-98101",
-          "safetyNote": "Downtown core — busy, monitored hotel district."
+          "safetyNote": "Downtown core — busy, monitored hotel district.",
+          "fallbackAllowed": true
         },
         {
           "id": "hampton-inn-seattle-downtown",
@@ -182,15 +225,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Budget-friendlier Hilton flag. Free hot breakfast included. Good reviews.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hilton direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hilton direct flow returned anti-bot.",
+            "source": "playwright:hilton",
+            "directEngine": "hilton",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/hotels/seadnhx-hampton-seattle-downtown/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hampton+Inn+Seattle+Downtown+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/700-5th-ave-n-seattle-wa-98109",
-          "safetyNote": "Lower Queen Anne — quiet residential/hotel mix. Very safe."
+          "safetyNote": "Lower Queen Anne — quiet residential/hotel mix. Very safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "canopy-hilton-capitol-hill",
@@ -209,15 +260,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Boutique-feel Hilton flag. Design-forward, local neighborhood vibe, strong guest scores.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hilton direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hilton direct flow returned anti-bot.",
+            "source": "playwright:hilton",
+            "directEngine": "hilton",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/hotels/seahecy-canopy-seattle-capitol-hill/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Canopy+by+Hilton+Seattle+Capitol+Hill+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/530-broadway-e-seattle-wa-98102",
-          "safetyNote": "Broadway E, Capitol Hill — lively commercial street, well-lit."
+          "safetyNote": "Broadway E, Capitol Hill — lively commercial street, well-lit.",
+          "fallbackAllowed": true
         },
         {
           "id": "hyatt-place-seattle-downtown",
@@ -236,15 +295,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Hyatt midscale flag. Complimentary breakfast. Often priced competitively for the area.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hyatt direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hyatt.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hyatt direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hyatt direct flow returned anti-bot.",
+            "source": "playwright:hyatt",
+            "directEngine": "hyatt",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hyatt.com/hyatt-place/en-US/seahs-hyatt-place-seattle-downtown?checkinDate=2026-11-01&checkoutDate=2026-11-04&adults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hyatt+Place+Seattle+Downtown+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/110-6th-ave-n-seattle-wa-98109",
-          "safetyNote": "Lower Queen Anne — calm, near Seattle Center. Very safe."
+          "safetyNote": "Lower Queen Anne — calm, near Seattle Center. Very safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "hyatt-house-seattle-downtown",
@@ -263,15 +330,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Hyatt extended-stay flag. Apartment-style rooms, free breakfast, often good value.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hyatt direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hyatt.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hyatt direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hyatt direct flow returned anti-bot.",
+            "source": "playwright:hyatt",
+            "directEngine": "hyatt",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hyatt.com/hyatt-house/en-US/seahh-hyatt-house-seattle-downtown?checkinDate=2026-11-01&checkoutDate=2026-11-04&adults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hyatt+House+Seattle+Downtown+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/201-5th-ave-n-seattle-wa-98109",
-          "safetyNote": "Lower Queen Anne — residential hotel block, very safe."
+          "safetyNote": "Lower Queen Anne — residential hotel block, very safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "even-hotel-seattle",
@@ -290,15 +365,23 @@
           "safeNeighborhood": true,
           "vibeNote": "IHG wellness-focused flag. Modern, clean design. Often competitive pricing in the Downtown corridor.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check IHG direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:ihg.com"
+            "status": "blocked-direct",
+            "evidenceNote": "ihg direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "ihg direct flow returned anti-bot.",
+            "source": "playwright:ihg",
+            "directEngine": "ihg",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.ihg.com/evenhotels/hotels/us/en/seattle/seaew/hoteldetail?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=seaew&qCiD=01&qCiMy=102026&qCoD=04&qCoMy=102026&qAdlt=2&qRms=1"
           },
           "reviewUrl": "https://www.google.com/search?q=EVEN+Hotel+Seattle+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/527-olive-way-seattle-wa-98101",
-          "safetyNote": "Olive Way downtown — midtown core, active all day."
+          "safetyNote": "Olive Way downtown — midtown core, active all day.",
+          "fallbackAllowed": true
         },
         {
           "id": "hotel-indigo-seattle",
@@ -317,15 +400,23 @@
           "safeNeighborhood": true,
           "vibeNote": "IHG boutique flag. Design-forward, neighborhood-inspired aesthetic. Strong young-professional appeal.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check IHG direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:ihg.com"
+            "status": "blocked-direct",
+            "evidenceNote": "ihg direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "ihg direct flow returned anti-bot.",
+            "source": "playwright:ihg",
+            "directEngine": "ihg",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.ihg.com/hotelindigo/hotels/us/en/seattle/seahd/hoteldetail?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=seahd&qCiD=01&qCiMy=102026&qCoD=04&qCoMy=102026&qAdlt=2&qRms=1"
           },
           "reviewUrl": "https://www.google.com/search?q=Hotel+Indigo+Seattle+Downtown+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/1933-5th-ave-seattle-wa-98101",
-          "safetyNote": "Belltown edge — mixed but well-patrolled hotel corridor."
+          "safetyNote": "Belltown edge — mixed but well-patrolled hotel corridor.",
+          "fallbackAllowed": true
         },
         {
           "id": "moxy-seattle-downtown",
@@ -344,15 +435,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Marriott's affordable lifestyle flag. Fun, energetic, design-forward. Strong young-professional vibe. Often $100–130/night.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Marriott direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
+            "status": "stale-direct-url",
+            "evidenceNote": "marriott direct flow returned stale-direct-url.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "marriott direct flow returned stale-direct-url.",
+            "source": "playwright:marriott",
+            "directEngine": "marriott",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "stale-direct-url",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.marriott.com/hotels/travel/seaho-moxy-seattle-downtown/?toDate=11/04/2026&fromDate=11/01/2026&clusterCode=none&numberOfRooms=1&guestCountBox=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Moxy+Seattle+Downtown+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/1016-1st-ave-seattle-wa-98104",
-          "safetyNote": "Pioneer Square / waterfront — improving area, vibrant daytime."
+          "safetyNote": "Pioneer Square / waterfront — improving area, vibrant daytime.",
+          "fallbackAllowed": true
         },
         {
           "id": "ac-hotel-seattle-downtown",
@@ -371,15 +470,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Marriott midscale lifestyle. Clean European aesthetic, minimalist rooms, popular with young professionals.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Marriott direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
+            "status": "stale-direct-url",
+            "evidenceNote": "marriott direct flow returned stale-direct-url.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "marriott direct flow returned stale-direct-url.",
+            "source": "playwright:marriott",
+            "directEngine": "marriott",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "stale-direct-url",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.marriott.com/hotels/travel/seaac-ac-hotel-seattle-downtown/?toDate=11/04/2026&fromDate=11/01/2026&clusterCode=none&numberOfRooms=1&guestCountBox=2"
           },
           "reviewUrl": "https://www.google.com/search?q=AC+Hotel+Seattle+Downtown+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/1421-2nd-ave-seattle-wa-98101",
-          "safetyNote": "2nd Ave downtown — busy retail corridor, very accessible."
+          "safetyNote": "2nd Ave downtown — busy retail corridor, very accessible.",
+          "fallbackAllowed": true
         },
         {
           "id": "courtyard-seattle-lake-union",
@@ -398,15 +505,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Marriott midscale workhorse. Reliable, clean, lake views. Often priced competitively in SLU.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Marriott direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
+            "status": "stale-direct-url",
+            "evidenceNote": "marriott direct flow returned stale-direct-url.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "marriott direct flow returned stale-direct-url.",
+            "source": "playwright:marriott",
+            "directEngine": "marriott",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "stale-direct-url",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.marriott.com/hotels/travel/seacd-courtyard-seattle-downtown-lake-union/?toDate=11/04/2026&fromDate=11/01/2026&clusterCode=none&numberOfRooms=1&guestCountBox=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Courtyard+Seattle+Downtown+Lake+Union+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/925-westlake-ave-n-seattle-wa-98109",
-          "safetyNote": "South Lake Union — tech district, clean and safe."
+          "safetyNote": "South Lake Union — tech district, clean and safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "charter-hotel-seattle",
@@ -425,15 +540,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Boutique Hilton flag. Design-forward, upscale feel, strong guest reviews. Pike Place Market 2 blocks.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hilton direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hilton direct flow returned anti-bot.",
+            "source": "playwright:hilton",
+            "directEngine": "hilton",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/hotels/seacuqq-the-charter-hotel-seattle-curio-collection/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=The+Charter+Hotel+Seattle+Curio+Collection+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/1610-2nd-ave-seattle-wa-98101",
-          "safetyNote": "Belltown / 2nd Ave — active nightlife block, generally safe."
+          "safetyNote": "Belltown / 2nd Ave — active nightlife block, generally safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "hotel-theodore-seattle",
@@ -452,341 +575,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Independent boutique. Inventive design theme, strong young-professional crowd. Well-reviewed.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "manual-review-needed",
+            "evidenceNote": "independent direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hoteltheodore.com/"
           },
           "reviewUrl": "https://www.google.com/search?q=Hotel+Theodore+Seattle+Seattle+reviews",
           "safetySource": "https://www.walkscore.com/score/1531-7th-ave-seattle-wa-98101",
-          "safetyNote": "Convention center area — well-monitored, business district."
-        }
-      ],
-      "needsCheck": [
-        {
-          "id": "hilton-seattle",
-          "name": "Hilton Seattle",
-          "brand": "Hilton",
-          "zone": "Downtown Seattle",
-          "address": "1301 6th Ave, Seattle, WA 98101",
-          "directBookingUrl": "https://www.hilton.com/en/hotels/seahitw-hilton-seattle/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.1,
-          "hasElevator": true,
-          "transitScore": 85,
-          "transitNote": "Link Light Rail at Convention Place 5-min walk",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Full-service downtown Hilton. Solid reviews, business-friendly, central location.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "2026-05-24 Hilton direct URL returned a Hilton 404 page instead of availability for Nov 1–4 2026. Source URL likely stale and needs replacement before pricing can be captured.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hilton+Seattle+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/1301-6th-ave-seattle-wa-98101",
-          "safetyNote": "Downtown core — busy, monitored hotel district."
-        },
-        {
-          "id": "hampton-inn-seattle-downtown",
-          "name": "Hampton Inn Seattle Downtown",
-          "brand": "Hampton Inn (Hilton)",
-          "zone": "South Lake Union",
-          "address": "700 5th Ave N, Seattle, WA 98109",
-          "directBookingUrl": "https://www.hilton.com/en/hotels/seadnhx-hampton-seattle-downtown/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitScore": 80,
-          "transitNote": "South Lake Union Streetcar at Thomas St 5-min walk. Link at Westlake 12-min walk.",
-          "freeBreakfast": true,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Budget-friendlier Hilton flag. Free hot breakfast included. Good reviews.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hampton+Inn+Seattle+Downtown+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/700-5th-ave-n-seattle-wa-98109",
-          "safetyNote": "Lower Queen Anne — quiet residential/hotel mix. Very safe."
-        },
-        {
-          "id": "canopy-hilton-capitol-hill",
-          "name": "Canopy by Hilton Seattle Capitol Hill",
-          "brand": "Canopy by Hilton",
-          "zone": "Capitol Hill",
-          "address": "530 Broadway E, Seattle, WA 98102",
-          "directBookingUrl": "https://www.hilton.com/en/hotels/seahecy-canopy-seattle-capitol-hill/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.4,
-          "hasElevator": true,
-          "transitScore": 95,
-          "transitNote": "Capitol Hill Link Light Rail 3-min walk — closest chain hotel to Boylston zone.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Boutique-feel Hilton flag. Design-forward, local neighborhood vibe, strong guest scores.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Canopy+by+Hilton+Seattle+Capitol+Hill+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/530-broadway-e-seattle-wa-98102",
-          "safetyNote": "Broadway E, Capitol Hill — lively commercial street, well-lit."
-        },
-        {
-          "id": "hyatt-place-seattle-downtown",
-          "name": "Hyatt Place Seattle/Downtown",
-          "brand": "Hyatt Place (Hyatt)",
-          "zone": "Belltown",
-          "address": "110 6th Ave N, Seattle, WA 98109",
-          "directBookingUrl": "https://www.hyatt.com/hyatt-place/en-US/seahs-hyatt-place-seattle-downtown?checkinDate=2026-11-01&checkoutDate=2026-11-04&adults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.1,
-          "hasElevator": true,
-          "transitScore": 82,
-          "transitNote": "Link Light Rail at Westlake 8-min walk. Belltown neighborhood.",
-          "freeBreakfast": true,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Hyatt midscale flag. Complimentary breakfast. Often priced competitively for the area.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hyatt direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hyatt.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hyatt+Place+Seattle+Downtown+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/110-6th-ave-n-seattle-wa-98109",
-          "safetyNote": "Lower Queen Anne — calm, near Seattle Center. Very safe."
-        },
-        {
-          "id": "hyatt-house-seattle-downtown",
-          "name": "Hyatt House Seattle/Downtown",
-          "brand": "Hyatt House (Hyatt)",
-          "zone": "South Lake Union",
-          "address": "201 5th Ave N, Seattle, WA 98109",
-          "directBookingUrl": "https://www.hyatt.com/hyatt-house/en-US/seahh-hyatt-house-seattle-downtown?checkinDate=2026-11-01&checkoutDate=2026-11-04&adults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitScore": 80,
-          "transitNote": "South Lake Union Streetcar 5-min walk. Extended-stay format with full kitchen.",
-          "freeBreakfast": true,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Hyatt extended-stay flag. Apartment-style rooms, free breakfast, often good value.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hyatt direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hyatt.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hyatt+House+Seattle+Downtown+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/201-5th-ave-n-seattle-wa-98109",
-          "safetyNote": "Lower Queen Anne — residential hotel block, very safe."
-        },
-        {
-          "id": "even-hotel-seattle",
-          "name": "EVEN Hotel Seattle",
-          "brand": "EVEN Hotels (IHG)",
-          "zone": "Downtown Seattle",
-          "address": "527 Olive Way, Seattle, WA 98101",
-          "directBookingUrl": "https://www.ihg.com/evenhotels/hotels/us/en/seattle/seaew/hoteldetail?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=seaew&qCiD=01&qCiMy=102026&qCoD=04&qCoMy=102026&qAdlt=2&qRms=1",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitScore": 85,
-          "transitNote": "Link Light Rail at Westlake 4-min walk. Central Downtown.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "IHG wellness-focused flag. Modern, clean design. Often competitive pricing in the Downtown corridor.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check IHG direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:ihg.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=EVEN+Hotel+Seattle+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/527-olive-way-seattle-wa-98101",
-          "safetyNote": "Olive Way downtown — midtown core, active all day."
-        },
-        {
-          "id": "hotel-indigo-seattle",
-          "name": "Hotel Indigo Seattle-Downtown",
-          "brand": "Hotel Indigo (IHG)",
-          "zone": "Belltown",
-          "address": "1933 5th Ave, Seattle, WA 98101",
-          "directBookingUrl": "https://www.ihg.com/hotelindigo/hotels/us/en/seattle/seahd/hoteldetail?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=seahd&qCiD=01&qCiMy=102026&qCoD=04&qCoMy=102026&qAdlt=2&qRms=1",
-          "trueTotalCost": null,
-          "reviewScore": 4.3,
-          "hasElevator": true,
-          "transitScore": 83,
-          "transitNote": "Link Light Rail at Westlake 6-min walk. Belltown neighborhood.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "IHG boutique flag. Design-forward, neighborhood-inspired aesthetic. Strong young-professional appeal.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check IHG direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:ihg.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hotel+Indigo+Seattle+Downtown+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/1933-5th-ave-seattle-wa-98101",
-          "safetyNote": "Belltown edge — mixed but well-patrolled hotel corridor."
-        },
-        {
-          "id": "moxy-seattle-downtown",
-          "name": "Moxy Seattle Downtown",
-          "brand": "Moxy (Marriott)",
-          "zone": "Pioneer Square / First Avenue",
-          "address": "1016 1st Ave, Seattle, WA 98104",
-          "directBookingUrl": "https://www.marriott.com/hotels/travel/seaho-moxy-seattle-downtown/?toDate=11/04/2026&fromDate=11/01/2026&clusterCode=none&numberOfRooms=1&guestCountBox=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitScore": 88,
-          "transitNote": "King Street Amtrak Station 10-min walk. Pioneer Square Link Light Rail 5-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Marriott's affordable lifestyle flag. Fun, energetic, design-forward. Strong young-professional vibe. Often $100–130/night.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Marriott direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Moxy+Seattle+Downtown+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/1016-1st-ave-seattle-wa-98104",
-          "safetyNote": "Pioneer Square / waterfront — improving area, vibrant daytime."
-        },
-        {
-          "id": "ac-hotel-seattle-downtown",
-          "name": "AC Hotel Seattle Downtown",
-          "brand": "AC Hotels (Marriott)",
-          "zone": "Downtown Seattle",
-          "address": "1421 2nd Ave, Seattle, WA 98101",
-          "directBookingUrl": "https://www.marriott.com/hotels/travel/seaac-ac-hotel-seattle-downtown/?toDate=11/04/2026&fromDate=11/01/2026&clusterCode=none&numberOfRooms=1&guestCountBox=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.3,
-          "hasElevator": true,
-          "transitScore": 84,
-          "transitNote": "Downtown core. Link Light Rail at University St 6-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Marriott midscale lifestyle. Clean European aesthetic, minimalist rooms, popular with young professionals.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Marriott direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=AC+Hotel+Seattle+Downtown+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/1421-2nd-ave-seattle-wa-98101",
-          "safetyNote": "2nd Ave downtown — busy retail corridor, very accessible."
-        },
-        {
-          "id": "courtyard-seattle-lake-union",
-          "name": "Courtyard Seattle Downtown/Lake Union",
-          "brand": "Courtyard (Marriott)",
-          "zone": "South Lake Union",
-          "address": "925 Westlake Ave N, Seattle, WA 98109",
-          "directBookingUrl": "https://www.marriott.com/hotels/travel/seacd-courtyard-seattle-downtown-lake-union/?toDate=11/04/2026&fromDate=11/01/2026&clusterCode=none&numberOfRooms=1&guestCountBox=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.1,
-          "hasElevator": true,
-          "transitScore": 78,
-          "transitNote": "SLU Streetcar at Westlake & Thomas 3-min walk. Solid transit access to downtown.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Marriott midscale workhorse. Reliable, clean, lake views. Often priced competitively in SLU.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Marriott direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Courtyard+Seattle+Downtown+Lake+Union+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/925-westlake-ave-n-seattle-wa-98109",
-          "safetyNote": "South Lake Union — tech district, clean and safe."
-        },
-        {
-          "id": "charter-hotel-seattle",
-          "name": "The Charter Hotel Seattle, Curio Collection by Hilton",
-          "brand": "Curio Collection (Hilton)",
-          "zone": "Downtown / Pike Place area",
-          "address": "1610 2nd Ave, Seattle, WA 98101",
-          "directBookingUrl": "https://www.hilton.com/en/hotels/seacuqq-the-charter-hotel-seattle-curio-collection/?arrivaldate=2026-11-01&departuredate=2026-11-04&room1NumAdults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.4,
-          "hasElevator": true,
-          "transitScore": 83,
-          "transitNote": "Pike Place / Belltown area. Link at Westlake 7-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Boutique Hilton flag. Design-forward, upscale feel, strong guest reviews. Pike Place Market 2 blocks.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=The+Charter+Hotel+Seattle+Curio+Collection+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/1610-2nd-ave-seattle-wa-98101",
-          "safetyNote": "Belltown / 2nd Ave — active nightlife block, generally safe."
-        },
-        {
-          "id": "hotel-theodore-seattle",
-          "name": "Hotel Theodore",
-          "brand": "Independent boutique",
-          "zone": "Downtown Seattle",
-          "address": "1531 7th Ave, Seattle, WA 98101",
-          "directBookingUrl": "https://www.hoteltheodore.com/",
-          "trueTotalCost": null,
-          "reviewScore": 4.3,
-          "hasElevator": true,
-          "transitScore": 84,
-          "transitNote": "Link Light Rail at Convention Place 4-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Independent boutique. Inventive design theme, strong young-professional crowd. Well-reviewed.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 1–4 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hotel+Theodore+Seattle+Seattle+reviews",
-          "safetySource": "https://www.walkscore.com/score/1531-7th-ave-seattle-wa-98101",
-          "safetyNote": "Convention center area — well-monitored, business district."
+          "safetyNote": "Convention center area — well-monitored, business district.",
+          "fallbackAllowed": true
         }
       ],
       "watchlistTotal": 15,
@@ -832,354 +637,23 @@
         "guests": 2,
         "notes": "Benchmark. Hold unless a qualifying challenger comes in under $620 with 4.0+ stars, elevator, and transit access.",
         "priceVerification": {
-          "status": "stale-price",
-          "evidenceNote": "Confirmed booking remains $628.46, but 2026-05-24 Playwright retry did not reach a live Tribute Portfolio checkout total.",
-          "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-          "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-          "source": "playwright:marriott.com"
-        }
+          "status": "blocked-direct",
+          "evidenceNote": "marriott direct flow returned anti-bot.",
+          "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+          "lastScrapeNote": "marriott direct flow returned anti-bot.",
+          "source": "playwright:marriott",
+          "directEngine": "marriott",
+          "captureMethod": null,
+          "sourceTier": "last-verified",
+          "blockedReason": "anti-bot",
+          "observedAt": "2026-05-24T04:13:38.491Z",
+          "confidence": "medium",
+          "rawEvidenceRef": "https://www.marriott.com/en-us/hotels/pdxvt-hotel-vance-portland-a-tribute-portfolio-hotel/overview/"
+        },
+        "fallbackAllowed": true
       },
       "eligible": [],
-      "excluded": [
-        {
-          "id": "the-nines-portland",
-          "name": "The Nines Portland",
-          "brand": "Luxury Collection (Marriott)",
-          "zone": "Downtown / Morrison Bridge area",
-          "address": "525 SW Morrison St, Portland, OR 97204",
-          "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxlc-the-nines-portland-a-luxury-collection-hotel/",
-          "trueTotalCost": null,
-          "reviewScore": 4.5,
-          "hasElevator": true,
-          "transitNote": "MAX Red/Blue/Green/Yellow all within 3-min walk at Pioneer Courthouse Sq",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Upscale, design-forward atrium hotel in historic Meier & Frank building. Lively lobby bar.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check direct Marriott page for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=The+Nines+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/525-sw-morrison-st-portland-or-97204",
-          "safetyNote": "Downtown Morrison — central, busy, well-patrolled."
-        },
-        {
-          "id": "hotel-deluxe-portland",
-          "name": "Hotel deLuxe",
-          "brand": "Independent boutique",
-          "zone": "Goose Hollow / NW Portland",
-          "address": "729 SW 15th Ave, Portland, OR 97205",
-          "directBookingUrl": "https://www.hoteldeluxeportland.com/",
-          "trueTotalCost": null,
-          "reviewScore": 4.3,
-          "hasElevator": true,
-          "transitNote": "Portland Streetcar (NS line) at SW 14th & Morrison 3-min walk. MAX Blue/Red at Providence Park 5-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Art deco boutique. Old Hollywood glamour meets modern PDX. Young professional crowd. Very walkable.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.hoteldeluxeportland.com/\nCall log:\n\u001b[2m  - navigating to \"https://www.hoteldeluxeportland.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
-            "source": "playwright-error"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hotel+deLuxe+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/729-sw-15th-ave-portland-or-97205",
-          "safetyNote": "Goose Hollow / West End — quiet, residential-adjacent. Safe."
-        },
-        {
-          "id": "the-benson-hotel",
-          "name": "The Benson Hotel",
-          "brand": "Independent (historic)",
-          "zone": "Downtown Portland",
-          "address": "309 SW Broadway, Portland, OR 97205",
-          "directBookingUrl": "https://www.bensonhotel.com/",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitNote": "1 block from Hotel Vance. SW Broadway & Oak. MAX at Pioneer Sq 5-min walk. Streetcar at SW 10th 3-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Classic Portland landmark. Grand lobby, walnut paneling. Solid midscale option if price drops.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=The+Benson+Hotel+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/309-sw-broadway-portland-or-97205",
-          "safetyNote": "SW Broadway — Portland's main downtown hotel corridor."
-        },
-        {
-          "id": "kimpton-vintage-portland",
-          "name": "Kimpton Hotel Vintage Portland",
-          "brand": "Kimpton (IHG)",
-          "zone": "Downtown Portland",
-          "address": "422 SW Broadway, Portland, OR 97205",
-          "directBookingUrl": "https://www.hotelvintageportland.com/",
-          "trueTotalCost": null,
-          "reviewScore": 4.4,
-          "hasElevator": true,
-          "transitNote": "SW Broadway at SW Washington. MAX at Pioneer Sq 3-min walk. Streetcar at SW 10th & Washington 2-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Wine-forward boutique. Daily hosted wine hour. Oregon winery theme. Strong guest reviews. Lively crowd.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Kimpton+Hotel+Vintage+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/422-sw-broadway-portland-or-97205",
-          "safetyNote": "SW Broadway core — vibrant restaurant and hotel district."
-        },
-        {
-          "id": "graduate-portland",
-          "name": "Graduate Portland",
-          "brand": "Graduate Hotels (boutique chain)",
-          "zone": "Downtown Portland",
-          "address": "621 SW 10th Ave, Portland, OR 97205",
-          "directBookingUrl": "https://www.graduatehotels.com/portland/",
-          "trueTotalCost": null,
-          "reviewScore": 4.1,
-          "hasElevator": true,
-          "transitNote": "SW 10th & Alder. Streetcar at SW 10th & Alder 1-min walk. MAX at Pioneer Sq 4-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Design-forward collegiate-inspired boutique. Tends to price lower than nearby chains. Good lobby energy.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Graduate+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/621-sw-10th-ave-portland-or-97205",
-          "safetyNote": "PSU / Park Blocks — university district, generally safe."
-        },
-        {
-          "id": "the-society-hotel-portland",
-          "name": "The Society Hotel",
-          "brand": "Independent boutique",
-          "zone": "Old Town / Pearl District",
-          "address": "203 NW 3rd Ave, Portland, OR 97209",
-          "directBookingUrl": "https://www.thesocietyhotel.com/portland",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitNote": "MAX Yellow at NW 5th & Couch 4-min walk. Pearl District streetcar 6-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Converted 1880s sailor's boarding house. Industrial-chic, locally loved, very Portland. Strong vibe for young professionals.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=The+Society+Hotel+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/203-nw-3rd-ave-portland-or-97209",
-          "safetyNote": "Old Town / Chinatown edge — mixed; safe near hotel block, aware at night."
-        },
-        {
-          "id": "sentinel-hotel-portland",
-          "name": "Sentinel Hotel",
-          "brand": "Autograph Collection (Marriott)",
-          "zone": "Downtown Portland",
-          "address": "614 SW 11th Ave, Portland, OR 97205",
-          "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxak-sentinel-hotel/",
-          "trueTotalCost": null,
-          "reviewScore": 4.3,
-          "hasElevator": true,
-          "transitNote": "SW 11th & Alder. Streetcar at SW 11th & Alder 1-min walk. MAX Pioneer Sq 5-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Historic design hotel. Classic Portland feel, upscale crowd, great location. Jake's Famous Crawfish on ground floor.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Sentinel+Hotel+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/614-sw-11th-ave-portland-or-97205",
-          "safetyNote": "West End near Park Blocks — calm, arts district. Safe."
-        },
-        {
-          "id": "hilton-portland-downtown",
-          "name": "Hilton Portland Downtown",
-          "brand": "Hilton",
-          "zone": "Downtown Portland",
-          "address": "921 SW 6th Ave, Portland, OR 97204",
-          "directBookingUrl": "https://www.hilton.com/en/hotels/pdxhhhf-hilton-portland-downtown/?arrivaldate=2026-11-04&departuredate=2026-11-09&room1NumAdults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.1,
-          "hasElevator": true,
-          "transitNote": "MAX at SW 6th & Main (all lines) 2-min walk. Portland Streetcar 3-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Full-service downtown Hilton. Solid reviews, reliable, central South Park Blocks location.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hilton+Portland+Downtown+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/921-sw-6th-ave-portland-or-97204",
-          "safetyNote": "SW 6th downtown — Justice Center area, well-monitored."
-        },
-        {
-          "id": "hampton-inn-portland-downtown",
-          "name": "Hampton Inn Portland Downtown",
-          "brand": "Hampton Inn (Hilton)",
-          "zone": "Downtown Portland / South Park Blocks",
-          "address": "131 SW Harrison St, Portland, OR 97201",
-          "directBookingUrl": "https://www.hilton.com/en/hotels/pdxswhx-hampton-portland-downtown/?arrivaldate=2026-11-04&departuredate=2026-11-09&room1NumAdults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitNote": "Portland Streetcar NS line at SW Harrison St 2-min walk. MAX at PSU Urban Center 3-min walk.",
-          "freeBreakfast": true,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Hilton midscale flag. Free hot breakfast. 1 block from Hotel Vance — same transit access at potentially lower price.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hampton+Inn+Portland+Downtown+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/131-sw-harrison-st-portland-or-97201",
-          "safetyNote": "South Park Blocks / PSU — clean university-adjacent area."
-        },
-        {
-          "id": "hyatt-place-portland-downtown",
-          "name": "Hyatt Place Portland/Downtown",
-          "brand": "Hyatt Place (Hyatt)",
-          "zone": "Downtown Portland",
-          "address": "232 SW Morrison St, Portland, OR 97204",
-          "directBookingUrl": "https://www.hyatt.com/hyatt-place/en-US/pdxzp-hyatt-place-portland-downtown?checkinDate=2026-11-04&checkoutDate=2026-11-09&adults=2",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitNote": "MAX at SW 3rd & Morrison (all lines) 3-min walk. Portland Streetcar 4-min walk.",
-          "freeBreakfast": true,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Hyatt midscale flag. Free breakfast included. Often priced below nearby full-service hotels.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hyatt direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hyatt.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hyatt+Place+Portland+Downtown+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/232-sw-morrison-st-portland-or-97204",
-          "safetyNote": "Morrison St core — central, busy, standard downtown caution."
-        },
-        {
-          "id": "hotel-lucia-portland",
-          "name": "Hotel Lucia",
-          "brand": "Independent boutique",
-          "zone": "Downtown Portland",
-          "address": "400 SW Broadway, Portland, OR 97205",
-          "directBookingUrl": "https://www.hotellucia.com/",
-          "trueTotalCost": null,
-          "reviewScore": 4.3,
-          "hasElevator": true,
-          "transitNote": "SW Broadway & Washington. MAX at Pioneer Sq 2-min walk. Portland Streetcar at SW 10th & Washington 2-min walk.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Independent boutique. Art photography throughout, cool Portland aesthetic. Strong guest reviews, central location.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Hotel+Lucia+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/400-sw-broadway-portland-or-97205",
-          "safetyNote": "SW Broadway — boutique hotel district, safe block."
-        },
-        {
-          "id": "kimpton-riverplace-portland",
-          "name": "Kimpton RiverPlace Hotel",
-          "brand": "Kimpton (IHG)",
-          "zone": "South Waterfront / RiverPlace",
-          "address": "1510 SW Harbor Way, Portland, OR 97201",
-          "directBookingUrl": "https://www.ihg.com/kimptonhotels/hotels/us/en/portland/pdxrp/hoteldetail",
-          "trueTotalCost": null,
-          "reviewScore": 4.4,
-          "hasElevator": true,
-          "transitNote": "Portland Streetcar NS line at SW River Pkwy & Moody 5-min walk. Willamette River views.",
-          "freeBreakfast": false,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "IHG Kimpton boutique. Riverside setting, marina views, wine hour. Upscale boutique feel, strong reviews.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check IHG/Kimpton direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:ihg.com"
-          },
-          "reviewUrl": "https://www.google.com/search?q=Kimpton+RiverPlace+Hotel+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/1510-sw-harbor-way-portland-or-97201",
-          "safetyNote": "South Waterfront / RiverPlace — quiet, scenic, very safe."
-        },
-        {
-          "id": "mark-spencer-hotel-portland",
-          "name": "The Mark Spencer Hotel",
-          "brand": "Independent boutique",
-          "zone": "Downtown Portland / Pearl District edge",
-          "address": "409 SW 11th Ave, Portland, OR 97205",
-          "directBookingUrl": "https://www.markspencer.com/",
-          "trueTotalCost": null,
-          "reviewScore": 4.2,
-          "hasElevator": true,
-          "transitNote": "Portland Streetcar at SW 11th & Alder 1-min walk. MAX Pioneer Sq 5-min walk.",
-          "freeBreakfast": true,
-          "refundable": null,
-          "safeNeighborhood": true,
-          "vibeNote": "Portland institution. Independent boutique, often ~$110–130/night total. Free continental breakfast. Quiet, well-reviewed, great value.",
-          "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
-          },
-          "reviewUrl": "https://www.google.com/search?q=The+Mark+Spencer+Hotel+Portland+Portland+reviews",
-          "safetySource": "https://www.walkscore.com/score/409-sw-11th-ave-portland-or-97205",
-          "safetyNote": "West End near Powell's — arts/retail district, safe."
-        }
-      ],
+      "excluded": [],
       "needsCheck": [
         {
           "id": "the-nines-portland",
@@ -1197,15 +671,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Upscale, design-forward atrium hotel in historic Meier & Frank building. Lively lobby bar.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check direct Marriott page for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
+            "status": "blocked-direct",
+            "evidenceNote": "marriott direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "marriott direct flow returned anti-bot.",
+            "source": "playwright:marriott",
+            "directEngine": "marriott",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.marriott.com/en-us/hotels/pdxlc-the-nines-portland-a-luxury-collection-hotel/overview/"
           },
           "reviewUrl": "https://www.google.com/search?q=The+Nines+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/525-sw-morrison-st-portland-or-97204",
-          "safetyNote": "Downtown Morrison — central, busy, well-patrolled."
+          "safetyNote": "Downtown Morrison — central, busy, well-patrolled.",
+          "fallbackAllowed": true
         },
         {
           "id": "hotel-deluxe-portland",
@@ -1223,15 +705,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Art deco boutique. Old Hollywood glamour meets modern PDX. Young professional crowd. Very walkable.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
+            "status": "manual-review-needed",
+            "evidenceNote": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.hoteldeluxeportland.com/\nCall log:\n\u001b[2m  - navigating to \"https://www.hoteldeluxeportland.com/\", waiting until \"domcontentloaded\"\u001b[22m",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
             "lastScrapeNote": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.hoteldeluxeportland.com/\nCall log:\n\u001b[2m  - navigating to \"https://www.hoteldeluxeportland.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
-            "source": "playwright-error"
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "navigation-failed",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": null
           },
           "reviewUrl": "https://www.google.com/search?q=Hotel+deLuxe+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/729-sw-15th-ave-portland-or-97205",
-          "safetyNote": "Goose Hollow / West End — quiet, residential-adjacent. Safe."
+          "safetyNote": "Goose Hollow / West End — quiet, residential-adjacent. Safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "the-benson-hotel",
@@ -1249,15 +739,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Classic Portland landmark. Grand lobby, walnut paneling. Solid midscale option if price drops.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "manual-review-needed",
+            "evidenceNote": "independent direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.bensonhotel.com/"
           },
           "reviewUrl": "https://www.google.com/search?q=The+Benson+Hotel+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/309-sw-broadway-portland-or-97205",
-          "safetyNote": "SW Broadway — Portland's main downtown hotel corridor."
+          "safetyNote": "SW Broadway — Portland's main downtown hotel corridor.",
+          "fallbackAllowed": true
         },
         {
           "id": "kimpton-vintage-portland",
@@ -1275,15 +773,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Wine-forward boutique. Daily hosted wine hour. Oregon winery theme. Strong guest reviews. Lively crowd.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "manual-review-needed",
+            "evidenceNote": "independent direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hotelvintageportland.com/"
           },
           "reviewUrl": "https://www.google.com/search?q=Kimpton+Hotel+Vintage+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/422-sw-broadway-portland-or-97205",
-          "safetyNote": "SW Broadway core — vibrant restaurant and hotel district."
+          "safetyNote": "SW Broadway core — vibrant restaurant and hotel district.",
+          "fallbackAllowed": true
         },
         {
           "id": "graduate-portland",
@@ -1301,15 +807,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Design-forward collegiate-inspired boutique. Tends to price lower than nearby chains. Good lobby energy.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "blocked-direct",
+            "evidenceNote": "independent direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow returned anti-bot.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/brands/graduate-hotels/"
           },
           "reviewUrl": "https://www.google.com/search?q=Graduate+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/621-sw-10th-ave-portland-or-97205",
-          "safetyNote": "PSU / Park Blocks — university district, generally safe."
+          "safetyNote": "PSU / Park Blocks — university district, generally safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "the-society-hotel-portland",
@@ -1327,15 +841,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Converted 1880s sailor's boarding house. Industrial-chic, locally loved, very Portland. Strong vibe for young professionals.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "manual-review-needed",
+            "evidenceNote": "independent direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.thesocietyhotel.com/portland"
           },
           "reviewUrl": "https://www.google.com/search?q=The+Society+Hotel+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/203-nw-3rd-ave-portland-or-97209",
-          "safetyNote": "Old Town / Chinatown edge — mixed; safe near hotel block, aware at night."
+          "safetyNote": "Old Town / Chinatown edge — mixed; safe near hotel block, aware at night.",
+          "fallbackAllowed": true
         },
         {
           "id": "sentinel-hotel-portland",
@@ -1353,15 +875,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Historic design hotel. Classic Portland feel, upscale crowd, great location. Jake's Famous Crawfish on ground floor.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:marriott.com"
+            "status": "blocked-direct",
+            "evidenceNote": "marriott direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "marriott direct flow returned anti-bot.",
+            "source": "playwright:marriott",
+            "directEngine": "marriott",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.marriott.com/en-us/hotels/pdxak-sentinel-hotel/overview/"
           },
           "reviewUrl": "https://www.google.com/search?q=Sentinel+Hotel+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/614-sw-11th-ave-portland-or-97205",
-          "safetyNote": "West End near Park Blocks — calm, arts district. Safe."
+          "safetyNote": "West End near Park Blocks — calm, arts district. Safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "hilton-portland-downtown",
@@ -1379,15 +909,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Full-service downtown Hilton. Solid reviews, reliable, central South Park Blocks location.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hilton direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hilton direct flow returned anti-bot.",
+            "source": "playwright:hilton",
+            "directEngine": "hilton",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/hotels/pdxhhhf-hilton-portland-downtown/?arrivaldate=2026-11-04&departuredate=2026-11-09&room1NumAdults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hilton+Portland+Downtown+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/921-sw-6th-ave-portland-or-97204",
-          "safetyNote": "SW 6th downtown — Justice Center area, well-monitored."
+          "safetyNote": "SW 6th downtown — Justice Center area, well-monitored.",
+          "fallbackAllowed": true
         },
         {
           "id": "hampton-inn-portland-downtown",
@@ -1405,15 +943,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Hilton midscale flag. Free hot breakfast. 1 block from Hotel Vance — same transit access at potentially lower price.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hilton direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hilton.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hilton direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hilton direct flow returned anti-bot.",
+            "source": "playwright:hilton",
+            "directEngine": "hilton",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hilton.com/en/hotels/pdxswhx-hampton-portland-downtown/?arrivaldate=2026-11-04&departuredate=2026-11-09&room1NumAdults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hampton+Inn+Portland+Downtown+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/131-sw-harrison-st-portland-or-97201",
-          "safetyNote": "South Park Blocks / PSU — clean university-adjacent area."
+          "safetyNote": "South Park Blocks / PSU — clean university-adjacent area.",
+          "fallbackAllowed": true
         },
         {
           "id": "hyatt-place-portland-downtown",
@@ -1431,15 +977,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Hyatt midscale flag. Free breakfast included. Often priced below nearby full-service hotels.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check Hyatt direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:hyatt.com"
+            "status": "blocked-direct",
+            "evidenceNote": "hyatt direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "hyatt direct flow returned anti-bot.",
+            "source": "playwright:hyatt",
+            "directEngine": "hyatt",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hyatt.com/hyatt-place/en-US/pdxzp-hyatt-place-portland-downtown?checkinDate=2026-11-04&checkoutDate=2026-11-09&adults=2"
           },
           "reviewUrl": "https://www.google.com/search?q=Hyatt+Place+Portland+Downtown+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/232-sw-morrison-st-portland-or-97204",
-          "safetyNote": "Morrison St core — central, busy, standard downtown caution."
+          "safetyNote": "Morrison St core — central, busy, standard downtown caution.",
+          "fallbackAllowed": true
         },
         {
           "id": "hotel-lucia-portland",
@@ -1457,15 +1011,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Independent boutique. Art photography throughout, cool Portland aesthetic. Strong guest reviews, central location.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "manual-review-needed",
+            "evidenceNote": "independent direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.hotellucia.com/"
           },
           "reviewUrl": "https://www.google.com/search?q=Hotel+Lucia+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/400-sw-broadway-portland-or-97205",
-          "safetyNote": "SW Broadway — boutique hotel district, safe block."
+          "safetyNote": "SW Broadway — boutique hotel district, safe block.",
+          "fallbackAllowed": true
         },
         {
           "id": "kimpton-riverplace-portland",
@@ -1483,15 +1045,23 @@
           "safeNeighborhood": true,
           "vibeNote": "IHG Kimpton boutique. Riverside setting, marina views, wine hour. Upscale boutique feel, strong reviews.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check IHG/Kimpton direct for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:ihg.com"
+            "status": "blocked-direct",
+            "evidenceNote": "ihg direct flow returned anti-bot.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "ihg direct flow returned anti-bot.",
+            "source": "playwright:ihg",
+            "directEngine": "ihg",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "anti-bot",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.ihg.com/kimptonhotels/hotels/us/en/portland/pdxrp/hoteldetail"
           },
           "reviewUrl": "https://www.google.com/search?q=Kimpton+RiverPlace+Hotel+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/1510-sw-harbor-way-portland-or-97201",
-          "safetyNote": "South Waterfront / RiverPlace — quiet, scenic, very safe."
+          "safetyNote": "South Waterfront / RiverPlace — quiet, scenic, very safe.",
+          "fallbackAllowed": true
         },
         {
           "id": "mark-spencer-hotel-portland",
@@ -1509,15 +1079,23 @@
           "safeNeighborhood": true,
           "vibeNote": "Portland institution. Independent boutique, often ~$110–130/night total. Free continental breakfast. Quiet, well-reviewed, great value.",
           "priceVerification": {
-            "status": "scrape-failed",
-            "evidenceNote": "Price not yet captured. Check hotel direct site for Nov 4–9 2026.",
-            "lastAttemptedAt": "2026-05-24T03:31:09.601Z",
-            "lastScrapeNote": "Price not found in rendered page. Site may require interactive session.",
-            "source": "playwright:generic"
+            "status": "manual-review-needed",
+            "evidenceNote": "independent direct flow did not expose a trustworthy stay total.",
+            "lastAttemptedAt": "2026-05-24T04:13:38.491Z",
+            "lastScrapeNote": "independent direct flow did not expose a trustworthy stay total.",
+            "source": "playwright:independent",
+            "directEngine": "independent",
+            "captureMethod": null,
+            "sourceTier": "last-verified",
+            "blockedReason": "ambiguous-total",
+            "observedAt": "2026-05-24T04:13:38.491Z",
+            "confidence": "low",
+            "rawEvidenceRef": "https://www.markspencer.com/"
           },
           "reviewUrl": "https://www.google.com/search?q=The+Mark+Spencer+Hotel+Portland+Portland+reviews",
           "safetySource": "https://www.walkscore.com/score/409-sw-11th-ave-portland-or-97205",
-          "safetyNote": "West End near Powell's — arts/retail district, safe."
+          "safetyNote": "West End near Powell's — arts/retail district, safe.",
+          "fallbackAllowed": true
         }
       ],
       "watchlistTotal": 13,

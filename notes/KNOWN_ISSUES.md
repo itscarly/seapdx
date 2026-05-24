@@ -16,7 +16,7 @@
 ### Many direct booking flows still block unattended price capture
 
 - Status: open
-- Detail: the 2026-05-24 live refresh showed that several hotel brands require interactive checkout before exposing a real total, Boylston remains Cloudflare-blocked, one tracked Hilton URL now returns a Hilton 404 page, and PAL award-tax searches land on the generic home flow behind cookie/interaction gates
+- Detail: the layered monitor now classifies these honestly as `blocked-direct`, `stale-direct-url`, or `manual-review-needed`, but most chain flows still do not expose a trustworthy automated total. Hilton, Hyatt, and IHG are still anti-bot heavy; several Marriott property URLs are stale; boutique engines still require checkout-grade totals to avoid nightly-rate mistakes.
 
 ### Airfare tracker UI is still below the main dashboard quality bar
 

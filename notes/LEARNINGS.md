@@ -33,6 +33,16 @@
 - Boylston stayed Cloudflare-blocked, Hilton Seattle's tracked direct URL returned a Hilton 404, and PAL's award-tax flow loaded the generic home page behind cookie/interaction gates.
 - When this happens, keep the last known verified number if one exists, record the blocker in `priceVerification` or `taxHistory`, and remove stale "needs-check" wording.
 
+### Checkout engines need stricter acceptance rules than brand blocks do
+
+- The first layered dry run still produced fake "captures" for Boylston, Hotel Max, and Paramount because listing-page text looked like totals.
+- Fix: TravelClick, SynXis, and Sonder should only count as success when the monitor reaches a checkout-grade subtotal/tax/total view. If they only expose listing text, downgrade to `manual-review-needed` and preserve the last trustworthy total.
+
+### Persistent browser profiles are useful, but honesty still matters more than coverage
+
+- Hilton, Hyatt, IHG, and several Marriott flows still returned anti-bot or stale-page states even with the persistent Playwright profile path in place.
+- The right behavior is explicit `blocked-direct` or `stale-direct-url`, not retry loops or invented prices.
+
 ### Hotel benchmark is a confirmed booking, not a watch candidate
 
 - Boylston (RES ID [redacted], $384.13 total) is locked in. Monitor only hunts for a refundable sub-$400 option near King Street Amtrak or Link Light Rail. Do not reopen the benchmark status unless the reservation is cancelled.
