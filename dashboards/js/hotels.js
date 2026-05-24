@@ -39,20 +39,48 @@ function summaryCard(label, value, detail) {
     </article>`;
 }
 
+function displayPrice(hotel) {
+  return typeof hotel?.trueTotalCost === "number"
+    ? hotel.trueTotalCost
+    : typeof hotel?.confirmedTotalPaid === "number"
+      ? hotel.confirmedTotalPaid
+      : null;
+}
+
+function reviewState(hotel) {
+  return ["blocked-direct", "session-refresh-needed", "manual-review-needed", "stale-direct-url"]
+    .includes(hotel.priceVerification?.status);
+}
+
+function reviewLabel(hotel) {
+  const status = hotel.priceVerification?.status;
+  if (status === "blocked-direct") return "Live check blocked";
+  if (status === "stale-direct-url") return "Direct URL stale";
+  if (status === "session-refresh-needed") return "Session refresh needed";
+  if (status === "manual-review-needed") return "Last verified price";
+  return "Needs review";
+}
+
 function hotelCard(hotel, threshold, mode) {
   const isEligible = mode === "eligible";
-  const needsReviewStatuses = ["blocked-direct", "session-refresh-needed", "manual-review-needed", "stale-direct-url"];
-  const isNeedsCheck = hotel.trueTotalCost === null || hotel.trueTotalCost === undefined || needsReviewStatuses.includes(hotel.priceVerification?.status);
-  const badgeLabel = isEligible ? "Qualifies" : isNeedsCheck ? "Needs review" : "Over threshold";
+  const price = displayPrice(hotel);
+  const isNeedsCheck = price == null || reviewState(hotel);
+  const badgeLabel = isEligible
+    ? "Qualifies"
+    : isNeedsCheck
+      ? reviewLabel(hotel)
+      : "Over threshold";
   const badgeClass = isEligible ? "tracker-badge-good" : isNeedsCheck ? "tracker-badge-pending" : "tracker-badge-muted";
-  const gap = typeof hotel.trueTotalCost === "number" ? hotel.trueTotalCost - threshold : null;
+  const gap = typeof price === "number" ? price - threshold : null;
 
   const cancelDate = hotel.cancellationDeadline
     ? new Date(hotel.cancellationDeadline).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
     : null;
 
   const metaItems = [
-    hotel.trueTotalCost != null ? `<div class="detail"><b>Total</b><span>${formatMoney(hotel.trueTotalCost)}</span></div>` : "",
+    price != null
+      ? `<div class="detail"><b>${isNeedsCheck ? "Last verified" : "Total"}</b><span>${formatMoney(price)}</span></div>`
+      : "",
     gap != null && !isEligible ? `<div class="detail"><b>${gap > 0 ? "Over threshold by" : "Under threshold by"}</b><span>${formatMoney(Math.abs(gap))}</span></div>` : "",
     hotel.reviewScore ? `<div class="detail"><b>Stars</b><span>${hotel.reviewScore}★</span></div>` : "",
     hotel.hasElevator ? `<div class="detail"><b>Elevator</b><span>Yes</span></div>` : "",
@@ -95,18 +123,20 @@ function renderCity(cityKey, cityData, report) {
   const allWatchlist = [...eligible, ...needsCheck, ...excluded];
 
   const bestEligible = eligible[0];
-  const pricedExcluded = excluded.filter(h => typeof h.trueTotalCost === "number");
-  const cheapestExcluded = pricedExcluded[0];
+  const reviewWithPrices = needsCheck.filter((hotel) => displayPrice(hotel) != null);
+  const pricedExcluded = excluded.filter((hotel) => displayPrice(hotel) != null);
+  const cheapestPricedAlternative = [...reviewWithPrices, ...pricedExcluded]
+    .sort((left, right) => displayPrice(left) - displayPrice(right))[0];
 
   const trackerState = bestEligible ? "SWITCH POSSIBLE" : "HOLD CURRENT";
-  const benchmarkCost = benchmark?.trueTotalCost ?? benchmark?.confirmedTotalPaid ?? null;
+  const benchmarkCost = displayPrice(benchmark);
 
   // Summary grid
   const summaryHtml = [
     summaryCard("Booking stance", trackerState, bestEligible ? "A qualifying direct-site option exists." : "Stay with the current booking for now."),
     summaryCard("Benchmark total", benchmarkCost != null ? formatMoney(benchmarkCost) : "—", `${cfg.label} alert threshold: ${formatMoney(threshold)}`),
-    summaryCard("Watching", `${cityData.watchlistTotal} hotels`, `${eligible.length} qualifying · ${needsCheck.length} needs price check · ${pricedExcluded.length} over threshold`),
-    summaryCard("Best alternative", cheapestExcluded ? `${formatMoney(cheapestExcluded.trueTotalCost)}` : needsCheck.length ? "Prices needed" : "None", cheapestExcluded ? `${escapeHtml(cheapestExcluded.name)} — closest to threshold` : needsCheck.length ? `${needsCheck.length} hotels still need price capture` : "All options over threshold")
+    summaryCard("Watching", `${cityData.watchlistTotal} hotels`, `${eligible.length} qualifying · ${reviewWithPrices.length} last-verified prices · ${needsCheck.length - reviewWithPrices.length} still missing prices`),
+    summaryCard("Best alternative", cheapestPricedAlternative ? `${formatMoney(displayPrice(cheapestPricedAlternative))}` : needsCheck.length ? "Prices needed" : "None", cheapestPricedAlternative ? `${escapeHtml(cheapestPricedAlternative.name)} — last verified total` : needsCheck.length ? `${needsCheck.length} hotels still need price capture` : "All options over threshold")
   ].join("");
 
   // Benchmark card
@@ -135,8 +165,8 @@ function renderCity(cityKey, cityData, report) {
       <h3>${bestEligible ? `${escapeHtml(bestEligible.name)} qualifies` : `No ${cfg.label} alternatives qualify right now`}</h3>
       <p>${bestEligible
         ? `The best live direct-site option lands at ${formatMoney(bestEligible.trueTotalCost)} — under the ${formatMoney(threshold)} threshold.`
-        : `Monitoring ${cityData.watchlistTotal} hotels. ${needsCheck.length} still need price capture. ${pricedExcluded.length} are priced but over the ${formatMoney(threshold)} threshold.`}</p>
-      ${cheapestExcluded ? `<p>Closest over-threshold option: <strong>${escapeHtml(cheapestExcluded.name)}</strong> at ${formatMoney(cheapestExcluded.trueTotalCost)} — ${formatMoney(cheapestExcluded.trueTotalCost - threshold)} over.</p>` : ""}
+        : `Monitoring ${cityData.watchlistTotal} hotels. ${reviewWithPrices.length} have last verified totals visible now. ${needsCheck.length - reviewWithPrices.length} still need price capture.`}</p>
+      ${cheapestPricedAlternative ? `<p>Cheapest stored alternative: <strong>${escapeHtml(cheapestPricedAlternative.name)}</strong> at ${formatMoney(displayPrice(cheapestPricedAlternative))} — ${formatMoney(displayPrice(cheapestPricedAlternative) - threshold)} ${displayPrice(cheapestPricedAlternative) > threshold ? "over" : "under"} the threshold.</p>` : ""}
     </article>`;
 
   // Hotel cards
@@ -188,15 +218,18 @@ async function init() {
   const totalWatching = cityKeys.reduce((s, k) => s + (cities[k].watchlistTotal || 0), 0);
   const totalEligible = cityKeys.reduce((s, k) => s + (cities[k].eligible?.length || 0), 0);
   const totalNeedsCheck = cityKeys.reduce((s, k) => s + (cities[k].needsCheck?.length || 0), 0);
+  const totalVisibleReviewPrices = cityKeys.reduce((sum, key) => (
+    sum + (cities[key].needsCheck || []).filter((hotel) => displayPrice(hotel) != null).length
+  ), 0);
 
   const heroState = totalEligible > 0 ? "SWITCH POSSIBLE" : "MONITORING";
   document.getElementById("trackerHeadline").textContent = heroState;
-  document.getElementById("trackerSubhead").textContent = `Watching ${totalWatching} hotels across Seattle & Portland. ${totalEligible} qualifying. ${totalNeedsCheck} need price capture.`;
+  document.getElementById("trackerSubhead").textContent = `Watching ${totalWatching} hotels across Seattle & Portland. ${totalEligible} qualifying. ${totalVisibleReviewPrices} last-verified prices visible. ${totalNeedsCheck - totalVisibleReviewPrices} still missing prices.`;
   document.getElementById("trackerMeter").style.width = totalEligible > 0 ? "72%" : "34%";
   document.getElementById("trackerDisclaimer").textContent = report.meta?.disclaimer || "";
   document.getElementById("hotelCallout").innerHTML = totalEligible > 0
     ? `<span class="tracker-pill tracker-pill-good">option found</span><span>${totalEligible} hotel${totalEligible > 1 ? "s" : ""} currently qualify — review and consider rebooking.</span>`
-    : `<span class="tracker-pill tracker-pill-alert">hold bookings</span><span>No alternatives beat the benchmark thresholds yet. ${totalNeedsCheck} hotels still need price capture.</span>`;
+    : `<span class="tracker-pill tracker-pill-alert">hold bookings</span><span>No alternatives beat the benchmark thresholds yet. ${totalVisibleReviewPrices} last-verified prices are shown while direct recapture is blocked.</span>`;
 
   // Render each city
   const appEl = document.getElementById("hotelApp");

@@ -3,6 +3,8 @@ const { URL } = require("node:url");
 const DIRECT_ENGINES = [
   { match: "bookings.travelclick.com", engine: "travelclick" },
   { match: "be.synxis.com", engine: "synxis" },
+  { match: "secure.markspencer.com", engine: "irmng" },
+  { match: "app.mews.com", engine: "mews" },
   { match: "hilton.com", engine: "hilton" },
   { match: "hyatt.com", engine: "hyatt" },
   { match: "ihg.com", engine: "ihg" },
@@ -16,7 +18,7 @@ const NEEDS_CHECK_STATUSES = new Set([
   "manual-review-needed",
   "stale-direct-url"
 ]);
-const CHECKOUT_ENGINES = new Set(["travelclick", "synxis", "sonder"]);
+const CHECKOUT_ENGINES = new Set(["travelclick", "synxis", "sonder", "irmng"]);
 
 function deriveDirectEngine(rawUrl) {
   if (!rawUrl) return "independent";
@@ -84,7 +86,7 @@ function extractLabeledAmount(text, labels) {
 
 function extractStayTotalFromText({ bodyText = "", nights = 1 }) {
   const text = String(bodyText).replace(/\s+/g, " ").trim();
-  const subtotal = extractLabeledAmount(text, ["subtotal", "room subtotal", "stay subtotal"]);
+  const subtotal = extractLabeledAmount(text, ["subtotal", "room subtotal", "stay subtotal", "room", "amount room"]);
   const taxes = extractLabeledAmount(text, ["taxes", "tax", "fees and taxes", "taxes and fees"]);
   const total = extractLabeledAmount(text, ["grand total", "total stay", "total", "estimated total"]);
   const nightly = extractLabeledAmount(text, [
@@ -253,6 +255,7 @@ function buildPriceVerification({ hotel, outcome, now }) {
 
 function qualifiesHotel(hotel, alertThreshold) {
   if (typeof hotel.trueTotalCost !== "number") return false;
+  if (needsPriceReview(hotel)) return false;
   if (hotel.trueTotalCost >= alertThreshold) return false;
   if (hotel.refundable === false) return false;
   if (typeof hotel.reviewScore === "number" && hotel.reviewScore < 4.0) return false;
@@ -260,9 +263,15 @@ function qualifiesHotel(hotel, alertThreshold) {
 }
 
 function needsPriceReview(hotel) {
-  if (hotel.trueTotalCost == null) return true;
+  if (getDisplayPrice(hotel) == null) return true;
   const status = hotel.priceVerification?.status;
   return NEEDS_CHECK_STATUSES.has(status);
+}
+
+function getDisplayPrice(hotel) {
+  if (typeof hotel?.trueTotalCost === "number") return hotel.trueTotalCost;
+  if (typeof hotel?.confirmedTotalPaid === "number") return hotel.confirmedTotalPaid;
+  return null;
 }
 
 function computeHotelCollections({ alertThreshold, watchlist = [] }) {
@@ -270,13 +279,19 @@ function computeHotelCollections({ alertThreshold, watchlist = [] }) {
     .filter((hotel) => qualifiesHotel(hotel, alertThreshold))
     .sort((left, right) => left.trueTotalCost - right.trueTotalCost);
 
-  const needsCheck = watchlist.filter((hotel) => needsPriceReview(hotel));
+  const needsCheck = watchlist
+    .filter((hotel) => needsPriceReview(hotel))
+    .sort((left, right) => {
+      const leftValue = getDisplayPrice(left) ?? Number.POSITIVE_INFINITY;
+      const rightValue = getDisplayPrice(right) ?? Number.POSITIVE_INFINITY;
+      return leftValue - rightValue;
+    });
 
   const excluded = watchlist
     .filter((hotel) => !eligible.includes(hotel) && !needsCheck.includes(hotel))
     .sort((left, right) => {
-      const leftValue = typeof left.trueTotalCost === "number" ? left.trueTotalCost : Number.POSITIVE_INFINITY;
-      const rightValue = typeof right.trueTotalCost === "number" ? right.trueTotalCost : Number.POSITIVE_INFINITY;
+      const leftValue = getDisplayPrice(left) ?? Number.POSITIVE_INFINITY;
+      const rightValue = getDisplayPrice(right) ?? Number.POSITIVE_INFINITY;
       return leftValue - rightValue;
     });
 
@@ -290,13 +305,99 @@ function buildFallbackUrl(hotel, trip) {
   return `https://www.google.com/search?q=${query}`;
 }
 
+function appendTripParams(url, trip, options = {}) {
+  const normalized = new URL(url);
+  const guests = trip.guests || 2;
+  const adults = options.adults ?? guests;
+  const children = options.children ?? 0;
+
+  if (normalized.hostname.includes("be.synxis.com")) {
+    normalized.searchParams.set("adult", String(adults));
+    normalized.searchParams.set("arrive", trip.checkIn);
+    normalized.searchParams.set("depart", trip.checkOut);
+    normalized.searchParams.set("rooms", "1");
+    normalized.searchParams.set("child", String(children));
+    normalized.searchParams.set("currency", normalized.searchParams.get("currency") || "USD");
+    normalized.searchParams.set("locale", normalized.searchParams.get("locale") || "en-US");
+    normalized.searchParams.set("level", normalized.searchParams.get("level") || "hotel");
+    normalized.searchParams.set("productcurrency", normalized.searchParams.get("productcurrency") || "USD");
+    return normalized.toString();
+  }
+
+  if (normalized.hostname.includes("app.mews.com")) {
+    normalized.searchParams.set("start", trip.checkIn);
+    normalized.searchParams.set("end", trip.checkOut);
+    normalized.searchParams.set("adultCount", String(adults));
+    return normalized.toString();
+  }
+
+  return normalized.toString();
+}
+
+function discoverBookingUrlFromHtml({ hotel, trip, html = "" }) {
+  const sourceHtml = String(html);
+
+  if (sourceHtml.includes("secure.markspencer.com/irmng")) {
+    return {
+      url: `https://secure.markspencer.com/irmng/index.html?propertycode=ms&arrival=${trip.checkIn}&departure=${trip.checkOut}&people1=${trip.guests || 2}&people2=0`,
+      engine: "irmng",
+      evidence: "brochure-markspencer"
+    };
+  }
+
+  const mewsMatch = sourceHtml.match(/https:\/\/app\.mews\.com\/distributor\/[a-z0-9-]+/i);
+  if (mewsMatch) {
+    return {
+      url: appendTripParams(mewsMatch[0], trip),
+      engine: "mews",
+      evidence: "brochure-mews"
+    };
+  }
+
+  const synxisMatch = sourceHtml.match(/https:\/\/be\.synxis\.com\/[^"' ]+/i);
+  if (synxisMatch) {
+    const synxisCandidates = [...sourceHtml.matchAll(/https:\/\/be\.synxis\.com\/[^"' ]+/gi)]
+      .map((match) => match[0].replaceAll("&amp;", "&"));
+    const preferred = synxisCandidates.find((candidate) => !candidate.includes("/signin")) || synxisCandidates[0];
+    return {
+      url: appendTripParams(preferred, trip),
+      engine: "synxis",
+      evidence: "brochure-synxis"
+    };
+  }
+
+  const ihgMatch = sourceHtml.match(/https:\/\/www\.ihg\.com\/[^"' ]*(?:redirect\?path=rates[^"' ]*|hoteldetail[^"' ]*)/i);
+  if (ihgMatch) {
+    return {
+      url: ihgMatch[0].replaceAll("&amp;", "&"),
+      engine: "ihg",
+      evidence: "brochure-ihg"
+    };
+  }
+
+  const hiltonMatch = sourceHtml.match(/https:\/\/www\.hilton\.com\/en\/book\/reservation\/(?:rooms|deeplink)\/\?ctyhocn=([A-Z0-9]+)/i);
+  if (hiltonMatch) {
+    const ctyhocn = hiltonMatch[1];
+    return {
+      url: `[private reservation link removed] || 2}`,
+      engine: "hilton",
+      evidence: "brochure-hilton"
+    };
+  }
+
+  return null;
+}
+
 module.exports = {
+  appendTripParams,
   buildFallbackUrl,
   buildPriceVerification,
   classifyPageState,
   computeHotelCollections,
+  discoverBookingUrlFromHtml,
   deriveDirectEngine,
   finalizeDirectPriceOutcome,
   extractStayTotalFromText,
+  getDisplayPrice,
   qualifiesHotel
 };

@@ -7,7 +7,9 @@ const {
   extractStayTotalFromText,
   buildPriceVerification,
   computeHotelCollections,
-  finalizeDirectPriceOutcome
+  finalizeDirectPriceOutcome,
+  getDisplayPrice,
+  discoverBookingUrlFromHtml
 } = require("../scripts/lib/hotel-pricing");
 
 test("deriveDirectEngine maps hotel hosts to deterministic adapters", () => {
@@ -26,6 +28,14 @@ test("deriveDirectEngine maps hotel hosts to deterministic adapters", () => {
   assert.equal(
     deriveDirectEngine("https://www.marriott.com/hotels/travel/pdxvt-hotel-vance-portland-a-tribute-portfolio-hotel/"),
     "marriott"
+  );
+  assert.equal(
+    deriveDirectEngine("https://secure.markspencer.com/irmng/index.html?propertycode=ms"),
+    "irmng"
+  );
+  assert.equal(
+    deriveDirectEngine("https://app.mews.com/distributor/c820c34b-f7f6-42ee-932c-b3b4012b5b37"),
+    "mews"
   );
 });
 
@@ -64,6 +74,25 @@ test("extractStayTotalFromText prefers stay-level total over nightly rate", () =
   });
 
   assert.equal(result.total, 731.6);
+  assert.equal(result.captureMethod, "direct-checkout");
+  assert.equal(result.confidence, "high");
+});
+
+test("extractStayTotalFromText handles IRMng room tax total copy", () => {
+  const result = extractStayTotalFromText({
+    bodyText: `
+      Best Rate
+      Nightly Rate $191.00
+      Reserve
+      Amount
+      Room $955.00
+      Tax $152.80
+      Total for Stay $1,107.80
+    `,
+    nights: 5
+  });
+
+  assert.equal(result.total, 1107.8);
   assert.equal(result.captureMethod, "direct-checkout");
   assert.equal(result.confidence, "high");
 });
@@ -145,4 +174,81 @@ test("computeHotelCollections routes blocked and missing-price hotels into needs
   assert.deepEqual(cityReport.eligible.map((hotel) => hotel.id), ["under-cap"]);
   assert.deepEqual(cityReport.needsCheck.map((hotel) => hotel.id), ["blocked"]);
   assert.deepEqual(cityReport.excluded.map((hotel) => hotel.id), ["over-cap"]);
+});
+
+test("computeHotelCollections keeps priced review hotels visible in needsCheck order", () => {
+  const cityReport = computeHotelCollections({
+    alertThreshold: 400,
+    watchlist: [
+      {
+        id: "manual-under-cap",
+        name: "Manual Review Hotel",
+        trueTotalCost: 355,
+        refundable: true,
+        reviewScore: 4.2,
+        priceVerification: { status: "manual-review-needed" }
+      },
+      {
+        id: "manual-over-cap",
+        name: "Blocked Hotel",
+        trueTotalCost: 520,
+        refundable: true,
+        reviewScore: 4.3,
+        priceVerification: { status: "blocked-direct" }
+      },
+      {
+        id: "benchmark-only",
+        name: "Current Reservation",
+        confirmedTotalPaid: 384.13,
+        refundable: true,
+        reviewScore: 4.4,
+        priceVerification: { status: "manual-review-needed" }
+      }
+    ]
+  });
+
+  assert.deepEqual(cityReport.eligible.map((hotel) => hotel.id), []);
+  assert.deepEqual(cityReport.needsCheck.map((hotel) => hotel.id), [
+    "manual-under-cap",
+    "benchmark-only",
+    "manual-over-cap"
+  ]);
+  assert.equal(getDisplayPrice(cityReport.needsCheck[1]), 384.13);
+});
+
+test("discoverBookingUrlFromHtml upgrades brochure pages to booking engines", () => {
+  const markSpencer = discoverBookingUrlFromHtml({
+    hotel: { name: "The Mark Spencer Hotel", directBookingUrl: "https://www.markspencer.com/" },
+    trip: { checkIn: "2026-11-04", checkOut: "2026-11-09", guests: 2 },
+    html: `
+      <script>
+        nurl = "https://secure.markspencer.com/irmng/index.html?propertycode=ms&arrival="+checkInn+"&departure="+checkOutt+"&people1="+adultss+"&people2="+childrenn;
+      </script>
+    `
+  });
+
+  assert.equal(
+    markSpencer.url,
+    "https://secure.markspencer.com/irmng/index.html?propertycode=ms&arrival=2026-11-04&departure=2026-11-09&people1=2&people2=0"
+  );
+  assert.equal(markSpencer.engine, "irmng");
+
+  const lucia = discoverBookingUrlFromHtml({
+    hotel: { name: "Hotel Lucia", directBookingUrl: "https://www.hotellucia.com/" },
+    trip: { checkIn: "2026-11-04", checkOut: "2026-11-09", guests: 2 },
+    html: `<a href="https://be.synxis.com/?chain=22402&hotel=49677&src=24C">Book</a>`
+  });
+
+  assert.equal(lucia.engine, "synxis");
+  assert.match(lucia.url, /arrive=2026-11-04/);
+  assert.match(lucia.url, /depart=2026-11-09/);
+
+  const vintage = discoverBookingUrlFromHtml({
+    hotel: { name: "Kimpton Hotel Vintage Portland", directBookingUrl: "https://www.hotelvintageportland.com/" },
+    trip: { checkIn: "2026-11-04", checkOut: "2026-11-09", guests: 2 },
+    html: `<a href="https://www.ihg.com/kimptonhotels/redirect?path=rates&amp;hotelCode=PDXVP&amp;brandCode=KI&amp;regionCode=1&amp;localeCode=en">Book</a>`
+  });
+
+  assert.equal(vintage.engine, "ihg");
+  assert.match(vintage.url, /hotelCode=PDXVP/);
 });

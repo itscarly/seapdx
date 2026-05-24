@@ -29,11 +29,10 @@ It is built to be:
 
 ## Current next priority
 
-- Boylston Hotel confirmed at $384.13 (RES ID [redacted]). Monitor watches for a refundable sub-$400 Seattle alternative.
-- Hotel monitoring now uses a layered direct-first pipeline: direct booking flow first, then explicit blocker classification, with fallback capture reserved for blocked chains.
-- The 2026-05-24 layered run produced honest states instead of fake prices: 0 direct captures, 0 fallback captures, 19 blocked direct flows, 11 manual-review cases.
-- PAL Award Tax Monitor remains at SFO→MNL $370.50 and ORD→MNL $375.50. The 2026-05-24 Playwright run still hit cookie and interaction gates before a tax result page.
-- Both hotel dashboard surfaces now show source tier and blocker state, not only "needs check" or "failed."
+- **Seattle watchlist**: 14 hotels, criteria transit ≥85 / rating ≥4.0 / safe / elevator. Boylston confirmed $384.13 (RES [redacted]) — hold unless refundable sub-$400 appears. Three hotels still need prices: Arctic Club, Hotel Andra, Alexis Royal Sonesta.
+- **Staypineapple flash sale**: 4 Staypineapple prices were captured at 25% off (Memorial Day sale ~ends 2026-05-28). Re-check after sale expires.
+- **Portland**: Hotel Vance benchmark $628.46 (conf# [redacted]). Portland watchlist needs a price-check pass.
+- **PAL taxes**: SFO→MNL $370.50, ORD→MNL $375.50. Automated Playwright scraper still hits interaction gates on PAL.com — monitor continues on schedule.
 
 ## Automation commands
 

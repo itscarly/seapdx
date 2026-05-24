@@ -8,47 +8,30 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ## Current active work
 
-- Keep the Seattle and Portland itinerary current as prices, hours, and transit assumptions change.
-- **Hotel prices**: Run `npm run scrape:hotels` for the layered direct-first monitor. Treat `blocked-direct`, `stale-direct-url`, `session-refresh-needed`, and `manual-review-needed` as real outputs, not generic failures. Only trust checkout-grade direct totals or clearly labeled fallback captures.
-- **Seattle**: Alert threshold $400. Boylston confirmed $384.13 (RES [redacted]) — hold unless a refundable direct quote under $400 appears.
-- **Portland**: Alert threshold $620. Hotel Vance confirmed $628.46 (conf# [redacted]) — hold unless challenger comes in under $620.
-- **PAL Award Tax Monitor**: Cadence: weekly Mon (now–Aug), 2×/week Mon+Thu (Sep), 3×/week Mon+Wed+Fri (Oct), stops Nov 1. Current taxes remain SFO→MNL $370.50, ORD→MNL $375.50 because the 2026-05-24 live run reached PAL but did not reach a tax result.
-- Keep note system reconciled after meaningful work.
+- **Seattle hotel watchlist rebuilt 2026-05-24**: Criteria — transit ≥85, guest rating ≥4.0, safe neighborhood, elevator confirmed. 14 hotels tracked. Boylston confirmed $384.13 (RES [redacted]) — hold unless refundable direct quote under $400 appears.
+- **Still need prices**: Arctic Club Hotel, Hotel Andra Seattle, The Alexis Royal Sonesta. User to provide checkout screenshots.
+- **Flash sale warning**: 4 Staypineapple prices captured during Memorial Day 25% off sale (~ends 2026-05-28). Re-check regular prices after sale ends: Maxwell $534.94, Hotel FIVE $560.09, Watertown $543.91, University Inn $491.84.
+- **Portland**: Alert threshold $620. Hotel Vance confirmed $628.46 (conf# [redacted]) — hold unless challenger under $620. Portland watchlist needs a full price-check pass.
+- **PAL Award Tax Monitor**: SFO→MNL $370.50, ORD→MNL $375.50. Cadence: weekly Mon (now–Aug), 2×/week Mon+Thu (Sep), 3×/week Mon+Wed+Fri (Oct), stops Nov 1.
 
 ## GitHub Secrets needed for email alerts
 
-Ensure these are set in the repo's GitHub Actions secrets for email notifications to fire:
+- `RESEND_API_KEY`, `ALERT_EMAIL_TO`, `ALERT_FROM`
 
-- `RESEND_API_KEY` — Resend API key
-- `ALERT_EMAIL_TO` — alert recipient email
-- `ALERT_FROM` — sender address
+## Completed 2026-05-24 (session 4 — hotel watchlist rebuild)
 
-## Completed 2026-05-24
+- Replaced all Seattle hotel booking URLs with correct user-provided links.
+- Rebuilt Seattle watchlist: dropped all hotels below transit 85 or wrong city; removed non-existent properties (Hilton Seattle, Canopy Capitol Hill).
+- Added boutique/independent hotels matching Boylston/Staypineapple profile: Staypineapple (4 properties), Hotel Sorrento, Mayflower Park, Arctic Club, Hotel Andra, Alexis Royal Sonesta, Warwick Seattle.
+- Manually entered prices for 11 hotels from user checkout screenshots.
+- Removed big convention chains (Hyatt Regency, Westin, Sheraton, W, Renaissance) and non-qualifying hotels (Kimpton Palladian, Silver Cloud, Moore Hotel, Loews 1000, Thompson, Inn at the Market, Kimpton Monaco) per user direction.
 
-- Rebuilt hotel scraping as a layered direct-first monitor with per-chain routing, blocker classification, persistent browser profile support, fallback capture scaffolding, and regression tests.
-- Unified light/white theme across all 3 HTML pages (main dashboard, airfare tracker, hotels tracker). Dark GitHub-style theme removed.
-- Removed location moodboard section from main dashboard. Fixed `renderVisualStrip` null crash in `app.js`.
-- Added collapsible `<details>` blocks for: Booked Flights, Additional Booked Flights, Budget Breakdown, Verification Resources. All start collapsed.
-- Removed 2 stale automation cards (15-min flight monitor, Latest Report — both had dead `.md` links).
-- Added missing `address` and `brand` to 4 Seattle hotels in `data/hotel-monitor-source.json`.
-- Deleted 14 stale review PNGs from `docs/review-assets/` and `docs/archive/TASKS-legacy.md`.
-- Corrected Paramount Hotel Seattle back to the verified $731.60 total after a bad automated scrape picked up a room-night price instead of the checkout total.
-- Replaced stale hotel/PAL carry-forward notes with current blocker notes for Cloudflare, stale direct URLs, and interaction-gated checkout flows.
+## Completed 2026-05-24 (earlier sessions)
 
-## Completed 2026-05-23
-
-- Locked in Boylston confirmed reservation (RES ID [redacted], $384.13 total) as Seattle hotel benchmark.
-- Hotel Vance confirmed as Portland benchmark ($628.46, conf# [redacted]).
-- Replaced cash-fare airfare tracker with PAL Award Tax Monitor (SFO→MNL 58k mi + $370.50; ORD→MNL 67k mi + $375.50).
-- Added Playwright automation for hotel scraping and PAL tax scraping.
-- Pushed all changes to GitHub — GitHub Pages reflects current state.
+- Rebuilt hotel scraping as layered direct-first monitor. Fixed dashboard to show `last verified` totals for blocked hotels.
+- Unified white/light theme across all 3 HTML pages.
+- Removed moodboard section, stale automation cards, stale PNGs.
 
 ## Task sync rule
 
-After meaningful completed work:
-
-- mark completed items clearly
-- remove invalid tasks from the active list
-- move stale task context to `notes/memory/archive/` when it still matters historically
-
-For implementation scratch tracking, the repo may still use `tasks/todo.md`, but this file should reflect the cleaned current state.
+After meaningful completed work: mark completed items, remove invalid tasks, move stale context to `notes/memory/archive/`.

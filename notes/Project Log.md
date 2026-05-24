@@ -2,6 +2,43 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 4 — hotel watchlist rebuild)
+
+### Seattle hotel watchlist fully rebuilt
+
+**What changed:**
+
+- Replaced all 15 Seattle hotel booking URLs with correct direct booking links provided by user. Removed two non-existent hotels (Hilton Seattle, Canopy Capitol Hill).
+- Rebuilt watchlist filter: transit ≥85, guest rating ≥4.0, safe neighborhood, elevator confirmed. Dropped 11 hotels that failed criteria.
+- Added 10 boutique/independent hotels matching the Boylston/Staypineapple profile: Staypineapple (4 properties), Hotel Sorrento, Mayflower Park, Arctic Club, Hotel Andra, Alexis Royal Sonesta, Warwick Seattle.
+- Removed big convention chains per user preference.
+- Manually entered prices for 11 hotels from user checkout screenshots.
+- Ran `npm run scrape:hotels` — Coast Seattle Downtown was the only direct Playwright capture ($636). All chain sites returned anti-bot 403s as expected.
+
+**Current Seattle watchlist (14 hotels, 11 priced):**
+
+| Hotel | Transit | Price |
+|-------|---------|-------|
+| Boylston (current) | 99 | $384.13 confirmed |
+| Warwick Seattle | 98 | $451.94 |
+| Staypineapple University Inn | 83 | $491.84 ⚠️ flash sale |
+| Staypineapple Maxwell | 84 | $534.94 ⚠️ flash sale |
+| Staypineapple Watertown | 86 | $543.91 ⚠️ flash sale |
+| Staypineapple Hotel FIVE | 100 | $560.09 ⚠️ flash sale |
+| Mayflower Park | 100 | $591.47 |
+| Paramount Hotel | 86 | $595.00 |
+| Hotel Sorrento | 90 | $645.46 |
+| Hotel Max | 88 | $747.59 |
+| EVEN Hotel | 85 | $798.64 |
+| Moxy | 88 | $1,019.97 |
+| Arctic Club | 100 | needs price |
+| Hotel Andra | 100 | needs price |
+| Alexis Royal Sonesta | 100 | needs price |
+
+**Lesson learned:** Never assume which hotel a price screenshot belongs to — always confirm the hotel name in the screenshot before writing it to JSON. Two misattribution errors occurred this session (Mayflower/Kimpton mix-up, Warwick/Alexis mix-up).
+
+**Next session:** Get prices for Arctic Club, Hotel Andra, Alexis Royal Sonesta. Re-check Staypineapple prices after Memorial Day sale ends (~2026-05-28).
+
 ## 2026-05-24 (session 9)
 
 ### Layered hotel monitor implementation and verification
@@ -955,6 +992,39 @@ Follow-up:
 
 - Keep the existing day-of checks for the AA and Asiana flight-status pages because live flight-status detail is still closer-to-departure rather than months ahead.
 - Keep the existing Portland airport buffer because PDX still warns that some terminal walks are longer during construction even when checkpoint waits are reasonable.
+
+## 2026-05-24
+
+### Hotel price visibility fix
+
+- Fixed the hotel dashboards and generated report so stored hotel totals remain visible when live direct recapture is blocked, stale, or ambiguous.
+- Tightened hotel collection routing so `manual-review-needed`, `blocked-direct`, `session-refresh-needed`, and `stale-direct-url` entries no longer get treated as clean `eligible` candidates just because a stale total exists.
+- Updated both hotel UI surfaces to label these numbers as `last verified` instead of hiding them behind blank states.
+- Rebuilt the hotel report and verified the markdown now shows Seattle stored totals again: Boylston `$384.13`, Paramount `$731.60`, Hotel Max `$777.68`, State Hotel `$909.46`, plus Portland benchmark Hotel Vance `$628.46`.
+
+Files touched:
+
+- `dashboards/html/hotels.html`
+- `dashboards/js/hotels.js`
+- `scripts/lib/hotel-pricing.js`
+- `scripts/build-hotel-report.js`
+- `data/hotel-monitor-report.json`
+- `research/hotels/latest-report.md`
+- `tests/hotel-monitor.test.js`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `tasks/todo.md`
+- `notes/Project Log.md`
+
+Verification:
+
+- `node --test tests/hotel-monitor.test.js`
+- `npm run build:hotels`
+- `npm run validate`
+
+Follow-up:
+
+- Keep improving direct-chain capture, but maintain the rule that stale-yet-trustworthy totals stay visible until a better verified replacement exists.
 
 ## 2026-05-18
 

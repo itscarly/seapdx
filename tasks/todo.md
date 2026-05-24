@@ -15,6 +15,7 @@
 - [ ] Portland cap $620 — Hotel Vance current benchmark ($628.46, conf# [redacted]). Watch for challenger under $620.
 - [ ] Replace stale direct URLs or chain blockers when a brand site returns `stale-direct-url`, Cloudflare, or anti-bot reference pages.
 - [ ] If a hotel lands in `manual-review-needed`, treat the last trustworthy total as authoritative until a checkout-grade direct total or a clearly labeled fallback total replaces it.
+- [ ] Keep `last verified` totals visible in the dashboards and report whenever a hotel is blocked or needs review; do not regress to blank price cards for priced entries.
 - [ ] Commit and push after any real hotel-source update.
 
 ### Itinerary upkeep

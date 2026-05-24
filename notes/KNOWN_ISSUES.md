@@ -4,9 +4,7 @@
 
 ### Public deploy may lag local updates
 
-- Status: closed (as of 2026-05-23 session 3) — pushed hotels.html, hotels.js, styles.css + inline dark theme fix
-- Detail: this issue recurred in session 3 — 626 lines of hotel tracker changes sat uncommitted. Prevention: run `git status` at session start and push any uncommitted files before starting new work.
-- See LEARNINGS for the diff-based diagnosis technique.
+- Status: open (recurring) — always run `git status` at session start and push uncommitted files before new work.
 
 ### Tracker subsystems can drift if one restore overwrites another
 
@@ -18,10 +16,10 @@
 - Status: open
 - Detail: the layered monitor now classifies these honestly as `blocked-direct`, `stale-direct-url`, or `manual-review-needed`, but most chain flows still do not expose a trustworthy automated total. Hilton, Hyatt, and IHG are still anti-bot heavy; several Marriott property URLs are stale; boutique engines still require checkout-grade totals to avoid nightly-rate mistakes.
 
-### Airfare tracker UI is still below the main dashboard quality bar
+### Staypineapple flash sale prices are temporary
 
-- Status: closed
-- Detail: both tracker pages now use a dark premium theme with navy/charcoal backgrounds, gold/teal/blue accents, proper card hierarchy, and executive-style visual polish. All hotel booking links are clickable. Local server auto-start was already in place via launchd.
+- Status: open
+- Detail: 4 Staypineapple prices (Maxwell $534.94, Hotel FIVE $560.09, Watertown $543.91, University Inn $491.84) were captured during a Memorial Day 25% off sale (~ends 2026-05-28). Re-check regular prices after sale expires — actual November prices will be higher.
 
 ### Agent continuation work needs explicit file-preservation guardrails
 

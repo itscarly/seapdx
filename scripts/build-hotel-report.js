@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const { computeHotelCollections } = require("./lib/hotel-pricing");
+const { computeHotelCollections, getDisplayPrice } = require("./lib/hotel-pricing");
 
 const rootDir = path.join(__dirname, "..");
 const sourcePath = path.join(rootDir, "data", "hotel-monitor-source.json");
@@ -58,7 +58,8 @@ for (const cityKey of cityKeys) {
   markdownLines.push("");
   markdownLines.push(`- Alert threshold: ${formatMoney(threshold)}`);
   markdownLines.push(`- Benchmark: ${benchmark ? `${benchmark.name} ${benchmark.trueTotalCost != null ? formatMoney(benchmark.trueTotalCost) : `confirmed $${benchmark.confirmedTotalPaid || "—"}`}` : "none set"}`);
-  markdownLines.push(`- Hotels in watchlist: ${watchlist.length} (${eligible.length} eligible, ${excluded.filter(h => h.trueTotalCost !== null).length} over threshold, ${needsCheck.length} needs price check)`);
+  const pricedNeedsCheck = needsCheck.filter((hotel) => getDisplayPrice(hotel) != null);
+  markdownLines.push(`- Hotels in watchlist: ${watchlist.length} (${eligible.length} eligible, ${pricedNeedsCheck.length} with last verified prices pending recheck, ${needsCheck.length - pricedNeedsCheck.length} still missing prices)`);
   markdownLines.push("");
 
   if (eligible.length) {
@@ -79,19 +80,21 @@ for (const cityKey of cityKeys) {
     markdownLines.push("");
     for (const h of needsCheck) {
       const reason = h.priceVerification?.blockedReason || h.priceVerification?.status || "needs price";
-      markdownLines.push(`- ${h.name} (${h.brand || "independent"}) | stars: ${h.reviewScore || "?"} | ${h.transitNote || ""} | status: ${reason}`);
+      const visiblePrice = getDisplayPrice(h);
+      markdownLines.push(`- ${h.name} (${h.brand || "independent"}) | ${visiblePrice != null ? `last verified ${formatMoney(visiblePrice)} | ` : ""}stars: ${h.reviewScore || "?"} | ${h.transitNote || ""} | status: ${reason}`);
       markdownLines.push(`  Booking URL: ${h.directBookingUrl}`);
     }
     markdownLines.push("");
   }
 
-  const pricedExcluded = excluded.filter(h => typeof h.trueTotalCost === "number");
+  const pricedExcluded = excluded.filter((hotel) => getDisplayPrice(hotel) != null);
   if (pricedExcluded.length) {
     markdownLines.push("### Over Threshold (priced, not qualifying)");
     markdownLines.push("");
     for (const h of pricedExcluded) {
-      const gap = h.trueTotalCost - threshold;
-      markdownLines.push(`- ✗ ${h.name}: ${formatMoney(h.trueTotalCost)} (+${formatMoney(gap)} over threshold) | refundable: ${h.refundable ? "yes" : "unknown"} | cancel by: ${h.cancellationDeadline || "unknown"}`);
+      const price = getDisplayPrice(h);
+      const gap = price - threshold;
+      markdownLines.push(`- ✗ ${h.name}: ${formatMoney(price)} (+${formatMoney(gap)} over threshold) | refundable: ${h.refundable ? "yes" : "unknown"} | cancel by: ${h.cancellationDeadline || "unknown"}`);
     }
     markdownLines.push("");
   }
@@ -126,7 +129,7 @@ console.log(JSON.stringify({
       watchlistTotal: v.watchlistTotal,
       eligible: v.eligible.length,
       needsCheck: v.needsCheck.length,
-      overThreshold: v.excluded.filter(h => h.trueTotalCost !== null).length
+      overThreshold: v.excluded.filter((hotel) => getDisplayPrice(hotel) != null).length
     }])
   ),
   totalWatchlist,

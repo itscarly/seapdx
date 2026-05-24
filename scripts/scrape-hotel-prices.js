@@ -2,9 +2,11 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { chromium } = require("playwright");
 const {
+  appendTripParams,
   buildFallbackUrl,
   buildPriceVerification,
   classifyPageState,
+  discoverBookingUrlFromHtml,
   deriveDirectEngine,
   finalizeDirectPriceOutcome,
   extractStayTotalFromText
@@ -19,8 +21,12 @@ const HOTEL_MONITOR_DRY_RUN = process.env.HOTEL_MONITOR_DRY_RUN === "1";
 const MATERIAL_VARIANCE_ABSOLUTE = 75;
 const MATERIAL_VARIANCE_PERCENT = 0.15;
 
-const DIRECT_ADAPTERS = new Set(["travelclick", "synxis", "independent", "sonder"]);
+const DIRECT_ADAPTERS = new Set(["travelclick", "synxis", "independent", "sonder", "irmng", "mews"]);
 const SESSION_ADAPTERS = new Set(["hilton", "hyatt", "ihg", "marriott"]);
+const CANONICAL_MARKETING_URLS = {
+  "hotel-deluxe-portland": "https://www.hoteldeluxe.com/",
+  "the-society-hotel-portland": "https://portland.thesocietyhotel.com/"
+};
 
 function normalizeHotelMetadata(hotel) {
   const engine = deriveDirectEngine(hotel.directBookingUrl);
@@ -67,8 +73,21 @@ async function capturePage(page, url) {
     finalUrl: page.url(),
     title,
     bodyText,
-    responseLog
+    responseLog,
+    pageHtml: await page.content().catch(() => "")
   };
+}
+
+async function fetchHtml(url) {
+  const response = await fetch(url, {
+    headers: {
+      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    }
+  });
+  if (!response.ok) {
+    throw new Error(`brochure fetch failed: HTTP ${response.status}`);
+  }
+  return response.text();
 }
 
 function buildStatusFromCapture(result, fallback = {}) {
@@ -90,6 +109,20 @@ async function attemptDirectCapture(hotel, trip, contexts) {
   const page = await context.newPage();
   try {
     const capture = await capturePage(page, hotel.directBookingUrl);
+
+    if (engine === "irmng") {
+      try {
+        await page.getByRole("button", { name: /check availability/i }).click({ timeout: 3000 });
+      } catch {}
+      try {
+        await page.getByRole("button", { name: /^rates$/i }).first().click({ timeout: 3000 });
+        await page.waitForTimeout(3000);
+      } catch {}
+      const bodyText = await page.locator("body").innerText().catch(() => capture.bodyText);
+      capture.bodyText = bodyText;
+      capture.finalUrl = page.url();
+    }
+
     const state = classifyPageState(capture);
     if (state.status !== "ok") {
       return {
@@ -120,6 +153,35 @@ async function attemptDirectCapture(hotel, trip, contexts) {
     };
   } finally {
     await page.close().catch(() => {});
+  }
+}
+
+async function maybeDiscoverBookingUrl(hotel, trip) {
+  const sourceUrl = CANONICAL_MARKETING_URLS[hotel.id] || hotel.directBookingUrl;
+  const existingEngine = deriveDirectEngine(sourceUrl);
+  if (existingEngine !== "independent") {
+    if (sourceUrl !== hotel.directBookingUrl) {
+      hotel.directBookingUrl = appendTripParams(sourceUrl, trip);
+      hotel.priceVerification = {
+        ...(hotel.priceVerification || {}),
+        directEngine: deriveDirectEngine(hotel.directBookingUrl)
+      };
+    }
+    return;
+  }
+
+  try {
+    const html = await fetchHtml(sourceUrl);
+    const discovered = discoverBookingUrlFromHtml({ hotel, trip, html });
+    if (!discovered) return;
+    hotel.directBookingUrl = discovered.url;
+    hotel.priceVerification = {
+      ...(hotel.priceVerification || {}),
+      directEngine: discovered.engine,
+      rawEvidenceRef: sourceUrl
+    };
+  } catch {
+    // Preserve existing URL if brochure fetch fails.
   }
 }
 
@@ -235,6 +297,7 @@ async function main() {
       console.log(`\n[Hotel Scraper] === ${cityKey.toUpperCase()} — ${city.trip.nights} nights ===`);
 
       for (const hotel of hotels) {
+        await maybeDiscoverBookingUrl(hotel, city.trip);
         const engine = normalizeHotelMetadata(hotel);
         process.stdout.write(`  ${hotel.name} [${engine}]... `);
 

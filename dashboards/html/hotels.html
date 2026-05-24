@@ -231,11 +231,24 @@ function lastCheckCell(hotel) {
   return `<span class="check-stamp">${pv.status}</span>`;
 }
 
+function displayPrice(hotel) {
+  if (typeof hotel?.trueTotalCost === "number") return hotel.trueTotalCost;
+  if (typeof hotel?.confirmedTotalPaid === "number") return hotel.confirmedTotalPaid;
+  return null;
+}
+
+function reviewState(hotel) {
+  return ["blocked-direct", "session-refresh-needed", "manual-review-needed", "stale-direct-url"].includes(hotel.priceVerification?.status);
+}
+
 function priceCell(hotel, threshold, isCurrent) {
-  const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
+  const price = displayPrice(hotel);
   if (price == null) return '<span class="price-unknown">Not yet checked</span>';
   const cls = isCurrent ? "price-current" : (price <= threshold ? "price-good" : "price-over");
-  return `<span class="price-val ${cls}">$${price.toFixed(2)}</span>`;
+  const note = !isCurrent && reviewState(hotel)
+    ? '<div class="check-stamp">Last verified total</div>'
+    : "";
+  return `<span class="price-val ${cls}">$${price.toFixed(2)}</span>${note}`;
 }
 
 function rowClass(hotel, threshold, isCurrent) {
@@ -244,7 +257,7 @@ function rowClass(hotel, threshold, isCurrent) {
   if (["blocked-direct", "session-refresh-needed", "manual-review-needed", "stale-direct-url"].includes(status)) {
     return "row-needs-check";
   }
-  const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
+  const price = displayPrice(hotel);
   if (price == null) return "row-needs-check";
   return price <= threshold ? "row-good" : "row-over";
 }
@@ -253,11 +266,11 @@ function statusBadge(hotel, threshold, isCurrent) {
   if (isCurrent) return '<span class="badge badge-current">Current reservation</span>';
   const status = hotel.priceVerification?.status;
   if (status === "captured-fallback") return '<span class="badge badge-warn">Fallback price</span>';
-  if (status === "blocked-direct") return '<span class="badge badge-over">Direct blocked</span>';
-  if (status === "stale-direct-url") return '<span class="badge badge-over">Stale direct URL</span>';
+  if (status === "blocked-direct") return displayPrice(hotel) != null ? '<span class="badge badge-warn">Last verified</span>' : '<span class="badge badge-over">Direct blocked</span>';
+  if (status === "stale-direct-url") return displayPrice(hotel) != null ? '<span class="badge badge-warn">Last verified</span>' : '<span class="badge badge-over">Stale direct URL</span>';
   if (status === "session-refresh-needed") return '<span class="badge badge-warn">Session refresh needed</span>';
-  if (status === "manual-review-needed") return '<span class="badge badge-warn">Manual review needed</span>';
-  const price = hotel.trueTotalCost || hotel.confirmedTotalPaid;
+  if (status === "manual-review-needed") return displayPrice(hotel) != null ? '<span class="badge badge-warn">Last verified</span>' : '<span class="badge badge-warn">Manual review needed</span>';
+  const price = displayPrice(hotel);
   if (price == null) return '<span class="badge badge-warn">Needs check</span>';
   return price <= threshold
     ? '<span class="badge badge-good">Under threshold</span>'
