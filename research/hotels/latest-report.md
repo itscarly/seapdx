@@ -1,6 +1,6 @@
 # Hotel Monitor Report
 
-Generated: 2026-05-24T01:30:59.858Z
+Generated: 2026-05-24T01:35:33.400Z
 
 ## Seattle
 
