@@ -1,8 +1,8 @@
 # Hotel Intelligence Report — Seattle & Portland
 
-Generated from direct-site watch snapshot: 2026-05-23
-Last automated check: 2026-05-23T20:58:33.329Z
-Summary: Seattle: Boylston Cloudflare-blocked; Hotel Max $777.68, Paramount $731.60, State Hotel $909.46 — all over $400 cap. Portland: initial watchlist seeded.
+Generated from direct-site watch snapshot: 2026-05-24
+Last automated check: 2026-05-24T03:31:09.601Z
+Summary: Playwright scrape 2026-05-24: Paramount corrected to $731.60 after manual checkout verification; most direct booking flows still require interactive checkout or have stale URLs.
 Disclaimer: Direct hotel-site quotes only. Every price, cancellation rule, and room match must be rechecked live before booking or rebooking.
 
 ## Seattle (Nov 1-4, 2026)

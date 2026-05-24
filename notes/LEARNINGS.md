@@ -23,6 +23,16 @@
 
 - `data/airfare-watch.json` holds two routes: SFO→MNL (58k mi + $370.50) and ORD→MNL (67k mi + $375.50). To update: add a new `taxHistory` entry with today's date and the new tax amount, update `currentTax` and `lastChecked`. No scripts to run — commit and push the JSON.
 
+### Direct booking automation can misread room-night rates as stay totals
+
+- The 2026-05-24 TravelClick scrape picked up `$242.73`, but manual checkout verification showed the real Paramount total was `$731.60` with subtotal `$620.00` and taxes `$111.60`.
+- For booking engines with multi-step checkout, trust the final checkout total over the first visible room price.
+
+### A failed live refresh should leave an explicit blocker, not a vague missing-price note
+
+- Boylston stayed Cloudflare-blocked, Hilton Seattle's tracked direct URL returned a Hilton 404, and PAL's award-tax flow loaded the generic home page behind cookie/interaction gates.
+- When this happens, keep the last known verified number if one exists, record the blocker in `priceVerification` or `taxHistory`, and remove stale "needs-check" wording.
+
 ### Hotel benchmark is a confirmed booking, not a watch candidate
 
 - Boylston (RES ID [redacted], $384.13 total) is locked in. Monitor only hunts for a refundable sub-$400 option near King Street Amtrak or Link Light Rail. Do not reopen the benchmark status unless the reservation is cancelled.

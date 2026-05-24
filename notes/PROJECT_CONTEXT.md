@@ -30,8 +30,8 @@ It is built to be:
 ## Current next priority
 
 - Boylston Hotel confirmed at $384.13 (RES ID [redacted]). Monitor watches for refundable sub-$400 alternative.
-- PAL Award Tax Monitor: SFO→MNL $370.50, ORD→MNL $375.50. Now scraped automatically via Playwright headless browser.
-- Hotel prices now scraped via Playwright from direct brand sites (Marriott, Hilton, Hyatt, IHG, etc.). Run `npm run scrape:hotels` to refresh all prices.
+- PAL Award Tax Monitor: SFO→MNL $370.50, ORD→MNL $375.50. The 2026-05-24 Playwright run reached PAL but did not reach a tax result because the search flow stayed behind cookie and interaction gates.
+- Hotel prices are monitored from direct brand sites, but the 2026-05-24 refresh proved the automation is only partial: Paramount was re-verified at $731.60, while many other brands still require interactive checkout or updated direct URLs before a live total can be captured.
 - Both HTML dashboards rebuilt as full-width tables with all metadata visible at a glance.
 - Run `npm run scrape:all` to refresh everything: hotel prices + hotel report + PAL taxes.
 
@@ -39,7 +39,7 @@ It is built to be:
 
 | Command | What it does |
 | --- | --- |
-| `npm run scrape:hotels` | Playwright scrapes all hotel direct sites, updates hotel-monitor-source.json |
+| `npm run scrape:hotels` | Playwright attempts hotel direct-site refreshes and records blocker notes when a live total cannot be reached |
 | `npm run scrape:pal` | Playwright scrapes PAL.com for current award taxes (force-runs regardless of cadence) |
 | `npm run monitor:pal-taxes` | PAL tax check — cadence-gated (only runs on scheduled days) |
 | `npm run build:hotels` | Rebuilds hotel-monitor-report.json from source |
@@ -50,7 +50,7 @@ It is built to be:
 
 - Treat the repo as a static site first.
 - Treat `data/trip-data.js` as the source of truth for itinerary content.
-- Treat the airfare tracker as a PAL Award Tax Monitor — update `data/airfare-watch.json` with new tax snapshots whenever PAL.com shows a change. No generated report or verification rules needed; the dashboard reads directly from the watch JSON.
+- Treat the airfare tracker as a PAL Award Tax Monitor — update `data/airfare-watch.json` with new tax snapshots whenever PAL.com shows a change. If PAL only loads the generic home flow, record the blocker instead of inventing a tax update.
 - Treat the hotel tracker as a separate subsystem with its own source data, generated report, and rebooking logic.
 - Treat meaningful note maintenance as part of done work.
 - Prefer plain-language project notes that a non-technical reader can follow.

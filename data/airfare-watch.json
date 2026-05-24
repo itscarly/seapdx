@@ -1,6 +1,6 @@
 {
   "watchName": "Philippine Airlines Award Tax Monitor",
-  "updatedAt": "2026-05-24T01:50:05.991Z",
+  "updatedAt": "2026-05-24T03:31:22.300Z",
   "trip": {
     "type": "award-redemption",
     "airline": "Philippine Airlines",
@@ -24,6 +24,11 @@
           "date": "2026-05-23",
           "tax": 370.5,
           "note": "Initial capture from PAL.com direct"
+        },
+        {
+          "date": "2026-05-24",
+          "tax": 370.5,
+          "note": "Playwright scrape failed: Tax not found in rendered page. PAL flow may require additional interaction. Manual check needed."
         }
       ],
       "alert": {
@@ -45,6 +50,11 @@
           "date": "2026-05-23",
           "tax": 375.5,
           "note": "Initial capture from PAL.com direct"
+        },
+        {
+          "date": "2026-05-24",
+          "tax": 375.5,
+          "note": "Playwright scrape failed: Tax not found in rendered page. PAL flow may require additional interaction. Manual check needed."
         }
       ],
       "alert": {

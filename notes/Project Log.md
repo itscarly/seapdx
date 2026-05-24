@@ -2,6 +2,38 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 8)
+
+### Live hotel/PAL refresh, blocker cleanup, and handoff reset
+
+**What changed:**
+
+- Ran live refreshes against the hotel direct-booking URLs and PAL award-tax URLs.
+- Corrected **Paramount Hotel Seattle** back to the verified **$731.60 total** after the automated TravelClick scrape misread a room-night price (`$242.73`) as the stay total. Manual checkout verification showed subtotal `$620.00` + taxes `$111.60` = total `$731.60`.
+- Confirmed the current blocker pattern instead of leaving stale "needs-check" notes:
+  - **Boylston** direct page is still Cloudflare-blocked.
+  - **Hilton Seattle** tracked direct URL now returns a Hilton 404 page, so that source URL needs replacement before price capture.
+  - **Hotel Vance** keeps the confirmed `$628.46` benchmark, but Marriott checkout still did not expose a fresh live total in automation.
+  - **PAL award-tax monitor** reached PAL but landed on the generic home/search flow behind cookie and interaction gates, so taxes stayed at `$370.50` (SFO) and `$375.50` (ORD) with blocker history notes recorded instead of fake updates.
+- Rebuilt the hotel report and reconciled notes/tasks so old "Portland first manual capture" and generic "needs-check" carry-forward guidance no longer describes the repo state.
+
+**Files touched:**
+
+- `data/hotel-monitor-source.json`
+- `data/hotel-monitor-report.json`
+- `data/airfare-watch.json`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/Project Log.md`
+- `tasks/todo.md`
+
+**Handoff:**
+
+- Current data is verified and honest. The remaining work is source-side: replace stale hotel direct URLs where needed and drive the PAL search through the cookie/interaction gates to reach a real tax result before changing the tracked tax values.
+
 ## 2026-05-24 (session 7)
 
 ### UI unification, dashboard cleanup, and repo housekeeping

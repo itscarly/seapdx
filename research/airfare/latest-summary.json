@@ -1,11 +1,10 @@
 {
-  "checkedAt": "2026-05-24T01:50:05.992Z",
+  "checkedAt": "2026-05-24T03:31:22.301Z",
   "today": "2026-05-24",
   "cadence": "weekly cadence (before Sep 2026)",
   "routesChecked": 2,
   "drops": 0,
   "increases": 0,
-  "changes": 0,
   "emailAttempted": false,
   "emailError": null,
   "routeSummaries": [
@@ -14,6 +13,7 @@
       "label": "SFO → MNL",
       "currentTax": 370.5,
       "fetchFound": false,
+      "fetchSource": "playwright",
       "change": null,
       "lastChecked": "2026-05-24"
     },
@@ -22,6 +22,7 @@
       "label": "ORD → MNL",
       "currentTax": 375.5,
       "fetchFound": false,
+      "fetchSource": "playwright",
       "change": null,
       "lastChecked": "2026-05-24"
     }

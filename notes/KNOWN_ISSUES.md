@@ -13,6 +13,11 @@
 - Status: open
 - Detail: the airfare and hotel tracker files are separate static subsystems, so partial restore commits can accidentally remove one while fixing the other unless the dashboard, scripts, and notes are checked together
 
+### Many direct booking flows still block unattended price capture
+
+- Status: open
+- Detail: the 2026-05-24 live refresh showed that several hotel brands require interactive checkout before exposing a real total, Boylston remains Cloudflare-blocked, one tracked Hilton URL now returns a Hilton 404 page, and PAL award-tax searches land on the generic home flow behind cookie/interaction gates
+
 ### Airfare tracker UI is still below the main dashboard quality bar
 
 - Status: closed

@@ -9,10 +9,10 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ## Current active work
 
 - Keep the Seattle and Portland itinerary current as prices, hours, and transit assumptions change.
-- **Hotel prices**: Run `npm run scrape:hotels` to auto-scrape all direct hotel sites via Playwright. Where scraping fails (Cloudflare-blocked), manually update `trueTotalCost` in `data/hotel-monitor-source.json`.
+- **Hotel prices**: Run `npm run scrape:hotels` for a first pass, then manually verify any hotel whose direct booking flow only exposes a room-night price, hides the total behind interactive checkout, or returns a stale URL/Cloudflare block.
 - **Seattle**: Alert threshold $400. Boylston confirmed $384.13 (RES [redacted]) — hold unless a refundable direct quote under $400 appears.
 - **Portland**: Alert threshold $620. Hotel Vance confirmed $628.46 (conf# [redacted]) — hold unless challenger comes in under $620.
-- **PAL Award Tax Monitor**: Now scraped via Playwright. Cadence: weekly Mon (now–Aug), 2×/week Mon+Thu (Sep), 3×/week Mon+Wed+Fri (Oct), stops Nov 1. Current taxes: SFO→MNL $370.50, ORD→MNL $375.50.
+- **PAL Award Tax Monitor**: Cadence: weekly Mon (now–Aug), 2×/week Mon+Thu (Sep), 3×/week Mon+Wed+Fri (Oct), stops Nov 1. Current taxes remain SFO→MNL $370.50, ORD→MNL $375.50 because the 2026-05-24 live run reached PAL but did not reach a tax result.
 - Keep note system reconciled after meaningful work.
 
 ## GitHub Secrets needed for email alerts
@@ -31,6 +31,8 @@ Ensure these are set in the repo's GitHub Actions secrets for email notification
 - Removed 2 stale automation cards (15-min flight monitor, Latest Report — both had dead `.md` links).
 - Added missing `address` and `brand` to 4 Seattle hotels in `data/hotel-monitor-source.json`.
 - Deleted 14 stale review PNGs from `docs/review-assets/` and `docs/archive/TASKS-legacy.md`.
+- Corrected Paramount Hotel Seattle back to the verified $731.60 total after a bad automated scrape picked up a room-night price instead of the checkout total.
+- Replaced stale hotel/PAL carry-forward notes with current blocker notes for Cloudflare, stale direct URLs, and interaction-gated checkout flows.
 
 ## Completed 2026-05-23
 

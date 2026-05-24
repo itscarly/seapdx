@@ -4,15 +4,16 @@
 
 ### PAL Award Tax Monitor — weekly check
 
-- [ ] Open PAL.com, check Business Class award for Mar 3-7, 2027 on SFO→MNL and ORD→MNL.
+- [ ] Open PAL.com, clear the cookie gate, and get all the way to a Business Class award result for Mar 3-7, 2027 on SFO→MNL and ORD→MNL.
 - [ ] If either tax changed vs. current values ($370.50 SFO / $375.50 ORD), add a new `taxHistory` entry in `data/airfare-watch.json`, update `currentTax` and `lastChecked`.
 - [ ] Commit and push.
 
 ### Hotel Monitor — per cadence (Tue/Fri before Sep 1, Mon Sep, daily Oct+)
 
-- [ ] Run `npm run monitor:hotels` for direct-site checks (Nov 1-4 Seattle, Nov 4-9 Portland).
+- [ ] Run `npm run scrape:hotels` or `npm run monitor:hotels` for direct-site checks (Nov 1-4 Seattle, Nov 4-9 Portland).
 - [ ] Seattle cap $400 — if any watchlist hotel qualifies refundable under cap, update `data/hotel-monitor-source.json` and consider switching from Boylston ($384.13, RES [redacted]).
 - [ ] Portland cap $620 — Hotel Vance current benchmark ($628.46, conf# [redacted]). Watch for challenger under $620.
+- [ ] Replace stale direct URLs or manual blockers when a brand site returns a 404 page, Cloudflare gate, or checkout flow without a visible total.
 - [ ] Update `lastAutomatedCheckAt` and `lastAutomatedSummary` in the JSON, commit and push.
 
 ### Itinerary upkeep
