@@ -377,7 +377,7 @@
       "zone": "Downtown Portland",
       "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxdt-courtyard-portland-city-center/",
       "trueTotalCost": 487.85,
-      "reviewScore": null,
+      "reviewScore": 4.2,
       "hasElevator": true,
       "freeBreakfast": false,
       "refundable": true,
@@ -413,61 +413,13 @@
         "confidence": "high"
       },
       "notes": "BOOKED (conf [redacted]). $140.61 cheaper than Hotel Vance. Cancel Vance before Nov 3, 11:59 PM.",
-      "status": "booked-second"
+      "reviewUrl": "https://www.google.com/search?q=Courtyard+by+Marriott+Portland+City+Center+reviews",
+      "transitScore": 99,
+      "transitNote": "SW Oak & 5th Ave. MAX Red/Blue/Yellow at Old Town/Chinatown 2-min walk. Portland Streetcar at NW 5th & Couch 4-min walk.",
+      "safetyNote": "SW Oak & 5th \u2014 Pearl District edge, active daytime area. Old Town adjacent; standard awareness at night.",
+      "safetySource": "https://www.walkscore.com/score/550-sw-oak-st-portland-or-97204"
     },
-    "watchlist": [
-      {
-        "id": "courtyard-portland-city-center",
-        "name": "Courtyard by Marriott Portland City Center",
-        "brand": "Courtyard (Marriott)",
-        "address": "550 SW Oak Street, Portland, Oregon USA, 97204",
-        "zone": "Downtown Portland",
-        "directBookingUrl": "https://www.marriott.com/hotels/travel/pdxdt-courtyard-portland-city-center/",
-        "trueTotalCost": 487.85,
-        "reviewScore": 4.2,
-        "hasElevator": true,
-        "freeBreakfast": false,
-        "refundable": true,
-        "guaranteeMethod": "American Express",
-        "confirmationNumber": "94187007",
-        "checkIn": "2026-11-04",
-        "checkOut": "2026-11-09",
-        "nights": 5,
-        "guests": 2,
-        "roomType": "Guest room, 1 King",
-        "ratePlan": "Stay Longer and Save",
-        "cancellationDeadline": "2026-11-03T23:59:00-08:00",
-        "cancellationPenalty": 94.13,
-        "nightlyRates": [
-          83.3,
-          83.3,
-          83.3,
-          83.3,
-          83.3
-        ],
-        "totalCashRate": 416.49,
-        "estimatedTaxesAndFees": 54.69,
-        "conventionTourismFee": 12.5,
-        "localGovernmentFee": 4.17,
-        "totalForStay": 487.85,
-        "additionalCharges": "Valet parking $52/day (not included)",
-        "safeNeighborhood": true,
-        "priceVerification": {
-          "status": "confirmed-booked",
-          "evidenceNote": "User-booked: Stay Longer and Save, 1 King. 5x $83.30 = $416.49 + $54.69 taxes + $12.50 convention + $4.17 local = $487.85.",
-          "observedAt": "2026-05-24T00:00:00.000Z",
-          "source": "user-manual",
-          "confidence": "high"
-        },
-        "notes": "BOOKED (conf [redacted]). $140.61 cheaper than Hotel Vance. Cancel Vance before Nov 3, 11:59 PM.",
-        "status": "booked-second",
-        "reviewUrl": "https://www.google.com/search?q=Courtyard+by+Marriott+Portland+City+Center+reviews",
-        "transitScore": 99,
-        "transitNote": "SW Oak & 5th Ave. MAX Red/Blue/Yellow at Old Town/Chinatown 2-min walk. Portland Streetcar at NW 5th & Couch 4-min walk.",
-        "safetyNote": "SW Oak & 5th \u2014 Pearl District edge, active daytime area. Old Town adjacent; standard awareness at night.",
-        "safetySource": "https://www.walkscore.com/score/550-sw-oak-st-portland-or-97204"
-      }
-    ],
+    "watchlist": [],
     "watchlistDroppedNote": "2026-05-24: All 16 Portland watchlist hotels dropped. Two bookings held (Hotel Vance $628.46 conf [redacted], Courtyard $487.85 conf [redacted]). Both refundable before Nov 3. Cancel Vance before Nov 3 unless a reason to keep it surfaces.",
     "watchlistDropped_ARCHIVE": [
       {

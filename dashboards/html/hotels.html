@@ -303,9 +303,11 @@ function renderHotelRow(hotel, threshold, isCurrent) {
 }
 
 function renderCitySection(cityKey, cityData) {
-  const { trip, alertThreshold, currentReservation, watchlist } = cityData;
+  const { trip, alertThreshold, currentReservation, secondReservation, watchlist } = cityData;
   const bm = currentReservation;
+  const bm2 = secondReservation || null;
   const bmPrice = bm ? (bm.confirmedTotalPaid || bm.trueTotalCost) : null;
+  const bm2Price = bm2 ? (bm2.confirmedTotalPaid || bm2.trueTotalCost) : null;
 
   let html = `<div class="city-section" id="${cityKey}">
     <div class="city-header">
@@ -313,7 +315,21 @@ function renderCitySection(cityKey, cityData) {
       <span class="city-meta">${trip.nights} nights · ${trip.guests} guests · Budget cap $${alertThreshold}</span>
     </div>`;
 
-  if (bm) {
+  if (bm && bm2) {
+    html += `<div class="benchmark-bar">
+      <strong>Current reservations:</strong>
+      <span>${bm.name}</span>
+      ${bmPrice != null ? `<span class="bm-price">$${bmPrice.toFixed(2)}</span>` : ""}
+      <span class="bm-label">Conf# ${bm.confirmationNumber || "—"}</span>
+      ${bm.refundable ? '<span class="badge badge-good">Refundable</span>' : ""}
+      &nbsp;·&nbsp;
+      <span>${bm2.name}</span>
+      ${bm2Price != null ? `<span class="bm-price">$${bm2Price.toFixed(2)}</span>` : ""}
+      <span class="bm-label">Conf# ${bm2.confirmationNumber || "—"}</span>
+      ${bm2.refundable ? '<span class="badge badge-good">Refundable</span>' : ""}
+      <span class="bm-label">Alert threshold: $${alertThreshold}</span>
+    </div>`;
+  } else if (bm) {
     html += `<div class="benchmark-bar">
       <strong>Current reservation:</strong>
       <span>${bm.name}</span>
@@ -329,6 +345,7 @@ function renderCitySection(cityKey, cityData) {
     <tbody>`;
 
   if (bm) html += renderHotelRow(bm, alertThreshold, true);
+  if (bm2) html += renderHotelRow(bm2, alertThreshold, true);
   for (const h of (watchlist || [])) html += renderHotelRow(h, alertThreshold, false);
 
   html += `</tbody></table></div></div>`;
