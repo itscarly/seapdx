@@ -18,24 +18,27 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ## GitHub Secrets needed for email alerts
 
 Ensure these are set in the repo's GitHub Actions secrets for email notifications to fire:
+
 - `RESEND_API_KEY` — Resend API key
-- `ALERT_EMAIL_TO` — limcarl83@gmail.com
+- `ALERT_EMAIL_TO` — alert recipient email
 - `ALERT_FROM` — sender address
 
-## Completed 2026-05-23 (session 2)
+## Completed 2026-05-24
 
-- Locked in Boylston confirmed reservation (RES ID [redacted], $384.13 total) as hotel benchmark.
-- Added `monitoringCriteria` block with King Street Amtrak / Link Light Rail transit priority and switch triggers.
+- Unified light/white theme across all 3 HTML pages (main dashboard, airfare tracker, hotels tracker). Dark GitHub-style theme removed.
+- Removed location moodboard section from main dashboard. Fixed `renderVisualStrip` null crash in `app.js`.
+- Added collapsible `<details>` blocks for: Booked Flights, Additional Booked Flights, Budget Breakdown, Verification Resources. All start collapsed.
+- Removed 2 stale automation cards (15-min flight monitor, Latest Report — both had dead `.md` links).
+- Added missing `address` and `brand` to 4 Seattle hotels in `data/hotel-monitor-source.json`.
+- Deleted 14 stale review PNGs from `docs/review-assets/` and `docs/archive/TASKS-legacy.md`.
+
+## Completed 2026-05-23
+
+- Locked in Boylston confirmed reservation (RES ID [redacted], $384.13 total) as Seattle hotel benchmark.
+- Hotel Vance confirmed as Portland benchmark ($628.46, conf# [redacted]).
 - Replaced cash-fare airfare tracker with PAL Award Tax Monitor (SFO→MNL 58k mi + $370.50; ORD→MNL 67k mi + $375.50).
-- Rewrote airfare.html and airfare.js for the new award tax monitor UI with sparklines, color-coded change pills, and history table.
-- Pushed all changes to GitHub — GitHub Pages now reflects current state.
-
-## Completed 2026-05-23 (session 1)
-
-- Applied dark premium UI theme to both tracker pages — navy-black background, gold/teal/blue accents, glassy cards.
-- All hotel cards now show clickable direct booking links with cancellation deadline info.
-- Validation passed: 5/5 airfare tests, hotel monitor ok, budget ok.
-- The `docs/2026-05-23-airfare-ui-continuation.md` brief is now superseded — its goals are done.
+- Added Playwright automation for hotel scraping and PAL tax scraping.
+- Pushed all changes to GitHub — GitHub Pages reflects current state.
 
 ## Task sync rule
 

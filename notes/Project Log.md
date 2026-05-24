@@ -2,6 +2,39 @@
 
 This is the running log for project changes.
 
+## 2026-05-24 (session 7)
+
+### UI unification, dashboard cleanup, and repo housekeeping
+
+**What changed:**
+
+- All three HTML pages now use a unified white/light theme. `airfare.html` and `hotels.html` were dark GitHub-style; both converted to match the main dashboard's palette (`#ffffff` bg, `#1a1a2e` text, `#d0d7de` borders, light-mode semantic greens/reds/blues). Nav, header, cards, tables, and footer all updated.
+- Location moodboard removed from main dashboard. `renderVisualStrip()` in `app.js` guarded with `if (!strip) return` so removing the element doesn't crash the page.
+- Collapsible `<details>` sections added (all start collapsed): Booked Flights, Additional Booked Flights, Budget Breakdown, Verification Resources & Last Verified. Styled via new `.collapse-block` / `.collapse-inner` CSS in `styles.css`.
+- Automation section trimmed from 6 to 4 cards — removed the dead "15-min flight monitor" (linked a `.md` file that doesn't exist on the web) and "Latest Report" (same). Remaining cards: PAL Award Tax Monitor, Hotels, GitHub Alerts, GitHub Actions.
+- Added `address` and `brand` to 4 Seattle hotels missing them in `data/hotel-monitor-source.json`: Boylston (1120 E Pike St, Sonder), Hotel Max (620 Stewart St, Independent), Paramount (724 Pine St, Independent), State Hotel (1501 2nd Ave, Independent).
+- Deleted 13 stale screenshot PNGs from `docs/review-assets/` and `docs/archive/TASKS-legacy.md`.
+- Notes updated: CHANGELOG, TASKS, tasks/todo.md, Project Log.
+
+**Files touched:**
+
+- `dashboards/html/index.html`
+- `dashboards/html/airfare.html`
+- `dashboards/html/hotels.html`
+- `dashboards/css/styles.css`
+- `dashboards/js/app.js`
+- `data/hotel-monitor-source.json`
+- `notes/CHANGELOG.md`, `notes/TASKS.md`, `notes/Project Log.md`
+- `tasks/todo.md`
+- Deleted: `docs/review-assets/*.png`, `docs/archive/TASKS-legacy.md`
+
+**Next session picks up:**
+
+- Continue hotel and PAL tax monitoring on cadence (see `tasks/todo.md`).
+- No code changes needed unless a hotel price drops under threshold or PAL tax shifts.
+
+---
+
 ## 2026-05-24 (session 6)
 
 ### Playwright automation + full dashboard table rebuild

@@ -24,7 +24,9 @@
     "currentReservation": {
       "id": "boylston-current",
       "name": "The Boylston Hotel Capitol Hill",
+      "brand": "Sonder",
       "zone": "Capitol Hill",
+      "address": "1120 E Pike St, Seattle, WA 98122",
       "directBookingUrl": "https://www.sonder.com/en-gb/destinations/seattle/the-boylston/c32505",
       "trueTotalCost": null,
       "reviewScore": null,
@@ -46,7 +48,9 @@
       {
         "id": "hotel-max",
         "name": "Hotel Max",
+        "brand": "Independent boutique",
         "zone": "Downtown Seattle",
+        "address": "620 Stewart St, Seattle, WA 98101",
         "directBookingUrl": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=21123&child=0&currency=USD&depart=2026-11-04&hotel=76786&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
         "trueTotalCost": 777.68,
         "reviewScore": null,
@@ -65,7 +69,9 @@
       {
         "id": "paramount-hotel-seattle",
         "name": "Paramount Hotel Seattle",
+        "brand": "Independent boutique",
         "zone": "Downtown Seattle",
+        "address": "724 Pine St, Seattle, WA 98101",
         "directBookingUrl": "https://bookings.travelclick.com/104207?adults=2&children=0&datein=11/01/2026&dateout=11/04/2026&HotelId=104207&languageid=1&rooms=1#/total",
         "trueTotalCost": 731.60,
         "reviewScore": null,
@@ -84,7 +90,9 @@
       {
         "id": "state-hotel",
         "name": "The State Hotel",
+        "brand": "Independent boutique",
         "zone": "Downtown Seattle / Pike Place",
+        "address": "1501 2nd Ave, Seattle, WA 98101",
         "directBookingUrl": "https://be.synxis.com/?adult=2&arrive=2026-11-01&chain=8517&child=0&currency=USD&depart=2026-11-04&hotel=4079&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
         "trueTotalCost": 909.46,
         "reviewScore": null,

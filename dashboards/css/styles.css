@@ -2236,3 +2236,60 @@ h3 {
 .dark-tracker h3 {
   color: var(--dt-ink);
 }
+
+/* ── Collapsible section details/summary ───────────────────────────── */
+.collapse-block {
+  margin-top: 1rem;
+}
+
+.collapse-block > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.65rem 1rem;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  -webkit-user-select: none;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.collapse-block > summary::-webkit-details-marker { display: none; }
+
+.collapse-block > summary::before {
+  content: "▶";
+  font-size: 0.65rem;
+  transition: transform 0.18s;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.collapse-block[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.collapse-block > summary:hover {
+  background: rgba(255,255,255,0.95);
+}
+
+.collapse-block[open] > summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-color: transparent;
+}
+
+.collapse-block .collapse-inner {
+  border: 1px solid var(--line);
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 1rem 0 0;
+  background: rgba(255,255,255,0.45);
+}

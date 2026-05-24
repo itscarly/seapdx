@@ -437,6 +437,7 @@ function initHero() {
 
 function renderVisualStrip() {
   const strip = document.getElementById("visualStrip");
+  if (!strip) return;
   const cards = TRIP_VISUALS.map((item) => `
     <article class="visual-card">
       <a class="visual-card-link image-frame" href="${item.image}" target="_blank" rel="noreferrer" aria-label="Open ${item.name} image">
