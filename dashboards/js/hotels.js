@@ -11,9 +11,9 @@ const CITY_CONFIG = {
   portland: {
     label: "Portland",
     dates: "Nov 4–9, 2026",
-    benchmarkNote: "Hotel Vance stays the fallback until a direct-site Portland quote lands under $620.",
+    benchmarkNote: "Courtyard by Marriott Portland City Center is booked at $487.85 (conf [redacted]). Cancel Hotel Vance before Nov 3.",
     watchlistNote: "Every quote shown here is tied to the exact Nov 4–9, 2026 / 2 guest stay scope. Elevator required.",
-    strategyNote: "Hold Hotel Vance unless a qualifying challenger comes in under $620 with 4.0+ stars, elevator, and transit access."
+    strategyNote: "Courtyard is booked and $140.61 cheaper. Action item: cancel Hotel Vance (conf [redacted]) before Nov 3, 11:59 PM."
   }
 };
 

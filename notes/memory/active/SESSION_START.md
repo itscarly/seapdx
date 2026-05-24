@@ -58,14 +58,13 @@ Courtyard by Marriott Portland City Center is already booked at $487.85 — $140
 
 ### Portland hotels (Nov 4–9, 5 nights)
 
-**TWO BOOKINGS — both refundable before Nov 3:**
+**ACTIVE BOOKING:** Courtyard by Marriott Portland City Center — $487.85 (conf# [redacted]). Portland base. Dashboard and itinerary updated.
 
-| Hotel | Total | Conf # | Cancel deadline |
-| ----- | ----- | ------ | --------------- |
-| **Courtyard by Marriott Portland City Center** | **$487.85** | 94187007 | Nov 3, 11:59 PM |
-| Hotel Vance Tribute Portfolio | $628.46 | [redacted] | Nov 3 (check policy) |
+**Breakfast near Courtyard:** Fuller's Coffee Shop, 136 NW 9th Ave — 8-10 min walk, opens 7 AM Mon–Sat. Classic diner since 1947.
 
-**Watchlist:** Empty — all options were above $500, monitoring complete.
+**⚠️ Still need to cancel:** Hotel Vance (conf# [redacted], $628.46) — cancel before Nov 3, 11:59 PM. Both are still technically held until then.
+
+**Watchlist:** Empty — monitoring complete.
 
 ---
 

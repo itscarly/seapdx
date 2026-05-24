@@ -152,9 +152,9 @@ const STOP_COORDINATES = {
   "Glo's Capitol Hill breakfast": { lat: 47.6157, lng: -122.3192, label: "Glo's" },
   "Phê Vietnamese coffee or Victrola backup": { lat: 47.6118, lng: -122.3172, label: "Phê" },
   "Walgreens Pharmacy Capitol Hill": { lat: 47.6159, lng: -122.3201, label: "Walgreens Broadway" },
-  "Check in at Hotel Vance": { lat: 45.5152, lng: -122.6828, label: "Hotel Vance" },
+  "Check in at Courtyard Portland": { lat: 45.5249, lng: -122.6731, label: "Courtyard Portland" },
   "Powell's City of Books + Life of Pie NW": { lat: 45.5231, lng: -122.6818, label: "Powell's / Pearl start" },
-  "Vance + Vine breakfast or Stumptown Downtown breakfast": { lat: 45.5152, lng: -122.6828, label: "Hotel Vance / Downtown breakfast" },
+  "Fuller's Coffee Shop breakfast": { lat: 45.5267, lng: -122.6814, label: "Fuller's Coffee Shop" },
   "Washington Park + Portland Japanese Garden": { lat: 45.5186, lng: -122.7081, label: "Portland Japanese Garden" },
   "Tasty Corner PDX lunch": { lat: 45.5114, lng: -122.6837, label: "Tasty Corner" },
   "Powell's City of Books + Hello From Portland": { lat: 45.5232, lng: -122.6816, label: "Powell's / Hello From Portland" },
@@ -173,8 +173,8 @@ const STOP_COORDINATES = {
   "Screen Door, Gabbiano's, or Cubo de Cuba value lunch": { lat: 45.5279, lng: -122.6981, label: "Screen Door Pearl" },
   "Sumo Sushi & Grill AYCE Oregon City dinner detour": { lat: 45.3577, lng: -122.6072, label: "Sumo AYCE Oregon City" },
   "Big Legrowlski open jam social night": { lat: 45.511, lng: -122.6146, label: "Big Legrowlski" },
-  "Check out of Hotel Vance": { lat: 45.5152, lng: -122.6828, label: "Hotel Vance" },
-  "Hotel Vance to PDX": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" },
+  "Check out of Courtyard Portland": { lat: 45.5249, lng: -122.6731, label: "Courtyard Portland" },
+  "Courtyard Portland to PDX": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" },
   "Airport coffee/snack buffer": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" }
 };
 
@@ -1079,7 +1079,7 @@ function renderTripAtlas() {
       <div class="atlas-head">
         <div>
           <span class="badge">Portland</span>
-          <h3>Hotel Vance base, eastside swings, airport departure</h3>
+          <h3>Courtyard Portland base, eastside swings, airport departure</h3>
           <p>Shows what stays close to the hotel, where you start needing transit, and how far the outer detours really push the route.</p>
         </div>
         <div id="${TRIP_MAP_CONFIG.portland.summaryId}" class="atlas-summary"></div>

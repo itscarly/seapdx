@@ -4,7 +4,7 @@ window.TRIP_DATA = {
     dates: "November 1-9, 2026",
     travelerBase: {
       seattle: "The Boylston Hotel Capitol Hill",
-      portland: "Hotel Vance, Portland, a Tribute Portfolio Hotel"
+      portland: "Courtyard by Marriott Portland City Center"
     },
     verifiedOn: "May 18, 2026",
     budgetCap: 880,
@@ -17,7 +17,7 @@ window.TRIP_DATA = {
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
       "Dashboard USD amounts now also show PHP equivalents using the May 9, 2026 USD/PHP rate plus a 1.85% foreign transaction fee buffer.",
       "Coffee beans are capped at two bags total: one in Seattle and one in Portland, with a maximum bean budget of $60.",
-      "Portland home base is Hotel Vance, Portland, a Tribute Portfolio Hotel, 1455 Southwest Broadway, Portland, Oregon 97201, United States.",
+      "Portland home base is Courtyard by Marriott Portland City Center, 550 SW Oak Street, Portland, Oregon 97204, United States.",
       "November 2026 hours are not fully published for many businesses, so the dashboard flags current verified status and recommends rechecking before booking.",
       "The plan is curated best-fit; not every candidate location is included.",
       "May 18 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
@@ -50,7 +50,7 @@ window.TRIP_DATA = {
     projectedTotal: 820,
     categories: [
       { name: "Transportation", amount: 87, note: "ORCA, ferry, Amtrak, TriMet/Hop; no planned rideshare. Seattle-to-Portland train now uses the exact 12:10 PM train 517 example fare from $27 instead of the older inflated placeholder." },
-      { name: "Food", amount: 348, note: "Food spend now reflects the diner-first breakfast preference, one Salt & Straw stop, the exact Pike Place grazing breakdown, exact Menya Musashi dinner pricing, the updated Portland hotel-breakfast logic, and the closer Pearl sushi swap on Portland Day 8." },
+      { name: "Food", amount: 348, note: "Food spend now reflects the diner-first breakfast preference, one Salt & Straw stop, the exact Pike Place grazing breakdown, exact Menya Musashi dinner pricing, the updated Portland breakfast logic (Fuller's Coffee Shop), and the closer Pearl sushi swap on Portland Day 8." },
       { name: "Cocktails and social", amount: 101, note: "Cocktail planning now assumes the stronger value plays only: Poquitos, Saint John's, and selective Portland drink stops, including Novel Book Bar as a one-drink-or-light-snack Portland evening." },
       { name: "Entrance fees", amount: 54, note: "Sky View Observatory and Portland Japanese Garden; Seattle Japanese Garden moved out of the default Bainbridge day." },
       { name: "Coffee beans", amount: 60, note: "Maximum two bags total: one Seattle bag and one Portland bag." },
@@ -93,8 +93,8 @@ window.TRIP_DATA = {
         ticketCost: 540.43,
         airportLeaveBy: "Be at Manila airport by 9:05 AM for the 12:05 PM international departure.",
         visibilityNote: "This is the long-haul arrival chain that feeds directly into the Seattle day-one plan.",
-        statusLabel: "Booked and confirmed; monitor for gate, delay, and schedule changes.",
-        alertCopy: "Near-real-time polling is set up around official airline and airport status pages every 15 minutes, with email alerts intended when the monitor detects a change and email credentials are configured.",
+        statusLabel: "Booked, but current Asiana route publication now shows a schedule-risk mismatch for the Sunday SEA arrival leg; verify the reservation directly with Asiana.",
+        alertCopy: "Near-real-time polling is set up around official airline and airport status pages every 15 minutes, but the bigger issue right now is that Asiana's current route-schedule notice lists Seattle-Incheon OZ271/272 on Mon, Tue, Wed, Fri, Sat rather than Sunday. Confirm the November 1 itinerary with Asiana before assuming the booked timing still stands.",
         statusSource: "https://flyasiana.com/C/US/EN/index",
         airportSource: "https://www.portseattle.org/sea-tac/flight-status",
         legs: [
@@ -120,7 +120,8 @@ window.TRIP_DATA = {
             flightNumber: "OZ272",
             aircraft: "B777",
             cabin: "Economy (V)",
-            mileage: "3637 miles; mileage upgrade unavailable"
+            mileage: "3637 miles; mileage upgrade unavailable",
+            scheduleRisk: "Asiana's current route schedule notice shows Seattle-Incheon OZ271/272 operating Mon, Tue, Wed, Fri, Sat, which does not match this booked Sunday, November 1, 2026 leg. Reconfirm the operating date directly with Asiana."
           }
         ]
       },
@@ -131,7 +132,7 @@ window.TRIP_DATA = {
         title: "Portland to Corpus Christi via Dallas/Fort Worth",
         dateLabel: "Monday, November 9, 2026",
         ticketCost: 746.41,
-        airportLeaveBy: "Leave Hotel Vance by about 10:15 AM and aim to be inside PDX by about 10:40-10:45 AM for the 1:47 PM departure.",
+        airportLeaveBy: "Leave Courtyard Portland by about 10:15 AM and aim to be inside PDX by about 10:40-10:45 AM for the 1:47 PM departure.",
         visibilityNote: "This is the November departure routing that replaces the old generic flight-dependent buffer language.",
         statusLabel: "Booked and ticketed; watch for PDX departure updates and DFW connection changes.",
         alertCopy: "The dashboard should surface the latest known status, while the 15-minute monitor is designed to email delay or gate-change alerts when the provider-side email secrets are configured.",
@@ -893,7 +894,7 @@ window.TRIP_DATA = {
             {
               time: "3:45 PM",
               leaveTime: "3:40 PM",
-              name: "Portland Union Station to Hotel Vance",
+              name: "Portland Union Station to Courtyard Portland",
               type: "transit",
               neighborhood: "Pearl / Union Station to Downtown",
               duration: "20-25 min",
@@ -904,7 +905,7 @@ window.TRIP_DATA = {
               taxTipIncluded: "Assumes one local transit fare; no tip.",
               tipGuidance: "No tip for transit.",
               website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Portland+Union+Station/Hotel+Vance+Portland"
+              route: "https://www.google.com/maps/dir/Portland+Union+Station/Courtyard+by+Marriott+Portland+City+Center"
             }
           ]
         },
@@ -913,10 +914,10 @@ window.TRIP_DATA = {
           items: [
             {
               time: "4:05 PM",
-              name: "Check in at Hotel Vance",
+              name: "Check in at Courtyard Portland",
               type: "hotel",
               anchorType: "hotel-checkin",
-              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
               neighborhood: "Downtown / Cultural District",
               duration: "20-30 min",
               cost: 0,
@@ -935,7 +936,7 @@ window.TRIP_DATA = {
               sentiment: "Still touristy, still actually worth it.",
               hours: "Powell's daily 10 AM-9 PM.",
               website: "https://www.powells.com/locations/powells-city-of-books",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Powell's+City+of+Books"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Powell's+City+of+Books"
             },
             {
               time: "6:15 PM",
@@ -956,7 +957,7 @@ window.TRIP_DATA = {
               hours: "Daily 11 AM-10 PM.",
               website: "https://lifeofpiepizza.com/",
               menu: "https://lifeofpiepizza.com/",
-              route: "https://www.google.com/maps/dir/Powell's+City+of+Books/Life+of+Pie+NW+23rd/Hotel+Vance+Portland"
+              route: "https://www.google.com/maps/dir/Powell's+City+of+Books/Life+of+Pie+NW+23rd/Courtyard+by+Marriott+Portland+City+Center"
             }
           ]
         }
@@ -966,7 +967,7 @@ window.TRIP_DATA = {
       id: "day-5",
       date: "Thu, Nov 5",
       city: "Portland",
-      title: "Hotel breakfast start, Japanese Garden, downtown books",
+      title: "Fuller's breakfast, Japanese Garden, downtown books",
       theme: "Practical Portland morning + classic sights",
       dayTotal: 116,
       weatherPlan: "Japanese Garden is still good in light rain; use Powell's and cafes if wind is rough.",
@@ -977,21 +978,21 @@ window.TRIP_DATA = {
             {
               time: "8:30 AM",
               leaveTime: "8:20 AM",
-              name: "Stumptown Downtown breakfast coffee stop",
+              name: "Fuller's Coffee Shop breakfast",
               type: "food",
-              neighborhood: "Cultural District / Downtown",
+              neighborhood: "Pearl District",
               duration: "45-60 min",
               cost: 20,
-              bestTime: "7-8 AM hotel-area breakfast before heading uphill.",
-              knownFor: "Reliable downtown coffee anchor with enough food to start the garden day without using a vague hotel-or-cafe block.",
-              sentiment: "Stronger public-facing breakfast start than hiding inside the hotel restaurant.",
-              beans: "Save bean purchases for Coava/Heart/Stumptown retail; this is a breakfast-and-coffee stop, not the main bean buy.",
+              bestTime: "7-8 AM walk from Courtyard before heading uphill to the garden.",
+              knownFor: "Portland institution since 1947. Classic American diner breakfast — eggs, corned beef hash, housemade bread, generous portions. Iconic U-shaped chrome counter.",
+              sentiment: "8-10 min walk from Courtyard. Local favorite, not a tourist trap. Exactly the kind of lived-in breakfast start that fits Portland right.",
+              beans: "Save bean purchases for Coava/Heart/Stumptown retail; this is a breakfast stop, not the main bean buy.",
               payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one breakfast and one coffee with the newer realism buffer already baked in.",
-              tipGuidance: "Use 15% if seated for breakfast; if you go the coffee-and-pastry route, keep the tip closer to $1.",
-              hours: "Stumptown Downtown currently lists daily 7 AM-5 PM.",
-              website: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Stumptown+Coffee+Roasters+Downtown+Portland"
+              taxTipIncluded: "Estimate assumes one breakfast plate and coffee with a 15% sit-down tip.",
+              tipGuidance: "15% for sit-down diner service.",
+              hours: "Mon–Sat 7 AM. Closed Sunday.",
+              website: "https://fullerscoffeeshop.com/",
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Fuller's+Coffee+Shop+136+NW+9th+Ave+Portland"
             },
             {
               time: "10:00 AM",
@@ -1009,7 +1010,7 @@ window.TRIP_DATA = {
               tipGuidance: "No tip for transit.",
               hours: "Verify TriMet service alerts day-of.",
               website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Washington+Park+MAX+Station"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Washington+Park+MAX+Station"
             },
             {
               time: "10:40 AM",
@@ -1113,7 +1114,7 @@ window.TRIP_DATA = {
               hours: "Recheck current Pearl District hours before the trip.",
               website: "https://screendoorrestaurant.com/",
               menu: "https://screendoorrestaurant.com/",
-              route: "https://www.google.com/maps/dir/Hello+From+Portland/Screen+Door+Pearl+District/Hotel+Vance+Portland"
+              route: "https://www.google.com/maps/dir/Hello+From+Portland/Screen+Door+Pearl+District/Courtyard+by+Marriott+Portland+City+Center"
             }
           ]
         }
@@ -1149,7 +1150,7 @@ window.TRIP_DATA = {
               tipGuidance: "$1 for coffee; no tip needed on the retail bean bag.",
               hours: "Flagship open daily 7 AM-6 PM.",
               website: "https://coavacoffee.com/locations",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Coava+Coffee+Roasters+Flagship"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Coava+Coffee+Roasters+Flagship"
             },
             {
               time: "10:00 AM",
@@ -1264,7 +1265,7 @@ window.TRIP_DATA = {
               tipGuidance: "No tip.",
               hours: "Recheck current hours before the trip.",
               website: "https://www.belmont-station.com/",
-              route: "https://www.google.com/maps/dir/Movie+Madness+Portland/Belmont+Station+Portland/Hotel+Vance+Portland"
+              route: "https://www.google.com/maps/dir/Movie+Madness+Portland/Belmont+Station+Portland/Courtyard+by+Marriott+Portland+City+Center"
             }
           ]
         },
@@ -1273,10 +1274,10 @@ window.TRIP_DATA = {
           items: [
             {
               time: "6:30 PM",
-              name: "Return to Hotel Vance",
+              name: "Return to Courtyard Portland",
               type: "hotel",
               anchorType: "hotel-return",
-              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
               neighborhood: "Downtown / Cultural District",
               duration: "20-30 min",
               cost: 0,
@@ -1316,7 +1317,7 @@ window.TRIP_DATA = {
               tipGuidance: "$1 is enough for coffee.",
               hours: "Downtown 128 SW 3rd: daily 7 AM-5 PM.",
               website: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Stumptown+Coffee+Roasters+Downtown+Portland"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Stumptown+Coffee+Roasters+Downtown+Portland"
             },
             {
               time: "10:00 AM",
@@ -1391,7 +1392,7 @@ window.TRIP_DATA = {
               cost: 24,
               bestTime: "Early evening after Eem if you want one close-in Portland social stop before heading back.",
               knownFor: "Book-bar atmosphere, coffee, cocktails, and lighter food near the Pearl/Old Town edge.",
-              sentiment: "Better fit than a generic rooftop backup when you want something specific to Portland and closer to Hotel Vance.",
+              sentiment: "Better fit than a generic rooftop backup when you want something specific to Portland and closer to Courtyard Portland.",
               happyHour: "No verified happy hour yet; use it as a one-drink or coffee-plus-browse stop rather than a full two-cocktail budget play.",
               recommended: "Best value move here is one drink or coffee plus fries, pretzel, or the burger instead of forcing a two-cocktail order.",
               reservation: "No reservation expected for a normal visit; recheck their latest updates on Instagram.",
@@ -1400,7 +1401,7 @@ window.TRIP_DATA = {
               tipGuidance: "If you order a drink, tip 18%. If you only get coffee and browse, keep the tip closer to $1.",
               hours: "Recheck current hours on Instagram before the trip.",
               website: "https://www.instagram.com/novelpdx/",
-              route: "https://www.google.com/maps/dir/Eem+Portland/Novel+Book+Bar+Portland/Hotel+Vance+Portland"
+              route: "https://www.google.com/maps/dir/Eem+Portland/Novel+Book+Bar+Portland/Courtyard+by+Marriott+Portland+City+Center"
             }
           ]
         }
@@ -1436,7 +1437,7 @@ window.TRIP_DATA = {
               tipGuidance: "$1 is enough for coffee.",
               hours: "Recheck exact branch hours before trip.",
               website: "https://www.heartroasters.com/",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Heart+Coffee+Burnside+Portland"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Heart+Coffee+Burnside+Portland"
             },
             {
               time: "10:30 AM",
@@ -1511,7 +1512,7 @@ window.TRIP_DATA = {
               duration: "60-75 min",
               cost: 26,
               bestTime: "Use this as the close-in Sunday sushi dinner so the final Portland night stays easy to navigate.",
-              knownFor: "Closer Pearl District sushi option that fits the Hotel Vance base far better than the old Oregon City detour.",
+              knownFor: "Closer Pearl District sushi option that fits the Courtyard Portland base far better than the old Oregon City detour.",
               sentiment: "Best realism tradeoff now that route quality matters more than strict AYCE logic.",
               reservation: "Recheck day-of, but the Pearl location is a straightforward close-in dinner stop rather than a destination detour.",
               payment: "Cards accepted.",
@@ -1519,7 +1520,7 @@ window.TRIP_DATA = {
               tipGuidance: "If there is regular table service, 15% is enough here.",
               hours: "Official Pearl menu page lists the location open daily 11 AM-9 PM; recheck closer to the trip.",
               website: "https://www.hanasushiandizakaya.com/menus",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Hana+Sushi+and+Izakaya+138+NW+10th+Ave+Portland/The+Big+Legrowlski+Portland"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Hana+Sushi+and+Izakaya+138+NW+10th+Ave+Portland/The+Big+Legrowlski+Portland"
             }
             ,
             {
@@ -1532,25 +1533,25 @@ window.TRIP_DATA = {
               cost: 38,
               bestTime: "Sunday, Monday, or Tuesday 7 PM-midnight open jam; Sunday fits this itinerary.",
               knownFor: "Casual live music/open jam, local crowd, no-cover community vibe.",
-              sentiment: "Good social value with a manageable return to Hotel Vance; 21+ only.",
+              sentiment: "Good social value with a manageable return to Courtyard Portland; 21+ only.",
               happyHour: "No default happy-hour deal; plan this as a deliberate two-drink social stop if you go.",
               recommended: "Order Dead Flowers and Nobody F*cks With the Jesus if you want floral/fruity drinks, plus Just Walked In or Donny's Drumsticks for the light food side.",
               reservation: "No reservation; check event calendar before going.",
               payment: "Cards accepted; support the venue with a drink/snack.",
               taxTipIncluded: "Estimate assumes Dead Flowers ($13), Nobody F*cks With the Jesus ($13), one $8 light food order, and an 18% bar tip. Portland has no sales tax.",
               tipGuidance: "Tip 18% at the bar here.",
-              socialFit: "Strongest Portland live-music social pick with a simple return to Hotel Vance by streetcar, MAX, or short rideshare.",
+              socialFit: "Strongest Portland live-music social pick with a simple return to Courtyard Portland by streetcar, MAX, or short rideshare.",
               safetyNote: "Keep first meetups public, stay aware around Old Town/Pearl late at night, and use your own route home.",
               hours: "Open-jam info lists Sunday, Monday, Tuesday 7 PM-midnight; venue lists 21+.",
               website: "https://www.biglegrowlski.com/open-jam",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/The+Big+Legrowlski+Portland"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/The+Big+Legrowlski+Portland"
             },
             {
               time: "9:15 PM",
-              name: "Return to Hotel Vance",
+              name: "Return to Courtyard Portland",
               type: "hotel",
               anchorType: "hotel-return",
-              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
               neighborhood: "Downtown / Cultural District",
               duration: "20-30 min",
               cost: 0,
@@ -1575,10 +1576,10 @@ window.TRIP_DATA = {
             {
               time: "9:55 AM",
               leaveTime: "9:40 AM",
-              name: "Check out of Hotel Vance",
+              name: "Check out of Courtyard Portland",
               type: "hotel",
               anchorType: "hotel-departure",
-              hotelContext: "Portland base: Hotel Vance, Portland, a Tribute Portfolio Hotel",
+              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
               neighborhood: "Downtown / Cultural District",
               duration: "15-20 min",
               cost: 0,
@@ -1587,7 +1588,7 @@ window.TRIP_DATA = {
             {
               time: "10:15 AM",
               leaveTime: "10:10 AM",
-              name: "Hotel Vance to PDX",
+              name: "Courtyard Portland to PDX",
               type: "transit",
               neighborhood: "Downtown to airport",
               duration: "45-60 min",
@@ -1599,7 +1600,7 @@ window.TRIP_DATA = {
               payment: "Tap contactless card or phone.",
               hours: "Verify service alerts day-of.",
               website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Portland+International+Airport"
+              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Portland+International+Airport"
             },
             {
               time: "10:50 AM",
@@ -1650,14 +1651,14 @@ window.TRIP_DATA = {
       { name: "Hinge", city: "Both cities", fit: "Backup for more filtered, date-quality matches.", setup: "Manually set location to Capitol Hill/U District for Seattle, then Downtown/Pearl or inner eastside for Portland.", safety: "Use it for coffee or dinner dates where you can screen better before meeting.", link: "https://help.hinge.co/hc/en-us/articles/49661615922195-Location-Settings" },
       { name: "Bumble", city: "Both cities", fit: "Optional if you want more control over messaging.", setup: "Travel Mode is Premium/Premium+ and can be set up before arrival.", safety: "Good for public coffee/drink plans; keep first meetups short.", link: "https://support.bumble.com/hc/articles/28423960803741-Using-Bumble-while-traveling" },
       { name: "Cafe Allegro + University Book Store + Big Time Brewery", city: "Seattle", fit: "UW-adjacent public hangout loop, reachable from Capitol Hill by Link.", setup: "Use Cafe Allegro or University Book Store for daytime app meetups; Big Time works better for early evening beer/trivia/chess energy.", safety: "Campus-adjacent does not mean everyone is available or straight. Use apps/preferences for dating intent and keep interactions respectful.", link: "https://www.bigtimebrewery.com/" },
-      { name: "Novel Book Bar", city: "Portland", fit: "Best close-in Portland book-bar add when you want atmosphere, coffee, a younger-feeling crowd, and one intentional evening drink without straying far from Hotel Vance.", setup: "Treat it as a strong optional Portland evening stop near the Pearl/Old Town edge. Coffee or one drink plus light food fits better than a full two-cocktail plan.", safety: "Stay public, keep first meetups simple, and do not assume the cozy vibe means the pricing is automatically cheap.", link: "https://www.instagram.com/novelpdx/" },
-      { name: "Big Legrowlski", city: "Portland", fit: "Best Portland structured social venue still worth the trip from Hotel Vance for open jam/live music and local conversation.", setup: "Sunday open jam still fits the itinerary; if you go, treat it as a real two-drink stop and keep your own route back to Hotel Vance.", safety: "21+ only. Stay public, avoid leaving with someone you just met, and use streetcar/MAX or rideshare backup if late-night transit feels inconvenient.", link: "https://www.biglegrowlski.com/open-jam" },
-      { name: "Powell's / West End coffee meetup", city: "Portland", fit: "Safest daytime first-date zone from Hotel Vance, with Powell's, downtown cafes, and easy PSU/Cultural District return options.", setup: "Meet at Powell's or a nearby West End cafe before dinner; keep it to 45-60 minutes first.", safety: "Good default for first app meetups because exits, transit, and hotel return are simple from the new base.", link: "https://www.travelportland.com/attractions/powells/" }
+      { name: "Novel Book Bar", city: "Portland", fit: "Best close-in Portland book-bar add when you want atmosphere, coffee, a younger-feeling crowd, and one intentional evening drink without straying far from Courtyard Portland.", setup: "Treat it as a strong optional Portland evening stop near the Pearl/Old Town edge. Coffee or one drink plus light food fits better than a full two-cocktail plan.", safety: "Stay public, keep first meetups simple, and do not assume the cozy vibe means the pricing is automatically cheap.", link: "https://www.instagram.com/novelpdx/" },
+      { name: "Big Legrowlski", city: "Portland", fit: "Best Portland structured social venue still worth the trip from Courtyard Portland for open jam/live music and local conversation.", setup: "Sunday open jam still fits the itinerary; if you go, treat it as a real two-drink stop and keep your own route back to Courtyard Portland.", safety: "21+ only. Stay public, avoid leaving with someone you just met, and use streetcar/MAX or rideshare backup if late-night transit feels inconvenient.", link: "https://www.biglegrowlski.com/open-jam" },
+      { name: "Powell's / West End coffee meetup", city: "Portland", fit: "Safest daytime first-date zone from Courtyard Portland, with Powell's, downtown cafes, and easy PSU/Cultural District return options.", setup: "Meet at Powell's or a nearby West End cafe before dinner; keep it to 45-60 minutes first.", safety: "Good default for first app meetups because exits, transit, and hotel return are simple from Courtyard Portland.", link: "https://www.travelportland.com/attractions/powells/" }
     ],
     rainyDay: [
       "Seattle: Pike Place Market, Seattle Art Museum, Amazon Spheres exterior/photo stop, coffee crawl near Capitol Hill.",
       "Seattle: Replace Bainbridge with UW libraries, Japanese Garden only if light rain, Madrona Arms early evening instead of the island block.",
-      "Portland: Powell's, Made Here, Hotel Vance/West End coffee blocks, Japanese Garden in light rain, indoor food carts/beer garden.",
+      "Portland: Powell's, Made Here, Courtyard/Pearl District coffee blocks, Japanese Garden in light rain, indoor food carts/beer garden.",
       "Portland: Skip Multnomah Falls if wind, heavy rain, or tour timing threatens the budget."
     ],
     packing: [
@@ -1687,16 +1688,16 @@ window.TRIP_DATA = {
     { name: "Bruciato", reason: "Good Bainbridge pizza/bar alternate, but it fits a lunch-pub island day better than the chosen breakfast-first plan.", bestDay: "day-3", alternateType: "food", alternateFor: "Madison Diner breakfast", estimatedCost: 28, neighborhood: "Bainbridge Island", duration: "75 min", bestTime: "Lunch if you want pizza instead of diner breakfast.", notes: "Happy-hour pricing not treated as verified default spend.", route: "https://www.google.com/maps/dir/Waterfront+Park+and+City+Dock+Bainbridge+Island/Bruciato+Bainbridge+Island", website: "https://www.pizzeriabruciato.com/" },
     { name: "Cups Espresso & Cafe", reason: "Bainbridge coffee backup, but Pegasus and Commuter Comforts create a cleaner ferry-terminal loop.", bestDay: "day-3", alternateType: "coffee", alternateFor: "Pegasus Coffee House or Commuter Comforts", estimatedCost: 7, neighborhood: "Bainbridge Island", duration: "30 min", bestTime: "If Pegasus is crowded or closed.", notes: "Use as a same-role coffee substitute.", route: "https://www.google.com/maps/search/Cups+Espresso+Cafe+Bainbridge+Island", website: "https://www.google.com/maps/search/Cups+Espresso+Cafe+Bainbridge+Island" },
     { name: "Seasmith", reason: "Bainbridge saved-list coffee/food candidate, but it was not needed once Madison Diner plus Pegasus/Commuter Comforts covered breakfast and coffee.", bestDay: "day-3", alternateType: "coffee", alternateFor: "Pegasus Coffee House or Commuter Comforts", estimatedCost: 9, neighborhood: "Bainbridge Island", duration: "35 min", bestTime: "Use only if the ferry timing pushes you toward a different Winslow cafe.", notes: "Same-route substitute, not an add-on.", route: "https://www.google.com/maps/search/Seasmith+Bainbridge+Island", website: "https://www.google.com/maps/search/Seasmith+Bainbridge+Island" },
-    { name: "Seattle Streetcar / 3303 S Bond Ave item", reason: "Address appears Portland South Waterfront/OHSU related, not Seattle. Excluded as cross-city data error.", bestDay: "day-5", alternateType: "transit", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 3, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Use only if you pivot a Portland day toward South Waterfront instead of Washington Park.", notes: "Kept as labeled backup because the original source mixed city data.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/3303+S+Bond+Ave+Portland", website: "https://www.google.com/maps/search/3303+S+Bond+Ave+Portland" },
-    { name: "Daily Cafe / Summit Cafe at OHSU", reason: "Portland/OHSU items mistakenly listed under Seattle; not used in Seattle routing.", bestDay: "day-5", alternateType: "coffee", alternateFor: "Hotel Vance Starbucks or Stumptown Downtown", estimatedCost: 8, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Morning if you want a quieter coffee detour instead of central downtown.", notes: "Useful only if already heading toward OHSU or the tram area.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/OHSU+Portland", website: "https://www.google.com/maps/search/OHSU+Cafe+Portland" },
-    { name: "Depoe Bay", reason: "Full-day coastal trip, car/tour cost, and weather risk are still too high for the $800 target.", bestDay: "day-8", alternateType: "sightseeing", alternateFor: "Alberta Arts / Mississippi backup loop", estimatedCost: 120, neighborhood: "Oregon Coast", duration: "Full day", bestTime: "Only if you are willing to replace most of the day and treat it as a major splurge.", notes: "Beautiful coast option, but it breaks the transit-first short-trip logic.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Depoe+Bay+Oregon", website: "https://www.oregoncoast.org/cities/depoe-bay/" },
-    { name: "Multnomah Falls via Viator", reason: "Good optional tour, but paid tour consumes too much budget. Add only if replacing Portland Japanese Garden or one of the default downtown food blocks.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 89, neighborhood: "Columbia River Gorge", duration: "4-5 hr", bestTime: "Morning if you decide to replace one major Portland city anchor with a gorge trip.", notes: "Best as a full substitution, not an add-on.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Multnomah+Falls", website: "https://www.google.com/maps/search/Multnomah+Falls+tour+Portland" },
+    { name: "Seattle Streetcar / 3303 S Bond Ave item", reason: "Address appears Portland South Waterfront/OHSU related, not Seattle. Excluded as cross-city data error.", bestDay: "day-5", alternateType: "transit", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 3, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Use only if you pivot a Portland day toward South Waterfront instead of Washington Park.", notes: "Kept as labeled backup because the original source mixed city data.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/3303+S+Bond+Ave+Portland", website: "https://www.google.com/maps/search/3303+S+Bond+Ave+Portland" },
+    { name: "Daily Cafe / Summit Cafe at OHSU", reason: "Portland/OHSU items mistakenly listed under Seattle; not used in Seattle routing.", bestDay: "day-5", alternateType: "coffee", alternateFor: "Fuller's Coffee Shop or Stumptown Downtown", estimatedCost: 8, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Morning if you want a quieter coffee detour instead of central downtown.", notes: "Useful only if already heading toward OHSU or the tram area.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/OHSU+Portland", website: "https://www.google.com/maps/search/OHSU+Cafe+Portland" },
+    { name: "Depoe Bay", reason: "Full-day coastal trip, car/tour cost, and weather risk are still too high for the $800 target.", bestDay: "day-8", alternateType: "sightseeing", alternateFor: "Alberta Arts / Mississippi backup loop", estimatedCost: 120, neighborhood: "Oregon Coast", duration: "Full day", bestTime: "Only if you are willing to replace most of the day and treat it as a major splurge.", notes: "Beautiful coast option, but it breaks the transit-first short-trip logic.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Depoe+Bay+Oregon", website: "https://www.oregoncoast.org/cities/depoe-bay/" },
+    { name: "Multnomah Falls via Viator", reason: "Good optional tour, but paid tour consumes too much budget. Add only if replacing Portland Japanese Garden or one of the default downtown food blocks.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 89, neighborhood: "Columbia River Gorge", duration: "4-5 hr", bestTime: "Morning if you decide to replace one major Portland city anchor with a gorge trip.", notes: "Best as a full substitution, not an add-on.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Multnomah+Falls", website: "https://www.google.com/maps/search/Multnomah+Falls+tour+Portland" },
     { name: "Sumo Sushi & Grill AYCE Seattle", reason: "Verified Seattle location and official AYCE tiers exist, but dinner pricing rises fast and the U District detour makes it weaker than Tacos Chukis or Sushi% for the base plan.", bestDay: "day-4", alternateType: "food", alternateFor: "Glo's Capitol Hill breakfast", estimatedCost: 26, neighborhood: "University District", duration: "90 min", bestTime: "Lunch is the real value play; dinner pushes much closer to splurge territory.", notes: "Official Seattle page listed Silver lunch at $19.95 and Gold lunch at $22.95 before tax and tip; dinner tiers run materially higher.", route: "https://www.google.com/maps/dir/The+Boylston+Hotel+Capitol+Hill+Seattle/Sumo+Sushi+and+Grill+AYCE+Seattle", website: "https://www.sumoayce.com/location" },
-    { name: "Sumo Sushi & Grill AYCE Oregon City", reason: "AYCE still fits the older sushi rule, but the Oregon City detour is too far from central Portland once route realism matters more than unlimited sushi.", bestDay: "day-8", alternateType: "food", alternateFor: "Hana Sushi and Izakaya Pearl dinner", estimatedCost: 42, neighborhood: "Oregon City", duration: "2.5-3 hr including detour time", bestTime: "Use only if you intentionally want to trade a smoother Pearl District evening for a longer AYCE-focused dinner detour.", notes: "No longer the default because it eats too much time and distance on the final full Portland day.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Sumo+Sushi+%26+Grill+AYCE+Oregon+City/Hotel+Vance+Portland", website: "https://www.sumoayce.com/oregoncity" },
-    { name: "Novel Book Bar", reason: "Strong Portland add near Hotel Vance with real books, coffee, cocktails, and lighter food, but the user-shared menu points to $15 cocktails so it works better as a one-drink or coffee-plus-browse stop than as a strict two-cocktail budget play.", bestDay: "day-7", alternateType: "cocktails", alternateFor: "Tope or rooftop backup near downtown", estimatedCost: 24, neighborhood: "NW Everett / Pearl edge", duration: "60-90 min", bestTime: "Early evening if you want a close-in Portland social stop with more personality than a generic bar.", notes: "Sample menu the user shared: espresso/americano $4.25, latte $5.25, vanilla latte $5.75, mocha or Spanish latte $6.50, cocktails $15, wine $14-$15, beer $6, burger $7, fries $4, pretzel $5, salad $10, salmon $15.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/Novel+Book+Bar+Portland", website: "https://www.instagram.com/novelpdx/" },
+    { name: "Sumo Sushi & Grill AYCE Oregon City", reason: "AYCE still fits the older sushi rule, but the Oregon City detour is too far from central Portland once route realism matters more than unlimited sushi.", bestDay: "day-8", alternateType: "food", alternateFor: "Hana Sushi and Izakaya Pearl dinner", estimatedCost: 42, neighborhood: "Oregon City", duration: "2.5-3 hr including detour time", bestTime: "Use only if you intentionally want to trade a smoother Pearl District evening for a longer AYCE-focused dinner detour.", notes: "No longer the default because it eats too much time and distance on the final full Portland day.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Sumo+Sushi+%26+Grill+AYCE+Oregon+City/Courtyard+by+Marriott+Portland+City+Center", website: "https://www.sumoayce.com/oregoncity" },
+    { name: "Novel Book Bar", reason: "Strong Portland add near Courtyard Portland with real books, coffee, cocktails, and lighter food, but the user-shared menu points to $15 cocktails so it works better as a one-drink or coffee-plus-browse stop than as a strict two-cocktail budget play.", bestDay: "day-7", alternateType: "cocktails", alternateFor: "Tope or rooftop backup near downtown", estimatedCost: 24, neighborhood: "NW Everett / Pearl edge", duration: "60-90 min", bestTime: "Early evening if you want a close-in Portland social stop with more personality than a generic bar.", notes: "Sample menu the user shared: espresso/americano $4.25, latte $5.25, vanilla latte $5.75, mocha or Spanish latte $6.50, cocktails $15, wine $14-$15, beer $6, burger $7, fries $4, pretzel $5, salad $10, salmon $15.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Novel+Book+Bar+Portland", website: "https://www.instagram.com/novelpdx/" },
     { name: "Rontoms", reason: "Strong patio cocktail option, but it was moved off the default trip because the two-cocktail-plus-food version pushes the budget too far once Portland AYCE sushi stays active.", bestDay: "day-6", alternateType: "cocktails", alternateFor: "Belmont / Mississippi browse + Nate's Oatmeal Cookies", estimatedCost: 42, neighborhood: "East Burnside", duration: "75 min", bestTime: "3-6:30 PM happy hour if you want an extra Portland bar stop.", notes: "Good optional add-back if you intentionally trade some contingency or souvenir room for another cocktail night.", route: "https://www.google.com/maps/dir/North+Mississippi+Avenue+Portland/Rontoms+Portland", website: "https://www.rontoms.net/" },
-    { name: "The Grotto", reason: "Interesting but east of the core route; use only as rainy/reflective backup if skipping Washington Park.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 10, neighborhood: "Northeast Portland", duration: "90 min", bestTime: "Light-rain morning or reflective backup day.", notes: "Quieter spiritual-site fallback if you want a lower-key Portland day.", route: "https://www.google.com/maps/dir/Hotel+Vance+Portland/The+Grotto+Portland", website: "https://thegrotto.org/" },
-    { name: "Duplicate chains/branches", reason: "Only closest or strategically useful branch is recommended to avoid itinerary clutter.", bestDay: "day-8", alternateType: "coffee", alternateFor: "Heart Coffee or Good Coffee", estimatedCost: 7, neighborhood: "Both cities", duration: "30-45 min", bestTime: "Any time a listed default branch has lines or awkward routing.", notes: "Treat this as a policy reminder: nearest good branch can substitute without changing the spirit of the day.", route: "https://www.google.com/maps/search/coffee+near+Hotel+Vance+Portland", website: "https://www.google.com/maps/search/coffee+shops+Portland" }
+    { name: "The Grotto", reason: "Interesting but east of the core route; use only as rainy/reflective backup if skipping Washington Park.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 10, neighborhood: "Northeast Portland", duration: "90 min", bestTime: "Light-rain morning or reflective backup day.", notes: "Quieter spiritual-site fallback if you want a lower-key Portland day.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/The+Grotto+Portland", website: "https://thegrotto.org/" },
+    { name: "Duplicate chains/branches", reason: "Only closest or strategically useful branch is recommended to avoid itinerary clutter.", bestDay: "day-8", alternateType: "coffee", alternateFor: "Heart Coffee or Good Coffee", estimatedCost: 7, neighborhood: "Both cities", duration: "30-45 min", bestTime: "Any time a listed default branch has lines or awkward routing.", notes: "Treat this as a policy reminder: nearest good branch can substitute without changing the spirit of the day.", route: "https://www.google.com/maps/search/coffee+near+Courtyard+by+Marriott+Portland+City+Center", website: "https://www.google.com/maps/search/coffee+shops+Portland" }
   ],
   sources: [
     { label: "Seattle Streetcar fares", url: "https://www.seattle.gov/transportation/getting-around/transit/streetcar/fares-and-orca-card" },
@@ -1747,7 +1748,7 @@ window.TRIP_DATA = {
     { label: "Olympia Coffee Columbia City", url: "https://www.olympiacoffee.com/pages/columbia-city" },
     { label: "Olympia Sweetheart pricing", url: "https://www.olympiacoffee.com/products/sweetheart" },
     { label: "Portland Japanese Garden hours/admission", url: "https://japanesegarden.org/hours-admission/" },
-    { label: "Hotel Vance dining", url: "https://www.hotelvance.com/dining" },
+    { label: "Fuller's Coffee Shop", url: "https://fullerscoffeeshop.com/" },
     { label: "Powell's / Travel Portland", url: "https://www.travelportland.com/attractions/powells/" },
     { label: "Portland Saturday Market / Travel Portland", url: "https://www.travelportland.com/event/6839b028f06e831a6c74666e/" },
     { label: "Hello From Oregon / Hello From Portland", url: "https://hellofromoregon.com/" },

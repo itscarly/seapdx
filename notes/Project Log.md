@@ -1126,6 +1126,28 @@ Follow-up:
 
 ## 2026-05-24
 
+### Seattle hotel direct-site watch
+
+- Rechecked the Seattle direct booking watch for `Nov 1-4, 2026` / `2 guests` and kept Boylston anchored to the original booked benchmark total of `USD 384.13` because it is the held reservation.
+- Logged Boylston's current public direct quote separately for reference only: `USD 401.50` total (`$347.00` subtotal + `$54.50` taxes and fees), fully refundable until `Oct 31, 2026`.
+- Corrected Boylston's stay metadata to reflect the live page: it is a stair-access property with no elevator, and the stale cancellation deadline moved from `Oct 25` to `Oct 31`.
+- Verified that no Seattle comparison hotel is currently live-verified under the `$400` cap. The remaining Seattle watchlist totals were preserved as last verified because the repo's Playwright scraper is blocked in this sandbox by Chromium launch permissions.
+
+Files touched:
+
+- `data/hotel-monitor-source.json`
+- `notes/Project Log.md`
+
+Verification:
+
+- Playwright MCP direct check on Boylston Cloudbeds flow
+- `npm run build:hotels`
+- `npm run validate`
+
+Follow-up:
+
+- Re-run the Seattle watch from an environment where repo Playwright can launch Chromium if you want full same-run checkout captures for every remaining Seattle comparison hotel.
+
 ### Hotel price visibility fix
 
 - Fixed the hotel dashboards and generated report so stored hotel totals remain visible when live direct recapture is blocked, stale, or ambiguous.
