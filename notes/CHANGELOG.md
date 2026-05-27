@@ -4,6 +4,25 @@
 
 This is the concise project change record.
 
+## 2026-05-27 (session 16 — Palihotel added, watchlist trimmed, calendar updated)
+
+- Booked Reside Seattle Downtown (104 Pine St, conf [redacted], $469.81, Nov 1–4). Promoted to `currentReservation` in both JSON files. Boylston moved to watchlist as backup.
+- Booked Palihotel Seattle (107 Pine St, conf [redacted], $536.59 pay at property, Nov 1–4). Added as `secondReservation` in both JSON files. Cancel by Oct 30, 3 PM.
+- Added `reservationStatus` field to seattle city object — red warning in dashboard: "3 ACTIVE SEATTLE RESERVATIONS — cancel 2 before Oct 30."
+- Removed 5 low-transit hotels from Seattle watchlist (transitScore ≤ 90): Staypineapple University Inn (83), Maxwell (84), Watertown (86), citizenM South Lake Union (90), Hotel Sorrento (90).
+- Remaining watchlist: 4 hotels with transitScore > 90 only (Boylston 99, Warwick 98, Hotel FIVE 100, Mayflower 100).
+- Updated `hotels.html` benchmark bar to show cancel deadlines for both reservations and render `reservationStatus` as a red inline warning.
+- Updated `data/trip-data.js`: Seattle base rerouted for 104 Pine St / Pike Place. Day 1 evening replaced (Alibi Room + Il Bistro replacing Saint John's + Poquitos). Day 3 added morning market coffee before Bainbridge ferry. Day 4 checkout from Reside.
+- Updated 12 Google Calendar events for Day 1 and Day 4: transit, check-in, afternoon, evening, and checkout events all updated to Reside/104 Pine St/Post Alley routing.
+- Synced both JSON files throughout (hotel-monitor-source + hotel-monitor-report).
+
+## 2026-05-26 (session — airfare watch baseline reset)
+
+- Restored the Manila airfare subsystem from the PAL award-tax detour back to the cash-fare watch model the SFO/ORD→MNL automation expects.
+- Replaced the PAL-tax validator, airfare tests, and airfare dashboard with the cash-fare versions that separate discovery signals from airline-direct verified fares.
+- Added a May 26, 2026 pre-window baseline note to `data/airfare-watch.json` so the next run sees that no fresh one-way airline-direct checkout was captured in this non-interactive pass.
+- Reconciled active task and note files so they now point at `npm run monitor:airfare` and the airline-direct verification rules again.
+
 ## 2026-05-24 (session — Portland second booking + dashboard update)
 
 - Booked Courtyard by Marriott Portland City Center: $487.85 total, conf# [redacted], 1 King, Nov 4–9. Stay Longer and Save rate. Free cancel before Nov 3, 11:59 PM.

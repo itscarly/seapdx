@@ -316,18 +316,22 @@ function renderCitySection(cityKey, cityData) {
     </div>`;
 
   if (bm && bm2) {
+    const resStatus = cityData.reservationStatus || null;
     html += `<div class="benchmark-bar">
       <strong>Current reservations:</strong>
       <span>${bm.name}</span>
       ${bmPrice != null ? `<span class="bm-price">$${bmPrice.toFixed(2)}</span>` : ""}
       <span class="bm-label">Conf# ${bm.confirmationNumber || "—"}</span>
       ${bm.refundable ? '<span class="badge badge-good">Refundable</span>' : ""}
+      <span class="bm-label">Cancel by ${bm.cancellationDeadline ? new Date(bm.cancellationDeadline).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/Los_Angeles'}) : "—"}</span>
       &nbsp;·&nbsp;
       <span>${bm2.name}</span>
       ${bm2Price != null ? `<span class="bm-price">$${bm2Price.toFixed(2)}</span>` : ""}
       <span class="bm-label">Conf# ${bm2.confirmationNumber || "—"}</span>
       ${bm2.refundable ? '<span class="badge badge-good">Refundable</span>' : ""}
+      <span class="bm-label">Cancel by ${bm2.cancellationDeadline ? new Date(bm2.cancellationDeadline).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/Los_Angeles'}) : "—"}</span>
       <span class="bm-label">Alert threshold: $${alertThreshold}</span>
+      ${resStatus ? `<br><span style="color:#c0392b;font-weight:600;font-size:12px;">⚠ ${resStatus}</span>` : ""}
     </div>`;
   } else if (bm) {
     html += `<div class="benchmark-bar">

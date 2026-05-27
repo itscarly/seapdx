@@ -8,10 +8,25 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ## Current active work
 
-- **Seattle (8 hotels tracked)**: Boylston confirmed $384.13 (RES [redacted]) — hold unless refundable sub-$400 appears. citizenM added ($580.56). Warwick best alternative ($451.94).
-- **Flash sale warning**: 4 Staypineapple prices are Memorial Day 25% off (~expires 2026-05-28). Re-check after sale: Maxwell $534.94, Hotel FIVE $560.09, Watertown $543.91, University Inn $491.84.
-- **Portland (16 hotels tracked, all priced)**: Hotel Vance benchmark $628.46 (conf# [redacted]) — hold unless challenger under $620. Lowest tracked: Hyatt Centric $701.60. No hotel currently under threshold.
-- **PAL Award Tax Monitor**: SFO→MNL $370.50, ORD→MNL $375.50. Cadence: weekly Mon (now–Aug), Mon+Thu (Sep), Mon+Wed+Fri (Oct), stops Nov 1.
+### ⚠️ Cancel 2 of 3 Seattle reservations before Oct 30–31
+
+User intends to keep **Reside Seattle Downtown** (104 Pine St, conf [redacted], $469.81).
+
+Must cancel before deadlines:
+- Palihotel Seattle (conf [redacted]) — **Oct 30, 3:00 PM** (1-night penalty if missed)
+- Boylston Hotel Capitol Hill (conf [redacted]) — **Oct 31, 4:00 PM**
+
+### ⚠️ Cancel Hotel Vance (Portland) before Nov 3, 11:59 PM
+
+Hotel Vance conf# [redacted], $628.46. Courtyard (conf# [redacted], $487.85) is the active Portland base.
+
+### Seattle watchlist (4 hotels, transitScore > 90 only)
+
+All hotels with transitScore ≤ 90 removed (session 16). Current watchlist: Boylston (99), Warwick (98), Hotel FIVE (100), Mayflower Park (100).
+
+### PAL taxes
+
+SFO→MNL $370.50 | ORD→MNL $375.50. Monitoring cadence active through Oct.
 
 ## GitHub Secrets needed for email alerts
 
@@ -28,7 +43,7 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 - Replaced all Seattle hotel booking URLs with correct direct booking links.
 - Rebuilt layered hotel price scraper and dashboard. Unified white/light theme across all 3 HTML pages.
 - Removed stale GitHub Pages deploy path, flight polling files, moodboard section, stale PNGs.
-- PAL tracker rebuilt from cash-fare to award-tax monitor.
+- Airfare tracker later moved back to a cash-fare watch with airline-direct verification rules.
 
 ## Task sync rule
 

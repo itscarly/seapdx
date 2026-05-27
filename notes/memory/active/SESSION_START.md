@@ -1,7 +1,7 @@
 ---
 name: session-start
 description: Single-file session orientation — read this first, nothing else needed to get started
-updated: 2026-05-24
+updated: 2026-05-27
 ---
 
 # Session Start — codexproject
@@ -26,35 +26,51 @@ Obsidian vault = repo root `/Users/kicker/Downloads/codexproject/`. Write Obsidi
 | `dashboards/html/airfare.html` | PAL tax monitor page |
 | `dashboards/html/hotels.html` | Hotel monitor page |
 
-**Critical:** `hotels.html` reads from `hotel-monitor-source.json`. When editing hotel data, always sync BOTH files. The dashboard reads `currentReservation` and `watchlist` from each city object.
+**Critical:** `hotels.html` reads from `hotel-monitor-source.json`. When editing hotel data, always sync BOTH files. The dashboard reads `currentReservation`, `secondReservation`, and `watchlist` from each city object.
 
 ---
 
-## Current status (as of 2026-05-24, end of session)
+## Current status (as of 2026-05-27, end of session 16)
 
-### ⚠️ One action still required
+### ⚠️ Actions required
 
-**Cancel Hotel Vance (conf# [redacted], $628.46) before Nov 3, 11:59 PM Portland local time.**
-Courtyard is already booked and cheaper. This is the only open task.
+**Seattle — 3 active reservations. Cancel 2 before Oct 30–31:**
+- Reside Seattle Downtown (104 Pine St) — conf [redacted], $469.81, cancel by **Oct 30, 4:00 PM**
+- Palihotel Seattle (107 Pine St) — conf [redacted], $536.59, cancel by **Oct 30, 3:00 PM**
+- Boylston Hotel Capitol Hill — conf [redacted], $384.13, cancel by **Oct 31, 4:00 PM**
+
+**User intends to keep Reside.** Cancel Palihotel and Boylston before their deadlines.
+
+**Portland — cancel Hotel Vance (conf# [redacted], $628.46) before Nov 3, 11:59 PM Portland local time.**
+Courtyard is already booked and cheaper.
 
 ---
 
-### Seattle hotels (Nov 1–4, 3 nights, budget cap $400)
+### Seattle hotels (Nov 1–4, 3 nights)
 
-**Booked:** The Boylston Hotel Capitol Hill — $384.13 (RES# [redacted]). Hold unless refundable sub-$400 appears.
+**PRIMARY:** Reside Seattle Downtown, a Wyndham Residence — $469.81, conf [redacted]
+- 104 Pine St, Seattle WA 98101 (half a block from Pike Place Market)
+- Cancel by: Oct 30, 4:00 PM local
 
-**Watchlist (8 hotels, all over cap):**
+**BACKUP (2):** Palihotel Seattle — $536.59 (pay at property), conf [redacted]
+- 107 Pine St (next door to Reside)
+- Cancel by: Oct 30, 3:00 PM local
+- Member Deal 15%, 1 Queen Bed, refundable
 
-| Hotel | Total | Cancel deadline | Note |
-| ----- | ----- | --------------- | ---- |
-| Warwick Seattle Hotel | $451.94 | Oct 31, 11:59 PM | |
-| Staypineapple University Inn | $491.84 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
-| Staypineapple Maxwell | $534.94 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
-| Staypineapple Watertown | $543.91 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
-| Staypineapple Hotel FIVE | $560.09 | Oct 31 | ⚠️ flash sale — recheck after May 28 |
-| citizenM Seattle South Lake Union | $580.56 | Oct 30, 11:59 PM | |
-| Mayflower Park Hotel | $591.47 | Oct 31, 4 PM | |
-| Hotel Sorrento | $645.46 | free cancel / pay later | |
+**BACKUP (3):** The Boylston Hotel Capitol Hill — $384.13, conf [redacted]
+- 2518 Eastlake Ave E (Capitol Hill)
+- Cancel by: Oct 31, 4:00 PM local
+
+**Watchlist (4 hotels, all transitScore > 90):**
+
+| Hotel | Total | TransitScore | Cancel deadline |
+| ----- | ----- | ------------ | --------------- |
+| Warwick Seattle Hotel (Deluxe Room) | $451.94 | 98 | Oct 31, 11:59 PM |
+| Staypineapple Hotel FIVE | $560.09 | 100 | Oct 31 |
+| Mayflower Park Hotel | $591.47 | 100 | Oct 31, 4 PM |
+| The Boylston Hotel Capitol Hill | $384.13 | 99 | Oct 31, 4 PM |
+
+Note: Boylston is both an active backup reservation AND in the watchlist.
 
 ---
 
@@ -79,21 +95,14 @@ Courtyard is already booked and cheaper. This is the only open task.
 
 ---
 
-## What was completed this session
+### Seattle itinerary base
 
-1. **Replaced Hotel Vance with Courtyard Portland** across all files:
-   - `data/trip-data.js` — all activity names, routes, hotel context strings
-   - `dashboards/js/app.js` — map coordinates, stop labels
-   - `dashboards/js/hotels.js` — strategy notes
-   - `data/hotel-monitor-source.json` — Courtyard promoted to `currentReservation`, Vance to `cancelReservation`
-   - `data/hotel-monitor-report.json` — benchmark updated to Courtyard
-   - Notes updated: `PROJECT_CONTEXT.md`, `SESSION_START.md`
+All Day 1–4 Seattle itinerary, calendar events, and routing are set for **Reside at 104 Pine St / Pike Place Market area** (not Capitol Hill). Google Calendar was updated 2026-05-27: 12 events updated for Day 1 + Day 4.
 
-2. **Swapped Day 5 Portland breakfast**: Stumptown Downtown → Fuller's Coffee Shop
-
-3. **Updated Google Calendar**: 22 Portland events updated (Days 4–9) — hotel name, locations, route links, and breakfast event
-
-4. **Committed and pushed** to GitHub (commit `b778dd5`)
+Day 1 routing: SEA → Link Light Rail → Westlake Station → walk to 104 Pine St
+Day 1 evening: Pike Place stroll, Walgreens 2nd & Pike, Elm Coffee, Alibi Room (Post Alley), Il Bistro (Post Alley)
+Day 3: Morning Pike Place coffee added before Bainbridge ferry
+Day 4: Checkout Reside → Elm Coffee / Pike Place → King Street Station
 
 ---
 

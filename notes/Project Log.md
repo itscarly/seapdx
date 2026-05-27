@@ -2,6 +2,59 @@
 
 This is the running log for project changes.
 
+## 2026-05-27 (session 16 — Reside + Palihotel, watchlist trim, calendar + itinerary)
+
+### Seattle hotel state: 3 active reservations
+
+User booked two new Seattle hotels this session:
+
+1. **Reside Seattle Downtown** (104 Pine St, conf [redacted], $469.81, Nov 1–4) — promoted to `currentReservation`. Studio apartment, kitchen, city view, half a block from Pike Place. Cancel by Oct 30, 4pm.
+2. **Palihotel Seattle** (107 Pine St, conf [redacted], $536.59 pay at property, Nov 1–4) — added as `secondReservation`. Next door to Reside. Cancel by Oct 30, 3pm — 1-night penalty if missed.
+3. **Boylston Hotel Capitol Hill** (conf [redacted], $384.13) — moved to watchlist as backup. Cancel by Oct 31, 4pm.
+
+Dashboard shows a red ⚠️ `reservationStatus` warning with all three deadlines. User intends to keep Reside.
+
+### Seattle watchlist trimmed
+
+Removed 5 hotels with transitScore ≤ 90: Staypineapple University Inn (83), Maxwell (84), Watertown (86), citizenM South Lake Union (90), Hotel Sorrento (90). Remaining: Boylston (99), Warwick (98), Hotel FIVE (100), Mayflower (100).
+
+### Itinerary rerouted for 104 Pine St / Pike Place base
+
+`data/trip-data.js` updated: Day 1 routing SEA → Westlake → 104 Pine St. Evening: Pike Place stroll, Walgreens 2nd & Pike, Elm Coffee, Alibi Room (Post Alley), Il Bistro (Post Alley). Day 3: morning market coffee added before Bainbridge ferry. Day 4: checkout Reside → Elm Coffee → King Street.
+
+### Google Calendar updated (12 events)
+
+All Day 1 and Day 4 events updated via MCP: transit, check-in, afternoon, evening, and checkout events now reflect Reside at 104 Pine St and Post Alley routing.
+
+Files touched: `data/hotel-monitor-source.json`, `data/hotel-monitor-report.json`, `dashboards/html/hotels.html`, `data/trip-data.js`, notes (SESSION_START, CHANGELOG, TASKS, KNOWN_ISSUES, PROJECT_CONTEXT, Project Log), memory file.
+
+**Next session:** Cancel Palihotel + Boylston before Oct 30–31. Cancel Vance before Nov 3.
+
+## 2026-05-26
+
+### Airfare watch baseline reset
+
+- Replaced the stale PAL award-tax content in `data/airfare-watch.json` with the first cash-fare baseline for the saved SFO/ORD→MNL airfare-watch automation.
+- Captured one exact in-window one-way signal: Philippine Airlines nonstop SFO→MNL on 2027-03-10 at `$523` from Skyscanner.
+- Kept the airline-direct bar honest: no checkout-grade fare proof was reachable in this run, so `directAirlineVerified` stayed `false`.
+- Recorded ORD as partial coverage instead of inventing comparables. Current route-level signals are Google Flights Korean Air round-trip from `$738` and PAL round-trip from `$1,171` departing 2027-03-10, but no exact one-way 2027-03-07 through 2027-03-13 baseline was accessible.
+- Rebuilt the airfare report with `npm run monitor:airfare`.
+
+Files touched: `data/airfare-watch.json`, `research/airfare/latest-report.md`, `research/airfare/latest-summary.json`, `notes/ARCHITECTURE.md`, `notes/CHANGELOG.md`, `notes/Decisions.md`, `notes/KNOWN_ISSUES.md`, `notes/LEARNINGS.md`, `notes/PROJECT_CONTEXT.md`, `notes/TASKS.md`, `notes/Project Log.md`, `tasks/todo.md`
+
+Follow-up: keep hunting for an exact ORD one-way in-window baseline on an allowed carrier, then get airline-direct checkout proof before making any `BOOK` call.
+
+### Seattle hotel direct-site watch blocked before page load (automation)
+
+- Attempted to recheck Boylston plus the full Seattle watchlist for the exact Nov 1-4, 2026 stay window for 2 guests using only direct booking flows.
+- Reached Boylston's direct Cloudbeds page manually in the browser tool and confirmed a live listing signal: Standard Queen at `$347.00` room subtotal for 3 nights, marked refundable until `2026-10-31`. The same direct page's written cancellation policy tightened the practical deadline to `4:00 PM` local time on `2026-10-31`, but this run did not surface a fresh tax-inclusive checkout total.
+- Reached Warwick's official site, but the current direct URL resolved to brochure room pages that linked onward to TravelClick instead of exposing a live stay total from the starting page. The broader `npm run scrape:hotels` pass still failed on the local Chromium MachPort launch error, so the rest of the Seattle watchlist was not refreshable to checkout-grade totals in this run.
+- Preserved prior verified totals in `data/hotel-monitor-source.json`, downgraded Boylston to an explicit `manual-review-needed` refresh state for its current public quote, updated the automation timestamp and summary to record the blocker honestly, and kept the under-$400 result explicit: no Seattle hotel is newly live-verified under the `$400` total cap in this run.
+
+Files touched: `data/hotel-monitor-source.json`, `data/hotel-monitor-report.json`, `notes/PROJECT_CONTEXT.md`, `notes/KNOWN_ISSUES.md`, `notes/Project Log.md`
+
+Follow-up: rerun the Seattle hotel watch from an environment where Playwright Chromium can launch normally, then refresh direct-site totals before using the hotel tracker for any rebooking decision.
+
 ## 2026-05-24
 
 ### Full hotel watchlist overhaul (session 14)
@@ -1246,3 +1299,33 @@ Files touched:
 **One open action:**
 
 Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM. Everything else is done.
+
+## 2026-05-26
+
+### Airfare tracker restored to the automation's cash-fare model
+
+- Replaced the PAL award-tax version of the airfare subsystem with the earlier cash-fare watch model that tracks one-way economy airfare from SFO and ORD to MNL for March 7-13, 2027.
+- Restored the compatible `data/airfare-watch.json` schema, airfare validator, airfare tests, and the published airfare dashboard so discovery signals and airline-direct verified fares are separated again.
+- Added a fresh May 26, 2026 pre-window baseline note in `data/airfare-watch.json` explaining that no new airline-direct one-way checkout was captured in this non-interactive run even though discovery sources and official airline route pages were refreshed.
+- Reconciled project notes and active task files so the next run follows `npm run monitor:airfare` and the checkout-first booking rule instead of the old PAL tax workflow.
+
+Files touched:
+
+- `data/airfare-watch.json`
+- `dashboards/html/airfare.html`
+- `dashboards/js/airfare.js`
+- `scripts/session-status.js`
+- `scripts/validate-airfare-monitor.js`
+- `tests/airfare-monitor.test.js`
+- `tasks/todo.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/Decisions.md`
+- `notes/ARCHITECTURE.md`
+- `notes/LEARNINGS.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/Project Log.md`
+
+Follow-up:
+
+- The next live monitoring pass still needs a real airline checkout capture before any new `directAirlineVerified` values or `BOOK` calls are added.
