@@ -1,24 +1,24 @@
 {
-  "checkedAt": "2026-05-24T05:13:32.790Z",
-  "today": "2026-05-24",
+  "checkedAt": "2026-05-29T12:11:07.694Z",
+  "today": "2026-05-29",
   "cadence": "2x/week cadence (before Sep 2026)",
   "cities": [
     {
       "city": "seattle",
-      "hotelsChecked": 15,
-      "alerts": 0,
-      "benchmarkCost": null,
+      "hotelsChecked": 4,
+      "alerts": 1,
+      "benchmarkCost": 469.81,
       "threshold": 400
     },
     {
       "city": "portland",
-      "hotelsChecked": 13,
+      "hotelsChecked": 0,
       "alerts": 0,
-      "benchmarkCost": 628.46,
+      "benchmarkCost": 487.85,
       "threshold": 620
     }
   ],
-  "totalAlerts": 0,
+  "totalAlerts": 1,
   "emailAttempted": false,
   "emailError": null
 }
