@@ -47,7 +47,7 @@ window.TRIP_DATA = {
   budget: {
     cap: 1200,
     absoluteCeiling: 1300,
-    projectedTotal: 888,
+    projectedTotal: 879.75,
     categories: [
       { name: "Transportation", amount: 95, note: "ORCA, ferry, Amtrak, TriMet/Hop, and station/airport transfer segments across the full Nov 1-9 hourly plan." },
       { name: "Food", amount: 390, note: "Detailed meal blocks were expanded across all 9 days, including arrival/transfer and airport meal windows." },
@@ -55,7 +55,7 @@ window.TRIP_DATA = {
       { name: "Entrance fees", amount: 60, note: "Covers core paid attractions in the revised Seattle + Portland flow." },
       { name: "Coffee beans", amount: 60, note: "Maximum two bags total: one Seattle bag and one Portland bag." },
       { name: "Souvenirs", amount: 95, note: "Keeps room for city mug and small gifts while preserving the detailed schedule cadence." },
-      { name: "Contingency", amount: 68, note: "Covers real-world timing and price drift in the expanded Nov 1-9 plan." }
+      { name: "Contingency", amount: 59.75, note: "Covers real-world timing and price drift in the expanded Nov 1-9 plan." }
     ]
   },
   transit: [
@@ -245,20 +245,20 @@ window.TRIP_DATA = {
       city: "Seattle",
       title: "Pike Place, waterfront, and downtown core",
       theme: "Classic Seattle core",
-      dayTotal: 118,
+      dayTotal: 123,
       weatherPlan: "Use Link/bus as backup if rain increases; otherwise keep waterfront portions on foot.",
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake, stretch, prep", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0 },
           { time: "8:15 AM", name: "Diner breakfast", type: "meal", neighborhood: "Capitol Hill", duration: "60 min", cost: 18 },
           { time: "9:20 AM", name: "Transit to Pike Place", type: "transit", neighborhood: "Capitol Hill -> Downtown", duration: "25 min", cost: 3 },
-          { time: "9:50 AM", name: "Pike Place Market main loop", type: "activity", neighborhood: "Downtown", duration: "130 min", cost: 14, notes: "Grazing + photo stops." }
+          { time: "9:50 AM", name: "Pike Place Market main loop + Totem Smokehouse", type: "activity", neighborhood: "Downtown", duration: "130 min", cost: 14, notes: "Grazing + photo stops. Totem Smokehouse (1906 Pike Place) for smoked salmon souvenirs: $34–44 vacuum-sealed gift boxes. Budget from Souvenirs category ($95 total)." }
         ]},
         { label: "Afternoon", items: [
           { time: "12:05 PM", name: "Waterfront walk to Olympic Sculpture Park", type: "walk", neighborhood: "Waterfront", duration: "60 min", cost: 0 },
-          { time: "1:10 PM", name: "Lunch near waterfront", type: "meal", neighborhood: "Belltown/Waterfront", duration: "70 min", cost: 24 },
+          { time: "1:10 PM", name: "Luke's Lobster lunch", type: "meal", neighborhood: "Downtown (Pike Place)", duration: "70 min", cost: 30, notes: "110 Pike St, near Pike Place. Lobster/crab rolls + bisque." },
           { time: "2:25 PM", name: "Seattle Great Wheel / pier browse", type: "activity", neighborhood: "Waterfront", duration: "75 min", cost: 22 },
-          { time: "3:50 PM", name: "Coffee + short seated rest", type: "meal", neighborhood: "Downtown", duration: "50 min", cost: 9 }
+          { time: "3:50 PM", name: "Ghost Alley Espresso + rest", type: "meal", neighborhood: "Downtown (Pike Place)", duration: "50 min", cost: 8, notes: "1499 Post Alley, inside Pike Place Market. Specialty lattes." }
         ]},
         { label: "Evening", items: [
           { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "25 min", cost: 0 },
@@ -275,7 +275,7 @@ window.TRIP_DATA = {
       city: "Seattle",
       title: "Bainbridge day trip",
       theme: "Scenic ferry + island pacing",
-      dayTotal: 115,
+      dayTotal: 113,
       weatherPlan: "If ferry disruptions occur, replace with Ballard + Fremont neighborhood loop.",
       segments: [
         { label: "Morning", items: [
@@ -293,8 +293,8 @@ window.TRIP_DATA = {
         { label: "Evening", items: [
           { time: "3:35 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "35 min", cost: 0 },
           { time: "4:20 PM", name: "Hotel recharge", type: "rest", neighborhood: "Boylston base", duration: "70 min", cost: 0 },
-          { time: "5:40 PM", name: "Dinner (ramen/noodles)", type: "meal", neighborhood: "Capitol Hill", duration: "80 min", cost: 27 },
-          { time: "7:10 PM", name: "Rock Box karaoke/social stop", type: "activity", neighborhood: "Capitol Hill", duration: "80 min", cost: 22 },
+          { time: "5:40 PM", name: "Dough Zone Dumpling House dinner", type: "meal", neighborhood: "Capitol Hill", duration: "80 min", cost: 25, notes: "815 Pine St. XLB dumplings + noodles, fits ramen/noodles food spirit." },
+          { time: "7:10 PM", name: "Rock Box karaoke/social stop", type: "activity", neighborhood: "Capitol Hill", duration: "80 min", cost: 22, notes: "Tuesday HH 4–8 PM: $4/person/hr room rate (vs. $7 peak). Arrive by 7:10 PM to stay in window." },
           { time: "8:40 PM", name: "Return and rest", type: "rest", neighborhood: "Boylston base", duration: "9.5 hrs", cost: 0 }
         ]}
       ]
@@ -334,7 +334,7 @@ window.TRIP_DATA = {
       city: "Seattle to Portland",
       title: "Checkout + Amtrak transfer + light Portland evening",
       theme: "Transition day",
-      dayTotal: 87,
+      dayTotal: 81,
       weatherPlan: "Keep Seattle morning close to hotel and station timing protected with buffers.",
       segments: [
         { label: "Morning", items: [
@@ -350,8 +350,8 @@ window.TRIP_DATA = {
           { time: "4:20 PM", name: "Check in and reset", type: "rest", neighborhood: "Courtyard Portland", duration: "80 min", cost: 0 }
         ]},
         { label: "Evening", items: [
-          { time: "5:50 PM", name: "Easy downtown orientation walk", type: "walk", neighborhood: "Downtown Portland", duration: "60 min", cost: 0 },
-          { time: "7:00 PM", name: "Luc Lac Vietnamese Kitchen dinner", type: "meal", neighborhood: "Downtown Portland", duration: "75 min", cost: 25 },
+          { time: "5:50 PM", name: "Easy downtown orientation walk", type: "walk", neighborhood: "Downtown Portland", duration: "30 min", cost: 0 },
+          { time: "6:20 PM", name: "Luc Lac Vietnamese Kitchen dinner", type: "meal", neighborhood: "Downtown Portland", duration: "75 min", cost: 19, notes: "Daily HH 4–7 PM: $4 beers, $6 cocktails, $2–3 food bites. Arrive 6:20 PM to land inside HH window." },
           { time: "8:25 PM", name: "Luc Lac -> Courtyard wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "10 hrs", cost: 0 }
         ]}
       ]
@@ -362,7 +362,7 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Washington Park + Japanese Garden + Pearl",
       theme: "Core Portland highlights",
-      dayTotal: 120,
+      dayTotal: 121.75,
       weatherPlan: "Prioritize outdoor garden earlier; move Pearl browsing later if rain picks up.",
       segments: [
         { label: "Morning", items: [
@@ -373,14 +373,18 @@ window.TRIP_DATA = {
         ]},
         { label: "Afternoon", items: [
           { time: "12:20 PM", name: "Park walk + short recovery", type: "rest", neighborhood: "Washington Park", duration: "45 min", cost: 0 },
-          { time: "1:10 PM", name: "Lunch near downtown return", type: "meal", neighborhood: "Downtown", duration: "70 min", cost: 24 },
-          { time: "2:30 PM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", duration: "105 min", cost: 14 },
-          { time: "4:20 PM", name: "Coffee break", type: "meal", neighborhood: "Pearl District", duration: "45 min", cost: 8 }
+          { time: "1:10 PM", name: "Transit to Aerial Tram lower terminal", type: "transit", neighborhood: "Washington Park -> South Waterfront", duration: "20 min", cost: 0 },
+          { time: "1:40 PM", name: "Portland Aerial Tram round trip + view", type: "activity", neighborhood: "South Waterfront", duration: "30 min", cost: 8.75 },
+          { time: "2:20 PM", name: "Transit downtown for lunch", type: "transit", neighborhood: "South Waterfront -> Downtown", duration: "20 min", cost: 3 },
+          { time: "2:50 PM", name: "Lunch near downtown return", type: "meal", neighborhood: "Downtown", duration: "70 min", cost: 24 },
+          { time: "4:10 PM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", duration: "105 min", cost: 14 },
+          { time: "5:45 PM", name: "Transit to Pearl + Project Matcha", type: "transit", neighborhood: "Pearl District", duration: "10 min", cost: 0 }
         ]},
         { label: "Evening", items: [
-          { time: "5:15 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "50 min", cost: 0 },
-          { time: "6:15 PM", name: "Dinner", type: "meal", neighborhood: "Pearl/Downtown", duration: "85 min", cost: 29 },
-          { time: "7:50 PM", name: "Waterfront evening walk", type: "walk", neighborhood: "Tom McCall Waterfront", duration: "60 min", cost: 0 },
+          { time: "6:00 PM", name: "Project Matcha coffee break (note: closed Mondays)", type: "meal", neighborhood: "Pearl District", duration: "30 min", cost: 9 },
+          { time: "6:35 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "20 min", cost: 0 },
+          { time: "6:55 PM", name: "Baby Doll Pizza dinner", type: "meal", neighborhood: "Kerns", duration: "65 min", cost: 18 },
+          { time: "8:05 PM", name: "Waterfront evening walk / return", type: "walk", neighborhood: "Downtown / Tom McCall Waterfront", duration: "45 min", cost: 0 },
           { time: "9:00 PM", name: "Wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "9.5 hrs", cost: 0 }
         ]}
       ]
@@ -391,14 +395,14 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Saturday Market + Eastside neighborhoods",
       theme: "Weekend market and local food",
-      dayTotal: 128,
+      dayTotal: 138,
       weatherPlan: "Keep market first; use streetcar/MAX for fast shifts between districts.",
       segments: [
         { label: "Morning", items: [
           { time: "7:40 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:30 AM", name: "Breakfast near downtown", type: "meal", neighborhood: "Downtown", duration: "60 min", cost: 18 },
-          { time: "9:40 AM", name: "Walk to Saturday Market", type: "walk", neighborhood: "Old Town/Waterfront", duration: "20 min", cost: 0 },
-          { time: "10:00 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", duration: "120 min", cost: 24 }
+          { time: "8:30 AM", name: "Kingsland Kitchen brunch", type: "meal", neighborhood: "Downtown", duration: "60 min", cost: 22, notes: "301 SW Pine St. Full English brunch. Closed Wed only." },
+          { time: "9:40 AM", name: "Walk to Saturday Market via Voodoo Doughnut", type: "walk", neighborhood: "Old Town/Waterfront", duration: "30 min", cost: 6, notes: "6-block walk south includes Voodoo Doughnut (SW 3rd Ave) for quick doughnut grab ($5-8)." },
+          { time: "10:15 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", duration: "120 min", cost: 24 }
         ]},
         { label: "Afternoon", items: [
           { time: "12:10 PM", name: "Transit to Central Eastside", type: "transit", neighborhood: "Downtown -> Eastside", duration: "25 min", cost: 3 },
@@ -419,15 +423,15 @@ window.TRIP_DATA = {
       id: "day-8",
       date: "Sun, Nov 8",
       city: "Portland",
-      title: "Alberta/Mississippi + open-jam social night",
+      title: "Alberta/Mississippi + evening social night",
       theme: "Neighborhood culture day",
-      dayTotal: 133,
+      dayTotal: 116,
       weatherPlan: "Use bus/MAX jumps to reduce fatigue between north-side neighborhoods.",
       segments: [
         { label: "Morning", items: [
           { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:35 AM", name: "Heart Coffee Pearl breakfast", type: "meal", neighborhood: "Pearl", duration: "45 min", cost: 14 },
-          { time: "9:50 AM", name: "Heart Coffee -> Mississippi Records", type: "transit", neighborhood: "Downtown -> Alberta", duration: "40 min", cost: 3 },
+          { time: "8:35 AM", name: "Stumptown Coffee Roasters breakfast", type: "meal", neighborhood: "Downtown Portland", duration: "45 min", cost: 14, notes: "128 SW 3rd Ave. Specialty coffee + light food (replaces Heart Coffee Pearl, which closed)." },
+          { time: "9:50 AM", name: "Transit to Alberta / Mississippi Records", type: "transit", neighborhood: "Downtown -> Alberta", duration: "40 min", cost: 3 },
           { time: "10:35 AM", name: "Mississippi Records + Alberta Arts loop", type: "activity", neighborhood: "Alberta", duration: "115 min", cost: 20 }
         ]},
         { label: "Afternoon", items: [
@@ -437,10 +441,10 @@ window.TRIP_DATA = {
           { time: "4:20 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "65 min", cost: 0 }
         ]},
         { label: "Evening", items: [
-          { time: "5:35 PM", name: "Early dinner", type: "meal", neighborhood: "Downtown", duration: "80 min", cost: 28 },
-          { time: "7:05 PM", name: "Big Legrowlski open-jam window", type: "activity", neighborhood: "Portland", duration: "150 min", cost: 32 },
-          { time: "9:45 PM", name: "Return to hotel", type: "transit", neighborhood: "Portland", duration: "35 min", cost: 0 },
-          { time: "10:30 PM", name: "Sleep", type: "rest", neighborhood: "Courtyard Portland", duration: "8.5 hrs", cost: 0 }
+          { time: "5:35 PM", name: "Mississippi Pizza dinner", type: "meal", neighborhood: "Mississippi Ave", duration: "65 min", cost: 18, notes: "3552 N Mississippi Ave. Pizza + beer. Live music most Sundays." },
+          { time: "6:45 PM", name: "Atlantis Lounge drinks + social", type: "activity", neighborhood: "Mississippi Ave", duration: "85 min", cost: 25, notes: "Same building as Mississippi Pizza. Sunday evening cocktails, social atmosphere." },
+          { time: "8:15 PM", name: "Transit back to hotel", type: "transit", neighborhood: "Mississippi Ave -> Downtown", duration: "30 min", cost: 0 },
+          { time: "8:50 PM", name: "Hotel wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "9.5 hrs", cost: 0 }
         ]}
       ]
     },

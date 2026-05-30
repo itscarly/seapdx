@@ -10,7 +10,7 @@
       "lastAutomatedSummary": "Seattle direct-site watch 2026-05-26: Boylston's direct Cloudbeds page still showed a refundable Standard Queen listing at $347.00 room subtotal for 3 nights with a 2026-10-31 refund cutoff, but this run did not surface a fresh tax-inclusive checkout total; Warwick only exposed brochure pages plus TravelClick booking links, and the broader npm scrape stayed blocked by a macOS Chromium launch failure. Prior verified totals remain in place, and no Seattle hotel is newly live-verified under the $400 total cap in this run."
     }
   },
-  "generatedAt": "2026-05-30T19:37:00.718Z",
+  "generatedAt": "2026-05-30T20:12:37.928Z",
   "cities": {
     "seattle": {
       "trip": {
