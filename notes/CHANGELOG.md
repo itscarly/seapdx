@@ -4,6 +4,24 @@
 
 This is the concise project change record.
 
+## 2026-05-30 — Happy hour optimization + venue additions + closure fixes
+
+Researched 14 new venue candidates; added 10 to open itinerary slots without displacing named anchors.
+
+- **Day 2 (Mon Nov 2):** Luke's Lobster replaces generic lunch (cost +$6); Ghost Alley Espresso + Totem Smokehouse added to Pike Place Market block
+- **Day 3 (Tue Nov 3):** Dough Zone Dumpling House replaces ramen/noodles dinner (cost -$2); Rock Box HH note added (Tuesday 4–8 PM: $4/hr room rate)
+- **Day 5 (Thu Nov 5):** Luc Lac dinner shifted 7:00 PM→6:20 PM to land inside daily 4–7 PM HH window; orientation walk shortened 60→30 min (saves ~$6 on cocktails)
+- **Day 6 (Fri Nov 6):** Portland Aerial Tram ($8.75) + Project Matcha ($9) added after Japanese Garden; Baby Doll Pizza replaces generic dinner (cost -$11 net)
+- **Day 7 (Sat Nov 7):** Kingsland Kitchen ($22) replaces generic breakfast; Voodoo Doughnut ($6) added to market walk via Old Town route
+- **Day 8 (Sun Nov 8):** **Critical closure fixes:** Heart Coffee Pearl (closed) → Stumptown Downtown; Big Legrowlski (closed Oct 2024) → Mississippi Pizza + Atlantis Lounge (confirmed Sunday live music). Net savings: -$17 from closed-venue replacements
+- **Day 9 (Mon Nov 9):** No changes (kept hotel-area breakfast, declined Sincerely Bagel add-on due to routing overhead)
+
+Budget updates:
+
+- New projected total $879.75 (was $888). All day totals rebalanced; budget audit + full validation suite passing
+- Calendar exports: JSON/CSV files require manual sync or dedicated regeneration script (secondary to trip-data.js authoritative source)
+- Closed venues replaced with equivalent social venues maintaining itinerary spirit + neighborhood routing
+
 ## 2026-05-30 — shared calendar remediation
 
 - Remediated the Nov 1-9 Seattle/Portland shared Google Calendar using only `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415.calendar.google.com`.
