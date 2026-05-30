@@ -2,6 +2,47 @@
 
 This is the running log for project changes.
 
+## 2026-05-30 (session 18 — happy hour optimization + 10 new venues + 2 closed-venue fixes)
+
+### Itinerary finalized with budget optimization
+
+**What changed:**
+
+Trip-data.js updated across 7 days (Days 2, 3, 5, 6, 7, 8, 9):
+
+1. **Day 2 (Mon Nov 2):** Luke's Lobster ($30) replaces generic waterfront lunch (+$6 upgrade); Ghost Alley Espresso + Totem Smokehouse souvenir stops added to Pike Place block
+2. **Day 3 (Tue Nov 3):** Dough Zone Dumpling House ($25) replaces ramen/noodles dinner (-$2); Rock Box karaoke HH note added (Tue 4–8 PM = $4/person/hr room rate)
+3. **Day 5 (Thu Nov 5):** Luc Lac dinner shifted 7:00 PM → 6:20 PM (lands inside 4–7 PM daily HH window); orientation walk shortened 60 → 30 min (saves ~$6 on cocktails)
+4. **Day 6 (Fri Nov 6):** Portland Aerial Tram ($8.75) + Project Matcha ($9) added post-Japanese Garden; Baby Doll Pizza ($18) replaces generic dinner (net -$11)
+5. **Day 7 (Sat Nov 7):** Kingsland Kitchen brunch ($22) replaces generic breakfast (+$4); Voodoo Doughnut ($6) walk added via Old Town to Saturday Market
+6. **Day 8 (Sun Nov 8):** **Critical closure fixes:**
+   - Heart Coffee Pearl (permanently closed) → Stumptown Downtown ($14, same cost)
+   - Big Legrowlski (closed Oct 2024) → Mississippi Pizza ($18) + Atlantis Lounge ($25) Sunday evening (net -$17 vs. closed venue)
+7. **Day 9 (Mon Nov 9):** No changes; hotel-area breakfast kept, Sincerely Bagel rejected (routing overhead)
+
+Budget reconciliation:
+
+- New projected total: $879.75 (was $888, -$8.25)
+- All day totals recalculated and validated
+- Category budgets adjusted (contingency: $68 → $59.75)
+- `npm run audit:budget` passes ✓
+- `npm run validate` full suite passes ✓
+
+Venues researched (14 candidates):
+
+- **Added (10):** Luke's Lobster, Ghost Alley Espresso, Totem Smokehouse, Dough Zone, Baby Doll Pizza, Portland Aerial Tram, Kingsland Kitchen, Project Matcha, Voodoo Doughnut, Mississippi Pizza + Atlantis Lounge, Stumptown Downtown
+- **Skipped (4):** The Grotto (already in exclusions as rainy backup), Hawthorne Asylum (outdoor Nov risk), Sincerely Bagel (departure routing), others (no clean slots)
+
+Known limitation:
+
+- Calendar JSON/CSV export files (google-calendar-events-nov1-9-2026.json, google-calendar-import-nov1-9-2026.csv) require manual sync or dedicated regeneration script. These are derived artifacts; trip-data.js is authoritative.
+
+Files touched: `data/trip-data.js` (7 days), `notes/CHANGELOG.md`, 2 git commits
+
+Session outcome: Itinerary locked at $879.75, all happy hour windows optimized, closed venues replaced, new venues integrated without budget override.
+
+---
+
 ## 2026-05-27 (session 17 — calendar integration: transit events + H Mart + Day 3 optimization)
 
 ### Google Calendar fully populated with travel week events
