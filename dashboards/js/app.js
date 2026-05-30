@@ -695,6 +695,33 @@ function renderDayFlightSummary(day) {
   `;
 }
 
+function timeStringToMinutes(timeStr) {
+  if (!timeStr) return Infinity;
+  const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM|am|pm)?/);
+  if (!match) return Infinity;
+  let [, hours, minutes, period] = match;
+  hours = parseInt(hours, 10);
+  minutes = parseInt(minutes, 10);
+  if (period && period.toUpperCase() === "PM" && hours !== 12) hours += 12;
+  if (period && period.toUpperCase() === "AM" && hours === 12) hours = 0;
+  return hours * 60 + minutes;
+}
+
+function flattenDayEvents(day) {
+  const allEvents = [];
+  day.segments.forEach((segment) => {
+    segment.items.forEach((item) => {
+      allEvents.push({
+        ...item,
+        _segmentLabel: segment.label,
+        _sortKey: timeStringToMinutes(item.time)
+      });
+    });
+  });
+  allEvents.sort((a, b) => a._sortKey - b._sortKey);
+  return allEvents;
+}
+
 function renderTiming(stop) {
   const pills = [
     stop.time ? `<span class="timing-pill">${iconClock()}<span>Planned: ${stop.time}</span></span>` : "",
@@ -724,6 +751,22 @@ function renderStop(stop, options = {}) {
   const icon = iconMap[type] || iconMap.alternate;
   const costValue = options.isAlternate && stop.estimatedCost != null ? stop.estimatedCost : stop.cost;
   const badgeLabel = stop.anchorType ? stop.anchorType.replace(/-/g, " ") : (options.isAlternate ? "alternate option" : type);
+
+  if (options.isChip) {
+    const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
+    return `
+      <article class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}">
+        <div class="chip-timing">${stop.time || ""}</div>
+        <div class="chip-body">
+          <div class="chip-title">${stop.name}</div>
+          <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${costValue != null ? ` · ${money(costValue)}` : ""}</div>
+          ${shortNote ? `<div class="chip-note">${shortNote}</div>` : ""}
+        </div>
+        <button class="chip-kebab focus-ring" type="button" data-kebab-for="${escapeAttribute(stop._uid)}" aria-label="Actions for ${escapeAttribute(stop.name)}">⋮</button>
+      </article>
+    `;
+  }
+
   const details = [
     ["Cost", costValue != null ? money(costValue) : ""],
     ["Best time", stop.bestTime],
@@ -781,20 +824,25 @@ function renderItinerary(filter = "all") {
   const daysEl = document.getElementById("days");
   const dayHtml = data.itinerary.map((day, index) => {
     const visual = getDayVisual(day.id);
-    const visibleSegments = day.segments.map((segment) => {
-      const stops = segment.items.filter((stop) => stopMatches(stop, filter, day));
-      if (!stops.length) return "";
-      return `
-        <section class="segment">
-          <div class="segment-title">${segment.label}</div>
-          ${stops.map((stop) => renderStop(stop)).join("")}
-        </section>
-      `;
-    }).join("");
+    const allEvents = flattenDayEvents(day);
+    const visibleEvents = allEvents.filter((stop) => stopMatches(stop, filter, day));
     const hotelBase = getHotelBase(day);
     const alternates = renderAlternates(day, filter);
     const flightSummary = renderDayFlightSummary(day);
-    if (!visibleSegments && !getDayAlternates(day).length && !flightSummary) return "";
+
+    if (!visibleEvents.length && !getDayAlternates(day).length && !flightSummary) return "";
+
+    const timelineHtml = visibleEvents.map((stop, i) => {
+      const prevSegment = i > 0 ? visibleEvents[i - 1]._segmentLabel : null;
+      const currentSegment = stop._segmentLabel;
+      const divider = prevSegment && prevSegment !== currentSegment
+        ? `<div class="timeline-divider">${currentSegment} ▼</div>`
+        : "";
+      return divider + renderStop(stop, { isChip: true });
+    }).join("");
+
+    const stopCount = visibleEvents.length;
+
     return `
       <article class="day-card" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
         <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle ${day.date}">
@@ -807,13 +855,15 @@ function renderItinerary(filter = "all") {
             <p>${day.theme}. Weather plan: ${day.weatherPlan}</p>
             <div class="day-meta">
               ${hotelBase ? `<span class="badge">${iconHotel()}<span>${hotelBase}</span></span>` : ""}
-              <span class="badge">${iconClock()}<span>${day.segments.length} segments</span></span>
+              <span class="badge">${iconClock()}<span>${stopCount} stops</span></span>
             </div>
             <span class="day-toggle">Open timing and route details</span>
           </div>
           <div class="day-total">${money(day.dayTotal)}<br><span class="badge">daily estimate</span></div>
         </header>
-        <div class="segments">${flightSummary}${visibleSegments}${alternates}</div>
+        <div class="day-timeline">${flightSummary}${timelineHtml}</div>
+        <div class="day-detail-panel" data-detail-for="${escapeAttribute(day.id)}" hidden></div>
+        ${alternates}
       </article>
     `;
   }).join("");
@@ -1278,6 +1328,47 @@ function initReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
+function renderDetailPanel(stop, day) {
+  const type = stop.alternateType || stop.type;
+  const icon = iconMap[type] || iconMap.alternate;
+  const badgeLabel = stop.anchorType ? stop.anchorType.replace(/-/g, " ") : type;
+  const costValue = stop.cost;
+
+  const linksHtml = [
+    stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
+    stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
+    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : ""
+  ].filter(Boolean).join("");
+
+  const actionsHtml = [
+    `<button class="stop-action focus-ring" type="button" data-editor-action="replace" data-stop-uid="${escapeAttribute(stop._uid)}">Replace stop</button>`,
+    `<button class="stop-action focus-ring" type="button" data-editor-action="insert-after" data-stop-uid="${escapeAttribute(stop._uid)}">Add after</button>`,
+    `<button class="stop-action focus-ring" type="button" data-editor-action="remove" data-stop-uid="${escapeAttribute(stop._uid)}">Remove</button>`
+  ].filter(Boolean).join("");
+
+  return `
+    <div class="stop-detail">
+      <div class="stop-detail-header">
+        <div class="stop-detail-title">
+          <h4>${stop.name}</h4>
+          <div class="stop-detail-location">${stop.neighborhood || ""}</div>
+        </div>
+        ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
+      </div>
+      ${stop.time || stop.duration || stop.leaveTime ? `
+        <div class="stop-detail-timing">
+          ${stop.time ? `<span>Planned: ${stop.time}</span>` : ""}
+          ${stop.duration ? `<span>Duration: ${stop.duration}</span>` : ""}
+          ${stop.leaveTime ? `<span>Leave by: ${stop.leaveTime}</span>` : ""}
+        </div>
+      ` : ""}
+      ${stop.notes ? `<div class="stop-detail-notes">${stop.notes}</div>` : ""}
+      ${linksHtml ? `<div class="stop-detail-links">${linksHtml}</div>` : ""}
+      ${actionsHtml ? `<div class="stop-detail-actions">${actionsHtml}</div>` : ""}
+    </div>
+  `;
+}
+
 function bindStopActions() {
   document.querySelectorAll("[data-editor-action]").forEach((button) => {
     button.addEventListener("click", (event) => {
@@ -1289,6 +1380,45 @@ function bindStopActions() {
         return;
       }
       openEditor(action, { uid });
+    });
+  });
+
+  document.querySelectorAll(".stop--chip").forEach((chip) => {
+    chip.addEventListener("click", (event) => {
+      if (event.target.closest(".chip-kebab")) return;
+      event.stopPropagation();
+
+      const uid = chip.dataset.stopUid;
+      const card = chip.closest(".day-card");
+      const dayId = card.querySelector("[data-detail-for]")?.dataset.detailFor;
+      const day = data.itinerary.find((d) => d.id === dayId);
+
+      if (!day) return;
+
+      const allEvents = flattenDayEvents(day);
+      const stop = allEvents.find((s) => s._uid === uid);
+      if (!stop) return;
+
+      const panel = card.querySelector(".day-detail-panel");
+      const isAlreadySelected = panel.hasAttribute("data-selected-stop") && panel.getAttribute("data-selected-stop") === uid;
+
+      if (isAlreadySelected) {
+        chip.classList.remove("stop--selected");
+        panel.innerHTML = "";
+        panel.setAttribute("hidden", "");
+      } else {
+        card.querySelectorAll(".stop--chip").forEach((c) => c.classList.remove("stop--selected"));
+        chip.classList.add("stop--selected");
+        panel.removeAttribute("hidden");
+        panel.innerHTML = renderDetailPanel(stop, day);
+        bindStopActions();
+      }
+    });
+  });
+
+  document.querySelectorAll(".chip-kebab").forEach((kebab) => {
+    kebab.addEventListener("click", (event) => {
+      event.stopPropagation();
     });
   });
 }

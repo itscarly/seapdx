@@ -2,6 +2,67 @@
 
 This is the running log for project changes.
 
+## 2026-05-30 (session 19 — global itinerary UI redesign: horizontal timeline chips)
+
+### Itinerary dashboard day layout refactored from 3-column to horizontal wrapped timeline
+
+**What changed:**
+
+Comprehensive UI redesign of itinerary day-by-day display:
+
+1. **Data flattening logic:**
+   - Added `flattenDayEvents(day)` to merge all segments (Morning/Afternoon/Evening) into a single chronological event list
+   - Added `timeStringToMinutes()` time parser for sorting events
+   - Preserved original segment labels for visual dividers
+
+2. **Chip-based compact event cards:**
+   - New `.stop--chip` class replaces large expandable stop cards in the timeline view
+   - Chips show: time, stop name, neighborhood + duration + cost, truncated notes (80 chars)
+   - Added `.chip-timing`, `.chip-body`, `.chip-title`, `.chip-meta`, `.chip-note`, `.chip-kebab` styling
+
+3. **Horizontal wrapped timeline (desktop layout):**
+   - Changed `.segments` 3-column grid → `.day-timeline` flexbox with `flex-wrap: wrap`
+   - Events flow left-to-right, wrap to next row if needed (like text reading)
+   - Timeline dividers appear between segment transitions (Morning → Afternoon, etc.)
+
+4. **Selected-event detail panel:**
+   - New `.day-detail-panel` below timeline shows full details for clicked chip
+   - Panel displays: full name, neighborhood, cost, timing, notes, links (website/menu/route), editor actions (Replace/Add/Remove)
+   - One panel per day; clicking another chip updates it; clicking same chip again closes it
+   - Editor actions moved from always-visible buttons to detail panel
+
+5. **Mobile responsive fallback (≤768px):**
+   - Timeline switches to single-column vertical list
+   - Chips expand to full width
+   - Detail panel behavior unchanged
+
+6. **Editor integration:**
+   - `bindStopActions()` enhanced with chip click handler
+   - New `renderDetailPanel(stop, day)` generates detail view on demand
+   - All editor CRUD actions preserved (replace/add/remove), just hidden by default
+
+7. **Visual refinement:**
+   - Chip hover state: subtle border/shadow
+   - Type color-coding preserved (hotel=teal, cocktails=orange, food=yellow, default=blue)
+   - Kebab menu icon (⋮) on each chip for future actions menu
+   - All data preserved; no trip-data.js changes
+
+**Files touched:**
+- `dashboards/js/app.js`: +156 lines (flattenDayEvents, timeStringToMinutes, renderDetailPanel, renderStop chip mode, renderItinerary refactor, bindStopActions enhancement)
+- `dashboards/css/styles.css`: +218 lines (.day-timeline, .stop--chip, detail panel styles, chip variants, mobile media query)
+
+**Verification:**
+- No changes to trip-data.js, HTML structure, or data model
+- All itinerary days globally affected (not one-off hardcoding)
+- Desktop: 2–6 chips per row depending on event count and screen width
+- Mobile: single vertical chronological list
+- Alternates section unchanged (separate .segment below timeline)
+- All editor actions preserved and functional
+
+**Remaining work:** None — redesign complete and verified. Users can now see full days at a glance without column-jumping.
+
+---
+
 ## 2026-05-30 (session 18 — happy hour optimization + 10 new venues + 2 closed-venue fixes)
 
 ### Itinerary finalized with budget optimization
