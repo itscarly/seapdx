@@ -2,11 +2,11 @@
 
 ## Ongoing monitoring (next session picks these up)
 
-### PAL Award Tax Monitor — weekly check
+### Airfare Watch — weekly check
 
-- [ ] Open PAL.com, clear the cookie gate, and get all the way to a Business Class award result for Mar 3-7, 2027 on SFO→MNL and ORD→MNL.
-- [ ] If either tax changed vs. current values ($370.50 SFO / $375.50 ORD), add a new `taxHistory` entry in `data/airfare-watch.json`, update `currentTax` and `lastChecked`.
-- [ ] Commit and push.
+- [ ] Check Google Flights, Skyscanner, and KAYAK for one-way economy SFO→MNL and ORD→MNL departures in the 2027-03-07 through 2027-03-13 window.
+- [ ] Verify any serious finalist on the airline's own booking flow before recommending a purchase. Keep `directAirlineVerified` false unless checkout confirms the fare, baggage treatment, and protected routing.
+- [ ] Update `data/airfare-watch.json`, run `npm run monitor:airfare`, and record any coverage gaps or airline-site blockers explicitly.
 
 ### Hotel Monitor — per cadence (Tue/Fri before Sep 1, Mon Sep, daily Oct+)
 

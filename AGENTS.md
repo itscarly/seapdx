@@ -63,6 +63,7 @@ Access 495k tokens of past work via get_observations([IDs]) or mem-search skill.
 # Obsidian Notes Workflow
 
 - This project uses one shared note system for Codex, Claude, and Obsidian, stored in `notes/`.
+- Canonical memory hub is this repo vault. External memory stores are read-only sources; Obsidian notes are the curated reference layer.
 - Treat note maintenance as part of the definition of done for meaningful completed work.
 - Keep the standardized active notes current:
   - `notes/PROJECT_CONTEXT.md`
@@ -74,6 +75,13 @@ Access 495k tokens of past work via get_observations([IDs]) or mem-search skill.
   - `notes/KNOWN_ISSUES.md`
   - `notes/MAINTENANCE.md`
   - `notes/Project Log.md`
+- Keep source index notes current:
+  - `notes/sources/codex-memories.md`
+  - `notes/sources/claude-home.md`
+  - `notes/sources/vscode-context.md`
+- Keep session-start notes current:
+  - `notes/session-start/YYYY-MM-DD.md`
+  - `notes/memory/active/SESSION_START.md`
 - Always update `notes/Project Log.md` with a dated summary of what changed, what files were affected, and any follow-up items.
 - Reconcile instead of only appending:
   - rewrite stale guidance when a newer verified state exists
@@ -83,13 +91,21 @@ Access 495k tokens of past work via get_observations([IDs]) or mem-search skill.
 - Do not rewrite architecture or decision notes unless the implementation or workflow change is verified.
 - If confidence is low, leave a short follow-up note instead of inventing a clean story.
 - Use `hooks/post-task.md` as the post-task maintenance checklist.
+- After meaningful work, run `node scripts/collect-obsidian-memory.js` to refresh source indexes and session-start notes.
 - Prefer plain-language notes written for a non-technical reader.
+
+# Agent Startup Sequence
+
+Before meaningful work in a new session:
+1. Read `notes/memory/active/SESSION_START.md`.
+2. Read the latest daily digest in `notes/session-start/`.
+3. Read relevant source index notes under `notes/sources/`.
 
 # Repo Workflows and Commands
 
 - Treat this repo as a static site first: prefer `npm run serve` for local verification and keep the project root as the served folder so `/`, `/dashboards/html/index.html`, and `/data/trip-data.js` all resolve the same way locally and on Netlify.
 - Before project commands, verify prerequisites with `which node`, `which npm`, `which python3`, and `which uv`. This repo's `npm` scripts require Node `>=20`, while local serving uses `python3 -m http.server 4173` through `npm run serve`.
-- After editing itinerary data or dashboard JavaScript, run `npm run validate`. It checks `data/trip-data.js`, `dashboards/js/app.js`, and the budget audit script, and it is the fastest regression check in this repo.
+- After editing itinerary data or dashboard JavaScript, run `npm run validate`. It syntax-checks `data/trip-data.js`, `dashboards/js/app.js`, `dashboards/js/hotels.js`, and `dashboards/js/airfare.js`, then runs the budget audit plus the hotel and airfare monitor tests and validators. It is the fastest full regression check in this repo.
 - When localhost reliability matters on this Mac, install the self-healing preview with `./scripts/install-localhost-launchagent.sh`. For checks and recovery, use `./scripts/ensure-localhost.sh` and `tail -n 20 logs/localhost-health.log`.
 - For public verification, use the production Netlify root URL `https://cheerful-cupcake-75ba93.netlify.app/`. Do not rely on older deploy-specific snapshot URLs when checking whether the live site updated.
 - The itinerary editor is browser-saved. When changing editor behavior, verify `window.localStorage` persistence and the export actions labeled `Download my edits` and `Copy update summary`, not just the static page render.

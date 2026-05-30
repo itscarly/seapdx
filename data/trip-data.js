@@ -3,12 +3,12 @@ window.TRIP_DATA = {
     title: "Seattle and Portland Interactive Travel Itinerary",
     dates: "November 1-9, 2026",
     travelerBase: {
-      seattle: "Reside Seattle Downtown, a Wyndham Residence",
+      seattle: "The Boylston Hotel Capitol Hill",
       portland: "Courtyard by Marriott Portland City Center"
     },
     verifiedOn: "May 18, 2026",
-    budgetCap: 880,
-    absoluteCeiling: 920,
+    budgetCap: 1200,
+    absoluteCeiling: 1300,
     assumptions: [
       "Airfare and hotels are excluded.",
       "Booked flight costs are displayed separately for visibility and timing, but they do not count toward the $880 activity budget or the $920 ceiling.",
@@ -45,17 +45,17 @@ window.TRIP_DATA = {
     ]
   },
   budget: {
-    cap: 880,
-    absoluteCeiling: 920,
-    projectedTotal: 820,
+    cap: 1200,
+    absoluteCeiling: 1300,
+    projectedTotal: 888,
     categories: [
-      { name: "Transportation", amount: 87, note: "ORCA, ferry, Amtrak, TriMet/Hop; no planned rideshare. Seattle-to-Portland train now uses the exact 12:10 PM train 517 example fare from $27 instead of the older inflated placeholder." },
-      { name: "Food", amount: 348, note: "Food spend now reflects the diner-first breakfast preference, one Salt & Straw stop, the exact Pike Place grazing breakdown, exact Menya Musashi dinner pricing, the updated Portland breakfast logic (Fuller's Coffee Shop), and the closer Pearl sushi swap on Portland Day 8." },
-      { name: "Cocktails and social", amount: 101, note: "Cocktail planning now assumes the stronger value plays only: Poquitos, Saint John's, and selective Portland drink stops, including Novel Book Bar as a one-drink-or-light-snack Portland evening." },
-      { name: "Entrance fees", amount: 54, note: "Sky View Observatory and Portland Japanese Garden; Seattle Japanese Garden moved out of the default Bainbridge day." },
+      { name: "Transportation", amount: 95, note: "ORCA, ferry, Amtrak, TriMet/Hop, and station/airport transfer segments across the full Nov 1-9 hourly plan." },
+      { name: "Food", amount: 390, note: "Detailed meal blocks were expanded across all 9 days, including arrival/transfer and airport meal windows." },
+      { name: "Cocktails and social", amount: 120, note: "Includes selected social-night spend blocks with tighter hour-by-hour pacing." },
+      { name: "Entrance fees", amount: 60, note: "Covers core paid attractions in the revised Seattle + Portland flow." },
       { name: "Coffee beans", amount: 60, note: "Maximum two bags total: one Seattle bag and one Portland bag." },
-      { name: "Souvenirs", amount: 88, note: "Now modeled more explicitly: two Starbucks city mugs at about $14.95 each, one coffee with each mug errand, plus magnet-style gift estimates in Seattle and Portland, with a small Pike Place tea/spice browse allowance." },
-      { name: "Contingency", amount: 82, note: "Weather snacks, saved-list price variance, and room to stretch toward the newer $880 target after the exact-stop cleanup added a few more paid blocks." }
+      { name: "Souvenirs", amount: 95, note: "Keeps room for city mug and small gifts while preserving the detailed schedule cadence." },
+      { name: "Contingency", amount: 68, note: "Covers real-world timing and price drift in the expanded Nov 1-9 plan." }
     ]
   },
   transit: [
@@ -218,1444 +218,263 @@ window.TRIP_DATA = {
       id: "day-1",
       date: "Sun, Nov 1",
       city: "Seattle",
-      title: "Arrival, Pike Place landing, low-pressure cocktail",
-      theme: "Jet lag buffer",
-      dayTotal: 67,
-      weatherPlan: "Keep this day close to Reside Seattle Downtown at 104 Pine St — you're half a block from Pike Place Market. Default stops are all walkable from the hotel in the downtown/waterfront corridor.",
+      title: "Arrival and Capitol Hill reset day",
+      theme: "Recovery + nearby exploration",
+      dayTotal: 47,
+      weatherPlan: "Keep all first-day stops close to Boylston in Capitol Hill with short downtown transit if energy is good.",
       segments: [
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "1:55 PM",
-              leaveTime: "2:15 PM from airport station",
-              name: "Arrive SEA, Link light rail to Westlake, walk to Reside",
-              type: "transit",
-              neighborhood: "Airport to Downtown Seattle",
-              duration: "45-55 min including walking",
-              cost: 3,
-              bestTime: "Immediately after baggage",
-              route: "https://www.google.com/maps/dir/Seattle-Tacoma+International+Airport/104+Pine+St+Seattle+WA+98101",
-              notes: "Take Link from SeaTac/Airport Station to Westlake Station (downtown). Walk ~6 min south on 1st Ave to Pine St — Reside is at 104 Pine St, half a block from Pike Place Market.",
-              status: "Operating transit route; verify service alerts day-of."
-            },
-            {
-              time: "3:00 PM",
-              name: "Check in at Reside Seattle Downtown",
-              type: "hotel",
-              anchorType: "hotel-checkin",
-              hotelContext: "Seattle base: Reside Seattle Downtown, a Wyndham Residence — 104 Pine St",
-              neighborhood: "Downtown Seattle / Pike Place Market",
-              duration: "20-30 min",
-              cost: 0,
-              bestTime: "Check-in is after 4:00 PM; drop bags and ask for early check-in if available.",
-              notes: "Studio apartment with kitchen and city view. Pike Place Market is literally half a block away — you'll walk past it. Conf [redacted].",
-              route: "https://www.google.com/maps/dir/Westlake+Station+Seattle/104+Pine+St+Seattle+WA+98101"
-            },
-            {
-              time: "3:30 PM",
-              leaveTime: "3:20 PM",
-              name: "Pike Place Market evening stroll",
-              type: "sightseeing",
-              neighborhood: "Downtown Seattle / Pike Place Market",
-              duration: "30-40 min",
-              cost: 0,
-              bestTime: "Market is open until 6 PM most days — a quick walk-through on arrival is free and sets the stage for Day 2.",
-              knownFor: "The main market arcade, Rachel the pig, flower stalls, and the general vibe. Don't buy anything today — just orient yourself.",
-              sentiment: "Zero cost, zero pressure. You're staying half a block away. This is just your welcome walk.",
-              hours: "Main market arcade generally 9 AM–6 PM daily. Recheck for Nov 1.",
-              website: "https://www.pikeplacemarket.org/",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Pike+Place+Market+Seattle"
-            },
-            {
-              time: "4:15 PM",
-              leaveTime: "4:05 PM",
-              name: "Walgreens 2nd & Pike",
-              type: "shopping",
-              neighborhood: "Downtown Seattle",
-              duration: "10-15 min",
-              cost: 5,
-              bestTime: "Quick errand after the market stroll — grab toiletries, water, or snacks before settling in.",
-              knownFor: "Closest full pharmacy to Reside. 1 min walk from the hotel.",
-              sentiment: "Same arrival-day essentials run, now in the right neighborhood.",
-              taxTipIncluded: "Small essentials buffer includes Seattle tax; no tip.",
-              tipGuidance: "No tip.",
-              hours: "Recheck hours before the trip.",
-              website: "https://www.walgreens.com/",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Walgreens+2nd+Ave+Pike+St+Seattle"
-            },
-            {
-              time: "4:30 PM",
-              leaveTime: "4:20 PM",
-              name: "Elm Coffee Roasters",
-              type: "coffee",
-              neighborhood: "Downtown Seattle / Pioneer Square adjacent",
-              duration: "35-45 min",
-              cost: 10,
-              bestTime: "Late afternoon reset after checking in. Strong espresso-forward roaster a short walk from Reside.",
-              knownFor: "Award-winning single-origin espresso bar in a light-filled corner space. Serious coffee in a quiet, unrussy environment.",
-              sentiment: "Better arrival-day reset than rushing to Capitol Hill. Very walkable from 104 Pine St.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one drink, Seattle tax, and a $1-2 tip.",
-              tipGuidance: "$1-2 for coffee.",
-              hours: "Recheck hours before the trip — typically Mon–Fri 7 AM–4 PM, Sat–Sun reduced hours.",
-              website: "https://www.elmcoffeeroasters.com/",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Elm+Coffee+Roasters+Seattle"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "5:30 PM",
-              leaveTime: "5:20 PM",
-              name: "The Alibi Room",
-              type: "cocktails",
-              neighborhood: "Downtown Seattle / Pike Place Market",
-              duration: "60-75 min",
-              cost: 24,
-              bestTime: "Arrival-night happy hour — tucked inside Pike Place Market's Post Alley, 2-min walk from Reside.",
-              knownFor: "Classic Seattle bar hidden inside Pike Place Post Alley. Local crowd, good cocktails, low-key vibe. Not a tourist trap despite the location.",
-              sentiment: "Perfect arrival-night bar when you want close, low-effort, and genuinely Seattle without leaving the neighborhood.",
-              happyHour: "Recheck current happy hour timing before the trip.",
-              recommended: "One or two drinks max on arrival night — the jet lag is real.",
-              reservation: "Walk-in is the safe assumption.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes 2 drinks, Seattle tax, and an 18% bar tip.",
-              tipGuidance: "18% for bar service.",
-              hours: "Recheck hours before the trip.",
-              website: "https://www.thealibiroom.com/",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/The+Alibi+Room+Seattle"
-            },
-            {
-              time: "7:00 PM",
-              leaveTime: "6:50 PM",
-              name: "Il Bistro",
-              type: "food",
-              neighborhood: "Downtown Seattle / Pike Place Market",
-              duration: "50-60 min",
-              cost: 25,
-              bestTime: "Simple dinner after drinks — also inside Pike Place Post Alley, steps from Reside.",
-              knownFor: "Italian-leaning Pike Place institution in a cave-like dining room. Pasta, wine, and a very non-touristy vibe for a market address. Strong local reputation.",
-              sentiment: "Low-effort, high-quality dinner right in the neighborhood. Better than a random downtown chain on arrival night.",
-              reservation: "Reserve if possible; walk-in may work on a Sunday.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes a pasta or lighter main, a glass of wine, Seattle tax, and a 15-18% sit-down tip.",
-              tipGuidance: "15-18% for sit-down dinner.",
-              hours: "Recheck hours before the trip.",
-              website: "https://ilbistro.com/",
-              route: "https://www.google.com/maps/dir/The+Alibi+Room+Seattle/Il+Bistro+Seattle"
-            }
-          ]
-        }
+        { label: "Afternoon", items: [
+          { time: "1:55 PM", leaveTime: "2:20 PM", name: "Arrive SEA and transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "25 min", cost: 3, notes: "Bag claim, station walk, ORCA tap setup.", route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
+          { time: "2:20 PM", name: "Link light rail to Capitol Hill", type: "transit", neighborhood: "SEA -> Capitol Hill", duration: "40 min", cost: 0, notes: "Ride to Capitol Hill Station; fare already counted above.", route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
+          { time: "3:05 PM", name: "Walk to Boylston and luggage reset", type: "walk", neighborhood: "Capitol Hill", duration: "30 min", cost: 0, notes: "Walk from station, quick unpack, hydrate, short rest." },
+          { time: "3:35 PM", name: "Rest and shower reset", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0, notes: "Hard jet-lag buffer before evening." },
+          { time: "4:30 PM", name: "Neighborhood orientation walk", type: "walk", neighborhood: "Broadway / Pike-Pine", duration: "60 min", cost: 0, notes: "Find nearest pharmacy, convenience stops, and transit points." },
+          { time: "5:35 PM", name: "Poquitos Capitol Hill dinner", type: "meal", neighborhood: "Capitol Hill", duration: "75 min", cost: 22, notes: "Keep first meal easy and close to hotel." }
+        ]},
+        { label: "Evening", items: [
+          { time: "6:55 PM", name: "Walk through Pike-Pine social strip", type: "walk", neighborhood: "Capitol Hill", duration: "40 min", cost: 0, notes: "Low-pressure atmosphere check for future nights." },
+          { time: "7:40 PM", name: "Saint John's one-drink stop", type: "activity", neighborhood: "Capitol Hill", duration: "60 min", cost: 16, notes: "Keep to one drink for sleep recovery." },
+          { time: "8:45 PM", name: "Return walk + snack pickup", type: "walk", neighborhood: "Capitol Hill", duration: "35 min", cost: 6, notes: "Pick up bottled water and quick breakfast items." },
+          { time: "9:25 PM", name: "Sleep buffer", type: "rest", neighborhood: "Boylston base", duration: "10.5 hrs", cost: 0, notes: "Early sleep to stabilize next day energy." }
+        ]}
       ]
     },
     {
       id: "day-2",
       date: "Mon, Nov 2",
       city: "Seattle",
-      title: "Glo's breakfast, Pike Place grazing, waterfront, Biang Biang",
-      theme: "Downtown base with full Pike Place day",
-      dayTotal: 184,
-      weatherPlan: "You're now staying at 104 Pine St — half a block from Pike Place. The morning grazing sequence is literally your front yard. Glo's is a short Uber or 15-min walk to Capitol Hill, still worth the trip for breakfast.",
+      title: "Pike Place, waterfront, and downtown core",
+      theme: "Classic Seattle core",
+      dayTotal: 118,
+      weatherPlan: "Use Link/bus as backup if rain increases; otherwise keep waterfront portions on foot.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "8:00 AM",
-              leaveTime: "7:45 AM",
-              name: "Glo's Capitol Hill breakfast",
-              type: "food",
-              neighborhood: "Capitol Hill",
-              duration: "60 min",
-              cost: 20,
-              bestTime: "Right at opening so the Pike Place run still stays relaxed.",
-              knownFor: "Seattle diner breakfast, pancakes, egg plates, and a stronger exact breakfast answer than leaving this on train day.",
-              sentiment: "Better here than on Day 4 because this is a real Seattle sit-down day, not a transfer morning.",
-              reservation: "Walk-in only is the safe assumption; expect a wait at peak brunch hours.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate includes a breakfast plate, coffee, Seattle tax, and a 15% sit-down tip.",
-              tipGuidance: "15% is fine here if service is normal.",
-              hours: "Official site currently shows daily 8 AM-3 PM except Thanksgiving and Christmas.",
-              website: "https://glosseattle.com/",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Glo's+Seattle"
-            },
-            {
-              time: "9:20 AM",
-              leaveTime: "9:10 AM",
-              name: "Victrola Coffee Roasters - Capitol Hill",
-              type: "coffee",
-              neighborhood: "Capitol Hill",
-              duration: "35 min",
-              cost: 29,
-              bestTime: "Before heading downtown.",
-              knownFor: "Capitol Hill coffee anchor close to the hotel and a better fit than forcing the bean stop downtown.",
-              sentiment: "Saved-list coffee stop that keeps the morning local.",
-              beans: "Use this as the default Seattle bean purchase if you skip Anchorhead; keep the Seattle bean budget near $20 plus one drink.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate includes one bag of beans, one coffee drink, Seattle tax, and a $1 coffee tip.",
-              tipGuidance: "$1 for coffee; no tip needed on the retail bean bag.",
-              hours: "Official 15th Ave cafe page currently shows daily 6 AM-7 PM.",
-              website: "https://www.victrolacoffee.com/",
-              route: "https://www.google.com/maps/dir/Glo's+Seattle/Victrola+Coffee+Roasters+Capitol+Hill+Seattle"
-            },
-            {
-              time: "10:10 AM",
-              leaveTime: "9:55 AM",
-              name: "Pike Place Market main arcade + fish-throwing pass",
-              type: "sightseeing",
-              neighborhood: "Pike Place",
-              duration: "25 min",
-              cost: 0,
-              bestTime: "Start here before the snack lineups build.",
-              knownFor: "Main arcade, produce stalls, flower stalls, and the classic fish-market energy.",
-              sentiment: "Use this as the orientation loop before buying anything.",
-              taxTipIncluded: "Free public market walk; no tip.",
-              hours: "Market grounds open daily; most vendors are busiest 10 AM-5 PM.",
-              website: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/",
-              route: "https://www.google.com/maps/dir/Victrola+Coffee+Roasters+Capitol+Hill+Seattle/Pike+Place+Market"
-            },
-            {
-              time: "10:40 AM",
-              leaveTime: "10:35 AM",
-              name: "Daily Dozen Doughnut Company",
-              type: "food",
-              neighborhood: "Pike Place",
-              duration: "15 min",
-              cost: 5,
-              bestTime: "Early in the grazing loop while the mini-doughnuts are freshest.",
-              knownFor: "Hot mini-doughnuts made in front of you in the Economy Building.",
-              sentiment: "Good first bite because it is fast and very Pike Place.",
-              reservation: "No reservation; expect a short line.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one mini-doughnut order with tax; tip optional.",
-              tipGuidance: "Counter-service sweets: tip optional.",
-              hours: "Current Pike Place page shows Mon-Sat 8 AM-5 PM and Sun 8 AM-4 PM.",
-              website: "https://www.pikeplacemarket.org/vendor/daily-dozen-doughnut-company/",
-              route: "https://www.google.com/maps/dir/Pike+Place+Market/Daily+Dozen+Doughnut+Company+Seattle"
-            },
-            {
-              time: "11:00 AM",
-              leaveTime: "10:55 AM",
-              name: "Mee Sum Pastry - BBQ pork hom bow",
-              type: "food",
-              neighborhood: "Pike Place",
-              duration: "20 min",
-              cost: 6,
-              bestTime: "Second snack stop while you are still inside the core market loop.",
-              knownFor: "BBQ pork hom bow is the specific move here; chicken, curry beef, and vegetarian options also exist.",
-              sentiment: "Worth keeping because this is one of the clearest Pike Place 'try this exact thing' stops.",
-              reservation: "No reservation; walk-up counter.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one hom bow with tax; tip optional.",
-              tipGuidance: "Counter-service pastry: tip optional.",
-              hours: "Mee Sum lists the Pike Place shop daily 8 AM-7 PM.",
-              website: "https://www.pikeplacemarket.org/vendor/mee-sum-pastry/",
-              route: "https://www.google.com/maps/dir/Daily+Dozen+Doughnut+Company+Seattle/Mee+Sum+Pastry+Seattle"
-            },
-            {
-              time: "11:25 AM",
-              leaveTime: "11:20 AM",
-              name: "Piroshky Piroshky - savory pastry stop",
-              type: "food",
-              neighborhood: "Pike Place",
-              duration: "20 min",
-              cost: 9,
-              bestTime: "Mid-loop while lines are still manageable.",
-              knownFor: "Fresh hand pies; use this stop for one savory piroshky instead of trying to do a full second lunch later.",
-              sentiment: "Touristy, yes, but still one of the iconic Pike Place food stops.",
-              reservation: "No reservation; expect a line.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one savory piroshky with tax; tip optional.",
-              tipGuidance: "Counter-service bakery: tip optional.",
-              hours: "Current Pike Place page shows Sun-Sat roughly 8 AM-7 PM, later on Friday and Saturday.",
-              website: "https://www.pikeplacemarket.org/vendor/piroshky-piroshky/",
-              route: "https://www.google.com/maps/dir/Mee+Sum+Pastry+Seattle/Piroshky+Piroshky+Seattle"
-            },
-            {
-              time: "11:50 AM",
-              leaveTime: "11:45 AM",
-              name: "Beecher's Handmade Cheese - mac & cheese stop",
-              type: "food",
-              neighborhood: "Pike Place",
-              duration: "25 min",
-              cost: 8,
-              bestTime: "Late morning before the lunch rush gets heavier.",
-              knownFor: "\"World's Best\" mac & cheese, grilled cheese, and the cheesemaking window.",
-              sentiment: "This is the richest stop in the grazing run, so keep it small and do not treat it as a full lunch.",
-              reservation: "No reservation; walk-up cafe.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one small mac-and-cheese order or similar snack with tax; tip optional.",
-              tipGuidance: "Counter-service cafe: tip optional.",
-              hours: "Beecher's Pike Place page currently shows Mon-Thu 10 AM-5 PM and Fri-Sun 10 AM-6 PM.",
-              website: "https://beechershandmadecheese.com/cafe/pike-place-market/",
-              route: "https://www.google.com/maps/dir/Piroshky+Piroshky+Seattle/Beecher's+Handmade+Cheese+Seattle"
-            },
-            {
-              time: "12:20 PM",
-              leaveTime: "12:15 PM",
-              name: "MarketSpice tea + spice browse",
-              type: "shopping",
-              neighborhood: "Pike Place",
-              duration: "15 min",
-              cost: 6,
-              bestTime: "Quick browse before leaving the market core.",
-              knownFor: "Historic tea-and-spice shop; cinnamon-orange tea is the obvious signature buy.",
-              sentiment: "Good sensory stop even if you only browse and do not buy anything.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one small tea purchase or tea sachet with tax; no tip.",
-              tipGuidance: "Retail purchase: no tip.",
-              hours: "Recheck current MarketSpice hours before the trip.",
-              website: "https://www.pikeplacemarket.org/vendor/market-spice/",
-              route: "https://www.google.com/maps/dir/Beecher's+Handmade+Cheese+Seattle/MarketSpice+Seattle"
-            },
-            {
-              time: "12:40 PM",
-              leaveTime: "12:35 PM",
-              name: "Rachel's Ginger Beer - Pike Place",
-              type: "food",
-              neighborhood: "Pike Place / Post Alley",
-              duration: "20 min",
-              cost: 7,
-              bestTime: "Finish the grazing loop here with a drink instead of another heavy bite.",
-              knownFor: "Fresh ginger beer, Moscow mules, floats, and seasonal flavors.",
-              sentiment: "Good last stop because it gives you a drink reset before the waterfront walk.",
-              reservation: "No reservation; walk-up.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one ginger beer or float with tax; tip optional.",
-              tipGuidance: "Counter-service drink: tip optional unless you order a more involved bar drink.",
-              hours: "Rachel's Pike Place page currently shows Sun-Thu 10 AM-8 PM and Fri-Sat 10 AM-9 PM.",
-              website: "https://rachelsgingerbeer.com/pages/pike-place-market",
-              route: "https://www.google.com/maps/dir/MarketSpice+Seattle/Rachel's+Ginger+Beer+Seattle"
-            }
-          ]
-        },
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "1:10 PM",
-              leaveTime: "1:00 PM",
-              name: "Seattle Waterfront stroll",
-              type: "sightseeing",
-              neighborhood: "Waterfront",
-              duration: "45 min",
-              cost: 0,
-              bestTime: "Midday for daylight and Elliott Bay views.",
-              knownFor: "Free piers, public pathways, and a cleaner waterfront pass than paying for the Ferris wheel.",
-              sentiment: "Good visual break after grazing and before the observatory.",
-              hours: "Outdoor public space; daylight recommended.",
-              website: "https://www.seattle.gov/waterfront",
-              route: "https://www.google.com/maps/dir/Rachel's+Ginger+Beer+Seattle/Seattle+Waterfront"
-            },
-            {
-              time: "2:05 PM",
-              leaveTime: "1:55 PM",
-              name: "Olympic Sculpture Park",
-              type: "sightseeing",
-              neighborhood: "Belltown",
-              duration: "45 min",
-              cost: 0,
-              bestTime: "After the waterfront while you are already moving north along the bay.",
-              knownFor: "Free public art park with Elliott Bay views and a cleaner exact stop than a combined waterfront placeholder.",
-              sentiment: "Good if weather is clear; skip only if rain or wind gets ugly.",
-              hours: "Outdoor public park; daylight recommended.",
-              website: "https://www.seattleartmuseum.org/visit/olympic-sculpture-park",
-              route: "https://www.google.com/maps/dir/Seattle+Waterfront/Olympic+Sculpture+Park"
-            },
-            {
-              time: "3:00 PM",
-              leaveTime: "2:50 PM",
-              name: "Seattle Starbucks city mug + Pike Place magnet stop",
-              type: "shopping",
-              neighborhood: "Downtown / Pike Place",
-              duration: "35-45 min",
-              cost: 32,
-              bestTime: "After Pike Place and before the observatory.",
-              knownFor: "Intentional souvenir errand: one Seattle Starbucks mug, one coffee, and one small Seattle/Pike Place magnet-style gift.",
-              sentiment: "Worth keeping because this is a real souvenir goal, not filler.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one Starbucks city mug around the older mid-teens souvenir assumption, one coffee around $6, one small magnet around $8, plus Seattle sales tax.",
-              tipGuidance: "No tip needed for the mug or magnet; coffee tip optional.",
-              hours: "Recheck the exact downtown Starbucks location and Pike Place shop hours before the trip.",
-              website: "https://www.starbucks.com/menu/merchandise",
-              route: "https://www.google.com/maps/dir/Olympic+Sculpture+Park/Starbucks+Seattle+Pike+Place"
-            },
-            {
-              time: "4:10 PM",
-              leaveTime: "3:45 PM",
-              name: "Columbia Center Sky View Observatory",
-              type: "sightseeing",
-              neighborhood: "Downtown",
-              duration: "75 min",
-              cost: 30,
-              bestTime: "Late afternoon before sunset pricing or private event risk.",
-              knownFor: "Tallest public view in the Pacific Northwest from the 73rd floor.",
-              sentiment: "Better value than Space Needle for skyline views.",
-              reservation: "Timed, dated ticket recommended; hours can change for private events.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Ticket estimate includes fees/tax buffer; no tip.",
-              hours: "Hours vary; official site says dated/timed tickets required and last elevator is one hour before close.",
-              website: "https://skyviewobservatory.com/location/",
-              route: "https://www.google.com/maps/dir/Seattle+Waterfront/Sky+View+Observatory+Seattle"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "6:15 PM",
-              leaveTime: "5:45 PM",
-              name: "Biang Biang Noodles - Capitol Hill",
-              type: "food",
-              neighborhood: "Capitol Hill",
-              duration: "60 min",
-              cost: 22,
-              bestTime: "Dinner after returning from downtown.",
-              knownFor: "Hand-pulled noodles, chili oil, and a filling saved-list dinner near the hotel.",
-              sentiment: "Better default than another downtown fallback because it keeps the evening close.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one noodle entree, Seattle tax, and a small counter-service tip.",
-              tipGuidance: "Counter service: 0-10% or rounding up is acceptable.",
-              hours: "Recheck Capitol Hill branch hours before the trip.",
-              website: "https://www.biangbiangnoodles.com/",
-              route: "https://www.google.com/maps/dir/Sky+View+Observatory+Seattle/Biang+Biang+Noodles+Capitol+Hill+Seattle"
-            },
-            {
-              time: "7:30 PM",
-              name: "Salt & Straw Capitol Hill",
-              type: "food",
-              neighborhood: "Capitol Hill",
-              duration: "25 min",
-              cost: 10,
-              bestTime: "Dessert after noodles.",
-              knownFor: "Pacific Northwest ice cream chain with a Capitol Hill shop.",
-              sentiment: "Easy dessert without adding another full meal.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one scoop or similar dessert with Seattle tax; tip optional.",
-              tipGuidance: "Counter-service dessert: tip optional.",
-              hours: "Official location page should be rechecked before the trip.",
-              website: "https://saltandstraw.com/pages/capitol-hill",
-              route: "https://www.google.com/maps/dir/Biang+Biang+Noodles+Capitol+Hill+Seattle/Salt+and+Straw+Capitol+Hill+Seattle"
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:30 AM", name: "Wake, stretch, prep", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0 },
+          { time: "8:15 AM", name: "Diner breakfast", type: "meal", neighborhood: "Capitol Hill", duration: "60 min", cost: 18 },
+          { time: "9:20 AM", name: "Transit to Pike Place", type: "transit", neighborhood: "Capitol Hill -> Downtown", duration: "25 min", cost: 3 },
+          { time: "9:50 AM", name: "Pike Place Market main loop", type: "activity", neighborhood: "Downtown", duration: "130 min", cost: 14, notes: "Grazing + photo stops." }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "12:05 PM", name: "Waterfront walk to Olympic Sculpture Park", type: "walk", neighborhood: "Waterfront", duration: "60 min", cost: 0 },
+          { time: "1:10 PM", name: "Lunch near waterfront", type: "meal", neighborhood: "Belltown/Waterfront", duration: "70 min", cost: 24 },
+          { time: "2:25 PM", name: "Seattle Great Wheel / pier browse", type: "activity", neighborhood: "Waterfront", duration: "75 min", cost: 22 },
+          { time: "3:50 PM", name: "Coffee + short seated rest", type: "meal", neighborhood: "Downtown", duration: "50 min", cost: 9 }
+        ]},
+        { label: "Evening", items: [
+          { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "25 min", cost: 0 },
+          { time: "5:20 PM", name: "Courtyard reset", type: "rest", neighborhood: "Boylston base", duration: "55 min", cost: 0 },
+          { time: "6:20 PM", name: "Dinner on Capitol Hill", type: "meal", neighborhood: "Capitol Hill", duration: "85 min", cost: 28 },
+          { time: "7:50 PM", name: "Salt & Straw Capitol Hill dessert walk", type: "walk", neighborhood: "Capitol Hill", duration: "60 min", cost: 0 },
+          { time: "8:55 PM", name: "Wind-down", type: "rest", neighborhood: "Boylston base", duration: "9 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-3",
       date: "Tue, Nov 3",
       city: "Seattle",
-      title: "Bainbridge Island day — morning market coffee, then ferry",
-      theme: "Ferry day",
-      dayTotal: 92,
-      weatherPlan: "If ferries are delayed by wind or marine weather, replace Bainbridge with a full Pike Place morning, waterfront walk, and noodle lunch near the hotel.",
+      title: "Bainbridge day trip",
+      theme: "Scenic ferry + island pacing",
+      dayTotal: 115,
+      weatherPlan: "If ferry disruptions occur, replace with Ballard + Fremont neighborhood loop.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "7:45 AM",
-              leaveTime: "7:40 AM",
-              name: "Quick Pike Place morning coffee",
-              type: "coffee",
-              neighborhood: "Downtown Seattle / Pike Place Market",
-              duration: "15-20 min",
-              cost: 5,
-              bestTime: "Before heading to the ferry terminal — you're half a block from the market, no detour needed.",
-              knownFor: "Pike Place opens early; grab a quick coffee from one of the market vendors or Pike Place Starbucks (original location) before heading down to the terminal.",
-              sentiment: "You're literally next door. Don't skip this — it's a 5-min stop that sets the tone for a ferry day.",
-              taxTipIncluded: "One coffee plus Seattle tax and a small tip.",
-              tipGuidance: "$1-2 tip for counter service.",
-              hours: "Pike Place vendors start opening from 9 AM; Starbucks original opens early (recheck hours).",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Pike+Place+Market+Seattle"
-            },
-            {
-              time: "8:10 AM",
-              leaveTime: "8:05 AM",
-              name: "Walk to Seattle Ferry Terminal",
-              type: "transit",
-              neighborhood: "Downtown Seattle to Waterfront",
-              duration: "10-15 min walk",
-              cost: 0,
-              bestTime: "Leave buffer for ticketing.",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Seattle+Ferry+Terminal",
-              notes: "Walk down Pike St to the waterfront — it's a pleasant 10-min downhill walk from Reside."
-            },
-            {
-              time: "9:45 AM",
-              leaveTime: "9:20 AM",
-              name: "Bainbridge ferry fare + Winslow arrival",
-              type: "sightseeing",
-              neighborhood: "Bainbridge Island",
-              duration: "35 min crossing plus terminal buffer",
-              cost: 12,
-              bestTime: "Morning sailing for calmer pacing.",
-              knownFor: "Seattle skyline and Elliott Bay ferry views on the way to Bainbridge.",
-              sentiment: "Still the main island-day anchor, but food is now broken into the saved places you picked.",
-              reservation: "No passenger reservation; first come, first served.",
-              payment: "WSF accepts card; card processing fee starts March 2026.",
-              taxTipIncluded: "Walk-on ferry fare estimate now includes the approved 2026 passenger fare plus the 3% card-processing surcharge; no tip.",
-              tipGuidance: "No tip for ferry fare.",
-              hours: "Ferry schedule varies; recheck WSF day-of.",
-              website: "https://wsdot.wa.gov/ferries/schedule/scheduledetailbyroute.aspx?route=sea-bi",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Seattle+Ferry+Terminal/Bainbridge+Island+Ferry+Terminal"
-            }
-          ]
-        },
-        {
-          label: "Bainbridge breakfast and waterfront",
-          items: [
-            {
-              time: "10:15 AM",
-              leaveTime: "10:05 AM from ferry terminal",
-              name: "Madison Diner breakfast",
-              type: "food",
-              neighborhood: "Winslow / Bainbridge Island",
-              duration: "60 min",
-              cost: 22,
-              bestTime: "Late breakfast after the ferry.",
-              knownFor: "Classic diner breakfast in the saved Bainbridge cluster.",
-              sentiment: "Better fit than the old Cafe Hitchcock block because you specifically wanted breakfast-friendly island stops.",
-              reservation: "Walk-in is the safe assumption.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes a breakfast plate, coffee, local tax, and a 15% sit-down tip.",
-              tipGuidance: "15% is acceptable for standard diner service.",
-              hours: "Current listings show breakfast/lunch service; recheck before travel.",
-              website: "https://visitbainbridgeisland.org/business/the-madison-diner/",
-              route: "https://www.google.com/maps/dir/Bainbridge+Island+Ferry+Terminal/Madison+Diner+Bainbridge+Island"
-            },
-            {
-              time: "11:30 AM",
-              leaveTime: "11:20 AM",
-              name: "Waterfront Park & City Dock",
-              type: "sightseeing",
-              neighborhood: "Bainbridge Island",
-              duration: "60 min",
-              cost: 0,
-              bestTime: "Late morning after breakfast.",
-              knownFor: "Free waterfront walk, marina views, and the official City Dock.",
-              sentiment: "The right no-cost Bainbridge outdoor anchor from your saved list.",
-              taxTipIncluded: "Free public space; no tip.",
-              hours: "Public park and dock; daylight recommended.",
-              website: "https://bainbridgewa.gov/302/Waterfront-Park-City-Dock",
-              route: "https://www.google.com/maps/dir/Madison+Diner+Bainbridge+Island/Waterfront+Park+and+City+Dock+Bainbridge+Island"
-            },
-            {
-              time: "12:45 PM",
-              name: "Pegasus Coffee House",
-              type: "coffee",
-              neighborhood: "Bainbridge Island",
-              duration: "35 min",
-              cost: 8,
-              bestTime: "Coffee before the ferry back.",
-              knownFor: "Classic Winslow coffeehouse and the strongest exact island coffee choice on your route.",
-              sentiment: "Cleaner than keeping a ferry-terminal backup in the active schedule.",
-              payment: "Cards expected.",
-              taxTipIncluded: "Estimate assumes one coffee drink, local tax, and a $1 coffee tip.",
-              tipGuidance: "$1 is enough for coffee.",
-              hours: "Recheck current Bainbridge hours before travel.",
-              website: "https://pegasuscoffeehouse.com/",
-              route: "https://www.google.com/maps/dir/Waterfront+Park+and+City+Dock+Bainbridge+Island/Pegasus+Coffee+House+Bainbridge+Island"
-            },
-            {
-              time: "1:30 PM",
-              name: "Island Cool Ice Cream",
-              type: "food",
-              neighborhood: "Bainbridge Island",
-              duration: "20 min",
-              cost: 7,
-              bestTime: "Quick dessert if the weather is dry.",
-              knownFor: "Small island ice cream stop from the saved list.",
-              sentiment: "Optional-feeling, but cheap enough to keep in the default island day.",
-              payment: "Cards expected.",
-              taxTipIncluded: "Estimate assumes one scoop with tax; tip optional.",
-              tipGuidance: "Counter-service dessert: tip optional.",
-              hours: "Seasonal and weather-sensitive; recheck day-of.",
-              website: "https://www.google.com/maps/search/Island+Cool+Ice+Cream+Bainbridge+Island",
-              route: "https://www.google.com/maps/dir/Pegasus+Coffee+House+Bainbridge+Island/Island+Cool+Ice+Cream+Bainbridge+Island/Bainbridge+Island+Ferry+Terminal"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "6:15 PM",
-              leaveTime: "5:50 PM",
-              name: "Menya Musashi Capitol Hill dinner",
-              type: "food",
-              neighborhood: "Capitol Hill",
-              duration: "60 min",
-              cost: 23,
-              bestTime: "Dinner after returning from Bainbridge.",
-              knownFor: "Exact ramen pick: Original Ramen is $17.25, Black Ramen is $18.25, Red Ramen is $18.25, and Original Tsukemen is $17.75 on the current Capitol Hill menu.",
-              sentiment: "This is the cleaner end-of-day move because it is exact, near the hotel, and no longer vague.",
-              reservation: "Walk-in is the safe assumption.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one main bowl around $17.25-18.25, Seattle tax, and a modest counter/casual-service tip.",
-              tipGuidance: "Counter/casual ramen service: 0-10% is fine.",
-              hours: "Recheck current Capitol Hill hours before travel.",
-              website: "https://menyamusashi.us/ramen-menu-seattle/ramen-menu-capitol-hill-seattle/",
-              menu: "https://menyamusashi.us/ramen-menu-seattle/ramen-menu-capitol-hill-seattle/",
-              route: "https://www.google.com/maps/dir/Bainbridge+Island+Ferry+Terminal/Menya+Musashi+Capitol+Hill+Seattle"
-            },
-            {
-              time: "8:00 PM",
-              name: "Rock Box karaoke",
-              type: "cocktails",
-              neighborhood: "Capitol Hill",
-              duration: "60 min",
-              cost: 15,
-              bestTime: "Only if you still have energy after the ferry day.",
-              knownFor: "Private-room karaoke in Capitol Hill.",
-              sentiment: "Fun saved-list nightlife backup; keep spend light unless you intentionally want a bigger night.",
-              happyHour: "Official current room happy hour shows $7 per person per hour for karaoke, with bar happy-hour drinks such as sake sangria at $8, single wells at $6, double wells at $8, premium draft at $6, and house sake at $7.",
-              reservation: "Reserve if you want a private-room time slot.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one happy-hour karaoke hour plus one simple drink with tax and gratuity, not a full room-plus-drinks night.",
-              tipGuidance: "If ordering drinks, use 18% for bar service.",
-              hours: "Current details sheet lists daily hours 4 PM-2 AM, last private-room seating 12:30 AM, last call 1:30 AM, and happy hour Mon-Thu 4-8 PM, Fri-Sat 4-7 PM, all day Sunday.",
-              website: "https://rockboxseattle.com/",
-              route: "https://www.google.com/maps/dir/Menya+Musashi+Capitol+Hill+Seattle/Rock+Box+Seattle"
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:20 AM", name: "Wake + prep", type: "rest", neighborhood: "Boylston base", duration: "40 min", cost: 0 },
+          { time: "8:05 AM", name: "Breakfast near Capitol Hill", type: "meal", neighborhood: "Capitol Hill", duration: "55 min", cost: 17 },
+          { time: "9:05 AM", name: "Transit/walk to Seattle Ferry Terminal", type: "transit", neighborhood: "Downtown waterfront", duration: "45 min", cost: 3 },
+          { time: "10:00 AM", name: "Ferry to Bainbridge", type: "transit", neighborhood: "Puget Sound", duration: "40 min", cost: 12 }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "10:50 AM", name: "Winslow + waterfront exploration", type: "walk", neighborhood: "Bainbridge Island", duration: "95 min", cost: 0 },
+          { time: "12:30 PM", name: "Island lunch", type: "meal", neighborhood: "Winslow", duration: "75 min", cost: 26 },
+          { time: "1:55 PM", name: "Coffee / rest stop", type: "rest", neighborhood: "Winslow", duration: "40 min", cost: 8 },
+          { time: "2:45 PM", name: "Return ferry to Seattle", type: "transit", neighborhood: "Puget Sound", duration: "40 min", cost: 0 }
+        ]},
+        { label: "Evening", items: [
+          { time: "3:35 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "35 min", cost: 0 },
+          { time: "4:20 PM", name: "Hotel recharge", type: "rest", neighborhood: "Boylston base", duration: "70 min", cost: 0 },
+          { time: "5:40 PM", name: "Dinner (ramen/noodles)", type: "meal", neighborhood: "Capitol Hill", duration: "80 min", cost: 27 },
+          { time: "7:10 PM", name: "Rock Box karaoke/social stop", type: "activity", neighborhood: "Capitol Hill", duration: "80 min", cost: 22 },
+          { time: "8:40 PM", name: "Return and rest", type: "rest", neighborhood: "Boylston base", duration: "9.5 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-4",
       date: "Wed, Nov 4",
-      city: "Seattle to Portland",
-      title: "Phê, King Street buffer, Amtrak south",
-      theme: "Transfer day",
-      dayTotal: 59,
-      weatherPlan: "Practical downtown checkout morning: hotel checkout at 104 Pine St, one coffee near Pike Place or on the way, then transit to King Street Station.",
+      city: "Seattle",
+      title: "Extra Seattle day: Ballard + Fremont + sunset view",
+      theme: "New neighborhoods + deeper city coverage",
+      dayTotal: 101,
+      weatherPlan: "If weather is rough, pivot outdoor segments to museums/indoor market time.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "8:45 AM",
-              name: "Check out of Reside Seattle Downtown",
-              type: "hotel",
-              anchorType: "hotel-departure",
-              hotelContext: "Seattle base: Reside Seattle Downtown, a Wyndham Residence — 104 Pine St",
-              neighborhood: "Downtown Seattle / Pike Place Market",
-              duration: "15-20 min",
-              cost: 0,
-              notes: "Checkout before 11:00 AM. Keep the morning light — King Street Station is 15 min away by transit or rideshare."
-            },
-            {
-              time: "9:15 AM",
-              leaveTime: "9:05 AM",
-              name: "Elm Coffee Roasters or Pike Place quick coffee",
-              type: "coffee",
-              neighborhood: "Downtown Seattle",
-              duration: "15-20 min",
-              cost: 8,
-              bestTime: "Quick caffeine stop after checkout and before station transit.",
-              knownFor: "Elm Coffee is 5 min walk from Reside; alternatively grab a last market coffee at Pike Place before heading south.",
-              sentiment: "Fast and close — no need to go out of your way on a transfer morning.",
-              payment: "Cards expected.",
-              taxTipIncluded: "Estimate assumes one drink with Seattle tax and a $1 tip.",
-              tipGuidance: "$1 is enough for coffee.",
-              hours: "Recheck current hours before travel.",
-              website: "https://www.elmcoffeeroasters.com/",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/Elm+Coffee+Roasters+Seattle"
-            },
-            {
-              time: "9:50 AM",
-              leaveTime: "9:45 AM",
-              name: "Downtown to King Street Station",
-              type: "transit",
-              neighborhood: "Downtown Seattle to SoDo / Chinatown-International District",
-              duration: "15-20 min",
-              cost: 3,
-              bestTime: "Head straight to the station after coffee.",
-              knownFor: "Simple Link or rideshare from downtown. King Street is closer from Reside than it was from Capitol Hill.",
-              sentiment: "This is here because you asked for exact transfer timing, not fuzzy station arrival.",
-              taxTipIncluded: "Assumes one local-transit fare; no tip.",
-              tipGuidance: "No tip for transit.",
-              route: "https://www.google.com/maps/dir/104+Pine+St+Seattle+WA+98101/King+Street+Station+Seattle"
-            },
-            {
-              time: "10:10 AM",
-              name: "King Street Station early-arrival buffer",
-              type: "transit",
-              neighborhood: "King Street Station",
-              duration: "2 hr",
-              cost: 0,
-              bestTime: "Required buffer because you want to be there two hours before departure.",
-              knownFor: "Station arrival, platform buffer, restroom break, and no-stress boarding window.",
-              sentiment: "This is intentionally long because it matches your exact station rule.",
-              taxTipIncluded: "No extra cost unless you buy a snack.",
-              tipGuidance: "No tip."
-            }
-          ]
-        },
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "12:10 PM",
-              name: "Amtrak Cascades 517 to Portland",
-              type: "transit",
-              neighborhood: "King Street Station to Portland Union Station",
-              duration: "3 hr 25 min",
-              cost: 27,
-              bestTime: "Already buffered; board calmly after arriving by 10:10 AM.",
-              knownFor: "Scenic, low-stress intercity transfer.",
-              sentiment: "Correct choice for budget and comfort.",
-              reservation: "User-provided current lowest-fare coach example is train 517, 12:10 PM to 3:35 PM, from $27.",
-              payment: "Ticket purchased separately but included in activity budget.",
-              taxTipIncluded: "Ticket cost; no tip.",
-              hours: "Current Amtrak timetable dated May 10, 2026 shows Seattle 12:10 PM and Portland 3:35 PM for train 517.",
-              website: "https://content.amtrak.com/content/timetable/Amtrak%20Cascades.pdf",
-              route: "https://www.google.com/maps/dir/King+Street+Station+Seattle/Portland+Union+Station"
-            },
-            {
-              time: "3:45 PM",
-              leaveTime: "3:40 PM",
-              name: "Portland Union Station to Courtyard Portland",
-              type: "transit",
-              neighborhood: "Pearl / Union Station to Downtown",
-              duration: "20-25 min",
-              cost: 3,
-              bestTime: "Right after the train so the arrival flow stays explicit.",
-              knownFor: "Simple MAX, streetcar, or short rideshare hop from Union Station to the hotel.",
-              sentiment: "Needed because you asked for exact arrival movement, not a hidden hotel jump.",
-              taxTipIncluded: "Assumes one local transit fare; no tip.",
-              tipGuidance: "No tip for transit.",
-              website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Portland+Union+Station/Courtyard+by+Marriott+Portland+City+Center"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "4:05 PM",
-              name: "Check in at Courtyard Portland",
-              type: "hotel",
-              anchorType: "hotel-checkin",
-              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
-              neighborhood: "Downtown / Cultural District",
-              duration: "20-30 min",
-              cost: 0,
-              notes: "Drop bags and reset before the first Portland bookstore and dinner blocks."
-            },
-            {
-              time: "4:45 PM",
-              leaveTime: "4:30 PM",
-              name: "Powell's City of Books",
-              type: "sightseeing",
-              neighborhood: "Pearl District",
-              duration: "75 min",
-              cost: 0,
-              bestTime: "Arrival-evening bookstore block before dinner.",
-              knownFor: "Portland's iconic bookstore and best exact first-night browse stop near the hotel.",
-              sentiment: "Still touristy, still actually worth it.",
-              hours: "Powell's daily 10 AM-9 PM.",
-              website: "https://www.powells.com/locations/powells-city-of-books",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Powell's+City+of+Books"
-            },
-            {
-              time: "6:15 PM",
-              leaveTime: "6:05 PM",
-              name: "Life of Pie NW 23rd dinner",
-              type: "food",
-              neighborhood: "Northwest",
-              duration: "60 min",
-              cost: 18,
-              bestTime: "Happy-hour-friendly first Portland dinner after Powell's.",
-              knownFor: "Daily pizza happy hour and one of the cleaner value dinners near your first Portland night route.",
-              sentiment: "Exact and easy; better than leaving a generic fallback block here.",
-              happyHour: "11 AM-6 PM daily, with discounted dine-in Margherita pizza and select drinks.",
-              reservation: "Solo walk-in is fine.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one solo pizza-focused dinner with Portland no-sales-tax pricing and a modest tip if seated.",
-              tipGuidance: "Counter/table hybrid: 0-10% is fine unless you get full service.",
-              hours: "Daily 11 AM-10 PM.",
-              website: "https://lifeofpiepizza.com/",
-              menu: "https://lifeofpiepizza.com/",
-              route: "https://www.google.com/maps/dir/Powell's+City+of+Books/Life+of+Pie+NW+23rd/Courtyard+by+Marriott+Portland+City+Center"
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Boylston base", duration: "40 min", cost: 0 },
+          { time: "8:20 AM", name: "Analog Coffee + light breakfast", type: "meal", neighborhood: "Capitol Hill", duration: "60 min", cost: 18 },
+          { time: "9:30 AM", name: "Transit to Fremont", type: "transit", neighborhood: "Capitol Hill -> Fremont", duration: "45 min", cost: 3 },
+          { time: "10:20 AM", name: "Fremont walking loop", type: "walk", neighborhood: "Fremont", duration: "110 min", cost: 0 }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "12:20 PM", name: "Uneeda Burger Fremont lunch", type: "meal", neighborhood: "Fremont", duration: "75 min", cost: 25 },
+          { time: "1:45 PM", name: "Transit to Ballard", type: "transit", neighborhood: "Fremont -> Ballard", duration: "25 min", cost: 0 },
+          { time: "2:15 PM", name: "Ballard Ave + locks area explore", type: "walk", neighborhood: "Ballard", duration: "110 min", cost: 0 },
+          { time: "4:15 PM", name: "Ballard Coffee Works reset", type: "rest", neighborhood: "Ballard", duration: "45 min", cost: 9 }
+        ]},
+        { label: "Evening", items: [
+          { time: "5:10 PM", name: "Transit back downtown / Capitol Hill", type: "transit", neighborhood: "Ballard -> Capitol Hill", duration: "50 min", cost: 0 },
+          { time: "6:10 PM", name: "Tacos Chukis Capitol Hill dinner", type: "meal", neighborhood: "Capitol Hill", duration: "60 min", cost: 18 },
+          { time: "7:40 PM", name: "Sky View Observatory sunset slot", type: "activity", neighborhood: "Downtown", duration: "75 min", cost: 28 },
+          { time: "9:05 PM", name: "Return and pack for train day", type: "rest", neighborhood: "Boylston base", duration: "9 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-5",
       date: "Thu, Nov 5",
-      city: "Portland",
-      title: "Fuller's breakfast, Japanese Garden, downtown books",
-      theme: "Practical Portland morning + classic sights",
-      dayTotal: 116,
-      weatherPlan: "Japanese Garden is still good in light rain; use Powell's and cafes if wind is rough.",
+      city: "Seattle to Portland",
+      title: "Checkout + Amtrak transfer + light Portland evening",
+      theme: "Transition day",
+      dayTotal: 87,
+      weatherPlan: "Keep Seattle morning close to hotel and station timing protected with buffers.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "8:30 AM",
-              leaveTime: "8:20 AM",
-              name: "Fuller's Coffee Shop breakfast",
-              type: "food",
-              neighborhood: "Pearl District",
-              duration: "45-60 min",
-              cost: 20,
-              bestTime: "7-8 AM walk from Courtyard before heading uphill to the garden.",
-              knownFor: "Portland institution since 1947. Classic American diner breakfast — eggs, corned beef hash, housemade bread, generous portions. Iconic U-shaped chrome counter.",
-              sentiment: "8-10 min walk from Courtyard. Local favorite, not a tourist trap. Exactly the kind of lived-in breakfast start that fits Portland right.",
-              beans: "Save bean purchases for Coava/Heart/Stumptown retail; this is a breakfast stop, not the main bean buy.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one breakfast plate and coffee with a 15% sit-down tip.",
-              tipGuidance: "15% for sit-down diner service.",
-              hours: "Mon–Sat 7 AM. Closed Sunday.",
-              website: "https://fullerscoffeeshop.com/",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Fuller's+Coffee+Shop+136+NW+9th+Ave+Portland"
-            },
-            {
-              time: "10:00 AM",
-              leaveTime: "9:20 AM",
-              name: "Washington Park arrival and uphill garden approach",
-              type: "transit",
-              neighborhood: "Washington Park",
-              duration: "35-40 min",
-              cost: 3,
-              bestTime: "Use this as the exact transit-and-walk leg before the timed garden visit.",
-              knownFor: "MAX plus park approach that makes the uphill move explicit instead of hiding it inside the garden stop.",
-              sentiment: "Needed because the garden morning should not act like teleportation.",
-              payment: "Tap card or phone for transit.",
-              taxTipIncluded: "Assumes one adult TriMet fare; no tip.",
-              tipGuidance: "No tip for transit.",
-              hours: "Verify TriMet service alerts day-of.",
-              website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Washington+Park+MAX+Station"
-            },
-            {
-              time: "10:40 AM",
-              leaveTime: "10:30 AM",
-              name: "Portland Japanese Garden",
-              type: "sightseeing",
-              neighborhood: "Washington Park",
-              duration: "2 hr 20 min",
-              cost: 25,
-              bestTime: "Timed morning entry after the uphill approach.",
-              knownFor: "One of Portland's best-designed gardens and the strongest exact paid garden stop in the city plan.",
-              sentiment: "Worth the hype.",
-              reservation: "Book timed ticket up to 10 days ahead.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Ticket estimate uses the current adult admission range plus fee buffer; no tip.",
-              tipGuidance: "No tip.",
-              hours: "Public hours generally Wed-Mon 10 AM-5:30 PM, Tue noon-5:30 PM; adult admission currently starts around $22.50.",
-              website: "https://japanesegarden.org/hours-admission/",
-              route: "https://www.google.com/maps/dir/Washington+Park+MAX+Station/Portland+Japanese+Garden"
-            }
-          ]
-        },
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "1:45 PM",
-              leaveTime: "1:20 PM",
-              name: "Tasty Corner PDX lunch",
-              type: "food",
-              neighborhood: "Downtown / PSU edge",
-              duration: "60 min",
-              cost: 15,
-              bestTime: "Late lunch after the garden while you are back near downtown.",
-              knownFor: "Dan dan noodles, hand-shaved noodles, and other downtown Portland budget-friendly Chinese dishes.",
-              sentiment: "Best Portland cheap-meal anchor in this revision.",
-              reservation: "Walk-in.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one noodle or chicken dish with no sales tax and a 15% sit-down tip buffer.",
-              tipGuidance: "15% is acceptable here if you are seated and service is normal.",
-              hours: "Menu PDFs were still active in May 2026; recheck hours before the trip.",
-              website: "https://www.tastycornerpdx.com/",
-              route: "https://www.google.com/maps/dir/Portland+Japanese+Garden/Tasty+Corner+Portland"
-            },
-            {
-              time: "3:15 PM",
-              leaveTime: "3:00 PM",
-              name: "Powell's City of Books",
-              type: "shopping",
-              neighborhood: "Pearl District",
-              duration: "75 min",
-              cost: 0,
-              bestTime: "Afternoon indoor browse block after lunch.",
-              knownFor: "Books, Portland browsing, and one of the best weatherproof downtown anchors.",
-              sentiment: "Still worth a second Portland hit because it solves rainy-time dead space cleanly.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Browse-only by default.",
-              hours: "Powell's daily 10 AM-9 PM.",
-              website: "https://www.powells.com/locations/powells-city-of-books",
-              route: "https://www.google.com/maps/dir/Tasty+Corner+Portland/Powell's+City+of+Books"
-            },
-            {
-              time: "4:45 PM",
-              leaveTime: "4:35 PM",
-              name: "Hello From Portland souvenir stop",
-              type: "shopping",
-              neighborhood: "Pearl / NW 10th",
-              duration: "35 min",
-              cost: 25,
-              bestTime: "After Powell's so your mug and magnet errand is explicit.",
-              knownFor: "Portland gift stop for magnets and souvenir basics; fold the Portland Starbucks mug errand into this block.",
-              sentiment: "More honest than hiding souvenir shopping inside a combined books block.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one Portland Starbucks city mug around $14.95, one coffee around $6, and one small Portland magnet-style gift around $4-5. Portland has no sales tax.",
-              hours: "Recheck current shop hours closer to the trip.",
-              website: "https://hellofromoregon.com/",
-              route: "https://www.google.com/maps/dir/Powell's+City+of+Books/Hello+From+Portland"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "6:15 PM",
-              leaveTime: "5:20 PM",
-              name: "Screen Door Pearl District dinner",
-              type: "food",
-              neighborhood: "Pearl / Downtown",
-              duration: "60 min",
-              cost: 28,
-              bestTime: "Exact sit-down dinner after books and souvenir shopping.",
-              knownFor: "Fried chicken, biscuits, and Southern comfort-food plates in the Pearl District.",
-              sentiment: "Specific and close-in; better than leaving a fake flexible dinner placeholder.",
-              reservation: "Check current waitlist policy day-of.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one solo dinner with no sales tax and a normal sit-down tip.",
-              tipGuidance: "15-18% is fine for table service here.",
-              hours: "Recheck current Pearl District hours before the trip.",
-              website: "https://screendoorrestaurant.com/",
-              menu: "https://screendoorrestaurant.com/",
-              route: "https://www.google.com/maps/dir/Hello+From+Portland/Screen+Door+Pearl+District/Courtyard+by+Marriott+Portland+City+Center"
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:00 AM", name: "Wake, final pack, checkout prep", type: "rest", neighborhood: "Boylston base", duration: "70 min", cost: 0 },
+          { time: "8:15 AM", name: "Analog Coffee + QFC train snacks", type: "meal", neighborhood: "Capitol Hill", duration: "60 min", cost: 18 },
+          { time: "9:25 AM", name: "Last Capitol Hill walk + coffee stop", type: "walk", neighborhood: "Capitol Hill", duration: "55 min", cost: 10 },
+          { time: "10:30 AM", name: "Checkout and travel to King Street Station", type: "transit", neighborhood: "Capitol Hill -> King Street", duration: "55 min", cost: 4 },
+          { time: "11:30 AM", name: "Station buffer + platform prep", type: "rest", neighborhood: "King Street Station", duration: "35 min", cost: 0 }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 27, notes: "Reservation 29CB3A-17MAY26, one coach seat." },
+          { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Courtyard", type: "transit", neighborhood: "Union Station -> City Center", duration: "35 min", cost: 3 },
+          { time: "4:20 PM", name: "Check in and reset", type: "rest", neighborhood: "Courtyard Portland", duration: "80 min", cost: 0 }
+        ]},
+        { label: "Evening", items: [
+          { time: "5:50 PM", name: "Easy downtown orientation walk", type: "walk", neighborhood: "Downtown Portland", duration: "60 min", cost: 0 },
+          { time: "7:00 PM", name: "Luc Lac Vietnamese Kitchen dinner", type: "meal", neighborhood: "Downtown Portland", duration: "75 min", cost: 25 },
+          { time: "8:25 PM", name: "Luc Lac -> Courtyard wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "10 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-6",
       date: "Fri, Nov 6",
       city: "Portland",
-      title: "Eastside coffee, Thai fried chicken, neighborhood hangout day",
-      theme: "Food and coffee day",
-      dayTotal: 75,
-      weatherPlan: "All major stops have indoor seating or short walks from transit.",
+      title: "Washington Park + Japanese Garden + Pearl",
+      theme: "Core Portland highlights",
+      dayTotal: 120,
+      weatherPlan: "Prioritize outdoor garden earlier; move Pearl browsing later if rain picks up.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "8:30 AM",
-              leaveTime: "8:00 AM",
-              name: "Coava Coffee Roasters Flagship",
-              type: "coffee",
-              neighborhood: "Central Eastside",
-              duration: "60 min",
-              cost: 30,
-              bestTime: "Morning for espresso and bean stock.",
-              knownFor: "Portland specialty roaster, seasonal single origins, flagship cafe.",
-              sentiment: "Worth the hype for coffee buyers.",
-              beans: "Current Coava 300g single-origin bags are still clustering around the low-to-mid $20s. Plan on about $22-$24 for the bag plus one drink.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate includes one roughly $22-$24 bag of beans, one drink, and a $1 coffee tip. Portland has no sales tax.",
-              tipGuidance: "$1 for coffee; no tip needed on the retail bean bag.",
-              hours: "Flagship open daily 7 AM-6 PM.",
-              website: "https://coavacoffee.com/locations",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Coava+Coffee+Roasters+Flagship"
-            },
-            {
-              time: "10:00 AM",
-              leaveTime: "9:50 AM",
-              name: "Deadstock Coffee",
-              type: "coffee",
-              neighborhood: "Old Town / Downtown edge",
-              duration: "30 min",
-              cost: 6,
-              bestTime: "Short second cafe stop if you want the sneaker-themed Portland coffee room, not another generic wander block.",
-              knownFor: "Sneaker-themed Portland coffee shop with espresso drinks and a cult local reputation.",
-              sentiment: "Exact and fun, but keep it short because Coava is still the main bean stop.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one drink and a $1 coffee tip; Portland has no sales tax.",
-              tipGuidance: "$1 is enough for coffee.",
-              hours: "Recheck current Portland hours before the trip.",
-              website: "https://deadstockcoffee.com/",
-              route: "https://www.google.com/maps/dir/Coava+Coffee+Roasters+Flagship/Deadstock+Coffee+Portland"
-            },
-            {
-              time: "10:45 AM",
-              leaveTime: "10:35 AM",
-              name: "Smith Teamaker Tasting Room",
-              type: "coffee",
-              neighborhood: "Central Eastside",
-              duration: "30 min",
-              cost: 5,
-              bestTime: "Tea pause before lunch.",
-              knownFor: "Portland tea flagship and the cleanest exact tea stop to pair with Coava and Deadstock.",
-              sentiment: "Useful if you want one non-coffee specialty stop without making the morning vague.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one tea and a small tip; Portland has no sales tax.",
-              tipGuidance: "$1 is enough for tea.",
-              hours: "Recheck current tasting-room hours before the trip.",
-              website: "https://www.smithtea.com/pages/tasting-rooms",
-              route: "https://www.google.com/maps/dir/Deadstock+Coffee+Portland/Smith+Teamaker+Portland"
-            },
-            {
-              time: "11:25 AM",
-              leaveTime: "11:20 AM",
-              name: "Eastbank Esplanade stroll",
-              type: "sightseeing",
-              neighborhood: "Central Eastside",
-              duration: "35 min",
-              cost: 0,
-              bestTime: "Short river walk before lunch.",
-              knownFor: "Willamette River path with skyline views and a cleaner exact outdoor break than a made-up neighborhood blob.",
-              sentiment: "Good weather block, easy to cut if it rains hard.",
-              hours: "Outdoor public path; daylight recommended.",
-              website: "https://www.portland.gov/parks/eastbank-esplanade",
-              route: "https://www.google.com/maps/dir/Smith+Teamaker+Portland/Eastbank+Esplanade+Portland"
-            }
-          ]
-        },
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "12:30 PM",
-              leaveTime: "12:10 PM",
-              name: "Hat Yai",
-              type: "food",
-              neighborhood: "NE Killingsworth or Belmont",
-              duration: "75 min",
-              cost: 30,
-              bestTime: "Lunch to avoid dinner crowd.",
-              knownFor: "Southern Thai fried chicken, curry and roti sets.",
-              sentiment: "Worth the hype.",
-              reservation: "Usually casual/walk-in; verify current policy.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate includes tax and optional counter-service tip.",
-              tipGuidance: "Tip 10% if ordering at a counter with meaningful service; otherwise rounding up is fine.",
-              hours: "Menu source active; third-party sources show lunch and dinner windows. Recheck branch hours.",
-              website: "https://www.hatyaipdx.com/menus",
-              route: "https://www.google.com/maps/dir/Smith+Teamaker+Portland/Hat+Yai+Killingsworth"
-            },
-            {
-              time: "3:00 PM",
-              leaveTime: "2:40 PM",
-              name: "Movie Madness",
-              type: "sightseeing",
-              neighborhood: "SE Belmont",
-              duration: "60 min",
-              cost: 0,
-              bestTime: "Post-lunch browse if you want one exact non-food Portland stop with real character.",
-              knownFor: "Legendary Portland movie-rental archive and film museum.",
-              sentiment: "Much better than leaving a fuzzy neighborhood browse block in the active itinerary.",
-              reservation: "None.",
-              payment: "Cards accepted for rentals/merch if you buy anything.",
-              taxTipIncluded: "Browse-only by default; no sales tax and no tip.",
-              tipGuidance: "No tip.",
-              hours: "Recheck current hours before the trip.",
-              website: "https://www.moviemadness.org/",
-              route: "https://www.google.com/maps/dir/Hat+Yai+Killingsworth/Movie+Madness+Portland"
-            },
-            {
-              time: "4:15 PM",
-              leaveTime: "4:05 PM",
-              name: "Belmont Station bottle-shop browse",
-              type: "shopping",
-              neighborhood: "SE Belmont",
-              duration: "35 min",
-              cost: 4,
-              bestTime: "Short browse before heading back downtown.",
-              knownFor: "Classic Portland bottle shop and beer store on Belmont.",
-              sentiment: "Keeps the afternoon exact without forcing another full meal or another generic neighborhood loop.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes a tiny take-home snack or single-item browse buffer; no sales tax and no tip.",
-              tipGuidance: "No tip.",
-              hours: "Recheck current hours before the trip.",
-              website: "https://www.belmont-station.com/",
-              route: "https://www.google.com/maps/dir/Movie+Madness+Portland/Belmont+Station+Portland/Courtyard+by+Marriott+Portland+City+Center"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "6:30 PM",
-              name: "Return to Courtyard Portland",
-              type: "hotel",
-              anchorType: "hotel-return",
-              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
-              neighborhood: "Downtown / Cultural District",
-              duration: "20-30 min",
-              cost: 0,
-              notes: "Keep this evening flexible by default; Rontoms remains a valid add-back if you intentionally want another cocktail night."
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
+          { time: "8:20 AM", name: "Breakfast (Fuller's)", type: "meal", neighborhood: "Pearl edge", duration: "60 min", cost: 19 },
+          { time: "9:30 AM", name: "Transit to Washington Park", type: "transit", neighborhood: "Downtown -> Washington Park", duration: "35 min", cost: 3 },
+          { time: "10:10 AM", name: "Portland Japanese Garden timed block", type: "activity", neighborhood: "Washington Park", duration: "120 min", cost: 23 }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "12:20 PM", name: "Park walk + short recovery", type: "rest", neighborhood: "Washington Park", duration: "45 min", cost: 0 },
+          { time: "1:10 PM", name: "Lunch near downtown return", type: "meal", neighborhood: "Downtown", duration: "70 min", cost: 24 },
+          { time: "2:30 PM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", duration: "105 min", cost: 14 },
+          { time: "4:20 PM", name: "Coffee break", type: "meal", neighborhood: "Pearl District", duration: "45 min", cost: 8 }
+        ]},
+        { label: "Evening", items: [
+          { time: "5:15 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "50 min", cost: 0 },
+          { time: "6:15 PM", name: "Dinner", type: "meal", neighborhood: "Pearl/Downtown", duration: "85 min", cost: 29 },
+          { time: "7:50 PM", name: "Waterfront evening walk", type: "walk", neighborhood: "Tom McCall Waterfront", duration: "60 min", cost: 0 },
+          { time: "9:00 PM", name: "Wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "9.5 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-7",
       date: "Sat, Nov 7",
       city: "Portland",
-      title: "Saturday Market, waterfront, Eem, Novel",
-      theme: "Market and Thai BBQ",
-      dayTotal: 87,
-      weatherPlan: "Saturday Market is outdoor; switch to Powell's, Made Here, and cafes if rain is sustained.",
+      title: "Saturday Market + Eastside neighborhoods",
+      theme: "Weekend market and local food",
+      dayTotal: 128,
+      weatherPlan: "Keep market first; use streetcar/MAX for fast shifts between districts.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "9:00 AM",
-              leaveTime: "8:40 AM",
-              name: "Stumptown Downtown",
-              type: "coffee",
-              neighborhood: "Downtown",
-              duration: "35 min",
-              cost: 7,
-              bestTime: "Before Saturday Market.",
-              knownFor: "Portland coffee pioneer, cold brew, reliable downtown cafe.",
-              sentiment: "Iconic, a little mainstream, still useful.",
-              beans: "No default bean purchase here; Portland bean budget is already assigned to Coava.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Drink estimate includes tax plus $1 coffee tip.",
-              tipGuidance: "$1 is enough for coffee.",
-              hours: "Downtown 128 SW 3rd: daily 7 AM-5 PM.",
-              website: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Stumptown+Coffee+Roasters+Downtown+Portland"
-            },
-            {
-              time: "10:00 AM",
-              leaveTime: "9:45 AM",
-              name: "Portland Saturday Market",
-              type: "shopping",
-              neighborhood: "Old Town",
-              duration: "90 min",
-              cost: 12,
-              bestTime: "Open to early afternoon.",
-              knownFor: "Local crafts and market browsing.",
-              sentiment: "Touristy, but still the strongest exact souvenir market stop.",
-              reservation: "None.",
-              payment: "Many vendors accept cards; some small vendors may prefer cash/contactless.",
-              taxTipIncluded: "Shopping/snack allowance includes no-sales-tax Portland pricing; tips optional by vendor.",
-              hours: "Saturdays 10 AM-5 PM, March through Dec. 24.",
-              website: "https://www.travelportland.com/event/6839b028f06e831a6c74666e/",
-              route: "https://www.google.com/maps/dir/Stumptown+Coffee+Roasters+128+SW+3rd/Portland+Saturday+Market"
-            },
-            {
-              time: "11:45 AM",
-              leaveTime: "11:40 AM",
-              name: "Tom McCall Waterfront Park",
-              type: "sightseeing",
-              neighborhood: "Waterfront",
-              duration: "45 min",
-              cost: 0,
-              bestTime: "After the market while you are already by the river.",
-              knownFor: "Riverside walk and skyline views.",
-              sentiment: "Simple exact outdoor block instead of a combined market-plus-waterfront lump.",
-              hours: "Outdoor public park; daylight recommended.",
-              website: "https://www.portland.gov/parks/tom-mccall-waterfront-park",
-              route: "https://www.google.com/maps/dir/Portland+Saturday+Market/Tom+McCall+Waterfront+Park"
-            }
-          ]
-        },
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "1:30 PM",
-              leaveTime: "1:05 PM",
-              name: "Eem",
-              type: "food",
-              neighborhood: "North Williams",
-              duration: "90 min",
-              cost: 44,
-              bestTime: "Lunch before 4 PM or before 6 PM to reduce wait.",
-              knownFor: "Thai BBQ, white curry with brisket burnt ends, vacation drinks.",
-              sentiment: "Worth the hype but can be a wait.",
-              reservation: "Reservations only for parties of 6+; smaller parties join waitlist in person.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate includes a fuller solo order, tax, and 18% tip if seated/bar service applies.",
-              tipGuidance: "Tip 18% for table/bar service; for takeout, 10% is enough.",
-              hours: "Lunch daily 11 AM-4 PM; dinner Sun-Thu 4-9 PM, Fri-Sat 4-10 PM.",
-              website: "https://www.eempdx.com/",
-              menu: "https://www.eempdx.com/menu",
-              route: "https://www.google.com/maps/dir/Portland+Saturday+Market/Eem+Portland"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "5:30 PM",
-              leaveTime: "5:00 PM",
-              name: "Novel Book Bar",
-              type: "cocktails",
-              neighborhood: "NW Everett / Pearl edge",
-              duration: "60-90 min",
-              cost: 24,
-              bestTime: "Early evening after Eem if you want one close-in Portland social stop before heading back.",
-              knownFor: "Book-bar atmosphere, coffee, cocktails, and lighter food near the Pearl/Old Town edge.",
-              sentiment: "Better fit than a generic rooftop backup when you want something specific to Portland and closer to Courtyard Portland.",
-              happyHour: "No verified happy hour yet; use it as a one-drink or coffee-plus-browse stop rather than a full two-cocktail budget play.",
-              recommended: "Best value move here is one drink or coffee plus fries, pretzel, or the burger instead of forcing a two-cocktail order.",
-              reservation: "No reservation expected for a normal visit; recheck their latest updates on Instagram.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes one $15 cocktail plus a $5 snack and an 18% bar tip. The user-shared menu also showed coffee around $4.25-$6.50, beer $6, wine $14-$15, burger $7, fries $4, pretzel $5, salad $10, and salmon $15.",
-              tipGuidance: "If you order a drink, tip 18%. If you only get coffee and browse, keep the tip closer to $1.",
-              hours: "Recheck current hours on Instagram before the trip.",
-              website: "https://www.instagram.com/novelpdx/",
-              route: "https://www.google.com/maps/dir/Eem+Portland/Novel+Book+Bar+Portland/Courtyard+by+Marriott+Portland+City+Center"
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:40 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
+          { time: "8:30 AM", name: "Breakfast near downtown", type: "meal", neighborhood: "Downtown", duration: "60 min", cost: 18 },
+          { time: "9:40 AM", name: "Walk to Saturday Market", type: "walk", neighborhood: "Old Town/Waterfront", duration: "20 min", cost: 0 },
+          { time: "10:00 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", duration: "120 min", cost: 24 }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "12:10 PM", name: "Transit to Central Eastside", type: "transit", neighborhood: "Downtown -> Eastside", duration: "25 min", cost: 3 },
+          { time: "12:40 PM", name: "Eem Thai BBQ lunch", type: "meal", neighborhood: "Central Eastside", duration: "70 min", cost: 23 },
+          { time: "1:55 PM", name: "Lan Su Chinese Garden", type: "activity", neighborhood: "Belmont/Central Eastside", duration: "110 min", cost: 12 },
+          { time: "3:55 PM", name: "MadeHere PDX + Pearl reset", type: "rest", neighborhood: "Cafe / seated", duration: "45 min", cost: 0 }
+        ]},
+        { label: "Evening", items: [
+          { time: "4:45 PM", name: "Return to hotel", type: "transit", neighborhood: "Eastside -> Downtown", duration: "25 min", cost: 0 },
+          { time: "5:20 PM", name: "Reset", type: "rest", neighborhood: "Courtyard Portland", duration: "50 min", cost: 0 },
+          { time: "6:20 PM", name: "Grassa Downtown dinner", type: "meal", neighborhood: "Downtown/inner eastside", duration: "100 min", cost: 36 },
+          { time: "8:10 PM", name: "Grassa -> Courtyard wind-down", type: "walk", neighborhood: "Downtown", duration: "60 min", cost: 12 },
+          { time: "9:20 PM", name: "Sleep", type: "rest", neighborhood: "Courtyard Portland", duration: "9 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-8",
       date: "Sun, Nov 8",
       city: "Portland",
-      title: "Coffee bean finale, Alberta/Mississippi, close-in sushi",
-      theme: "Flexible final full day",
-      dayTotal: 106,
-      weatherPlan: "Use cafes, Powell's, and Made Here as indoor alternates if steady rain.",
+      title: "Alberta/Mississippi + open-jam social night",
+      theme: "Neighborhood culture day",
+      dayTotal: 133,
+      weatherPlan: "Use bus/MAX jumps to reduce fatigue between north-side neighborhoods.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "9:00 AM",
-              leaveTime: "8:30 AM",
-              name: "Heart Coffee Burnside",
-              type: "coffee",
-              neighborhood: "Eastside",
-              duration: "60 min",
-              cost: 8,
-              bestTime: "Morning bean purchase.",
-              knownFor: "Portland roaster with a lighter roast profile and a stronger bean-buy identity than keeping Good Coffee as a backup inside the active plan.",
-              sentiment: "Best exact final Portland coffee stop for this route.",
-              beans: "No default bean purchase here; if you intentionally add a final bag, Heart's current Phono pricing is $15.50 and Stumptown's 12 oz Holler Mountain is $20.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Drink estimate includes tax plus $1 coffee tip.",
-              tipGuidance: "$1 is enough for coffee.",
-              hours: "Recheck exact branch hours before trip.",
-              website: "https://www.heartroasters.com/",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Heart+Coffee+Burnside+Portland"
-            },
-            {
-              time: "10:30 AM",
-              leaveTime: "10:10 AM",
-              name: "Mississippi Records",
-              type: "sightseeing",
-              neighborhood: "North Mississippi",
-              duration: "60 min",
-              cost: 6,
-              bestTime: "Late morning browse after coffee.",
-              knownFor: "Portland record-store institution with attached art-world weirdness and real neighborhood character.",
-              sentiment: "Stronger exact browse than a fake district loop.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes a tiny browse/buy buffer with no sales tax; no tip.",
-              tipGuidance: "No tip.",
-              hours: "Recheck current hours before the trip.",
-              website: "https://www.mississippirecords.net/",
-              route: "https://www.google.com/maps/dir/Heart+Coffee+Burnside+Portland/Mississippi+Records+Portland"
-            },
-            {
-              time: "11:45 AM",
-              leaveTime: "11:40 AM",
-              name: "Portland Museum of Modern Art",
-              type: "sightseeing",
-              neighborhood: "North Mississippi",
-              duration: "40 min",
-              cost: 0,
-              bestTime: "Small culture block after Mississippi Records.",
-              knownFor: "Experimental art space inside the Mississippi Records compound.",
-              sentiment: "Good exact non-food add-on that keeps the day feeling intentional, not empty.",
-              hours: "Recheck current exhibition hours before the trip.",
-              website: "https://portlandmuseumofmodernart.com/about-1",
-              route: "https://www.google.com/maps/dir/Mississippi+Records+Portland/Portland+Museum+of+Modern+Art"
-            }
-          ]
-        },
-        {
-          label: "Afternoon",
-          items: [
-            {
-              time: "1:30 PM",
-              leaveTime: "1:00 PM",
-              name: "Cubo de Cuba lunch",
-              type: "food",
-              neighborhood: "SE Hawthorne",
-              duration: "75 min",
-              cost: 28,
-              bestTime: "Lunch instead of dinner to control spend.",
-              knownFor: "Cuban comfort food, Cubano sandwiches, plantains, and rice plates.",
-              sentiment: "Specific, easier to navigate than a three-way lunch placeholder, and a better use of this final full day window.",
-              reservation: "Walk-in is the safe assumption; recheck current policy.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate includes a solo lunch, no sales tax, and a normal sit-down tip.",
-              tipGuidance: "Tip 18% for sit-down service; 10% is fine for counter-service lunch.",
-              hours: "Recheck current hours.",
-              website: "https://www.cuboportland.com/",
-              menu: "https://www.cuboportland.com/",
-              route: "https://www.google.com/maps/dir/Portland+Museum+of+Modern+Art/Cubo+de+Cuba+Portland"
-            }
-          ]
-        },
-        {
-          label: "Evening",
-          items: [
-            {
-              time: "5:30 PM",
-              leaveTime: "5:10 PM",
-              name: "Hana Sushi and Izakaya Pearl dinner",
-              type: "food",
-              neighborhood: "Pearl District",
-              duration: "60-75 min",
-              cost: 26,
-              bestTime: "Use this as the close-in Sunday sushi dinner so the final Portland night stays easy to navigate.",
-              knownFor: "Closer Pearl District sushi option that fits the Courtyard Portland base far better than the old Oregon City detour.",
-              sentiment: "Best realism tradeoff now that route quality matters more than strict AYCE logic.",
-              reservation: "Recheck day-of, but the Pearl location is a straightforward close-in dinner stop rather than a destination detour.",
-              payment: "Cards accepted.",
-              taxTipIncluded: "Estimate assumes a solo downtown sushi dinner plus tip. Oregon has no sales tax.",
-              tipGuidance: "If there is regular table service, 15% is enough here.",
-              hours: "Official Pearl menu page lists the location open daily 11 AM-9 PM; recheck closer to the trip.",
-              website: "https://www.hanasushiandizakaya.com/menus",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Hana+Sushi+and+Izakaya+138+NW+10th+Ave+Portland/The+Big+Legrowlski+Portland"
-            }
-            ,
-            {
-              time: "7:30 PM",
-              leaveTime: "7:00 PM",
-              name: "Big Legrowlski open jam social night",
-              type: "cocktails",
-              neighborhood: "Pearl District",
-              duration: "75-120 min",
-              cost: 38,
-              bestTime: "Sunday, Monday, or Tuesday 7 PM-midnight open jam; Sunday fits this itinerary.",
-              knownFor: "Casual live music/open jam, local crowd, no-cover community vibe.",
-              sentiment: "Good social value with a manageable return to Courtyard Portland; 21+ only.",
-              happyHour: "No default happy-hour deal; plan this as a deliberate two-drink social stop if you go.",
-              recommended: "Order Dead Flowers and Nobody F*cks With the Jesus if you want floral/fruity drinks, plus Just Walked In or Donny's Drumsticks for the light food side.",
-              reservation: "No reservation; check event calendar before going.",
-              payment: "Cards accepted; support the venue with a drink/snack.",
-              taxTipIncluded: "Estimate assumes Dead Flowers ($13), Nobody F*cks With the Jesus ($13), one $8 light food order, and an 18% bar tip. Portland has no sales tax.",
-              tipGuidance: "Tip 18% at the bar here.",
-              socialFit: "Strongest Portland live-music social pick with a simple return to Courtyard Portland by streetcar, MAX, or short rideshare.",
-              safetyNote: "Keep first meetups public, stay aware around Old Town/Pearl late at night, and use your own route home.",
-              hours: "Open-jam info lists Sunday, Monday, Tuesday 7 PM-midnight; venue lists 21+.",
-              website: "https://www.biglegrowlski.com/open-jam",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/The+Big+Legrowlski+Portland"
-            },
-            {
-              time: "9:15 PM",
-              name: "Return to Courtyard Portland",
-              type: "hotel",
-              anchorType: "hotel-return",
-              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
-              neighborhood: "Downtown / Cultural District",
-              duration: "20-30 min",
-              cost: 0,
-              notes: "Default wind-down point after the final full Portland day."
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
+          { time: "8:35 AM", name: "Heart Coffee Pearl breakfast", type: "meal", neighborhood: "Pearl", duration: "45 min", cost: 14 },
+          { time: "9:50 AM", name: "Heart Coffee -> Mississippi Records", type: "transit", neighborhood: "Downtown -> Alberta", duration: "40 min", cost: 3 },
+          { time: "10:35 AM", name: "Mississippi Records + Alberta Arts loop", type: "activity", neighborhood: "Alberta", duration: "115 min", cost: 20 }
+        ]},
+        { label: "Afternoon", items: [
+          { time: "12:35 PM", name: "Cubo de Cuba lunch", type: "meal", neighborhood: "Alberta", duration: "75 min", cost: 26 },
+          { time: "1:55 PM", name: "Transit to Mississippi Ave", type: "transit", neighborhood: "Alberta -> Mississippi", duration: "25 min", cost: 0 },
+          { time: "2:25 PM", name: "Powell's + MadeHere Pearl reset", type: "activity", neighborhood: "Pearl District", duration: "110 min", cost: 10 },
+          { time: "4:20 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "65 min", cost: 0 }
+        ]},
+        { label: "Evening", items: [
+          { time: "5:35 PM", name: "Early dinner", type: "meal", neighborhood: "Downtown", duration: "80 min", cost: 28 },
+          { time: "7:05 PM", name: "Big Legrowlski open-jam window", type: "activity", neighborhood: "Portland", duration: "150 min", cost: 32 },
+          { time: "9:45 PM", name: "Return to hotel", type: "transit", neighborhood: "Portland", duration: "35 min", cost: 0 },
+          { time: "10:30 PM", name: "Sleep", type: "rest", neighborhood: "Courtyard Portland", duration: "8.5 hrs", cost: 0 }
+        ]}
       ]
     },
     {
       id: "day-9",
       date: "Mon, Nov 9",
-      city: "Portland departure",
-      title: "Departure buffer to PDX",
-      theme: "No-risk travel day",
-      dayTotal: 36,
-      weatherPlan: "Leave extra time for rain-related traffic or MAX delays.",
+      city: "Portland",
+      title: "Checkout, airport transfer, and departure buffers",
+      theme: "Departure-safe pacing",
+      dayTotal: 39,
+      weatherPlan: "Protect airport timeline; keep all activity blocks specific and close to the hotel/airport path.",
       segments: [
-        {
-          label: "Morning",
-          items: [
-            {
-              time: "9:55 AM",
-              leaveTime: "9:40 AM",
-              name: "Check out of Courtyard Portland",
-              type: "hotel",
-              anchorType: "hotel-departure",
-              hotelContext: "Portland base: Courtyard by Marriott Portland City Center",
-              neighborhood: "Downtown / Cultural District",
-              duration: "15-20 min",
-              cost: 0,
-              notes: "This gives you a real three-hour airport-arrival buffer before the 1:47 PM departure and still leaves space for rain, elevator delays, and a MAX backup."
-            },
-            {
-              time: "10:15 AM",
-              leaveTime: "10:10 AM",
-              name: "Courtyard Portland to PDX",
-              type: "transit",
-              neighborhood: "Downtown to airport",
-              duration: "45-60 min",
-              cost: 3,
-              bestTime: "Leave around 10:15 AM to be inside PDX by about 10:40-10:45 AM.",
-              knownFor: "MAX Red Line / transit-first airport transfer.",
-              sentiment: "Best value.",
-              reservation: "None.",
-              payment: "Tap contactless card or phone.",
-              hours: "Verify service alerts day-of.",
-              website: "https://trimet.org/",
-              route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Portland+International+Airport"
-            },
-            {
-              time: "10:50 AM",
-              name: "Airport coffee/snack buffer",
-              type: "food",
-              neighborhood: "PDX",
-              duration: "30 min",
-              cost: 33,
-              bestTime: "After security.",
-              knownFor: "Use remaining budget for breakfast and last snack.",
-              sentiment: "Practical.",
-              reservation: "None.",
-              payment: "Cards accepted.",
-              hours: "Airport vendor hours vary.",
-              website: "https://www.flypdx.com/"
-            }
-          ]
-        }
+        { label: "Morning", items: [
+          { time: "7:00 AM", name: "Wake + final packing", type: "rest", neighborhood: "Courtyard Portland", duration: "60 min", cost: 0 },
+          { time: "8:10 AM", name: "Hotel neighborhood breakfast", type: "meal", neighborhood: "Downtown Portland", duration: "60 min", cost: 18 },
+          { time: "9:20 AM", name: "Courtyard final checkout walk", type: "walk", neighborhood: "Downtown Portland", duration: "45 min", cost: 0 },
+          { time: "10:15 AM", name: "Checkout + transfer to PDX", type: "transit", neighborhood: "Courtyard -> PDX", duration: "60 min", cost: 3 },
+          { time: "11:20 AM", name: "Airport check-in and security buffer", type: "rest", neighborhood: "PDX", duration: "95 min", cost: 0 },
+          { time: "1:00 PM", name: "PDX airport food + gate buffer", type: "meal", neighborhood: "PDX", duration: "40 min", cost: 18 }
+        ]},
+        { label: "Afternoon/Evening", items: [
+          { time: "1:47 PM", name: "Flight PDX -> DFW", type: "transit", neighborhood: "Air travel", duration: "3h 47m", cost: 0, notes: "Airfare tracked separately from activity budget." },
+          { time: "7:34 PM", name: "DFW layover buffer", type: "rest", neighborhood: "DFW", duration: "96 min", cost: 0 },
+          { time: "9:10 PM", name: "Flight DFW -> CRP", type: "transit", neighborhood: "Air travel", duration: "1h 35m", cost: 0 },
+          { time: "10:45 PM", name: "Arrival and end-of-trip recovery", type: "rest", neighborhood: "Corpus Christi", duration: "N/A", cost: 0 }
+        ]}
       ]
     }
   ],
   guides: {
     reservations: [
       { name: "Portland Japanese Garden", status: "Book", note: "Timed tickets recommended up to 10 days ahead.", link: "https://japanesegarden.org/hours-admission/" },
-      { name: "Poquitos Capitol Hill", status: "Optional", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" },
-      { name: "Rock Box", status: "Optional", note: "Reserve only if you want a guaranteed karaoke room after the Bainbridge day; otherwise keep it as a light nightlife backup.", link: "https://rockboxseattle.com/" },
+      { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" },
+      { name: "Rock Box", status: "Recommended", note: "Reserve only if you want a guaranteed karaoke room after the Bainbridge day; otherwise keep it as a light nightlife backup.", link: "https://rockboxseattle.com/" },
       { name: "Seattle Kraken / hockey game", status: "TBD", note: "2026-27 schedule is not reliable yet. Add only if a home game fits Nov 1-4 without breaking budget.", link: "https://www.nhl.com/kraken/schedule" }
     ],
     happyHour: [
@@ -1663,7 +482,7 @@ window.TRIP_DATA = {
       { name: "Poquitos Capitol Hill", city: "Seattle", deal: "Official Ocho Hour: $8 select tacos, nachos, margaritas, beer, wine, and more.", drink: "Best Capitol Hill dinner-and-drink value if timing lines up and the strongest two-cocktail budget fit in Seattle.", link: "https://www.vivapoquitos.com/" },
       { name: "Nue", city: "Seattle", deal: "Official happy-hour page lists discounted food/drink specials, but it is not defaulted because Biang Biang/Menya/Kajiken are more budget-direct.", drink: "Use if you want more adventurous food and can accept a higher dinner total.", link: "https://www.nueseattle.com/happy-hour" },
       { name: "Stoup Brewing Capitol Hill", city: "Seattle", deal: "Happy hour not verified from an official current price page; treat it as a beer/food-truck alternate, not default spend.", drink: "Good weather-friendly beer backup near Capitol Hill.", link: "https://www.stoupbrewing.com/capitol-hill/" },
-      { name: "Novel Book Bar", city: "Portland", deal: "No happy hour verified yet; the user-shared sample menu points to cocktails around $15, wine $14-$15, beer $6, and coffee about $4.25-$6.50.", drink: "Great optional Portland book-bar vibe stop, but better for one drink or coffee-plus-browse than a strict two-cocktail budget play.", link: "https://www.instagram.com/novelpdx/" },
+      { name: "Novel Book Bar", city: "Portland", deal: "No happy hour verified yet; the user-shared sample menu points to cocktails around $15, wine $14-$15, beer $6, and coffee about $4.25-$6.50.", drink: "Great Portland book-bar vibe stop, but better for one drink or coffee-plus-browse than a strict two-cocktail budget play.", link: "https://www.instagram.com/novelpdx/" },
       { name: "Rontoms", city: "Portland", deal: "Daily 3-6:30 PM; $1 off draughts, house wines, wells; $10 HH food.", drink: "Use full-price fruity cocktails plus the $10 Caesar if you want the stop to match the new two-cocktail plan.", link: "https://www.rontoms.net/menu-1" },
       { name: "Life of Pie", city: "Portland", deal: "Daily 11 AM-6 PM; $9 dine-in Margherita, $6 house beer/wine.", drink: "House wine/beer only if desired.", link: "https://lifeofpiepizza.com/" }
     ],
@@ -1678,9 +497,9 @@ window.TRIP_DATA = {
     socialDating: [
       { name: "Tinder", city: "Both cities", fit: "Primary app for high-volume casual matching while traveling.", setup: "Use Passport Mode before arrival if you have a paid plan or standalone Passport access. Set Seattle first, then Portland after the Amtrak day.", safety: "State your dates clearly and match only with people who self-identify as interested in your profile. Do not infer orientation from venue or appearance.", link: "https://www.help.tinder.com/hc/en-us/articles/115004490423-Passport-Mode" },
       { name: "Hinge", city: "Both cities", fit: "Backup for more filtered, date-quality matches.", setup: "Manually set location to Capitol Hill/U District for Seattle, then Downtown/Pearl or inner eastside for Portland.", safety: "Use it for coffee or dinner dates where you can screen better before meeting.", link: "https://help.hinge.co/hc/en-us/articles/49661615922195-Location-Settings" },
-      { name: "Bumble", city: "Both cities", fit: "Optional if you want more control over messaging.", setup: "Travel Mode is Premium/Premium+ and can be set up before arrival.", safety: "Good for public coffee/drink plans; keep first meetups short.", link: "https://support.bumble.com/hc/articles/28423960803741-Using-Bumble-while-traveling" },
+      { name: "Bumble", city: "Both cities", fit: "Use if you want more control over messaging.", setup: "Travel Mode is Premium/Premium+ and can be set up before arrival.", safety: "Good for public coffee/drink plans; keep first meetups short.", link: "https://support.bumble.com/hc/articles/28423960803741-Using-Bumble-while-traveling" },
       { name: "Cafe Allegro + University Book Store + Big Time Brewery", city: "Seattle", fit: "UW-adjacent public hangout loop, reachable from Capitol Hill by Link.", setup: "Use Cafe Allegro or University Book Store for daytime app meetups; Big Time works better for early evening beer/trivia/chess energy.", safety: "Campus-adjacent does not mean everyone is available or straight. Use apps/preferences for dating intent and keep interactions respectful.", link: "https://www.bigtimebrewery.com/" },
-      { name: "Novel Book Bar", city: "Portland", fit: "Best close-in Portland book-bar add when you want atmosphere, coffee, a younger-feeling crowd, and one intentional evening drink without straying far from Courtyard Portland.", setup: "Treat it as a strong optional Portland evening stop near the Pearl/Old Town edge. Coffee or one drink plus light food fits better than a full two-cocktail plan.", safety: "Stay public, keep first meetups simple, and do not assume the cozy vibe means the pricing is automatically cheap.", link: "https://www.instagram.com/novelpdx/" },
+      { name: "Novel Book Bar", city: "Portland", fit: "Best close-in Portland book-bar add when you want atmosphere, coffee, a younger-feeling crowd, and one intentional evening drink without straying far from Courtyard Portland.", setup: "Treat it as a strong Portland evening stop near the Pearl/Old Town edge. Coffee or one drink plus light food fits better than a full two-cocktail plan.", safety: "Stay public, keep first meetups simple, and do not assume the cozy vibe means the pricing is automatically cheap.", link: "https://www.instagram.com/novelpdx/" },
       { name: "Big Legrowlski", city: "Portland", fit: "Best Portland structured social venue still worth the trip from Courtyard Portland for open jam/live music and local conversation.", setup: "Sunday open jam still fits the itinerary; if you go, treat it as a real two-drink stop and keep your own route back to Courtyard Portland.", safety: "21+ only. Stay public, avoid leaving with someone you just met, and use streetcar/MAX or rideshare backup if late-night transit feels inconvenient.", link: "https://www.biglegrowlski.com/open-jam" },
       { name: "Powell's / West End coffee meetup", city: "Portland", fit: "Safest daytime first-date zone from Courtyard Portland, with Powell's, downtown cafes, and easy PSU/Cultural District return options.", setup: "Meet at Powell's or a nearby West End cafe before dinner; keep it to 45-60 minutes first.", safety: "Good default for first app meetups because exits, transit, and hotel return are simple from Courtyard Portland.", link: "https://www.travelportland.com/attractions/powells/" }
     ],
@@ -1720,11 +539,11 @@ window.TRIP_DATA = {
     { name: "Seattle Streetcar / 3303 S Bond Ave item", reason: "Address appears Portland South Waterfront/OHSU related, not Seattle. Excluded as cross-city data error.", bestDay: "day-5", alternateType: "transit", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 3, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Use only if you pivot a Portland day toward South Waterfront instead of Washington Park.", notes: "Kept as labeled backup because the original source mixed city data.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/3303+S+Bond+Ave+Portland", website: "https://www.google.com/maps/search/3303+S+Bond+Ave+Portland" },
     { name: "Daily Cafe / Summit Cafe at OHSU", reason: "Portland/OHSU items mistakenly listed under Seattle; not used in Seattle routing.", bestDay: "day-5", alternateType: "coffee", alternateFor: "Fuller's Coffee Shop or Stumptown Downtown", estimatedCost: 8, neighborhood: "South Waterfront / OHSU", duration: "45 min", bestTime: "Morning if you want a quieter coffee detour instead of central downtown.", notes: "Useful only if already heading toward OHSU or the tram area.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/OHSU+Portland", website: "https://www.google.com/maps/search/OHSU+Cafe+Portland" },
     { name: "Depoe Bay", reason: "Full-day coastal trip, car/tour cost, and weather risk are still too high for the $800 target.", bestDay: "day-8", alternateType: "sightseeing", alternateFor: "Alberta Arts / Mississippi backup loop", estimatedCost: 120, neighborhood: "Oregon Coast", duration: "Full day", bestTime: "Only if you are willing to replace most of the day and treat it as a major splurge.", notes: "Beautiful coast option, but it breaks the transit-first short-trip logic.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Depoe+Bay+Oregon", website: "https://www.oregoncoast.org/cities/depoe-bay/" },
-    { name: "Multnomah Falls via Viator", reason: "Good optional tour, but paid tour consumes too much budget. Add only if replacing Portland Japanese Garden or one of the default downtown food blocks.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 89, neighborhood: "Columbia River Gorge", duration: "4-5 hr", bestTime: "Morning if you decide to replace one major Portland city anchor with a gorge trip.", notes: "Best as a full substitution, not an add-on.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Multnomah+Falls", website: "https://www.google.com/maps/search/Multnomah+Falls+tour+Portland" },
+    { name: "Multnomah Falls via Viator", reason: "Good alternate tour, but paid tour consumes too much budget. Add only if replacing Portland Japanese Garden or one of the default downtown food blocks.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 89, neighborhood: "Columbia River Gorge", duration: "4-5 hr", bestTime: "Morning if you decide to replace one major Portland city anchor with a gorge trip.", notes: "Best as a full substitution, not an add-on.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Multnomah+Falls", website: "https://www.google.com/maps/search/Multnomah+Falls+tour+Portland" },
     { name: "Sumo Sushi & Grill AYCE Seattle", reason: "Verified Seattle location and official AYCE tiers exist, but dinner pricing rises fast and the U District detour makes it weaker than Tacos Chukis or Sushi% for the base plan.", bestDay: "day-4", alternateType: "food", alternateFor: "Glo's Capitol Hill breakfast", estimatedCost: 26, neighborhood: "University District", duration: "90 min", bestTime: "Lunch is the real value play; dinner pushes much closer to splurge territory.", notes: "Official Seattle page listed Silver lunch at $19.95 and Gold lunch at $22.95 before tax and tip; dinner tiers run materially higher.", route: "https://www.google.com/maps/dir/The+Boylston+Hotel+Capitol+Hill+Seattle/Sumo+Sushi+and+Grill+AYCE+Seattle", website: "https://www.sumoayce.com/location" },
     { name: "Sumo Sushi & Grill AYCE Oregon City", reason: "AYCE still fits the older sushi rule, but the Oregon City detour is too far from central Portland once route realism matters more than unlimited sushi.", bestDay: "day-8", alternateType: "food", alternateFor: "Hana Sushi and Izakaya Pearl dinner", estimatedCost: 42, neighborhood: "Oregon City", duration: "2.5-3 hr including detour time", bestTime: "Use only if you intentionally want to trade a smoother Pearl District evening for a longer AYCE-focused dinner detour.", notes: "No longer the default because it eats too much time and distance on the final full Portland day.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Sumo+Sushi+%26+Grill+AYCE+Oregon+City/Courtyard+by+Marriott+Portland+City+Center", website: "https://www.sumoayce.com/oregoncity" },
     { name: "Novel Book Bar", reason: "Strong Portland add near Courtyard Portland with real books, coffee, cocktails, and lighter food, but the user-shared menu points to $15 cocktails so it works better as a one-drink or coffee-plus-browse stop than as a strict two-cocktail budget play.", bestDay: "day-7", alternateType: "cocktails", alternateFor: "Tope or rooftop backup near downtown", estimatedCost: 24, neighborhood: "NW Everett / Pearl edge", duration: "60-90 min", bestTime: "Early evening if you want a close-in Portland social stop with more personality than a generic bar.", notes: "Sample menu the user shared: espresso/americano $4.25, latte $5.25, vanilla latte $5.75, mocha or Spanish latte $6.50, cocktails $15, wine $14-$15, beer $6, burger $7, fries $4, pretzel $5, salad $10, salmon $15.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/Novel+Book+Bar+Portland", website: "https://www.instagram.com/novelpdx/" },
-    { name: "Rontoms", reason: "Strong patio cocktail option, but it was moved off the default trip because the two-cocktail-plus-food version pushes the budget too far once Portland AYCE sushi stays active.", bestDay: "day-6", alternateType: "cocktails", alternateFor: "Belmont / Mississippi browse + Nate's Oatmeal Cookies", estimatedCost: 42, neighborhood: "East Burnside", duration: "75 min", bestTime: "3-6:30 PM happy hour if you want an extra Portland bar stop.", notes: "Good optional add-back if you intentionally trade some contingency or souvenir room for another cocktail night.", route: "https://www.google.com/maps/dir/North+Mississippi+Avenue+Portland/Rontoms+Portland", website: "https://www.rontoms.net/" },
+    { name: "Rontoms", reason: "Strong patio cocktail option, but it was moved off the default trip because the two-cocktail-plus-food version pushes the budget too far once Portland AYCE sushi stays active.", bestDay: "day-6", alternateType: "cocktails", alternateFor: "Belmont / Mississippi browse + Nate's Oatmeal Cookies", estimatedCost: 42, neighborhood: "East Burnside", duration: "75 min", bestTime: "3-6:30 PM happy hour if you want an extra Portland bar stop.", notes: "Good add-back if you intentionally trade some contingency or souvenir room for another cocktail night.", route: "https://www.google.com/maps/dir/North+Mississippi+Avenue+Portland/Rontoms+Portland", website: "https://www.rontoms.net/" },
     { name: "The Grotto", reason: "Interesting but east of the core route; use only as rainy/reflective backup if skipping Washington Park.", bestDay: "day-5", alternateType: "sightseeing", alternateFor: "Washington Park + Portland Japanese Garden", estimatedCost: 10, neighborhood: "Northeast Portland", duration: "90 min", bestTime: "Light-rain morning or reflective backup day.", notes: "Quieter spiritual-site fallback if you want a lower-key Portland day.", route: "https://www.google.com/maps/dir/Courtyard+by+Marriott+Portland+City+Center/The+Grotto+Portland", website: "https://thegrotto.org/" },
     { name: "Duplicate chains/branches", reason: "Only closest or strategically useful branch is recommended to avoid itinerary clutter.", bestDay: "day-8", alternateType: "coffee", alternateFor: "Heart Coffee or Good Coffee", estimatedCost: 7, neighborhood: "Both cities", duration: "30-45 min", bestTime: "Any time a listed default branch has lines or awkward routing.", notes: "Treat this as a policy reminder: nearest good branch can substitute without changing the spirit of the day.", route: "https://www.google.com/maps/search/coffee+near+Courtyard+by+Marriott+Portland+City+Center", website: "https://www.google.com/maps/search/coffee+shops+Portland" }
   ],
@@ -1782,7 +601,6 @@ window.TRIP_DATA = {
     { label: "Portland Saturday Market / Travel Portland", url: "https://www.travelportland.com/event/6839b028f06e831a6c74666e/" },
     { label: "Hello From Oregon / Hello From Portland", url: "https://hellofromoregon.com/" },
     { label: "Novel Book Bar Instagram", url: "https://www.instagram.com/novelpdx/" },
-    { label: "Coava locations", url: "https://coavacoffee.com/pages/locations" },
     { label: "Tasty Corner dinner menu PDF", url: "https://www.tastycornerpdx.com/wp-content/uploads/2023/07/TastyCorner_Menu_Dinner.pdf" },
     { label: "Tasty Corner starters PDF", url: "https://www.tastycornerpdx.com/wp-content/uploads/2022/07/TastyCorner_Menu_StartersDrinks.pdf" },
     { label: "Hana Sushi and Izakaya menus", url: "https://www.hanasushiandizakaya.com/menus" },

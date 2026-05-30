@@ -28,23 +28,28 @@ function main() {
     ""
   ];
 
-  // PAL Award Tax Monitor
+  // Airfare Watch
   const airfareSummary = readJson(path.join(rootDir, "research", "airfare", "latest-summary.json"));
   const airfareWatch = readJson(path.join(rootDir, "data", "airfare-watch.json"));
 
-  lines.push("--- PAL Award Tax Monitor ---");
-  if (airfareWatch && airfareWatch.routes) {
-    for (const route of airfareWatch.routes) {
-      const age = daysSince(route.alert.lastChecked);
-      const ageNote = age === null ? "never checked" : age === 0 ? "checked today" : `last checked ${age}d ago`;
-      lines.push(`  ${route.label}: ${money(route.currentTax)} (${ageNote})`);
+  lines.push("--- Airfare Watch ---");
+  if (airfareWatch && Array.isArray(airfareWatch.observations)) {
+    const best = airfareSummary?.topVerified?.[0] || airfareSummary?.strongestSignals?.[0] || null;
+    const latest = airfareWatch.latestRun || null;
+    lines.push(`  Trip: ${airfareWatch.trip?.origins?.join("/") || "SFO/ORD"} to ${airfareWatch.trip?.destination || "MNL"} (${airfareWatch.trip?.departureWindow?.start || "?"} to ${airfareWatch.trip?.departureWindow?.end || "?"})`);
+    lines.push(`  Observations: ${airfareWatch.observations.length}, verified ${airfareSummary?.directVerifiedCount ?? "?"}, discovery ${airfareSummary?.discoveryOnlyCount ?? "?"}`);
+    if (best) {
+      const fare = typeof best.directAirlineFare === "number" ? best.directAirlineFare : best.discoveryFare;
+      lines.push(`  Best current path: ${best.airline} ${best.routing} ${money(fare)} (${best.directAirlineVerified ? "verified" : "signal"})`);
+    }
+    if (latest) {
+      lines.push(`  Latest run: ${latest.phase} — ${latest.recommendation}`);
     }
     if (airfareSummary) {
-      if (airfareSummary.drops > 0) lines.push(`  ⚠ TAX DROP DETECTED on last run — check research/airfare/latest-report.md`);
-      if (airfareSummary.increases > 0) lines.push(`  ↑ Tax increase detected on last run`);
+      lines.push(`  System recommendation: ${airfareSummary.systemRecommendation}`);
     }
   } else {
-    lines.push("  No PAL tax data found — run: npm run monitor:pal-taxes");
+    lines.push("  No airfare watch data found — run: npm run monitor:airfare");
   }
   lines.push("");
 
@@ -78,7 +83,7 @@ function main() {
 
   // Quick action reminders
   lines.push("--- Quick Commands ---");
-  lines.push("  npm run monitor:pal-taxes   — check PAL taxes now");
+  lines.push("  npm run monitor:airfare     — rebuild airfare report from source data");
   lines.push("  npm run monitor:hotels      — check hotel prices now");
   lines.push("  npm run build:hotels        — rebuild hotel report from source");
   lines.push("  npm run monitor:itinerary   — check itinerary source URLs");

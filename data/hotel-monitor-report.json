@@ -10,7 +10,7 @@
       "lastAutomatedSummary": "Seattle direct-site watch 2026-05-26: Boylston's direct Cloudbeds page still showed a refundable Standard Queen listing at $347.00 room subtotal for 3 nights with a 2026-10-31 refund cutoff, but this run did not surface a fresh tax-inclusive checkout total; Warwick only exposed brochure pages plus TravelClick booking links, and the broader npm scrape stayed blocked by a macOS Chromium launch failure. Prior verified totals remain in place, and no Seattle hotel is newly live-verified under the $400 total cap in this run."
     }
   },
-  "generatedAt": "2026-05-26T19:40:50.378Z",
+  "generatedAt": "2026-05-30T19:37:00.718Z",
   "cities": {
     "seattle": {
       "trip": {
@@ -52,7 +52,11 @@
         "guests": 2,
         "roomType": "Studio Apartment, 1 Queen Bed, City View, Non-Smoking",
         "ratePlan": "Wyndham Rewards Rate",
-        "nightlyRates": [133.51, 137.46, 135.09],
+        "nightlyRates": [
+          133.51,
+          137.46,
+          135.09
+        ],
         "priceVerification": {
           "status": "confirmed-booking",
           "evidenceNote": "User booking confirmation: [redacted] Rewards Rate. $133.51 + $137.46 + $135.09 = $406.06 room + $63.75 taxes = $469.81.",
@@ -63,81 +67,8 @@
         "notes": "ACTIVE BOOKING (conf [redacted]). $469.81. Seattle base Nov 1-4. Studio with kitchen, city view. Cancel 48hr before 4pm arrival day = cancel by Oct 30 4pm to avoid 1-night penalty.",
         "fallbackAllowed": false
       },
-      "secondReservation": {
-        "id": "palihotel-seattle",
-        "name": "Palihotel Seattle",
-        "brand": "Pali Hotel (independent boutique)",
-        "zone": "Downtown Seattle / Pike Place Market",
-        "address": "107 Pine St, Seattle, WA 98101",
-        "bookingSource": "United Hotels",
-        "confirmationNumber": "73458558745442",
-        "checkIn": "2026-11-01",
-        "checkOut": "2026-11-04",
-        "nights": 3,
-        "guests": 2,
-        "roomType": "Deluxe Room, 1 Queen Bed (The Queen)",
-        "ratePlan": "Member Deal Tier 2: 15% — Pay at property",
-        "trueTotalCost": 536.59,
-        "roomSubtotal": 454.75,
-        "taxesAndFees": 81.84,
-        "savings": 80.25,
-        "payAtProperty": true,
-        "reviewScore": 4.3,
-        "reviewUrl": "https://www.google.com/search?q=Palihotel+Seattle+reviews",
-        "hasElevator": true,
-        "transitScore": 99,
-        "transitNote": "107 Pine St — same block as Pike Place Market. Same block as Reside. Westlake Link Light Rail 6-min walk.",
-        "freeBreakfast": false,
-        "refundable": true,
-        "cancellationDeadline": "2026-10-30T15:00:00-07:00",
-        "safeNeighborhood": true,
-        "safetySource": "https://www.walkscore.com/score/107-pine-st-seattle-wa-98101",
-        "safetyNote": "107 Pine St — Pike Place Market block. Next door to Reside (104 Pine). High-foot-traffic tourist zone.",
-        "nightlyRates": [144.50, 144.50, 165.75],
-        "priceVerification": {
-          "status": "confirmed-booking",
-          "evidenceNote": "User booking confirmation via United Hotels: Member Deal Tier 2 (15% off, $80.25 savings). $144.50 + $144.50 + $165.75 = $454.75 room + $81.84 taxes = $536.59. Pay at property.",
-          "observedAt": "2026-05-27T00:00:00.000Z",
-          "source": "user-booking-confirmation",
-          "confidence": "high"
-        },
-        "notes": "BACKUP BOOKING (conf [redacted]). $536.59. Pay at property — no charge until check-in. 107 Pine St, next door to Reside. Cancel by Oct 30 3pm to avoid 1-night penalty. User likely keeping Reside.",
-        "fallbackAllowed": false
-      },
-      "reservationStatus": "3 ACTIVE SEATTLE RESERVATIONS — cancel 2 before Oct 30: Reside (cancel by Oct 30 4pm), Palihotel (cancel by Oct 30 3pm), Boylston (cancel by Oct 31 4pm). User intends to keep Reside.",
       "eligible": [],
       "excluded": [
-        {
-          "id": "boylston-current",
-          "name": "The Boylston Hotel Capitol Hill",
-          "brand": "Sonder",
-          "zone": "Capitol Hill",
-          "address": "1120 E Pike St, Seattle, WA 98122",
-          "directBookingUrl": "[private reservation link removed]",
-          "trueTotalCost": 384.13,
-          "reviewScore": 4.4,
-          "reviewUrl": "https://www.google.com/search?q=The+Boylston+Hotel+Capitol+Hill+Seattle+reviews",
-          "hasElevator": false,
-          "transitScore": 99,
-          "transitNote": "Capitol Hill Link Light Rail station 5-min walk",
-          "freeBreakfast": false,
-          "refundable": true,
-          "cancellationDeadline": "2026-10-31T16:00:00-07:00",
-          "safeNeighborhood": true,
-          "safetySource": "https://www.walkscore.com/score/1120-e-pike-st-seattle-wa-98122",
-          "safetyNote": "Capitol Hill — active, walkable neighborhood. Well-lit commercial corridor.",
-          "confirmationNumber": "[redacted]",
-          "confirmedTotalPaid": 384.13,
-          "priceVerification": {
-            "status": "manual-review-needed",
-            "evidenceNote": "Held backup reservation at $384.13. Reside is now active booking — cancel one before Oct 30-31. Stair-access property, no elevator.",
-            "source": "playwright:sonder",
-            "confidence": "medium",
-            "observedAt": "2026-05-26T19:39:55Z"
-          },
-          "notes": "BACKUP RESERVATION (conf [redacted]). $384.13. Capitol Hill base. Reside is now active — cancel one before Oct 30-31. No elevator.",
-          "fallbackAllowed": true
-        },
         {
           "id": "warwick-hotel-seattle",
           "name": "Warwick Seattle Hotel",
@@ -231,8 +162,41 @@
           "cancellationDeadline": "2026-10-31T16:00:00-07:00"
         }
       ],
-      "needsCheck": [],
-      "watchlistTotal": 8,
+      "needsCheck": [
+        {
+          "id": "boylston-current",
+          "name": "The Boylston Hotel Capitol Hill",
+          "brand": "Sonder",
+          "zone": "Capitol Hill",
+          "address": "1120 E Pike St, Seattle, WA 98122",
+          "directBookingUrl": "[private reservation link removed]",
+          "trueTotalCost": 384.13,
+          "reviewScore": 4.4,
+          "reviewUrl": "https://www.google.com/search?q=The+Boylston+Hotel+Capitol+Hill+Seattle+reviews",
+          "hasElevator": false,
+          "transitScore": 99,
+          "transitNote": "Capitol Hill Link Light Rail station 5-min walk",
+          "freeBreakfast": false,
+          "refundable": true,
+          "cancellationDeadline": "2026-10-31T16:00:00-07:00",
+          "safeNeighborhood": true,
+          "safetySource": "https://www.walkscore.com/score/1120-e-pike-st-seattle-wa-98122",
+          "safetyNote": "Capitol Hill — active, walkable neighborhood. Well-lit commercial corridor.",
+          "confirmationNumber": "[redacted]",
+          "confirmedTotalPaid": 384.13,
+          "priceVerification": {
+            "status": "manual-review-needed",
+            "evidenceNote": "Held backup reservation at $384.13. Direct Cloudbeds listing recheck on 2026-05-26 showed The Standard Queen at $347.00 room subtotal for 3 nights and marked fully refundable until 10/31/2026. Reside is now the active booking; Boylston kept as refundable fallback until you decide which to keep.",
+            "lastScrapedAt": "2026-05-24T18:38:56Z",
+            "source": "playwright:sonder",
+            "confidence": "medium",
+            "observedAt": "2026-05-26T19:39:55Z"
+          },
+          "notes": "BACKUP RESERVATION (conf [redacted]). $384.13. Capitol Hill base. Reside is now active — cancel one before Oct 30-31. Stair-access property, no elevator.",
+          "fallbackAllowed": true
+        }
+      ],
+      "watchlistTotal": 4,
       "monitoringCadence": [],
       "marketStrategy": null,
       "recommendationMatrix": []

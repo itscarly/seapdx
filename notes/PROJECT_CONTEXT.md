@@ -29,7 +29,7 @@ It is built to be:
 
 ## Current next priority
 
-- **Seattle — cancel 2 of 3 reservations**: Reside (104 Pine St, conf [redacted]) is the intended keep. Cancel Palihotel (conf [redacted]) by Oct 30 3pm and Boylston (conf [redacted]) by Oct 31 4pm.
+- **Seattle hotel base**: The active itinerary and shared Google Calendar are routed from The Boylston Hotel Capitol Hill for Nov 1-5. Boylston extra Nov 4-5 night still needs direct hotel confirmation. Keep Reside/Palihotel only as stale prior-booking context until cancellation status is reconciled.
 - **Seattle watchlist**: 4 hotels tracked (transitScore > 90 only). Low-transit hotels removed session 16.
 - **Portland**: Courtyard by Marriott Portland City Center booked $487.85 (conf# [redacted]). Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM.
 - **Airfare watch**: the current exact in-window signal is Philippine Airlines nonstop SFO→MNL on `2027-03-10` at `$523` from Skyscanner. It remains discovery-only because no airline-direct checkout proof was captured in this run. ORD still needs an exact one-way in-window baseline from an allowed carrier.
@@ -56,7 +56,7 @@ It is built to be:
 
 ## Trip-specific defaults
 
-- Seattle base is Reside at 104 Pine St (Pike Place Market block). All routing, calendar, and itinerary are set for this address.
+- Seattle itinerary and shared Google Calendar routing use The Boylston Hotel Capitol Hill as the Nov 1-5 base. Do not create new Reside/104 Pine routing unless the user explicitly reverses the hotel decision.
 - Bainbridge should stay a breakfast-first island day unless the itinerary changes on purpose.
 - Portland should stay anchored around Courtyard by Marriott Portland City Center (550 SW Oak St) and close-in neighborhood routing.
 - Prices, hours, and transportation assumptions should be rechecked as the trip gets closer.
@@ -70,3 +70,17 @@ It is built to be:
 - [[LEARNINGS]]
 - [[KNOWN_ISSUES]]
 - [[MAINTENANCE]]
+
+## Agent startup sequence
+
+Use this order at the start of a new Claude/Codex session:
+1. `notes/memory/active/SESSION_START.md`
+2. latest note in `notes/session-start/`
+3. relevant source index note(s) in `notes/sources/`
+
+## 2026-05-30 itinerary overhaul
+- Updated Seattle/Portland itinerary dates to Nov 1-9 with hour-by-hour activity, walk/transit, meals, and rest blocks.
+- Seattle base set to The Boylston Hotel Capitol Hill; Portland starts Nov 5 after Amtrak Cascades 517 (12:10 PM to 3:35 PM).
+- Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
+- Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
+

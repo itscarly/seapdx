@@ -40,9 +40,11 @@
 - Use `curl -s <live-url> | diff - <local-file>` to instantly see what the live site is actually serving.
 - This takes 5 seconds and immediately reveals whether the problem is a deployment gap (unpushed changes) vs a real code bug.
 
-### Airfare tracker is now a PAL award tax monitor, not a cash-fare system
+### Discovery fares are useful, but they are never enough to recommend booking
 
-- `data/airfare-watch.json` holds two routes: SFO→MNL (58k mi + $370.50) and ORD→MNL (67k mi + $375.50). To update: add a new `taxHistory` entry with today's date and the new tax amount, update `currentTax` and `lastChecked`. No scripts to run — commit and push the JSON.
+- For this airfare watch, Google Flights, Skyscanner, and KAYAK are discovery inputs only.
+- `directAirlineVerified` must stay `false` unless the airline-owned checkout itself confirms the fare, checked-bag treatment, and protected routing.
+- If the airline pages you can access only expose route pages, monthly fare cards, or partial booking widgets, record the gap honestly instead of forcing a fake `BOOK` recommendation.
 
 ### Direct booking automation can misread room-night rates as stay totals
 
@@ -108,3 +110,14 @@ Do not dump one-off scratch observations here.
 - [[KNOWN_ISSUES]]
 - [[CHANGELOG]]
 - [[Project Log]]
+
+## 2026-05-28 — Memory hub implementation learnings
+
+- For cross-tool memory continuity, reference-first indexing is safer than file copying; it avoids drift and accidental data loss.
+- Idempotency for generated notes requires source-derived timestamps (for example latest source mtime), not run-time timestamps.
+- A startup pointer note should be short and procedural; detailed context belongs in dated digests and source indexes.
+- Secret-safe note generation should redact token-like strings before writing any summary output.
+
+## 2026-05-28 — Freshness needs a visible queue
+
+- Metadata fields only help when surfaced; a stale-notes dashboard makes aging context obvious before it causes drift.

@@ -11,6 +11,7 @@ Use this after every meaningful completed task in this project.
 ## Required updates
 
 - Update `notes/Project Log.md`
+- Run `node scripts/collect-obsidian-memory.js` to refresh source indexes and session-start digest.
 - Update only the relevant active notes:
   - `notes/PROJECT_CONTEXT.md`
   - `notes/ARCHITECTURE.md`
@@ -20,6 +21,7 @@ Use this after every meaningful completed task in this project.
   - `notes/LEARNINGS.md`
   - `notes/KNOWN_ISSUES.md`
   - `notes/MAINTENANCE.md`
+  - `notes/memory/active/SESSION_START.md` (via collector output)
 
 ## Safety rules
 
@@ -31,3 +33,7 @@ Use this after every meaningful completed task in this project.
 ## Success condition
 
 The active notes should describe the current verified state of the project without obvious duplicates or stale instructions.
+
+## Freshness check
+
+- Review `notes/queries/Stale Notes.md` and refresh any high-impact stale notes.

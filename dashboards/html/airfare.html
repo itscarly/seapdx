@@ -1,256 +1,135 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PAL Award Tax Monitor</title>
-  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #ffffff;
-      --bg2: #f6f8fa;
-      --bg3: #eef0f2;
-      --border: #d0d7de;
-      --text: #1a1a2e;
-      --muted: #57606a;
-      --green: #1a7f37;
-      --green-bg: rgba(26,127,55,0.10);
-      --green-border: rgba(26,127,55,0.30);
-      --yellow: #7d4e00;
-      --yellow-bg: rgba(125,78,0,0.10);
-      --yellow-border: rgba(125,78,0,0.28);
-      --red: #cf222e;
-      --red-bg: rgba(207,34,46,0.08);
-      --red-border: rgba(207,34,46,0.28);
-      --blue: #0969da;
-      --gold: #8a6914;
-    }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5; }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f3">
+    <title>Manila Airfare Intelligence</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-05-23-airfare-intelligence-v2">
+  </head>
+  <body class="airfare-page">
+    <header class="hero airfare-hero">
+      <nav class="topbar" aria-label="Airfare tracker navigation">
+        <a href="./index.html">Trip dashboard</a>
+        <a href="#verified">Verified</a>
+        <a href="#signals">Signals</a>
+        <a href="#rules">Rules</a>
+      </nav>
+      <section class="hero-grid airfare-hero-grid">
+        <div>
+          <p class="eyebrow">March 7-13, 2027</p>
+          <h1>Manila airfare intelligence</h1>
+          <p class="lede">Airline-direct booking intelligence for one-way economy flights from SFO or ORD to Manila, with route quality scoring and buy-window judgment.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#verified">View verified fares</a>
+            <a class="button" href="../../research/airfare/latest-report.md">Open report</a>
+          </div>
+          <div id="airfareCallout" class="airfare-callout">Loading recommendation state.</div>
+        </div>
+        <aside class="trip-card" aria-label="Best current airfare signal">
+          <span class="status-dot"></span>
+          <h2>Best current path</h2>
+          <strong id="bestFare">Loading...</strong>
+          <p id="bestFareMeta">Reading airfare watch data.</p>
+          <div class="meter"><span id="airfareMeter"></span></div>
+        </aside>
+      </section>
+    </header>
 
-    .topbar { display: flex; gap: 1.5rem; align-items: center; padding: 0.75rem 1.5rem; background: var(--bg); border-bottom: 1px solid var(--border); font-size: 13px; flex-wrap: wrap; }
-    .topbar a { color: var(--muted); font-weight: 500; }
-    .topbar a:hover { color: var(--text); }
-    .topbar .title { color: var(--text); font-weight: 700; margin-right: auto; }
+    <main>
+      <section class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Market snapshot</p>
+          <h2>Verified pressure, signal quality, and buy-window context</h2>
+          <p class="section-copy">This view keeps discovery signals separate from verified fares so weak aggregator pricing never masquerades as a booking recommendation.</p>
+        </div>
+        <div id="airfareSummary" class="airfare-summary-grid"></div>
+      </section>
 
-    .page-header { padding: 2rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--bg2); }
-    .page-header h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--text); }
-    .page-header p { color: var(--muted); font-size: 13px; }
+      <section id="verified" class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Verified fare rankings</p>
+          <h2>Airline-direct fares only</h2>
+          <p class="section-copy">These itineraries have a recorded direct checkout total and can compete for actual booking guidance.</p>
+        </div>
+        <div class="airfare-table-wrap">
+          <table class="airfare-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Origin</th>
+                <th>Depart</th>
+                <th>Airline</th>
+                <th>Route</th>
+                <th>Total</th>
+                <th>Quality</th>
+                <th>Confidence</th>
+                <th>Status</th>
+                <th>Verification</th>
+              </tr>
+            </thead>
+            <tbody id="verifiedAirfareRows">
+              <tr>
+                <td colspan="10">Loading verified fares...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    .route-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; padding: 1.5rem; border-bottom: 1px solid var(--border); }
-    .route-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-    .route-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.35rem; }
-    .route-tax { font-size: 2.2rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 0.25rem; }
-    .route-miles { font-size: 12px; color: var(--muted); margin-bottom: 0.75rem; }
-    .trend-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 2px 9px; border-radius: 10px; font-size: 12px; font-weight: 600; }
-    .trend-down  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
-    .trend-up    { background: var(--red-bg);   color: var(--red);   border: 1px solid var(--red-border); }
-    .trend-flat  { background: rgba(87,96,106,0.08); color: var(--muted); border: 1px solid rgba(87,96,106,0.20); }
-    .route-last { font-size: 11px; color: var(--muted); margin-top: 0.75rem; }
+      <section id="signals" class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Discovery signals</p>
+          <h2>Interesting prices still awaiting checkout proof</h2>
+          <p class="section-copy">These are useful leads, not booking calls. The table tells you what is still missing before a direct-airline recommendation is allowed.</p>
+        </div>
+        <div class="airfare-table-wrap">
+          <table class="airfare-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Origin</th>
+                <th>Depart</th>
+                <th>Airline</th>
+                <th>Route</th>
+                <th>Signal</th>
+                <th>Quality</th>
+                <th>Confidence</th>
+                <th>Status</th>
+                <th>Missing proof</th>
+              </tr>
+            </thead>
+            <tbody id="discoveryAirfareRows">
+              <tr>
+                <td colspan="10">Loading discovery signals...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    .sparkline { display: flex; align-items: flex-end; gap: 2px; height: 28px; margin: 0.6rem 0; }
-    .spark-bar { flex: 1; min-width: 8px; max-width: 18px; border-radius: 2px 2px 0 0; background: var(--blue); opacity: 0.4; }
-    .spark-bar-latest { flex: 1; min-width: 8px; max-width: 18px; border-radius: 2px 2px 0 0; opacity: 1; background: var(--gold); }
+      <section class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Analyst view</p>
+          <h2>What the system is seeing</h2>
+        </div>
+        <div id="airfareInsights" class="transit-grid"></div>
+      </section>
 
-    .section { padding: 1.5rem; border-bottom: 1px solid var(--border); }
-    .section h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text); }
-    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
-    table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    thead th { background: var(--bg3); color: var(--muted); font-weight: 600; text-align: left; padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--border); white-space: nowrap; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-    tbody tr { border-bottom: 1px solid var(--border); }
-    tbody tr:last-child { border-bottom: none; }
-    tbody td { padding: 0.55rem 0.85rem; vertical-align: middle; }
-    tbody tr:hover { background: var(--bg2); }
-    tbody tr.row-latest { font-weight: 600; background: var(--bg2); }
-    .price-big { font-weight: 700; font-size: 15px; }
-    .delta-down { color: var(--green); font-weight: 600; }
-    .delta-up   { color: var(--red);   font-weight: 600; }
-    .delta-flat { color: var(--muted); }
-    .verdict-buy   { display:inline-block;padding:2px 8px;border-radius:8px;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);font-size:11px;font-weight:700; }
-    .verdict-wait  { display:inline-block;padding:2px 8px;border-radius:8px;background:var(--yellow-bg);color:var(--yellow);border:1px solid var(--yellow-border);font-size:11px;font-weight:700; }
-    .verdict-watch { display:inline-block;padding:2px 8px;border-radius:8px;background:rgba(9,105,218,0.08);color:var(--blue);border:1px solid rgba(9,105,218,0.25);font-size:11px;font-weight:700; }
+      <section id="rules" class="section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Decision standards</p>
+          <h2>How every itinerary is judged</h2>
+        </div>
+        <div id="airfareRules" class="transit-grid"></div>
+      </section>
+    </main>
 
-    .cadence-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
-    .cadence-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .cadence-period { font-size: 12px; font-weight: 700; color: var(--gold); margin-bottom: 0.2rem; }
-    .cadence-freq { font-size: 13px; color: var(--text); font-weight: 600; }
-    .cadence-days { font-size: 11px; color: var(--muted); }
-    .note-cell { color: var(--muted); font-size: 12px; }
+    <footer class="footer">
+      <p>Final booking calls require airline-direct price, baggage, protected-routing, and fare-rule confirmation.</p>
+    </footer>
 
-    footer { padding: 1.5rem; color: var(--muted); font-size: 12px; text-align: center; border-top: 1px solid var(--border); background: var(--bg2); }
-    #loading { padding: 3rem; text-align: center; color: var(--muted); }
-  </style>
-</head>
-<body>
-
-<nav class="topbar">
-  <span class="title">PAL Award Tax Monitor</span>
-  <a href="./index.html">← Main Dashboard</a>
-  <a href="./hotels.html">Hotels</a>
-</nav>
-
-<div class="page-header">
-  <h1>Philippine Airlines — Award Tax Tracker</h1>
-  <p id="report-meta">Loading…</p>
-</div>
-
-<div id="loading">Loading airfare data…</div>
-<div id="content"></div>
-<footer id="footer"></footer>
-
-<script>
-function verdict(history) {
-  if (history.length < 2) return { label: "Watch", cls: "verdict-watch", tip: "Not enough data yet" };
-  const recent = history.slice(-4);
-  let drops = 0, rises = 0;
-  for (let i = 1; i < recent.length; i++) {
-    if (recent[i].tax < recent[i-1].tax) drops++;
-    else if (recent[i].tax > recent[i-1].tax) rises++;
-  }
-  if (drops >= 2) return { label: "Buy Now", cls: "verdict-buy", tip: "Tax has been dropping — favorable trend" };
-  if (rises >= 2) return { label: "Wait", cls: "verdict-wait", tip: "Tax has been rising — may drop again" };
-  return { label: "Watch", cls: "verdict-watch", tip: "Tax stable — monitor for movement" };
-}
-
-function sparkline(history) {
-  if (!history || history.length === 0) return "";
-  const taxes = history.map(function(e) { return e.tax; });
-  const min = Math.min.apply(null, taxes);
-  const max = Math.max.apply(null, taxes);
-  const range = max - min || 1;
-  var bars = taxes.map(function(t, i) {
-    var pct = Math.round(((t - min) / range) * 22) + 6;
-    var cls = (i === taxes.length - 1) ? "spark-bar-latest" : "spark-bar";
-    return '<div class="' + cls + '" style="height:' + pct + 'px" title="$' + t.toFixed(2) + ' on ' + history[i].date + '"></div>';
-  });
-  return '<div class="sparkline">' + bars.join("") + '</div>';
-}
-
-function trendPill(history) {
-  if (history.length < 2) return '<span class="trend-pill trend-flat">→ Stable</span>';
-  var last = history[history.length - 1].tax;
-  var prev = history[history.length - 2].tax;
-  var delta = last - prev;
-  if (Math.abs(delta) < 0.01) return '<span class="trend-pill trend-flat">→ No change</span>';
-  if (delta < 0) return '<span class="trend-pill trend-down">↓ Dropped $' + Math.abs(delta).toFixed(2) + '</span>';
-  return '<span class="trend-pill trend-up">↑ Rose $' + delta.toFixed(2) + '</span>';
-}
-
-function deltaCell(delta) {
-  if (delta === null) return '<span class="delta-flat">—</span>';
-  if (Math.abs(delta) < 0.01) return '<span class="delta-flat">No change</span>';
-  if (delta < 0) return '<span class="delta-down">↓ −$' + Math.abs(delta).toFixed(2) + '</span>';
-  return '<span class="delta-up">↑ +$' + delta.toFixed(2) + '</span>';
-}
-
-function renderRouteCards(routes) {
-  var cards = routes.map(function(route) {
-    var hist = route.taxHistory || [];
-    return '<div class="route-card">' +
-      '<div class="route-label">' + route.label + '</div>' +
-      '<div class="route-tax">$' + route.currentTax.toFixed(2) + '</div>' +
-      '<div class="route-miles">' + route.milesRequired.toLocaleString() + ' miles · Business Class · MNL</div>' +
-      trendPill(hist) +
-      sparkline(hist) +
-      '<div class="route-last">Last checked: ' + (route.alert && route.alert.lastChecked ? route.alert.lastChecked : '—') + '</div>' +
-    '</div>';
-  });
-  return '<div class="route-cards">' + cards.join("") + '</div>';
-}
-
-function renderVerdictTable(routes) {
-  var rows = routes.map(function(route) {
-    var hist = route.taxHistory || [];
-    var prev = hist.length >= 2 ? hist[hist.length - 2] : null;
-    var delta = prev ? route.currentTax - prev.tax : null;
-    var v = verdict(hist);
-    var recent4 = hist.slice(-4);
-    var trendText = recent4.length < 2 ? "—" : recent4.map(function(e){ return "$" + e.tax.toFixed(0); }).join(" → ");
-    return '<tr>' +
-      '<td style="font-weight:600">' + route.label + '</td>' +
-      '<td>' + route.milesRequired.toLocaleString() + '</td>' +
-      '<td><span class="price-big">$' + route.currentTax.toFixed(2) + '</span></td>' +
-      '<td>' + (prev ? "$" + prev.tax.toFixed(2) : "—") + '</td>' +
-      '<td>' + deltaCell(delta) + '</td>' +
-      '<td class="note-cell">' + trendText + '</td>' +
-      '<td>' + (route.alert && route.alert.lastChecked ? route.alert.lastChecked : "—") + '</td>' +
-      '<td><span class="' + v.cls + '" title="' + v.tip + '">' + v.label + '</span></td>' +
-    '</tr>';
-  });
-  return '<div class="section" id="verdicts"><h2>Route Comparison &amp; Verdict</h2>' +
-    '<div class="table-wrap"><table>' +
-    '<thead><tr><th>Route</th><th>Miles</th><th>Current Tax</th><th>Prev Tax</th><th>Change</th><th>Trend (last 4)</th><th>Last Checked</th><th>Verdict</th></tr></thead>' +
-    '<tbody>' + rows.join("") + '</tbody></table></div></div>';
-}
-
-function renderHistoryTable(routes) {
-  var rows = [];
-  routes.forEach(function(route) {
-    var hist = route.taxHistory || [];
-    hist.forEach(function(entry, i) {
-      var prev = i > 0 ? hist[i-1].tax : null;
-      var delta = prev !== null ? entry.tax - prev : null;
-      rows.push({ route: route.label, date: entry.date, tax: entry.tax, delta: delta, note: entry.note, isLatest: i === hist.length - 1 });
-    });
-  });
-  rows.sort(function(a, b) { return b.date > a.date ? 1 : b.date < a.date ? -1 : 0; });
-
-  var trs = rows.map(function(r) {
-    return '<tr' + (r.isLatest ? ' class="row-latest"' : "") + '>' +
-      '<td>' + r.date + '</td>' +
-      '<td>' + r.route + '</td>' +
-      '<td><span class="price-big">$' + r.tax.toFixed(2) + '</span></td>' +
-      '<td>' + deltaCell(r.delta) + '</td>' +
-      '<td class="note-cell">' + (r.note || "—") + '</td>' +
-    '</tr>';
-  });
-  return '<div class="section" id="history"><h2>Full Tax History</h2>' +
-    '<div class="table-wrap"><table>' +
-    '<thead><tr><th>Date</th><th>Route</th><th>Tax (USD)</th><th>Change vs Prior</th><th>Notes</th></tr></thead>' +
-    '<tbody>' + trs.join("") + '</tbody></table></div></div>';
-}
-
-function renderCadence() {
-  return '<div class="section" id="cadence"><h2>Monitoring Cadence</h2>' +
-    '<div class="cadence-grid">' +
-    '<div class="cadence-card"><div class="cadence-period">Now → Aug 31, 2026</div><div class="cadence-freq">Weekly</div><div class="cadence-days">Mondays only</div></div>' +
-    '<div class="cadence-card"><div class="cadence-period">Sep 1–30, 2026</div><div class="cadence-freq">2× per week</div><div class="cadence-days">Monday + Thursday</div></div>' +
-    '<div class="cadence-card"><div class="cadence-period">Oct 1–31, 2026</div><div class="cadence-freq">3× per week</div><div class="cadence-days">Mon + Wed + Fri — final month</div></div>' +
-    '<div class="cadence-card"><div class="cadence-period">Nov 1, 2026+</div><div class="cadence-freq">Stopped</div><div class="cadence-days">Booking deadline passed</div></div>' +
-    '</div></div>';
-}
-
-async function init() {
-  try {
-    var resp = await fetch("../../data/airfare-watch.json");
-    if (!resp.ok) throw new Error("HTTP " + resp.status);
-    var data = await resp.json();
-
-    document.getElementById("loading").style.display = "none";
-
-    var updatedAt = data.updatedAt
-      ? new Date(data.updatedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })
-      : "unknown";
-    document.getElementById("report-meta").textContent =
-      data.trip.airline + " · " + data.trip.cabin + " · " + data.trip.departureDates + " · Updated: " + updatedAt + " · Scraped via Playwright headless browser";
-
-    var html = "";
-    html += renderRouteCards(data.routes);
-    html += renderVerdictTable(data.routes);
-    html += renderHistoryTable(data.routes);
-    html += renderCadence();
-    document.getElementById("content").innerHTML = html;
-
-    document.getElementById("footer").innerHTML =
-      "Data from <code>data/airfare-watch.json</code> · Run <code>npm run monitor:pal-taxes</code> to check now · <code>FORCE_RUN=1 npm run monitor:pal-taxes</code> to bypass cadence gate";
-  } catch (err) {
-    document.getElementById("loading").textContent = "Error: " + err.message;
-  }
-}
-
-init();
-</script>
-</body>
+    <script src="../js/airfare.js?v=2026-05-23-airfare-intelligence-v2"></script>
+  </body>
 </html>

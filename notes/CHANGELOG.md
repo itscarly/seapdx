@@ -4,6 +4,13 @@
 
 This is the concise project change record.
 
+## 2026-05-30 — shared calendar remediation
+
+- Remediated the Nov 1-9 Seattle/Portland shared Google Calendar using only `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415.calendar.google.com`.
+- Removed known duplicate Portland route/return events and replaced stale H Mart/Pine/Reside routing with Boylston-based Seattle blocks.
+- Converted Portland placeholders into fixed stops: Lan Su Chinese Garden, MadeHere PDX, Grassa Downtown, Powell's/MadeHere reset, and PDX airport-safe food buffer.
+- Prevention rule: read the shared calendar first, never write to `primary`, and do not leave vague itinerary labels when a route-superior default exists.
+
 ## 2026-05-27 (session 16 — Palihotel added, watchlist trimmed, calendar updated)
 
 - Booked Reside Seattle Downtown (104 Pine St, conf [redacted], $469.81, Nov 1–4). Promoted to `currentReservation` in both JSON files. Boylston moved to watchlist as backup.
@@ -112,3 +119,51 @@ Removed the orphaned legacy flight-status polling track: `scripts/monitor-flight
 - Added a standardized project memory structure for Codex, Claude, and Obsidian.
 - Introduced shared maintenance rules, memory folders, and post-task workflow guidance.
 - Reworked the notes home so the vault points at standardized active notes instead of only the earlier lightweight pages.
+
+## 2026-05-28 — Unified Obsidian memory hub + collector
+
+- Added non-mutating memory collector: `scripts/collect-obsidian-memory.js`.
+- Added canonical source-index layer under `notes/sources/`:
+  - `notes/sources/codex-memories.md`
+  - `notes/sources/claude-home.md`
+  - `notes/sources/vscode-context.md`
+  - `notes/sources/README.md`
+- Added daily digest output under `notes/session-start/YYYY-MM-DD.md`.
+- Replaced active startup pointer content in `notes/memory/active/SESSION_START.md` with collector-driven startup sequence.
+- Updated startup and maintenance contract in:
+  - `AGENTS.md`
+  - `notes/PROJECT_CONTEXT.md`
+  - `hooks/post-task.md`
+  - `notes/Home.md`
+- Validation outcomes:
+  - Source discovery passes for Codex/Claude/VS Code paths.
+  - Missing paths are emitted as explicit blockers.
+  - Idempotent content achieved (no content diff when sources unchanged).
+  - Secret-safe redaction conventions enforced (`[REDACTED_SECRET]`).
+
+## 2026-05-28 — Obsidian templates + Dataview query dashboards
+
+- Added queryable note templates under `notes/templates/`:
+  - `handoff-template.md`
+  - `decision-template.md`
+  - `issue-template.md`
+  - `lesson-template.md`
+  - `README.md`
+- Added Dataview-ready query notes under `notes/queries/`:
+  - `Open Blockers.md`
+  - `Recent Decisions.md`
+  - `Active Follow-ups.md`
+- Updated `notes/Home.md` session dashboard links to point to query notes.
+
+## 2026-05-28 — Stale-note freshness dashboard
+
+- Added `notes/queries/Stale Notes.md` with Dataview logic to list notes with `last_verified` older than 14 days.
+- Updated `notes/Home.md` session dashboard to include a direct stale-notes review link.
+- Updated `hooks/post-task.md` with a freshness check step.
+
+## 2026-05-30 itinerary overhaul
+- Updated Seattle/Portland itinerary dates to Nov 1-9 with hour-by-hour activity, walk/transit, meals, and rest blocks.
+- Seattle base set to The Boylston Hotel Capitol Hill; Portland starts Nov 5 after Amtrak Cascades 517 (12:10 PM to 3:35 PM).
+- Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
+- Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
+

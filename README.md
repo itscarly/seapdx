@@ -27,7 +27,6 @@ This project is intentionally static-only, so the same files work:
 - `dashboards/js/app.js` renders tabs, cards, budget summaries, filters, and route links.
 - `itinerary/final/` and `research/` are reserved for future deeper research snapshots and exports.
 - `docs/rules/` holds the project operating rules, budget constraints, route rules, and QA guidance.
-- `docs/review-assets/` stores large visual review artifacts so the repo root stays focused on source files.
 - `tasks/todo.md` is the active work log; `docs/archive/TASKS-legacy.md` is retained only as historical context.
 
 ## Verification Note
@@ -45,7 +44,7 @@ See `docs/local-development.md` for the preferred local static-server workflow a
 ## Repository Hygiene
 
 - Treat iCloud or local files as the source of truth for large binaries, installers, and temporary exports.
-- Keep new screenshots, review renders, and visual comparison files under `docs/review-assets/` instead of the repo root.
+- Keep temporary screenshots, review renders, and visual comparison files out of the repo unless they are still needed for active work.
 - Avoid committing `.obsidian/workspace.json`; it stores local window state rather than shared project content.
 
 ## Automation

@@ -6,15 +6,22 @@ This is the active task summary for humans and agents.
 
 It should stay shorter and cleaner than raw implementation scratch notes.
 
+## Completed 2026-05-30 — shared calendar remediation
+
+- Applied shared-calendar remediation for Nov 1-9 using only the group calendar.
+- Removed known duplicate Portland route/return events.
+- Replaced vague optional placeholders with fixed recommended stops.
+- Synced active guidance away from Reside/104 Pine routing and back to Boylston-based Seattle routing.
+
 ## Current active work
 
-### ⚠️ Cancel 2 of 3 Seattle reservations before Oct 30–31
+### ⚠️ Confirm Boylston extra night and reconcile Seattle hotel bookings
 
-User intends to keep **Reside Seattle Downtown** (104 Pine St, conf [redacted], $469.81).
+Active itinerary and shared Google Calendar now use **The Boylston Hotel Capitol Hill** as the Seattle base for Nov 1-5. The added Nov 4-5 night is still the only hotel-confirmation blocker.
 
-Must cancel before deadlines:
-- Palihotel Seattle (conf [redacted]) — **Oct 30, 3:00 PM** (1-night penalty if missed)
-- Boylston Hotel Capitol Hill (conf [redacted]) — **Oct 31, 4:00 PM**
+Follow-up:
+- Confirm Boylston added Nov 4-5 night.
+- Reconcile or cancel any Seattle bookings not being kept once Boylston is confirmed.
 
 ### ⚠️ Cancel Hotel Vance (Portland) before Nov 3, 11:59 PM
 
@@ -55,3 +62,26 @@ After meaningful completed work: mark completed items, remove invalid tasks, mov
 - [[CHANGELOG]]
 - [[KNOWN_ISSUES]]
 - [[Project Log]]
+
+## Completed: Unified Obsidian memory hub rollout (2026-05-28)
+
+- Implemented reference-first memory collector and source indexes.
+- Implemented daily session-start digest generation.
+- Wired startup contract into AGENTS + project context + post-task checklist.
+- Updated Home dashboard to surface digest, blockers, permanent rules, and recent decisions.
+
+## Ongoing follow-up
+
+- Run `node scripts/collect-obsidian-memory.js` after meaningful sessions.
+- Keep source-index trust/cadence text current if external tool layouts change.
+
+## Completed: freshness guardrail added (2026-05-28)
+
+- Added stale-note dashboard query and maintenance hook so old context is visible and reviewable each session.
+
+## 2026-05-30 itinerary overhaul
+- Updated Seattle/Portland itinerary dates to Nov 1-9 with hour-by-hour activity, walk/transit, meals, and rest blocks.
+- Seattle base set to The Boylston Hotel Capitol Hill; Portland starts Nov 5 after Amtrak Cascades 517 (12:10 PM to 3:35 PM).
+- Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
+- Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
+

@@ -16,7 +16,6 @@
     "monitor:pal-taxes": "node scripts/monitor-pal-taxes.js",
     "monitor:hotels": "node scripts/monitor-hotels.js",
     "monitor:itinerary": "node scripts/monitor-itinerary.js",
-    "monitor:flights": "node scripts/monitor-flights.js",
     "session-status": "node scripts/session-status.js",
     "scrape:hotels": "node scripts/scrape-hotel-prices.js",
     "scrape:pal": "FORCE_RUN=1 node scripts/monitor-pal-taxes.js",

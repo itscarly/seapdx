@@ -2,6 +2,39 @@
 
 This is the running log for project changes.
 
+## 2026-05-27 (session 17 — calendar integration: transit events + H Mart + Day 3 optimization)
+
+### Google Calendar fully populated with travel week events
+
+**What changed:**
+
+- Added 50+ calendar events across Nov 1–9, 2026 trip covering all transit, meals, shopping, and sightseeing stops.
+- Each event includes: time, location, cost notes, directions, transit details (route numbers, light rail stops, ferry fares).
+
+**Key additions:**
+
+1. **Day 1–4 Seattle transit layer:** SEA arrival → Link Light Rail → Westlake Station → walk to Reside (104 Pine St). Ferry boarding buffers for Bainbridge day. Amtrak King Street Station arrival buffer (10 AM, 2-hour early arrival rule).
+
+2. **Day 3 afternoon optimization** (filled 2:35–5:30 PM dead block): Smith Tower observation deck (Pioneer Square, 10 min walk), Storyville Coffee Pike Place (10 min back north), NEKO Cat Cafe Capitol Hill (Link rail 15 min), flows into 6:15 PM Menya Musashi dinner.
+
+3. **H Mart daily shopping** (Nov 1–4, 600 Pine St, 5 min walk from Reside, 9 AM–10 PM): Sells precooked meals (kimbap, onigiri), soju/makgeolli/beer, banchan, canned coffee. Added to save daily meal costs + access to alcohol.
+   - Day 1: 7:30–7:55 PM (drinks + meals for room)
+   - Day 2: 7:20–7:45 AM (morning grab, flagged marginal) + 8:20–8:45 PM (restock)
+   - Day 3: 7:30–7:45 AM (ferry snacks, flagged too early—H Mart opens 9 AM) + 9:50–10:10 PM (last restock)
+   - Day 4: 9:35–9:45 AM (train snacks before King Street)
+
+4. **Day 5–9 Portland transit:** Amtrak Union Station → MAX Red Line → Courtyard (550 SW Oak). Ferry returns, neighborhood walks, transit between stops with specific route numbers and walk times.
+
+5. **Calendar color-coding:** Transit/walk blocks (blue), hotel blocks (gray), food (orange), coffee (blue), sightseeing (purple), nightlife (red), optional fillers (lavender).
+
+**Calendar ID:** `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com`
+
+**Files touched:** Google Calendar (MCP-created 50+ events), `notes/SESSION_START.md` (updated with calendar status)
+
+**Post-session:** Verified calendar renders all events, no conflicts, description formatting is readable.
+
+---
+
 ## 2026-05-27 (session 16 — Reside + Palihotel, watchlist trim, calendar + itinerary)
 
 ### Seattle hotel state: 3 active reservations
@@ -1329,3 +1362,114 @@ Files touched:
 Follow-up:
 
 - The next live monitoring pass still needs a real airline checkout capture before any new `directAirlineVerified` values or `BOOK` calls are added.
+
+## 2026-05-28 (session — unified Obsidian memory hub)
+
+### What changed
+
+- Implemented a non-destructive memory consolidation system with Obsidian as the canonical reference layer in this repo.
+- Added `scripts/collect-obsidian-memory.js` to scan external Codex/Claude/VS Code context stores and generate curated Obsidian notes.
+- Added source index notes in `notes/sources/` and a dated digest in `notes/session-start/2026-05-28.md`.
+- Replaced `notes/memory/active/SESSION_START.md` with a collector-driven startup pointer and read-order contract.
+- Updated startup/maintenance rules in `AGENTS.md`, `notes/PROJECT_CONTEXT.md`, `hooks/post-task.md`, and `notes/Home.md`.
+
+### Verification
+
+- Source discovery: pass (`/Users/kicker/.codex/memories`, `/Users/kicker/.claude/plans`, `/Users/kicker/Library/Application Support/Code/User/workspaceStorage`).
+- Missing-path behavior: collector emits explicit blocker lines in digest/index notes.
+- Idempotency: content is stable when no source updates occur.
+- Freshness: digest and source-index notes include latest source-linked updates.
+- Safety: secret-like patterns are redacted to `[REDACTED_SECRET]` in generated notes.
+
+### Files touched
+
+- `scripts/collect-obsidian-memory.js`
+- `notes/sources/README.md`
+- `notes/sources/codex-memories.md`
+- `notes/sources/claude-home.md`
+- `notes/sources/vscode-context.md`
+- `notes/session-start/2026-05-28.md`
+- `notes/memory/active/SESSION_START.md`
+- `AGENTS.md`
+- `notes/PROJECT_CONTEXT.md`
+- `hooks/post-task.md`
+- `notes/Home.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+
+### Follow-up
+
+- Run `node scripts/collect-obsidian-memory.js` after each meaningful session so startup context stays current.
+
+## 2026-05-28 (session — Obsidian templates and query dashboards)
+
+### What changed
+
+- Added standardized templates for handoff, decision, issue, and lesson notes in `notes/templates/` with shared metadata fields.
+- Added Dataview query notes in `notes/queries/` for Open Blockers, Recent Decisions, and Active Follow-ups.
+- Updated `notes/Home.md` to surface those query dashboards directly.
+
+### Why
+
+- Makes note creation consistent and immediately queryable.
+- Gives fast startup visibility across blockers, decisions, and next actions without manual scanning.
+
+### Files touched
+
+- `notes/templates/handoff-template.md`
+- `notes/templates/decision-template.md`
+- `notes/templates/issue-template.md`
+- `notes/templates/lesson-template.md`
+- `notes/templates/README.md`
+- `notes/queries/Open Blockers.md`
+- `notes/queries/Recent Decisions.md`
+- `notes/queries/Active Follow-ups.md`
+- `notes/Home.md`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
+
+## 2026-05-28 (session — stale-note review guardrail)
+
+### What changed
+
+- Added `notes/queries/Stale Notes.md` to detect notes where `last_verified` is older than 14 days.
+- Linked stale-note review from `notes/Home.md` session dashboard.
+- Added freshness check line to `hooks/post-task.md` so stale-note review becomes part of normal completion.
+
+### Files touched
+
+- `notes/queries/Stale Notes.md`
+- `notes/Home.md`
+- `hooks/post-task.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+- `notes/Project Log.md`
+
+## 2026-05-30 itinerary overhaul
+- Updated Seattle/Portland itinerary dates to Nov 1-9 with hour-by-hour activity, walk/transit, meals, and rest blocks.
+- Seattle base set to The Boylston Hotel Capitol Hill; Portland starts Nov 5 after Amtrak Cascades 517 (12:10 PM to 3:35 PM).
+- Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
+- Rebalanced budget/day totals to match new detailed schedule (projected total: ).
+
+
+## 2026-05-30 (shared calendar remediation execution)
+
+Executed the Seattle + Portland Nov 1-9 remediation against the shared group calendar only: `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com`.
+
+What changed:
+- Removed duplicate Portland walk/return events on Nov 7 and Nov 8.
+- Replaced stale Seattle H Mart / Pine / Reside routing with Boylston-based prep, coffee, snack, transfer, and wind-down blocks.
+- Filled missing wake-up, transfer, dinner, return, and airport buffer blocks on Nov 4-9.
+- Converted vague Portland placeholders into fixed recommendations: Lan Su Chinese Garden, MadeHere PDX, Grassa Downtown, Powell's/MadeHere Pearl reset, and PDX airport-safe food buffer.
+- Updated active notes so current routing points to Boylston, not Reside/104 Pine.
+
+Root cause:
+- Earlier itinerary edits mixed old Reside-first routing, generated import files, and live calendar events without a full shared-calendar audit first.
+
+Prevention rule:
+- For this trip, read the shared group calendar before any write, never use `primary`, replace duplicates/placeholders in place, and do not leave vague labels when a route-superior default exists.
+
+Remaining blocker:
+- Boylston extra Nov 4-5 night still needs direct hotel confirmation.

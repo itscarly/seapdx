@@ -14,6 +14,21 @@ This vault is the clean working memory for `codexproject`.
 - [[MAINTENANCE]]
 - [[Project Log]]
 
+## Session dashboard
+
+- [[session-start/2026-05-28|Today's session digest]]
+- [[queries/Open Blockers|Open blockers]]
+- [[memory/permanent/README|Permanent rules]]
+- [[queries/Recent Decisions|Recent decisions]]
+- [[queries/Active Follow-ups|Active follow-ups]]
+- [[queries/Stale Notes|Stale notes review]]
+
+## Source indexes
+
+- [[sources/codex-memories|Codex memories]]
+- [[sources/claude-home|Claude home context]]
+- [[sources/vscode-context|VS Code context]]
+
 ## Memory folders
 
 - [[memory/active/README|Active memory]]
@@ -25,6 +40,8 @@ This vault is the clean working memory for `codexproject`.
 - [[Features/README|Features]]
 - [[Sessions/README|Sessions]]
 - [[Ideas/README|Ideas]]
+- [[templates/README|Templates]]
+- [[queries/Open Blockers|Queries]]
 
 ## Legacy notes
 

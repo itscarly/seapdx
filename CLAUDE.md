@@ -2,6 +2,14 @@
 
 This file provides project-specific guidance to Claude Code for `codexproject`.
 
+## Session Start Protocol
+
+At the start of every session, read `notes/memory/active/SESSION_START.md` first.
+
+This single file gives full orientation — current status, key files, commands, hard rules — in minimal tokens. Only read deeper notes (`PROJECT_CONTEXT`, `TASKS`, etc.) when the task requires it.
+
+After meaningful work, update `SESSION_START.md` to reflect the new current state so the next session starts clean.
+
 ## Shared Memory System
 
 This project uses one shared note system for Claude Code, Codex, and Obsidian.

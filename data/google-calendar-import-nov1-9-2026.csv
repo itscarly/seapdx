@@ -1,0 +1,1090 @@
+Subject,Start Date,Start Time,End Date,End Time,Location,Description
+"SEAPDX-2026-day-1-01 Transit: Arrive SEA and transfer to Link","2026-11-01","13:55","2026-11-01","14:20","SEA Airport","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-01
+Day/order: Sun, Nov 1 Seattle, stop 1
+Block type: transit
+Duration: 25 min
+Leave by: 2:20 PM
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Bag claim, station walk, ORCA tap setup.
+Entrance/transport treatment: transit fare block
+Google Maps route: https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-02 Transit: Link light rail to Capitol Hill","2026-11-01","14:20","2026-11-01","15:00","SEA -> Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-02
+Day/order: Sun, Nov 1 Seattle, stop 2
+Block type: transit
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Ride to Capitol Hill Station; fare already counted above.
+Entrance/transport treatment: transit fare block
+Google Maps route: https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-03 Walk: Walk to Boylston and luggage reset","2026-11-01","15:05","2026-11-01","15:35","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-03
+Day/order: Sun, Nov 1 Seattle, stop 3
+Block type: walk
+Duration: 30 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Walk from station, quick unpack, hydrate, short rest.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Walk%20to%20Boylston%20and%20luggage%20reset%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-04 Rest: Rest and shower reset","2026-11-01","15:35","2026-11-01","16:20","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-04
+Day/order: Sun, Nov 1 Seattle, stop 4
+Block type: rest
+Duration: 45 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Hard jet-lag buffer before evening.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Rest%20and%20shower%20reset%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-05 Activity: Neighborhood orientation walk","2026-11-01","16:30","2026-11-01","17:30","Broadway / Pike-Pine","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-05
+Day/order: Sun, Nov 1 Seattle, stop 5
+Block type: activity
+Duration: 60 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Find nearest pharmacy, convenience stops, and transit points.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Neighborhood%20orientation%20walk%20Broadway%20%2F%20Pike-Pine
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-06 Meal: Light dinner near Broadway","2026-11-01","17:35","2026-11-01","18:50","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-06
+Day/order: Sun, Nov 1 Seattle, stop 6
+Block type: meal
+Duration: 75 min
+Estimated cost: $22, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Choose a close Capitol Hill counter-service or casual sit-down spot to protect sleep.
+Notes: Keep first meal easy and close to hotel.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Light%20dinner%20near%20Broadway%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-07 Walk: Walk through Pike-Pine social strip","2026-11-01","18:55","2026-11-01","19:35","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-07
+Day/order: Sun, Nov 1 Seattle, stop 7
+Block type: walk
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Low-pressure atmosphere check for future nights.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Walk%20through%20Pike-Pine%20social%20strip%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-08 Activity: One-drink social stop (optional)","2026-11-01","19:40","2026-11-01","20:40","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-08
+Day/order: Sun, Nov 1 Seattle, stop 8
+Block type: activity
+Duration: 60 min
+Estimated cost: $16, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Keep to one drink for sleep recovery.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=One-drink%20social%20stop%20(optional)%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-09 Walk: Return walk + snack pickup","2026-11-01","20:45","2026-11-01","21:20","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-09
+Day/order: Sun, Nov 1 Seattle, stop 9
+Block type: walk
+Duration: 35 min
+Estimated cost: $6.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Pick up bottled water and quick breakfast items.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Return%20walk%20%2B%20snack%20pickup%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-1-10 Rest: Sleep buffer","2026-11-01","21:25","2026-11-02","07:55","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-1-10
+Day/order: Sun, Nov 1 Seattle, stop 10
+Block type: rest
+Duration: 10.5 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Early sleep to stabilize next day energy.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Sleep%20buffer%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-01 Rest: Wake, stretch, prep","2026-11-02","07:30","2026-11-02","08:15","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-01
+Day/order: Mon, Nov 2 Seattle, stop 1
+Block type: rest
+Duration: 45 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%2C%20stretch%2C%20prep%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-02 Meal: Diner breakfast","2026-11-02","08:15","2026-11-02","09:15","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-02
+Day/order: Mon, Nov 2 Seattle, stop 2
+Block type: meal
+Duration: 60 min
+Estimated cost: $18, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Keep it simple: eggs/pancakes/coffee, then leave on time for Pike Place.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Diner%20breakfast%20Capitol%20Hill
+great american diner & bar menu pdf: https://www.greatamericandinerandbar.com/files/great-american-diner-and-bar-menu-2025-october-for-review-09-30-25-pdf.pdf
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-03 Transit: Transit to Pike Place","2026-11-02","09:20","2026-11-02","09:45","Capitol Hill -> Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-03
+Day/order: Mon, Nov 2 Seattle, stop 3
+Block type: transit
+Duration: 25 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Pike%20Place%20Capitol%20Hill%20-%3E%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-04 Activity: Pike Place Market main loop","2026-11-02","09:50","2026-11-02","12:00","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-04
+Day/order: Mon, Nov 2 Seattle, stop 4
+Block type: activity
+Duration: 130 min
+Estimated cost: $14, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Prioritize fish-throwing area, produce stalls, gum wall, and one small snack crawl.
+Notes: Grazing + photo stops.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Pike%20Place%20Market%20main%20loop%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-05 Walk: Waterfront walk to Olympic Sculpture Park","2026-11-02","12:05","2026-11-02","13:05","Waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-05
+Day/order: Mon, Nov 2 Seattle, stop 5
+Block type: walk
+Duration: 60 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Waterfront%20walk%20to%20Olympic%20Sculpture%20Park%20Waterfront
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-06 Meal: Lunch near waterfront","2026-11-02","13:10","2026-11-02","14:20","Belltown/Waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-06
+Day/order: Mon, Nov 2 Seattle, stop 6
+Block type: meal
+Duration: 70 min
+Estimated cost: $24, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Choose the shortest line near your route; do not backtrack uphill for lunch.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Lunch%20near%20waterfront%20Belltown%2FWaterfront
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-07 Activity: Seattle Great Wheel / pier browse","2026-11-02","14:25","2026-11-02","15:40","Waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-07
+Day/order: Mon, Nov 2 Seattle, stop 7
+Block type: activity
+Duration: 75 min
+Estimated cost: $22, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Seattle%20Great%20Wheel%20%2F%20pier%20browse%20Waterfront
+seattle streetcar fares: https://www.seattle.gov/transportation/getting-around/transit/streetcar/fares-and-orca-card
+seattle japanese garden / uw botanic gardens: https://botanicgardens.uw.edu/washington-park-arboretum/gardens/japanese-garden/
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-08 Meal: Coffee + short seated rest","2026-11-02","15:50","2026-11-02","16:40","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-08
+Day/order: Mon, Nov 2 Seattle, stop 8
+Block type: meal
+Duration: 50 min
+Estimated cost: $9, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Coffee%20%2B%20short%20seated%20rest%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-09 Transit: Transit back to Capitol Hill","2026-11-02","16:45","2026-11-02","17:10","Downtown -> Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-09
+Day/order: Mon, Nov 2 Seattle, stop 9
+Block type: transit
+Duration: 25 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20back%20to%20Capitol%20Hill%20Downtown%20-%3E%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-10 Rest: Hotel reset","2026-11-02","17:20","2026-11-02","18:15","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-10
+Day/order: Mon, Nov 2 Seattle, stop 10
+Block type: rest
+Duration: 55 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Hotel%20reset%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-11 Meal: Dinner on Capitol Hill","2026-11-02","18:20","2026-11-02","19:45","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-11
+Day/order: Mon, Nov 2 Seattle, stop 11
+Block type: meal
+Duration: 85 min
+Estimated cost: $28, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Pick noodles/ramen for value and speed after the downtown day.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Dinner%20on%20Capitol%20Hill%20Capitol%20Hill
+tasty corner dinner menu pdf: https://www.tastycornerpdx.com/wp-content/uploads/2023/07/TastyCorner_Menu_Dinner.pdf
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-12 Walk: Neighborhood walk + optional dessert","2026-11-02","19:50","2026-11-02","20:50","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-12
+Day/order: Mon, Nov 2 Seattle, stop 12
+Block type: walk
+Duration: 60 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Neighborhood%20walk%20%2B%20optional%20dessert%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-2-13 Rest: Wind-down","2026-11-02","20:55","2026-11-03","05:55","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-2-13
+Day/order: Mon, Nov 2 Seattle, stop 13
+Block type: rest
+Duration: 9 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wind-down%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-01 Rest: Wake + prep","2026-11-03","07:20","2026-11-03","08:00","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-01
+Day/order: Tue, Nov 3 Seattle, stop 1
+Block type: rest
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%20%2B%20prep%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-02 Meal: Breakfast near Capitol Hill","2026-11-03","08:05","2026-11-03","09:00","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-02
+Day/order: Tue, Nov 3 Seattle, stop 2
+Block type: meal
+Duration: 55 min
+Estimated cost: $17, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20near%20Capitol%20Hill%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-03 Transit: Transit/walk to Seattle Ferry Terminal","2026-11-03","09:05","2026-11-03","09:50","Downtown waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-03
+Day/order: Tue, Nov 3 Seattle, stop 3
+Block type: transit
+Duration: 45 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%2Fwalk%20to%20Seattle%20Ferry%20Terminal%20Downtown%20waterfront
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-04 Transit: Ferry to Bainbridge","2026-11-03","10:00","2026-11-03","10:40","Puget Sound","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-04
+Day/order: Tue, Nov 3 Seattle, stop 4
+Block type: transit
+Duration: 40 min
+Estimated transportation cost: $12, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Ferry%20to%20Bainbridge%20Puget%20Sound
+washington state transportation commission ferry fare changes: https://wstc.wa.gov/news/2025/08/06/new-fares-for-washington-state-ferries-approved/
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-05 Activity: Winslow + waterfront exploration","2026-11-03","10:50","2026-11-03","12:25","Bainbridge Island","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-05
+Day/order: Tue, Nov 3 Seattle, stop 5
+Block type: activity
+Duration: 95 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Winslow%20%2B%20waterfront%20exploration%20Bainbridge%20Island
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-06 Meal: Island lunch","2026-11-03","12:30","2026-11-03","13:45","Winslow","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-06
+Day/order: Tue, Nov 3 Seattle, stop 6
+Block type: meal
+Duration: 75 min
+Estimated cost: $26, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Choose the easiest Winslow lunch near the ferry return path.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Island%20lunch%20Winslow
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-07 Rest: Coffee / rest stop","2026-11-03","13:55","2026-11-03","14:35","Winslow","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-07
+Day/order: Tue, Nov 3 Seattle, stop 7
+Block type: rest
+Duration: 40 min
+Estimated cost: $8.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Coffee%20%2F%20rest%20stop%20Winslow
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-08 Transit: Return ferry to Seattle","2026-11-03","14:45","2026-11-03","15:25","Puget Sound","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-08
+Day/order: Tue, Nov 3 Seattle, stop 8
+Block type: transit
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Return%20ferry%20to%20Seattle%20Puget%20Sound
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-09 Transit: Transit back to Capitol Hill","2026-11-03","15:35","2026-11-03","16:10","Downtown -> Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-09
+Day/order: Tue, Nov 3 Seattle, stop 9
+Block type: transit
+Duration: 35 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20back%20to%20Capitol%20Hill%20Downtown%20-%3E%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-10 Rest: Hotel recharge","2026-11-03","16:20","2026-11-03","17:30","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-10
+Day/order: Tue, Nov 3 Seattle, stop 10
+Block type: rest
+Duration: 70 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Hotel%20recharge%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-11 Meal: Dinner (ramen/noodles)","2026-11-03","17:40","2026-11-03","19:00","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-11
+Day/order: Tue, Nov 3 Seattle, stop 11
+Block type: meal
+Duration: 80 min
+Estimated cost: $27, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Best value order: ramen/noodle bowl, no second entree unless hungry.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Dinner%20(ramen%2Fnoodles)%20Capitol%20Hill
+tasty corner dinner menu pdf: https://www.tastycornerpdx.com/wp-content/uploads/2023/07/TastyCorner_Menu_Dinner.pdf
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-12 Activity: Optional karaoke/social stop","2026-11-03","19:10","2026-11-03","20:30","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-12
+Day/order: Tue, Nov 3 Seattle, stop 12
+Block type: activity
+Duration: 80 min
+Estimated cost: $22, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Optional%20karaoke%2Fsocial%20stop%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-3-13 Rest: Return and rest","2026-11-03","20:40","2026-11-04","06:10","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-3-13
+Day/order: Tue, Nov 3 Seattle, stop 13
+Block type: rest
+Duration: 9.5 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Return%20and%20rest%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-01 Rest: Wake + prep","2026-11-04","07:30","2026-11-04","08:10","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-01
+Day/order: Wed, Nov 4 Seattle, stop 1
+Block type: rest
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%20%2B%20prep%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-02 Meal: Breakfast and commute prep","2026-11-04","08:20","2026-11-04","09:20","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-02
+Day/order: Wed, Nov 4 Seattle, stop 2
+Block type: meal
+Duration: 60 min
+Estimated cost: $18, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20and%20commute%20prep%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-03 Transit: Transit to Fremont","2026-11-04","09:30","2026-11-04","10:15","Capitol Hill -> Fremont","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-03
+Day/order: Wed, Nov 4 Seattle, stop 3
+Block type: transit
+Duration: 45 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Fremont%20Capitol%20Hill%20-%3E%20Fremont
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-04 Activity: Fremont walking loop","2026-11-04","10:20","2026-11-04","12:10","Fremont","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-04
+Day/order: Wed, Nov 4 Seattle, stop 4
+Block type: activity
+Duration: 110 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Fremont%20walking%20loop%20Fremont
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-05 Meal: Lunch in Fremont/Ballard corridor","2026-11-04","12:20","2026-11-04","13:35","Fremont","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-05
+Day/order: Wed, Nov 4 Seattle, stop 5
+Block type: meal
+Duration: 75 min
+Estimated cost: $25, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Lunch%20in%20Fremont%2FBallard%20corridor%20Fremont
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-06 Transit: Transit to Ballard","2026-11-04","13:45","2026-11-04","14:10","Fremont -> Ballard","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-06
+Day/order: Wed, Nov 4 Seattle, stop 6
+Block type: transit
+Duration: 25 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Ballard%20Fremont%20-%3E%20Ballard
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-07 Activity: Ballard Ave + locks area explore","2026-11-04","14:15","2026-11-04","16:05","Ballard","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-07
+Day/order: Wed, Nov 4 Seattle, stop 7
+Block type: activity
+Duration: 110 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Ballard%20Ave%20%2B%20locks%20area%20explore%20Ballard
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-08 Rest: Coffee + quiet reset","2026-11-04","16:15","2026-11-04","17:00","Ballard","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-08
+Day/order: Wed, Nov 4 Seattle, stop 8
+Block type: rest
+Duration: 45 min
+Estimated cost: $9.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Coffee%20%2B%20quiet%20reset%20Ballard
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-09 Transit: Transit back downtown / Capitol Hill","2026-11-04","17:10","2026-11-04","18:00","Ballard -> Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-09
+Day/order: Wed, Nov 4 Seattle, stop 9
+Block type: transit
+Duration: 50 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20back%20downtown%20%2F%20Capitol%20Hill%20Ballard%20-%3E%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-10 Meal: Dinner","2026-11-04","18:10","2026-11-04","19:30","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-10
+Day/order: Wed, Nov 4 Seattle, stop 10
+Block type: meal
+Duration: 80 min
+Estimated cost: $30, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Dinner%20Capitol%20Hill
+tasty corner dinner menu pdf: https://www.tastycornerpdx.com/wp-content/uploads/2023/07/TastyCorner_Menu_Dinner.pdf
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-11 Activity: Sky View Observatory sunset slot","2026-11-04","19:40","2026-11-04","20:55","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-11
+Day/order: Wed, Nov 4 Seattle, stop 11
+Block type: activity
+Duration: 75 min
+Estimated cost: $28, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Book sunset timing if the weather is clear; skip if visibility is poor.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Sky%20View%20Observatory%20sunset%20slot%20Downtown
+sky view observatory hours/directions: https://skyviewobservatory.com/location/
+sky view bar menu pdf: https://www.skyviewobservatory.com/wp-content/themes/skyview/assets/images/cafe/SVO_Menu_Book_2022.pdf
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-4-12 Rest: Return and pack for train day","2026-11-04","21:05","2026-11-05","06:05","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-4-12
+Day/order: Wed, Nov 4 Seattle, stop 12
+Block type: rest
+Duration: 9 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Return%20and%20pack%20for%20train%20day%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-01 Rest: Wake, final pack, checkout prep","2026-11-05","07:00","2026-11-05","08:10","Boylston base","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-01
+Day/order: Thu, Nov 5 Seattle to Portland, stop 1
+Block type: rest
+Duration: 70 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%2C%20final%20pack%2C%20checkout%20prep%20Boylston%20base
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-02 Meal: Breakfast near hotel","2026-11-05","08:15","2026-11-05","09:15","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-02
+Day/order: Thu, Nov 5 Seattle to Portland, stop 2
+Block type: meal
+Duration: 60 min
+Estimated cost: $18, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20near%20hotel%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-03 Walk: Last Seattle short walk + coffee","2026-11-05","09:25","2026-11-05","10:20","Capitol Hill","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-03
+Day/order: Thu, Nov 5 Seattle to Portland, stop 3
+Block type: walk
+Duration: 55 min
+Estimated cost: $10.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Last%20Seattle%20short%20walk%20%2B%20coffee%20Capitol%20Hill
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-04 Transit: Checkout and travel to King Street Station","2026-11-05","10:30","2026-11-05","11:25","Capitol Hill -> King Street","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-04
+Day/order: Thu, Nov 5 Seattle to Portland, stop 4
+Block type: transit
+Duration: 55 min
+Estimated transportation cost: $4, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Checkout%20and%20travel%20to%20King%20Street%20Station%20Capitol%20Hill%20-%3E%20King%20Street
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-05 Rest: Station buffer + platform prep","2026-11-05","11:30","2026-11-05","12:05","King Street Station","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-05
+Day/order: Thu, Nov 5 Seattle to Portland, stop 5
+Block type: rest
+Duration: 35 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Station%20buffer%20%2B%20platform%20prep%20King%20Street%20Station
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-06 Transit: Amtrak Cascades 517 SEA -> PDX","2026-11-05","12:10","2026-11-05","15:35","Intercity rail","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-06
+Day/order: Thu, Nov 5 Seattle to Portland, stop 6
+Block type: transit
+Duration: 3h 25m
+Estimated transportation cost: $27, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Reservation 29CB3A-17MAY26, one coach seat.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Amtrak%20Cascades%20517%20SEA%20-%3E%20PDX%20Intercity%20rail
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-07 Transit: Arrive Portland Union Station and transfer to Courtyard","2026-11-05","15:35","2026-11-05","16:10","Union Station -> City Center","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-07
+Day/order: Thu, Nov 5 Seattle to Portland, stop 7
+Block type: transit
+Duration: 35 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Arrive%20Portland%20Union%20Station%20and%20transfer%20to%20Courtyard%20Union%20Station%20-%3E%20City%20Center
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-08 Rest: Check in and reset","2026-11-05","16:20","2026-11-05","17:40","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-08
+Day/order: Thu, Nov 5 Seattle to Portland, stop 8
+Block type: rest
+Duration: 80 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Check%20in%20and%20reset%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-09 Walk: Easy downtown orientation walk","2026-11-05","17:50","2026-11-05","18:50","Downtown Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-09
+Day/order: Thu, Nov 5 Seattle to Portland, stop 9
+Block type: walk
+Duration: 60 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Easy%20downtown%20orientation%20walk%20Downtown%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-10 Meal: Light dinner near hotel","2026-11-05","19:00","2026-11-05","20:15","Downtown Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-10
+Day/order: Thu, Nov 5 Seattle to Portland, stop 10
+Block type: meal
+Duration: 75 min
+Estimated cost: $25, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Light%20dinner%20near%20hotel%20Downtown%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-5-11 Rest: Early night recovery","2026-11-05","20:25","2026-11-06","06:25","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-5-11
+Day/order: Thu, Nov 5 Seattle to Portland, stop 11
+Block type: rest
+Duration: 10 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Early%20night%20recovery%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-01 Rest: Wake + prep","2026-11-06","07:30","2026-11-06","08:10","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-01
+Day/order: Fri, Nov 6 Portland, stop 1
+Block type: rest
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%20%2B%20prep%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-02 Meal: Breakfast (Fuller's)","2026-11-06","08:20","2026-11-06","09:20","Pearl edge","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-02
+Day/order: Fri, Nov 6 Portland, stop 2
+Block type: meal
+Duration: 60 min
+Estimated cost: $19, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20(Fuller's)%20Pearl%20edge
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-03 Transit: Transit to Washington Park","2026-11-06","09:30","2026-11-06","10:05","Downtown -> Washington Park","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-03
+Day/order: Fri, Nov 6 Portland, stop 3
+Block type: transit
+Duration: 35 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Washington%20Park%20Downtown%20-%3E%20Washington%20Park
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-04 Activity: Portland Japanese Garden timed block","2026-11-06","10:10","2026-11-06","12:10","Washington Park","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-04
+Day/order: Fri, Nov 6 Portland, stop 4
+Block type: activity
+Duration: 120 min
+Estimated cost: $23, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Book a morning timed ticket; focus on the main garden path and viewpoints.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Portland%20Japanese%20Garden%20timed%20block%20Washington%20Park
+portland japanese garden hours/admission: https://japanesegarden.org/hours-admission/
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-05 Rest: Park walk + short recovery","2026-11-06","12:20","2026-11-06","13:05","Washington Park","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-05
+Day/order: Fri, Nov 6 Portland, stop 5
+Block type: rest
+Duration: 45 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Park%20walk%20%2B%20short%20recovery%20Washington%20Park
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-06 Meal: Lunch near downtown return","2026-11-06","13:10","2026-11-06","14:20","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-06
+Day/order: Fri, Nov 6 Portland, stop 6
+Block type: meal
+Duration: 70 min
+Estimated cost: $24, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Lunch%20near%20downtown%20return%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-07 Activity: Powell's City of Books","2026-11-06","14:30","2026-11-06","16:15","Pearl District","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-07
+Day/order: Fri, Nov 6 Portland, stop 7
+Block type: activity
+Duration: 105 min
+Estimated cost: $14, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Start with staff picks, local authors, travel, and one souvenir book cap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Powell's%20City%20of%20Books%20Pearl%20District
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-08 Meal: Coffee break","2026-11-06","16:20","2026-11-06","17:05","Pearl District","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-08
+Day/order: Fri, Nov 6 Portland, stop 8
+Block type: meal
+Duration: 45 min
+Estimated cost: $8, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Coffee%20break%20Pearl%20District
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-09 Rest: Hotel reset","2026-11-06","17:15","2026-11-06","18:05","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-09
+Day/order: Fri, Nov 6 Portland, stop 9
+Block type: rest
+Duration: 50 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Hotel%20reset%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-10 Meal: Dinner","2026-11-06","18:15","2026-11-06","19:40","Pearl/Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-10
+Day/order: Fri, Nov 6 Portland, stop 10
+Block type: meal
+Duration: 85 min
+Estimated cost: $29, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Dinner%20Pearl%2FDowntown
+tasty corner dinner menu pdf: https://www.tastycornerpdx.com/wp-content/uploads/2023/07/TastyCorner_Menu_Dinner.pdf
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-11 Walk: Waterfront evening walk","2026-11-06","19:50","2026-11-06","20:50","Tom McCall Waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-11
+Day/order: Fri, Nov 6 Portland, stop 11
+Block type: walk
+Duration: 60 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Waterfront%20evening%20walk%20Tom%20McCall%20Waterfront
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-6-12 Rest: Wind-down","2026-11-06","21:00","2026-11-07","06:30","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-6-12
+Day/order: Fri, Nov 6 Portland, stop 12
+Block type: rest
+Duration: 9.5 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wind-down%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-01 Rest: Wake + prep","2026-11-07","07:40","2026-11-07","08:20","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-01
+Day/order: Sat, Nov 7 Portland, stop 1
+Block type: rest
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%20%2B%20prep%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-02 Meal: Breakfast near downtown","2026-11-07","08:30","2026-11-07","09:30","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-02
+Day/order: Sat, Nov 7 Portland, stop 2
+Block type: meal
+Duration: 60 min
+Estimated cost: $18, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20near%20downtown%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-03 Walk: Walk to Saturday Market","2026-11-07","09:40","2026-11-07","10:00","Old Town/Waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-03
+Day/order: Sat, Nov 7 Portland, stop 3
+Block type: walk
+Duration: 20 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Walk%20to%20Saturday%20Market%20Old%20Town%2FWaterfront
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-04 Activity: Portland Saturday Market browse","2026-11-07","10:00","2026-11-07","12:00","Waterfront","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-04
+Day/order: Sat, Nov 7 Portland, stop 4
+Block type: activity
+Duration: 120 min
+Estimated cost: $24, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Portland%20Saturday%20Market%20browse%20Waterfront
+portland japanese garden hours/admission: https://japanesegarden.org/hours-admission/
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-05 Transit: Transit to Central Eastside","2026-11-07","12:10","2026-11-07","12:35","Downtown -> Eastside","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-05
+Day/order: Sat, Nov 7 Portland, stop 5
+Block type: transit
+Duration: 25 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Central%20Eastside%20Downtown%20-%3E%20Eastside
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-06 Meal: Lunch (Hat Yai or similar)","2026-11-07","12:40","2026-11-07","13:50","Central Eastside","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-06
+Day/order: Sat, Nov 7 Portland, stop 6
+Block type: meal
+Duration: 70 min
+Estimated cost: $23, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Best order idea: Hat Yai fried chicken or curry/roti combo if available.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Lunch%20(Hat%20Yai%20or%20similar)%20Central%20Eastside
+hat yai menu: https://www.hatyaipdx.com/menus
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-07 Activity: Coffee + boutique loop","2026-11-07","13:55","2026-11-07","15:45","Belmont/Central Eastside","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-07
+Day/order: Sat, Nov 7 Portland, stop 7
+Block type: activity
+Duration: 110 min
+Estimated cost: $12, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Coffee%20%2B%20boutique%20loop%20Belmont%2FCentral%20Eastside
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-08 Rest: Rest window","2026-11-07","15:55","2026-11-07","16:40","Cafe / seated","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-08
+Day/order: Sat, Nov 7 Portland, stop 8
+Block type: rest
+Duration: 45 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Rest%20window%20Cafe%20%2F%20seated
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-09 Transit: Return to hotel","2026-11-07","16:45","2026-11-07","17:10","Eastside -> Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-09
+Day/order: Sat, Nov 7 Portland, stop 9
+Block type: transit
+Duration: 25 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Return%20to%20hotel%20Eastside%20-%3E%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-10 Rest: Reset","2026-11-07","17:20","2026-11-07","18:10","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-10
+Day/order: Sat, Nov 7 Portland, stop 10
+Block type: rest
+Duration: 50 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Reset%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-11 Meal: Dinner + social venue","2026-11-07","18:20","2026-11-07","20:00","Downtown/inner eastside","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-11
+Day/order: Sat, Nov 7 Portland, stop 11
+Block type: meal
+Duration: 100 min
+Estimated cost: $36, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Dinner%20%2B%20social%20venue%20Downtown%2Finner%20eastside
+tasty corner dinner menu pdf: https://www.tastycornerpdx.com/wp-content/uploads/2023/07/TastyCorner_Menu_Dinner.pdf
+Happy hour/menu: https://www.nueseattle.com/happy-hour
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-12 Activity: Night walk or one-drink stop","2026-11-07","20:10","2026-11-07","21:10","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-12
+Day/order: Sat, Nov 7 Portland, stop 12
+Block type: activity
+Duration: 60 min
+Estimated cost: $12, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Night%20walk%20or%20one-drink%20stop%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-7-13 Rest: Sleep","2026-11-07","21:20","2026-11-08","06:20","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-7-13
+Day/order: Sat, Nov 7 Portland, stop 13
+Block type: rest
+Duration: 9 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Sleep%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-01 Rest: Wake + prep","2026-11-08","07:45","2026-11-08","08:25","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-01
+Day/order: Sun, Nov 8 Portland, stop 1
+Block type: rest
+Duration: 40 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%20%2B%20prep%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-02 Meal: Breakfast","2026-11-08","08:35","2026-11-08","09:40","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-02
+Day/order: Sun, Nov 8 Portland, stop 2
+Block type: meal
+Duration: 65 min
+Estimated cost: $19, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-03 Transit: Transit to Alberta Arts","2026-11-08","09:50","2026-11-08","10:30","Downtown -> Alberta","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-03
+Day/order: Sun, Nov 8 Portland, stop 3
+Block type: transit
+Duration: 40 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Alberta%20Arts%20Downtown%20-%3E%20Alberta
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-04 Activity: Alberta arts walk + shops","2026-11-08","10:35","2026-11-08","12:30","Alberta","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-04
+Day/order: Sun, Nov 8 Portland, stop 4
+Block type: activity
+Duration: 115 min
+Estimated cost: $20, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Alberta%20arts%20walk%20%2B%20shops%20Alberta
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-05 Meal: Lunch on Alberta","2026-11-08","12:35","2026-11-08","13:50","Alberta","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-05
+Day/order: Sun, Nov 8 Portland, stop 5
+Block type: meal
+Duration: 75 min
+Estimated cost: $26, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Lunch%20on%20Alberta%20Alberta
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-06 Transit: Transit to Mississippi Ave","2026-11-08","13:55","2026-11-08","14:20","Alberta -> Mississippi","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-06
+Day/order: Sun, Nov 8 Portland, stop 6
+Block type: transit
+Duration: 25 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Transit%20to%20Mississippi%20Ave%20Alberta%20-%3E%20Mississippi
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-07 Activity: Mississippi neighborhood loop","2026-11-08","14:25","2026-11-08","16:15","Mississippi","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-07
+Day/order: Sun, Nov 8 Portland, stop 7
+Block type: activity
+Duration: 110 min
+Estimated cost: $10, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Mississippi%20neighborhood%20loop%20Mississippi
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-08 Rest: Hotel reset","2026-11-08","16:20","2026-11-08","17:25","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-08
+Day/order: Sun, Nov 8 Portland, stop 8
+Block type: rest
+Duration: 65 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Hotel%20reset%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-09 Meal: Early dinner","2026-11-08","17:35","2026-11-08","18:55","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-09
+Day/order: Sun, Nov 8 Portland, stop 9
+Block type: meal
+Duration: 80 min
+Estimated cost: $28, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Early%20dinner%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-10 Activity: Big Legrowlski open-jam window","2026-11-08","19:05","2026-11-08","21:35","Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-10
+Day/order: Sun, Nov 8 Portland, stop 10
+Block type: activity
+Duration: 150 min
+Estimated cost: $32, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Use this as the structured social stop; cap spend at two drinks.
+Entrance/transport treatment: activity/admission if cost is above $0
+Google Maps: https://www.google.com/maps/search/?api=1&query=Big%20Legrowlski%20open-jam%20window%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-11 Transit: Return to hotel","2026-11-08","21:45","2026-11-08","22:20","Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-11
+Day/order: Sun, Nov 8 Portland, stop 11
+Block type: transit
+Duration: 35 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Return%20to%20hotel%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-8-12 Rest: Sleep","2026-11-08","22:30","2026-11-09","07:00","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-8-12
+Day/order: Sun, Nov 8 Portland, stop 12
+Block type: rest
+Duration: 8.5 hrs
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Sleep%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-01 Rest: Wake + final packing","2026-11-09","07:00","2026-11-09","08:00","Courtyard Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-01
+Day/order: Mon, Nov 9 Portland, stop 1
+Block type: rest
+Duration: 60 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Wake%20%2B%20final%20packing%20Courtyard%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-02 Meal: Breakfast near hotel","2026-11-09","08:10","2026-11-09","09:10","Downtown","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-02
+Day/order: Mon, Nov 9 Portland, stop 2
+Block type: meal
+Duration: 60 min
+Estimated cost: $18, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Breakfast%20near%20hotel%20Downtown
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-03 Walk: Short farewell walk","2026-11-09","09:20","2026-11-09","10:05","Downtown Portland","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-03
+Day/order: Mon, Nov 9 Portland, stop 3
+Block type: walk
+Duration: 45 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Short%20farewell%20walk%20Downtown%20Portland
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-04 Transit: Checkout + transfer to PDX","2026-11-09","10:15","2026-11-09","11:15","Courtyard -> PDX","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-04
+Day/order: Mon, Nov 9 Portland, stop 4
+Block type: transit
+Duration: 60 min
+Estimated transportation cost: $3, fare/admission segment where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Checkout%20%2B%20transfer%20to%20PDX%20Courtyard%20-%3E%20PDX
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-05 Rest: Airport check-in and security buffer","2026-11-09","11:20","2026-11-09","12:55","PDX","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-05
+Day/order: Mon, Nov 9 Portland, stop 5
+Block type: rest
+Duration: 95 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Airport%20check-in%20and%20security%20buffer%20PDX
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-06 Meal: Airport meal/snack","2026-11-09","13:00","2026-11-09","13:40","PDX","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-06
+Day/order: Mon, Nov 9 Portland, stop 6
+Block type: meal
+Duration: 40 min
+Estimated cost: $18, planned inclusive of local tax/tip or admission where applicable.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Airport%20meal%2Fsnack%20PDX
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-07 Transit: Flight PDX -> DFW","2026-11-09","13:47","2026-11-09","17:34","Air travel","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-07
+Day/order: Mon, Nov 9 Portland, stop 7
+Block type: transit
+Duration: 3h 47m
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Notes: Airfare tracked separately from activity budget.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Flight%20PDX%20-%3E%20DFW%20Air%20travel
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-08 Rest: DFW layover buffer","2026-11-09","19:34","2026-11-09","21:10","DFW","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-08
+Day/order: Mon, Nov 9 Portland, stop 8
+Block type: rest
+Duration: 96 min
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=DFW%20layover%20buffer%20DFW
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-09 Transit: Flight DFW -> CRP","2026-11-09","21:10","2026-11-09","22:45","Air travel","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-09
+Day/order: Mon, Nov 9 Portland, stop 9
+Block type: transit
+Duration: 1h 35m
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: transit fare block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Flight%20DFW%20-%3E%20CRP%20Air%20travel
+Budget note: costs are planning estimates and should be rechecked before travel."
+"SEAPDX-2026-day-9-10 Rest: Arrival and end-of-trip recovery","2026-11-09","22:45","2026-11-09","23:45","Corpus Christi","Trip: Seattle + Portland Nov 1-9, 2026
+Stable tag: SEAPDX-2026-day-9-10
+Day/order: Mon, Nov 9 Portland, stop 10
+Block type: rest
+Duration: N/A
+Estimated cost: $0.
+Best pick / order note: Follow this order in the day plan unless weather, lines, or fatigue force a swap.
+Entrance/transport treatment: not an entrance-fee block
+Google Maps: https://www.google.com/maps/search/?api=1&query=Arrival%20and%20end-of-trip%20recovery%20Corpus%20Christi
+Budget note: costs are planning estimates and should be rechecked before travel."

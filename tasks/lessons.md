@@ -25,3 +25,23 @@
   - task scratch files
   - handoff log
 - Do not stop at `Project Log` only when the change also affects public hosting, operating rules, or source-of-truth structure.
+
+## 2026-05-24
+
+### Symptom
+
+- A hotel watch run overwrote the held reservation benchmark with a newly observed public quote.
+
+### Root cause
+
+- The refresh treated `currentReservation` like a comparison target instead of a locked booked benchmark.
+- I updated Boylston's live quote into `trueTotalCost` without respecting that the user wanted comparisons against the booked price.
+
+### Fix
+
+- Restore Boylston's benchmark to the booked total and keep newer public quotes in `priceVerification` and notes only.
+
+### Prevention rule
+
+- When `currentReservation` is an already booked hotel, keep `trueTotalCost` anchored to the booked benchmark unless the user explicitly asks to replace it.
+- Use watchlist hotels for market comparisons; store rechecked public quotes for the held hotel as reference, not as the benchmark.

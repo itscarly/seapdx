@@ -6,7 +6,6 @@ The dashboard is a static site: HTML, CSS, JavaScript, and data files. The same 
 
 - Local use: serve the project root with a static server or `localserv`.
 - Public use: deploy the same project root to Netlify.
-- Backup public use: deploy the same project root to GitHub Pages.
 - Shared contract: `/` must resolve to the dashboard entry, and relative asset paths must stay unchanged.
 
 For the local workflow, see `docs/local-development.md`.
@@ -44,41 +43,6 @@ If you need a one-off publish before the Git setup is ready:
 
 This is a fallback, not the preferred long-term workflow.
 
-## Good Option: GitHub Pages
-
-Best if the project will live in a public GitHub repository.
-
-1. Put this folder in a GitHub repository.
-2. Configure GitHub Pages for the repository.
-3. Publish from the selected branch or a GitHub Actions workflow.
-4. Share the GitHub Pages URL.
-
-Why this fits:
-
-- Free for public repositories.
-- Works with a static site.
-- GitHub Actions can run scheduled checks and publish changes.
-
-Official docs: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
-
-### GitHub Pages fallback in this repo
-
-This repo now includes a direct GitHub Pages workflow:
-
-- Workflow file: `.github/workflows/deploy-pages.yml`
-- Trigger: pushes to `main` or manual run
-- Publish style: upload the static project root as an artifact after validation
-
-Expected public URL:
-
-- `https://limcarl83-maker.github.io/my_projects/`
-
-Why this workflow exists:
-
-- Netlify can be blocked by account-credit limits.
-- This project does not need a backend or build system to publish.
-- The workflow excludes local-only clutter like logs, screenshots, editor state, and app-specific folders before publishing.
-
 ## Good Option: Vercel
 
 Best if you later turn the static dashboard into a React app or want preview deployments from Git.
@@ -98,6 +62,6 @@ For this project:
 2. Push this project to GitHub.
 3. Connect the repository to Netlify.
 4. Set Netlify to redeploy on every push.
-5. Add scheduled monitoring via GitHub Actions later.
+5. Keep scheduled monitoring in GitHub Actions for validation and data-watch jobs.
 
 This gives both public access and a clean path for automatic itinerary updates.
