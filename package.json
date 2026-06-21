@@ -25,6 +25,7 @@
     "node": ">=20"
   },
   "dependencies": {
+    "@yizhiyanhua-ai/fireworks-tech-graph": "github:yizhiyanhua-ai/fireworks-tech-graph",
     "playwright": "^1.60.0"
   }
 }
