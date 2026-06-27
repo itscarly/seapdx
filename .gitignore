@@ -1,14 +1,46 @@
+# macOS system files (prevent Finder/Spotlight corruption)
 .DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+Icon
 Icon?
+Thumbs.db
+.git/.DS_Store
+.git/Icon*
+
+# Node & build
 node_modules/
+dist/
+build/
+.cache/
+
+# IDE & editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project-specific ignores
 .obsidian/workspace.json
 logs/
 research/pricing/latest-report.md
 research/pricing/latest-summary.json
 data/monitor-snapshot.json
 .playwright-mcp/
-.cache/
 .claude/
 .netlify/
 automation/*.plist
+
+# Images (use SVG instead)
 *.png
+*.jpg
+*.jpeg
+*.gif
+
+# Local environment
+.env
+.env.local
+*.local.json

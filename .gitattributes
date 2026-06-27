@@ -1,0 +1,28 @@
+# Prevent line ending conversion issues on macOS
+* text=auto
+
+# Force LF for shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# JSON files use CRLF-agnostic handling
+*.json text
+*.jsonl text
+
+# Prevent binary files from being normalized
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text
+
+# Mark these as binary (prevent accidental textification by macOS)
+.DS_Store export-ignore
+Icon? export-ignore
+._* export-ignore
+.AppleDouble export-ignore
+.LSOverride export-ignore
+
+# Ensure .git is not treated as a normal path
+.git export-ignore
+.github export-ignore

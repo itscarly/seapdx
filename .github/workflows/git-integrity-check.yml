@@ -1,0 +1,67 @@
+name: Git Integrity Check
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    name: Validate git repo integrity
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for system files in tree
+        run: |
+          echo "Checking for macOS/system files in repository..."
+          FOUND=0
+
+          # Check for .DS_Store
+          if find . -name ".DS_Store" -not -path "./.git/*" 2>/dev/null | grep -v node_modules; then
+            echo "❌ Found .DS_Store files"
+            FOUND=1
+          fi
+
+          # Check for Icon files
+          if find . -name "Icon*" -not -path "./.git/*" 2>/dev/null | grep -v node_modules; then
+            echo "❌ Found Icon files"
+            FOUND=1
+          fi
+
+          # Check for ._* files
+          if find . -name "._*" -not -path "./.git/*" 2>/dev/null | grep -v node_modules; then
+            echo "❌ Found ._* files"
+            FOUND=1
+          fi
+
+          # Check for corrupted git refs
+          if [ -f ".git/refs/heads/main (1)" ] || [ -f ".git/refs/remotes/origin/main (1)" ]; then
+            echo "❌ Found corrupted git refs"
+            FOUND=1
+          fi
+
+          if [ $FOUND -eq 0 ]; then
+            echo "✅ No system files detected"
+          else
+            exit 1
+          fi
+
+      - name: Verify git fsck
+        run: |
+          echo "Running git fsck to check object database..."
+          git fsck --full 2>&1 || {
+            echo "❌ Git object database corruption detected"
+            exit 1
+          }
+          echo "✅ Git object database is clean"
+
+      - name: Check commit history
+        run: |
+          echo "Verifying commit history..."
+          git log --oneline -5
+          echo "✅ Commit history is readable"
