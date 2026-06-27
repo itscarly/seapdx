@@ -1,6 +1,100 @@
 # Project Log
 
-This is the running log for project changes.
+## 2026-06-27 (session: Calendar rebuild from scratch - date fix + descriptions)
+
+### COMPLETE: Calendar rebuilt clean with correct dates and rich descriptions
+
+**What happened:**
+1. **Identified calendar state error:** Trip-data.js (finalized) diverged from Google Calendar (stale). Calendar had old activities (Smith Tower, NEKO Cat), missing activities (Best Buy Meta), and wrong date placements (Day 6-7 activities on wrong dates).
+2. **Deleted all 100+ events:** Cleaned calendar completely (Nov 1-9, 2026).
+3. **Rebuilt from trip-data.js (authoritative source):** 
+   - 102 new events created: all 9 days, all meals/activities/transit/sleep blocks
+   - Correct dates verified (Day 1 = Nov 1, Day 5 = Nov 5 Amtrak transition, Day 7 = Nov 7 Powell's, Day 8 = Nov 8 Saturday Market, Day 9 = Nov 9 departure)
+   - Rich descriptions on every event: Purpose | Cost | Links | What to order | Skip | Continuity
+   - Sleep blocks all nights (10pm-6am, adjusted for travel days)
+   - No duplicates, no overlaps, chronological within each day
+4. **Result:** Calendar ready for trip execution with full context on every activity
+
+**Key learnings:**
+- When user says "go back to the plan," use trip-data.js without asking which version
+- When calendar is too broken, delete and rebuild clean instead of patching
+- Verify date placement carefully (Day N = Nov N mapping)
+- Don't ask clarifying questions user already answered
+
+**Status:** Calendar fully functional, trip-ready
+
+## 2026-06-27 (session: Google Calendar event descriptions + duplicate cleanup)
+
+### IN PROGRESS: Calendar event descriptions enriched with trip context
+
+**What changed:**
+1. **Duplicate events identified and deleted (3 total):**
+   - "🛌 Day 6 Portland · Rest · Sleep & wind-down (10pm-6am)" — duplicate sleep event removed
+   - "🚶 Seattle Day 4 · Fremont walking loop" — duplicate walk event removed
+   - "🍔 Seattle Day 4 · Uneeda Burger Fremont lunch" — duplicate meal event removed
+
+2. **Rich event descriptions added (15 events completed, 56 ready):**
+   - Example rich format: Purpose | Estimated Cost | Links | What to Order/Do | Skip | Continuity
+   - Poquitos Capitol Hill (Day 1): Full context, $30-38 cost guidance, 3-point ordering strategy, skip guidance (don't bar-crawl)
+   - Madison Diner (Day 3): Cost, menu context, ordering recommendations (hash/omelettes), local vibe
+   - Luc Lac Happy Hour (Day 5): HH timing, $19 cost, $4-6 pricing breakdown, specific cocktail recommendations
+   - FOB Sushi (Day 2): AYCE strategy, premium tier guidance, cost $32
+   - 10 additional events in Batch 1 with descriptions
+
+3. **Descriptions prepared for remaining 56 events:**
+   - All activities Nov 1-9 have purpose, cost, continuity data generated
+   - Links to menus, hours, Google Maps extracted from trip-data.js
+   - Ready for bulk application in 5 batches of ~10-12 events each
+
+**Files touched:**
+- `data/trip-data.js` (source data — no changes, read-only)
+- `CALENDAR_UPDATE_STATUS.md` (NEW — comprehensive progress report)
+- `apply-remaining-calendar-updates.sh` (NEW — helper script)
+- `calendar-update-commands.json` (NEW — API format export)
+- `remaining-updates.json` (NEW — 56 events ready to push)
+
+**Status:** 10.5% complete (15/143 events). No duplicate events remain. All remaining descriptions are prepared and ready for batch application via MCP tools or Python automation.
+
+**Next steps:**
+1. Apply remaining 56 events in batches (5 more batches × 10-12 events)
+2. Verify descriptions render correctly in Google Calendar detail popups
+3. Final calendar ready for trip execution
+
+---
+
+## 2026-06-27 (session: Claude plan reconciliation)
+
+### COMPLETE: Latest Claude plan trail reviewed and superseded
+
+**What changed:**
+1. Reviewed the newest Claude-linked plans and handoff files.
+2. Confirmed the final verified state is the June 27 itinerary rebuild and deployment, not the earlier draft plans.
+3. Marked the stale itinerary-rebuild TODO as superseded so the repo no longer points at outdated pending work.
+
+**Files touched:**
+- `tasks/todo.md`
+- `notes/Project Log.md`
+
+**Status:** No new implementation work was needed. Remaining active items are the ongoing airfare and hotel monitors.
+
+## 2026-06-27 (session: itinerary finalization + Portland rebuild + cleanup)
+
+### COMPLETE: Itinerary locked, data deployed, git cleaned
+
+**What changed:**
+1. **Trip-data.js finalized:** Complete Portland Days 6-9 rebuild (Luc Lac HH → Powell's + Tope sunset + Momiji AYCE → Saturday Market + Pretty Ugly Burger + Novel → final coffee). Seattle Days 1-5 revised (Columbia Center sunset Day 2, FOB Sushi, Menya Musashi + Saint John's Day 3, Sea'd In Day 4, removed NEKO/Smith Tower). Budget updated to $952.
+2. **Guides updated:** Meta Glasses (Best Buy demo scheduling), Courtyard Portland (package delivery verification), 4-bag coffee strategy, new Souvenirs section with itemized pricing.
+3. **Git fixed + prevented:** Git corruption recovered, prevention infrastructure deployed (enhanced .gitignore, pre-commit hook, .gitattributes). Cleanup commit removed obsolete files.
+4. **Dashboard deployed:** Cache-bust version v=2026-06-27-final-itinerary; Netlify auto-deployed.
+5. **Memory updated:** Obsidian vault memories reflect final state; stale code-update guidance removed.
+
+**Commits:**
+- e72dc27: Complete Portland itinerary rebuild + guide updates
+- 00759f9: Cleanup of unused apply-itinerary-updates.sh
+
+**Status:** Ready for trip execution (user pre-trip actions pending: Meta demo booking, Courtyard call confirmation).
+
+---
 
 ## 2026-05-30 (session 19 — global itinerary UI redesign: horizontal timeline chips)
 
@@ -1575,3 +1669,36 @@ Prevention rule:
 
 Remaining blocker:
 - Boylston extra Nov 4-5 night still needs direct hotel confirmation.
+
+## 2026-06-27 (session — Portland shared-calendar rich-format cleanup)
+
+### What changed
+
+- Finished the live shared Google Calendar cleanup for Portland Day 6 through Day 9 in the shared group calendar only: `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com`.
+- Rewrote remaining weak Portland event descriptions into the richer popup format used by the good Seattle example:
+  - `Purpose`
+  - `Estimated cost`
+  - direct links such as `Menu`, `Info`, `Google Maps`, or `Directions`
+  - `What to order` or `What to do`
+  - `Skip`
+  - `Continuity`
+- Removed the remaining technical `SEAPDX-...` Portland titles from the Nov 6-9 window.
+- Corrected stale Portland headline rows and a few mismatched route/location details so the all-day summaries and stop names reflect the actual Portland plan.
+
+### Why
+
+- The user called out that Portland events still looked half-finished in the live calendar even after earlier title cleanup.
+- The real acceptance bar was not "human-readable titles"; it was the richer Seattle-style event popup structure visible inside Google Calendar.
+
+### Files touched
+
+- `notes/Project Log.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/CHANGELOG.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+
+### Prevention rule
+
+- For this trip, do not treat a title rename as calendar completion.
+- When the user points to a "good looks like this" popup example, the write is only done when the live Google Calendar event body matches that richer structure too.

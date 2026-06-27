@@ -1,5 +1,13 @@
 # Active Tasks
 
+## Latest verified state
+
+- [x] June 27, 2026: Seattle + Portland itinerary rebuild completed and finalized.
+- [x] June 27, 2026: Dashboard cache-bust updated and deployed.
+- [x] June 27, 2026: Project log updated with the final session handoff.
+- [x] June 27, 2026: Git cleanup and prevention rules are in place.
+- [x] June 27, 2026: Old itinerary-rebuild TODO from Claude is superseded by the final June 27 handoff.
+
 ## Ongoing monitoring (next session picks these up)
 
 ### Airfare Watch — weekly check
@@ -24,6 +32,7 @@
 
 ## Completed (archived for reference)
 
+- 2026-06-27: Final Seattle + Portland itinerary rebuild completed, deployed, and handed off. The earlier Claude planning drafts about further itinerary edits are now stale.
 - 2026-05-24: Removed 3 redundant saved automations (`seattle-portland-trip-review`, `seattle-portland-thread-summary-weekly`, `update-agents-md`). Kept 9 active watches with clearer scopes.
 - 2026-05-24: Deleted stale GitHub Pages deploy files and legacy flight-monitoring notes. Cleaned local review PNGs, browser-capture logs, macOS metadata files, and untitled scratch canvas files.
 - 2026-05-24: Removed the orphaned legacy flight-status polling track (`monitor:flights`, `scripts/monitor-flights.js`, `data/flight-monitor-snapshot.json`, `research/flights/*`).

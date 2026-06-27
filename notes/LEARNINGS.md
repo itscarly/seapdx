@@ -98,6 +98,18 @@
 
 - For most work, text descriptions, file paths, logs, and direct page details are cheaper and clearer than screenshots.
 
+### Calendar remediation is not done when only the titles look clean
+
+- The 2026-06-27 Portland cleanup failed the user's acceptance check because some event titles were human-readable but the live Google Calendar popup bodies still used thin metadata or stale headline wording.
+- When the user gives a screenshot of the desired event popup, match the popup structure itself:
+  - `Purpose`
+  - `Estimated cost`
+  - direct links
+  - `What to order` or `What to do`
+  - `Skip`
+  - `Continuity`
+- Also verify the day-level header rows and any route/location labels, not only the stop titles.
+
 ## How to use this note
 
 Add only patterns that should help future sessions.

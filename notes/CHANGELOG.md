@@ -185,3 +185,9 @@ Removed the orphaned legacy flight-status polling track: `scripts/monitor-flight
 - Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
 - Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
 
+## 2026-06-27
+
+- Completed the live shared Google Calendar Portland cleanup for Nov 6-9.
+- Rewrote remaining Portland event popups into the richer Seattle-style format with `Purpose`, `Estimated cost`, links, `What to order` or `What to do`, `Skip`, and `Continuity`.
+- Removed remaining technical Portland `SEAPDX-...` titles from the live shared calendar window.
+- Corrected stale Portland all-day header titles and a few mismatched location/route labels so the visible calendar rows match the actual itinerary.

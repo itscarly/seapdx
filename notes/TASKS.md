@@ -15,6 +15,17 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ## Current active work
 
+### Google Calendar detail audit and enrichment
+
+- Review the shared Nov 1-9 Google Calendar activity by activity.
+- Remove duplicates and keep one canonical copy of each stop.
+- Enrich each stop with menu links, cost, card/cash notes, what to order, what to skip, walk time, and continuity notes.
+- Keep the shared calendar as the live source of truth and avoid creating a parallel planning version.
+
+Status update:
+- Portland Day 6-9 live shared-calendar enrichment is now complete in the group calendar, including richer popup descriptions and removal of remaining `SEAPDX-...` Portland titles.
+- If more calendar work resumes, start by auditing Seattle for the same popup-quality standard instead of reopening the already-cleaned Portland blocks.
+
 ### ⚠️ Confirm Boylston extra night and reconcile Seattle hotel bookings
 
 Active itinerary and shared Google Calendar now use **The Boylston Hotel Capitol Hill** as the Seattle base for Nov 1-5. The added Nov 4-5 night is still the only hotel-confirmation blocker.
@@ -84,4 +95,3 @@ After meaningful completed work: mark completed items, remove invalid tasks, mov
 - Seattle base set to The Boylston Hotel Capitol Hill; Portland starts Nov 5 after Amtrak Cascades 517 (12:10 PM to 3:35 PM).
 - Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
 - Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
-

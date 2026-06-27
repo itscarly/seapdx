@@ -1,0 +1,30 @@
+REMAINING CALENDAR UPDATES - FILE LOCATIONS
+=============================================
+
+PRIMARY FILE (56 events ready to apply):
+  /private/tmp/claude-501/-Users-kicker-Downloads-codexproject/996c5d4c-3d92-48ec-913d-1195a7d493ff/scratchpad/remaining-updates.json
+
+COPY TO PROJECT (optional, for persistence):
+  cp /private/tmp/claude-501/-Users-kicker-Downloads-codexproject/996c5d4c-3d92-48ec-913d-1195a7d493ff/scratchpad/remaining-updates.json \
+     /Users/kicker/Downloads/codexproject/data/calendar-remaining-updates.json
+
+RELATED FILES:
+  - CALENDAR_UPDATE_STATUS.md (detailed report)
+  - finish-calendar-updates.py (automation script)
+  - calendar-update-commands.json (API format)
+  - apply-remaining-calendar-updates.sh (helper)
+
+QUICK STATS:
+  - Total events in remaining-updates.json: 56
+  - Events already updated: 15 (deleted 3 duplicates + updated 12)
+  - Calendar ID: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com
+  - Trip dates: November 1-9, 2026
+
+EACH EVENT IN JSON HAS:
+  {
+    "eventId": "xxxxx...",
+    "summary": "📅 Activity Name",
+    "description": "Purpose: ...\nEstimated cost: ...\n..."
+  }
+
+NEXT: Apply remaining 56 events using mcp__claude_ai_Google_Calendar__update_event in 5 batches of ~10-12 events each.

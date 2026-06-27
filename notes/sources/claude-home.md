@@ -1,6 +1,6 @@
 ---
 source: claude-home
-last_verified: 2026-05-29T01:01:45.313Z
+last_verified: 2026-06-27T17:54:43.934Z
 status: active
 confidence: high
 next_action: Use this index for session startup context.
@@ -23,9 +23,9 @@ Session-start daily digest + whenever plan files or shared instructions change.
 - `/Users/kicker/.claude/settings.local.json`
 
 ## Top-priority changes
-- /Users/kicker/.claude/plans/review-this-saved-list-sprightly-lerdorf.md (updated 2026-05-27T20:22:42.499Z)
-- /Users/kicker/.claude/plans/review-seattle-calendar-for-adaptive-noodle.md (updated 2026-05-27T01:25:14.393Z)
-- /Users/kicker/.claude/plans/ok-so-i-just-ethereal-newt.md (updated 2026-05-27T00:51:50.520Z)
+- /Users/kicker/.claude/plans/velvety-stargazing-scone.md (updated 2026-06-07T00:19:41.499Z)
+- /Users/kicker/.claude/plans/zazzy-zooming-lerdorf.md (updated 2026-06-06T21:12:38.021Z)
+- /Users/kicker/.claude/plans/lexical-mixing-walrus.md (updated 2026-06-06T20:31:15.626Z)
 
 ## Blockers
 - none

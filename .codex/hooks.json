@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /Users/kicker/Downloads/codexproject/scripts/session-status.js 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
