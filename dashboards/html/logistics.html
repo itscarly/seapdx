@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f3ec">
+    <title>Seattle + Portland Logistics Hub</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-06-28-editorial-redesign">
+  </head>
+  <body class="trip-home logistics-page" data-page="logistics">
+    <header class="hero hero--logistics" id="overview">
+      <nav class="topbar" aria-label="Logistics sections">
+        <a href="./index.html">Back to homepage</a>
+        <a href="#flightHub">Flights</a>
+        <a href="#monitoring">Monitoring</a>
+        <a href="#verification">Verification</a>
+        <a href="#sources">Sources</a>
+      </nav>
+      <section class="hero-grid hero-grid--editorial">
+        <div class="hero-copy">
+          <p class="eyebrow">Utility hub</p>
+          <h1>Flights, monitoring, and verification in one quieter place</h1>
+          <p class="lede">The homepage now stays focused on trip planning. This hub keeps the deep logistics context, future booked flights, source links, and automation-related references together.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="./index.html#flights">Back to trip homepage</a>
+            <a class="button" href="./airfare.html">Open airfare tracker</a>
+          </div>
+        </div>
+        <aside class="hero-panel-stack">
+          <article class="hero-note-card">
+            <p class="eyebrow">Quick access</p>
+            <div class="hero-note-grid">
+              <div>
+                <span class="hero-note-label">Airfare tracker</span>
+                <strong><a href="./airfare.html">Open dedicated page</a></strong>
+              </div>
+              <div>
+                <span class="hero-note-label">Hotel tracker</span>
+                <strong><a href="./hotels.html">Open dedicated page</a></strong>
+              </div>
+              <div>
+                <span class="hero-note-label">GitHub issues</span>
+                <strong><a href="https://github.com/limcarl83-maker/my_projects/issues" target="_blank" rel="noreferrer">View alerts</a></strong>
+              </div>
+              <div>
+                <span class="hero-note-label">Actions runs</span>
+                <strong><a href="https://github.com/limcarl83-maker/my_projects/actions" target="_blank" rel="noreferrer">View workflows</a></strong>
+              </div>
+            </div>
+          </article>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section id="flightHub" class="section">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">Booked flights</p>
+            <h2>Full flight detail and future bookings</h2>
+            <p class="section-copy">This is the deeper version of the flight board, including the later February booking that no longer needs space on the main homepage.</p>
+          </div>
+          <a class="button" href="./index.html#flights">Back to homepage flight snapshot</a>
+        </div>
+        <div id="logisticsFlightBoard" class="flight-board"></div>
+      </section>
+
+      <section id="monitoring" class="section">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Monitoring pages</p>
+            <h2>Operational follow-through without cluttering the public itinerary</h2>
+          </div>
+        </div>
+        <div class="transit-grid logistics-grid">
+          <article class="transit-card logistics-card">
+            <span class="badge">Airfare</span>
+            <h3>PAL award tax and cash-fare watch</h3>
+            <p>Keep SFO and ORD to Manila monitoring isolated in the dedicated airfare tracker with the booking-rule context that supports purchase decisions.</p>
+            <a class="link-button" href="./airfare.html">Open airfare tracker</a>
+          </article>
+          <article class="transit-card logistics-card">
+            <span class="badge">Hotels</span>
+            <h3>Seattle and Portland hotel monitor</h3>
+            <p>Review hotel thresholds, the latest report, and rebooking logic on the separate hotel page instead of mixing it into the itinerary experience.</p>
+            <a class="link-button" href="./hotels.html">Open hotel tracker</a>
+          </article>
+          <article class="transit-card logistics-card">
+            <span class="badge">GitHub</span>
+            <h3>Issues and workflow runs</h3>
+            <p>Monitoring automation opens issues for material changes and uses workflow runs as the operational backbone for validation and scheduled checks.</p>
+            <div class="guide-card-actions">
+              <a class="link-button" href="https://github.com/limcarl83-maker/my_projects/issues" target="_blank" rel="noreferrer">View issues</a>
+              <a class="link-button" href="https://github.com/limcarl83-maker/my_projects/actions" target="_blank" rel="noreferrer">View actions</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="verification" class="section">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Verification</p>
+            <h2>Latest watch summaries that support the route assumptions</h2>
+            <p id="verificationCopy" class="section-copy">Loading current verification summary...</p>
+          </div>
+        </div>
+        <div id="verificationWatchSummary" class="transit-grid logistics-grid"></div>
+      </section>
+
+      <section id="sources" class="section">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Sources</p>
+            <h2>Reference links for fares, hours, flights, and route decisions</h2>
+          </div>
+        </div>
+        <div id="sourcesList" class="sources-list sources-list--logistics"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>The homepage stays polished and reader-friendly because the operational detail now lives here.</p>
+    </footer>
+
+    <script src="../../data/trip-data.js?v=2026-06-28-editorial-redesign"></script>
+    <script src="../js/app.js?v=2026-06-28-editorial-redesign"></script>
+  </body>
+</html>

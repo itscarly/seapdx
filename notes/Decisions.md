@@ -47,6 +47,16 @@
 - Status: active
 - Why: the repo is static-only, Netlify already serves the live site, and GitHub Actions are better used here for validation and monitoring than for a second public deploy path
 
+### The homepage is public-facing, not an editing workspace
+
+- Status: active
+- Why: the main trip page should read as a polished itinerary command center, so public-facing planning content stays on the homepage while editing and utility-heavy workflows stay elsewhere
+
+### Logistics-heavy content lives in a separate hub page
+
+- Status: active
+- Why: flights, verification links, automation references, and future bookings are useful, but they add too much noise when they share equal weight with the public itinerary experience
+
 ### Shared agent memory should use active, archive, and permanent layers
 
 - Status: active

@@ -1,5 +1,37 @@
 # Project Log
 
+## 2026-06-28 (session 8: homepage redesign + logistics hub implementation)
+
+### COMPLETE: Main trip dashboard rebuilt into a public-facing command center
+
+**What changed:**
+1. Reworked `dashboards/html/index.html` into a cleaner editorial homepage with stronger hero hierarchy, reduced metric clutter, separate flights section, slimmer guides/maps footprint, and a new logistics-hub entry point.
+2. Added `dashboards/html/logistics.html` as the secondary utility page for deep flight detail, future booked flights, monitoring links, verification watches, and source references.
+3. Refactored `dashboards/js/app.js` so the homepage and logistics hub share a page-mode renderer. The homepage now ignores old browser-saved itinerary customizations, no longer exposes the public editing workflow, and uses inline stop-detail panels for rich itinerary interaction.
+4. Added a large scoped redesign layer to `dashboards/css/styles.css` so the new visual system applies to the homepage and logistics hub without destabilizing the separate airfare and hotel tracker pages.
+
+**Verification:**
+- `node --check dashboards/js/app.js` passed.
+- Browser verification passed for:
+  - redesigned homepage hero and overview
+  - collapsible day cards
+  - inline stop-detail selection
+  - new logistics hub page
+- `npm run validate` still fails, but the failure is from existing `data/trip-data.js` budget inconsistencies:
+  - day totals sum to `754` instead of projected `952`
+  - Fri Nov 6, Sat Nov 7, and Sun Nov 8 declared totals do not match item sums
+  - coffee-bean category is still above the stated `$60` cap
+
+**Files touched:**
+- `dashboards/html/index.html`
+- `dashboards/html/logistics.html`
+- `dashboards/js/app.js`
+- `dashboards/css/styles.css`
+- active note files for project state and follow-up tracking
+
+**Next:**
+- Reconcile trip-data budget math so `npm run validate` can pass again.
+
 ## 2026-06-28 (session 7: Booked flights cleanup + honest handoff to Codex)
 
 ### PARTIAL: Incremental improvements, full redesign needed

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f4f6f3">
+    <meta name="theme-color" content="#f6f3ec">
     <title>Seattle + Portland Travel Dashboard</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css?v=2026-06-28-flights-cleanup">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-06-28-editorial-redesign">
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -14,58 +14,99 @@
       crossorigin=""
     >
   </head>
-  <body>
-    <header class="hero">
+  <body class="trip-home" data-page="home">
+    <header class="hero" id="overview">
       <nav class="topbar" aria-label="Dashboard sections">
-        <a href="#summary">Summary</a>
+        <a href="#overview">Overview</a>
         <a href="#itinerary">Itinerary</a>
-        <a href="#budget">Budget</a>
+        <a href="#flights">Flights</a>
         <a href="#guides">Guides</a>
-        <a href="#automation">Automation</a>
-        <a href="#sources">Sources</a>
+        <a href="#maps">Maps</a>
+        <a href="./logistics.html">Logistics hub</a>
       </nav>
-      <section class="hero-grid">
-        <div>
+      <section class="hero-grid hero-grid--editorial">
+        <div class="hero-copy">
           <p class="eyebrow">November 1-9, 2026</p>
-          <h1>Seattle + Portland itinerary dashboard</h1>
-          <p class="lede">A walking-first, budget-aware route plan for cafes, food, cocktails, markets, gardens, ferries, books, and coffee beans.</p>
+          <h1>Seattle + Portland trip command center</h1>
+          <p class="lede">A public-facing, walk-first travel plan with the best route logic, budget realism, booked-flight timing, and city-by-city pacing already stitched together.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#itinerary">View itinerary</a>
-            <a class="button" href="#budget">Check budget</a>
+            <a class="button primary" href="#itinerary">Browse itinerary</a>
+            <a class="button" href="./logistics.html">Open logistics hub</a>
           </div>
+          <ul id="heroFacts" class="hero-facts-list" aria-label="Trip quick facts"></ul>
         </div>
-        <aside class="trip-card" aria-label="Trip status">
-          <span class="status-dot"></span>
-          <h2>Projected spend</h2>
-          <strong id="heroSpend">$0</strong>
-          <p id="heroRemaining">Calculating...</p>
-          <div class="meter"><span id="heroMeter"></span></div>
-          <div class="fx-panel">
-            <p class="fx-label">Live USD to PHP + 1.85% fee</p>
-            <strong id="fxRateDisplay">Loading latest rate...</strong>
-            <p id="fxMeta">Using saved fallback while live rate loads.</p>
-          </div>
+        <aside class="hero-panel-stack" aria-label="Trip snapshot">
+          <article class="trip-card" aria-label="Projected spend">
+            <span class="status-dot"></span>
+            <h2>Projected spend</h2>
+            <strong id="heroSpend">$0</strong>
+            <p id="heroRemaining">Calculating...</p>
+            <div class="meter"><span id="heroMeter"></span></div>
+            <div class="fx-panel">
+              <p class="fx-label">Live USD to PHP + 1.85% fee</p>
+              <strong id="fxRateDisplay">Loading latest rate...</strong>
+              <p id="fxMeta">Using saved fallback while live rate loads.</p>
+            </div>
+          </article>
+          <article class="hero-note-card" aria-label="Trip anchors">
+            <p class="eyebrow">Trip anchors</p>
+            <div class="hero-note-grid">
+              <div>
+                <span class="hero-note-label">Seattle base</span>
+                <strong id="heroSeattleBase">Loading...</strong>
+              </div>
+              <div>
+                <span class="hero-note-label">Portland base</span>
+                <strong id="heroPortlandBase">Loading...</strong>
+              </div>
+              <div>
+                <span class="hero-note-label">Intercity move</span>
+                <strong id="heroRailWindow">Loading...</strong>
+              </div>
+              <div>
+                <span class="hero-note-label">Last verified</span>
+                <strong id="heroVerified">Loading...</strong>
+              </div>
+            </div>
+          </article>
         </aside>
       </section>
     </header>
 
     <main>
-      <section id="summary" class="section">
-        <div class="section-heading">
+      <section id="summary" class="section section--overview">
+        <div class="section-heading compact-heading">
           <div>
-            <p class="eyebrow">Executive summary</p>
-            <h2>Optimized around location, energy, and budget</h2>
+            <p class="eyebrow">Trip overview</p>
+            <h2>High-signal numbers before you dive into the route</h2>
+            <p class="section-copy">The homepage now keeps the most important planning numbers visible without flooding the page with repetitive metric cards.</p>
           </div>
         </div>
-        <div class="summary-grid" id="summaryGrid"></div>
+        <div class="summary-grid summary-grid--editorial" id="summaryGrid"></div>
       </section>
 
-      <section id="itinerary" class="section">
+      <section id="budget" class="section section--budget">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Budget</p>
+            <h2 id="budgetHeading">Trip budget snapshot</h2>
+            <p class="section-copy">The Seattle and Portland activity plan stays separate from airfare while still showing the real tradeoffs that affect the trip.</p>
+          </div>
+        </div>
+        <div class="budget-layout budget-layout--home">
+          <div class="budget-panel">
+            <div id="budgetSummary" class="budget-summary" aria-label="Budget summary"></div>
+            <div id="budgetList" class="budget-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="itinerary" class="section section--itinerary">
         <div class="section-heading row-heading">
           <div>
             <p class="eyebrow">Day-by-day route</p>
-            <h2>Morning, afternoon, evening plan</h2>
-            <p class="section-copy">See when to leave, how long each stop takes, where the hotel fits, and which backup options can be added without changing the default route.</p>
+            <h2>Choose a day, then open the stop cards that need more context</h2>
+            <p class="section-copy">Each day now starts as a cleaner overview row. Open the day to scan the sequence, then tap any stop for notes, links, prices, and what to expect.</p>
           </div>
           <div class="filters" role="group" aria-label="Filter itinerary">
             <button type="button" class="chip active" data-filter="all">All</button>
@@ -75,56 +116,27 @@
             <button type="button" class="chip" data-filter="cocktails">Cocktails</button>
           </div>
         </div>
-        <div class="editor-bar">
-          <div>
-            <p class="editor-title">Customize itinerary</p>
-            <p class="editor-copy">Add brand-new places, replace restaurants or stops, remove things that no longer fit, and keep those edits saved in this browser. The live Netlify site and local copy both get this editor feature, but your specific trip edits save in your browser until you export them or I write them back into the repo later.</p>
-          </div>
-          <div class="editor-actions">
-            <button class="button primary" id="openAddStop" type="button">Add custom place</button>
-            <button class="button" id="exportChanges" type="button">Download my edits</button>
-            <button class="button" id="copyChangeSummary" type="button">Copy update summary</button>
-            <button class="button" id="resetCustomizations" type="button">Reset saved edits</button>
-          </div>
-        </div>
-        <p class="editor-status" id="editorStatus" aria-live="polite"></p>
-        <details class="collapse-block" open>
-          <summary>Booked flights</summary>
-          <div class="collapse-inner">
-            <div id="flightBoard" class="flight-board"></div>
-          </div>
-        </details>
         <div id="days" class="days"></div>
-        <details class="collapse-block" open>
-          <summary>Additional booked flights</summary>
-          <div class="collapse-inner">
-            <div id="futureFlightBoard" class="flight-board future-flight-board"></div>
-          </div>
-        </details>
       </section>
 
-      <section id="budget" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Budget dashboard</p>
-          <h2 id="budgetHeading">Trip budget snapshot</h2>
+      <section id="flights" class="section section--flights">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">Booked flights</p>
+            <h2>Flight timing stays visible without taking over the page</h2>
+            <p class="section-copy">This homepage keeps the critical route and airport timing in view. Deep detail, utility links, and future bookings move into the logistics hub.</p>
+          </div>
+          <a class="button" href="./logistics.html">Open logistics hub</a>
         </div>
-        <details class="collapse-block">
-          <summary>Budget breakdown</summary>
-          <div class="collapse-inner">
-            <div class="budget-layout">
-              <div class="budget-panel">
-                <div id="budgetSummary" class="budget-summary" aria-label="Budget summary"></div>
-                <div id="budgetList" class="budget-list"></div>
-              </div>
-            </div>
-          </div>
-        </details>
+        <div id="flightBoard" class="flight-board"></div>
       </section>
 
-      <section id="guides" class="section">
+      <section id="guides" class="section section--guides">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Planning guides</p>
-          <h2>Reservations, beans, social notes, backup plans</h2>
+          <div>
+            <p class="eyebrow">Planning guides</p>
+            <h2>Reservations, beans, social notes, backup weather strategy</h2>
+          </div>
         </div>
         <div class="tabs" role="tablist" aria-label="Planning guides">
           <button type="button" role="tab" aria-selected="true" class="tab active" data-tab="reservations">Reservations</button>
@@ -133,170 +145,64 @@
           <button type="button" role="tab" aria-selected="false" class="tab" data-tab="socialDating">Social + Dating</button>
           <button type="button" role="tab" aria-selected="false" class="tab" data-tab="rainyDay">Rainy day</button>
           <button type="button" role="tab" aria-selected="false" class="tab" data-tab="packing">Packing</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="exclusions">Excluded</button>
         </div>
         <div id="guidePanel" class="guide-panel"></div>
       </section>
 
-      <section id="maps" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Maps and transit</p>
-          <h2>Trip atlas, route spacing, and transit references</h2>
+      <section id="maps" class="section section--maps">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Maps and transit</p>
+            <h2>Route shape, walkability, and transit essentials</h2>
+            <p class="section-copy">Keep the atlas useful, but tighter. The maps should support the itinerary instead of competing with it.</p>
+          </div>
         </div>
         <div id="tripAtlas" class="trip-atlas"></div>
-        <div id="transitCards" class="transit-grid"></div>
+        <div id="transitCards" class="transit-grid transit-grid--compact"></div>
       </section>
 
-      <section id="sources" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Verification sources</p>
-          <h2 id="verificationHeading">Verification sources</h2>
-          <p id="verificationCopy" class="section-copy">Loading current verification summary...</p>
-        </div>
-        <details class="collapse-block">
-          <summary>Verification resources &amp; last verified</summary>
-          <div class="collapse-inner">
-            <div id="verificationWatchSummary" class="transit-grid"></div>
-            <div id="sourcesList" class="sources-list"></div>
+      <section id="logistics" class="section section--logistics">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">Utility pages</p>
+            <h2>Move the heavy operational content into a cleaner secondary hub</h2>
+            <p class="section-copy">Airfare monitoring, hotel watch, verification links, automation notes, and future booked flights stay available without crowding the homepage.</p>
           </div>
-        </details>
-      </section>
-
-      <section id="automation" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Automation</p>
-          <h2>Scheduled route, budget, and flight checks</h2>
+          <a class="button primary" href="./logistics.html">Open logistics hub</a>
         </div>
-        <div class="transit-grid">
-          <article class="transit-card">
+        <div class="transit-grid logistics-grid">
+          <article class="transit-card logistics-card">
+            <span class="badge">Hub</span>
+            <h3>Flights, sources, and verification</h3>
+            <p>Open the new logistics page for future bookings, flight-watch links, source references, and the pages that support monitoring work.</p>
+            <a class="link-button" href="./logistics.html">Open hub</a>
+          </article>
+          <article class="transit-card logistics-card">
             <span class="badge">Airfare</span>
-            <h3>PAL Award Tax Monitor</h3>
-            <p>Tracks one-way economy airfare from SFO or ORD to Manila for the March 7-13, 2027 window. Discovery leads come from Google Flights, Skyscanner, and KAYAK, but buy calls require airline-direct verification.</p>
-            <a class="link-button" href="./airfare.html">Open tracker</a>
+            <h3>Cash-fare watch</h3>
+            <p>Keep the separate airfare tracker for the March 2027 Manila watchlist and airline-direct verification logic.</p>
+            <a class="link-button" href="./airfare.html">Open airfare tracker</a>
           </article>
-          <article class="transit-card">
+          <article class="transit-card logistics-card">
             <span class="badge">Hotels</span>
-            <h3>Seattle &amp; Portland hotel watch</h3>
-            <p>Direct-site hotel tracking for Seattle (Nov 1–4, cap $400) and Portland (Nov 4–9). Refundable-only logic with scheduled automation cadence.</p>
+            <h3>Hotel monitor</h3>
+            <p>Review current Seattle and Portland hotel watch logic, thresholds, and latest report output in the dedicated hotel page.</p>
             <a class="link-button" href="./hotels.html">Open hotel tracker</a>
-          </article>
-          <article class="transit-card">
-            <span class="badge">GitHub</span>
-            <h3>Alerts</h3>
-            <p>When the monitor detects changes, it opens a GitHub issue so updates can be reviewed before changing route structure or budget assumptions.</p>
-            <a class="link-button" href="https://github.com/limcarl83-maker/my_projects/issues" target="_blank" rel="noopener noreferrer">View issues</a>
-          </article>
-          <article class="transit-card">
-            <span class="badge">Deploy</span>
-            <h3>Workflow Runs</h3>
-            <p>Validation and itinerary monitoring run through GitHub Actions, and the live dashboard redeploys on every push to <code>main</code>.</p>
-            <a class="link-button" href="https://github.com/limcarl83-maker/my_projects/actions" target="_blank" rel="noopener noreferrer">View actions</a>
           </article>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Recheck hours, prices, ferry schedules, restaurant availability, and NHL schedule 30-45 days before travel.</p>
+      <p>Recheck hours, prices, flight status, ferry schedules, and restaurant availability 30-45 days before travel.</p>
     </footer>
 
-    <dialog id="editorDialog" class="editor-dialog">
-      <form id="editorForm" class="editor-form" method="dialog">
-        <div class="editor-form-head">
-          <div>
-            <p class="eyebrow">Itinerary editor</p>
-            <h2 id="editorHeading">Add custom stop</h2>
-          </div>
-          <button class="alternate-remove" type="button" id="closeEditor">Close</button>
-        </div>
-
-        <input type="hidden" id="editorMode" value="add">
-        <input type="hidden" id="editorTargetUid" value="">
-
-        <div class="editor-grid">
-          <label>
-            Day
-            <select id="editorDay" required></select>
-          </label>
-          <label>
-            Segment
-            <select id="editorSegment" required></select>
-          </label>
-          <label>
-            Place name
-            <input id="editorName" required>
-          </label>
-          <label>
-            Type
-            <select id="editorType">
-              <option value="food">Food</option>
-              <option value="coffee">Coffee</option>
-              <option value="cocktails">Cocktails</option>
-              <option value="sightseeing">Sightseeing</option>
-              <option value="shopping">Shopping</option>
-              <option value="transit">Transit</option>
-              <option value="hotel">Hotel</option>
-            </select>
-          </label>
-          <label>
-            Planned time
-            <input id="editorTime" placeholder="6:30 PM">
-          </label>
-          <label>
-            Leave by
-            <input id="editorLeaveTime" placeholder="6:05 PM">
-          </label>
-          <label>
-            Duration
-            <input id="editorDuration" placeholder="60 min">
-          </label>
-          <label>
-            Cost
-            <input id="editorCost" type="number" min="0" step="1" placeholder="18">
-          </label>
-          <label>
-            Neighborhood
-            <input id="editorNeighborhood" placeholder="Pearl District">
-          </label>
-          <label>
-            Best time
-            <input id="editorBestTime" placeholder="Early dinner">
-          </label>
-          <label class="editor-wide">
-            Known for
-            <input id="editorKnownFor" placeholder="Why this place is worth going to">
-          </label>
-          <label class="editor-wide">
-            Notes
-            <textarea id="editorNotes" rows="3" placeholder="Extra route, reservation, or pacing notes"></textarea>
-          </label>
-          <label>
-            Website
-            <input id="editorWebsite" type="url" placeholder="https://">
-          </label>
-          <label>
-            Menu
-            <input id="editorMenu" type="url" placeholder="https://">
-          </label>
-          <label class="editor-wide">
-            Route link
-            <input id="editorRoute" type="url" placeholder="https://maps.google.com/...">
-          </label>
-        </div>
-
-        <div class="editor-actions footer-actions">
-          <button class="button" type="button" id="cancelEditor">Cancel</button>
-          <button class="button primary" type="submit" id="saveEditor">Save change</button>
-        </div>
-      </form>
-    </dialog>
-
-    <script src="../../data/trip-data.js?v=2026-06-28-flights-cleanup"></script>
+    <script src="../../data/trip-data.js?v=2026-06-28-editorial-redesign"></script>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="../js/app.js?v=2026-06-28-flights-cleanup"></script>
+    <script src="../js/app.js?v=2026-06-28-editorial-redesign"></script>
   </body>
 </html>

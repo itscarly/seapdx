@@ -11,6 +11,7 @@ The main layers are:
 - hotel watchlist + metadata in `data/hotel-monitor-source.json` (all hotels, prices, amenities)
 - hotel monitor report in `data/hotel-monitor-report.json` (generated from source — run `npm run build:hotels`)
 - HTML structure in `dashboards/html/index.html`
+- logistics hub HTML in `dashboards/html/logistics.html`
 - airfare monitor HTML in `dashboards/html/airfare.html` (reads `airfare-watch.json` plus `research/airfare/latest-summary.json`)
 - hotel monitor HTML in `dashboards/html/hotels.html` (reads hotel-monitor-source.json directly, renders as table)
 - presentation in `dashboards/css/styles.css`
@@ -25,6 +26,7 @@ The main layers are:
 - Notes live in `notes/` and are meant for Obsidian plus agent maintenance.
 - The airfare dashboard reads `data/airfare-watch.json` for source observations and `research/airfare/latest-summary.json` for rankings. Run `npm run monitor:airfare` after airfare-watch edits so the summary JSON and markdown report stay aligned.
 - The hotel dashboard reads directly from `data/hotel-monitor-source.json`. Hotel prices are scraped via Playwright (`npm run scrape:hotels`). Run `npm run build:hotels` after scraping to regenerate the report JSON.
+- The homepage and logistics hub now share `dashboards/js/app.js`, using `data-page` mode switches in the HTML body to keep the public itinerary surface and the utility hub on one client-side code path.
 - Both dashboards render entirely client-side from JSON — no build step needed to view them, just open the HTML files or run `npm run serve`.
 
 ## Documentation safety rule

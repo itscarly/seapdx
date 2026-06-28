@@ -15,6 +15,14 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ## Current active work
 
+### Homepage redesign follow-up
+
+- Main homepage redesign is now complete.
+- Next cleanup item is data integrity, not layout:
+  - reconcile `data/trip-data.js` day totals with `budget.projectedTotal`
+  - reconcile the coffee-bean category amount with the stated $60 cap
+  - rerun `npm run validate` once those budget decisions are made
+
 ### Google Calendar detail audit and enrichment
 
 - Review the shared Nov 1-9 Google Calendar activity by activity.

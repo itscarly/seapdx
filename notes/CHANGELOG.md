@@ -4,6 +4,15 @@
 
 This is the concise project change record.
 
+## 2026-06-28 — Editorial homepage redesign + logistics hub split
+
+- Rebuilt `dashboards/html/index.html` into a public-facing trip command center with a stronger hero, slimmer summary strip, cleaner day cards, simplified homepage flights, tighter guides, and compact maps/transit support.
+- Added `dashboards/html/logistics.html` as the new secondary utility page for deep flight detail, future booked flights, monitoring links, verification watches, and source references.
+- Refactored `dashboards/js/app.js` so the homepage and logistics hub share one renderer with page-mode branching instead of separate duplicated logic.
+- Activated inline stop-detail panels on the homepage and removed the public itinerary-editing surface from the visible experience.
+- Added scoped editorial design overrides in `dashboards/css/styles.css` so the redesign does not break the separate tracker pages.
+- Verification result: browser checks passed for homepage, stop-detail interaction, and logistics hub. `npm run validate` still fails because of preexisting `data/trip-data.js` budget inconsistencies, not because of the redesign code.
+
 ## 2026-05-30 — Happy hour optimization + venue additions + closure fixes
 
 Researched 14 new venue candidates; added 10 to open itinerary slots without displacing named anchors.

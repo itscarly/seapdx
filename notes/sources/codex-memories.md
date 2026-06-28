@@ -1,6 +1,6 @@
 ---
 source: codex-memories
-last_verified: 2026-06-27T17:56:58.365Z
+last_verified: 2026-06-28T18:02:18.780Z
 status: active
 confidence: high
 next_action: Use this index for session startup context.
@@ -21,9 +21,9 @@ Session-start daily digest + rerun after meaningful project changes.
 - `/Users/kicker/.codex/memories`
 
 ## Top-priority changes
-- /Users/kicker/.codex/memories/memory_summary.md (updated 2026-06-27T17:56:58.365Z)
-- /Users/kicker/.codex/memories/MEMORY.md (updated 2026-06-27T17:56:58.021Z)
-- /Users/kicker/.codex/memories/raw_memories.md (updated 2026-06-27T17:56:18.606Z)
+- /Users/kicker/.codex/memories/memory_summary.md (updated 2026-06-28T18:02:18.780Z)
+- /Users/kicker/.codex/memories/MEMORY.md (updated 2026-06-28T18:01:44.954Z)
+- /Users/kicker/.codex/memories/raw_memories.md (updated 2026-06-28T18:00:56.128Z)
 
 ## Blockers
 - none

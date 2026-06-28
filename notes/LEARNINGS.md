@@ -94,6 +94,11 @@
 
 - When a thread gets too long, the clean move is to write a short handoff summary and continue in a new chat instead of dragging stale context forward.
 
+### Public itinerary pages work better when utility content is split out early
+
+- The redesign was cleaner once the homepage stopped trying to carry public itinerary content, source references, automation links, future bookings, and monitoring detail at equal weight.
+- For this project, separate the reader-facing trip story from the operational maintenance surface instead of solving crowding only with CSS compression.
+
 ### Screenshots should be the exception, not the default
 
 - For most work, text descriptions, file paths, logs, and direct page details are cheaper and clearer than screenshots.

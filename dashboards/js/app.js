@@ -2,6 +2,7 @@ const STORAGE_KEY = "trip-dashboard-custom-data-v2";
 const FALLBACK_USD_TO_PHP_RATE = 60.4459704;
 const FOREIGN_TRANSACTION_FEE_RATE = 0.0185;
 const FX_REFRESH_MS = 60 * 60 * 1000;
+const pageMode = document.body?.dataset?.page || "home";
 
 let usdToPhpRate = FALLBACK_USD_TO_PHP_RATE;
 let effectiveUsdToPhpRate = usdToPhpRate * (1 + FOREIGN_TRANSACTION_FEE_RATE);
@@ -187,8 +188,6 @@ let data = cloneData(baseData);
 let activeAlternates = new Set();
 let currentFilter = "all";
 let currentGuide = "reservations";
-
-hydrateFromStorage();
 recalculateDayTotalsAndBudget();
 
 const iconMap = {
@@ -232,19 +231,34 @@ const editorEls = {
   cancel: document.getElementById("cancelEditor")
 };
 
-initHero();
-renderVisualStrip();
-renderSummary();
-renderItinerary();
-initFilters();
-renderBudget();
-renderGuide();
-initTabs();
-renderTransitAndSources();
-bindEditorChrome();
-initReveal();
-refreshExchangeRate();
-window.setInterval(refreshExchangeRate, FX_REFRESH_MS);
+if (pageMode === "home") {
+  initHomePage();
+}
+
+if (pageMode === "logistics") {
+  initLogisticsPage();
+}
+
+function initHomePage() {
+  initHero();
+  renderHeroFacts();
+  renderSummary();
+  renderItinerary();
+  initFilters();
+  renderBudget();
+  renderGuide();
+  initTabs();
+  renderHomeSupport();
+  initReveal();
+  refreshExchangeRate();
+  window.setInterval(refreshExchangeRate, FX_REFRESH_MS);
+}
+
+function initLogisticsPage() {
+  renderLogisticsFlightBoard();
+  renderVerificationAndSources();
+  initReveal();
+}
 
 function cloneData(value) {
   if (typeof structuredClone === "function") {
@@ -427,12 +441,42 @@ function iconRoute() {
 function initHero() {
   const total = data.budget.projectedTotal;
   const remaining = data.budget.cap - total;
-  document.getElementById("heroSpend").textContent = money(total);
-  document.getElementById("heroRemaining").textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
-  document.getElementById("budgetHeading").textContent = `Budget snapshot: ${money(data.budget.cap)} target, ${money(data.budget.absoluteCeiling || data.budget.cap)} ceiling`;
-  document.getElementById("heroMeter").style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
-  document.getElementById("fxRateDisplay").textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
-  document.getElementById("fxMeta").textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
+  const spendEl = document.getElementById("heroSpend");
+  const remainingEl = document.getElementById("heroRemaining");
+  const budgetHeadingEl = document.getElementById("budgetHeading");
+  const meterEl = document.getElementById("heroMeter");
+  const fxRateEl = document.getElementById("fxRateDisplay");
+  const fxMetaEl = document.getElementById("fxMeta");
+  const seattleBaseEl = document.getElementById("heroSeattleBase");
+  const portlandBaseEl = document.getElementById("heroPortlandBase");
+  const railWindowEl = document.getElementById("heroRailWindow");
+  const verifiedEl = document.getElementById("heroVerified");
+
+  if (spendEl) spendEl.textContent = money(total);
+  if (remainingEl) remainingEl.textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
+  if (budgetHeadingEl) budgetHeadingEl.textContent = `Budget snapshot: ${money(data.budget.cap)} target, ${money(data.budget.absoluteCeiling || data.budget.cap)} ceiling`;
+  if (meterEl) meterEl.style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
+  if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
+  if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
+  if (seattleBaseEl) seattleBaseEl.textContent = data.meta.travelerBase.seattle;
+  if (portlandBaseEl) portlandBaseEl.textContent = data.meta.travelerBase.portland;
+  if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
+  if (verifiedEl) verifiedEl.textContent = data.meta.verifiedOn;
+}
+
+function renderHeroFacts() {
+  const factsEl = document.getElementById("heroFacts");
+  if (!factsEl) return;
+  const seattleDays = data.itinerary.filter((day) => day.city.includes("Seattle")).length;
+  const portlandDays = data.itinerary.filter((day) => day.city.includes("Portland")).length;
+  const futureJourneys = getFutureFlightJourneys().length;
+  const lines = [
+    `${data.itinerary.length} trip days with one continuous Seattle-to-Portland flow`,
+    `${seattleDays} Seattle days, ${portlandDays} Portland or transfer days`,
+    `${moneyPrecise(data.flights?.airfareTotal || 0)} airfare kept separate from activity spend`,
+    `${futureJourneys ? `${futureJourneys} later booked flight lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
+  ];
+  factsEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join("");
 }
 
 function renderVisualStrip() {
@@ -534,21 +578,22 @@ function stopMatches(stop, filter, day) {
 }
 
 function renderSummary() {
+  const summaryEl = document.getElementById("summaryGrid");
+  if (!summaryEl) return;
   const days = data.itinerary.length;
   const seattleSpend = data.itinerary.filter((day) => day.city.includes("Seattle")).reduce((sum, day) => sum + day.dayTotal, 0);
   const portlandSpend = data.itinerary.filter((day) => day.city.includes("Portland")).reduce((sum, day) => sum + day.dayTotal, 0);
   const cards = [
-    ["Trip days", days],
-    ["Projected total", money(data.budget.projectedTotal)],
-    ["Airfare (excluded)", moneyPrecise(data.flights?.airfareTotal || 0)],
-    ["Target cap", money(data.budget.cap)],
-    ["Seattle/intercity", money(seattleSpend)],
-    ["Portland/departure", money(portlandSpend)]
+    ["Trip days", String(days), "A compact nine-day sequence instead of a sprawling planning dump."],
+    ["Projected spend", money(data.budget.projectedTotal), "Activity costs with the current realism buffer already folded in."],
+    ["Seattle + transfer", money(seattleSpend), "Includes Seattle routing and the rail transition into Portland."],
+    ["Portland + departure", money(portlandSpend), "Covers Portland pacing through the final airport-safe departure day."]
   ];
-  document.getElementById("summaryGrid").innerHTML = cards.map(([label, value], index) => `
-    <article class="summary-card" data-reveal style="transition-delay:${index * 40}ms">
+  summaryEl.innerHTML = cards.map(([label, value, note], index) => `
+    <article class="summary-card summary-card--editorial" data-reveal style="transition-delay:${index * 50}ms">
       <span>${label}</span>
       <strong>${value}</strong>
+      <p>${note}</p>
     </article>
   `).join("");
 }
@@ -586,20 +631,27 @@ function renderFlightLeg(leg) {
   `;
 }
 
-function renderFlightJourney(journey) {
+function renderFlightJourney(journey, options = {}) {
+  const conciseStatus = journey.statusLabel.split(";")[0];
+  const detailCopy = options.detailed ? journey.alertCopy : journey.visibilityNote;
+  const leaveBy = journey.airportLeaveBy ? `<span class="flight-status-pill">${journey.airportLeaveBy}</span>` : "";
   return `
-    <article class="flight-journey" data-reveal>
+    <article class="flight-journey ${options.detailed ? "flight-journey--detailed" : "flight-journey--compact"}" data-reveal>
       <div class="flight-journey-head">
         <div>
           <span class="badge">${journey.kind}</span>
           <h3>${journey.title}</h3>
-          <p>${journey.dateLabel}. ${journey.visibilityNote}</p>
+          <p>${journey.dateLabel}</p>
         </div>
         <span class="flight-airfare">${journey.ticketCost != null ? moneyPrecise(journey.ticketCost) : "Cost not shown"}</span>
       </div>
-      <div class="flight-alert-banner">
-        <strong>${journey.statusLabel}</strong>
-        <span>${journey.alertCopy}</span>
+      <div class="flight-status-row">
+        <span class="flight-status-pill flight-status-pill--strong">${conciseStatus}</span>
+        ${leaveBy}
+      </div>
+      <div class="flight-story">
+        <p>${detailCopy}</p>
+        ${options.detailed ? `<p>${journey.alertCopy}</p>` : ""}
       </div>
       <div class="flight-legs">
         ${journey.legs.map((leg) => renderFlightLeg(leg)).join("")}
@@ -612,20 +664,21 @@ function renderFlightJourney(journey) {
   `;
 }
 
-function renderFlights() {
-  const board = document.getElementById("flightBoard");
-  const futureBoard = document.getElementById("futureFlightBoard");
-  const mainJourneys = (data.flights?.journeys || []).filter((journey) => journey.tripDayId);
-  const futureJourneys = getFutureFlightJourneys();
-  const monitor = data.flightMonitor || {};
+function renderFlightShell(targetId, options = {}) {
+  const board = document.getElementById(targetId);
+  if (!board) return;
+  const includeFuture = Boolean(options.includeFuture);
+  const journeys = includeFuture ? (data.flights?.journeys || []) : (data.flights?.journeys || []).filter((journey) => journey.tripDayId);
 
   board.innerHTML = `
     <section class="flight-shell" data-reveal>
       <div class="flight-shell-head">
         <div>
-          <p class="eyebrow">Booked flights</p>
-          <h2>Flight timing and airport buffers</h2>
-          <p class="flight-shell-copy">Airfare stays outside the $800 trip budget, but the flight board is visible here so airport timing, layovers, and monitoring are all easy to scan.</p>
+          <p class="eyebrow">${includeFuture ? "Flight visibility" : "Booked flights"}</p>
+          <h2>${includeFuture ? "Detailed route view and later booking context" : "Flight timing and airport buffers"}</h2>
+          <p class="flight-shell-copy">${includeFuture
+            ? "This utility view keeps the deeper route context, the future February booking, and the more operational copy that no longer belongs on the homepage."
+            : "Airfare stays outside the activity budget, but the critical route timing remains visible here so airport buffers and major risks are easy to scan."}</p>
         </div>
         <article class="budget-summary-card airfare">
           <span class="budget-kicker">Airfare visibility</span>
@@ -636,59 +689,22 @@ function renderFlights() {
         </article>
       </div>
       <div class="flight-journeys">
-        ${mainJourneys.map((journey) => renderFlightJourney(journey)).join("")}
+        ${journeys.map((journey) => renderFlightJourney(journey, { detailed: includeFuture })).join("")}
       </div>
     </section>
   `;
+}
 
-  futureBoard.innerHTML = futureJourneys.length ? `
-    <section class="flight-shell future-flight-shell" data-reveal>
-      <div class="flight-shell-head">
-        <div>
-          <p class="eyebrow">Additional booking</p>
-          <h2>Future booked flight kept for visibility</h2>
-          <p class="flight-shell-copy">This journey sits outside the November 1-9, 2026 trip window, but it is included here because it appeared in your screenshots and you wanted every booked flight visible.</p>
-        </div>
-      </div>
-      <div class="flight-journeys">
-        ${futureJourneys.map((journey) => renderFlightJourney(journey)).join("")}
-      </div>
-    </section>
-  ` : "";
+function renderFlights() {
+  renderFlightShell("flightBoard");
+}
+
+function renderLogisticsFlightBoard() {
+  renderFlightShell("logisticsFlightBoard", { includeFuture: true });
 }
 
 function renderDayFlightSummary(day) {
-  const journeys = getFlightJourneysForDay(day.id);
-  if (!journeys.length) return "";
-  return `
-    <section class="segment">
-      <div class="segment-title">${iconTrain()}<span>Flight plan for this day</span></div>
-      ${journeys.map((journey) => `
-        <article class="stop is-alternate" data-type="flight" data-reveal>
-          <div class="stop-top">
-            <div>
-              <span class="badge">flight</span>
-              <h3>${journey.title}</h3>
-              <p>${journey.dateLabel}</p>
-            </div>
-            <strong>${journey.ticketCost != null ? moneyPrecise(journey.ticketCost) : "Cost not shown"}</strong>
-          </div>
-          <p>${journey.visibilityNote}</p>
-          <div class="details">
-            <div class="detail"><b>Airport leave-by</b>${journey.airportLeaveBy}</div>
-            <div class="detail"><b>Status watch</b>${journey.statusLabel}</div>
-            <div class="detail"><b>Status monitoring</b>Real-time checks available via airline/airport board links above.</div>
-            <div class="detail"><b>Budget treatment</b>Airfare is visible only and excluded from the $800 trip target.</div>
-          </div>
-          <div class="card-actions">
-            ${journey.statusSource ? `<a class="link-button" href="${journey.statusSource}" target="_blank" rel="noreferrer">Flight status</a>` : ""}
-            ${journey.airportSource ? `<a class="link-button" href="${journey.airportSource}" target="_blank" rel="noreferrer">Airport board</a>` : ""}
-            <a class="link-button" href="#flightBoard">Open full flight details</a>
-          </div>
-        </article>
-      `).join("")}
-    </section>
-  `;
+  return "";
 }
 
 function timeStringToMinutes(timeStr) {
@@ -751,14 +767,13 @@ function renderStop(stop, options = {}) {
   if (options.isChip) {
     const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
     return `
-      <article class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}">
+      <article class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
         <div class="chip-timing">${stop.time || ""}</div>
         <div class="chip-body">
           <div class="chip-title">${stop.name}</div>
           <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${costValue != null ? ` · ${money(costValue)}` : ""}</div>
           ${shortNote ? `<div class="chip-note">${shortNote}</div>` : ""}
         </div>
-        <button class="chip-kebab focus-ring" type="button" data-kebab-for="${escapeAttribute(stop._uid)}" aria-label="Actions for ${escapeAttribute(stop.name)}">⋮</button>
       </article>
     `;
   }
@@ -798,7 +813,7 @@ function renderStop(stop, options = {}) {
       <div class="details">
         ${details.map(([label, value]) => `<div class="detail"><b>${label}</b>${value}</div>`).join("")}
       </div>
-      <div class="card-actions">${renderEditorActions(stop, options)}</div>
+      ${renderEditorActions(stop, options) ? `<div class="card-actions">${renderEditorActions(stop, options)}</div>` : ""}
     </article>
   `;
 }
@@ -818,15 +833,14 @@ function renderAlternates(day, filter) {
 function renderItinerary(filter = "all") {
   currentFilter = filter;
   const daysEl = document.getElementById("days");
+  if (!daysEl) return;
   const dayHtml = data.itinerary.map((day, index) => {
-    const visual = getDayVisual(day.id);
     const allEvents = flattenDayEvents(day);
     const visibleEvents = allEvents.filter((stop) => stopMatches(stop, filter, day));
     const hotelBase = getHotelBase(day);
-    const alternates = renderAlternates(day, filter);
-    const flightSummary = renderDayFlightSummary(day);
+    const dayFlights = getFlightJourneysForDay(day.id);
 
-    if (!visibleEvents.length && !getDayAlternates(day).length && !flightSummary) return "";
+    if (!visibleEvents.length) return "";
 
     const timelineHtml = visibleEvents.map((stop, i) => {
       const prevSegment = i > 0 ? visibleEvents[i - 1]._segmentLabel : null;
@@ -834,7 +848,7 @@ function renderItinerary(filter = "all") {
       const divider = prevSegment && prevSegment !== currentSegment
         ? `<div class="timeline-divider">${currentSegment} ▼</div>`
         : "";
-      return divider + renderStop(stop, { isChip: true });
+      return divider + renderStop(stop, { isChip: true, dayId: day.id });
     }).join("");
 
     const stopCount = visibleEvents.length;
@@ -842,9 +856,6 @@ function renderItinerary(filter = "all") {
     return `
       <article class="day-card" data-reveal style="transition-delay:${Math.min(index * 40, 220)}ms">
         <header class="day-head focus-ring" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle ${day.date}">
-          <div class="day-visual image-frame">
-            <img src="${visual.image}" alt="${visual.name}" loading="lazy" decoding="async" onerror="handleImageError(this)">
-          </div>
           <div>
             <span class="badge">${day.city}</span>
             <h3>${day.date}: ${day.title}</h3>
@@ -852,14 +863,16 @@ function renderItinerary(filter = "all") {
             <div class="day-meta">
               ${hotelBase ? `<span class="badge">${iconHotel()}<span>${hotelBase}</span></span>` : ""}
               <span class="badge">${iconClock()}<span>${stopCount} stops</span></span>
+              ${dayFlights.length ? `<span class="badge">${iconTrain()}<span>${dayFlights[0].kind}</span></span>` : ""}
             </div>
-            <span class="day-toggle">Open timing and route details</span>
+            <span class="day-toggle">Open route details</span>
           </div>
-          <div class="day-total">${money(day.dayTotal)}<br><span class="badge">daily estimate</span></div>
+          <div class="day-total">${money(day.dayTotal)}<span class="day-total-note">daily estimate</span></div>
         </header>
-        <div class="day-timeline">${flightSummary}${timelineHtml}</div>
+        <div class="day-body">
+          <div class="day-timeline">${timelineHtml}</div>
+        </div>
         <div class="day-detail-panel" data-detail-for="${escapeAttribute(day.id)}" hidden></div>
-        ${alternates}
       </article>
     `;
   }).join("");
@@ -883,8 +896,18 @@ function renderItinerary(filter = "all") {
 
 function toggleDay(head) {
   const card = head.closest(".day-card");
-  card.classList.toggle("open");
-  head.setAttribute("aria-expanded", card.classList.contains("open") ? "true" : "false");
+  const nextState = !card.classList.contains("open");
+  card.classList.toggle("open", nextState);
+  head.setAttribute("aria-expanded", nextState ? "true" : "false");
+  if (!nextState) {
+    const panel = card.querySelector(".day-detail-panel");
+    if (panel) {
+      panel.innerHTML = "";
+      panel.setAttribute("hidden", "");
+      delete panel.dataset.selectedStop;
+    }
+    card.querySelectorAll(".stop--chip").forEach((chip) => chip.classList.remove("stop--selected"));
+  }
 }
 
 function initFilters() {
@@ -937,7 +960,7 @@ function renderBudget() {
     </article>
   `;
 
-  const colors = ["#fc5c33", "#0f766e", "#1749db", "#f4b231", "#7c3aed", "#0284c7", "#64748b"];
+  const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68"];
   document.getElementById("budgetList").innerHTML = data.budget.categories.map((category, index) => {
     const share = (category.amount / cap) * 100;
     const normalized = Math.min(100, Math.max(6, share));
@@ -1051,18 +1074,30 @@ function initTabs() {
   });
 }
 
-function renderTransitAndSources() {
+function renderHomeSupport() {
   renderTripAtlas();
+  renderTransitCards();
+}
+
+function renderTransitCards() {
+  const transitCardsEl = document.getElementById("transitCards");
+  if (!transitCardsEl) return;
+  transitCardsEl.innerHTML = data.transit.map((item, index) => `
+    <article class="transit-card" data-reveal style="transition-delay:${index * 25}ms">
+      <span class="badge">${item.city}</span>
+      <h3>${item.system}</h3>
+      <p><b>Fare:</b> ${item.fare}</p>
+      <p>${item.recommendation}</p>
+      <a class="link-button" href="${item.link}" target="_blank" rel="noreferrer">Transit source</a>
+    </article>
+  `).join("");
+}
+
+function renderVerificationAndSources() {
   const verificationSummary = data.verificationSummary || {};
   const watches = verificationSummary.watches || [];
-  const verificationHeading = document.getElementById("verificationHeading");
   const verificationCopy = document.getElementById("verificationCopy");
   const verificationWatchSummary = document.getElementById("verificationWatchSummary");
-
-  if (verificationHeading) {
-    const overallLabel = verificationSummary.overallLabel || "Last verified";
-    verificationHeading.textContent = `${overallLabel}: ${data.meta.verifiedOn}`;
-  }
 
   if (verificationCopy) {
     verificationCopy.textContent = watches.length
@@ -1086,18 +1121,9 @@ function renderTransitAndSources() {
       </article>
     `).join("");
   }
-
-  document.getElementById("transitCards").innerHTML = data.transit.map((item, index) => `
-    <article class="transit-card" data-reveal style="transition-delay:${index * 25}ms">
-      <span class="badge">${item.city}</span>
-      <h3>${item.system}</h3>
-      <p><b>Fare:</b> ${item.fare}</p>
-      <p>${item.recommendation}</p>
-      <a class="link-button" href="${item.link}" target="_blank" rel="noreferrer">Transit source</a>
-    </article>
-  `).join("");
-
-  document.getElementById("sourcesList").innerHTML = data.sources.map((source, index) => `
+  const sourcesEl = document.getElementById("sourcesList");
+  if (!sourcesEl) return;
+  sourcesEl.innerHTML = data.sources.map((source, index) => `
     <article class="source-card" data-reveal style="transition-delay:${Math.min(index * 15, 180)}ms">
       <h3>${source.label}</h3>
       <a href="${source.url}" target="_blank" rel="noreferrer">${source.url}</a>
@@ -1324,37 +1350,53 @@ function initReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
-function renderDetailPanel(stop, day) {
+function getStopExpectation(stop) {
   const type = stop.alternateType || stop.type;
-  const icon = iconMap[type] || iconMap.alternate;
-  const badgeLabel = stop.anchorType ? stop.anchorType.replace(/-/g, " ") : type;
+  if (type === "meal" || type === "food") return "Expect this to be one of the anchor food stops for the day, so give it enough time to enjoy the area around it.";
+  if (type === "coffee") return "Use this as a pacing stop, not just a caffeine stop. It is part of how the day resets between longer walks or meal blocks.";
+  if (type === "cocktails") return "Treat this like a vibe stop with some budget flexibility, not just a quick drink before rushing to the next item.";
+  if (type === "transit") return "This is a structure stop. Protect the timing here because later parts of the day depend on it.";
+  if (type === "rest") return "This pause exists to keep the route realistic. Skipping it may make the rest of the day feel tighter than it looks on paper.";
+  if (type === "hotel") return "This is a route anchor for luggage, rest, and pacing decisions rather than a sightseeing stop.";
+  return "Expect this to be one of the moments that gives the day its shape, not just filler between bigger attractions.";
+}
+
+function renderDetailPanel(stop) {
+  const type = stop.alternateType || stop.type;
   const costValue = stop.cost;
+  const details = [
+    ["Neighborhood", stop.neighborhood],
+    ["Planned time", stop.time],
+    ["Leave by", stop.leaveTime],
+    ["Duration", stop.duration],
+    ["Best time", stop.bestTime],
+    ["Known for", stop.knownFor],
+    ["Reservation", stop.reservation],
+    ["Payment", stop.payment],
+    ["Happy hour", stop.happyHour],
+    ["Tip guidance", stop.tipGuidance],
+    ["Social fit", stop.socialFit],
+    ["Safety note", stop.safetyNote]
+  ].filter(([, value]) => value);
 
   const linksHtml = [
     stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
     stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
     stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : ""
   ].filter(Boolean).join("");
-
-  const actionsHtml = [
-    `<button class="stop-action focus-ring" type="button" data-editor-action="replace" data-stop-uid="${escapeAttribute(stop._uid)}">Replace stop</button>`,
-    `<button class="stop-action focus-ring" type="button" data-editor-action="insert-after" data-stop-uid="${escapeAttribute(stop._uid)}">Add after</button>`,
-    `<button class="stop-action focus-ring" type="button" data-editor-action="remove" data-stop-uid="${escapeAttribute(stop._uid)}">Remove</button>`
-  ].filter(Boolean).join("");
-
-  const mapContainerId = `chip-map-${stop._uid.replace(/\W/g, '_')}`;
+  const mapContainerId = `chip-map-${stop._uid.replace(/\W/g, "_")}`;
   const hasCoordinates = stop.name && STOP_COORDINATES[stop.name];
 
   return `
     <div class="stop-detail">
       <div class="stop-detail-header">
         <div class="stop-detail-title">
+          <span class="badge">${labelize(type)}</span>
           <h4>${stop.name}</h4>
-          <div class="stop-detail-location">${stop.neighborhood || ""}</div>
+          <div class="stop-detail-location">${stop.neighborhood || "Location kept flexible within the route."}</div>
         </div>
         ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
       </div>
-      ${hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" style="height: 200px; border-radius: 8px; margin-bottom: 12px; background: #f0f0f0;"></div>` : ""}
       ${stop.time || stop.duration || stop.leaveTime ? `
         <div class="stop-detail-timing">
           ${stop.time ? `<span>Planned: ${stop.time}</span>` : ""}
@@ -1362,37 +1404,31 @@ function renderDetailPanel(stop, day) {
           ${stop.leaveTime ? `<span>Leave by: ${stop.leaveTime}</span>` : ""}
         </div>
       ` : ""}
-      ${stop.notes ? `<div class="stop-detail-notes">${stop.notes}</div>` : ""}
+      <div class="stop-detail-notes">
+        <strong>What to expect</strong>
+        <p>${getStopExpectation(stop)}</p>
+        ${stop.notes ? `<p>${stop.notes}</p>` : ""}
+      </div>
+      ${details.length ? `
+        <div class="details details--stop">
+          ${details.map(([label, value]) => `<div class="detail"><b>${label}</b><span>${value}</span></div>`).join("")}
+        </div>
+      ` : ""}
+      ${hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" aria-label="Map for ${escapeAttribute(stop.name)}"></div>` : ""}
       ${linksHtml ? `<div class="stop-detail-links">${linksHtml}</div>` : ""}
-      ${actionsHtml ? `<div class="stop-detail-actions">${actionsHtml}</div>` : ""}
-      ${hasCoordinates && stop.route ? `<div style="text-align:center;margin-top:8px;"><a class="link-button" href="${stop.route}" target="_blank" rel="noopener" style="display:inline-block;">Get directions →</a></div>` : ""}
+      ${hasCoordinates && stop.route ? `<div class="stop-detail-actions"><a class="link-button" href="${stop.route}" target="_blank" rel="noopener">Get directions</a></div>` : ""}
     </div>
   `;
-
 }
 
 function bindStopActions() {
-  document.querySelectorAll("[data-editor-action]").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.stopPropagation();
-      const action = button.dataset.editorAction;
-      const uid = button.dataset.stopUid;
-      if (action === "remove") {
-        removeStop(uid);
-        return;
-      }
-      openEditor(action, { uid });
-    });
-  });
-
   document.querySelectorAll(".stop--chip").forEach((chip) => {
     chip.addEventListener("click", (event) => {
-      if (event.target.closest(".chip-kebab")) return;
       event.stopPropagation();
 
       const uid = chip.dataset.stopUid;
       const card = chip.closest(".day-card");
-      const dayId = card.querySelector("[data-detail-for]")?.dataset.detailFor;
+      const dayId = chip.dataset.dayId;
       const day = data.itinerary.find((d) => d.id === dayId);
 
       if (!day) return;
@@ -1402,45 +1438,42 @@ function bindStopActions() {
       if (!stop) return;
 
       const panel = card.querySelector(".day-detail-panel");
-      const isAlreadySelected = panel.hasAttribute("data-selected-stop") && panel.getAttribute("data-selected-stop") === uid;
+      const isAlreadySelected = panel.dataset.selectedStop === uid;
 
       if (isAlreadySelected) {
         chip.classList.remove("stop--selected");
+        delete panel.dataset.selectedStop;
         panel.innerHTML = "";
         panel.setAttribute("hidden", "");
       } else {
         card.querySelectorAll(".stop--chip").forEach((c) => c.classList.remove("stop--selected"));
         chip.classList.add("stop--selected");
+        panel.dataset.selectedStop = uid;
         panel.removeAttribute("hidden");
-        panel.innerHTML = renderDetailPanel(stop, day);
-        bindStopActions();
+        panel.innerHTML = renderDetailPanel(stop);
+        initDetailMaps(panel);
       }
     });
-  });
-
-  document.querySelectorAll(".chip-kebab").forEach((kebab) => {
-    kebab.addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
-  });
-
-  // Initialize Leaflet maps for any stop detail panels
-  document.querySelectorAll("[id^='chip-map-']").forEach((container) => {
-    const uid = container.id.replace('chip-map-', '').replace(/_/g, ' ');
-    const stopName = Array.from(document.querySelectorAll('.stop-detail-title h4')).find(h4 => {
-      const panel = h4.closest('.stop-detail');
-      return panel && panel.parentElement?.id === container.id.replace('chip-map-', '');
-    })?.textContent;
-    if (stopName && STOP_COORDINATES[stopName]) initChipMap(stopName, container);
   });
 }
 
 function initChipMap(stopName, container) {
+  if (!window.L) return;
   const coord = STOP_COORDINATES[stopName];
   if (!coord) return;
-  const m = L.map(container, {attributionControl: false}).setView([coord.lat, coord.lng], 14);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(m);
+  if (container.dataset.mapReady === "true") return;
+  const m = L.map(container, { attributionControl: false, scrollWheelZoom: false }).setView([coord.lat, coord.lng], 14);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }).addTo(m);
   L.marker([coord.lat, coord.lng]).addTo(m).bindPopup(stopName);
+  container.dataset.mapReady = "true";
+}
+
+function initDetailMaps(scope = document) {
+  scope.querySelectorAll("[id^='chip-map-']").forEach((container) => {
+    const detail = container.closest(".stop-detail");
+    const stopName = detail?.querySelector(".stop-detail-title h4")?.textContent?.trim();
+    if (stopName) initChipMap(stopName, container);
+  });
 }
 
 function bindExclusionActions() {
@@ -1685,12 +1718,12 @@ function persistAndRender() {
 
 function rerenderApp() {
   initHero();
+  renderHeroFacts();
   renderSummary();
   renderItinerary(currentFilter);
   renderBudget();
   renderGuide(currentGuide);
-  renderTransitAndSources();
-  populateDayOptions(editorEls.day.value || data.itinerary[0]?.id);
+  renderHomeSupport();
 }
 
 function sanitizeStopForCompare(stop) {

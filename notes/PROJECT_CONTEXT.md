@@ -18,6 +18,7 @@ It is built to be:
 - Seattle hotel monitor source: `data/hotel-monitor-source.json`
 - Seattle hotel monitor report: `data/hotel-monitor-report.json`
 - Main page: `dashboards/html/index.html`
+- Logistics hub page: `dashboards/html/logistics.html`
 - Airfare intelligence page: `dashboards/html/airfare.html`
 - Hotel intelligence page: `dashboards/html/hotels.html`
 - Main styles: `dashboards/css/styles.css`
@@ -27,7 +28,16 @@ It is built to be:
 - Local preview: `npm run serve`
 - Fast verification: `npm run validate`
 
+## Homepage product direction
+
+- `dashboards/html/index.html` is now the public-facing trip command center.
+- The homepage prioritizes trip overview, day-by-day itinerary scanning, booked-flight visibility, guides, and route maps.
+- Utility-heavy content such as full source lists, monitoring links, and future booked flights should live in `dashboards/html/logistics.html` instead of competing for space on the homepage.
+
 ## Current next priority
+
+- **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
+- **Validation follow-up**: `npm run validate` is currently blocked by existing trip-data budget inconsistencies, not by the homepage redesign code. The active blockers are mismatched day totals vs `projectedTotal` and a coffee-bean category amount above the stated $60 cap.
 
 - **Seattle hotel base**: The active itinerary and shared Google Calendar are routed from The Boylston Hotel Capitol Hill for Nov 1-5. Boylston extra Nov 4-5 night still needs direct hotel confirmation. Keep Reside/Palihotel only as stale prior-booking context until cancellation status is reconciled.
 - **Seattle watchlist**: 4 hotels tracked (transitScore > 90 only). Low-transit hotels removed session 16.
