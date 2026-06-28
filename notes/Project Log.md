@@ -1,5 +1,45 @@
 # Project Log
 
+## 2026-06-28 (session 7: Booked flights cleanup + honest handoff to Codex)
+
+### PARTIAL: Incremental improvements, full redesign needed
+
+**Honest assessment:** Attempted incremental CSS tweaks instead of comprehensive redesign. Flight cards still have:
+- Awkward alert text wrapping
+- Weak font hierarchy
+- Inconsistent spacing
+- Alignment/balance issues
+
+**What was completed:**
+- ✅ Removed top-level "15-minute flight watch" banner
+- ✅ Hidden "Customize itinerary" editor section
+- ✅ Increased some font sizes (airfare, leg metadata)
+- ✅ Better padding on journey cards
+- ✅ Fixed JS cache busting version
+
+**What still needs work:**
+- ❌ Flight journey status/alert boxes have poor text wrapping
+- ❌ Journey titles don't stand out enough
+- ❌ Overall card polish/spacing not Apple-grade
+- ❌ Visual hierarchy weak between elements
+- ❌ Card alignment/balance needs work
+
+**Commits:**
+- 3caf78b: Booked flights redesign (flight watch removal)
+- 264293f: Fix JS version cache busting
+- a869138: Add comprehensive redesign brief for Codex
+
+**Handoff:** Created `BOOKED_FLIGHTS_REDESIGN_BRIEF.md` with:
+- Detailed issue list
+- Data structure reference
+- Recommended redesign approaches
+- Codebase file locations
+- User design requirements
+
+**Next:** Codex to take full redesign of booked flights section.
+
+---
+
 ## 2026-06-28 (session 6: Dashboard comprehensive redesign + GitHub Pages deployment)
 
 ### COMPLETE: Full dashboard redesign live in production
