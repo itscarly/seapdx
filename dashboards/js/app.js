@@ -617,7 +617,7 @@ function renderSummary() {
   const cards = [
     ["Confirmed booked cost", moneyPrecise(confirmedTotal), "Airfare and hotel costs already committed to the trip."],
     ["Planned local spend", money(plannedTripSpend), "Seattle and Portland activity, food, transport, and contingency planning."],
-    ["Planned personal buys", money(plannedPurchases), "Meta glasses and Valentino perfume added to the real savings target."],
+    ["Planned personal buys", money(plannedPurchases), "Meta Ray-Ban glasses and BLEU DE CHANEL are added to the real savings target."],
     ["All-in target", moneyPrecise(allInTarget), "The full amount to save for confirmed bookings plus planned spending."]
   ];
   summaryEl.innerHTML = cards.map(([label, value, note], index) => `
@@ -1058,7 +1058,7 @@ function renderTripCostSummary() {
     { name: "Transportation", amount: data.budget.categories.find((item) => item.name === "Transportation")?.amount || 0, note: "Transit, ferry, and the Amtrak segment that sits inside the local trip plan.", shareBase: allInTarget },
     { name: "Activities and admissions", amount: data.budget.categories.find((item) => item.name === "Entrance fees")?.amount || 0, note: "Paid attractions and admission-based itinerary stops.", shareBase: allInTarget },
     { name: "Shopping and keepsakes", amount: (data.budget.categories.find((item) => item.name === "Coffee beans")?.amount || 0) + (data.budget.categories.find((item) => item.name === "Souvenirs")?.amount || 0), note: "Coffee-bean buys, smoked salmon, mugs, magnets, and trip keepsakes.", shareBase: allInTarget },
-    { name: "Personal item purchases", amount: plannedPersonal, note: "Ray-Ban Meta glasses and Valentino perfume.", shareBase: allInTarget },
+    { name: "Personal item purchases", amount: plannedPersonal, note: "Meta Ray-Ban glasses and BLEU DE CHANEL.", shareBase: allInTarget },
     { name: "Contingency", amount: data.budget.categories.find((item) => item.name === "Contingency")?.amount || 0, note: "Buffer kept visible instead of hidden inside other spend.", shareBase: allInTarget }
   ];
 

@@ -30,6 +30,6 @@
 
 - Homepage redesign, logistics split, executive trip-cost summary, and calendar-detail sync are complete.
 - Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$871.98`.
-- Ray-Ban Meta glasses and Valentino perfume are included as planned purchases in the savings target.
+- Meta Ray-Ban glasses and BLEU DE CHANEL are included as planned purchases in the savings target.
 - The old airfare, hotel, and itinerary monitor stack is retired from the repo and public site.
 - The Kraken watch is the only remaining automation in scope.

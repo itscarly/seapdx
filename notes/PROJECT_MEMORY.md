@@ -71,7 +71,7 @@ Calendar files must match trip-data.js exactly:
 
 **Confirmed airfare total:** $1,256.83.
 **Confirmed hotel total:** $871.98.
-**Planned personal purchases:** Ray-Ban Meta glasses `$325`, Valentino perfume `$150`.
+**Planned personal purchases:** Meta Ray-Ban glasses `$409`, BLEU DE CHANEL `$173`.
 **Activity budget stays separate** from the all-in trip-cost summary.
 
 ## Validation Commands

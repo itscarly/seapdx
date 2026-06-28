@@ -103,16 +103,16 @@ window.TRIP_DATA = {
     },
     plannedPurchases: [
       {
-        name: "Ray-Ban Meta glasses",
+        name: "Meta Ray-Ban glasses",
         category: "Personal item / shopping",
-        amount: 325,
+        amount: 409,
         status: "planned",
-        note: "Planned follow-through after the Seattle Best Buy fit check."
+        note: "Meta Ray-Ban Gen 2 Wayfarer in matte black with polarized gradient graphite lenses."
       },
       {
-        name: "Valentino perfume",
+        name: "BLEU DE CHANEL Eau de Parfum 3.4 oz",
         category: "Personal item / shopping",
-        amount: 150,
+        amount: 173,
         status: "planned",
         note: "Planned personal purchase to include in the true savings target."
       }

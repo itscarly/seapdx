@@ -2046,3 +2046,33 @@ Remaining blocker:
 ### Follow-up
 
 - If the user wants full reciprocal parity on every live event, finish adding site backlinks to the remaining unchanged live calendar entries, not just the route-critical ones.
+
+## 2026-06-28 (session 11: planned purchase price refresh)
+
+### What changed
+
+- Updated the planned personal-purchase data in `data/trip-data.js` from the older placeholder values to the new user-provided prices:
+  - Meta Ray-Ban glasses: `$409`
+  - BLEU DE CHANEL Eau de Parfum 3.4 oz: `$173`
+- Updated `dashboards/js/app.js` so the executive spend board now names BLEU DE CHANEL instead of the older Valentino placeholder.
+- Reconciled the active task and memory notes so the current repo state points at the new `$582` planned-purchase total.
+
+### Verification
+
+- `npm run validate` passes.
+- Budget audit still resolves to `projected: 1072`, `target: 1200`, `ceiling: 1300`, `remaining: 128`.
+- Calendar export sync still completes and rebuilt 102 itinerary events.
+
+### Files touched
+
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `tasks/todo.md`
+- `notes/TASKS.md`
+- `notes/PROJECT_MEMORY.md`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
+
+### Follow-up
+
+- If the user swaps brands, sizes, or lens options again, update only `tripCosts.plannedPurchases` in `data/trip-data.js` first, then re-run validation so the board totals and notes stay aligned automatically.

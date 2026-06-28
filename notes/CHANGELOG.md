@@ -4,6 +4,15 @@
 
 This is the concise project change record.
 
+## 2026-06-28 — Planned purchase prices updated
+
+- Updated the planned personal-purchase block in `data/trip-data.js` to the new user-provided prices:
+  - Meta Ray-Ban glasses `$409`
+  - BLEU DE CHANEL Eau de Parfum 3.4 oz `$173`
+- Updated the homepage spend-summary copy in `dashboards/js/app.js` so the board wording matches the current purchases instead of the older Valentino reference.
+- Reconciled task and memory notes so the active repo state reflects the new `$582` planned-purchase total.
+- Verification result: `npm run validate` passes, including the budget audit and calendar-export sync.
+
 ## 2026-06-28 — Monitor-system removal + executive trip-cost summary
 
 - Removed the old airfare, hotel, and itinerary monitor system from the public site and from the active repo workflow.
@@ -14,8 +23,8 @@ This is the concise project change record.
 - Added canonical confirmed-cost and planned-purchase data to `data/trip-data.js`, including:
   - confirmed airfare `$1,256.83`
   - confirmed hotels `$871.98`
-  - Ray-Ban Meta glasses `$325`
-  - Valentino perfume `$150`
+  - Meta Ray-Ban glasses `$409`
+  - BLEU DE CHANEL Eau de Parfum 3.4 oz `$173`
 - Replaced the old future San Francisco routing with the paid Chicago routing under American Airlines confirmation `[redacted]`.
 - Simplified the logistics hub so it now keeps flight detail plus the Kraken-only watch instead of monitor clutter and source-reference sections.
 - Reconciled active notes, hooks, and Obsidian-facing maintenance files so the next session starts from the post-monitor repo state instead of the old tracker-era assumptions.

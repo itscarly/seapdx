@@ -14,7 +14,7 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 - Executive all-in spend summary is live and should stay aligned with:
   - confirmed airfare `$1,256.83`
   - confirmed hotels `$871.98`
-  - planned personal purchases for Ray-Ban Meta glasses and Valentino perfume
+  - planned personal purchases for Meta Ray-Ban glasses `$409` and BLEU DE CHANEL `$173`
   - local activity-budget totals derived from the itinerary
 - Shared-calendar-to-site alignment is in a good state for the current public route.
 - The old airfare, hotel, and itinerary monitor stack is retired.
