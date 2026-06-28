@@ -1346,6 +1346,9 @@ function renderDetailPanel(stop, day) {
     `<button class="stop-action focus-ring" type="button" data-editor-action="remove" data-stop-uid="${escapeAttribute(stop._uid)}">Remove</button>`
   ].filter(Boolean).join("");
 
+  const mapContainerId = `chip-map-${stop._uid.replace(/\W/g, '_')}`;
+  const hasCoordinates = stop.name && STOP_COORDINATES[stop.name];
+
   return `
     <div class="stop-detail">
       <div class="stop-detail-header">
@@ -1355,6 +1358,7 @@ function renderDetailPanel(stop, day) {
         </div>
         ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
       </div>
+      ${hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" style="height: 200px; border-radius: 8px; margin-bottom: 12px; background: #f0f0f0;"></div>` : ""}
       ${stop.time || stop.duration || stop.leaveTime ? `
         <div class="stop-detail-timing">
           ${stop.time ? `<span>Planned: ${stop.time}</span>` : ""}
@@ -1365,8 +1369,10 @@ function renderDetailPanel(stop, day) {
       ${stop.notes ? `<div class="stop-detail-notes">${stop.notes}</div>` : ""}
       ${linksHtml ? `<div class="stop-detail-links">${linksHtml}</div>` : ""}
       ${actionsHtml ? `<div class="stop-detail-actions">${actionsHtml}</div>` : ""}
+      ${hasCoordinates && stop.route ? `<div style="text-align:center;margin-top:8px;"><a class="link-button" href="${stop.route}" target="_blank" rel="noopener" style="display:inline-block;">Get directions →</a></div>` : ""}
     </div>
   `;
+
 }
 
 function bindStopActions() {
@@ -1421,6 +1427,24 @@ function bindStopActions() {
       event.stopPropagation();
     });
   });
+
+  // Initialize Leaflet maps for any stop detail panels
+  document.querySelectorAll("[id^='chip-map-']").forEach((container) => {
+    const uid = container.id.replace('chip-map-', '').replace(/_/g, ' ');
+    const stopName = Array.from(document.querySelectorAll('.stop-detail-title h4')).find(h4 => {
+      const panel = h4.closest('.stop-detail');
+      return panel && panel.parentElement?.id === container.id.replace('chip-map-', '');
+    })?.textContent;
+    if (stopName && STOP_COORDINATES[stopName]) initChipMap(stopName, container);
+  });
+}
+
+function initChipMap(stopName, container) {
+  const coord = STOP_COORDINATES[stopName];
+  if (!coord) return;
+  const m = L.map(container, {attributionControl: false}).setView([coord.lat, coord.lng], 14);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19}).addTo(m);
+  L.marker([coord.lat, coord.lng]).addTo(m).bindPopup(stopName);
 }
 
 function bindExclusionActions() {

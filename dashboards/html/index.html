@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f4f6f3">
     <title>Seattle + Portland Travel Dashboard</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css?v=2026-06-27-final-itinerary">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-06-28-redesign">
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -88,14 +88,14 @@
           </div>
         </div>
         <p class="editor-status" id="editorStatus" aria-live="polite"></p>
-        <details class="collapse-block">
+        <details class="collapse-block" open>
           <summary>Booked flights</summary>
           <div class="collapse-inner">
             <div id="flightBoard" class="flight-board"></div>
           </div>
         </details>
         <div id="days" class="days"></div>
-        <details class="collapse-block">
+        <details class="collapse-block" open>
           <summary>Additional booked flights</summary>
           <div class="collapse-inner">
             <div id="futureFlightBoard" class="flight-board future-flight-board"></div>

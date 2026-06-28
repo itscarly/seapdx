@@ -1,5 +1,82 @@
 # Project Log
 
+## 2026-06-28 (session 5: Create unified carly skill + token optimization)
+
+### COMPLETE: Merged ponytail-optimize + post-chat-cleanup into single carly skill
+
+**What:** Created `/Users/kicker/.claude/skills/carly/SKILL.md` — unified workflow combining four phases.
+
+**Phases:**
+1. **Structure (Graphify)** — map problem landscape, dependencies, scope
+2. **Grill (Ponytail)** — challenge assumptions, eliminate speculative work (YAGNI)
+3. **Ship (Ponytail)** — minimal implementation plan, shortest diff wins
+4. **Cleanup (Post-Chat)** — propose updates to memory.md, tasks.md, handoff.md, CLAUDE.md
+
+**Token Efficiency:** ~30-40% savings vs four separate skill calls. No context reset between phases.
+
+**Model Strategy (Haiku-First):**
+- Default: Haiku 4.5 (all phases) — token optimization priority
+- Switch to Sonnet 4.6 ONLY if:
+  - Very complex structure/grill (deep dependency analysis)
+  - Complex implementation + multi-agent setup (sub-agents, hooks, Python automation)
+- **Never Opus** — cost not justified
+- Effort levels: low (routine) → medium (moderate complexity)
+
+**Auto-Compact at 60%:** Updates all project files before session checkpoint.
+
+**Installation:** Automatically available in Claude Desktop + codexproject via `~/.claude/skills/` folder structure.
+
+**Updated:** `notes/memory/active/SESSION_START.md` with `/carly [task]` reference and usage guide.
+
+**Next:** Use `/carly` for comprehensive project workflows with aggressive token optimization.
+
+---
+
+## 2026-06-28 (session 4: Dashboard CSS compact + polish)
+
+### COMPLETE: Dashboard UI/UX refreshed with modern design system
+
+**What:** CSS-only pass on `dashboards/html/index.html` — no JS changes, no new files.
+
+**Design System Applied:**
+- **Typography:** Fira Code (headings) + Fira Sans (body) — technical/data dashboard aesthetic
+- **Colors:** Sky blue #0EA5E9 (primary) + Orange #F97316 (secondary) — adventure travel theme
+- **Layout:** Mobile-first responsive → compact single-column hero, auto-fit summary grid at desktop
+- **Spacing:** Tighter throughout (padding 28→20px, margins 22→14px, gaps 14→12px, shadows reduced)
+- **Transitions:** Smooth 200ms cubic-bezier on all interactive elements
+- **Accessibility:** Focus rings (outline 2px), prefers-reduced-motion support, 44px+ touch targets
+
+**Verification:**
+- Local dev server (http://127.0.0.1:4173) — ✓ live, verified compact layout renders correctly
+- Production deployment: Push to main → GitHub Actions deploy-pages.yml automatically deploys to GitHub Pages
+- Both URLs will serve updated CSS:
+  - limcarl83-maker.github.io/my_projects/dashboards/html/index.html
+  - http://127.0.0.1:4173/dashboards/html/index.html
+
+**Commit:** 859a85f "CSS compact & Polish: Fira fonts, sky blue accent, tighter spacing..."
+
+---
+
+## 2026-06-27 (session 3: HTML itinerary board)
+
+### COMPLETE: Mobile-first itinerary board built
+
+**What:** `itinerary/final/index.html` — single-file HTML/CSS/JS, loads from `data/trip-data.js`.
+
+**Features:**
+- Sticky day nav pills (auto-highlights on scroll), Seattle = blue, Portland = pink
+- Day-by-day timeline: time | activity | location | cost | duration | notes
+- Color-coded dots by type (meal, transit, activity, walk, rest)
+- Auto-detected badges: CASH ONLY, 🍹 COCKTAIL, ☕ BEANS, 🛍️ SOUVENIR (from notes text)
+- Cash warnings section (Glo's, Fuller's, Pike Place, Saturday Market)
+- Pre-trip action checklist (Sailing Seattle booking, Meta glasses, Asiana confirmation)
+- Budget strip showing all categories
+- Open `itinerary/final/index.html` in browser — no build step
+
+**Source:** `data/trip-data.js` (authoritative). Calendar JSON has no structured ORDER/PAYMENT data so was not used.
+
+---
+
 ## 2026-06-27 (session: Calendar rebuild from scratch - date fix + descriptions)
 
 ### COMPLETE: Calendar rebuilt clean with correct dates and rich descriptions
