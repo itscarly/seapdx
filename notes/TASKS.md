@@ -25,14 +25,18 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Google Calendar detail audit and enrichment
 
-- Review the shared Nov 1-9 Google Calendar activity by activity.
-- Remove duplicates and keep one canonical copy of each stop.
-- Enrich each stop with menu links, cost, card/cash notes, what to order, what to skip, walk time, and continuity notes.
-- Keep the shared calendar as the live source of truth and avoid creating a parallel planning version.
+- Shared-calendar-to-site alignment is now active for the public homepage, not just Portland popup cleanup.
+- `data/trip-data.js` now reflects the newer live route changes that mattered most:
+  - Seattle Day 2 sailing swap and Northgate Meta fit check
+  - Seattle Day 3 Bainbridge meal/coffee specifics
+  - Seattle Day 4 timing/cost updates
+  - Portland Day 5-9 timing, spend, and detail sync
+- Calendar export drift is now reduced by `scripts/sync-calendar-exports.js`, which rebuilds the JSON and CSV artifacts from the normalized source.
 
 Status update:
 - Portland Day 6-9 live shared-calendar enrichment is now complete in the group calendar, including richer popup descriptions and removal of remaining `SEAPDX-...` Portland titles.
-- If more calendar work resumes, start by auditing Seattle for the same popup-quality standard instead of reopening the already-cleaned Portland blocks.
+- Seattle Day 2 public/card parity has now been repaired and key live events gained direct backlinks into the site.
+- If more calendar work resumes, finish backlink coverage across the remaining unchanged live events instead of reopening already-synced route logic.
 
 ### ⚠️ Confirm Boylston extra night and reconcile Seattle hotel bookings
 

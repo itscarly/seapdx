@@ -38,11 +38,12 @@ It is built to be:
 
 - **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
 - **Validation follow-up**: complete. `data/trip-data.js` budget totals, day totals, and the coffee-bean cap are now reconciled, and `npm run validate` passes again.
+- **Calendar/site alignment**: active. The public homepage itinerary now follows the newer live shared-calendar route for the materially changed Seattle and Portland days, and the stop-detail panel can present richer planning copy with direct calendar links.
 
 - **Seattle hotel base**: The active itinerary and shared Google Calendar are routed from The Boylston Hotel Capitol Hill for Nov 1-5. Boylston extra Nov 4-5 night still needs direct hotel confirmation. Keep Reside/Palihotel only as stale prior-booking context until cancellation status is reconciled.
 - **Seattle watchlist**: 4 hotels tracked (transitScore > 90 only). Low-transit hotels removed session 16.
 - **Portland**: Courtyard by Marriott Portland City Center booked $487.85 (conf# [redacted]). Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM.
-- **Shared calendar status**: Portland Day 6-9 in the shared group Google Calendar now uses the richer popup format with explicit purpose, costs, links, order/do guidance, skip notes, and continuity. Future calendar cleanup should start from Seattle or from newly changed stops, not by redoing those Portland blocks.
+- **Shared calendar status**: Portland Day 6-9 still uses the richer popup format, and Seattle Day 2 key events now also carry direct backlinks into the public site. Remaining cleanup should focus on backlink coverage for unchanged live events, not on redoing already-matched route content.
 - **Airfare watch**: the current exact in-window signal is Philippine Airlines nonstop SFO→MNL on `2027-03-10` at `$523` from Skyscanner. It remains discovery-only because no airline-direct checkout proof was captured in this run. ORD still needs an exact one-way in-window baseline from an allowed carrier.
 - **Saved automations**: 9 active automations remain after cleanup. Kept set = Seattle hotels, Seattle/Portland price watches, Seattle/Portland flight-transit watches, and SFO/ORD→MNL airfare watches.
 
@@ -59,6 +60,7 @@ It is built to be:
 
 - Treat the repo as a static site first.
 - Treat `data/trip-data.js` as the source of truth for itinerary content.
+- Use the live shared calendar as the discovery input only when it is clearly newer than the site, then normalize the confirmed result back into `data/trip-data.js`.
 - Treat the airfare tracker as a cash-fare watch with strict airline-direct booking rules. Discovery sites are only signals; if airline checkout proof is missing, keep `directAirlineVerified` false and record the blocker or coverage gap explicitly.
 - Treat the hotel tracker as a separate subsystem with its own source data, generated report, rebooking logic, and source-tier semantics.
 - Preserve the last trustworthy hotel total when a new scrape is ambiguous, blocked, or stale.

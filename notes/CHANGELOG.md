@@ -208,3 +208,11 @@ Removed the orphaned legacy flight-status polling track: `scripts/monitor-flight
 - Rewrote remaining Portland event popups into the richer Seattle-style format with `Purpose`, `Estimated cost`, links, `What to order` or `What to do`, `Skip`, and `Continuity`.
 - Removed remaining technical Portland `SEAPDX-...` titles from the live shared calendar window.
 - Corrected stale Portland all-day header titles and a few mismatched location/route labels so the visible calendar rows match the actual itinerary.
+
+## 2026-06-28
+
+- Reconciled the public trip site back to the live shared calendar across Seattle Day 2-4 and Portland Day 5-9, including the Sailing Seattle stop, the Northgate Ray-Ban Meta fit-check logistics stop, the Japanese Garden day, and later Portland timing/cost drift.
+- Expanded `data/trip-data.js` with richer stop-detail content, stable `isoDate` fields, and a public site URL so stop cards can deep-link cleanly.
+- Upgraded the homepage day-detail panel to render calendar-grade stop context, richer section blocks, and direct Google Calendar day links plus stable stop anchors.
+- Added `scripts/sync-calendar-exports.js` and regenerated `data/google-calendar-events-nov1-9-2026.json` plus `data/google-calendar-import-nov1-9-2026.csv` from the normalized source.
+- Updated key live shared-calendar events with direct site backlinks so the calendar can jump back into the matching public stop cards.

@@ -1899,3 +1899,39 @@ Remaining blocker:
 
 - For this trip, do not treat a title rename as calendar completion.
 - When the user points to a "good looks like this" popup example, the write is only done when the live Google Calendar event body matches that richer structure too.
+
+## 2026-06-28 (session 10: calendar-to-site route reconciliation)
+
+### What changed
+
+- Audited the live shared Google Calendar against the redesigned homepage and treated the calendar as the fresher source where the route had clearly moved.
+- Rebuilt the public itinerary data for the materially changed days:
+  - Seattle Day 2 now includes the Sailing Seattle downtown sail, the Ghost Alley coffee-to-go reset, and the Northgate Best Buy Meta fit-check stop.
+  - Seattle Day 3 and Day 4 now match the richer live sequence, timing, and spend assumptions.
+  - Portland Day 5 through Day 9 now reflect the live schedule shape, richer stop costs, and the updated Japanese Garden / Powell's / rooftop / market / final-day pacing.
+- Upgraded the homepage stop-detail interaction so the selected stop panel can show richer calendar-style sections, direct Google Calendar links, and stable stop anchors for deep links back from the calendar.
+- Added `scripts/sync-calendar-exports.js` so the calendar JSON and CSV can be regenerated from `data/trip-data.js` instead of drifting manually.
+- Regenerated `data/google-calendar-events-nov1-9-2026.json` and `data/google-calendar-import-nov1-9-2026.csv`.
+- Updated a high-value set of live shared-calendar events with direct backlinks into the public site, including the Seattle Day 2 rebuild plus representative Portland anchor and nightlife stops.
+
+### Verification
+
+- `npm run validate` passes.
+- `node scripts/sync-calendar-exports.js` rebuilt 102 itinerary events into the JSON and CSV backup artifacts.
+- Local browser check confirmed the homepage renders, the Day 2 stop-detail panel expands, and the richer detail sections are visible without runtime errors.
+
+### Files touched
+
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `dashboards/css/styles.css`
+- `dashboards/html/index.html`
+- `dashboards/html/logistics.html`
+- `data/google-calendar-events-nov1-9-2026.json`
+- `data/google-calendar-import-nov1-9-2026.csv`
+- `scripts/sync-calendar-exports.js`
+- project notes
+
+### Follow-up
+
+- If the user wants full reciprocal parity on every live event, finish adding site backlinks to the remaining unchanged live calendar entries, not just the route-critical ones.

@@ -3,6 +3,7 @@ const FALLBACK_USD_TO_PHP_RATE = 60.4459704;
 const FOREIGN_TRANSACTION_FEE_RATE = 0.0185;
 const FX_REFRESH_MS = 60 * 60 * 1000;
 const pageMode = document.body?.dataset?.page || "home";
+const SHARED_CALENDAR_ID = "b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com";
 
 let usdToPhpRate = FALLBACK_USD_TO_PHP_RATE;
 let effectiveUsdToPhpRate = usdToPhpRate * (1 + FOREIGN_TRANSACTION_FEE_RATE);
@@ -136,13 +137,23 @@ const STOP_COORDINATES = {
   "Saint John's Bar and Eatery": { lat: 47.6154, lng: -122.3168, label: "Saint John's" },
   "Poquitos Capitol Hill": { lat: 47.6162, lng: -122.3201, label: "Poquitos" },
   "Victrola Coffee Roasters - Capitol Hill": { lat: 47.6185, lng: -122.3212, label: "Victrola" },
+  "Diner breakfast": { lat: 47.6157, lng: -122.3192, label: "Glo's Cafe" },
   "Pike Place Market light grazing route": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
+  "Pike Place Market main loop + Totem Smokehouse": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
+  "Luke's Lobster lunch": { lat: 47.6084, lng: -122.3409, label: "Luke's Lobster" },
+  "Sailing Seattle - Downtown Sail (1.5 hrs)": { lat: 47.6072, lng: -122.3421, label: "Pier 56" },
+  "Ghost Alley Espresso (coffee to-go before Northgate)": { lat: 47.6099, lng: -122.3428, label: "Ghost Alley Espresso" },
+  "Best Buy Northgate - Ray-Ban Meta glasses fit check": { lat: 47.7062, lng: -122.3255, label: "Best Buy Northgate" },
   "Seattle Waterfront + Olympic Sculpture Park": { lat: 47.6159, lng: -122.3554, label: "Olympic Sculpture Park" },
   "Seattle Starbucks city mug + Pike Place magnet stop": { lat: 47.6101, lng: -122.3426, label: "Seattle Starbucks + souvenirs" },
   "Columbia Center Sky View Observatory": { lat: 47.6042, lng: -122.3305, label: "Sky View Observatory" },
+  "Columbia Center Sky View sunset": { lat: 47.6042, lng: -122.3305, label: "Columbia Center" },
   "Biang Biang Noodles - Capitol Hill": { lat: 47.6177, lng: -122.3204, label: "Biang Biang" },
   "Salt & Straw Capitol Hill": { lat: 47.6147, lng: -122.3184, label: "Salt & Straw" },
   "Walk/transit to Seattle Ferry Terminal": { lat: 47.6027, lng: -122.3381, label: "Seattle Ferry Terminal" },
+  "Breakfast near Capitol Hill": { lat: 47.6135, lng: -122.3189, label: "Cafe Presse" },
+  "Island lunch": { lat: 47.6241, lng: -122.5207, label: "Harbour Public House" },
+  "Coffee / rest stop": { lat: 47.6259, lng: -122.5211, label: "Blackbird Bakery" },
   "Bainbridge ferry fare + Winslow arrival": { lat: 47.6237, lng: -122.5097, label: "Bainbridge ferry terminal" },
   "Madison Diner breakfast": { lat: 47.6245, lng: -122.5205, label: "Madison Diner" },
   "Waterfront Park & City Dock": { lat: 47.6257, lng: -122.5218, label: "Waterfront Park & City Dock" },
@@ -152,6 +163,8 @@ const STOP_COORDINATES = {
   "Rock Box karaoke": { lat: 47.614, lng: -122.318, label: "Rock Box" },
   "Glo's Capitol Hill breakfast": { lat: 47.6157, lng: -122.3192, label: "Glo's" },
   "Phê Vietnamese coffee or Victrola backup": { lat: 47.6118, lng: -122.3172, label: "Phê" },
+  "FOB Sushi Belltown dinner": { lat: 47.6141, lng: -122.3478, label: "FOB Sushi" },
+  "Sea'd In Capitol Hill dinner": { lat: 47.6149, lng: -122.3201, label: "Capitol Hill seafood dinner" },
   "Walgreens Pharmacy Capitol Hill": { lat: 47.6159, lng: -122.3201, label: "Walgreens Broadway" },
   "Check in at Courtyard Portland": { lat: 45.5249, lng: -122.6731, label: "Courtyard Portland" },
   "Powell's City of Books + Life of Pie NW": { lat: 45.5231, lng: -122.6818, label: "Powell's / Pearl start" },
@@ -159,15 +172,24 @@ const STOP_COORDINATES = {
   "Washington Park + Portland Japanese Garden": { lat: 45.5186, lng: -122.7081, label: "Portland Japanese Garden" },
   "Tasty Corner PDX lunch": { lat: 45.5114, lng: -122.6837, label: "Tasty Corner" },
   "Powell's City of Books + Hello From Portland": { lat: 45.5232, lng: -122.6816, label: "Powell's / Hello From Portland" },
+  "Lunch at Tasty n Alder": { lat: 45.5181, lng: -122.6825, label: "Tasty n Alder" },
+  "Coffee break (Heart Coffee Roasters)": { lat: 45.5234, lng: -122.6814, label: "Heart Coffee Roasters" },
   "Life of Pie, Powell's-area fallback, or simple downtown dinner": { lat: 45.5297, lng: -122.698, label: "Life of Pie NW" },
   "Coava Coffee Roasters Flagship": { lat: 45.5176, lng: -122.6554, label: "Coava Flagship" },
   "Central Eastside walk: Deadstock / Smith Teamaker / waterfront crossing": { lat: 45.5221, lng: -122.6586, label: "Central Eastside walk" },
   "Hat Yai": { lat: 45.5169, lng: -122.6524, label: "Hat Yai Belmont" },
   "Belmont / Mississippi browse + Nate's Oatmeal Cookies": { lat: 45.548, lng: -122.6751, label: "Mississippi / Nate's" },
   "Stumptown Downtown": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
+  "Stumptown Downtown breakfast + coffee bean #3": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
+  "Stumptown Downtown breakfast + coffee bean #4": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
+  "Stumptown final coffee": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Portland Saturday Market + Waterfront Park": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
+  "Portland Saturday Market browse": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
+  "Market lunch + snacks": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
   "Eem": { lat: 45.5417, lng: -122.6661, label: "Eem" },
   "Novel Book Bar": { lat: 45.5259, lng: -122.6743, label: "Novel Book Bar" },
+  "Novel Book Bar cocktail + browse": { lat: 45.5259, lng: -122.6743, label: "Novel Book Bar" },
+  "Pretty Ugly Burger dinner": { lat: 45.5164, lng: -122.6732, label: "Pretty Ugly Burger" },
   "Tope or rooftop backup near downtown": { lat: 45.5185, lng: -122.6767, label: "Tope" },
   "Heart Coffee or Good Coffee": { lat: 45.5354, lng: -122.6988, label: "Heart Coffee" },
   "Alberta Arts / Mississippi backup loop": { lat: 45.5592, lng: -122.6432, label: "Alberta Arts" },
@@ -192,7 +214,11 @@ recalculateDayTotalsAndBudget();
 
 const iconMap = {
   coffee: iconCoffee(),
+  meal: iconFork(),
   food: iconFork(),
+  activity: iconCompass(),
+  walk: iconRoute(),
+  rest: iconClock(),
   cocktails: iconGlass(),
   sightseeing: iconCompass(),
   shopping: iconBag(),
@@ -244,6 +270,7 @@ function initHomePage() {
   renderHeroFacts();
   renderSummary();
   renderItinerary();
+  window.addEventListener("hashchange", openStopFromHash);
   initFilters();
   renderBudget();
   renderGuide();
@@ -767,7 +794,7 @@ function renderStop(stop, options = {}) {
   if (options.isChip) {
     const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
     return `
-      <article class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
+      <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
         <div class="chip-timing">${stop.time || ""}</div>
         <div class="chip-body">
           <div class="chip-title">${stop.name}</div>
@@ -891,6 +918,7 @@ function renderItinerary(filter = "all") {
   bindStopActions();
   bindAlternateRemove();
   renderFlights();
+  openStopFromHash();
   initReveal();
 }
 
@@ -1332,6 +1360,88 @@ function escapeAttribute(value) {
   return String(value).replace(/"/g, "&quot;");
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function linkifyText(value) {
+  return escapeHtml(value).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noreferrer">$1</a>');
+}
+
+function getStopAnchorId(stop) {
+  return `stop-${slugify(stop?._uid || stop?.name || "stop")}`;
+}
+
+function getPublicSiteUrl() {
+  return window.TRIP_DATA?.meta?.publicSiteUrl || window.location.href.split("#")[0];
+}
+
+function getStopDeepLink(stop) {
+  return `${getPublicSiteUrl()}#${getStopAnchorId(stop)}`;
+}
+
+function getCalendarDayUrl(day, stop) {
+  if (stop?.calendarUrl) return stop.calendarUrl;
+  if (!day?.isoDate) return "";
+  const [year, month, date] = day.isoDate.split("-").map((part) => Number(part));
+  return `https://calendar.google.com/calendar/u/0/r/day/${year}/${month}/${date}?cid=${encodeURIComponent(SHARED_CALENDAR_ID)}`;
+}
+
+function renderRichDetailSections(detailText) {
+  if (!detailText) return "";
+  const lines = String(detailText)
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  if (!lines.length) return "";
+
+  const sections = [];
+  const intro = [];
+
+  lines.forEach((line) => {
+    const match = line.match(/^([^:]{2,40}):\s*(.+)$/);
+    if (!match) {
+      intro.push(line);
+      return;
+    }
+
+    const label = match[1].replace(/^[^A-Za-z0-9]+/, "").trim();
+    const body = match[2].trim();
+    if (!label || /^https?:\/\//i.test(label)) {
+      intro.push(line);
+      return;
+    }
+    sections.push({ label, body });
+  });
+
+  return `
+    <div class="stop-detail-rich">
+      ${intro.length ? `
+        <div class="stop-detail-notes">
+          <strong>Overview</strong>
+          ${intro.map((line) => `<p>${linkifyText(line)}</p>`).join("")}
+        </div>
+      ` : ""}
+      ${sections.length ? `
+        <div class="stop-detail-sections">
+          ${sections.map((section) => `
+            <article class="detail-section">
+              <h5>${escapeHtml(section.label)}</h5>
+              <p>${linkifyText(section.body)}</p>
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+    </div>
+  `;
+}
+
 function initReveal() {
   const items = document.querySelectorAll("[data-reveal]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1361,10 +1471,11 @@ function getStopExpectation(stop) {
   return "Expect this to be one of the moments that gives the day its shape, not just filler between bigger attractions.";
 }
 
-function renderDetailPanel(stop) {
+function renderDetailPanel(stop, day) {
   const type = stop.alternateType || stop.type;
   const costValue = stop.cost;
   const details = [
+    ["Location", stop.location],
     ["Neighborhood", stop.neighborhood],
     ["Planned time", stop.time],
     ["Leave by", stop.leaveTime],
@@ -1382,10 +1493,12 @@ function renderDetailPanel(stop) {
   const linksHtml = [
     stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
     stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
-    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : ""
+    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : "",
+    getCalendarDayUrl(day, stop) ? `<a class="link-button" href="${getCalendarDayUrl(day, stop)}" target="_blank" rel="noreferrer">View in Google Calendar</a>` : ""
   ].filter(Boolean).join("");
   const mapContainerId = `chip-map-${stop._uid.replace(/\W/g, "_")}`;
   const hasCoordinates = stop.name && STOP_COORDINATES[stop.name];
+  const richSectionsHtml = renderRichDetailSections(stop.detailText);
 
   return `
     <div class="stop-detail">
@@ -1404,11 +1517,13 @@ function renderDetailPanel(stop) {
           ${stop.leaveTime ? `<span>Leave by: ${stop.leaveTime}</span>` : ""}
         </div>
       ` : ""}
-      <div class="stop-detail-notes">
-        <strong>What to expect</strong>
-        <p>${getStopExpectation(stop)}</p>
-        ${stop.notes ? `<p>${stop.notes}</p>` : ""}
-      </div>
+      ${richSectionsHtml || `
+        <div class="stop-detail-notes">
+          <strong>What to expect</strong>
+          <p>${escapeHtml(getStopExpectation(stop))}</p>
+          ${stop.notes ? `<p>${escapeHtml(stop.notes)}</p>` : ""}
+        </div>
+      `}
       ${details.length ? `
         <div class="details details--stop">
           ${details.map(([label, value]) => `<div class="detail"><b>${label}</b><span>${value}</span></div>`).join("")}
@@ -1416,43 +1531,69 @@ function renderDetailPanel(stop) {
       ` : ""}
       ${hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" aria-label="Map for ${escapeAttribute(stop.name)}"></div>` : ""}
       ${linksHtml ? `<div class="stop-detail-links">${linksHtml}</div>` : ""}
-      ${hasCoordinates && stop.route ? `<div class="stop-detail-actions"><a class="link-button" href="${stop.route}" target="_blank" rel="noopener">Get directions</a></div>` : ""}
+      <div class="stop-detail-actions">
+        ${hasCoordinates && stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noopener">Get directions</a>` : ""}
+        <a class="link-button" href="${getStopDeepLink(stop)}">Open stop link</a>
+      </div>
     </div>
   `;
+}
+
+function selectStopChip(chip, options = {}) {
+  const uid = chip.dataset.stopUid;
+  const card = chip.closest(".day-card");
+  const dayId = chip.dataset.dayId;
+  const day = data.itinerary.find((d) => d.id === dayId);
+
+  if (!day || !card) return;
+
+  const allEvents = flattenDayEvents(day);
+  const stop = allEvents.find((s) => s._uid === uid);
+  if (!stop) return;
+
+  const panel = card.querySelector(".day-detail-panel");
+  if (!panel) return;
+  const isAlreadySelected = panel.dataset.selectedStop === uid;
+
+  if (isAlreadySelected && !options.force) {
+    chip.classList.remove("stop--selected");
+    delete panel.dataset.selectedStop;
+    panel.innerHTML = "";
+    panel.setAttribute("hidden", "");
+    return;
+  }
+
+  card.querySelectorAll(".stop--chip").forEach((candidate) => candidate.classList.remove("stop--selected"));
+  chip.classList.add("stop--selected");
+  panel.dataset.selectedStop = uid;
+  panel.removeAttribute("hidden");
+  panel.innerHTML = renderDetailPanel(stop, day);
+  initDetailMaps(panel);
+
+  if (options.scrollIntoView !== false) {
+    chip.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+}
+
+function openStopFromHash() {
+  const hash = window.location.hash.replace(/^#/, "");
+  if (!hash || !hash.startsWith("stop-")) return;
+  const chip = document.getElementById(hash);
+  if (!chip) return;
+  const card = chip.closest(".day-card");
+  const head = card?.querySelector(".day-head");
+  if (card && head && !card.classList.contains("open")) {
+    toggleDay(head);
+  }
+  selectStopChip(chip, { force: true, scrollIntoView: false });
+  chip.scrollIntoView({ block: "center", behavior: "smooth" });
 }
 
 function bindStopActions() {
   document.querySelectorAll(".stop--chip").forEach((chip) => {
     chip.addEventListener("click", (event) => {
       event.stopPropagation();
-
-      const uid = chip.dataset.stopUid;
-      const card = chip.closest(".day-card");
-      const dayId = chip.dataset.dayId;
-      const day = data.itinerary.find((d) => d.id === dayId);
-
-      if (!day) return;
-
-      const allEvents = flattenDayEvents(day);
-      const stop = allEvents.find((s) => s._uid === uid);
-      if (!stop) return;
-
-      const panel = card.querySelector(".day-detail-panel");
-      const isAlreadySelected = panel.dataset.selectedStop === uid;
-
-      if (isAlreadySelected) {
-        chip.classList.remove("stop--selected");
-        delete panel.dataset.selectedStop;
-        panel.innerHTML = "";
-        panel.setAttribute("hidden", "");
-      } else {
-        card.querySelectorAll(".stop--chip").forEach((c) => c.classList.remove("stop--selected"));
-        chip.classList.add("stop--selected");
-        panel.dataset.selectedStop = uid;
-        panel.removeAttribute("hidden");
-        panel.innerHTML = renderDetailPanel(stop);
-        initDetailMaps(panel);
-      }
+      selectStopChip(chip);
     });
   });
 }
