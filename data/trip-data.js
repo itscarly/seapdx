@@ -11,7 +11,7 @@ window.TRIP_DATA = {
     absoluteCeiling: 1300,
     assumptions: [
       "Airfare and hotels are excluded.",
-      "Booked flight costs are displayed separately for visibility and timing, but they do not count toward the $880 activity budget or the $920 ceiling.",
+      "Booked flight costs are displayed separately for visibility and timing, but they do not count toward the $1200 activity budget or the $1300 ceiling.",
       "Amtrak Cascades 517 is included in the activity budget because the user listed it under intercity transportation.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
@@ -47,15 +47,15 @@ window.TRIP_DATA = {
   budget: {
     cap: 1200,
     absoluteCeiling: 1300,
-    projectedTotal: 952,
+    projectedTotal: 750,
     categories: [
-      { name: "Transportation", amount: 95, note: "ORCA, ferry, Amtrak, TriMet/Hop, and station/airport transfer segments across the full Nov 1-9 hourly plan." },
-      { name: "Food", amount: 420, note: "Detailed meal blocks expanded for Portland rebuild (Luc Lac, Tope, Momiji AYCE, Pretty Ugly Burger, Novel)." },
-      { name: "Cocktails and social", amount: 80, note: "Happy hour clustering strategy with fruity cocktails at Tope and Novel." },
-      { name: "Entrance fees", amount: 72, note: "Powell's + Tope rooftop + Saturday Market + attractions." },
-      { name: "Coffee beans", amount: 78, note: "Four bags: Pike Place Starbucks (Seattle), Bainbridge Pegasus, 2x Stumptown Downtown (Portland)." },
-      { name: "Souvenirs", amount: 92, note: "Starbucks mugs (Seattle + Portland), magnets, salmon jerky, all priced explicitly." },
-      { name: "Contingency", amount: 115, note: "Covers weather contingencies, timing drift, and unexpected variations." }
+      { name: "Transportation", amount: 64, note: "Transit, ferry, Amtrak, and airport or station transfer segments across the active Nov 1-9 route." },
+      { name: "Food", amount: 360, note: "Core meal spend across Seattle and Portland, including breakfast, lunch, dinner, and airport-safe food buffers." },
+      { name: "Cocktails and social", amount: 55, note: "Focused on the lower-count social stops that remain in the active route, not a separate nightly bar crawl budget." },
+      { name: "Entrance fees", amount: 56, note: "Covers the active paid attractions still present in the route, including market or rooftop-style stops." },
+      { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
+      { name: "Souvenirs", amount: 70, note: "City mugs, magnets, and smoked-salmon style gifts kept visible instead of hidden inside contingency." },
+      { name: "Contingency", amount: 85, note: "Light realism buffer for timing drift, small substitutions, and weather-related adjustments." }
     ]
   },
   transit: [
@@ -362,7 +362,7 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Arrival day + Luc Lac happy hour",
       theme: "Travel recovery + early settling",
-      dayTotal: 15,
+      dayTotal: 18,
       weatherPlan: "Minimal activity; focus on hotel check-in and early rest.",
       segments: [
         { label: "Afternoon", items: [
@@ -382,12 +382,12 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Powell's + Tope rooftop sunset + Momiji AYCE",
       theme: "Books, rooftop sunset, fresh sushi",
-      dayTotal: 129,
+      dayTotal: 123,
       weatherPlan: "Powell's is indoor-friendly; Tope rooftop weather-dependent (backup indoor cocktail bar nearby).",
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:20 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "meal", neighborhood: "Downtown Portland", duration: "50 min", cost: 22, notes: "128 SW 3rd Ave. Specialty coffee, light food, and coffee bean purchase ($20-24 included)." },
+          { time: "8:20 AM", name: "Stumptown Downtown breakfast + Portland coffee bean", type: "meal", neighborhood: "Downtown Portland", duration: "50 min", cost: 22, notes: "128 SW 3rd Ave. Specialty coffee, light food, and the single Portland bean purchase for the trip." },
           { time: "10:00 AM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", duration: "120 min", cost: 14, notes: "Downtown Portland's legendary bookstore; 2+ hours of browsing." }
         ]},
         { label: "Afternoon", items: [
@@ -409,12 +409,12 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Saturday Market + Pretty Ugly Burger + Novel Book Bar",
       theme: "Market, prime beef, books + cocktails",
-      dayTotal: 109,
+      dayTotal: 108,
       weatherPlan: "Market is outdoor but covered; Pretty Ugly and Novel both indoor-friendly.",
       segments: [
         { label: "Morning", items: [
           { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #4", type: "meal", neighborhood: "Downtown Portland", duration: "50 min", cost: 22, notes: "128 SW 3rd Ave. Specialty coffee, light food, and coffee bean purchase ($20-24 included)." },
+          { time: "8:35 AM", name: "Stumptown Downtown breakfast", type: "meal", neighborhood: "Downtown Portland", duration: "50 min", cost: 22, notes: "128 SW 3rd Ave. Specialty coffee and a lighter repeat breakfast without adding another bean purchase." },
           { time: "9:35 AM", name: "Walk to Portland Saturday Market", type: "walk", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0 }
         ]},
         { label: "Afternoon", items: [
@@ -474,10 +474,10 @@ window.TRIP_DATA = {
       { name: "Life of Pie", city: "Portland", deal: "Daily 11 AM-6 PM; $9 dine-in Margherita, $6 house beer/wine.", drink: "House wine/beer only if desired.", link: "https://lifeofpiepizza.com/" }
     ],
     coffee: [
-      { name: "Pike Place Starbucks", city: "Seattle", day: "Day 2", buy: "Seattle bag #1 + city mug souvenir combo", roast: "Iconic Seattle location, renovated, fresh beans.", budget: "$15-18 bean bag + mug combo with tax/tip.", link: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
-      { name: "Pegasus Coffee House", city: "Bainbridge Island", day: "Day 3", buy: "Seattle bag #2 (Bainbridge sourcing)", roast: "Island specialty coffee, fresh roast.", budget: "$16-20 bean bag with tax/tip.", link: "https://pegasuscoffeehouse.com/" },
-      { name: "Stumptown Downtown", city: "Portland", day: "Day 7", buy: "Portland bag #3 + breakfast", roast: "Classic Portland specialty, 128 SW 3rd Ave.", budget: "$20-24 bean bag included in Day 7 breakfast cost.", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" },
-      { name: "Stumptown Downtown", city: "Portland", day: "Day 8", buy: "Portland bag #4 + breakfast", roast: "Second Stumptown bag for variety, same location.", budget: "$20-24 bean bag included in Day 8 breakfast cost.", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" }
+      { name: "Pike Place Starbucks", city: "Seattle", day: "Day 2", buy: "Seattle bag + city mug souvenir combo", roast: "Iconic Seattle location, renovated, fresh beans.", budget: "$15-18 bean bag + mug combo with tax/tip.", link: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
+      { name: "Pegasus Coffee House", city: "Bainbridge Island", day: "Day 3", buy: "Coffee stop only if you skip the Seattle bean on Day 2", roast: "Island specialty coffee, fresh roast.", budget: "Treat as an optional swap, not an extra bean buy.", link: "https://pegasuscoffeehouse.com/" },
+      { name: "Stumptown Downtown", city: "Portland", day: "Day 7", buy: "Portland bag + breakfast", roast: "Classic Portland specialty, 128 SW 3rd Ave.", budget: "$20-24 bean bag included in Day 7 breakfast cost.", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" },
+      { name: "Stumptown Downtown", city: "Portland", day: "Day 8", buy: "Repeat breakfast only", roast: "Second visit for breakfast or espresso, not a second Portland bean buy.", budget: "Keep this as food-and-coffee pacing only.", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" }
     ],
     souvenirs: [
       { name: "Starbucks Seattle city mug", location: "Pike Place Starbucks", cost: "$16-18", notes: "Iconic Seattle mug, comes with one coffee included (Day 2)." },

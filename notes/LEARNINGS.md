@@ -99,6 +99,11 @@
 - The redesign was cleaner once the homepage stopped trying to carry public itinerary content, source references, automation links, future bookings, and monitoring detail at equal weight.
 - For this project, separate the reader-facing trip story from the operational maintenance surface instead of solving crowding only with CSS compression.
 
+### Budget guardrails need a final validator pass after any itinerary rewrite
+
+- This project can look visually correct while the source data is still numerically stale.
+- After itinerary or budget edits, run `npm run validate` before calling the work done so day totals, category totals, and rule-based caps stay aligned.
+
 ### Screenshots should be the exception, not the default
 
 - For most work, text descriptions, file paths, logs, and direct page details are cheaper and clearer than screenshots.

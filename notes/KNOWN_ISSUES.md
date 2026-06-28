@@ -14,11 +14,6 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 - Status: open (recurring)
 - Detail: GitHub Pages only reflects committed and pushed state. After a push, Actions takes 1–2 min to redeploy. Hard refresh (Cmd+Shift+R) required to bypass browser cache. Do not assume code is broken until push is confirmed and Pages has rebuilt.
 
-### `npm run validate` is currently blocked by trip-data budget drift
-
-- Status: open
-- Detail: the homepage redesign code parses cleanly and browser checks passed, but the full repo validator still fails on preexisting `data/trip-data.js` inconsistencies: day totals sum to `754` instead of `budget.projectedTotal` `952`, three day-level declared totals do not match their item sums, and the `Coffee beans` category remains above the stated `$60` cap.
-
 ### Tracker subsystems can drift if one restore overwrites another
 
 - Status: open

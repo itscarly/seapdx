@@ -1,5 +1,27 @@
 # Project Log
 
+## 2026-06-28 (session 9: trip-data budget repair)
+
+### COMPLETE: Validation blockers removed from `data/trip-data.js`
+
+**What changed:**
+1. Reconciled `budget.projectedTotal`, category totals, and day totals to a clean `$750`.
+2. Corrected the stale day totals for Fri Nov 6, Sat Nov 7, and Sun Nov 8 so the declared totals now match the actual item sums.
+3. Repaired stale budget copy that still referenced the older `$880` activity budget and `$920` ceiling.
+4. Aligned the coffee-bean plan with the stated rule: two bags total, `$60` cap, instead of the older four-bag wording and numbers.
+
+**Verification:**
+- `npm run validate` passed.
+- Hotel monitor validation passed.
+- Airfare validation passed.
+
+**Files touched:**
+- `data/trip-data.js`
+- active notes updated to remove the now-resolved validation blocker
+
+**Next:**
+- No immediate follow-up required for this repair.
+
 ## 2026-06-28 (session 8: homepage redesign + logistics hub implementation)
 
 ### COMPLETE: Main trip dashboard rebuilt into a public-facing command center

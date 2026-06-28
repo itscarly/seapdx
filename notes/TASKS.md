@@ -18,10 +18,10 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ### Homepage redesign follow-up
 
 - Main homepage redesign is now complete.
-- Next cleanup item is data integrity, not layout:
-  - reconcile `data/trip-data.js` day totals with `budget.projectedTotal`
-  - reconcile the coffee-bean category amount with the stated $60 cap
-  - rerun `npm run validate` once those budget decisions are made
+- Data integrity cleanup is also complete:
+  - `data/trip-data.js` day totals now match `budget.projectedTotal`
+  - coffee-bean category now matches the stated $60 cap
+  - `npm run validate` is passing again
 
 ### Google Calendar detail audit and enrichment
 

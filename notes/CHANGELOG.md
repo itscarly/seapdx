@@ -11,7 +11,15 @@ This is the concise project change record.
 - Refactored `dashboards/js/app.js` so the homepage and logistics hub share one renderer with page-mode branching instead of separate duplicated logic.
 - Activated inline stop-detail panels on the homepage and removed the public itinerary-editing surface from the visible experience.
 - Added scoped editorial design overrides in `dashboards/css/styles.css` so the redesign does not break the separate tracker pages.
-- Verification result: browser checks passed for homepage, stop-detail interaction, and logistics hub. `npm run validate` still fails because of preexisting `data/trip-data.js` budget inconsistencies, not because of the redesign code.
+- Verification result: browser checks passed for homepage, stop-detail interaction, and logistics hub. `npm run validate` now also passes after the trip-data budget repair.
+
+## 2026-06-28 — Trip-data budget reconciliation
+
+- Rebalanced `data/trip-data.js` so `budget.projectedTotal`, category totals, and day totals now all resolve to `$750`.
+- Corrected stale day totals for Nov 6, Nov 7, and Nov 8 to match their real item sums.
+- Updated stale budget copy that still referenced the older `$880` and `$920` thresholds.
+- Repaired the coffee-bean plan so the data now matches the stated two-bag, `$60` cap instead of the older four-bag version.
+- Validation result: `npm run validate` passes cleanly again.
 
 ## 2026-05-30 — Happy hour optimization + venue additions + closure fixes
 
