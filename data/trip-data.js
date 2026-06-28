@@ -48,15 +48,15 @@ window.TRIP_DATA = {
   budget: {
     cap: 1200,
     absoluteCeiling: 1300,
-    projectedTotal: 1053,
+    projectedTotal: 1192,
     categories: [
       { name: "Transportation", amount: 74, note: "Transit, ferry, Amtrak, and airport or station transfer segments across the active Nov 1-9 route." },
       { name: "Food", amount: 525, note: "Meals, coffee, airport food, and the higher reality-based dinner totals now carried directly in the synced itinerary." },
       { name: "Cocktails and social", amount: 120, note: "Cocktail-forward rooftop, book-bar, sushi, and social-night spend that stayed in the live calendar route." },
-      { name: "Entrance fees", amount: 82, note: "Paid attractions in the synced route, including sailing, observation deck, Japanese Garden, and smaller attraction spend." },
+      { name: "Entrance fees", amount: 202, note: "Paid attractions in the synced route plus one planned Kraken game with a realistic mid-bowl seat estimate." },
       { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
       { name: "Souvenirs", amount: 100, note: "City mugs, magnets, smoked salmon, market browsing, and bookstore or local-goods drift kept visible instead of hidden." },
-      { name: "Contingency", amount: 92, note: "Remaining buffer after syncing the richer live-calendar route back into the source data." }
+      { name: "Contingency", amount: 111, note: "Remaining buffer after syncing the richer live-calendar route back into the source data." }
     ]
   },
   tripCosts: {
@@ -383,7 +383,8 @@ window.TRIP_DATA = {
         { label: "Evening", items: [
           { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Ballard -> Capitol Hill", duration: "65 min", cost: 0 },
           { time: "5:50 PM", name: "Sea'd In Capitol Hill dinner", type: "meal", neighborhood: "Capitol Hill", duration: "75 min", cost: 45, payment: "Cards accepted", detailText: `Seafood-forward final Seattle dinner.\nPurpose: Keep the last Seattle night polished without blowing up the route.\nORDER: Ask for the freshest fish special and keep the dish lighter rather than cream-heavy.\nFruity: Ask for a citrus-forward seasonal cocktail that works with fish.\nSKIP: The heaviest rich dishes if you want to stay comfortable before the train day.\nEstimated cost: $45 with cocktail and tip.` },
-          { time: "7:05 PM", name: "Return and pack for train day", type: "rest", neighborhood: "Boylston base", duration: "8.5 hrs", cost: 0, notes: "Night reserved for packing and a calmer close to Seattle." }
+          { time: "7:20 PM", name: "Seattle Kraken game (if Nov 1-4 home game lines up)", type: "activity", neighborhood: "Climate Pledge Arena", duration: "3 hrs", cost: 120, payment: "Official single-game tickets once released", detailText: `Planned Seattle sports-night add if the official Kraken home schedule lands during Nov. 1-4.\nOfficial ticket hub: https://www.nhl.com/kraken/tickets/single-game\nSeat target: One normal mid-bowl seat with a cleaner center-view feel, not nosebleeds and not premium club pricing.\nBudget: Carry a $120 planning number for the ticket itself until the official 2026-27 single-game inventory opens.\nImportant: The exact opponent and live seat price still depend on the official regular-season release and single-game on-sale.` },
+          { time: "10:35 PM", name: "Return and pack for train day", type: "rest", neighborhood: "Boylston base", duration: "5 hrs", cost: 0, notes: "Late pack-and-reset block after the game so the train departure still stays protected." }
         ]}
       ]
     },
@@ -535,7 +536,7 @@ window.TRIP_DATA = {
       { name: "Courtyard Portland - Amazon package delivery confirmation", status: "CALL BEFORE ORDERING", note: "Call +1-503-233-3343 to confirm Amazon guest package delivery policy before ordering Meta glasses for hotel arrival.", link: "https://www.marriott.com/en/hotels/pdxcy-courtyard-portland-city-center/overview/" },
       { name: "Portland Japanese Garden", status: "Optional", note: "Timed tickets recommended up to 10 days ahead. Skipped in favor of Powell's and indoor activities.", link: "https://japanesegarden.org/hours-admission/" },
       { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" },
-      { name: "Seattle Kraken game placeholder", status: "WATCH FOR 2026-27 SINGLE-GAME SALES", note: "Use the official Kraken schedule first, then book through the team's official single-game ticket page once seats open. Expect a realistic planning range of roughly $75-200 depending on opponent, section, and demand, and buy quickly if a Nov 1-4 home game appears.", link: "https://www.nhl.com/kraken/tickets/single-game" }
+      { name: "Seattle Kraken game placeholder", status: "WATCH FOR 2026-27 SINGLE-GAME SALES", note: "Use the official Kraken schedule first, then book through the team's official single-game ticket page once seats open. The expense board now carries a $120 planning estimate for one normal lower-to-mid bowl seat with a good center-ice-ish view, but the exact Nov. 1-4, 2026 home game and live seat price still depend on the official single-game release.", link: "https://www.nhl.com/kraken/tickets/single-game" }
     ],
     happyHour: [
       { name: "Saint John's Bar and Eatery", city: "Seattle", deal: "Official happy hour runs Mon-Fri 2 PM-6 PM, with Rainier at $2, sangria/cava at $3, house wine at $4, Lemon-Aid Kit or Dickel Sweet Tea at $5, margaritas at $6, and discounted food.", drink: "Use this as the lower-cost arrival-night bar instead of Canon.", link: "https://www.saintjohnsseattle.com/happyhour-v1" },

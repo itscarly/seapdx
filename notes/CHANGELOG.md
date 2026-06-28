@@ -4,6 +4,13 @@
 
 This is the concise project change record.
 
+## 2026-06-28 — Expandable expense breakdowns + Kraken estimate
+
+- Made the executive spend cards expandable so clicking categories such as `Activities and admissions` reveals the itemized dollar breakdown directly in the board.
+- Added a `$120` Seattle Kraken planning estimate for one normal mid-bowl seat and rolled it into the itinerary-backed budget model instead of keeping it as a loose note.
+- Updated the Seattle plan, activity totals, and cache-bust tags so the local site and pushed site both pick up the new board behavior immediately.
+- Verification result: `npm run validate` passes with projected local spend now at `$1,192`, leaving `$8` under the `$1,200` target, and the calendar export sync now rebuilds 103 itinerary events.
+
 ## 2026-06-28 — Planned purchase prices updated
 
 - Updated the planned personal-purchase block in `data/trip-data.js` to the new user-provided prices:

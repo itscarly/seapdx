@@ -26,7 +26,7 @@ Google Calendar export files (derived):
   
 Calendar files must match trip-data.js exactly:
   - Same event names, times, costs, locations
-  - Same 102 exported events in the current synced itinerary
+  - Same 103 exported events in the current synced itinerary
   - Same stable tags (SEAPDX-2026-day-X-XX) for idempotent sync
 ```
 
@@ -63,15 +63,16 @@ Calendar files must match trip-data.js exactly:
 
 ## Budget
 
-- **Projected local activity spend:** $1,072 USD
+- **Projected local activity spend:** $1,192 USD
 - **Budget cap:** $1,200 USD
 - **Absolute ceiling:** $1,300 USD
-- **Remaining headroom:** $128 USD
+- **Remaining headroom:** $8 USD
 - **Coffee bean max:** $60 USD (two bags total: one Seattle, one Portland)
 
 **Confirmed airfare total:** $1,256.83.
 **Confirmed hotel total:** $871.98.
 **Planned personal purchases:** Meta Ray-Ban glasses `$409`, BLEU DE CHANEL `$173`.
+**Planned Kraken ticket estimate:** `$120` for one normal mid-bowl seat once official 2026-27 single-game tickets open.
 **Activity budget stays separate** from the all-in trip-cost summary.
 
 ## Validation Commands

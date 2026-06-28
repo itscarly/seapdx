@@ -379,20 +379,28 @@
     "tag": "SEAPDX-2026-day-4-48",
     "title": "🍽️ Seattle Day 4 · Sea'd In Capitol Hill dinner",
     "start": "2026-11-04T17:50:00-08:00",
-    "end": "2026-11-04T19:05:00-08:00",
+    "end": "2026-11-04T19:20:00-08:00",
     "location": "Capitol Hill",
     "description": "Seafood-forward final Seattle dinner.\nPurpose: Keep the last Seattle night polished without blowing up the route.\nORDER: Ask for the freshest fish special and keep the dish lighter rather than cream-heavy.\nFruity: Ask for a citrus-forward seasonal cocktail that works with fish.\nSKIP: The heaviest rich dishes if you want to stay comfortable before the train day.\nEstimated cost: $45 with cocktail and tip.\nPayment: Cards accepted\nEstimated cost: $45.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-2-1-sea-d-in-capitol-hill-dinner"
   },
   {
     "tag": "SEAPDX-2026-day-4-49",
-    "title": "🛌 Seattle Day 4 · Return and pack for train day",
-    "start": "2026-11-04T19:05:00-08:00",
-    "end": "2026-11-05T07:00:00-08:00",
-    "location": "Boylston base",
-    "description": "Purpose: Night reserved for packing and a calmer close to Seattle.\nDuration: 8.5 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-2-2-return-and-pack-for-train-day"
+    "title": "🎟️ Seattle Day 4 · Seattle Kraken game (if Nov 1-4 home game lines up)",
+    "start": "2026-11-04T19:20:00-08:00",
+    "end": "2026-11-04T22:35:00-08:00",
+    "location": "Climate Pledge Arena",
+    "description": "Planned Seattle sports-night add if the official Kraken home schedule lands during Nov. 1-4.\nOfficial ticket hub: https://www.nhl.com/kraken/tickets/single-game\nSeat target: One normal mid-bowl seat with a cleaner center-view feel, not nosebleeds and not premium club pricing.\nBudget: Carry a $120 planning number for the ticket itself until the official 2026-27 single-game inventory opens.\nImportant: The exact opponent and live seat price still depend on the official regular-season release and single-game on-sale.\nPayment: Official single-game tickets once released\nEstimated cost: $120.\nDuration: 3 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-2-2-seattle-kraken-game-if-nov-1-4"
   },
   {
-    "tag": "SEAPDX-2026-day-5-50",
+    "tag": "SEAPDX-2026-day-4-50",
+    "title": "🛌 Seattle Day 4 · Return and pack for train day",
+    "start": "2026-11-04T22:35:00-08:00",
+    "end": "2026-11-05T07:00:00-08:00",
+    "location": "Boylston base",
+    "description": "Purpose: Late pack-and-reset block after the game so the train departure still stays protected.\nDuration: 5 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-2-3-return-and-pack-for-train-day"
+  },
+  {
+    "tag": "SEAPDX-2026-day-5-51",
     "title": "🛌 Portland Day 5 · Wake, final pack, checkout prep",
     "start": "2026-11-05T07:00:00-08:00",
     "end": "2026-11-05T08:15:00-08:00",
@@ -400,7 +408,7 @@
     "description": "Purpose: Wake, final pack, checkout prep keeps the checkout + amtrak transfer + light portland evening route on track.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-0-wake-final-pack-checkout-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-5-51",
+    "tag": "SEAPDX-2026-day-5-52",
     "title": "☕ Portland Day 5 · Analog Coffee + QFC train snacks",
     "start": "2026-11-05T08:15:00-08:00",
     "end": "2026-11-05T09:25:00-08:00",
@@ -408,7 +416,7 @@
     "description": "Final Capitol Hill coffee stop before leaving Seattle.\nWebsite: https://analogcoffee.com/\nORDER: Latte or pour-over at Analog, then QFC for train snacks like a sandwich, protein bar, nuts, and water.\nSKIP: Heavy breakfast. Keep it lighter before the Amtrak departure.\nEstimated cost: $18.\nLocation: Analog Coffee + QFC Broadway\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-1-analog-coffee-qfc-train-snacks"
   },
   {
-    "tag": "SEAPDX-2026-day-5-52",
+    "tag": "SEAPDX-2026-day-5-53",
     "title": "🚶 Portland Day 5 · Last Capitol Hill walk + coffee stop",
     "start": "2026-11-05T09:25:00-08:00",
     "end": "2026-11-05T10:30:00-08:00",
@@ -416,7 +424,7 @@
     "description": "Purpose: Last Capitol Hill walk + coffee stop keeps the checkout + amtrak transfer + light portland evening route on track.\nEstimated cost: $10.\nDuration: 55 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-2-last-capitol-hill-walk-coffee-"
   },
   {
-    "tag": "SEAPDX-2026-day-5-53",
+    "tag": "SEAPDX-2026-day-5-54",
     "title": "🚇 Portland Day 5 · Checkout and travel to King Street Station",
     "start": "2026-11-05T10:30:00-08:00",
     "end": "2026-11-05T11:30:00-08:00",
@@ -424,7 +432,7 @@
     "description": "Purpose: Checkout and travel to King Street Station keeps the checkout + amtrak transfer + light portland evening route on track.\nEstimated cost: $4.\nDuration: 55 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-3-checkout-and-travel-to-king-st"
   },
   {
-    "tag": "SEAPDX-2026-day-5-54",
+    "tag": "SEAPDX-2026-day-5-55",
     "title": "🛌 Portland Day 5 · Station buffer + platform prep",
     "start": "2026-11-05T11:30:00-08:00",
     "end": "2026-11-05T12:10:00-08:00",
@@ -432,7 +440,7 @@
     "description": "Purpose: Station buffer + platform prep keeps the checkout + amtrak transfer + light portland evening route on track.\nDuration: 35 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-4-station-buffer-platform-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-5-55",
+    "tag": "SEAPDX-2026-day-5-56",
     "title": "🚇 Portland Day 5 · Amtrak Cascades 517 SEA -> PDX",
     "start": "2026-11-05T12:10:00-08:00",
     "end": "2026-11-05T15:35:00-08:00",
@@ -440,7 +448,7 @@
     "description": "Purpose: Reservation 29CB3A-17MAY26, one coach seat.\nEstimated cost: $27.\nDuration: 3h 25m.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-1-0-amtrak-cascades-517-sea-pdx"
   },
   {
-    "tag": "SEAPDX-2026-day-5-56",
+    "tag": "SEAPDX-2026-day-5-57",
     "title": "🚇 Portland Day 5 · Arrive Portland Union Station and transfer to Courtyard",
     "start": "2026-11-05T15:35:00-08:00",
     "end": "2026-11-05T16:20:00-08:00",
@@ -448,7 +456,7 @@
     "description": "Purpose: Arrive Portland Union Station and transfer to Courtyard keeps the checkout + amtrak transfer + light portland evening route on track.\nEstimated cost: $3.\nDuration: 35 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-1-1-arrive-portland-union-station-"
   },
   {
-    "tag": "SEAPDX-2026-day-5-57",
+    "tag": "SEAPDX-2026-day-5-58",
     "title": "🛌 Portland Day 5 · Check in, reset, and Amazon package check",
     "start": "2026-11-05T16:20:00-08:00",
     "end": "2026-11-05T18:00:00-08:00",
@@ -456,7 +464,7 @@
     "description": "Purpose: Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held.\nDuration: 100 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-1-2-check-in-reset-and-amazon-pack"
   },
   {
-    "tag": "SEAPDX-2026-day-5-58",
+    "tag": "SEAPDX-2026-day-5-59",
     "title": "🚶 Portland Day 5 · Easy downtown orientation walk",
     "start": "2026-11-05T18:00:00-08:00",
     "end": "2026-11-05T18:30:00-08:00",
@@ -464,7 +472,7 @@
     "description": "Purpose: Easy downtown orientation walk keeps the checkout + amtrak transfer + light portland evening route on track.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-2-0-easy-downtown-orientation-walk"
   },
   {
-    "tag": "SEAPDX-2026-day-5-59",
+    "tag": "SEAPDX-2026-day-5-60",
     "title": "🍽️ Portland Day 5 · Luc Lac Vietnamese Kitchen dinner",
     "start": "2026-11-05T18:30:00-08:00",
     "end": "2026-11-05T19:45:00-08:00",
@@ -472,7 +480,7 @@
     "description": "First dinner in Portland after the travel day.\nMenu: https://luclacpdx.com/\nOrder: Shaking Beef is the signature move. Add fried rice only if you are actually hungry.\nFruity: Ask for the most fruit-forward seasonal cocktail or their coconut-leaning drink.\nSkip: Soup. Save room for the rice-and-beef lane.\nEstimated cost: $50 with tip.\nPayment: Cards accepted\nEstimated cost: $50.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-2-1-luc-lac-vietnamese-kitchen-din"
   },
   {
-    "tag": "SEAPDX-2026-day-5-60",
+    "tag": "SEAPDX-2026-day-5-61",
     "title": "🛌 Portland Day 5 · Courtyard wind-down / Sleep",
     "start": "2026-11-05T19:45:00-08:00",
     "end": "2026-11-06T07:30:00-08:00",
@@ -480,7 +488,7 @@
     "description": "Purpose: Full recovery night before the first deeper Portland day.\nDuration: 10 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-2-2-courtyard-wind-down-sleep"
   },
   {
-    "tag": "SEAPDX-2026-day-6-61",
+    "tag": "SEAPDX-2026-day-6-62",
     "title": "🛌 Portland Day 6 · Wake + prep",
     "start": "2026-11-06T07:30:00-08:00",
     "end": "2026-11-06T08:20:00-08:00",
@@ -488,7 +496,7 @@
     "description": "Purpose: Morning geared around the garden ticket window.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-0-wake-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-6-62",
+    "tag": "SEAPDX-2026-day-6-63",
     "title": "🍽️ Portland Day 6 · Fuller's Coffee Shop breakfast",
     "start": "2026-11-06T08:20:00-08:00",
     "end": "2026-11-06T09:30:00-08:00",
@@ -496,7 +504,7 @@
     "description": "Classic Portland diner breakfast.\nOrder: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.\nLocation: Fuller's Coffee Shop, 136 NW 9th Ave\nPayment: Cash preferred\nEstimated cost: $22.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-1-fuller-s-coffee-shop-breakfast"
   },
   {
-    "tag": "SEAPDX-2026-day-6-63",
+    "tag": "SEAPDX-2026-day-6-64",
     "title": "🚇 Portland Day 6 · Transit to Washington Park (MAX)",
     "start": "2026-11-06T09:30:00-08:00",
     "end": "2026-11-06T10:10:00-08:00",
@@ -504,7 +512,7 @@
     "description": "Purpose: Use MAX into the park station and budget the uphill walk to the gate.\nEstimated cost: $3.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-2-transit-to-washington-park-max"
   },
   {
-    "tag": "SEAPDX-2026-day-6-64",
+    "tag": "SEAPDX-2026-day-6-65",
     "title": "🎟️ Portland Day 6 · Portland Japanese Garden (timed entry)",
     "start": "2026-11-06T10:10:00-08:00",
     "end": "2026-11-06T12:20:00-08:00",
@@ -512,7 +520,7 @@
     "description": "Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.\nLocation: 611 SW Kingston Ave\nPayment: Cards accepted for online tickets\nEstimated cost: $20.\nDuration: 130 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-3-portland-japanese-garden-timed"
   },
   {
-    "tag": "SEAPDX-2026-day-6-65",
+    "tag": "SEAPDX-2026-day-6-66",
     "title": "🚶 Portland Day 6 · Washington Park walk + recover",
     "start": "2026-11-06T12:20:00-08:00",
     "end": "2026-11-06T13:10:00-08:00",
@@ -520,7 +528,7 @@
     "description": "Purpose: Easy downhill recovery between the garden and lunch.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-0-washington-park-walk-recover"
   },
   {
-    "tag": "SEAPDX-2026-day-6-66",
+    "tag": "SEAPDX-2026-day-6-67",
     "title": "🍽️ Portland Day 6 · Lunch at Tasty n Alder",
     "start": "2026-11-06T13:10:00-08:00",
     "end": "2026-11-06T14:30:00-08:00",
@@ -528,7 +536,7 @@
     "description": "Strong Portland brunch-lunch stop.\nOrder: Skirt Steak Hash or one of the Benedicts.\nFruity: Blood orange smash or the freshest seasonal fruit cocktail.\nEstimated cost: $32 with tip.\nLocation: Tasty n Alder, 580 SW 12th Ave\nPayment: Cards accepted\nEstimated cost: $32.\nDuration: 80 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-1-lunch-at-tasty-n-alder"
   },
   {
-    "tag": "SEAPDX-2026-day-6-67",
+    "tag": "SEAPDX-2026-day-6-68",
     "title": "🎟️ Portland Day 6 · Powell's City of Books",
     "start": "2026-11-06T14:30:00-08:00",
     "end": "2026-11-06T16:20:00-08:00",
@@ -536,7 +544,7 @@
     "description": "World's largest independent bookstore.\nWebsite: https://www.powells.com/\nStart: Gold Room for used and rare books, then Blue Room for travel and arts.\nBudget tip: Set a hard book-spend cap before you walk in.\nEstimated cost: $35 book budget.\nLocation: 1005 W Burnside St\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 110 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-2-powell-s-city-of-books"
   },
   {
-    "tag": "SEAPDX-2026-day-6-68",
+    "tag": "SEAPDX-2026-day-6-69",
     "title": "☕ Portland Day 6 · Coffee break (Heart Coffee Roasters)",
     "start": "2026-11-06T16:20:00-08:00",
     "end": "2026-11-06T17:15:00-08:00",
@@ -544,7 +552,7 @@
     "description": "One of Portland's strongest specialty coffee resets.\nOrder: Oat milk latte or iced pour-over.\nEstimated cost: $8.\nLocation: Heart Coffee Roasters\nWebsite: https://www.heartroasters.com/\nPayment: Cards accepted\nEstimated cost: $8.\nDuration: 55 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-3-coffee-break-heart-coffee-roas"
   },
   {
-    "tag": "SEAPDX-2026-day-6-69",
+    "tag": "SEAPDX-2026-day-6-70",
     "title": "🛌 Portland Day 6 · Hotel reset / freshen up before Luc Lac",
     "start": "2026-11-06T17:15:00-08:00",
     "end": "2026-11-06T18:20:00-08:00",
@@ -552,7 +560,7 @@
     "description": "Purpose: Also check the front desk again for the Meta package hold.\nDuration: 65 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-4-hotel-reset-freshen-up-before-"
   },
   {
-    "tag": "SEAPDX-2026-day-6-70",
+    "tag": "SEAPDX-2026-day-6-71",
     "title": "🍽️ Portland Day 6 · Luc Lac Vietnamese Kitchen happy hour",
     "start": "2026-11-06T18:20:00-08:00",
     "end": "2026-11-06T19:35:00-08:00",
@@ -560,7 +568,7 @@
     "description": "Happy-hour version of the Luc Lac stop.\nMenu: https://luclacpdx.com/\nFruity: Ask for the most fruit-forward seasonal cocktail or a lychee-leaning martini during the HH window.\nOrder: Pulled chicken salad and multiple spring rolls are the value play.\nSkip: Full-price entrees if you are still inside happy hour.\nEstimated cost: $20 with tip.\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-2-0-luc-lac-vietnamese-kitchen-hap"
   },
   {
-    "tag": "SEAPDX-2026-day-6-71",
+    "tag": "SEAPDX-2026-day-6-72",
     "title": "🛌 Portland Day 6 · Courtyard wind-down",
     "start": "2026-11-06T19:35:00-08:00",
     "end": "2026-11-07T07:30:00-08:00",
@@ -568,7 +576,7 @@
     "description": "Purpose: Longer sleep block after the first real Portland full day.\nDuration: 12 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-2-1-courtyard-wind-down"
   },
   {
-    "tag": "SEAPDX-2026-day-7-72",
+    "tag": "SEAPDX-2026-day-7-73",
     "title": "🛌 Portland Day 7 · Wake + prep",
     "start": "2026-11-07T07:30:00-08:00",
     "end": "2026-11-07T08:20:00-08:00",
@@ -576,7 +584,7 @@
     "description": "Purpose: Wake + prep keeps the powell's + tope rooftop sunset + momiji ayce route on track.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-0-wake-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-7-73",
+    "tag": "SEAPDX-2026-day-7-74",
     "title": "☕ Portland Day 7 · Stumptown Downtown breakfast + coffee bean #3",
     "start": "2026-11-07T08:20:00-08:00",
     "end": "2026-11-07T09:10:00-08:00",
@@ -584,7 +592,7 @@
     "description": "Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-1-stumptown-downtown-breakfast-c"
   },
   {
-    "tag": "SEAPDX-2026-day-7-74",
+    "tag": "SEAPDX-2026-day-7-75",
     "title": "🎟️ Portland Day 7 · Powell's City of Books",
     "start": "2026-11-07T09:10:00-08:00",
     "end": "2026-11-07T11:50:00-08:00",
@@ -592,7 +600,7 @@
     "description": "Longer Saturday bookstore block with room to linger.\nWebsite: https://www.powells.com/\nEstimated cost: $14 base browse or small-purchase budget.\nLocation: 1005 W Burnside St\nPayment: Cards accepted\nEstimated cost: $14.\nDuration: 160 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-2-powell-s-city-of-books"
   },
   {
-    "tag": "SEAPDX-2026-day-7-75",
+    "tag": "SEAPDX-2026-day-7-76",
     "title": "🍽️ Portland Day 7 · Transit + lunch near Powell's",
     "start": "2026-11-07T11:50:00-08:00",
     "end": "2026-11-07T12:50:00-08:00",
@@ -600,7 +608,7 @@
     "description": "Suggested: Lardo near Powell's.\nWebsite: https://lardopdx.com/\nOrder: Pork meatball sandwich or Dirty Fries.\nFruity: Seasonal fruit cocktail or sangria if you want lunch to lean social.\nEstimated cost: $28 with tip.\nLocation: Lardo, 1205 SW Washington St\nPayment: Cards accepted\nEstimated cost: $28.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-0-transit-lunch-near-powell-s"
   },
   {
-    "tag": "SEAPDX-2026-day-7-76",
+    "tag": "SEAPDX-2026-day-7-77",
     "title": "🛍️ Portland Day 7 · MadeHere PDX + Pearl browsing",
     "start": "2026-11-07T12:50:00-08:00",
     "end": "2026-11-07T14:30:00-08:00",
@@ -608,7 +616,7 @@
     "description": "Pearl District browse plus the most useful local-gift stop.\nWebsite: https://madehereonline.com/\nSouvenirs: MadeHere PDX for locally made goods, Portland mug if still needed, and one magnet if you want the cleaner downtown version instead of the market one.\nEstimated cost: $25-50 depending on what you buy.\nLocation: MadeHere PDX, 40 NW 10th Ave\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 100 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-1-madehere-pdx-pearl-browsing"
   },
   {
-    "tag": "SEAPDX-2026-day-7-77",
+    "tag": "SEAPDX-2026-day-7-78",
     "title": "🛌 Portland Day 7 · Courtyard reset",
     "start": "2026-11-07T14:30:00-08:00",
     "end": "2026-11-07T16:15:00-08:00",
@@ -616,7 +624,7 @@
     "description": "Purpose: Courtyard reset keeps the powell's + tope rooftop sunset + momiji ayce route on track.\nDuration: 105 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-2-courtyard-reset"
   },
   {
-    "tag": "SEAPDX-2026-day-7-78",
+    "tag": "SEAPDX-2026-day-7-79",
     "title": "🚇 Portland Day 7 · Transit to Tope",
     "start": "2026-11-07T16:15:00-08:00",
     "end": "2026-11-07T16:45:00-08:00",
@@ -624,7 +632,7 @@
     "description": "Purpose: Transit to Tope keeps the powell's + tope rooftop sunset + momiji ayce route on track.\nDuration: 10 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-0-transit-to-tope"
   },
   {
-    "tag": "SEAPDX-2026-day-7-79",
+    "tag": "SEAPDX-2026-day-7-80",
     "title": "🎟️ Portland Day 7 · Tope rooftop bar + sunset",
     "start": "2026-11-07T16:45:00-08:00",
     "end": "2026-11-07T18:15:00-08:00",
@@ -632,7 +640,7 @@
     "description": "Tope rooftop sunset stop at The Hoxton.\nWebsite: https://www.thehoxton.com/portland/tope/\nOrder: Margaritas, tableside guac, and a couple tacos to graze.\nFruity: Mango-jalapeno or the freshest seasonal margarita.\nSkip: Heavy mains before Momiji.\nEstimated cost: $45 with two drinks and snacks.\nLocation: Tope at The Hoxton, 15 NW 4th Ave\nPayment: Cards accepted\nEstimated cost: $45.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-1-tope-rooftop-bar-sunset"
   },
   {
-    "tag": "SEAPDX-2026-day-7-80",
+    "tag": "SEAPDX-2026-day-7-81",
     "title": "🍽️ Portland Day 7 · Momiji AYCE sushi dinner",
     "start": "2026-11-07T18:15:00-08:00",
     "end": "2026-11-07T19:45:00-08:00",
@@ -640,7 +648,7 @@
     "description": "AYCE Japanese dinner.\nOrder strategy: Round one sashimi and soup, round two specialty rolls, round three hot dishes only if you still have room.\nFruity: Lychee martini or yuzu-leaning cocktail.\nEstimated cost: $40 with drink and tip.\nLocation: Momiji Sushi Restaurant\nPayment: Cards accepted\nEstimated cost: $40.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-2-momiji-ayce-sushi-dinner"
   },
   {
-    "tag": "SEAPDX-2026-day-7-81",
+    "tag": "SEAPDX-2026-day-7-82",
     "title": "🛌 Portland Day 7 · Wind-down",
     "start": "2026-11-07T19:45:00-08:00",
     "end": "2026-11-08T07:45:00-08:00",
@@ -648,7 +656,7 @@
     "description": "Purpose: Wind-down keeps the powell's + tope rooftop sunset + momiji ayce route on track.\nDuration: 12 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-3-wind-down"
   },
   {
-    "tag": "SEAPDX-2026-day-8-82",
+    "tag": "SEAPDX-2026-day-8-83",
     "title": "🛌 Portland Day 8 · Wake + prep",
     "start": "2026-11-08T07:45:00-08:00",
     "end": "2026-11-08T08:35:00-08:00",
@@ -656,7 +664,7 @@
     "description": "Purpose: Wake + prep keeps the saturday market + pretty ugly burger + novel book bar route on track.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-0-0-wake-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-8-83",
+    "tag": "SEAPDX-2026-day-8-84",
     "title": "☕ Portland Day 8 · Stumptown Downtown breakfast + coffee bean #4",
     "start": "2026-11-08T08:35:00-08:00",
     "end": "2026-11-08T09:35:00-08:00",
@@ -664,7 +672,7 @@
     "description": "Morning ritual reset before the market.\nWebsite: https://www.stumptowncoffee.com/\nOrder: A different drink from Day 7 and, only if desired, one final bean bag.\nEstimated cost: $20.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-0-1-stumptown-downtown-breakfast-c"
   },
   {
-    "tag": "SEAPDX-2026-day-8-84",
+    "tag": "SEAPDX-2026-day-8-85",
     "title": "🚶 Portland Day 8 · Walk to Portland Saturday Market",
     "start": "2026-11-08T09:35:00-08:00",
     "end": "2026-11-08T10:05:00-08:00",
@@ -672,7 +680,7 @@
     "description": "Purpose: Walk to Portland Saturday Market keeps the saturday market + pretty ugly burger + novel book bar route on track.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-0-2-walk-to-portland-saturday-mark"
   },
   {
-    "tag": "SEAPDX-2026-day-8-85",
+    "tag": "SEAPDX-2026-day-8-86",
     "title": "🎟️ Portland Day 8 · Portland Saturday Market browse",
     "start": "2026-11-08T10:05:00-08:00",
     "end": "2026-11-08T12:05:00-08:00",
@@ -680,7 +688,7 @@
     "description": "Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and keep the trip's last full day feeling open-ended.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $24 base shopping budget.\nLocation: 2 SW Naito Pkwy\nPayment: Many vendors prefer cash; some accept cards\nEstimated cost: $24.\nDuration: 120 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-1-0-portland-saturday-market-brows"
   },
   {
-    "tag": "SEAPDX-2026-day-8-86",
+    "tag": "SEAPDX-2026-day-8-87",
     "title": "🍽️ Portland Day 8 · Market lunch + snacks",
     "start": "2026-11-08T12:05:00-08:00",
     "end": "2026-11-08T13:05:00-08:00",
@@ -688,7 +696,7 @@
     "description": "Graze multiple market vendors instead of leaving for lunch.\nOrder: Pupusas, Thai noodles, empanadas, or wood-fired crepes depending on what looks best.\nFruity: Fresh lemonade or smoothies from the market stalls.\nSkip: Sit-down restaurants nearby. The vendor food is the point here.\nEstimated cost: $22 plus any souvenir drift.\nPayment: Bring cash because not every booth takes cards.\nPayment: Cash preferred\nEstimated cost: $22.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-1-1-market-lunch-snacks"
   },
   {
-    "tag": "SEAPDX-2026-day-8-87",
+    "tag": "SEAPDX-2026-day-8-88",
     "title": "🛌 Portland Day 8 · Transit + Pearl/downtown reset",
     "start": "2026-11-08T13:05:00-08:00",
     "end": "2026-11-08T15:05:00-08:00",
@@ -696,7 +704,7 @@
     "description": "Purpose: Transit + Pearl/downtown reset keeps the saturday market + pretty ugly burger + novel book bar route on track.\nDuration: 120 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-1-2-transit-pearl-downtown-reset"
   },
   {
-    "tag": "SEAPDX-2026-day-8-88",
+    "tag": "SEAPDX-2026-day-8-89",
     "title": "🛌 Portland Day 8 · Courtyard reset",
     "start": "2026-11-08T15:05:00-08:00",
     "end": "2026-11-08T17:00:00-08:00",
@@ -704,7 +712,7 @@
     "description": "Purpose: Courtyard reset keeps the saturday market + pretty ugly burger + novel book bar route on track.\nDuration: 115 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-0-courtyard-reset"
   },
   {
-    "tag": "SEAPDX-2026-day-8-89",
+    "tag": "SEAPDX-2026-day-8-90",
     "title": "🍽️ Portland Day 8 · Pretty Ugly Burger dinner",
     "start": "2026-11-08T17:00:00-08:00",
     "end": "2026-11-08T18:15:00-08:00",
@@ -712,7 +720,7 @@
     "description": "Burger-and-cocktail stop for the last real dinner lane.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.\nLocation: Pretty Ugly Bar, 927 SW 2nd Ave\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-1-pretty-ugly-burger-dinner"
   },
   {
-    "tag": "SEAPDX-2026-day-8-90",
+    "tag": "SEAPDX-2026-day-8-91",
     "title": "🎟️ Portland Day 8 · Novel Book Bar cocktail + browse",
     "start": "2026-11-08T18:15:00-08:00",
     "end": "2026-11-08T19:45:00-08:00",
@@ -720,7 +728,7 @@
     "description": "Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light. If you want a snack, the lighter menu items are the better play.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.\nLocation: Novel Book Bar, Portland\nPayment: Cards accepted\nEstimated cost: $25.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-2-novel-book-bar-cocktail-browse"
   },
   {
-    "tag": "SEAPDX-2026-day-8-91",
+    "tag": "SEAPDX-2026-day-8-92",
     "title": "🛌 Portland Day 8 · Wind-down",
     "start": "2026-11-08T19:45:00-08:00",
     "end": "2026-11-09T07:00:00-08:00",
@@ -728,7 +736,7 @@
     "description": "Purpose: Wind-down keeps the saturday market + pretty ugly burger + novel book bar route on track.\nDuration: 9.5 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-3-wind-down"
   },
   {
-    "tag": "SEAPDX-2026-day-9-92",
+    "tag": "SEAPDX-2026-day-9-93",
     "title": "🛌 Portland Day 9 · Wake + final packing",
     "start": "2026-11-09T07:00:00-08:00",
     "end": "2026-11-09T08:10:00-08:00",
@@ -736,7 +744,7 @@
     "description": "Purpose: Wake + final packing keeps the final coffee and departure route on track.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-0-wake-final-packing"
   },
   {
-    "tag": "SEAPDX-2026-day-9-93",
+    "tag": "SEAPDX-2026-day-9-94",
     "title": "🍽️ Portland Day 9 · Courtyard breakfast + checkout prep",
     "start": "2026-11-09T08:10:00-08:00",
     "end": "2026-11-09T08:45:00-08:00",
@@ -744,7 +752,7 @@
     "description": "Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.\nLocation: Courtyard Portland or nearby cafe\nPayment: Cards accepted\nEstimated cost: $10.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-1-courtyard-breakfast-checkout-p"
   },
   {
-    "tag": "SEAPDX-2026-day-9-94",
+    "tag": "SEAPDX-2026-day-9-95",
     "title": "☕ Portland Day 9 · Stumptown final coffee",
     "start": "2026-11-09T08:45:00-08:00",
     "end": "2026-11-09T09:20:00-08:00",
@@ -752,7 +760,7 @@
     "description": "Final Portland coffee before the airport run.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Your favorite drink of the trip or the one thing you still have not tried.\nEstimated cost: $12.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $12.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-2-stumptown-final-coffee"
   },
   {
-    "tag": "SEAPDX-2026-day-9-95",
+    "tag": "SEAPDX-2026-day-9-96",
     "title": "🚶 Portland Day 9 · Courtyard final walk",
     "start": "2026-11-09T09:20:00-08:00",
     "end": "2026-11-09T10:15:00-08:00",
@@ -760,7 +768,7 @@
     "description": "Purpose: Courtyard final walk keeps the final coffee and departure route on track.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-3-courtyard-final-walk"
   },
   {
-    "tag": "SEAPDX-2026-day-9-96",
+    "tag": "SEAPDX-2026-day-9-97",
     "title": "🚇 Portland Day 9 · Checkout + transfer to PDX",
     "start": "2026-11-09T10:15:00-08:00",
     "end": "2026-11-09T11:00:00-08:00",
@@ -768,7 +776,7 @@
     "description": "Purpose: Leave the hotel by about 10:15 AM to stay comfortably ahead of the domestic departure.\nEstimated cost: $3.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-4-checkout-transfer-to-pdx"
   },
   {
-    "tag": "SEAPDX-2026-day-9-97",
+    "tag": "SEAPDX-2026-day-9-98",
     "title": "🛌 Portland Day 9 · Airport check-in and security buffer",
     "start": "2026-11-09T11:00:00-08:00",
     "end": "2026-11-09T12:35:00-08:00",
@@ -776,7 +784,7 @@
     "description": "Purpose: Airport check-in and security buffer keeps the final coffee and departure route on track.\nDuration: 95 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-5-airport-check-in-and-security-"
   },
   {
-    "tag": "SEAPDX-2026-day-9-98",
+    "tag": "SEAPDX-2026-day-9-99",
     "title": "🍽️ Portland Day 9 · PDX airport food + gate buffer",
     "start": "2026-11-09T12:35:00-08:00",
     "end": "2026-11-09T13:47:00-08:00",
@@ -784,7 +792,7 @@
     "description": "PDX has unusually good post-security food.\nOrder: Burgerville seasonal milkshake if the fruit flavor looks good, plus a light meal from one of the local vendors.\nFruity: Fruity cider or the seasonal milkshake is the correct final-airport move.\nSkip: Generic chains if a local option is open nearby.\nEstimated cost: $18.\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-6-pdx-airport-food-gate-buffer"
   },
   {
-    "tag": "SEAPDX-2026-day-9-99",
+    "tag": "SEAPDX-2026-day-9-100",
     "title": "🚇 Portland Day 9 · Flight PDX -> DFW",
     "start": "2026-11-09T13:47:00-08:00",
     "end": "2026-11-09T19:34:00-08:00",
@@ -792,7 +800,7 @@
     "description": "Purpose: Airfare tracked separately from activity budget.\nDuration: 3h 47m.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-1-0-flight-pdx-dfw"
   },
   {
-    "tag": "SEAPDX-2026-day-9-100",
+    "tag": "SEAPDX-2026-day-9-101",
     "title": "🛌 Portland Day 9 · DFW layover buffer",
     "start": "2026-11-09T19:34:00-08:00",
     "end": "2026-11-09T21:10:00-08:00",
@@ -800,7 +808,7 @@
     "description": "Purpose: DFW layover buffer keeps the final coffee and departure route on track.\nDuration: 96 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-1-1-dfw-layover-buffer"
   },
   {
-    "tag": "SEAPDX-2026-day-9-101",
+    "tag": "SEAPDX-2026-day-9-102",
     "title": "🚇 Portland Day 9 · Flight DFW -> CRP",
     "start": "2026-11-09T21:10:00-08:00",
     "end": "2026-11-09T22:45:00-08:00",
@@ -808,7 +816,7 @@
     "description": "Purpose: Flight DFW -> CRP keeps the final coffee and departure route on track.\nDuration: 1h 35m.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-1-2-flight-dfw-crp"
   },
   {
-    "tag": "SEAPDX-2026-day-9-102",
+    "tag": "SEAPDX-2026-day-9-103",
     "title": "🛌 Portland Day 9 · Arrival and end-of-trip recovery",
     "start": "2026-11-09T22:45:00-08:00",
     "end": "2026-11-09T23:45:00-08:00",

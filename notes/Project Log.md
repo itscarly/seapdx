@@ -2076,3 +2076,33 @@ Remaining blocker:
 ### Follow-up
 
 - If the user swaps brands, sizes, or lens options again, update only `tripCosts.plannedPurchases` in `data/trip-data.js` first, then re-run validation so the board totals and notes stay aligned automatically.
+
+## 2026-06-28 (session 12: expandable expense breakdowns + Kraken estimate)
+
+### What changed
+
+- Reworked the executive spend board so each category card can expand inline and show its own dollar breakdown instead of forcing the user to infer what sits inside totals like `Activities and admissions`.
+- Added a Seattle Kraken game planning line at `$120` for one normal mid-bowl seat and tied that expense to the real Seattle itinerary so the budget system carries it honestly.
+- Updated the Seattle ticket-watch copy and bumped the homepage/logistics cache-bust tags so the public site picks up the new CSS, JS, and trip data right away.
+
+### Verification
+
+- `npm run validate` passes.
+- Budget audit now resolves to `projected: 1192`, `target: 1200`, `ceiling: 1300`, `remaining: 8`.
+- Calendar export sync now rebuilds 103 itinerary events.
+
+### Files touched
+
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `dashboards/css/styles.css`
+- `dashboards/html/index.html`
+- `dashboards/html/logistics.html`
+- `notes/PROJECT_MEMORY.md`
+- `notes/TASKS.md`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
+
+### Follow-up
+
+- Replace the `$120` Kraken estimate with the real seat price once the official 2026-27 regular-season schedule and single-game inventory are live on the Kraken site.

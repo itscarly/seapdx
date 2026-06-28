@@ -1040,6 +1040,125 @@ function getPlannedAdditionalTotal() {
   return data.budget.projectedTotal + getPlannedPersonalPurchaseTotal();
 }
 
+function moneyCompact(value) {
+  return `$${Math.round(Number(value) || 0)}`;
+}
+
+function buildTripCostBreakdown(allInTarget) {
+  const airfareItems = data.tripCosts?.confirmed?.airfare?.items || [];
+  const hotelItems = data.tripCosts?.confirmed?.accommodations?.items || [];
+  const foodCategory = data.budget.categories.find((item) => item.name === "Food");
+  const cocktailsCategory = data.budget.categories.find((item) => item.name === "Cocktails and social");
+  const transportationCategory = data.budget.categories.find((item) => item.name === "Transportation");
+  const entranceCategory = data.budget.categories.find((item) => item.name === "Entrance fees");
+  const coffeeBeansCategory = data.budget.categories.find((item) => item.name === "Coffee beans");
+  const souvenirsCategory = data.budget.categories.find((item) => item.name === "Souvenirs");
+  const contingencyCategory = data.budget.categories.find((item) => item.name === "Contingency");
+  const plannedPurchases = data.tripCosts?.plannedPurchases || [];
+
+  return [
+    {
+      name: "Airfare",
+      amount: getConfirmedAirfareTotal(),
+      note: "Asiana plus the paid American Airlines [redacted] booking.",
+      shareBase: allInTarget,
+      breakdown: airfareItems.map((item) => ({
+        label: item.name,
+        amount: item.amount,
+        detail: item.covers || item.confirmation || ""
+      }))
+    },
+    {
+      name: "Hotel accommodations",
+      amount: getConfirmedHotelTotal(),
+      note: "Boylston in Seattle and Courtyard in Portland.",
+      shareBase: allInTarget,
+      breakdown: hotelItems.map((item) => ({
+        label: item.name,
+        amount: item.amount,
+        detail: `${item.city}, ${item.nights} night${item.nights === 1 ? "" : "s"}`
+      }))
+    },
+    {
+      name: "Food and drink",
+      amount: (foodCategory?.amount || 0) + (cocktailsCategory?.amount || 0),
+      note: "Meals, coffee pacing, cocktails, and airport food inside the live itinerary.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Meals, coffee, and airport food", amount: foodCategory?.amount || 0, detail: foodCategory?.note || "" },
+        { label: "Cocktails and social nights", amount: cocktailsCategory?.amount || 0, detail: cocktailsCategory?.note || "" }
+      ]
+    },
+    {
+      name: "Transportation",
+      amount: transportationCategory?.amount || 0,
+      note: "Transit, ferry, and the Amtrak segment that sits inside the local trip plan.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Transit, ferry, and Amtrak", amount: transportationCategory?.amount || 0, detail: transportationCategory?.note || "" }
+      ]
+    },
+    {
+      name: "Activities and admissions",
+      amount: entranceCategory?.amount || 0,
+      note: "Paid attractions, admission-based itinerary stops, and one planned Kraken game.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Sailing Seattle downtown sail", amount: 45, detail: "Seattle Day 2 anchor activity." },
+        { label: "Columbia Center Sky View Observatory", amount: 17, detail: "Seattle sunset observation deck stop." },
+        { label: "Portland Japanese Garden", amount: 20, detail: "Timed Portland anchor stop." },
+        { label: "Seattle Kraken ticket estimate", amount: 120, detail: "Planned mid-bowl seat with a better center-view feel once official 2026-27 single-game seats open." }
+      ]
+    },
+    {
+      name: "Shopping and keepsakes",
+      amount: (coffeeBeansCategory?.amount || 0) + (souvenirsCategory?.amount || 0),
+      note: "Coffee-bean buys, smoked salmon, mugs, magnets, and trip keepsakes.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Coffee beans", amount: coffeeBeansCategory?.amount || 0, detail: coffeeBeansCategory?.note || "" },
+        { label: "Souvenirs and keepsakes", amount: souvenirsCategory?.amount || 0, detail: souvenirsCategory?.note || "" }
+      ]
+    },
+    {
+      name: "Personal item purchases",
+      amount: getPlannedPersonalPurchaseTotal(),
+      note: "Meta Ray-Ban glasses and BLEU DE CHANEL.",
+      shareBase: allInTarget,
+      breakdown: plannedPurchases.map((item) => ({
+        label: item.name,
+        amount: item.amount,
+        detail: item.note || ""
+      }))
+    },
+    {
+      name: "Contingency",
+      amount: contingencyCategory?.amount || 0,
+      note: "Buffer kept visible instead of hidden inside other spend.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Open buffer", amount: contingencyCategory?.amount || 0, detail: contingencyCategory?.note || "" }
+      ]
+    }
+  ];
+}
+
+function bindBudgetBreakdowns(scope = document) {
+  scope.querySelectorAll(".budget-item--expandable").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      if (event.target.closest("a, button")) return;
+      const next = item.getAttribute("aria-expanded") !== "true";
+      item.setAttribute("aria-expanded", next ? "true" : "false");
+    });
+    item.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      const next = item.getAttribute("aria-expanded") !== "true";
+      item.setAttribute("aria-expanded", next ? "true" : "false");
+    });
+  });
+}
+
 function renderTripCostSummary() {
   const summaryEl = document.getElementById("tripCostSummary");
   const breakdownEl = document.getElementById("tripCostBreakdown");
@@ -1051,16 +1170,7 @@ function renderTripCostSummary() {
   const plannedTripSpend = data.budget.projectedTotal;
   const plannedPersonal = getPlannedPersonalPurchaseTotal();
   const allInTarget = confirmedTotal + plannedTripSpend + plannedPersonal;
-  const tripSpendBreakdown = [
-    { name: "Airfare", amount: confirmedAirfare, note: "Asiana plus the paid American Airlines [redacted] booking.", shareBase: allInTarget },
-    { name: "Hotel accommodations", amount: confirmedHotels, note: "Boylston in Seattle and Courtyard in Portland.", shareBase: allInTarget },
-    { name: "Food and drink", amount: (data.budget.categories.find((item) => item.name === "Food")?.amount || 0) + (data.budget.categories.find((item) => item.name === "Cocktails and social")?.amount || 0), note: "Meals, coffee pacing, cocktails, and airport food inside the live itinerary.", shareBase: allInTarget },
-    { name: "Transportation", amount: data.budget.categories.find((item) => item.name === "Transportation")?.amount || 0, note: "Transit, ferry, and the Amtrak segment that sits inside the local trip plan.", shareBase: allInTarget },
-    { name: "Activities and admissions", amount: data.budget.categories.find((item) => item.name === "Entrance fees")?.amount || 0, note: "Paid attractions and admission-based itinerary stops.", shareBase: allInTarget },
-    { name: "Shopping and keepsakes", amount: (data.budget.categories.find((item) => item.name === "Coffee beans")?.amount || 0) + (data.budget.categories.find((item) => item.name === "Souvenirs")?.amount || 0), note: "Coffee-bean buys, smoked salmon, mugs, magnets, and trip keepsakes.", shareBase: allInTarget },
-    { name: "Personal item purchases", amount: plannedPersonal, note: "Meta Ray-Ban glasses and BLEU DE CHANEL.", shareBase: allInTarget },
-    { name: "Contingency", amount: data.budget.categories.find((item) => item.name === "Contingency")?.amount || 0, note: "Buffer kept visible instead of hidden inside other spend.", shareBase: allInTarget }
-  ];
+  const tripSpendBreakdown = buildTripCostBreakdown(allInTarget);
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main">
@@ -1099,8 +1209,17 @@ function renderTripCostSummary() {
     const share = category.shareBase ? (category.amount / category.shareBase) * 100 : 0;
     const normalized = Math.min(100, Math.max(6, share));
     const color = colors[index % colors.length];
+    const breakdownItems = (category.breakdown || []).map((item) => `
+      <li>
+        <div>
+          <strong>${item.label}</strong>
+          ${item.detail ? `<span>${item.detail}</span>` : ""}
+        </div>
+        <b>${moneyCompact(item.amount)}</b>
+      </li>
+    `).join("");
     return `
-      <article class="budget-item" style="--budget-color:${color}">
+      <article class="budget-item budget-item--expandable" style="--budget-color:${color}" tabindex="0" role="button" aria-expanded="false">
         <div class="budget-item-top">
           <div>
             <h3>${category.name}</h3>
@@ -1116,9 +1235,14 @@ function renderTripCostSummary() {
           <span>${usdMoney(category.amount)} of ${usdMoney(allInTarget)}</span>
         </div>
         <p>${category.note}</p>
+        <div class="budget-breakdown">
+          <div class="budget-breakdown-label">Click to view breakdown</div>
+          <ul class="budget-breakdown-list">${breakdownItems}</ul>
+        </div>
       </article>
     `;
   }).join("");
+  bindBudgetBreakdowns(breakdownEl);
 }
 
 function renderGuide(type = "reservations") {

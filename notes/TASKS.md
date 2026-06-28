@@ -15,7 +15,7 @@ It should stay shorter and cleaner than raw implementation scratch notes.
   - confirmed airfare `$1,256.83`
   - confirmed hotels `$871.98`
   - planned personal purchases for Meta Ray-Ban glasses `$409` and BLEU DE CHANEL `$173`
-  - local activity-budget totals derived from the itinerary
+  - local activity-budget totals derived from the itinerary, including the `$120` Kraken game estimate
 - Shared-calendar-to-site alignment is in a good state for the current public route.
 - The old airfare, hotel, and itinerary monitor stack is retired.
 - The only remaining automation is the Kraken ticket watch.
