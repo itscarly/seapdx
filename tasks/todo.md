@@ -8,27 +8,22 @@
 - [x] June 27, 2026: Git cleanup and prevention rules are in place.
 - [x] June 27, 2026: Old itinerary-rebuild TODO from Claude is superseded by the final June 27 handoff.
 
-## Ongoing monitoring (next session picks these up)
-
-### Airfare Watch — weekly check
-
-- [ ] Check Google Flights, Skyscanner, and KAYAK for one-way economy SFO→MNL and ORD→MNL departures in the 2027-03-07 through 2027-03-13 window.
-- [ ] Verify any serious finalist on the airline's own booking flow before recommending a purchase. Keep `directAirlineVerified` false unless checkout confirms the fare, baggage treatment, and protected routing.
-- [ ] Update `data/airfare-watch.json`, run `npm run monitor:airfare`, and record any coverage gaps or airline-site blockers explicitly.
-
-### Hotel Monitor — per cadence (Tue/Fri before Sep 1, Mon Sep, daily Oct+)
-
-- [ ] Run `npm run scrape:hotels` for the layered direct-first pass, then `npm run build:hotels`.
-- [ ] Seattle cap $400 — if any watchlist hotel qualifies refundable under cap, update `data/hotel-monitor-source.json` and consider switching from Boylston ($384.13, RES [redacted]).
-- [ ] ⚠️ **Portland — cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM.** Courtyard by Marriott Portland City Center already booked ($487.85, conf# [redacted]) — $140.61 cheaper. No further Portland watchlist monitoring needed.
-- [ ] ⚠️ **Staypineapple flash sale expires ~2026-05-28** — re-check Seattle watchlist (Maxwell, FIVE, Watertown, University Inn) for regular November prices after sale ends.
-- [ ] Replace stale direct URLs or chain blockers when a brand site returns `stale-direct-url`, Cloudflare, or anti-bot reference pages.
-- [ ] Commit and push after any real hotel-source update.
+## Current follow-up
 
 ### Itinerary upkeep
 
 - [ ] Recheck November-specific business hours for key stops as the trip approaches.
 - [ ] Update `data/trip-data.js` if any price, hours, or transit assumption changes materially.
+
+### Booking follow-up
+
+- [ ] Confirm Boylston Nov 1-5 hotel coverage if any Seattle booking ambiguity remains.
+- [ ] Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM if it is still active.
+
+### Remaining automation
+
+- [ ] Keep only the Kraken ticket watch active.
+- [ ] Do not recreate airfare, hotel, or itinerary monitor scripts unless the user explicitly asks for a new system.
 
 ## Completed (archived for reference)
 

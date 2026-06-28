@@ -1,5 +1,63 @@
 # Project Log
 
+## 2026-06-28 (session 11: monitor cleanup + executive spend summary)
+
+### COMPLETE: Retired the old monitor stack and rebuilt the trip-cost model
+
+**What changed:**
+1. Added a new executive trip-cost summary to the homepage above the local activity-budget block.
+2. Extended `data/trip-data.js` with confirmed airfare, confirmed hotel, and planned-purchase structures so the site can show a true all-in savings target.
+3. Corrected the paid American Airlines source of truth to `$716.40` under confirmation `[redacted]` and updated the later February leg to `CRP -> DFW -> ORD`.
+4. Removed the retired airfare/hotel tracker pages, tracker scripts, monitor workflows, and related package scripts from the active repo workflow.
+5. Simplified the logistics hub down to booked-flight detail plus the remaining Kraken-only watch.
+
+**Verification target for this session:**
+- `npm run validate`
+- local homepage check
+- logistics page check
+
+**Files touched:**
+- `data/trip-data.js`
+- `dashboards/html/index.html`
+- `dashboards/html/logistics.html`
+- `dashboards/js/app.js`
+- `package.json`
+- `scripts/session-status.js`
+- retired monitor assets deleted
+- active notes updated
+
+## 2026-06-28 (session 10: calendar parity pass + Seattle Day 1 live sync)
+
+### COMPLETE: Seattle Day 1 drift repaired and weaker stop details normalized
+
+**What changed:**
+1. Patched `data/trip-data.js` so Seattle Day 1 now matches the richer shared-calendar substance instead of the thinner site copy:
+   - Poquitos dinner now includes menu/site, what to order, fruity cocktail guidance, payment, and corrected first-night spend.
+   - Saint John's one-drink stop now includes menu/site, what to order, fruity cocktail guidance, payment, and a clearer one-drink budget.
+   - Arrival-night walk, reset, orientation, snack, and sleep blocks now have lighter narrative detail instead of placeholder-level notes.
+2. Filled in missing location / payment / site context on weaker Seattle and Portland stop records that still underpowered the homepage detail panel.
+3. Added a Seattle Kraken placeholder to the trip guidance with official booking direction, a practical seat-budget range, and a mid-to-late July watch window based on prior Kraken release timing.
+4. Rebuilt the calendar export artifacts so the normalized source remains the clean canonical version.
+5. Updated the live shared Google Calendar for the entire Seattle Day 1 route so the calendar popups and the site are no longer drifting on the exact stops the user flagged.
+
+**Verification:**
+- `node --check data/trip-data.js` passed.
+- `node scripts/sync-calendar-exports.js` regenerated 102 itinerary events.
+- `npm run validate` passed.
+- Local homepage browser check passed on the Day 1 Poquitos deep link with the richer detail panel visible.
+- Live shared Google Calendar accepted the Seattle Day 1 event-description updates.
+
+**Files touched:**
+- `data/trip-data.js`
+- `data/google-calendar-events-nov1-9-2026.json`
+- `data/google-calendar-import-nov1-9-2026.csv`
+- `notes/TASKS.md`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
+
+**Next:**
+- If another alignment pass is needed, add exact event-level Google Calendar URLs into stop data so homepage links can jump to the precise event instead of the day-level calendar view.
+
 ## 2026-06-28 (session 9: trip-data budget repair)
 
 ### COMPLETE: Validation blockers removed from `data/trip-data.js`

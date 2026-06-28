@@ -2,6 +2,12 @@
 
 ## Reusable patterns
 
+### When a workflow is retired, remove its public pages, scripts, and active-note instructions together
+
+- Deleting only the UI is not enough.
+- In this repo, the old airfare/hotel tracker system left stale commands, workflows, notes, and validation hooks behind until they were removed as one cleanup pass.
+- Prevention: when the user says a workflow is gone, sweep HTML, JS, package scripts, GitHub workflows, docs, and startup notes in the same session.
+
 ### When adding a new hotel entry, always fill ALL display fields immediately
 
 - Never leave `reviewScore`, `transitScore`, `transitNote`, `safetyNote`, `safetySource`, or `reviewUrl` as null.
@@ -119,6 +125,12 @@
   - `Skip`
   - `Continuity`
 - Also verify the day-level header rows and any route/location labels, not only the stop titles.
+
+### When the user says "all days," do not stop after fixing the example day
+
+- The user's Day 2 examples were evidence of the pattern, not a narrow scope limit.
+- For itinerary parity work, treat the cited examples as the first audit targets and then continue across the entire date range before calling the pass complete.
+- Acceptance here depends on proving the weak-stop pattern was removed across Nov 1-9, not just on repairing the first screenshot or first meal.
 
 ## How to use this note
 

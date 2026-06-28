@@ -2,10 +2,10 @@
 
 ## Source of Truth
 
-**`data/trip-data.js`** is the authoritative single source for the Nov 1-9, 2026 itinerary.
+**`data/trip-data.js`** is the authoritative single source for the Nov 1-9, 2026 itinerary and the current trip-cost model.
 
 - All downstream artifacts (calendar files, generated site, docs) derive from this file.
-- Budget math is verified via `npm run audit:budget` (always passes $888).
+- Budget math is verified via `npm run audit:budget`.
 - Named venues, times, costs, neighborhoods, and activity types all live here.
 - Do not maintain parallel itinerary versions in other files.
 
@@ -79,17 +79,18 @@ Calendar files must match trip-data.js exactly:
 - Souvenirs: $95
 - Contingency: $68
 
-**Flights excluded from activity budget** (tracked separately). Airfare total: $1,286.84.
+**Confirmed airfare total:** $1,256.83.
+**Confirmed hotel total:** $871.98.
+**Planned personal purchases:** Ray-Ban Meta glasses `$325`, Valentino perfume `$150`.
+**Activity budget stays separate** from the all-in trip-cost summary.
 
 ## Validation Commands
 
 ```bash
 npm run audit:budget          # Verify budget math
-npm run validate              # Full validation: syntax, budget, hotel tests, airfare tests
+npm run validate              # Syntax, budget, and calendar export checks
 npm run serve                 # Local preview on http://localhost:4173
-npm run monitor:airfare       # Check PAL airfare watch
-npm run monitor:hotels        # Check hotel price watch
-npm run monitor:itinerary     # Verify itinerary freshness
+npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 ```
 
 ## Key Files

@@ -2,25 +2,15 @@
   "name": "seattle-portland-travel-planner",
   "version": "1.0.0",
   "private": true,
-  "description": "Static Seattle and Portland travel itinerary dashboard with budget and monitoring scripts.",
+  "description": "Static Seattle and Portland travel itinerary dashboard with synced trip planning and executive spend summaries.",
   "scripts": {
     "serve": "python3 -m http.server 4173",
-    "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node --check dashboards/js/hotels.js && node --check dashboards/js/airfare.js && node scripts/audit-budget.js && node scripts/build-hotel-report.js && npm run validate:hotels && npm run validate:airfare",
+    "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js && node scripts/sync-calendar-exports.js",
     "audit:notes": "node scripts/audit-notes.js",
     "audit:budget": "node scripts/audit-budget.js",
-    "build:hotels": "node scripts/build-hotel-report.js",
-    "validate:hotels": "node --test tests/hotel-monitor.test.js && node scripts/validate-hotel-monitor.js",
-    "validate:airfare": "node --test tests/airfare-monitor.test.js && node scripts/validate-airfare-monitor.js",
     "update:verification": "node scripts/update-verification-summary.js",
-    "monitor:airfare": "node scripts/build-airfare-report.js",
-    "monitor:pal-taxes": "node scripts/monitor-pal-taxes.js",
-    "monitor:hotels": "node scripts/monitor-hotels.js",
-    "monitor:itinerary": "node scripts/monitor-itinerary.js",
     "sync:calendar": "node scripts/sync-calendar-exports.js",
-    "session-status": "node scripts/session-status.js",
-    "scrape:hotels": "node scripts/scrape-hotel-prices.js",
-    "scrape:pal": "FORCE_RUN=1 node scripts/monitor-pal-taxes.js",
-    "scrape:all": "npm run scrape:hotels && npm run build:hotels && npm run scrape:pal"
+    "session-status": "node scripts/session-status.js"
   },
   "engines": {
     "node": ">=20"

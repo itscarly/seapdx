@@ -5,7 +5,7 @@
     "start": "2026-11-01T13:55:00-08:00",
     "end": "2026-11-01T14:20:00-08:00",
     "location": "SEA Airport",
-    "description": "Purpose: Bag claim, station walk, ORCA tap setup.\nEstimated cost: $3.\nDuration: 25 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-and-transfer-to-lin"
+    "description": "Arrival transition block after landing in Seattle.\nPurpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.\nEstimated cost: $3 for the airport-to-city transit leg.\nTiming: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.\nEstimated cost: $3.\nDuration: 25 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-and-transfer-to-lin"
   },
   {
     "tag": "SEAPDX-2026-day-1-02",
@@ -13,7 +13,7 @@
     "start": "2026-11-01T14:20:00-08:00",
     "end": "2026-11-01T15:05:00-08:00",
     "location": "SEA -> Capitol Hill",
-    "description": "Purpose: Ride to Capitol Hill Station; fare already counted above.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-1-link-light-rail-to-capitol-hil"
+    "description": "Link ride from SEA into Capitol Hill.\nWhat to expect: This is the easy no-drama airport transfer, so just settle in, hydrate, and let the arrival day stay simple.\nCost note: Fare already counted in the previous airport-transfer stop.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-1-link-light-rail-to-capitol-hil"
   },
   {
     "tag": "SEAPDX-2026-day-1-03",
@@ -21,7 +21,7 @@
     "start": "2026-11-01T15:05:00-08:00",
     "end": "2026-11-01T15:35:00-08:00",
     "location": "Capitol Hill",
-    "description": "Purpose: Walk from station, quick unpack, hydrate, short rest.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-2-walk-to-boylston-and-luggage-r"
+    "description": "Short station-to-hotel walk.\nWhat to expect: Quick unpack, water, phone charge, and the first real pause after the long flight.\nContinuity: This is just enough reset time to keep the evening enjoyable instead of zombie-mode.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-2-walk-to-boylston-and-luggage-r"
   },
   {
     "tag": "SEAPDX-2026-day-1-04",
@@ -29,7 +29,7 @@
     "start": "2026-11-01T15:35:00-08:00",
     "end": "2026-11-01T16:30:00-08:00",
     "location": "Boylston base",
-    "description": "Purpose: Hard jet-lag buffer before evening.\nDuration: 45 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-3-rest-and-shower-reset"
+    "description": "Hard jet-lag buffer before the first night out.\nWhat to expect: Shower, recharge, switch into walking clothes, and do not overschedule this block.\nPurpose: Arrival night only works if this recovery window stays protected.\nDuration: 45 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-3-rest-and-shower-reset"
   },
   {
     "tag": "SEAPDX-2026-day-1-05",
@@ -37,15 +37,15 @@
     "start": "2026-11-01T16:30:00-08:00",
     "end": "2026-11-01T17:35:00-08:00",
     "location": "Broadway / Pike-Pine",
-    "description": "Purpose: Find nearest pharmacy, convenience stops, and transit points.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-4-neighborhood-orientation-walk"
+    "description": "Capitol Hill orientation walk to learn the grid before the full Seattle days.\nRoute: Boylston -> Pike St -> Pine St -> Broadway -> back.\nSouvenir tip: You walk right past Starbucks Reserve Roastery at 1124 Pike St, which is a strong early Seattle mug stop if the Day 2 market block gets busy.\nWhat to expect: Use this hour to spot QFC, pharmacy, transit anchors, and the easiest late-night snack options.\nEstimated cost: Free walk, plus about $20-24 only if you decide to grab the Reserve mug.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-4-neighborhood-orientation-walk"
   },
   {
     "tag": "SEAPDX-2026-day-1-06",
     "title": "🍽️ Seattle Day 1 · Poquitos Capitol Hill dinner",
     "start": "2026-11-01T17:35:00-08:00",
     "end": "2026-11-01T18:55:00-08:00",
-    "location": "Capitol Hill",
-    "description": "Purpose: Keep first meal easy and close to hotel.\nEstimated cost: $22.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-5-poquitos-capitol-hill-dinner"
+    "location": "Poquitos, 1000 E Pike St",
+    "description": "Mexican street tacos and margaritas on the first Seattle night.\nMenu: https://poquitosseattle.com/\nOrder: Al Pastor tacos -- order 3 if you are actually hungry. Add queso fundido if you want one richer shareable-for-one plate.\nFruity: Mango Margarita or Passion Fruit Margarita are the right lane here.\nSkip: The burrito. It is heavier than the first-night route needs.\nEstimated cost: $40 with one cocktail, tacos, and tip.\nPayment: Cards accepted.\nLocation: Poquitos, 1000 E Pike St\nPayment: Cards accepted\nEstimated cost: $40.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-0-5-poquitos-capitol-hill-dinner"
   },
   {
     "tag": "SEAPDX-2026-day-1-07",
@@ -53,15 +53,15 @@
     "start": "2026-11-01T18:55:00-08:00",
     "end": "2026-11-01T19:40:00-08:00",
     "location": "Capitol Hill",
-    "description": "Purpose: Low-pressure atmosphere check for future nights.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-0-walk-through-pike-pine-social-"
+    "description": "Pike-Pine vibe check after dinner.\nWhat to expect: This is not about packing in another stop. It is just a smart first-night loop to see what feels lively, easy, or worth coming back to later in the trip.\nPurpose: Learn the nightlife geography without committing to a full second venue.\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-0-walk-through-pike-pine-social-"
   },
   {
     "tag": "SEAPDX-2026-day-1-08",
     "title": "🎟️ Seattle Day 1 · Saint John's one-drink stop",
     "start": "2026-11-01T19:40:00-08:00",
     "end": "2026-11-01T20:45:00-08:00",
-    "location": "Capitol Hill",
-    "description": "Purpose: Keep to one drink for sleep recovery.\nEstimated cost: $16.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-1-saint-john-s-one-drink-stop"
+    "location": "Saint John's Bar and Eatery, 719 E Pike St",
+    "description": "Neighborhood bar stop for one intentional drink only.\nMenu: https://saintjohnssea.com/\nOrder: Ask what local beer is pouring best, or ask the bartender for the most fruit-forward seasonal cocktail on the menu.\nFruity: Seasonal spritz, passion-fruit, mango, or bright citrus cocktail is the right ask here.\nSkip: Food. This is a vibe-and-drink stop, not a second dinner.\nEstimated cost: $15 with tip.\nPayment: Cards accepted.\nLocation: Saint John's Bar and Eatery, 719 E Pike St\nPayment: Cards accepted\nEstimated cost: $15.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-1-saint-john-s-one-drink-stop"
   },
   {
     "tag": "SEAPDX-2026-day-1-09",
@@ -69,7 +69,7 @@
     "start": "2026-11-01T20:45:00-08:00",
     "end": "2026-11-01T21:25:00-08:00",
     "location": "Capitol Hill",
-    "description": "Purpose: Pick up bottled water and quick breakfast items.\nEstimated cost: $6.\nDuration: 35 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-2-return-walk-snack-pickup"
+    "description": "Walk back toward Boylston and do the practical late-night convenience run.\nWhat to buy: Water, one easy breakfast item, and one backup snack for the room.\nSuggested stop: QFC on Broadway is the cleanest dependable option.\nEstimated cost: About $5-10 depending on what you grab.\nEstimated cost: $8.\nDuration: 35 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-2-return-walk-snack-pickup"
   },
   {
     "tag": "SEAPDX-2026-day-1-10",
@@ -77,7 +77,7 @@
     "start": "2026-11-01T21:25:00-08:00",
     "end": "2026-11-02T07:30:00-08:00",
     "location": "Boylston base",
-    "description": "Purpose: Early sleep to stabilize next day energy.\nDuration: 10.5 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-3-sleep-buffer"
+    "description": "Arrival-night sleep protection block.\nPurpose: Do not cannibalize this time. The next two Seattle days work much better if the jet lag gets checked early.\nDuration: 10.5 hrs.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-1-1-3-sleep-buffer"
   },
   {
     "tag": "SEAPDX-2026-day-2-11",
@@ -140,16 +140,16 @@
     "title": "☕ Seattle Day 2 · Ghost Alley Espresso (coffee to-go before Northgate)",
     "start": "2026-11-02T15:50:00-08:00",
     "end": "2026-11-02T16:10:00-08:00",
-    "location": "1499 Post Alley",
-    "description": "Quick specialty latte stop before heading north for the Meta fit check.\nEstimated cost: $8.\nPayment: Cards accepted.\nLocation: 1499 Post Alley\nPayment: Cards accepted\nEstimated cost: $8.\nDuration: 20 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-3-ghost-alley-espresso-coffee-to"
+    "location": "Ghost Alley Espresso, 1499 Post Alley",
+    "description": "Quick specialty latte stop before heading north for the Meta fit check.\nWebsite: https://www.ghostalleyespresso.com/\nOrder: Latte or one of the sweeter seasonal specials if you want the fast comfort pick.\nEstimated cost: $8.\nPayment: Cards accepted.\nLocation: Ghost Alley Espresso, 1499 Post Alley\nPayment: Cards accepted\nEstimated cost: $8.\nDuration: 20 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-3-ghost-alley-espresso-coffee-to"
   },
   {
     "tag": "SEAPDX-2026-day-2-19",
     "title": "🎟️ Seattle Day 2 · Best Buy Northgate - Ray-Ban Meta glasses fit check",
     "start": "2026-11-02T16:10:00-08:00",
     "end": "2026-11-02T16:50:00-08:00",
-    "location": "Best Buy Northgate",
-    "description": "Link light rail to Northgate Station and walk to Best Buy.\nPurpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.\nOrder tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.\nContinuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.\nBest Buy hours: Monday 10 AM to 9 PM.\nEstimated cost: Fit check only, no required spend during this stop.\nLocation: Best Buy Northgate\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-4-best-buy-northgate-ray-ban-met"
+    "location": "Best Buy Northgate, 330 NE Northgate Way",
+    "description": "Link light rail to Northgate Station and walk to Best Buy.\nPurpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.\nOrder tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.\nContinuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.\nBest Buy hours: Monday 10 AM to 9 PM.\nEstimated cost: Fit check only, no required spend during this stop.\nLocation: Best Buy Northgate, 330 NE Northgate Way\nPayment: No purchase required; cards accepted if you buy accessories\nDuration: 40 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-4-best-buy-northgate-ray-ban-met"
   },
   {
     "tag": "SEAPDX-2026-day-2-20",
@@ -164,8 +164,8 @@
     "title": "🎟️ Seattle Day 2 · Columbia Center Sky View sunset",
     "start": "2026-11-02T17:10:00-08:00",
     "end": "2026-11-02T18:00:00-08:00",
-    "location": "Downtown",
-    "description": "Seattle sunset views from the observation deck.\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nEstimated cost: $17.\nPayment: Cards accepted.\nPayment: Cards accepted\nEstimated cost: $17.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-6-columbia-center-sky-view-sunse"
+    "location": "Sky View Observatory, 700 4th Ave",
+    "description": "Seattle sunset views from the observation deck.\nWebsite: https://skyviewobservatory.com/\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nEstimated cost: $17.\nPayment: Cards accepted.\nLocation: Sky View Observatory, 700 4th Ave\nPayment: Cards accepted\nEstimated cost: $17.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-6-columbia-center-sky-view-sunse"
   },
   {
     "tag": "SEAPDX-2026-day-2-22",
@@ -245,7 +245,7 @@
     "start": "2026-11-03T12:30:00-08:00",
     "end": "2026-11-03T13:45:00-08:00",
     "location": "Harbour Public House, 231 Parfitt Way SW",
-    "description": "Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry.\nMenu: https://www.harbourpub.com/\nORDER: Fish and chips ($22), cup of clam chowder ($9), and a local cider or IPA.\nFruity: Bainbridge cider is the move if you want something lighter than beer.\nSKIP: Burgers. Fish and chips makes the most sense on the island.\nEstimated cost: $32 with drink and tip.\nLocation: Harbour Public House, 231 Parfitt Way SW\nEstimated cost: $32.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-1-1-island-lunch"
+    "description": "Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry.\nMenu: https://www.harbourpub.com/\nORDER: Fish and chips ($22), cup of clam chowder ($9), and a local cider or IPA.\nFruity: Bainbridge cider is the move if you want something lighter than beer.\nSKIP: Burgers. Fish and chips makes the most sense on the island.\nEstimated cost: $32 with drink and tip.\nLocation: Harbour Public House, 231 Parfitt Way SW\nPayment: Cards accepted\nEstimated cost: $32.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-1-1-island-lunch"
   },
   {
     "tag": "SEAPDX-2026-day-3-32",
@@ -253,7 +253,7 @@
     "start": "2026-11-03T13:45:00-08:00",
     "end": "2026-11-03T14:35:00-08:00",
     "location": "Blackbird Bakery, 210 Winslow Way E",
-    "description": "Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.\nORDER: Oat latte or pour-over plus a scone or cookie.\nFruity: Ask if they have a fruit-forward seasonal pastry.\nEstimated cost: $10.\nLocation: Blackbird Bakery, 210 Winslow Way E\nPayment: Cards accepted\nEstimated cost: $10.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-1-2-coffee-rest-stop"
+    "description": "Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.\nMenu: Counter pastries and coffee; no separate site needed.\nORDER: Oat latte or pour-over plus a scone or cookie.\nFruity: Ask if they have a fruit-forward seasonal pastry.\nEstimated cost: $10.\nLocation: Blackbird Bakery, 210 Winslow Way E\nPayment: Cards accepted\nEstimated cost: $10.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-1-2-coffee-rest-stop"
   },
   {
     "tag": "SEAPDX-2026-day-3-33",
@@ -285,7 +285,7 @@
     "start": "2026-11-03T17:15:00-08:00",
     "end": "2026-11-03T18:15:00-08:00",
     "location": "Capitol Hill",
-    "description": "Japanese ramen chain, warming November dinner after the Bainbridge return.\nORDER: Signature tonkotsu ramen, plus extra chashu and a soft-boiled egg if you want the full version.\nFruity: Go sake or beer here, not cocktails.\nSKIP: Vegetarian broth if you want the classic bowl.\nEstimated cost: $25 with tip.\nPayment: Cards accepted\nEstimated cost: $25.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-2-2-menya-musashi-ramen-dinner"
+    "description": "Japanese ramen chain, warming November dinner after the Bainbridge return.\nMenu: https://menyamusashi.us/ramen-menu-seattle/ramen-menu-capitol-hill-seattle/\nORDER: Signature tonkotsu ramen, plus extra chashu and a soft-boiled egg if you want the full version.\nFruity: Go sake or beer here, not cocktails.\nSKIP: Vegetarian broth if you want the classic bowl.\nEstimated cost: $25 with tip.\nPayment: Cards accepted\nEstimated cost: $25.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-2-2-menya-musashi-ramen-dinner"
   },
   {
     "tag": "SEAPDX-2026-day-3-37",
@@ -316,8 +316,8 @@
     "title": "☕ Seattle Day 4 · Analog Coffee + light breakfast",
     "start": "2026-11-04T08:20:00-08:00",
     "end": "2026-11-04T09:20:00-08:00",
-    "location": "Analog Coffee",
-    "description": "Analog Coffee for the final Seattle morning.\nWebsite: https://analogcoffee.com/\nORDER: Pour-over or latte, plus whatever pastry looks best in the case.\nCoffee beans: Ask whether they have retail whole-bean bags if you still need the Seattle bag.\nEstimated cost: $18 with light breakfast and bean purchase if buying.\nLocation: Analog Coffee\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-0-1-analog-coffee-light-breakfast"
+    "location": "Analog Coffee, 235 Summit Ave E",
+    "description": "Analog Coffee for the final Seattle morning.\nWebsite: https://analogcoffee.com/\nORDER: Pour-over or latte, plus whatever pastry looks best in the case.\nCoffee beans: Ask whether they have retail whole-bean bags if you still need the Seattle bag.\nEstimated cost: $18 with light breakfast and bean purchase if buying.\nLocation: Analog Coffee, 235 Summit Ave E\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-0-1-analog-coffee-light-breakfast"
   },
   {
     "tag": "SEAPDX-2026-day-4-41",
@@ -365,7 +365,7 @@
     "start": "2026-11-04T16:00:00-08:00",
     "end": "2026-11-04T16:45:00-08:00",
     "location": "Ballard Coffee Works, 2060 NW Market St",
-    "description": "Ballard Coffee Works for the afternoon reset before heading back south.\nORDER: Iced latte or cortado.\nSKIP: Heavy snack unless your feet are dragging.\nEstimated cost: $8.\nLocation: Ballard Coffee Works, 2060 NW Market St\nPayment: Cards accepted\nEstimated cost: $8.\nDuration: 45 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-1-3-ballard-coffee-works-reset"
+    "description": "Ballard Coffee Works for the afternoon reset before heading back south.\nMenu: Specialty coffee and light pastries.\nORDER: Iced latte or cortado.\nSKIP: Heavy snack unless your feet are dragging.\nEstimated cost: $8.\nLocation: Ballard Coffee Works, 2060 NW Market St\nPayment: Cards accepted\nEstimated cost: $8.\nDuration: 45 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-4-1-3-ballard-coffee-works-reset"
   },
   {
     "tag": "SEAPDX-2026-day-4-47",
@@ -404,8 +404,8 @@
     "title": "☕ Portland Day 5 · Analog Coffee + QFC train snacks",
     "start": "2026-11-05T08:15:00-08:00",
     "end": "2026-11-05T09:25:00-08:00",
-    "location": "Capitol Hill",
-    "description": "Final Capitol Hill coffee stop before leaving Seattle.\nORDER: Latte or pour-over at Analog, then QFC for train snacks like a sandwich, protein bar, nuts, and water.\nSKIP: Heavy breakfast. Keep it lighter before the Amtrak departure.\nEstimated cost: $18.\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-1-analog-coffee-qfc-train-snacks"
+    "location": "Analog Coffee + QFC Broadway",
+    "description": "Final Capitol Hill coffee stop before leaving Seattle.\nWebsite: https://analogcoffee.com/\nORDER: Latte or pour-over at Analog, then QFC for train snacks like a sandwich, protein bar, nuts, and water.\nSKIP: Heavy breakfast. Keep it lighter before the Amtrak departure.\nEstimated cost: $18.\nLocation: Analog Coffee + QFC Broadway\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-0-1-analog-coffee-qfc-train-snacks"
   },
   {
     "tag": "SEAPDX-2026-day-5-52",
@@ -492,8 +492,8 @@
     "title": "🍽️ Portland Day 6 · Fuller's Coffee Shop breakfast",
     "start": "2026-11-06T08:20:00-08:00",
     "end": "2026-11-06T09:30:00-08:00",
-    "location": "Fuller's Coffee Shop",
-    "description": "Classic Portland diner breakfast.\nORDER: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.\nLocation: Fuller's Coffee Shop\nPayment: Cash preferred\nEstimated cost: $22.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-1-fuller-s-coffee-shop-breakfast"
+    "location": "Fuller's Coffee Shop, 136 NW 9th Ave",
+    "description": "Classic Portland diner breakfast.\nOrder: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.\nLocation: Fuller's Coffee Shop, 136 NW 9th Ave\nPayment: Cash preferred\nEstimated cost: $22.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-1-fuller-s-coffee-shop-breakfast"
   },
   {
     "tag": "SEAPDX-2026-day-6-63",
@@ -508,8 +508,8 @@
     "title": "🎟️ Portland Day 6 · Portland Japanese Garden (timed entry)",
     "start": "2026-11-06T10:10:00-08:00",
     "end": "2026-11-06T12:20:00-08:00",
-    "location": "Washington Park",
-    "description": "Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.\nEstimated cost: $20.\nDuration: 130 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-3-portland-japanese-garden-timed"
+    "location": "611 SW Kingston Ave",
+    "description": "Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.\nLocation: 611 SW Kingston Ave\nPayment: Cards accepted for online tickets\nEstimated cost: $20.\nDuration: 130 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-3-portland-japanese-garden-timed"
   },
   {
     "tag": "SEAPDX-2026-day-6-65",
@@ -524,16 +524,16 @@
     "title": "🍽️ Portland Day 6 · Lunch at Tasty n Alder",
     "start": "2026-11-06T13:10:00-08:00",
     "end": "2026-11-06T14:30:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Strong Portland brunch-lunch stop.\nOrder: Skirt Steak Hash or one of the Benedicts.\nFruity: Blood orange smash or the freshest seasonal fruit cocktail.\nEstimated cost: $32 with tip.\nPayment: Cards accepted\nEstimated cost: $32.\nDuration: 80 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-1-lunch-at-tasty-n-alder"
+    "location": "Tasty n Alder, 580 SW 12th Ave",
+    "description": "Strong Portland brunch-lunch stop.\nOrder: Skirt Steak Hash or one of the Benedicts.\nFruity: Blood orange smash or the freshest seasonal fruit cocktail.\nEstimated cost: $32 with tip.\nLocation: Tasty n Alder, 580 SW 12th Ave\nPayment: Cards accepted\nEstimated cost: $32.\nDuration: 80 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-1-lunch-at-tasty-n-alder"
   },
   {
     "tag": "SEAPDX-2026-day-6-67",
     "title": "🎟️ Portland Day 6 · Powell's City of Books",
     "start": "2026-11-06T14:30:00-08:00",
     "end": "2026-11-06T16:20:00-08:00",
-    "location": "Pearl District",
-    "description": "World's largest independent bookstore.\nWebsite: https://www.powells.com/\nStart: Gold Room for used and rare books, then Blue Room for travel and arts.\nBudget tip: Set a hard book-spend cap before you walk in.\nEstimated cost: $35 book budget.\nEstimated cost: $35.\nDuration: 110 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-2-powell-s-city-of-books"
+    "location": "1005 W Burnside St",
+    "description": "World's largest independent bookstore.\nWebsite: https://www.powells.com/\nStart: Gold Room for used and rare books, then Blue Room for travel and arts.\nBudget tip: Set a hard book-spend cap before you walk in.\nEstimated cost: $35 book budget.\nLocation: 1005 W Burnside St\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 110 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-1-2-powell-s-city-of-books"
   },
   {
     "tag": "SEAPDX-2026-day-6-68",
@@ -580,32 +580,32 @@
     "title": "☕ Portland Day 7 · Stumptown Downtown breakfast + coffee bean #3",
     "start": "2026-11-07T08:20:00-08:00",
     "end": "2026-11-07T09:10:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-1-stumptown-downtown-breakfast-c"
+    "location": "Stumptown Coffee Roasters, 1026 SW Stark St",
+    "description": "Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-1-stumptown-downtown-breakfast-c"
   },
   {
     "tag": "SEAPDX-2026-day-7-74",
     "title": "🎟️ Portland Day 7 · Powell's City of Books",
     "start": "2026-11-07T09:10:00-08:00",
     "end": "2026-11-07T11:50:00-08:00",
-    "location": "Pearl District",
-    "description": "Longer Saturday bookstore block with room to linger.\nEstimated cost: $14 base browse or small-purchase budget.\nWebsite: https://www.powells.com/\nEstimated cost: $14.\nDuration: 160 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-2-powell-s-city-of-books"
+    "location": "1005 W Burnside St",
+    "description": "Longer Saturday bookstore block with room to linger.\nWebsite: https://www.powells.com/\nEstimated cost: $14 base browse or small-purchase budget.\nLocation: 1005 W Burnside St\nPayment: Cards accepted\nEstimated cost: $14.\nDuration: 160 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-0-2-powell-s-city-of-books"
   },
   {
     "tag": "SEAPDX-2026-day-7-75",
     "title": "🍽️ Portland Day 7 · Transit + lunch near Powell's",
     "start": "2026-11-07T11:50:00-08:00",
     "end": "2026-11-07T12:50:00-08:00",
-    "location": "Pearl District",
-    "description": "Suggested: Lardo near Powell's.\nWebsite: https://lardopdx.com/\nOrder: Pork meatball sandwich or Dirty Fries.\nFruity: Seasonal fruit cocktail or sangria if you want lunch to lean social.\nEstimated cost: $28 with tip.\nPayment: Cards accepted\nEstimated cost: $28.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-0-transit-lunch-near-powell-s"
+    "location": "Lardo, 1205 SW Washington St",
+    "description": "Suggested: Lardo near Powell's.\nWebsite: https://lardopdx.com/\nOrder: Pork meatball sandwich or Dirty Fries.\nFruity: Seasonal fruit cocktail or sangria if you want lunch to lean social.\nEstimated cost: $28 with tip.\nLocation: Lardo, 1205 SW Washington St\nPayment: Cards accepted\nEstimated cost: $28.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-0-transit-lunch-near-powell-s"
   },
   {
     "tag": "SEAPDX-2026-day-7-76",
     "title": "🛍️ Portland Day 7 · MadeHere PDX + Pearl browsing",
     "start": "2026-11-07T12:50:00-08:00",
     "end": "2026-11-07T14:30:00-08:00",
-    "location": "Pearl District",
-    "description": "Pearl District browse plus the most useful local-gift stop.\nSouvenirs: MadeHere PDX for locally made goods, Portland mug if still needed, and one magnet if you want the cleaner downtown version instead of the market one.\nEstimated cost: $25-50 depending on what you buy.\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 100 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-1-madehere-pdx-pearl-browsing"
+    "location": "MadeHere PDX, 40 NW 10th Ave",
+    "description": "Pearl District browse plus the most useful local-gift stop.\nWebsite: https://madehereonline.com/\nSouvenirs: MadeHere PDX for locally made goods, Portland mug if still needed, and one magnet if you want the cleaner downtown version instead of the market one.\nEstimated cost: $25-50 depending on what you buy.\nLocation: MadeHere PDX, 40 NW 10th Ave\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 100 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-1-1-madehere-pdx-pearl-browsing"
   },
   {
     "tag": "SEAPDX-2026-day-7-77",
@@ -628,16 +628,16 @@
     "title": "🎟️ Portland Day 7 · Tope rooftop bar + sunset",
     "start": "2026-11-07T16:45:00-08:00",
     "end": "2026-11-07T18:15:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Tope rooftop sunset stop at The Hoxton.\nWebsite: https://www.thehoxton.com/portland/tope/\nOrder: Margaritas, tableside guac, and a couple tacos to graze.\nFruity: Mango-jalapeno or the freshest seasonal margarita.\nSkip: Heavy mains before Momiji.\nEstimated cost: $45 with two drinks and snacks.\nPayment: Cards accepted\nEstimated cost: $45.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-1-tope-rooftop-bar-sunset"
+    "location": "Tope at The Hoxton, 15 NW 4th Ave",
+    "description": "Tope rooftop sunset stop at The Hoxton.\nWebsite: https://www.thehoxton.com/portland/tope/\nOrder: Margaritas, tableside guac, and a couple tacos to graze.\nFruity: Mango-jalapeno or the freshest seasonal margarita.\nSkip: Heavy mains before Momiji.\nEstimated cost: $45 with two drinks and snacks.\nLocation: Tope at The Hoxton, 15 NW 4th Ave\nPayment: Cards accepted\nEstimated cost: $45.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-1-tope-rooftop-bar-sunset"
   },
   {
     "tag": "SEAPDX-2026-day-7-80",
     "title": "🍽️ Portland Day 7 · Momiji AYCE sushi dinner",
     "start": "2026-11-07T18:15:00-08:00",
     "end": "2026-11-07T19:45:00-08:00",
-    "location": "Downtown Portland",
-    "description": "AYCE Japanese dinner.\nOrder strategy: Round one sashimi and soup, round two specialty rolls, round three hot dishes only if you still have room.\nFruity: Lychee martini or yuzu-leaning cocktail.\nEstimated cost: $40 with drink and tip.\nPayment: Cards accepted\nEstimated cost: $40.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-2-momiji-ayce-sushi-dinner"
+    "location": "Momiji Sushi Restaurant",
+    "description": "AYCE Japanese dinner.\nOrder strategy: Round one sashimi and soup, round two specialty rolls, round three hot dishes only if you still have room.\nFruity: Lychee martini or yuzu-leaning cocktail.\nEstimated cost: $40 with drink and tip.\nLocation: Momiji Sushi Restaurant\nPayment: Cards accepted\nEstimated cost: $40.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-7-2-2-momiji-ayce-sushi-dinner"
   },
   {
     "tag": "SEAPDX-2026-day-7-81",
@@ -660,8 +660,8 @@
     "title": "☕ Portland Day 8 · Stumptown Downtown breakfast + coffee bean #4",
     "start": "2026-11-08T08:35:00-08:00",
     "end": "2026-11-08T09:35:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Morning ritual reset before the market.\nWebsite: https://www.stumptowncoffee.com/\nOrder: A different drink from Day 7 and, only if desired, one final bean bag.\nEstimated cost: $20.\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-0-1-stumptown-downtown-breakfast-c"
+    "location": "Stumptown Coffee Roasters, 1026 SW Stark St",
+    "description": "Morning ritual reset before the market.\nWebsite: https://www.stumptowncoffee.com/\nOrder: A different drink from Day 7 and, only if desired, one final bean bag.\nEstimated cost: $20.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $20.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-0-1-stumptown-downtown-breakfast-c"
   },
   {
     "tag": "SEAPDX-2026-day-8-84",
@@ -676,8 +676,8 @@
     "title": "🎟️ Portland Day 8 · Portland Saturday Market browse",
     "start": "2026-11-08T10:05:00-08:00",
     "end": "2026-11-08T12:05:00-08:00",
-    "location": "Waterfront",
-    "description": "Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and keep the trip's last full day feeling open-ended.\nEstimated cost: $24 base shopping budget.\nEstimated cost: $24.\nDuration: 120 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-1-0-portland-saturday-market-brows"
+    "location": "2 SW Naito Pkwy",
+    "description": "Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and keep the trip's last full day feeling open-ended.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $24 base shopping budget.\nLocation: 2 SW Naito Pkwy\nPayment: Many vendors prefer cash; some accept cards\nEstimated cost: $24.\nDuration: 120 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-1-0-portland-saturday-market-brows"
   },
   {
     "tag": "SEAPDX-2026-day-8-86",
@@ -708,16 +708,16 @@
     "title": "🍽️ Portland Day 8 · Pretty Ugly Burger dinner",
     "start": "2026-11-08T17:00:00-08:00",
     "end": "2026-11-08T18:15:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Burger-and-cocktail stop for the last real dinner lane.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-1-pretty-ugly-burger-dinner"
+    "location": "Pretty Ugly Bar, 927 SW 2nd Ave",
+    "description": "Burger-and-cocktail stop for the last real dinner lane.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.\nLocation: Pretty Ugly Bar, 927 SW 2nd Ave\nPayment: Cards accepted\nEstimated cost: $35.\nDuration: 75 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-1-pretty-ugly-burger-dinner"
   },
   {
     "tag": "SEAPDX-2026-day-8-90",
     "title": "🎟️ Portland Day 8 · Novel Book Bar cocktail + browse",
     "start": "2026-11-08T18:15:00-08:00",
     "end": "2026-11-08T19:45:00-08:00",
-    "location": "NW Everett / Pearl edge",
-    "description": "Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.\nPayment: Cards accepted\nEstimated cost: $25.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-2-novel-book-bar-cocktail-browse"
+    "location": "Novel Book Bar, Portland",
+    "description": "Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light. If you want a snack, the lighter menu items are the better play.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.\nLocation: Novel Book Bar, Portland\nPayment: Cards accepted\nEstimated cost: $25.\nDuration: 90 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-8-2-2-novel-book-bar-cocktail-browse"
   },
   {
     "tag": "SEAPDX-2026-day-8-91",
@@ -740,16 +740,16 @@
     "title": "🍽️ Portland Day 9 · Courtyard breakfast + checkout prep",
     "start": "2026-11-09T08:10:00-08:00",
     "end": "2026-11-09T08:45:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.\nPayment: Cards accepted\nEstimated cost: $10.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-1-courtyard-breakfast-checkout-p"
+    "location": "Courtyard Portland or nearby cafe",
+    "description": "Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.\nLocation: Courtyard Portland or nearby cafe\nPayment: Cards accepted\nEstimated cost: $10.\nDuration: 70 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-1-courtyard-breakfast-checkout-p"
   },
   {
     "tag": "SEAPDX-2026-day-9-94",
     "title": "☕ Portland Day 9 · Stumptown final coffee",
     "start": "2026-11-09T08:45:00-08:00",
     "end": "2026-11-09T09:20:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Final Portland coffee before the airport run.\nOrder: Your favorite drink of the trip or the one thing you still have not tried.\nEstimated cost: $12.\nWebsite: https://www.stumptowncoffee.com/\nPayment: Cards accepted\nEstimated cost: $12.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-2-stumptown-final-coffee"
+    "location": "Stumptown Coffee Roasters, 1026 SW Stark St",
+    "description": "Final Portland coffee before the airport run.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Your favorite drink of the trip or the one thing you still have not tried.\nEstimated cost: $12.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $12.\nDuration: 30 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-9-0-2-stumptown-final-coffee"
   },
   {
     "tag": "SEAPDX-2026-day-9-95",

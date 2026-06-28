@@ -15,48 +15,33 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ## Current active work
 
-### Homepage redesign follow-up
+### Executive spend and itinerary alignment
 
-- Main homepage redesign is now complete.
-- Data integrity cleanup is also complete:
-  - `data/trip-data.js` day totals now match `budget.projectedTotal`
-  - coffee-bean category now matches the stated $60 cap
-  - `npm run validate` is passing again
+- Main homepage redesign is complete.
+- Executive all-in spend summary is now part of the homepage and should stay aligned with:
+  - confirmed airfare `$1,256.83`
+  - confirmed hotels `$871.98`
+  - planned personal purchases for Ray-Ban Meta glasses and Valentino perfume
+  - local activity-budget totals derived from the itinerary
 
 ### Google Calendar detail audit and enrichment
 
-- Shared-calendar-to-site alignment is now active for the public homepage, not just Portland popup cleanup.
-- `data/trip-data.js` now reflects the newer live route changes that mattered most:
-  - Seattle Day 2 sailing swap and Northgate Meta fit check
-  - Seattle Day 3 Bainbridge meal/coffee specifics
-  - Seattle Day 4 timing/cost updates
-  - Portland Day 5-9 timing, spend, and detail sync
-- Calendar export drift is now reduced by `scripts/sync-calendar-exports.js`, which rebuilds the JSON and CSV artifacts from the normalized source.
-
-Status update:
-- Portland Day 6-9 live shared-calendar enrichment is now complete in the group calendar, including richer popup descriptions and removal of remaining `SEAPDX-...` Portland titles.
-- Seattle Day 2 public/card parity has now been repaired and key live events gained direct backlinks into the site.
-- If more calendar work resumes, finish backlink coverage across the remaining unchanged live events instead of reopening already-synced route logic.
-
-### ⚠️ Confirm Boylston extra night and reconcile Seattle hotel bookings
-
-Active itinerary and shared Google Calendar now use **The Boylston Hotel Capitol Hill** as the Seattle base for Nov 1-5. The added Nov 4-5 night is still the only hotel-confirmation blocker.
+- Shared-calendar-to-site alignment remains active for the public homepage.
+- `data/trip-data.js` carries the newer live route changes plus richer stop-detail content for the inline detail panel.
+- Calendar export drift is controlled by `scripts/sync-calendar-exports.js`, which rebuilds the JSON and CSV artifacts from the normalized source.
 
 Follow-up:
-- Confirm Boylston added Nov 4-5 night.
-- Reconcile or cancel any Seattle bookings not being kept once Boylston is confirmed.
+- If another sync pass happens, prioritize exact event-level Google Calendar links in stop data so homepage "View in Google Calendar" can jump to the specific event instead of the day view fallback.
 
-### ⚠️ Cancel Hotel Vance (Portland) before Nov 3, 11:59 PM
+### Flight and booking truth
 
-Hotel Vance conf# [redacted], $628.46. Courtyard (conf# [redacted], $487.85) is the active Portland base.
+- Use Boylston for Seattle and Courtyard Portland for Portland in the executive cost summary.
+- Use American Airlines confirmation `[redacted]` at `$716.40` as the paid source of truth for both the Nov 9 return and the Feb 27 later Chicago leg.
 
-### Seattle watchlist (4 hotels, transitScore > 90 only)
+### Remaining automation
 
-All hotels with transitScore ≤ 90 removed (session 16). Current watchlist: Boylston (99), Warwick (98), Hotel FIVE (100), Mayflower Park (100).
-
-### PAL taxes
-
-SFO→MNL $370.50 | ORD→MNL $375.50. Monitoring cadence active through Oct.
+- Keep only the Kraken ticket watch in scope.
+- Do not restore airfare, hotel, or itinerary monitor workflows.
 
 ## GitHub Secrets needed for email alerts
 

@@ -11,8 +11,8 @@ window.TRIP_DATA = {
     budgetCap: 1200,
     absoluteCeiling: 1300,
     assumptions: [
-      "Airfare and hotels are excluded.",
-      "Booked flight costs are displayed separately for visibility and timing, but they do not count toward the $1200 activity budget or the $1300 ceiling.",
+      "The activity-budget block stays separate from the all-in trip-cost summary.",
+      "Booked flight costs and hotel costs are shown in the executive summary, while the $1200 target and $1300 ceiling still describe the local trip-spend plan only.",
       "Amtrak Cascades 517 is included in the activity budget because the user listed it under intercity transportation.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
@@ -59,6 +59,65 @@ window.TRIP_DATA = {
       { name: "Contingency", amount: 92, note: "Remaining buffer after syncing the richer live-calendar route back into the source data." }
     ]
   },
+  tripCosts: {
+    confirmed: {
+      airfare: {
+        total: 1256.83,
+        note: "Confirmed airfare already paid across the Asiana arrival and the American Airlines [redacted] booking.",
+        items: [
+          {
+            name: "Asiana arrival booking",
+            amount: 540.43,
+            confirmation: "[redacted]",
+            covers: "Manila to Seattle via Incheon on November 1, 2026"
+          },
+          {
+            name: "American Airlines booking",
+            amount: 716.40,
+            confirmation: "[redacted]",
+            ticketNumber: "[redacted]",
+            covers: "Portland to Corpus Christi on November 9, 2026 plus Corpus Christi to Chicago on February 27, 2027"
+          }
+        ]
+      },
+      accommodations: {
+        total: 871.98,
+        note: "Use Boylston and Courtyard as the hotel source of truth for the executive summary.",
+        items: [
+          {
+            name: "The Boylston Hotel Capitol Hill",
+            amount: 384.13,
+            confirmation: "[redacted]",
+            city: "Seattle",
+            nights: 3
+          },
+          {
+            name: "Courtyard by Marriott Portland City Center",
+            amount: 487.85,
+            confirmation: "[redacted]",
+            city: "Portland",
+            nights: 5
+          }
+        ]
+      }
+    },
+    plannedPurchases: [
+      {
+        name: "Ray-Ban Meta glasses",
+        category: "Personal item / shopping",
+        amount: 325,
+        status: "planned",
+        note: "Planned follow-through after the Seattle Best Buy fit check."
+      },
+      {
+        name: "Valentino perfume",
+        category: "Personal item / shopping",
+        amount: 150,
+        status: "planned",
+        note: "Planned personal purchase to include in the true savings target."
+      }
+    ]
+  },
   transit: [
     {
       city: "Seattle",
@@ -83,7 +142,7 @@ window.TRIP_DATA = {
     }
   ],
   flights: {
-    airfareTotal: 1286.84,
+    airfareTotal: 1256.83,
     journeys: [
       {
         id: "journey-arrival-2026-11-01",
@@ -132,11 +191,11 @@ window.TRIP_DATA = {
         kind: "Return journey",
         title: "Portland to Corpus Christi via Dallas/Fort Worth",
         dateLabel: "Monday, November 9, 2026",
-        ticketCost: 746.41,
+        ticketCost: 716.40,
         airportLeaveBy: "Leave Courtyard Portland by about 10:15 AM and aim to be inside PDX by about 10:40-10:45 AM for the 1:47 PM departure.",
         visibilityNote: "This is the November departure routing that replaces the old generic flight-dependent buffer language.",
-        statusLabel: "Booked and ticketed; watch for PDX departure updates and DFW connection changes.",
-        alertCopy: "The dashboard should surface the latest known status, while the 15-minute monitor is designed to email delay or gate-change alerts when the provider-side email secrets are configured.",
+        statusLabel: "Booked and ticketed under confirmation [redacted].",
+        alertCopy: "This fare already covers the later February 27, 2027 American Airlines continuation to Chicago, so the trip-cost summary should not treat that later leg as unpaid.",
         statusSource: "https://www.aa.com/travelInformation/flights/status",
         airportSource: "https://www.flypdx.com/Flights#/arrivals-and-departures",
         legs: [
@@ -169,13 +228,14 @@ window.TRIP_DATA = {
       {
         id: "journey-future-2027-02-27",
         kind: "Future journey",
-        title: "Corpus Christi to San Francisco via Dallas/Fort Worth",
+        title: "Corpus Christi to Chicago via Dallas/Fort Worth",
         dateLabel: "Saturday, February 27, 2027",
+        fareDisplay: "Included in $716.40 AA booking",
         ticketCost: null,
         airportLeaveBy: "Be at CRP by about 8:10 AM if you keep the same 10:11 AM departure.",
-        visibilityNote: "Outside the Seattle-Portland travel window, but kept visible because it appeared in your booking screenshots.",
-        statusLabel: "Future booked routing; monitor closer to February 27, 2027.",
-        alertCopy: "This later booking can share the same flight-watch structure, but it should not affect the November 2026 activity budget.",
+        visibilityNote: "Later booked routing tied to the same paid American Airlines confirmation as the November 9 return.",
+        statusLabel: "Booked and already included in confirmation [redacted].",
+        alertCopy: "This later leg should stay visible for planning clarity, but it is already included in the confirmed American Airlines airfare total.",
         statusSource: "https://www.aa.com/travelInformation/flights/status",
         airportSource: "https://www.dfwairport.com/flights/",
         legs: [
@@ -193,26 +253,19 @@ window.TRIP_DATA = {
           },
           {
             from: { code: "DFW", city: "Dallas / Fort Worth" },
-            to: { code: "SFO", city: "San Francisco" },
-            departureTime: "1:15 PM",
-            arrivalTime: "3:14 PM",
+            to: { code: "ORD", city: "Chicago O'Hare" },
+            departureTime: "12:45 PM",
+            arrivalTime: "3:09 PM",
             duration: "Non-stop",
             connectionNote: "Future trip final leg",
-            flightNumber: "AA 701",
+            flightNumber: "AA 3114",
             cabin: "Economy (N)",
-            seat: "8F",
-            meals: "Food for purchase"
+            seat: "8A",
+            meals: ""
           }
         ]
       }
     ]
-  },
-  flightMonitor: {
-    cadenceMinutes: 15,
-    cadenceLabel: "Every 15 minutes",
-    channel: "Email alerts plus dashboard status visibility",
-    displayTitle: "15-minute flight watch",
-    displayNote: "This project treats flight updates as near-real-time polling rather than true airline push alerts. The dashboard can show the latest known status, and the monitor is structured to send email alerts when its provider credentials are configured."
   },
   itinerary: [
     {
@@ -226,18 +279,18 @@ window.TRIP_DATA = {
       weatherPlan: "Keep all first-day stops close to Boylston in Capitol Hill with short downtown transit if energy is good.",
       segments: [
         { label: "Afternoon", items: [
-          { time: "1:55 PM", leaveTime: "2:20 PM", name: "Arrive SEA and transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "25 min", cost: 3, notes: "Bag claim, station walk, ORCA tap setup.", route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
-          { time: "2:20 PM", name: "Link light rail to Capitol Hill", type: "transit", neighborhood: "SEA -> Capitol Hill", duration: "40 min", cost: 0, notes: "Ride to Capitol Hill Station; fare already counted above.", route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
-          { time: "3:05 PM", name: "Walk to Boylston and luggage reset", type: "walk", neighborhood: "Capitol Hill", duration: "30 min", cost: 0, notes: "Walk from station, quick unpack, hydrate, short rest." },
-          { time: "3:35 PM", name: "Rest and shower reset", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0, notes: "Hard jet-lag buffer before evening." },
-          { time: "4:30 PM", name: "Neighborhood orientation walk", type: "walk", neighborhood: "Broadway / Pike-Pine", duration: "60 min", cost: 0, notes: "Find nearest pharmacy, convenience stops, and transit points." },
-          { time: "5:35 PM", name: "Poquitos Capitol Hill dinner", type: "meal", neighborhood: "Capitol Hill", duration: "75 min", cost: 22, notes: "Keep first meal easy and close to hotel." }
+          { time: "1:55 PM", leaveTime: "2:20 PM", name: "Arrive SEA and transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "25 min", cost: 3, notes: "Bag claim, station walk, ORCA tap setup.", detailText: `Arrival transition block after landing in Seattle.\nPurpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.\nEstimated cost: $3 for the airport-to-city transit leg.\nTiming: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.`, route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
+          { time: "2:20 PM", name: "Link light rail to Capitol Hill", type: "transit", neighborhood: "SEA -> Capitol Hill", duration: "40 min", cost: 0, notes: "Ride to Capitol Hill Station; fare already counted above.", detailText: `Link ride from SEA into Capitol Hill.\nWhat to expect: This is the easy no-drama airport transfer, so just settle in, hydrate, and let the arrival day stay simple.\nCost note: Fare already counted in the previous airport-transfer stop.`, route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
+          { time: "3:05 PM", name: "Walk to Boylston and luggage reset", type: "walk", neighborhood: "Capitol Hill", duration: "30 min", cost: 0, notes: "Walk from station, quick unpack, hydrate, short rest.", detailText: `Short station-to-hotel walk.\nWhat to expect: Quick unpack, water, phone charge, and the first real pause after the long flight.\nContinuity: This is just enough reset time to keep the evening enjoyable instead of zombie-mode.` },
+          { time: "3:35 PM", name: "Rest and shower reset", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0, notes: "Hard jet-lag buffer before evening.", detailText: `Hard jet-lag buffer before the first night out.\nWhat to expect: Shower, recharge, switch into walking clothes, and do not overschedule this block.\nPurpose: Arrival night only works if this recovery window stays protected.` },
+          { time: "4:30 PM", name: "Neighborhood orientation walk", type: "walk", neighborhood: "Broadway / Pike-Pine", duration: "60 min", cost: 0, notes: "Find nearest pharmacy, convenience stops, and transit points.", detailText: `Capitol Hill orientation walk to learn the grid before the full Seattle days.\nRoute: Boylston -> Pike St -> Pine St -> Broadway -> back.\nSouvenir tip: You walk right past Starbucks Reserve Roastery at 1124 Pike St, which is a strong early Seattle mug stop if the Day 2 market block gets busy.\nWhat to expect: Use this hour to spot QFC, pharmacy, transit anchors, and the easiest late-night snack options.\nEstimated cost: Free walk, plus about $20-24 only if you decide to grab the Reserve mug.` },
+          { time: "5:35 PM", name: "Poquitos Capitol Hill dinner", type: "meal", neighborhood: "Capitol Hill", location: "Poquitos, 1000 E Pike St", duration: "75 min", cost: 40, website: "https://poquitosseattle.com/", payment: "Cards accepted", detailText: `Mexican street tacos and margaritas on the first Seattle night.\nMenu: https://poquitosseattle.com/\nOrder: Al Pastor tacos -- order 3 if you are actually hungry. Add queso fundido if you want one richer shareable-for-one plate.\nFruity: Mango Margarita or Passion Fruit Margarita are the right lane here.\nSkip: The burrito. It is heavier than the first-night route needs.\nEstimated cost: $40 with one cocktail, tacos, and tip.\nPayment: Cards accepted.` }
         ]},
         { label: "Evening", items: [
-          { time: "6:55 PM", name: "Walk through Pike-Pine social strip", type: "walk", neighborhood: "Capitol Hill", duration: "40 min", cost: 0, notes: "Low-pressure atmosphere check for future nights." },
-          { time: "7:40 PM", name: "Saint John's one-drink stop", type: "activity", neighborhood: "Capitol Hill", duration: "60 min", cost: 16, notes: "Keep to one drink for sleep recovery." },
-          { time: "8:45 PM", name: "Return walk + snack pickup", type: "walk", neighborhood: "Capitol Hill", duration: "35 min", cost: 6, notes: "Pick up bottled water and quick breakfast items." },
-          { time: "9:25 PM", name: "Sleep buffer", type: "rest", neighborhood: "Boylston base", duration: "10.5 hrs", cost: 0, notes: "Early sleep to stabilize next day energy." }
+          { time: "6:55 PM", name: "Walk through Pike-Pine social strip", type: "walk", neighborhood: "Capitol Hill", duration: "40 min", cost: 0, notes: "Low-pressure atmosphere check for future nights.", detailText: `Pike-Pine vibe check after dinner.\nWhat to expect: This is not about packing in another stop. It is just a smart first-night loop to see what feels lively, easy, or worth coming back to later in the trip.\nPurpose: Learn the nightlife geography without committing to a full second venue.` },
+          { time: "7:40 PM", name: "Saint John's one-drink stop", type: "activity", neighborhood: "Capitol Hill", location: "Saint John's Bar and Eatery, 719 E Pike St", duration: "60 min", cost: 15, website: "https://saintjohnssea.com/", payment: "Cards accepted", detailText: `Neighborhood bar stop for one intentional drink only.\nMenu: https://saintjohnssea.com/\nOrder: Ask what local beer is pouring best, or ask the bartender for the most fruit-forward seasonal cocktail on the menu.\nFruity: Seasonal spritz, passion-fruit, mango, or bright citrus cocktail is the right ask here.\nSkip: Food. This is a vibe-and-drink stop, not a second dinner.\nEstimated cost: $15 with tip.\nPayment: Cards accepted.` },
+          { time: "8:45 PM", name: "Return walk + snack pickup", type: "walk", neighborhood: "Capitol Hill", duration: "35 min", cost: 8, notes: "Pick up bottled water and quick breakfast items.", detailText: `Walk back toward Boylston and do the practical late-night convenience run.\nWhat to buy: Water, one easy breakfast item, and one backup snack for the room.\nSuggested stop: QFC on Broadway is the cleanest dependable option.\nEstimated cost: About $5-10 depending on what you grab.` },
+          { time: "9:25 PM", name: "Sleep buffer", type: "rest", neighborhood: "Boylston base", duration: "10.5 hrs", cost: 0, notes: "Early sleep to stabilize next day energy.", detailText: `Arrival-night sleep protection block.\nPurpose: Do not cannibalize this time. The next two Seattle days work much better if the jet lag gets checked early.` }
         ]}
       ]
     },
@@ -261,10 +314,10 @@ window.TRIP_DATA = {
           { time: "12:05 PM", name: "Waterfront walk to Olympic Sculpture Park", type: "walk", neighborhood: "Waterfront", duration: "60 min", cost: 0, notes: "Keep the core Seattle walk before lunch." },
           { time: "1:10 PM", name: "Luke's Lobster lunch", type: "meal", neighborhood: "Downtown (Pike Place)", location: "Luke's Lobster, 110 Pike St", duration: "70 min", cost: 38, website: "https://lukeslobster.com/", payment: "Cards accepted", detailText: `Counter-service Maine-style seafood rolls near Pike Place.\nMenu: https://lukeslobster.com/\nORDER: The Trio ($36) -- lobster, crab, and shrimp roll sampler. Or just do the Maine Lobster Roll ($29) if you want one perfect thing.\nFruity: Counter service only -- lemonade or bottled cider instead of cocktails.\nSKIP: Extra sides. The rolls are already filling.\nEstimated cost: $38 with tip.` },
           { time: "2:20 PM", name: "Sailing Seattle - Downtown Sail (1.5 hrs)", type: "activity", neighborhood: "Seattle waterfront", location: "Pier 56, Alaskan Way", duration: "90 min", cost: 45, website: "https://sailingseattle.com/downtownsail", payment: "Cards accepted for online booking", detailText: `70ft retired ocean racing yacht -- former Pacific Cup racer. Iconic Seattle experience.\nBook ahead: https://sailingseattle.com/downtownsail\nWhat you'll see: Seattle skyline, West Seattle, Queen Anne, Bainbridge Island views, and Mount Rainier if weather cooperates.\nBring: Your own drinks and snacks. Nothing is sold onboard.\nArrive: 10 minutes early at Pier 56 on Alaskan Way.\nOrder tip: Book the 2:20 PM slot ($45 adult). Skip the 11:30 AM deal because you are still at Pike Place then.\nSkip: Do not skip this one. Sailing a racing yacht in Puget Sound beats another generic waterfront attraction.\nEstimated cost: $45 per person.` },
-          { time: "3:50 PM", name: "Ghost Alley Espresso (coffee to-go before Northgate)", type: "coffee", neighborhood: "Pike Place / Post Alley", location: "1499 Post Alley", duration: "20 min", cost: 8, payment: "Cards accepted", detailText: `Quick specialty latte stop before heading north for the Meta fit check.\nEstimated cost: $8.\nPayment: Cards accepted.` },
-          { time: "4:10 PM", name: "Best Buy Northgate - Ray-Ban Meta glasses fit check", type: "activity", neighborhood: "Northgate", location: "Best Buy Northgate", duration: "40 min", cost: 0, detailText: `Link light rail to Northgate Station and walk to Best Buy.\nPurpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.\nOrder tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.\nContinuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.\nBest Buy hours: Monday 10 AM to 9 PM.\nEstimated cost: Fit check only, no required spend during this stop.` },
+          { time: "3:50 PM", name: "Ghost Alley Espresso (coffee to-go before Northgate)", type: "coffee", neighborhood: "Pike Place / Post Alley", location: "Ghost Alley Espresso, 1499 Post Alley", duration: "20 min", cost: 8, website: "https://www.ghostalleyespresso.com/", payment: "Cards accepted", detailText: `Quick specialty latte stop before heading north for the Meta fit check.\nWebsite: https://www.ghostalleyespresso.com/\nOrder: Latte or one of the sweeter seasonal specials if you want the fast comfort pick.\nEstimated cost: $8.\nPayment: Cards accepted.` },
+          { time: "4:10 PM", name: "Best Buy Northgate - Ray-Ban Meta glasses fit check", type: "activity", neighborhood: "Northgate", location: "Best Buy Northgate, 330 NE Northgate Way", duration: "40 min", cost: 0, payment: "No purchase required; cards accepted if you buy accessories", detailText: `Link light rail to Northgate Station and walk to Best Buy.\nPurpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.\nOrder tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.\nContinuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.\nBest Buy hours: Monday 10 AM to 9 PM.\nEstimated cost: Fit check only, no required spend during this stop.` },
           { time: "4:50 PM", name: "Transit to Columbia Center", type: "transit", neighborhood: "Northgate -> Downtown", duration: "20 min", cost: 3, notes: "Link back south after the Best Buy stop." },
-          { time: "5:10 PM", name: "Columbia Center Sky View sunset", type: "activity", neighborhood: "Downtown", duration: "50 min", cost: 17, payment: "Cards accepted", detailText: `Seattle sunset views from the observation deck.\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nEstimated cost: $17.\nPayment: Cards accepted.` }
+          { time: "5:10 PM", name: "Columbia Center Sky View sunset", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "50 min", cost: 17, website: "https://skyviewobservatory.com/", payment: "Cards accepted", detailText: `Seattle sunset views from the observation deck.\nWebsite: https://skyviewobservatory.com/\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nEstimated cost: $17.\nPayment: Cards accepted.` }
         ]},
         { label: "Evening", items: [
           { time: "6:00 PM", name: "Transit from Columbia Center to Belltown", type: "transit", neighborhood: "Downtown -> Belltown", duration: "15 min", cost: 0, notes: "Short reposition into dinner." },
@@ -292,14 +345,14 @@ window.TRIP_DATA = {
         ]},
         { label: "Afternoon", items: [
           { time: "10:50 AM", name: "Winslow + waterfront exploration", type: "walk", neighborhood: "Bainbridge Island", duration: "95 min", cost: 0 },
-          { time: "12:30 PM", name: "Island lunch", type: "meal", neighborhood: "Winslow", location: "Harbour Public House, 231 Parfitt Way SW", duration: "75 min", cost: 32, website: "https://www.harbourpub.com/", detailText: `Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry.\nMenu: https://www.harbourpub.com/\nORDER: Fish and chips ($22), cup of clam chowder ($9), and a local cider or IPA.\nFruity: Bainbridge cider is the move if you want something lighter than beer.\nSKIP: Burgers. Fish and chips makes the most sense on the island.\nEstimated cost: $32 with drink and tip.` },
-          { time: "1:45 PM", name: "Coffee / rest stop", type: "coffee", neighborhood: "Winslow", location: "Blackbird Bakery, 210 Winslow Way E", duration: "50 min", cost: 10, payment: "Cards accepted", detailText: `Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.\nORDER: Oat latte or pour-over plus a scone or cookie.\nFruity: Ask if they have a fruit-forward seasonal pastry.\nEstimated cost: $10.` },
+          { time: "12:30 PM", name: "Island lunch", type: "meal", neighborhood: "Winslow", location: "Harbour Public House, 231 Parfitt Way SW", duration: "75 min", cost: 32, website: "https://www.harbourpub.com/", payment: "Cards accepted", detailText: `Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry.\nMenu: https://www.harbourpub.com/\nORDER: Fish and chips ($22), cup of clam chowder ($9), and a local cider or IPA.\nFruity: Bainbridge cider is the move if you want something lighter than beer.\nSKIP: Burgers. Fish and chips makes the most sense on the island.\nEstimated cost: $32 with drink and tip.` },
+          { time: "1:45 PM", name: "Coffee / rest stop", type: "coffee", neighborhood: "Winslow", location: "Blackbird Bakery, 210 Winslow Way E", duration: "50 min", cost: 10, payment: "Cards accepted", detailText: `Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.\nMenu: Counter pastries and coffee; no separate site needed.\nORDER: Oat latte or pour-over plus a scone or cookie.\nFruity: Ask if they have a fruit-forward seasonal pastry.\nEstimated cost: $10.` },
           { time: "2:35 PM", name: "Return ferry to Seattle", type: "transit", neighborhood: "Puget Sound", duration: "60 min", cost: 0, notes: "Return walk-on passenger fare is already covered." }
         ]},
         { label: "Evening", items: [
           { time: "3:35 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "45 min", cost: 0 },
           { time: "4:20 PM", name: "Hotel recharge", type: "rest", neighborhood: "Boylston base", duration: "55 min", cost: 0 },
-          { time: "5:15 PM", name: "Menya Musashi ramen dinner", type: "meal", neighborhood: "Capitol Hill", duration: "60 min", cost: 25, payment: "Cards accepted", detailText: `Japanese ramen chain, warming November dinner after the Bainbridge return.\nORDER: Signature tonkotsu ramen, plus extra chashu and a soft-boiled egg if you want the full version.\nFruity: Go sake or beer here, not cocktails.\nSKIP: Vegetarian broth if you want the classic bowl.\nEstimated cost: $25 with tip.` },
+          { time: "5:15 PM", name: "Menya Musashi ramen dinner", type: "meal", neighborhood: "Capitol Hill", website: "https://menyamusashi.us/ramen-menu-seattle/ramen-menu-capitol-hill-seattle/", duration: "60 min", cost: 25, payment: "Cards accepted", detailText: `Japanese ramen chain, warming November dinner after the Bainbridge return.\nMenu: https://menyamusashi.us/ramen-menu-seattle/ramen-menu-capitol-hill-seattle/\nORDER: Signature tonkotsu ramen, plus extra chashu and a soft-boiled egg if you want the full version.\nFruity: Go sake or beer here, not cocktails.\nSKIP: Vegetarian broth if you want the classic bowl.\nEstimated cost: $25 with tip.` },
           { time: "6:15 PM", name: "Saint John's happy hour", type: "activity", neighborhood: "Capitol Hill", location: "Saint John's Bar and Eatery, 719 E Pike St", duration: "105 min", cost: 18, website: "https://saintjohnssea.com/", payment: "Cards accepted", detailText: `Saint John's Bar and Eatery for a Bainbridge-day wind-down.\nMenu: https://saintjohnssea.com/\nORDER: Whatever is on happy-hour special.\nFruity: Ask directly for the most fruit-forward seasonal cocktail or spritz.\nSKIP: Heavy food. You already ate dinner.\nEstimated cost: $18 with tip.` },
           { time: "8:00 PM", name: "Return and rest", type: "rest", neighborhood: "Boylston base", duration: "9.5 hrs", cost: 0, notes: "Early reset before the last Seattle full day." }
         ]}
@@ -317,7 +370,7 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Boylston base", duration: "40 min", cost: 0 },
-          { time: "8:20 AM", name: "Analog Coffee + light breakfast", type: "coffee", neighborhood: "Capitol Hill", location: "Analog Coffee", duration: "60 min", cost: 18, website: "https://analogcoffee.com/", payment: "Cards accepted", detailText: `Analog Coffee for the final Seattle morning.\nWebsite: https://analogcoffee.com/\nORDER: Pour-over or latte, plus whatever pastry looks best in the case.\nCoffee beans: Ask whether they have retail whole-bean bags if you still need the Seattle bag.\nEstimated cost: $18 with light breakfast and bean purchase if buying.` },
+          { time: "8:20 AM", name: "Analog Coffee + light breakfast", type: "coffee", neighborhood: "Capitol Hill", location: "Analog Coffee, 235 Summit Ave E", duration: "60 min", cost: 18, website: "https://analogcoffee.com/", payment: "Cards accepted", detailText: `Analog Coffee for the final Seattle morning.\nWebsite: https://analogcoffee.com/\nORDER: Pour-over or latte, plus whatever pastry looks best in the case.\nCoffee beans: Ask whether they have retail whole-bean bags if you still need the Seattle bag.\nEstimated cost: $18 with light breakfast and bean purchase if buying.` },
           { time: "9:20 AM", name: "Transit to Fremont", type: "transit", neighborhood: "Capitol Hill -> Fremont", duration: "60 min", cost: 3, notes: "Allow extra reposition time before the walk loop." },
           { time: "10:20 AM", name: "Fremont walking loop", type: "walk", neighborhood: "Fremont", duration: "110 min", cost: 0 }
         ]},
@@ -325,7 +378,7 @@ window.TRIP_DATA = {
           { time: "12:10 PM", name: "Uneeda Burger Fremont lunch", type: "meal", neighborhood: "Fremont", location: "Uneeda Burger", duration: "85 min", cost: 26, website: "https://www.uneedaburger.com/", payment: "Cards accepted", detailText: `Counter-service Fremont burger institution.\nMenu: https://www.uneedaburger.com/\nORDER: Uneeda Burger double patty with cheddar and bacon.\nFruity: Strawberry or seasonal milkshake is the fruit-leaning move here.\nSKIP: Veggie burger unless you specifically want the lighter lane.\nEstimated cost: $26.` },
           { time: "1:35 PM", name: "Transit to Ballard", type: "transit", neighborhood: "Fremont -> Ballard", duration: "25 min", cost: 0 },
           { time: "2:10 PM", name: "Ballard Ave + locks area explore", type: "walk", neighborhood: "Ballard", duration: "110 min", cost: 0 },
-          { time: "4:00 PM", name: "Ballard Coffee Works reset", type: "coffee", neighborhood: "Ballard", location: "Ballard Coffee Works, 2060 NW Market St", duration: "45 min", cost: 8, payment: "Cards accepted", detailText: `Ballard Coffee Works for the afternoon reset before heading back south.\nORDER: Iced latte or cortado.\nSKIP: Heavy snack unless your feet are dragging.\nEstimated cost: $8.` }
+          { time: "4:00 PM", name: "Ballard Coffee Works reset", type: "coffee", neighborhood: "Ballard", location: "Ballard Coffee Works, 2060 NW Market St", duration: "45 min", cost: 8, payment: "Cards accepted", detailText: `Ballard Coffee Works for the afternoon reset before heading back south.\nMenu: Specialty coffee and light pastries.\nORDER: Iced latte or cortado.\nSKIP: Heavy snack unless your feet are dragging.\nEstimated cost: $8.` }
         ]},
         { label: "Evening", items: [
           { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Ballard -> Capitol Hill", duration: "65 min", cost: 0 },
@@ -346,7 +399,7 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:00 AM", name: "Wake, final pack, checkout prep", type: "rest", neighborhood: "Boylston base", duration: "70 min", cost: 0 },
-          { time: "8:15 AM", name: "Analog Coffee + QFC train snacks", type: "coffee", neighborhood: "Capitol Hill", duration: "60 min", cost: 18, payment: "Cards accepted", detailText: `Final Capitol Hill coffee stop before leaving Seattle.\nORDER: Latte or pour-over at Analog, then QFC for train snacks like a sandwich, protein bar, nuts, and water.\nSKIP: Heavy breakfast. Keep it lighter before the Amtrak departure.\nEstimated cost: $18.` },
+          { time: "8:15 AM", name: "Analog Coffee + QFC train snacks", type: "coffee", neighborhood: "Capitol Hill", location: "Analog Coffee + QFC Broadway", duration: "60 min", cost: 18, website: "https://analogcoffee.com/", payment: "Cards accepted", detailText: `Final Capitol Hill coffee stop before leaving Seattle.\nWebsite: https://analogcoffee.com/\nORDER: Latte or pour-over at Analog, then QFC for train snacks like a sandwich, protein bar, nuts, and water.\nSKIP: Heavy breakfast. Keep it lighter before the Amtrak departure.\nEstimated cost: $18.` },
           { time: "9:25 AM", name: "Last Capitol Hill walk + coffee stop", type: "walk", neighborhood: "Capitol Hill", duration: "55 min", cost: 10 },
           { time: "10:30 AM", name: "Checkout and travel to King Street Station", type: "transit", neighborhood: "Capitol Hill -> King Street", duration: "55 min", cost: 4 },
           { time: "11:30 AM", name: "Station buffer + platform prep", type: "rest", neighborhood: "King Street Station", duration: "35 min", cost: 0 }
@@ -375,14 +428,14 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "50 min", cost: 0, notes: "Morning geared around the garden ticket window." },
-          { time: "8:20 AM", name: "Fuller's Coffee Shop breakfast", type: "meal", neighborhood: "Pearl edge", location: "Fuller's Coffee Shop", duration: "70 min", cost: 22, payment: "Cash preferred", detailText: `Classic Portland diner breakfast.\nORDER: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.` },
+          { time: "8:20 AM", name: "Fuller's Coffee Shop breakfast", type: "meal", neighborhood: "Pearl edge", location: "Fuller's Coffee Shop, 136 NW 9th Ave", duration: "70 min", cost: 22, payment: "Cash preferred", detailText: `Classic Portland diner breakfast.\nOrder: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.` },
           { time: "9:30 AM", name: "Transit to Washington Park (MAX)", type: "transit", neighborhood: "Downtown -> Washington Park", duration: "40 min", cost: 3, notes: "Use MAX into the park station and budget the uphill walk to the gate." },
-          { time: "10:10 AM", name: "Portland Japanese Garden (timed entry)", type: "activity", neighborhood: "Washington Park", duration: "130 min", cost: 20, website: "https://japanesegarden.org/tickets/", detailText: `Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.` }
+          { time: "10:10 AM", name: "Portland Japanese Garden (timed entry)", type: "activity", neighborhood: "Washington Park", location: "611 SW Kingston Ave", duration: "130 min", cost: 20, website: "https://japanesegarden.org/tickets/", payment: "Cards accepted for online tickets", detailText: `Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.` }
         ]},
         { label: "Afternoon", items: [
           { time: "12:20 PM", name: "Washington Park walk + recover", type: "walk", neighborhood: "Washington Park", duration: "50 min", cost: 0, notes: "Easy downhill recovery between the garden and lunch." },
-          { time: "1:10 PM", name: "Lunch at Tasty n Alder", type: "meal", neighborhood: "Downtown Portland", duration: "80 min", cost: 32, payment: "Cards accepted", detailText: `Strong Portland brunch-lunch stop.\nOrder: Skirt Steak Hash or one of the Benedicts.\nFruity: Blood orange smash or the freshest seasonal fruit cocktail.\nEstimated cost: $32 with tip.` },
-          { time: "2:30 PM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", duration: "110 min", cost: 35, website: "https://www.powells.com/", detailText: `World's largest independent bookstore.\nWebsite: https://www.powells.com/\nStart: Gold Room for used and rare books, then Blue Room for travel and arts.\nBudget tip: Set a hard book-spend cap before you walk in.\nEstimated cost: $35 book budget.` },
+          { time: "1:10 PM", name: "Lunch at Tasty n Alder", type: "meal", neighborhood: "Downtown Portland", location: "Tasty n Alder, 580 SW 12th Ave", duration: "80 min", cost: 32, payment: "Cards accepted", detailText: `Strong Portland brunch-lunch stop.\nOrder: Skirt Steak Hash or one of the Benedicts.\nFruity: Blood orange smash or the freshest seasonal fruit cocktail.\nEstimated cost: $32 with tip.` },
+          { time: "2:30 PM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", location: "1005 W Burnside St", duration: "110 min", cost: 35, website: "https://www.powells.com/", payment: "Cards accepted", detailText: `World's largest independent bookstore.\nWebsite: https://www.powells.com/\nStart: Gold Room for used and rare books, then Blue Room for travel and arts.\nBudget tip: Set a hard book-spend cap before you walk in.\nEstimated cost: $35 book budget.` },
           { time: "4:20 PM", name: "Coffee break (Heart Coffee Roasters)", type: "coffee", neighborhood: "Pearl District", location: "Heart Coffee Roasters", duration: "55 min", cost: 8, website: "https://www.heartroasters.com/", payment: "Cards accepted", detailText: `One of Portland's strongest specialty coffee resets.\nOrder: Oat milk latte or iced pour-over.\nEstimated cost: $8.` },
           { time: "5:15 PM", name: "Hotel reset / freshen up before Luc Lac", type: "rest", neighborhood: "Courtyard Portland", duration: "65 min", cost: 0, notes: "Also check the front desk again for the Meta package hold." }
         ]},
@@ -404,18 +457,18 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:20 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "coffee", neighborhood: "Downtown Portland", duration: "50 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.` },
-          { time: "9:10 AM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", duration: "160 min", cost: 14, website: "https://www.powells.com/", detailText: `Longer Saturday bookstore block with room to linger.\nEstimated cost: $14 base browse or small-purchase budget.` }
+          { time: "8:20 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "50 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.` },
+          { time: "9:10 AM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", location: "1005 W Burnside St", duration: "160 min", cost: 14, website: "https://www.powells.com/", payment: "Cards accepted", detailText: `Longer Saturday bookstore block with room to linger.\nWebsite: https://www.powells.com/\nEstimated cost: $14 base browse or small-purchase budget.` }
         ]},
         { label: "Afternoon", items: [
-          { time: "11:50 AM", name: "Transit + lunch near Powell's", type: "meal", neighborhood: "Pearl District", duration: "60 min", cost: 28, website: "https://lardopdx.com/", payment: "Cards accepted", detailText: `Suggested: Lardo near Powell's.\nWebsite: https://lardopdx.com/\nOrder: Pork meatball sandwich or Dirty Fries.\nFruity: Seasonal fruit cocktail or sangria if you want lunch to lean social.\nEstimated cost: $28 with tip.` },
-          { time: "12:50 PM", name: "MadeHere PDX + Pearl browsing", type: "shopping", neighborhood: "Pearl District", duration: "100 min", cost: 35, payment: "Cards accepted", detailText: `Pearl District browse plus the most useful local-gift stop.\nSouvenirs: MadeHere PDX for locally made goods, Portland mug if still needed, and one magnet if you want the cleaner downtown version instead of the market one.\nEstimated cost: $25-50 depending on what you buy.` },
+          { time: "11:50 AM", name: "Transit + lunch near Powell's", type: "meal", neighborhood: "Pearl District", location: "Lardo, 1205 SW Washington St", duration: "60 min", cost: 28, website: "https://lardopdx.com/", payment: "Cards accepted", detailText: `Suggested: Lardo near Powell's.\nWebsite: https://lardopdx.com/\nOrder: Pork meatball sandwich or Dirty Fries.\nFruity: Seasonal fruit cocktail or sangria if you want lunch to lean social.\nEstimated cost: $28 with tip.` },
+          { time: "12:50 PM", name: "MadeHere PDX + Pearl browsing", type: "shopping", neighborhood: "Pearl District", location: "MadeHere PDX, 40 NW 10th Ave", duration: "100 min", cost: 35, website: "https://madehereonline.com/", payment: "Cards accepted", detailText: `Pearl District browse plus the most useful local-gift stop.\nWebsite: https://madehereonline.com/\nSouvenirs: MadeHere PDX for locally made goods, Portland mug if still needed, and one magnet if you want the cleaner downtown version instead of the market one.\nEstimated cost: $25-50 depending on what you buy.` },
           { time: "2:30 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "105 min", cost: 0 }
         ]},
         { label: "Evening", items: [
           { time: "4:15 PM", name: "Transit to Tope", type: "transit", neighborhood: "Downtown -> Tope", duration: "10 min", cost: 0 },
-          { time: "4:45 PM", name: "Tope rooftop bar + sunset", type: "activity", neighborhood: "Downtown Portland", duration: "90 min", cost: 45, website: "https://www.thehoxton.com/portland/tope/", payment: "Cards accepted", detailText: `Tope rooftop sunset stop at The Hoxton.\nWebsite: https://www.thehoxton.com/portland/tope/\nOrder: Margaritas, tableside guac, and a couple tacos to graze.\nFruity: Mango-jalapeno or the freshest seasonal margarita.\nSkip: Heavy mains before Momiji.\nEstimated cost: $45 with two drinks and snacks.` },
-          { time: "6:15 PM", name: "Momiji AYCE sushi dinner", type: "meal", neighborhood: "Downtown Portland", duration: "90 min", cost: 40, payment: "Cards accepted", detailText: `AYCE Japanese dinner.\nOrder strategy: Round one sashimi and soup, round two specialty rolls, round three hot dishes only if you still have room.\nFruity: Lychee martini or yuzu-leaning cocktail.\nEstimated cost: $40 with drink and tip.` },
+          { time: "4:45 PM", name: "Tope rooftop bar + sunset", type: "activity", neighborhood: "Downtown Portland", location: "Tope at The Hoxton, 15 NW 4th Ave", duration: "90 min", cost: 45, website: "https://www.thehoxton.com/portland/tope/", payment: "Cards accepted", detailText: `Tope rooftop sunset stop at The Hoxton.\nWebsite: https://www.thehoxton.com/portland/tope/\nOrder: Margaritas, tableside guac, and a couple tacos to graze.\nFruity: Mango-jalapeno or the freshest seasonal margarita.\nSkip: Heavy mains before Momiji.\nEstimated cost: $45 with two drinks and snacks.` },
+          { time: "6:15 PM", name: "Momiji AYCE sushi dinner", type: "meal", neighborhood: "Downtown Portland", location: "Momiji Sushi Restaurant", duration: "90 min", cost: 40, payment: "Cards accepted", detailText: `AYCE Japanese dinner.\nOrder strategy: Round one sashimi and soup, round two specialty rolls, round three hot dishes only if you still have room.\nFruity: Lychee martini or yuzu-leaning cocktail.\nEstimated cost: $40 with drink and tip.` },
           { time: "7:45 PM", name: "Wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "12 hrs", cost: 0 }
         ]}
       ]
@@ -432,18 +485,18 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #4", type: "coffee", neighborhood: "Downtown Portland", duration: "60 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Morning ritual reset before the market.\nWebsite: https://www.stumptowncoffee.com/\nOrder: A different drink from Day 7 and, only if desired, one final bean bag.\nEstimated cost: $20.` },
+          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #4", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "60 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Morning ritual reset before the market.\nWebsite: https://www.stumptowncoffee.com/\nOrder: A different drink from Day 7 and, only if desired, one final bean bag.\nEstimated cost: $20.` },
           { time: "9:35 AM", name: "Walk to Portland Saturday Market", type: "walk", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0 }
         ]},
         { label: "Afternoon", items: [
-          { time: "10:05 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", duration: "120 min", cost: 24, website: "https://www.portlandsaturdaymarket.com/", detailText: `Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and keep the trip's last full day feeling open-ended.\nEstimated cost: $24 base shopping budget.` },
+          { time: "10:05 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", location: "2 SW Naito Pkwy", duration: "120 min", cost: 24, website: "https://www.portlandsaturdaymarket.com/", payment: "Many vendors prefer cash; some accept cards", detailText: `Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and keep the trip's last full day feeling open-ended.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $24 base shopping budget.` },
           { time: "12:05 PM", name: "Market lunch + snacks", type: "meal", neighborhood: "Waterfront", duration: "60 min", cost: 22, payment: "Cash preferred", detailText: `Graze multiple market vendors instead of leaving for lunch.\nOrder: Pupusas, Thai noodles, empanadas, or wood-fired crepes depending on what looks best.\nFruity: Fresh lemonade or smoothies from the market stalls.\nSkip: Sit-down restaurants nearby. The vendor food is the point here.\nEstimated cost: $22 plus any souvenir drift.\nPayment: Bring cash because not every booth takes cards.` },
           { time: "1:05 PM", name: "Transit + Pearl/downtown reset", type: "rest", neighborhood: "Downtown/Pearl", duration: "120 min", cost: 0 }
         ]},
         { label: "Evening", items: [
           { time: "3:05 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "115 min", cost: 0 },
-          { time: "5:00 PM", name: "Pretty Ugly Burger dinner", type: "meal", neighborhood: "Downtown Portland", duration: "75 min", cost: 35, payment: "Cards accepted", detailText: `Burger-and-cocktail stop for the last real dinner lane.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.` },
-          { time: "6:15 PM", name: "Novel Book Bar cocktail + browse", type: "activity", neighborhood: "NW Everett / Pearl edge", duration: "90 min", cost: 25, website: "https://www.instagram.com/novelpdx/", payment: "Cards accepted", detailText: `Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.` },
+          { time: "5:00 PM", name: "Pretty Ugly Burger dinner", type: "meal", neighborhood: "Downtown Portland", location: "Pretty Ugly Bar, 927 SW 2nd Ave", duration: "75 min", cost: 35, payment: "Cards accepted", detailText: `Burger-and-cocktail stop for the last real dinner lane.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.` },
+          { time: "6:15 PM", name: "Novel Book Bar cocktail + browse", type: "activity", neighborhood: "NW Everett / Pearl edge", location: "Novel Book Bar, Portland", duration: "90 min", cost: 25, website: "https://www.instagram.com/novelpdx/", payment: "Cards accepted", detailText: `Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light. If you want a snack, the lighter menu items are the better play.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.` },
           { time: "7:45 PM", name: "Wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "9.5 hrs", cost: 0 }
         ]}
       ]
@@ -460,8 +513,8 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:00 AM", name: "Wake + final packing", type: "rest", neighborhood: "Courtyard Portland", duration: "60 min", cost: 0 },
-          { time: "8:10 AM", name: "Courtyard breakfast + checkout prep", type: "meal", neighborhood: "Downtown Portland", duration: "70 min", cost: 10, payment: "Cards accepted", detailText: `Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.` },
-          { time: "8:45 AM", name: "Stumptown final coffee", type: "coffee", neighborhood: "Downtown Portland", duration: "30 min", cost: 12, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Final Portland coffee before the airport run.\nOrder: Your favorite drink of the trip or the one thing you still have not tried.\nEstimated cost: $12.` },
+          { time: "8:10 AM", name: "Courtyard breakfast + checkout prep", type: "meal", neighborhood: "Downtown Portland", location: "Courtyard Portland or nearby cafe", duration: "70 min", cost: 10, payment: "Cards accepted", detailText: `Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.` },
+          { time: "8:45 AM", name: "Stumptown final coffee", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "30 min", cost: 12, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Final Portland coffee before the airport run.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Your favorite drink of the trip or the one thing you still have not tried.\nEstimated cost: $12.` },
           { time: "9:20 AM", name: "Courtyard final walk", type: "walk", neighborhood: "Downtown Portland", duration: "40 min", cost: 0 },
           { time: "10:15 AM", name: "Checkout + transfer to PDX", type: "transit", neighborhood: "Courtyard -> PDX", duration: "60 min", cost: 3, notes: "Leave the hotel by about 10:15 AM to stay comfortably ahead of the domestic departure." },
           { time: "11:00 AM", name: "Airport check-in and security buffer", type: "rest", neighborhood: "PDX", duration: "95 min", cost: 0 },
@@ -481,7 +534,8 @@ window.TRIP_DATA = {
       { name: "Best Buy Northgate Meta fit check", status: "ACTIVE DAY-2 LOGISTICS STOP", note: "Use the Northgate Best Buy stop on Seattle Day 2 to confirm Ray-Ban Meta frame fit, then order through Amazon for Courtyard Portland delivery if the fit works.", link: "https://www.meta.com/demo/scheduler/best-buy/" },
       { name: "Courtyard Portland - Amazon package delivery confirmation", status: "CALL BEFORE ORDERING", note: "Call +1-503-233-3343 to confirm Amazon guest package delivery policy before ordering Meta glasses for hotel arrival.", link: "https://www.marriott.com/en/hotels/pdxcy-courtyard-portland-city-center/overview/" },
       { name: "Portland Japanese Garden", status: "Optional", note: "Timed tickets recommended up to 10 days ahead. Skipped in favor of Powell's and indoor activities.", link: "https://japanesegarden.org/hours-admission/" },
-      { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" }
+      { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" },
+      { name: "Seattle Kraken game placeholder", status: "WATCH FOR 2026-27 SINGLE-GAME SALES", note: "Use the official Kraken schedule first, then book through the team's official single-game ticket page once seats open. Expect a realistic planning range of roughly $75-200 depending on opponent, section, and demand, and buy quickly if a Nov 1-4 home game appears.", link: "https://www.nhl.com/kraken/tickets/single-game" }
     ],
     happyHour: [
       { name: "Saint John's Bar and Eatery", city: "Seattle", deal: "Official happy hour runs Mon-Fri 2 PM-6 PM, with Rainier at $2, sangria/cava at $3, house wine at $4, Lemon-Aid Kit or Dickel Sweet Tea at $5, margaritas at $6, and discounted food.", drink: "Use this as the lower-cost arrival-night bar instead of Canon.", link: "https://www.saintjohnsseattle.com/happyhour-v1" },

@@ -269,6 +269,7 @@ function initHomePage() {
   initHero();
   renderHeroFacts();
   renderSummary();
+  renderTripCostSummary();
   renderItinerary();
   window.addEventListener("hashchange", openStopFromHash);
   initFilters();
@@ -283,7 +284,6 @@ function initHomePage() {
 
 function initLogisticsPage() {
   renderLogisticsFlightBoard();
-  renderVerificationAndSources();
   initReveal();
 }
 
@@ -310,7 +310,7 @@ function hydrateFromStorage() {
         exclusions: parsed.data.exclusions || cloneData(baseData.exclusions),
         sources: parsed.data.sources || cloneData(baseData.sources),
         flights: parsed.data.flights || cloneData(baseData.flights),
-        flightMonitor: parsed.data.flightMonitor || cloneData(baseData.flightMonitor)
+        tripCosts: parsed.data.tripCosts || cloneData(baseData.tripCosts)
       };
       assignStopUids(data);
     }
@@ -466,8 +466,10 @@ function iconRoute() {
 }
 
 function initHero() {
-  const total = data.budget.projectedTotal;
-  const remaining = data.budget.cap - total;
+  const confirmedTotal = getConfirmedTripTotal();
+  const plannedTotal = getPlannedAdditionalTotal();
+  const allInTarget = confirmedTotal + plannedTotal;
+  const targetRatio = allInTarget > 0 ? Math.min(100, Math.max(0, (confirmedTotal / allInTarget) * 100)) : 0;
   const spendEl = document.getElementById("heroSpend");
   const remainingEl = document.getElementById("heroRemaining");
   const budgetHeadingEl = document.getElementById("budgetHeading");
@@ -479,10 +481,10 @@ function initHero() {
   const railWindowEl = document.getElementById("heroRailWindow");
   const verifiedEl = document.getElementById("heroVerified");
 
-  if (spendEl) spendEl.textContent = money(total);
-  if (remainingEl) remainingEl.textContent = `${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"}; ${money(data.budget.absoluteCeiling || data.budget.cap)} absolute ceiling`;
-  if (budgetHeadingEl) budgetHeadingEl.textContent = `Budget snapshot: ${money(data.budget.cap)} target, ${money(data.budget.absoluteCeiling || data.budget.cap)} ceiling`;
-  if (meterEl) meterEl.style.width = `${Math.min(100, Math.max(0, (total / data.budget.cap) * 100))}%`;
+  if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed + ${money(plannedTotal)} planned`;
+  if (budgetHeadingEl) budgetHeadingEl.textContent = `Local trip-spend snapshot: ${money(data.budget.cap)} target, ${money(data.budget.absoluteCeiling || data.budget.cap)} ceiling`;
+  if (meterEl) meterEl.style.width = `${targetRatio}%`;
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
   if (seattleBaseEl) seattleBaseEl.textContent = data.meta.travelerBase.seattle;
@@ -500,8 +502,8 @@ function renderHeroFacts() {
   const lines = [
     `${data.itinerary.length} trip days with one continuous Seattle-to-Portland flow`,
     `${seattleDays} Seattle days, ${portlandDays} Portland or transfer days`,
-    `${moneyPrecise(data.flights?.airfareTotal || 0)} airfare kept separate from activity spend`,
-    `${futureJourneys ? `${futureJourneys} later booked flight lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
+    `${moneyPrecise(getConfirmedTripTotal())} already committed before local trip spending`,
+    `${futureJourneys ? `${futureJourneys} later booked flight still lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
   ];
   factsEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join("");
 }
@@ -542,6 +544,7 @@ function handleImageError(img) {
 function rerenderMoneyViews() {
   initHero();
   renderSummary();
+  renderTripCostSummary();
   renderItinerary(currentFilter);
   renderBudget();
 }
@@ -607,14 +610,15 @@ function stopMatches(stop, filter, day) {
 function renderSummary() {
   const summaryEl = document.getElementById("summaryGrid");
   if (!summaryEl) return;
-  const days = data.itinerary.length;
-  const seattleSpend = data.itinerary.filter((day) => day.city.includes("Seattle")).reduce((sum, day) => sum + day.dayTotal, 0);
-  const portlandSpend = data.itinerary.filter((day) => day.city.includes("Portland")).reduce((sum, day) => sum + day.dayTotal, 0);
+  const confirmedTotal = getConfirmedTripTotal();
+  const plannedTripSpend = data.budget.projectedTotal;
+  const plannedPurchases = getPlannedPersonalPurchaseTotal();
+  const allInTarget = confirmedTotal + plannedTripSpend + plannedPurchases;
   const cards = [
-    ["Trip days", String(days), "A compact nine-day sequence instead of a sprawling planning dump."],
-    ["Projected spend", money(data.budget.projectedTotal), "Activity costs with the current realism buffer already folded in."],
-    ["Seattle + transfer", money(seattleSpend), "Includes Seattle routing and the rail transition into Portland."],
-    ["Portland + departure", money(portlandSpend), "Covers Portland pacing through the final airport-safe departure day."]
+    ["Confirmed booked cost", moneyPrecise(confirmedTotal), "Airfare and hotel costs already committed to the trip."],
+    ["Planned local spend", money(plannedTripSpend), "Seattle and Portland activity, food, transport, and contingency planning."],
+    ["Planned personal buys", money(plannedPurchases), "Meta glasses and Valentino perfume added to the real savings target."],
+    ["All-in target", moneyPrecise(allInTarget), "The full amount to save for confirmed bookings plus planned spending."]
   ];
   summaryEl.innerHTML = cards.map(([label, value, note], index) => `
     <article class="summary-card summary-card--editorial" data-reveal style="transition-delay:${index * 50}ms">
@@ -660,8 +664,9 @@ function renderFlightLeg(leg) {
 
 function renderFlightJourney(journey, options = {}) {
   const conciseStatus = journey.statusLabel.split(";")[0];
-  const detailCopy = options.detailed ? journey.alertCopy : journey.visibilityNote;
+  const detailCopy = journey.visibilityNote;
   const leaveBy = journey.airportLeaveBy ? `<span class="flight-status-pill">${journey.airportLeaveBy}</span>` : "";
+  const fareLabel = journey.fareDisplay || (journey.ticketCost != null ? moneyPrecise(journey.ticketCost) : "Cost not shown");
   return `
     <article class="flight-journey ${options.detailed ? "flight-journey--detailed" : "flight-journey--compact"}" data-reveal>
       <div class="flight-journey-head">
@@ -670,14 +675,14 @@ function renderFlightJourney(journey, options = {}) {
           <h3>${journey.title}</h3>
           <p>${journey.dateLabel}</p>
         </div>
-        <span class="flight-airfare">${journey.ticketCost != null ? moneyPrecise(journey.ticketCost) : "Cost not shown"}</span>
+        <span class="flight-airfare">${fareLabel}</span>
       </div>
       <div class="flight-status-row">
         <span class="flight-status-pill flight-status-pill--strong">${conciseStatus}</span>
         ${leaveBy}
       </div>
       <div class="flight-story">
-        <p>${detailCopy}</p>
+        ${detailCopy ? `<p>${detailCopy}</p>` : ""}
         ${options.detailed ? `<p>${journey.alertCopy}</p>` : ""}
       </div>
       <div class="flight-legs">
@@ -704,14 +709,14 @@ function renderFlightShell(targetId, options = {}) {
           <p class="eyebrow">${includeFuture ? "Flight visibility" : "Booked flights"}</p>
           <h2>${includeFuture ? "Detailed route view and later booking context" : "Flight timing and airport buffers"}</h2>
           <p class="flight-shell-copy">${includeFuture
-            ? "This utility view keeps the deeper route context, the future February booking, and the more operational copy that no longer belongs on the homepage."
-            : "Airfare stays outside the activity budget, but the critical route timing remains visible here so airport buffers and major risks are easy to scan."}</p>
+            ? "This utility view keeps the deeper route context and the later Chicago booking that no longer belongs on the homepage."
+            : "Booked-flight timing stays visible here without taking over the main trip-planning view."}</p>
         </div>
         <article class="budget-summary-card airfare">
-          <span class="budget-kicker">Airfare visibility</span>
+          <span class="budget-kicker">Confirmed airfare</span>
           <div class="budget-capline">
             <strong>${moneyPrecise(data.flights?.airfareTotal || 0)}</strong>
-            <p>Shown for visibility only. This total is excluded from the Seattle and Portland activity budget.</p>
+            <p>This total is part of the all-in trip cost summary, but still separate from the local activity-budget meters.</p>
           </div>
         </article>
       </div>
@@ -958,7 +963,7 @@ function renderBudget() {
 
   document.getElementById("budgetSummary").innerHTML = `
     <article class="budget-summary-card main">
-      <span class="budget-kicker">Budget status</span>
+      <span class="budget-kicker">Activity budget status</span>
       <strong class="budget-total">${money(projected)}</strong>
       <p class="budget-copy">${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"} with ${money(ceiling)} set as the hard ceiling for the trip.</p>
       <div class="budget-main-meter" aria-hidden="true">
@@ -969,7 +974,7 @@ function renderBudget() {
       <span class="budget-kicker">Target cap</span>
       <div class="budget-capline">
         <strong>${money(cap)}</strong>
-        <p>Primary trip budget before airfare and hotels.</p>
+        <p>Local Seattle and Portland spending target before confirmed bookings.</p>
       </div>
     </article>
     <article class="budget-summary-card">
@@ -980,10 +985,10 @@ function renderBudget() {
       </div>
     </article>
     <article class="budget-summary-card airfare">
-      <span class="budget-kicker">Airfare</span>
+      <span class="budget-kicker">Booked costs live above</span>
       <div class="budget-capline">
-        <strong>${moneyPrecise(data.flights?.airfareTotal || 0)}</strong>
-        <p>Visible here for planning clarity, but excluded from the activity budget and its category meters.</p>
+        <strong>${moneyPrecise(getConfirmedTripTotal())}</strong>
+        <p>Use the executive summary above for airfare, hotels, and planned personal purchases.</p>
       </div>
     </article>
   `;
@@ -1008,6 +1013,107 @@ function renderBudget() {
         <div class="budget-meter-labels">
           <span>Share of target</span>
           <span>${usdMoney(category.amount)} of ${usdMoney(cap)}</span>
+        </div>
+        <p>${category.note}</p>
+      </article>
+    `;
+  }).join("");
+}
+
+function getConfirmedAirfareTotal() {
+  return data.tripCosts?.confirmed?.airfare?.total ?? data.flights?.airfareTotal ?? 0;
+}
+
+function getConfirmedHotelTotal() {
+  return data.tripCosts?.confirmed?.accommodations?.total ?? 0;
+}
+
+function getPlannedPersonalPurchaseTotal() {
+  return (data.tripCosts?.plannedPurchases || []).reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+}
+
+function getConfirmedTripTotal() {
+  return getConfirmedAirfareTotal() + getConfirmedHotelTotal();
+}
+
+function getPlannedAdditionalTotal() {
+  return data.budget.projectedTotal + getPlannedPersonalPurchaseTotal();
+}
+
+function renderTripCostSummary() {
+  const summaryEl = document.getElementById("tripCostSummary");
+  const breakdownEl = document.getElementById("tripCostBreakdown");
+  if (!summaryEl || !breakdownEl) return;
+
+  const confirmedAirfare = getConfirmedAirfareTotal();
+  const confirmedHotels = getConfirmedHotelTotal();
+  const confirmedTotal = getConfirmedTripTotal();
+  const plannedTripSpend = data.budget.projectedTotal;
+  const plannedPersonal = getPlannedPersonalPurchaseTotal();
+  const allInTarget = confirmedTotal + plannedTripSpend + plannedPersonal;
+  const tripSpendBreakdown = [
+    { name: "Airfare", amount: confirmedAirfare, note: "Asiana plus the paid American Airlines [redacted] booking.", shareBase: allInTarget },
+    { name: "Hotel accommodations", amount: confirmedHotels, note: "Boylston in Seattle and Courtyard in Portland.", shareBase: allInTarget },
+    { name: "Food and drink", amount: (data.budget.categories.find((item) => item.name === "Food")?.amount || 0) + (data.budget.categories.find((item) => item.name === "Cocktails and social")?.amount || 0), note: "Meals, coffee pacing, cocktails, and airport food inside the live itinerary.", shareBase: allInTarget },
+    { name: "Transportation", amount: data.budget.categories.find((item) => item.name === "Transportation")?.amount || 0, note: "Transit, ferry, and the Amtrak segment that sits inside the local trip plan.", shareBase: allInTarget },
+    { name: "Activities and admissions", amount: data.budget.categories.find((item) => item.name === "Entrance fees")?.amount || 0, note: "Paid attractions and admission-based itinerary stops.", shareBase: allInTarget },
+    { name: "Shopping and keepsakes", amount: (data.budget.categories.find((item) => item.name === "Coffee beans")?.amount || 0) + (data.budget.categories.find((item) => item.name === "Souvenirs")?.amount || 0), note: "Coffee-bean buys, smoked salmon, mugs, magnets, and trip keepsakes.", shareBase: allInTarget },
+    { name: "Personal item purchases", amount: plannedPersonal, note: "Ray-Ban Meta glasses and Valentino perfume.", shareBase: allInTarget },
+    { name: "Contingency", amount: data.budget.categories.find((item) => item.name === "Contingency")?.amount || 0, note: "Buffer kept visible instead of hidden inside other spend.", shareBase: allInTarget }
+  ];
+
+  summaryEl.innerHTML = `
+    <article class="budget-summary-card main">
+      <span class="budget-kicker">All-in target</span>
+      <strong class="budget-total">${moneyPrecise(allInTarget)}</strong>
+      <p class="budget-copy">${moneyPrecise(confirmedTotal)} already committed + ${money(plannedTripSpend + plannedPersonal)} still to plan or buy.</p>
+      <div class="budget-main-meter" aria-hidden="true">
+        <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
+      </div>
+    </article>
+    <article class="budget-summary-card">
+      <span class="budget-kicker">Confirmed total</span>
+      <div class="budget-capline">
+        <strong>${moneyPrecise(confirmedTotal)}</strong>
+        <p>Airfare and hotels already tied to real bookings.</p>
+      </div>
+    </article>
+    <article class="budget-summary-card">
+      <span class="budget-kicker">Planned trip spend</span>
+      <div class="budget-capline">
+        <strong>${money(plannedTripSpend)}</strong>
+        <p>Local Seattle and Portland spending plan from the synced itinerary.</p>
+      </div>
+    </article>
+    <article class="budget-summary-card airfare">
+      <span class="budget-kicker">Planned purchases</span>
+      <div class="budget-capline">
+        <strong>${money(plannedPersonal)}</strong>
+        <p>Personal purchases that should count toward the real savings target.</p>
+      </div>
+    </article>
+  `;
+
+  const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68", "#6d5bd0"];
+  breakdownEl.innerHTML = tripSpendBreakdown.map((category, index) => {
+    const share = category.shareBase ? (category.amount / category.shareBase) * 100 : 0;
+    const normalized = Math.min(100, Math.max(6, share));
+    const color = colors[index % colors.length];
+    return `
+      <article class="budget-item" style="--budget-color:${color}">
+        <div class="budget-item-top">
+          <div>
+            <h3>${category.name}</h3>
+            <strong>${moneyPrecise(category.amount)}</strong>
+          </div>
+          <span class="budget-item-share">${Math.round(share)}%</span>
+        </div>
+        <div class="budget-gauge" aria-hidden="true">
+          <span class="budget-gauge-fill" style="width:${normalized}%"></span>
+        </div>
+        <div class="budget-meter-labels">
+          <span>Share of all-in target</span>
+          <span>${usdMoney(category.amount)} of ${usdMoney(allInTarget)}</span>
         </div>
         <p>${category.note}</p>
       </article>
@@ -1861,6 +1967,7 @@ function rerenderApp() {
   initHero();
   renderHeroFacts();
   renderSummary();
+  renderTripCostSummary();
   renderItinerary(currentFilter);
   renderBudget();
   renderGuide(currentGuide);

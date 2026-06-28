@@ -4,6 +4,21 @@
 
 This is the concise project change record.
 
+## 2026-06-28 — Monitor-system removal + executive trip-cost summary
+
+- Removed the old airfare, hotel, and itinerary monitor system from the public site and from the active repo workflow.
+- Deleted the retired tracker pages, tracker scripts, tracker tests, and scheduled GitHub monitor workflows.
+- Reworked the homepage budget model into a two-tier structure:
+  - executive all-in trip-cost summary
+  - lower local activity-budget summary
+- Added canonical confirmed-cost and planned-purchase data to `data/trip-data.js`, including:
+  - confirmed airfare `$1,256.83`
+  - confirmed hotels `$871.98`
+  - Ray-Ban Meta glasses `$325`
+  - Valentino perfume `$150`
+- Replaced the old future San Francisco routing with the paid Chicago routing under American Airlines confirmation `[redacted]`.
+- Simplified the logistics hub so it now keeps flight detail plus the Kraken-only watch instead of monitor clutter and source-reference sections.
+
 ## 2026-06-28 — Editorial homepage redesign + logistics hub split
 
 - Rebuilt `dashboards/html/index.html` into a public-facing trip command center with a stronger hero, slimmer summary strip, cleaner day cards, simplified homepage flights, tighter guides, and compact maps/transit support.
@@ -216,3 +231,9 @@ Removed the orphaned legacy flight-status polling track: `scripts/monitor-flight
 - Upgraded the homepage day-detail panel to render calendar-grade stop context, richer section blocks, and direct Google Calendar day links plus stable stop anchors.
 - Added `scripts/sync-calendar-exports.js` and regenerated `data/google-calendar-events-nov1-9-2026.json` plus `data/google-calendar-import-nov1-9-2026.csv` from the normalized source.
 - Updated key live shared-calendar events with direct site backlinks so the calendar can jump back into the matching public stop cards.
+- Completed a second parity pass focused on the exact user-reported gaps:
+  - Seattle Day 1 Poquitos and Saint John's now match the richer calendar substance with menu/site links, order guidance, fruity-cocktail guidance, payment, and corrected spend.
+  - Day 1 arrival/orientation/snack/sleep blocks now use intentional narrative copy instead of thin placeholders.
+  - Weak Seattle and Portland stop records gained missing location, payment, menu/site, and cost context so the homepage detail panel is materially closer to the live calendar.
+- Re-synced the live shared Google Calendar for the full Seattle Day 1 route so the calendar no longer carries thinner arrival-night copy than the site.
+- Added a Seattle Kraken planning placeholder to trip guidance with official booking path, a realistic seat-price range, and a watch window based on the club's prior schedule and single-game sale timing.

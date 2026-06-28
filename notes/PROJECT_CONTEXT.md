@@ -14,17 +14,12 @@ It is built to be:
 ## Current product shape
 
 - Main trip data: `data/trip-data.js`
-- Airfare watch source: `data/airfare-watch.json` (one-way economy cash-fare watch for SFO→MNL and ORD→MNL, Mar 7-13 2027)
-- Seattle hotel monitor source: `data/hotel-monitor-source.json`
-- Seattle hotel monitor report: `data/hotel-monitor-report.json`
 - Main page: `dashboards/html/index.html`
 - Logistics hub page: `dashboards/html/logistics.html`
-- Airfare intelligence page: `dashboards/html/airfare.html`
-- Hotel intelligence page: `dashboards/html/hotels.html`
 - Main styles: `dashboards/css/styles.css`
 - Main behavior: `dashboards/js/app.js`
-- Airfare tracker behavior: `dashboards/js/airfare.js`
-- Hotel tracker behavior: `dashboards/js/hotels.js`
+- Calendar export script: `scripts/sync-calendar-exports.js`
+- Budget validation script: `scripts/audit-budget.js`
 - Local preview: `npm run serve`
 - Fast verification: `npm run validate`
 
@@ -37,23 +32,19 @@ It is built to be:
 ## Current next priority
 
 - **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
-- **Validation follow-up**: complete. `data/trip-data.js` budget totals, day totals, and the coffee-bean cap are now reconciled, and `npm run validate` passes again.
-- **Calendar/site alignment**: active. The public homepage itinerary now follows the newer live shared-calendar route for the materially changed Seattle and Portland days, and the stop-detail panel can present richer planning copy with direct calendar links.
+- **Executive spend summary**: active and now part of the homepage. Confirmed airfare, confirmed hotels, planned local spend, and planned personal purchases should stay aligned with `data/trip-data.js`.
+- **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
+- **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$384.13`, and Courtyard Portland `$487.85`.
+- **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
+- **Remaining automation**: only the Kraken ticket watch should remain in scope.
 
-- **Seattle hotel base**: The active itinerary and shared Google Calendar are routed from The Boylston Hotel Capitol Hill for Nov 1-5. Boylston extra Nov 4-5 night still needs direct hotel confirmation. Keep Reside/Palihotel only as stale prior-booking context until cancellation status is reconciled.
-- **Seattle watchlist**: 4 hotels tracked (transitScore > 90 only). Low-transit hotels removed session 16.
-- **Portland**: Courtyard by Marriott Portland City Center booked $487.85 (conf# [redacted]). Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM.
-- **Shared calendar status**: Portland Day 6-9 still uses the richer popup format, and Seattle Day 2 key events now also carry direct backlinks into the public site. Remaining cleanup should focus on backlink coverage for unchanged live events, not on redoing already-matched route content.
-- **Airfare watch**: the current exact in-window signal is Philippine Airlines nonstop SFO→MNL on `2027-03-10` at `$523` from Skyscanner. It remains discovery-only because no airline-direct checkout proof was captured in this run. ORD still needs an exact one-way in-window baseline from an allowed carrier.
-- **Saved automations**: 9 active automations remain after cleanup. Kept set = Seattle hotels, Seattle/Portland price watches, Seattle/Portland flight-transit watches, and SFO/ORD→MNL airfare watches.
-
-## Automation commands
+## Main commands
 
 | Command | What it does |
 | --- | --- |
-| `npm run scrape:hotels` | Runs the layered hotel monitor: direct adapters first, persistent browser profile for blocked chains, fallback attempt only after direct blockers, and blocker-state recording when no trustworthy total lands |
-| `npm run monitor:airfare` | Rebuilds the current airfare intelligence report and summary from `data/airfare-watch.json` |
-| `npm run build:hotels` | Rebuilds hotel-monitor-report.json from source |
+| `npm run sync:calendar` | Rebuilds the Google Calendar JSON and CSV exports from `data/trip-data.js` |
+| `npm run audit:budget` | Verifies itinerary day totals and budget math |
+| `npm run validate` | Runs syntax checks, budget audit, and calendar export regeneration |
 | `npm run serve` | Local preview at `http://localhost:4173` |
 
 ## Main working rules
@@ -61,9 +52,8 @@ It is built to be:
 - Treat the repo as a static site first.
 - Treat `data/trip-data.js` as the source of truth for itinerary content.
 - Use the live shared calendar as the discovery input only when it is clearly newer than the site, then normalize the confirmed result back into `data/trip-data.js`.
-- Treat the airfare tracker as a cash-fare watch with strict airline-direct booking rules. Discovery sites are only signals; if airline checkout proof is missing, keep `directAirlineVerified` false and record the blocker or coverage gap explicitly.
-- Treat the hotel tracker as a separate subsystem with its own source data, generated report, rebooking logic, and source-tier semantics.
-- Preserve the last trustworthy hotel total when a new scrape is ambiguous, blocked, or stale.
+- Keep executive trip-cost totals and local activity-budget totals conceptually separate.
+- Do not restore deleted airfare/hotel monitor workflows, tracker pages, or tracker docs unless the user explicitly asks for a new system.
 - Treat meaningful note maintenance as part of done work.
 - Prefer plain-language project notes that a non-technical reader can follow.
 

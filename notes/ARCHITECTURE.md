@@ -7,16 +7,11 @@ This project is a static dashboard, not a backend app.
 The main layers are:
 
 - trip data in `data/trip-data.js`
-- airfare watch data in `data/airfare-watch.json` (trip config, decision rules, and per-itinerary observations)
-- hotel watchlist + metadata in `data/hotel-monitor-source.json` (all hotels, prices, amenities)
-- hotel monitor report in `data/hotel-monitor-report.json` (generated from source — run `npm run build:hotels`)
 - HTML structure in `dashboards/html/index.html`
 - logistics hub HTML in `dashboards/html/logistics.html`
-- airfare monitor HTML in `dashboards/html/airfare.html` (reads `airfare-watch.json` plus `research/airfare/latest-summary.json`)
-- hotel monitor HTML in `dashboards/html/hotels.html` (reads hotel-monitor-source.json directly, renders as table)
 - presentation in `dashboards/css/styles.css`
 - interactivity in `dashboards/js/app.js`
-- monitor scripts in `scripts/` (`build-airfare-report.js`, `lib/airfare-monitor.js`, and the Playwright-based hotel monitor)
+- validation and export scripts in `scripts/` (`audit-budget.js`, `sync-calendar-exports.js`, `session-status.js`)
 - Playwright + Chromium installed as local dependency (`npm install playwright`, `npx playwright install chromium`)
 
 ## Runtime model
@@ -24,10 +19,10 @@ The main layers are:
 - Local preview uses a static server from the project root.
 - Public hosting uses the same static files and currently runs through Netlify.
 - Notes live in `notes/` and are meant for Obsidian plus agent maintenance.
-- The airfare dashboard reads `data/airfare-watch.json` for source observations and `research/airfare/latest-summary.json` for rankings. Run `npm run monitor:airfare` after airfare-watch edits so the summary JSON and markdown report stay aligned.
-- The hotel dashboard reads directly from `data/hotel-monitor-source.json`. Hotel prices are scraped via Playwright (`npm run scrape:hotels`). Run `npm run build:hotels` after scraping to regenerate the report JSON.
 - The homepage and logistics hub now share `dashboards/js/app.js`, using `data-page` mode switches in the HTML body to keep the public itinerary surface and the utility hub on one client-side code path.
-- Both dashboards render entirely client-side from JSON — no build step needed to view them, just open the HTML files or run `npm run serve`.
+- The homepage renders both an executive all-in trip-cost summary and a lower-level local activity-budget summary from the same trip-data source.
+- Calendar export artifacts are derived from `data/trip-data.js` via `npm run sync:calendar`.
+- Both public pages render entirely client-side from the trip-data source — no build step needed to view them, just open the HTML files or run `npm run serve`.
 
 ## Documentation safety rule
 

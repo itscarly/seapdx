@@ -17,25 +17,15 @@
 - Status: active
 - Why: the site, budget, trip assumptions, and route logic all depend on one central data file
 
-### Airfare intelligence lives outside `data/trip-data.js`
+### Confirmed trip-cost data lives inside `data/trip-data.js`
 
 - Status: active
-- Why: airfare monitoring needs its own JSON, report output, and source-verification workflow. `data/airfare-watch.json` now holds airline-direct booking rules, discovery signals, and report-ready observations without mixing that work into the Seattle/Portland itinerary file.
+- Why: the homepage now needs one canonical source for itinerary content, confirmed bookings, planned purchases, and executive spend totals.
 
-### Hotel intelligence lives outside `data/trip-data.js`
-
-- Status: active
-- Why: hotel monitoring has its own report JSON, confirmed reservation details, watchlist, and rebooking logic that should not be tangled into itinerary data.
-
-### Airfare recommendations require airline-direct verification
+### Old monitor workflows stay deleted unless the user asks for a new system
 
 - Status: active
-- Why: Google Flights, Skyscanner, and KAYAK are useful for discovery, but they are not booking proof. The repo should only make a `BOOK` call after an airline-owned checkout confirms the actual total, baggage treatment, and protected routing.
-
-### Discovery-only fares stay visible, but they are never purchase advice
-
-- Status: active
-- Why: the watch still needs market context even when checkout access is blocked. Keep those signals in the data, but mark them honestly and do not treat them as bookable.
+- Why: the user explicitly retired the airfare/hotel/itinerary monitor stack, so public pages, scheduled workflows, and active commands should not imply those systems still exist.
 
 ### Documentation cleanup should be conservative
 
