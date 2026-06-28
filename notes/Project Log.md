@@ -1,5 +1,31 @@
 # Project Log
 
+## 2026-06-28 (session 6: Dashboard comprehensive redesign + GitHub Pages deployment)
+
+### COMPLETE: Full dashboard redesign live in production
+
+**What:** Complete UI/UX overhaul of `dashboards/html/index.html` — fonts, spacing, cards, interactivity, maps.
+
+**Changes:**
+- **Typography:** System font stack (SF Pro Display/Text via -apple-system) replaces Fira — native Apple aesthetic, zero cost
+- **Spacing:** Aggressive compaction across all sections (hero 24px, sections 12px, gaps 8-10px) — minimizes scroll fatigue
+- **Stop Chips:** Expanded width (165-240px), added neighborhood + cost display, hover animations (translateY -2px)
+- **Interactive:** Leaflet mini-maps in stop detail panels showing location + "Get directions" link; auto-open booked flights section
+- **Hover States:** All cards animate on hover (summary, day, chips) with smooth transitions + shadow lift
+- **CSS Updates:** ~185 lines changed in styles.css (version bump to ?v=2026-06-28-redesign for cache bust)
+- **JS Updates:** ~24 lines added for Leaflet map initialization in detail panels
+- **HTML Updates:** Added `open` attribute to booked flights details; CSS import version bumped
+
+**Testing:**
+- Local dev server: http://127.0.0.1:4173/dashboards/html/index.html ✓ verified fully functional
+- GitHub Pages deployment: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html ✓ live and matches local perfectly
+
+**Commit:** d21b07d "Dashboard redesign: SF Pro fonts, compact spacing, interactive features"
+
+**Result:** Dashboard now displays with professional Apple-grade aesthetics, maximizes screen real estate, and all itinerary content visible without expanding sections. Local and deployed versions now identical.
+
+---
+
 ## 2026-06-28 (session 5: Create unified carly skill + token optimization)
 
 ### COMPLETE: Merged ponytail-optimize + post-chat-cleanup into single carly skill

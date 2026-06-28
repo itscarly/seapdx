@@ -1,10 +1,10 @@
 ---
 name: session-start
 source: obsidian-memory-collector
-last_verified: 2026-06-27T22:38:00Z
+last_verified: 2026-06-28T20:15:00Z
 status: active
 confidence: high
-next_action: Build HTML itinerary board reflecting all calendar events
+next_action: Dashboard deployment complete; ready for user refinement requests or feature additions
 ---
 
 # Session Start
@@ -48,17 +48,17 @@ Read this first. Full orientation in minimal tokens.
 
 ## Latest Work (June 28, 2026)
 
-✅ **Dashboard UI/UX Polish Complete**
-- Fonts: Upgraded to Fira Code (headings) + Fira Sans (body) for technical/data dashboard aesthetic
-- Colors: Sky blue primary (#0EA5E9) + orange secondary (#F97316) — adventure travel vibe
-- Spacing: Compact layout — reduced padding (28px→20px), margins (22px→14px), gaps (14px→12px)
-- Responsive: Mobile-first grid (hero 1col → 2col at 768px, summary auto-fit)
-- Shadows: Reduced depth (sleeker appearance), smooth transitions (200ms cubic-bezier)
-- Accessibility: Focus rings (2px outline), prefers-reduced-motion support, 44px+ touch targets
-- Deployment: Commit 859a85f pushed to main → GitHub Pages CI/CD will deploy to both URLs
-  - Local dev: http://127.0.0.1:4173/dashboards/html/index.html ✓ verified
-  - Production: limcarl83-maker.github.io/my_projects/dashboards/html/index.html (deploying via CI)
-- No JS changes — CSS-only pass ensures stability
+✅ **Dashboard Comprehensive Redesign + Deployment Complete**
+- **Fonts:** System font stack (SF Pro Display/Text, -apple-system fallback) replaces Fira — native Apple aesthetic, zero load cost
+- **Spacing:** Aggressive compaction — all padding/margins reduced by 25-30% (hero 24px, sections 12px, gaps 8-10px)
+- **Stop Cards:** Expanded chip size (165-240px), neighborhood + cost info, hover animations (translateY -2px, shadow lift)
+- **Maps:** Leaflet mini-maps embedded in stop detail panels — shows location pin, "Get directions" button links to Google Maps
+- **Booked Flights:** Auto-opens by default (`<details open>`)
+- **Card Interactions:** Hover animations across summary cards, day cards, chips (all with smooth transitions)
+- **Editor Bar:** Compact layout, hidden explanation text to reduce scroll fatigue
+- **Testing:** Local dev verified at http://127.0.0.1:4173/dashboards/html/index.html
+- **Deployment:** Commit d21b07d pushed to main → GitHub Pages verified ✓
+  - Production live: limcarl83-maker.github.io/my_projects/dashboards/html/index.html (matches local perfectly)
 
 ## Key Files
 
