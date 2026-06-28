@@ -16,7 +16,7 @@ This vault is the clean working memory for `codexproject`.
 
 ## Session dashboard
 
-- [[session-start/2026-05-28|Today's session digest]]
+- [[session-start/2026-06-28|Latest session digest]]
 - [[queries/Open Blockers|Open blockers]]
 - [[memory/permanent/README|Permanent rules]]
 - [[queries/Recent Decisions|Recent decisions]]

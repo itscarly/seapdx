@@ -18,6 +18,12 @@ This is the concise project change record.
   - Valentino perfume `$150`
 - Replaced the old future San Francisco routing with the paid Chicago routing under American Airlines confirmation `[redacted]`.
 - Simplified the logistics hub so it now keeps flight detail plus the Kraken-only watch instead of monitor clutter and source-reference sections.
+- Reconciled active notes, hooks, and Obsidian-facing maintenance files so the next session starts from the post-monitor repo state instead of the old tracker-era assumptions.
+
+## 2026-06-28 — Itinerary filter cleanup
+
+- Replaced the empty homepage `Cocktails` itinerary filter with `Meals` because the live itinerary no longer contains any `cocktails` stop types.
+- Revalidated the site after the UI cleanup and pushed the change to `main`.
 
 ## 2026-06-28 — Editorial homepage redesign + logistics hub split
 

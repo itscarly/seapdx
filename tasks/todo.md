@@ -10,31 +10,26 @@
 
 ## Current follow-up
 
-### Itinerary upkeep
+### Next review window
 
 - [ ] Recheck November-specific business hours for key stops as the trip approaches.
-- [ ] Update `data/trip-data.js` if any price, hours, or transit assumption changes materially.
+- [ ] Recheck the live shared calendar and homepage alignment in the next couple of weeks.
+- [ ] Update `data/trip-data.js` if any price, hour, route, or transit assumption changes materially.
 
 ### Booking follow-up
 
-- [ ] Confirm Boylston Nov 1-5 hotel coverage if any Seattle booking ambiguity remains.
-- [ ] Cancel Hotel Vance (conf# [redacted]) before Nov 3, 11:59 PM if it is still active.
+- [ ] Confirm the active Seattle and Portland hotel bookings still match the real trip plan.
+- [ ] Cancel any older hotel bookings that are still active outside the repo truth.
 
 ### Remaining automation
 
 - [ ] Keep only the Kraken ticket watch active.
 - [ ] Do not recreate airfare, hotel, or itinerary monitor scripts unless the user explicitly asks for a new system.
 
-## Completed (archived for reference)
+## Stable current state
 
-- 2026-06-27: Final Seattle + Portland itinerary rebuild completed, deployed, and handed off. The earlier Claude planning drafts about further itinerary edits are now stale.
-- 2026-05-24: Removed 3 redundant saved automations (`seattle-portland-trip-review`, `seattle-portland-thread-summary-weekly`, `update-agents-md`). Kept 9 active watches with clearer scopes.
-- 2026-05-24: Deleted stale GitHub Pages deploy files and legacy flight-monitoring notes. Cleaned local review PNGs, browser-capture logs, macOS metadata files, and untitled scratch canvas files.
-- 2026-05-24: Removed the orphaned legacy flight-status polling track (`monitor:flights`, `scripts/monitor-flights.js`, `data/flight-monitor-snapshot.json`, `research/flights/*`).
-- 2026-05-24: Unified light/white theme across all 3 HTML pages. Removed moodboard. Added collapsible sections (flights, budget, verification). Cleaned stale automation cards. Added missing hotel address/brand data. Deleted 14 stale PNGs and TASKS-legacy.md.
-- 2026-05-24: Layered hotel monitor shipped. Per-chain adapters, blocker classification, persistent browser profile support, fallback scaffolding, dashboard status updates, and hotel regression tests are now in repo.
-- 2026-05-23: PAL Award Tax Monitor launched. SFO→MNL (58k mi + $370.50), ORD→MNL (67k mi + $375.50).
-- 2026-05-23: Boylston Hotel confirmed as Seattle benchmark (RES ID [redacted], $384.13 total, Nov 1-4 2026).
-- 2026-05-23: Hotel Vance confirmed as Portland benchmark ($628.46, conf# [redacted], Nov 4-9 2026).
-- 2026-05-23: Both trackers rebuilt with Playwright automation and pushed to the repo; public hosting remains Netlify.
-- 2026-05-23: All notes reconciled, stale lines removed, handoff written.
+- Homepage redesign, logistics split, executive trip-cost summary, and calendar-detail sync are complete.
+- Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$871.98`.
+- Ray-Ban Meta glasses and Valentino perfume are included as planned purchases in the savings target.
+- The old airfare, hotel, and itinerary monitor stack is retired from the repo and public site.
+- The Kraken watch is the only remaining automation in scope.

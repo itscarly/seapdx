@@ -1,5 +1,58 @@
 # Project Log
 
+## 2026-06-28 (session 13: filter cleanup + push + final repo reconciliation)
+
+### COMPLETE: Homepage filter row and repo state cleaned for handoff
+
+**What changed:**
+1. Replaced the empty homepage `Cocktails` itinerary filter with `Meals` because there were no live `cocktails` stops in the active itinerary.
+2. Validated the change locally and pushed the UI fix to `origin/main` in commit `26ec124`.
+3. Reconciled the remaining active instructions, hook text, task files, and Obsidian-facing notes so the next session starts from the post-monitor repo state instead of older tracker-era assumptions.
+
+**Verification:**
+- `npm run validate` passed.
+- Browser check confirmed the homepage filter row now shows `All`, `Seattle`, `Portland`, `Coffee`, `Meals`.
+- `node scripts/collect-obsidian-memory.js` ran successfully.
+
+**Files touched:**
+- `dashboards/html/index.html`
+- `AGENTS.md`
+- `hooks/post-task.md`
+- active note files
+
+## 2026-06-28 (session 12: maintenance sweep + final handoff cleanup)
+
+### COMPLETE: Active notes, hooks, and startup guidance reconciled to the current repo state
+
+**What changed:**
+1. Updated `AGENTS.md` so `npm run validate` reflects the current repo workflow instead of the deleted tracker scripts and tests.
+2. Rewrote stale active-note surfaces that were still carrying deleted monitor logic or stale numbers:
+   - `notes/KNOWN_ISSUES.md`
+   - `notes/TASKS.md`
+   - `notes/PROJECT_MEMORY.md`
+   - `notes/Home.md`
+   - `notes/MAINTENANCE.md`
+   - `notes/LEARNINGS.md`
+3. Updated `hooks/post-task.md` so future maintenance passes explicitly treat the retired tracker system as gone and keep `Decisions.md` referenced correctly.
+4. Added a short changelog and note trail for the empty itinerary filter cleanup and the final post-monitor repo baseline.
+
+**Verification:**
+- `npm run validate` passed.
+- `node scripts/collect-obsidian-memory.js` ran successfully.
+
+**Files touched:**
+- `AGENTS.md`
+- `hooks/post-task.md`
+- `notes/Home.md`
+- `notes/KNOWN_ISSUES.md`
+- `notes/MAINTENANCE.md`
+- `notes/PROJECT_CONTEXT.md`
+- `notes/TASKS.md`
+- `notes/PROJECT_MEMORY.md`
+- `notes/LEARNINGS.md`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
+
 ## 2026-06-28 (session 11: monitor cleanup + executive spend summary)
 
 ### COMPLETE: Retired the old monitor stack and rebuilt the trip-cost model

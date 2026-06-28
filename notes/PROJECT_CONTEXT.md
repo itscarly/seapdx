@@ -36,7 +36,7 @@ It is built to be:
 - **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
 - **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$384.13`, and Courtyard Portland `$487.85`.
 - **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
-- **Remaining automation**: only the Kraken ticket watch should remain in scope.
+- **Remaining automation**: only the Kraken ticket watch should remain in scope. Current cadence is the saved Codex automation `seattle-kraken-ticket-watch`.
 
 ## Main commands
 
@@ -81,8 +81,10 @@ Use this order at the start of a new Claude/Codex session:
 2. latest note in `notes/session-start/`
 3. relevant source index note(s) in `notes/sources/`
 
-## 2026-05-30 itinerary overhaul
-- Updated Seattle/Portland itinerary dates to Nov 1-9 with hour-by-hour activity, walk/transit, meals, and rest blocks.
-- Seattle base set to The Boylston Hotel Capitol Hill; Portland starts Nov 5 after Amtrak Cascades 517 (12:10 PM to 3:35 PM).
-- Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
-- Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
+## Current validated budget snapshot
+
+- Local activity-budget projected total: `$1,072`
+- Local activity-budget cap: `$1,200`
+- Local activity-budget ceiling: `$1,300`
+- Confirmed airfare total: `$1,256.83`
+- Confirmed hotel total: `$871.98`

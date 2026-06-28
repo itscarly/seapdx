@@ -26,7 +26,7 @@ Google Calendar export files (derived):
   
 Calendar files must match trip-data.js exactly:
   - Same event names, times, costs, locations
-  - Same 90 events (10 per day × 9 days)
+  - Same 102 exported events in the current synced itinerary
   - Same stable tags (SEAPDX-2026-day-X-XX) for idempotent sync
 ```
 
@@ -38,9 +38,8 @@ Calendar files must match trip-data.js exactly:
    - Do not edit calendar files directly and expect them to sync backward
 
 2. **When verifying completeness:**
-   - Check trip-data.js for all 90 activities (10 per day)
-   - Verify each day block includes: wake, meals, transit, activities, rest, return
-   - Run `npm run audit:budget` (must show $888)
+   - Check trip-data.js for the full live Nov 1-9 route
+   - Verify each day block still includes the real wake, meals, transit, activities, rest, and return structure
    - Run `npm run validate` (all checks pass)
 
 3. **Calendar event structure (required fields):**
@@ -56,28 +55,19 @@ Calendar files must match trip-data.js exactly:
 
 ## Known Data Gaps / Conventions
 
-- **Generic meal titles in calendar:** Some meals are typed "Dinner" or "Breakfast" in the calendar JSON/CSV but have specific restaurant names in trip-data.js (e.g., "Dinner" → "Dinner in Pearl District")
 - **Zero-cost activities:** Are typed `"walk"` for outdoor exploration blocks, not `"activity"` (e.g., "Fremont walking loop", "Neighborhood orientation walk")
 - **Overnight sleep blocks:** Must have end dates on the next calendar day (e.g., start 2026-11-01 21:25, end 2026-11-02 07:55), not same-day end times
 - **Boylston Seattle base:** All Nov 1-5 events route through Boylston Hotel Capitol Hill, not Reside or other Seattle hotels
 - **Courtyard Portland base:** All Nov 5-9 events route through Courtyard by Marriott Portland City Center, 550 SW Oak Street
+- **Calendar links:** If a stop does not yet store an exact event URL, the homepage uses a day-level Google Calendar fallback link.
 
 ## Budget
 
-- **Projected total:** $888 USD
+- **Projected local activity spend:** $1,072 USD
 - **Budget cap:** $1,200 USD
 - **Absolute ceiling:** $1,300 USD
-- **Remaining headroom:** $312 USD
+- **Remaining headroom:** $128 USD
 - **Coffee bean max:** $60 USD (two bags total: one Seattle, one Portland)
-
-### Budget breakdown:
-- Transportation: $95
-- Food: $390
-- Cocktails & social: $120
-- Entrance fees: $60
-- Coffee beans: $60
-- Souvenirs: $95
-- Contingency: $68
 
 **Confirmed airfare total:** $1,256.83.
 **Confirmed hotel total:** $871.98.
@@ -108,7 +98,7 @@ npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 ## Deployment
 
 - **Local:** `npm run serve` → http://localhost:4173
-- **Production:** Netlify auto-deploys from GitHub on push to main
+- **Production:** Netlify auto-deploys from GitHub on push to `main`
 - **No build step required** — all files are static
 
 ## Important Decisions
@@ -117,3 +107,4 @@ npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 - **Data structure:** Flat list of days, each with ordered stop items; no nested sections in the source
 - **Mobile-first design:** Dashboard is responsive; no app download needed
 - **Verification-first:** All itinerary changes must be validated before claiming done
+- **Automation scope:** only the Kraken ticket watch remains active

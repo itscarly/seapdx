@@ -15,7 +15,7 @@ Use this after every meaningful completed task in this project.
 - Update only the relevant active notes:
   - `notes/PROJECT_CONTEXT.md`
   - `notes/ARCHITECTURE.md`
-  - `notes/DECISIONS.md`
+  - `notes/Decisions.md`
   - `notes/CHANGELOG.md`
   - `notes/TASKS.md`
   - `notes/LEARNINGS.md`
@@ -33,6 +33,11 @@ Use this after every meaningful completed task in this project.
 ## Success condition
 
 The active notes should describe the current verified state of the project without obvious duplicates or stale instructions.
+
+## Current repo reminder
+
+- The airfare tracker, hotel tracker, and repo monitor workflows are retired.
+- The only remaining trip automation is the Kraken ticket watch.
 
 ## Freshness check
 

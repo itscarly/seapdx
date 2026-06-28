@@ -8,33 +8,6 @@
 - In this repo, the old airfare/hotel tracker system left stale commands, workflows, notes, and validation hooks behind until they were removed as one cleanup pass.
 - Prevention: when the user says a workflow is gone, sweep HTML, JS, package scripts, GitHub workflows, docs, and startup notes in the same session.
 
-### When adding a new hotel entry, always fill ALL display fields immediately
-
-- Never leave `reviewScore`, `transitScore`, `transitNote`, `safetyNote`, `safetySource`, or `reviewUrl` as null.
-- The dashboard renders all of these — null produces blank columns that the user will have to ask to fix.
-- If the booking confirmation doesn't include these, look them up from the address (Walk Score, Google Maps, brand reviews). Do not defer.
-
-### When editing hotel data, audit the full entry for completeness before committing
-
-- Check every field the dashboard renders: rating, transit score, transit note, nearest station, area/landmark, safety note, safety source, elevator, breakfast, cancellation deadline.
-- A hotel that is already booked deserves the same data quality as a watchlist candidate.
-
-### The dashboard only renders what the code explicitly reads — check the JS before structuring JSON
-
-- `hotels.html` reads `currentReservation`, `secondReservation`, and `watchlist` from each city object.
-- Fields stored under any other key (e.g. a custom archive key) are invisible to the dashboard.
-- When adding new data structures, update the renderer at the same time, not after the user reports missing data.
-
-### Always sync BOTH hotel JSON files — source AND report
-
-- `hotels.html` reads `data/hotel-monitor-source.json`. The report JSON is for metadata and monitoring history.
-- Every hotel data change must land in both files before committing.
-
-### Null fields on a booked hotel are a bug, not a placeholder
-
-- A booked hotel is a confirmed entry. It should have complete data from the moment it is added.
-- Do not ship a commit with null display fields on any hotel row, booked or watchlist.
-
 ### Public deploys only change after a push
 
 - The live site and any scheduled monitor outputs only reflect what is committed and pushed.
@@ -45,36 +18,6 @@
 
 - Use `curl -s <live-url> | diff - <local-file>` to instantly see what the live site is actually serving.
 - This takes 5 seconds and immediately reveals whether the problem is a deployment gap (unpushed changes) vs a real code bug.
-
-### Discovery fares are useful, but they are never enough to recommend booking
-
-- For this airfare watch, Google Flights, Skyscanner, and KAYAK are discovery inputs only.
-- `directAirlineVerified` must stay `false` unless the airline-owned checkout itself confirms the fare, checked-bag treatment, and protected routing.
-- If the airline pages you can access only expose route pages, monthly fare cards, or partial booking widgets, record the gap honestly instead of forcing a fake `BOOK` recommendation.
-
-### Direct booking automation can misread room-night rates as stay totals
-
-- The 2026-05-24 TravelClick scrape picked up `$242.73`, but manual checkout verification showed the real Paramount total was `$731.60` with subtotal `$620.00` and taxes `$111.60`.
-- For booking engines with multi-step checkout, trust the final checkout total over the first visible room price.
-
-### A failed live refresh should leave an explicit blocker, not a vague missing-price note
-
-- Boylston stayed Cloudflare-blocked, Hilton Seattle's tracked direct URL returned a Hilton 404, and PAL's award-tax flow loaded the generic home page behind cookie/interaction gates.
-- When this happens, keep the last known verified number if one exists, record the blocker in `priceVerification` or `taxHistory`, and remove stale "needs-check" wording.
-
-### Checkout engines need stricter acceptance rules than brand blocks do
-
-- The first layered dry run still produced fake "captures" for Boylston, Hotel Max, and Paramount because listing-page text looked like totals.
-- Fix: TravelClick, SynXis, and Sonder should only count as success when the monitor reaches a checkout-grade subtotal/tax/total view. If they only expose listing text, downgrade to `manual-review-needed` and preserve the last trustworthy total.
-
-### Persistent browser profiles are useful, but honesty still matters more than coverage
-
-- Hilton, Hyatt, IHG, and several Marriott flows still returned anti-bot or stale-page states even with the persistent Playwright profile path in place.
-- The right behavior is explicit `blocked-direct` or `stale-direct-url`, not retry loops or invented prices.
-
-### Hotel benchmark is a confirmed booking, not a watch candidate
-
-- Boylston (RES ID [redacted], $384.13 total) is locked in. Monitor only hunts for a refundable sub-$400 option near King Street Amtrak or Link Light Rail. Do not reopen the benchmark status unless the reservation is cancelled.
 
 ### Static-site verification beats guesswork
 
@@ -131,6 +74,11 @@
 - The user's Day 2 examples were evidence of the pattern, not a narrow scope limit.
 - For itinerary parity work, treat the cited examples as the first audit targets and then continue across the entire date range before calling the pass complete.
 - Acceptance here depends on proving the weak-stop pattern was removed across Nov 1-9, not just on repairing the first screenshot or first meal.
+
+### If a filter is empty, the UI is lying
+
+- The homepage had a `Cocktails` itinerary filter even though there were no live `type: "cocktails"` stops left in the data.
+- Prevention: when the dataset changes, re-check any exposed filters, tabs, or chips so the UI only offers categories that actually return content.
 
 ## How to use this note
 

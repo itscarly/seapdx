@@ -19,6 +19,7 @@ The goal is to keep active notes accurate without turning the notes folder into 
 9. Verify [[Decisions]] still reflects any choices made this session.
 10. Re-check for conflicts between active notes.
 11. Add a short next-session handoff note so the next run does not depend on raw chat history.
+12. Remove monitor-era or deleted-workflow references if the current repo no longer supports them.
 
 ## Confidence rules
 
@@ -33,6 +34,7 @@ The goal is to keep active notes accurate without turning the notes folder into 
 - Every active food or drink stop should carry a direct menu or official venue link.
 - Every paid attraction should carry a direct ticket or admission link.
 - Every day should show explicit hotel or accommodation departure/return behavior when it matters to the schedule.
+- If a UI filter has no live data behind it, remove or rename the filter instead of leaving an empty state as the default experience.
 - Calendar colors must stay consistent:
   - blue: walking, transit, ferry, train, station, airport transfer
   - gray: hotel, check-in, check-out, reset, wait buffer
@@ -73,3 +75,10 @@ When a change fixes drift, confusion, stale instructions, or a repeated mistake:
 - state the root cause clearly
 - state what was changed
 - add the prevention rule that should stop the same mistake next run
+
+## Current workflow baseline
+
+- `data/trip-data.js` is the canonical itinerary and cost source.
+- `npm run validate` is the default regression check.
+- `npm run sync:calendar` rebuilds export artifacts.
+- The only remaining trip automation is the Kraken ticket watch.
