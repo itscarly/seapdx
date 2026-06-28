@@ -635,10 +635,6 @@ function renderFlights() {
           </div>
         </article>
       </div>
-      <div class="flight-alert-banner">
-        <strong>${monitor.displayTitle || "15-minute flight watch"}</strong>
-        <span>${monitor.displayNote || ""}</span>
-      </div>
       <div class="flight-journeys">
         ${mainJourneys.map((journey) => renderFlightJourney(journey)).join("")}
       </div>
@@ -681,7 +677,7 @@ function renderDayFlightSummary(day) {
           <div class="details">
             <div class="detail"><b>Airport leave-by</b>${journey.airportLeaveBy}</div>
             <div class="detail"><b>Status watch</b>${journey.statusLabel}</div>
-            <div class="detail"><b>Monitor cadence</b>${data.flightMonitor?.cadenceLabel || "15-minute checks"}</div>
+            <div class="detail"><b>Status monitoring</b>Real-time checks available via airline/airport board links above.</div>
             <div class="detail"><b>Budget treatment</b>Airfare is visible only and excluded from the $800 trip target.</div>
           </div>
           <div class="card-actions">
