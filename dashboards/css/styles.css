@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap");
 
 :root {
   --bg: #f4f6f3;
@@ -9,18 +9,19 @@
   --muted: #5f655b;
   --line: rgba(22, 23, 20, 0.1);
   --line-strong: rgba(22, 23, 20, 0.18);
-  --accent: #fc5c33;
+  --accent: #0EA5E9;
   --accent-2: #0f766e;
-  --accent-3: #1749db;
+  --accent-3: #F97316;
   --accent-4: #f4b231;
-  --accent-soft: rgba(252, 92, 51, 0.12);
+  --accent-soft: rgba(14, 165, 233, 0.12);
   --ok-soft: rgba(15, 118, 110, 0.12);
-  --shadow: 0 20px 70px rgba(20, 24, 20, 0.08);
-  --shadow-soft: 0 12px 30px rgba(20, 24, 20, 0.06);
-  --radius-xl: 30px;
-  --radius-lg: 22px;
-  --radius-md: 16px;
-  --content: min(1480px, calc(100% - 40px));
+  --shadow: 0 12px 40px rgba(20, 24, 20, 0.08);
+  --shadow-soft: 0 8px 20px rgba(20, 24, 20, 0.05);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --content: min(1400px, calc(100% - 32px));
+  --transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -34,12 +35,17 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
   background:
-    radial-gradient(circle at 0% 0%, rgba(244, 178, 49, 0.12), transparent 24%),
-    radial-gradient(circle at 100% 0%, rgba(23, 73, 219, 0.11), transparent 25%),
-    radial-gradient(circle at 50% 100%, rgba(15, 118, 110, 0.1), transparent 28%),
+    radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.08), transparent 24%),
+    radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.08), transparent 25%),
+    radial-gradient(circle at 50% 100%, rgba(15, 118, 110, 0.08), transparent 28%),
     linear-gradient(180deg, #f8faf6 0%, #f0f4ef 48%, #f7f8f4 100%);
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
 }
 
 body::before {
@@ -67,24 +73,29 @@ h3 {
 
 h1,
 h2 {
-  font-family: "Sora", ui-sans-serif, sans-serif;
-  letter-spacing: -0.04em;
+  font-family: "Fira Code", monospace;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  max-width: 9ch;
-  font-size: clamp(3.1rem, 6vw, 5.8rem);
-  line-height: 1.02;
+  max-width: 12ch;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 1.1;
+  margin-bottom: 8px;
 }
 
 h2 {
-  font-size: clamp(1.55rem, 2.7vw, 2.8rem);
-  line-height: 1.08;
+  font-size: clamp(1.2rem, 2.2vw, 2.2rem);
+  line-height: 1.15;
+  margin-bottom: 8px;
 }
 
 h3 {
-  font-size: 1.06rem;
-  line-height: 1.15;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .hero {
@@ -124,57 +135,66 @@ h3 {
   top: 0;
   z-index: 20;
   width: fit-content;
-  max-width: calc(100% - 40px);
+  max-width: calc(100% - 32px);
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 8px 16px;
   display: flex;
   justify-content: center;
-  gap: 10px;
-  backdrop-filter: blur(18px);
+  gap: 8px;
+  backdrop-filter: blur(12px);
 }
 
 .topbar::before {
   content: "";
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(22, 23, 20, 0.08);
-  background: rgba(247, 248, 244, 0.76);
+  border: 1px solid rgba(22, 23, 20, 0.06);
+  background: rgba(247, 248, 244, 0.8);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
   z-index: -1;
 }
 
 .topbar a {
-  min-height: 42px;
-  padding: 0 16px;
+  min-height: 38px;
+  padding: 0 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   text-decoration: none;
   color: var(--muted);
-  font-size: 0.93rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  transition: transform 180ms ease, color 180ms ease, background-color 180ms ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
 }
 
 .topbar a:hover,
 .topbar a:focus-visible {
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.92);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.95);
   transform: translateY(-1px);
-  outline: none;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .hero-grid {
   width: var(--content);
   margin: 0 auto;
-  padding: 24px 0 18px;
+  padding: 16px 0 12px;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 22px;
+  grid-template-columns: 1fr;
+  gap: 14px;
   align-items: start;
+}
+
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 18px;
+    padding: 18px 0 14px;
+  }
 }
 
 .hero-grid > div:first-child,
@@ -218,11 +238,11 @@ h3 {
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hero-actions {
-  margin-top: 22px;
+  margin-top: 14px;
 }
 
 .button,
@@ -232,20 +252,20 @@ h3 {
 .alternate-toggle,
 .alternate-remove,
 .stop-action {
-  min-height: 44px;
-  padding: 0 16px;
+  min-height: 40px;
+  padding: 0 14px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   font: inherit;
-  font-size: 0.93rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+  transition: var(--transition);
 }
 
 .button,
@@ -274,9 +294,10 @@ h3 {
 .alternate-remove:focus-visible,
 .stop-action:hover,
 .stop-action:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(20, 24, 20, 0.1);
-  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(20, 24, 20, 0.08);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .button.primary,
@@ -284,8 +305,8 @@ h3 {
 .chip.active,
 .tab.active {
   color: #fff;
-  background: linear-gradient(135deg, var(--ink), #262b23);
-  border-color: #262b23;
+  background: linear-gradient(135deg, var(--accent), #0284c7);
+  border-color: #0284c7;
 }
 
 .link-button {
@@ -359,17 +380,17 @@ h3 {
 .editor-bar,
 .segment {
   background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
 }
 
 .trip-card {
-  padding: 28px;
+  padding: 20px;
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 248, 244, 0.9)),
-    linear-gradient(135deg, rgba(252, 92, 51, 0.06), transparent 45%);
+    linear-gradient(135deg, rgba(14, 165, 233, 0.04), transparent 45%);
   align-self: start;
 }
 
@@ -385,8 +406,8 @@ h3 {
 
 .trip-card strong {
   display: block;
-  margin: 16px 0 6px;
-  font-size: clamp(2.15rem, 3.5vw, 3.25rem);
+  margin: 12px 0 4px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
   line-height: 1;
 }
 
@@ -444,15 +465,23 @@ h3 {
 .section {
   width: var(--content);
   margin: 0 auto;
-  padding: 28px 0 0;
+  padding: 18px 0 0;
 }
 
 .section-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(250px, 0.8fr);
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 12px;
   align-items: end;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    grid-template-columns: minmax(0, 1.2fr) minmax(200px, 0.8fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
 }
 
 .compact-heading,
@@ -470,8 +499,15 @@ h3 {
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .summary-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+  }
 }
 
 .summary-card,
@@ -479,11 +515,11 @@ h3 {
 .guide-card,
 .transit-card,
 .source-card {
-  padding: 20px;
+  padding: 14px;
 }
 
 .summary-card {
-  min-height: 148px;
+  min-height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -491,17 +527,17 @@ h3 {
 
 .summary-card span {
   color: var(--muted);
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .summary-card strong {
   display: block;
-  margin-top: 10px;
-  font-size: clamp(1.4rem, 1.7vw, 2rem);
-  line-height: 1.05;
+  margin-top: 6px;
+  font-size: clamp(1.15rem, 1.5vw, 1.65rem);
+  line-height: 1.1;
 }
 
 .tracker-summary-grid {
@@ -567,16 +603,25 @@ h3 {
 
 .days {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .editor-bar {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 12px;
   align-items: center;
-  padding: 20px 22px;
-  margin-bottom: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 768px) {
+  .editor-bar {
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 16px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
 }
 
 .editor-title {
@@ -609,20 +654,34 @@ h3 {
 
 .day-head {
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr) auto;
-  gap: 18px;
-  padding: 22px 24px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 14px 16px;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .day-head {
+    grid-template-columns: 110px minmax(0, 1fr) auto;
+    gap: 14px;
+    padding: 16px 18px;
+  }
 }
 
 .day-visual {
   position: relative;
-  display: grid;
+  display: none;
   place-items: center;
   overflow: hidden;
-  border-radius: 18px;
-  min-height: 132px;
+  border-radius: var(--radius-md);
+  min-height: 110px;
   background: rgba(22, 23, 20, 0.06);
+}
+
+@media (min-width: 768px) {
+  .day-visual {
+    display: grid;
+  }
 }
 
 .day-visual img {
@@ -636,21 +695,22 @@ h3 {
 
 .day-head p {
   color: var(--muted);
-  margin: 10px 0 0;
+  margin: 6px 0 0;
+  font-size: 0.9rem;
 }
 
 .day-total {
-  min-width: 150px;
+  min-width: 120px;
   text-align: right;
-  align-self: start;
-  font-weight: 900;
-  font-size: 1.06rem;
-  color: var(--accent-2);
+  align-self: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
 }
 
 .day-toggle {
   display: inline-flex;
-  margin-top: 14px;
+  margin-top: 10px;
   color: var(--accent-3);
   font-weight: 800;
   font-size: 0.9rem;
@@ -1873,10 +1933,11 @@ h3 {
 
 .footer {
   width: var(--content);
-  margin: 56px auto 30px;
+  margin: 36px auto 20px;
   color: var(--muted);
   border-top: 1px solid var(--line);
-  padding-top: 22px;
+  padding-top: 16px;
+  font-size: 0.9rem;
 }
 
 .focus-ring:focus-visible,
@@ -2509,4 +2570,90 @@ h3 {
   border-bottom-right-radius: 10px;
   padding: 1rem 0 0;
   background: rgba(255,255,255,0.45);
+}
+
+/* ── Mobile & Responsive Optimizations ─────────────────────────── */
+@media (max-width: 640px) {
+  h1 {
+    max-width: 100%;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+  }
+  
+  .eyebrow {
+    font-size: 0.7rem;
+  }
+  
+  .lede {
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+  
+  .section {
+    padding: 12px 0 0;
+  }
+  
+  .section-heading {
+    margin-bottom: 12px;
+  }
+  
+  .summary-grid {
+    gap: 8px;
+  }
+  
+  .topbar {
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  
+  .topbar a {
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ── Accessibility: Reduced Motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Focus Ring Accessibility ─────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Smooth Transitions ─────────────────────────── */
+button,
+a,
+[role="button"] {
+  transition: var(--transition);
+}
+
+/* ── Touch Target Sizing ─────────────────────────── */
+.button,
+.chip,
+.tab,
+button,
+a[role="button"] {
+  min-height: 40px;
+  min-width: 40px;
+}
+
+/* ── Utility: No Horizontal Scroll ─────────────────────────── */
+body,
+html {
+  overflow-x: hidden;
+}
+
+main {
+  overflow-x: hidden;
 }
