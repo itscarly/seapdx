@@ -14,6 +14,11 @@
 - Root cause of the 2026-05-23 deploy confusion: large local tracker changes sat uncommitted while the public copy still served the older files.
 - Prevention: start UI or monitor follow-up sessions with `git status`. If the goal is to verify the public result, make sure the relevant files are actually committed and pushed first.
 
+### For this repo, done means local and GitHub match
+
+- The user wants the local site and the GitHub-served copy to stay identical after accepted changes.
+- Prevention: after meaningful site/data/note updates, run validation, commit the accepted files, and push before calling the session complete.
+
 ### When the live site looks wrong, diff live vs local before assuming code is broken
 
 - Use `curl -s <live-url> | diff - <local-file>` to instantly see what the live site is actually serving.

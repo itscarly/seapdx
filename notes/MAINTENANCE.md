@@ -20,6 +20,7 @@ The goal is to keep active notes accurate without turning the notes folder into 
 10. Re-check for conflicts between active notes.
 11. Add a short next-session handoff note so the next run does not depend on raw chat history.
 12. Remove monitor-era or deleted-workflow references if the current repo no longer supports them.
+13. If the user accepted site or data changes, commit and push them before calling the work complete so local and GitHub stay identical.
 
 ## Confidence rules
 

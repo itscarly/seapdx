@@ -34,7 +34,7 @@ It is built to be:
 - **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
 - **Executive spend summary**: active and now part of the homepage. Confirmed airfare, confirmed hotels, planned local spend, and planned personal purchases should stay aligned with `data/trip-data.js`.
 - **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
-- **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$384.13`, and Courtyard Portland `$487.85`.
+- **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$504.46`, and Courtyard Portland `$391.00`.
 - **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
 - **Remaining automation**: only the Kraken ticket watch should remain in scope. Current cadence is the saved Codex automation `seattle-kraken-ticket-watch`.
 
@@ -83,8 +83,11 @@ Use this order at the start of a new Claude/Codex session:
 
 ## Current validated budget snapshot
 
-- Local activity-budget projected total: `$1,072`
-- Local activity-budget cap: `$1,200`
+- Local activity-budget projected total: `$1,236.50`
+- Local activity-budget cap: `$1,250`
 - Local activity-budget ceiling: `$1,300`
 - Confirmed airfare total: `$1,256.83`
-- Confirmed hotel total: `$871.98`
+- Confirmed hotel total: `$895.46`
+- Planned personal purchases total: `$582.00`
+- All-in savings target: `$3,970.79`
+- Kraken remains a `$120` estimate inside planned trip spend until the official 2026-27 single-game release is live.

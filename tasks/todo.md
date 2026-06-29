@@ -29,7 +29,8 @@
 ## Stable current state
 
 - Homepage redesign, logistics split, executive trip-cost summary, and calendar-detail sync are complete.
-- Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$871.98`.
+- Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$895.46`.
 - Meta Ray-Ban glasses and BLEU DE CHANEL are included as planned purchases in the savings target.
+- Local activity-budget target is now `$1,250` with `$1,236.50` currently projected.
 - The old airfare, hotel, and itinerary monitor stack is retired from the repo and public site.
 - The Kraken watch is the only remaining automation in scope.

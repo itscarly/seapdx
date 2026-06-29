@@ -47,6 +47,11 @@
 - Status: active
 - Why: flights, verification links, automation references, and future bookings are useful, but they add too much noise when they share equal weight with the public itinerary experience
 
+### Local site and GitHub site must stay identical after shipped changes
+
+- Status: active
+- Why: this project is used across Codex, Claude Code, and the published site, so a local-only change creates handoff drift immediately. If a meaningful site/data change is accepted locally, it should be committed and pushed in the same completion pass.
+
 ### Shared agent memory should use active, archive, and permanent layers
 
 - Status: active
