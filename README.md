@@ -1,6 +1,6 @@
 # Seattle + Portland Travel Planner
 
-Static interactive itinerary dashboard for a November 1-9, 2026 Seattle and Portland trip. The current target budget is $800 excluding airfare and hotels, with $900 treated as the absolute ceiling for optional splurges.
+Static interactive itinerary dashboard for a November 1-9, 2026 Seattle and Portland trip. The current local trip-spend target is `$1,250`, the current local projection is `$1,236.50`, and the all-in savings target is derived from confirmed bookings + planned trip spend + planned purchases.
 
 ## Open the Dashboard
 
@@ -17,7 +17,7 @@ Then open `http://localhost:4173/`.
 This project is intentionally static-only, so the same files work:
 
 - locally through a static server or `localserv`
-- publicly through a host such as Netlify
+- publicly through GitHub Pages and other static hosts
 
 ## Project Shape
 
@@ -25,9 +25,9 @@ This project is intentionally static-only, so the same files work:
 - `dashboards/html/index.html` is the static dashboard shell.
 - `dashboards/css/styles.css` contains the responsive visual design.
 - `dashboards/js/app.js` renders tabs, cards, budget summaries, filters, and route links.
-- `itinerary/final/` and `research/` are reserved for future deeper research snapshots and exports.
+- `notes/` is the shared handoff and memory layer for Codex, Claude Code, and Obsidian.
 - `docs/rules/` holds the project operating rules, budget constraints, route rules, and QA guidance.
-- `tasks/todo.md` is the active work log; `docs/archive/TASKS-legacy.md` is retained only as historical context.
+- `tasks/todo.md` is the active work log.
 
 ## Verification Note
 
@@ -35,7 +35,7 @@ The dashboard uses sources checked on May 5, 2026. Since the trip is in November
 
 ## Publishing
 
-See `docs/deployment.md` for public hosting options. Netlify is the recommended path for quickly sharing this static dashboard, especially if connected to a GitHub repository for automatic redeploys.
+See `docs/deployment.md` for public hosting options. This repo currently uses GitHub-backed publishing plus validation workflows, so local accepted site changes should be committed and pushed in the same pass to keep the public copy identical.
 
 ## Local Workflow
 
@@ -45,8 +45,8 @@ See `docs/local-development.md` for the preferred local static-server workflow a
 
 - Treat iCloud or local files as the source of truth for large binaries, installers, and temporary exports.
 - Keep temporary screenshots, review renders, and visual comparison files out of the repo unless they are still needed for active work.
-- Avoid committing `.obsidian/workspace.json`; it stores local window state rather than shared project content.
+- Keep `.obsidian` working-state files local. The repo should store project notes, not personal window state or plugin cache.
 
 ## Automation
 
-See `automation/price-monitoring-workflow.md` for the recurring update workflow covering menu prices, reservations, happy hours, backups, transit fares, routes, and dashboard updates.
+The only remaining trip automation in scope is the Kraken ticket watch. Old airfare, hotel, and itinerary monitor workflows are retired.

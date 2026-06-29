@@ -31,6 +31,14 @@ package-lock.json
 *~
 .sublime-project
 .sublime-workspace
+.obsidian/workspace.json
+.obsidian/graph.json
+.obsidian/community-plugins.json
+.obsidian/plugins/
+.claudian/
+.claude/settings.json
+.claude/*.local.json
+.claude/*.local.md
 
 # Build outputs
 dist/

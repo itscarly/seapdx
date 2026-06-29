@@ -4,6 +4,13 @@
 
 This is the concise project change record.
 
+## 2026-06-29 — Git cleanup and local-vault separation
+
+- Removed tracked one-off handoff files, old calendar-update scratch artifacts, and other repo clutter that no longer helps run or maintain the project.
+- Stopped tracking local-only `.obsidian` working-state files and local Claude/Codex helper state so Git focuses on the real project source instead of personal editor state.
+- Updated `.gitignore` so future local vault/plugin changes stay local by default.
+- Rewrote `README.md` so the repo description matches the current static-site workflow, current budget model, and current automation scope.
+
 ## 2026-06-29 — Total-target audit view
 
 - Added a plain-language formula block above the executive spend cards so the page now shows exactly how the all-in target is computed: confirmed bookings + planned trip spend + planned purchases.

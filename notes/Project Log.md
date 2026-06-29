@@ -2160,3 +2160,21 @@ Remaining blocker:
 - `dashboards/css/styles.css`
 - `notes/CHANGELOG.md`
 - `notes/Project Log.md`
+
+## 2026-06-29 (session 15: git cleanup + local vault separation)
+
+### What changed
+
+- Removed tracked top-level handoff scratch files, old calendar-update helper artifacts, and other repo clutter that was no longer part of the running project.
+- Stopped tracking local `.obsidian` working-state files plus local Claude/Codex helper state so Git now focuses on the real site, data, scripts, docs, and notes.
+- Rebuilt a minimal local-only Obsidian workspace that opens the Codex project notes and source files cleanly without pushing personal window state back into Git.
+- Updated `.gitignore` and `README.md` so future sessions follow the cleaner repo boundary by default.
+
+### Verification
+
+- `npm run validate` should be run after the cleanup commit before treating the trimmed repo as final.
+- The local Obsidian vault now centers on `notes/Home.md`, `notes/PROJECT_CONTEXT.md`, `notes/TASKS.md`, `notes/CHANGELOG.md`, `notes/Project Log.md`, and the live site/data files.
+
+### Follow-up
+
+- Keep project-history detail inside `notes/Project Log.md` and `notes/CHANGELOG.md` instead of recreating new top-level handoff files in the repo root.
