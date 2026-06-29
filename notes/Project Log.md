@@ -2106,3 +2106,35 @@ Remaining blocker:
 ### Follow-up
 
 - Replace the `$120` Kraken estimate with the real seat price once the official 2026-27 regular-season schedule and single-game inventory are live on the Kraken site.
+
+## 2026-06-29 (session 13: price corrections + transport breakout)
+
+### What changed
+
+- Updated the confirmed hotel totals to Boylston `$504.46` and Portland `$391.00`.
+- Updated the paid attraction and rail prices to Sky View Sip & Sights `$38`, Portland Japanese Garden `$22.50`, and Amtrak `$29` plus a `$19` business-class bid.
+- Reworked the transportation breakdown so Seattle local transit, the Bainbridge ferry pass, Amtrak, and Portland local transit are shown as separate line items in the board.
+- Bumped the public cache tags so the local and pushed site both pick up the refreshed CSS, JS, and trip data immediately.
+
+### Verification
+
+- `npm run validate` passes.
+- Budget audit now resolves to `projected: 1236.5`, `target: 1250`, `ceiling: 1300`, `remaining: 13.5`.
+- Calendar export sync still rebuilds 103 itinerary events.
+
+### Files touched
+
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `dashboards/html/index.html`
+- `dashboards/html/logistics.html`
+- `data/google-calendar-events-nov1-9-2026.json`
+- `data/google-calendar-import-nov1-9-2026.csv`
+- `notes/PROJECT_MEMORY.md`
+- `notes/TASKS.md`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
+
+### Follow-up
+
+- Replace the Kraken estimate with the real live seat price once official 2026-27 single-game inventory is up, but keep the transport split as the permanent board behavior.

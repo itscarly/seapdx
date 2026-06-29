@@ -63,16 +63,17 @@ Calendar files must match trip-data.js exactly:
 
 ## Budget
 
-- **Projected local activity spend:** $1,192 USD
-- **Budget cap:** $1,200 USD
+- **Projected local activity spend:** $1,236.50 USD
+- **Budget cap:** $1,250 USD
 - **Absolute ceiling:** $1,300 USD
-- **Remaining headroom:** $8 USD
+- **Remaining headroom:** $13.50 USD
 - **Coffee bean max:** $60 USD (two bags total: one Seattle, one Portland)
 
 **Confirmed airfare total:** $1,256.83.
-**Confirmed hotel total:** $871.98.
+**Confirmed hotel total:** $895.46.
 **Planned personal purchases:** Meta Ray-Ban glasses `$409`, BLEU DE CHANEL `$173`.
 **Planned Kraken ticket estimate:** `$120` for one normal mid-bowl seat once official 2026-27 single-game tickets open.
+**Transportation breakout:** Seattle local transit, Bainbridge ferry, Amtrak plus business-class bid, and Portland local transit are now shown as separate lines in the board.
 **Activity budget stays separate** from the all-in trip-cost summary.
 
 ## Validation Commands

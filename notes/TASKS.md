@@ -13,9 +13,9 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 - Main homepage redesign is complete.
 - Executive all-in spend summary is live and should stay aligned with:
   - confirmed airfare `$1,256.83`
-  - confirmed hotels `$871.98`
+  - confirmed hotels `$895.46`
   - planned personal purchases for Meta Ray-Ban glasses `$409` and BLEU DE CHANEL `$173`
-  - local activity-budget totals derived from the itinerary, including the `$120` Kraken game estimate
+  - local activity-budget totals derived from the itinerary, including the `$120` Kraken game estimate and the separated ferry / Amtrak / local-transit breakdown
 - Shared-calendar-to-site alignment is in a good state for the current public route.
 - The old airfare, hotel, and itinerary monitor stack is retired.
 - The only remaining automation is the Kraken ticket watch.

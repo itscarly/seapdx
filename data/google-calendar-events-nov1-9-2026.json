@@ -165,7 +165,7 @@
     "start": "2026-11-02T17:10:00-08:00",
     "end": "2026-11-02T18:00:00-08:00",
     "location": "Sky View Observatory, 700 4th Ave",
-    "description": "Seattle sunset views from the observation deck.\nWebsite: https://skyviewobservatory.com/\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nEstimated cost: $17.\nPayment: Cards accepted.\nLocation: Sky View Observatory, 700 4th Ave\nPayment: Cards accepted\nEstimated cost: $17.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-6-columbia-center-sky-view-sunse"
+    "description": "Seattle sunset views from the observation deck.\nWebsite: https://skyviewobservatory.com/\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nTicket pick: Sip & Sights Experience with stunning 360-degree views and a $10 Sky View Cafe voucher.\nEstimated cost: $38.\nPayment: Cards accepted.\nLocation: Sky View Observatory, 700 4th Ave\nPayment: Cards accepted\nEstimated cost: $38.\nDuration: 50 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-2-1-6-columbia-center-sky-view-sunse"
   },
   {
     "tag": "SEAPDX-2026-day-2-22",
@@ -229,7 +229,7 @@
     "start": "2026-11-03T09:50:00-08:00",
     "end": "2026-11-03T10:50:00-08:00",
     "location": "Puget Sound",
-    "description": "Purpose: Seattle-to-Bainbridge walk-on fare is collected westbound only.\nEstimated cost: $12.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-0-3-ferry-to-bainbridge"
+    "description": "Purpose: Seattle-to-Bainbridge walk-on fare is collected westbound only and should stay separate from local Seattle transit.\nEstimated cost: $12.\nDuration: 60 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-3-0-3-ferry-to-bainbridge"
   },
   {
     "tag": "SEAPDX-2026-day-3-30",
@@ -445,7 +445,7 @@
     "start": "2026-11-05T12:10:00-08:00",
     "end": "2026-11-05T15:35:00-08:00",
     "location": "Intercity rail",
-    "description": "Purpose: Reservation 29CB3A-17MAY26, one coach seat.\nEstimated cost: $27.\nDuration: 3h 25m.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-1-0-amtrak-cascades-517-sea-pdx"
+    "description": "Purpose: Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class.\nEstimated cost: $48.\nDuration: 3h 25m.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-5-1-0-amtrak-cascades-517-sea-pdx"
   },
   {
     "tag": "SEAPDX-2026-day-5-57",
@@ -517,7 +517,7 @@
     "start": "2026-11-06T10:10:00-08:00",
     "end": "2026-11-06T12:20:00-08:00",
     "location": "611 SW Kingston Ave",
-    "description": "Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.\nLocation: 611 SW Kingston Ave\nPayment: Cards accepted for online tickets\nEstimated cost: $20.\nDuration: 130 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-3-portland-japanese-garden-timed"
+    "description": "Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $22.50.\nLocation: 611 SW Kingston Ave\nPayment: Cards accepted for online tickets\nEstimated cost: $22.5.\nDuration: 130 min.\nSite link: https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html#stop-day-6-0-3-portland-japanese-garden-timed"
   },
   {
     "tag": "SEAPDX-2026-day-6-66",

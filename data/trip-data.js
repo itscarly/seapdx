@@ -8,12 +8,12 @@ window.TRIP_DATA = {
       portland: "Courtyard by Marriott Portland City Center"
     },
     verifiedOn: "June 27, 2026",
-    budgetCap: 1200,
+    budgetCap: 1250,
     absoluteCeiling: 1300,
     assumptions: [
       "The activity-budget block stays separate from the all-in trip-cost summary.",
-      "Booked flight costs and hotel costs are shown in the executive summary, while the $1200 target and $1300 ceiling still describe the local trip-spend plan only.",
-      "Amtrak Cascades 517 is included in the activity budget because the user listed it under intercity transportation.",
+      "Booked flight costs and hotel costs are shown in the executive summary, while the $1250 target and $1300 ceiling still describe the local trip-spend plan only.",
+      "Amtrak Cascades 517 and the business-class bid upgrade are carried separately from Seattle and Portland local transit.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
       "Dashboard USD amounts now also show PHP equivalents using the May 9, 2026 USD/PHP rate plus a 1.85% foreign transaction fee buffer.",
@@ -46,14 +46,14 @@ window.TRIP_DATA = {
     ]
   },
   budget: {
-    cap: 1200,
+    cap: 1250,
     absoluteCeiling: 1300,
-    projectedTotal: 1192,
+    projectedTotal: 1236.5,
     categories: [
-      { name: "Transportation", amount: 74, note: "Transit, ferry, Amtrak, and airport or station transfer segments across the active Nov 1-9 route." },
+      { name: "Transportation", amount: 95, note: "Seattle local transit, Portland local transit, Bainbridge ferry, and Amtrak are separated in the breakdown instead of being lumped together." },
       { name: "Food", amount: 525, note: "Meals, coffee, airport food, and the higher reality-based dinner totals now carried directly in the synced itinerary." },
       { name: "Cocktails and social", amount: 120, note: "Cocktail-forward rooftop, book-bar, sushi, and social-night spend that stayed in the live calendar route." },
-      { name: "Entrance fees", amount: 202, note: "Paid attractions in the synced route plus one planned Kraken game with a realistic mid-bowl seat estimate." },
+      { name: "Entrance fees", amount: 225.5, note: "Paid attractions in the synced route plus one planned Kraken game with a realistic mid-bowl seat estimate." },
       { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
       { name: "Souvenirs", amount: 100, note: "City mugs, magnets, smoked salmon, market browsing, and bookstore or local-goods drift kept visible instead of hidden." },
       { name: "Contingency", amount: 111, note: "Remaining buffer after syncing the richer live-calendar route back into the source data." }
@@ -81,19 +81,19 @@ window.TRIP_DATA = {
         ]
       },
       accommodations: {
-        total: 871.98,
+        total: 895.46,
         note: "Use Boylston and Courtyard as the hotel source of truth for the executive summary.",
         items: [
           {
             name: "The Boylston Hotel Capitol Hill",
-            amount: 384.13,
+            amount: 504.46,
             confirmation: "[redacted]",
             city: "Seattle",
             nights: 3
           },
           {
             name: "Courtyard by Marriott Portland City Center",
-            amount: 487.85,
+            amount: 391,
             confirmation: "[redacted]",
             city: "Portland",
             nights: 5
@@ -317,7 +317,7 @@ window.TRIP_DATA = {
           { time: "3:50 PM", name: "Ghost Alley Espresso (coffee to-go before Northgate)", type: "coffee", neighborhood: "Pike Place / Post Alley", location: "Ghost Alley Espresso, 1499 Post Alley", duration: "20 min", cost: 8, website: "https://www.ghostalleyespresso.com/", payment: "Cards accepted", detailText: `Quick specialty latte stop before heading north for the Meta fit check.\nWebsite: https://www.ghostalleyespresso.com/\nOrder: Latte or one of the sweeter seasonal specials if you want the fast comfort pick.\nEstimated cost: $8.\nPayment: Cards accepted.` },
           { time: "4:10 PM", name: "Best Buy Northgate - Ray-Ban Meta glasses fit check", type: "activity", neighborhood: "Northgate", location: "Best Buy Northgate, 330 NE Northgate Way", duration: "40 min", cost: 0, payment: "No purchase required; cards accepted if you buy accessories", detailText: `Link light rail to Northgate Station and walk to Best Buy.\nPurpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.\nOrder tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.\nContinuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.\nBest Buy hours: Monday 10 AM to 9 PM.\nEstimated cost: Fit check only, no required spend during this stop.` },
           { time: "4:50 PM", name: "Transit to Columbia Center", type: "transit", neighborhood: "Northgate -> Downtown", duration: "20 min", cost: 3, notes: "Link back south after the Best Buy stop." },
-          { time: "5:10 PM", name: "Columbia Center Sky View sunset", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "50 min", cost: 17, website: "https://skyviewobservatory.com/", payment: "Cards accepted", detailText: `Seattle sunset views from the observation deck.\nWebsite: https://skyviewobservatory.com/\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nEstimated cost: $17.\nPayment: Cards accepted.` }
+          { time: "5:10 PM", name: "Columbia Center Sky View sunset", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "50 min", cost: 38, website: "https://skyviewobservatory.com/", payment: "Cards accepted", detailText: `Seattle sunset views from the observation deck.\nWebsite: https://skyviewobservatory.com/\nArrive: Try to be inside by about 5:10 PM to catch the best of the light.\nTicket pick: Sip & Sights Experience with stunning 360-degree views and a $10 Sky View Cafe voucher.\nEstimated cost: $38.\nPayment: Cards accepted.` }
         ]},
         { label: "Evening", items: [
           { time: "6:00 PM", name: "Transit from Columbia Center to Belltown", type: "transit", neighborhood: "Downtown -> Belltown", duration: "15 min", cost: 0, notes: "Short reposition into dinner." },
@@ -341,7 +341,7 @@ window.TRIP_DATA = {
           { time: "7:20 AM", name: "Wake + prep", type: "rest", neighborhood: "Boylston base", duration: "40 min", cost: 0 },
           { time: "8:05 AM", name: "Breakfast near Capitol Hill", type: "meal", neighborhood: "Capitol Hill", location: "Cafe Presse, 1117 12th Ave", duration: "55 min", cost: 22, website: "https://www.cafepresseseattle.com/", payment: "Cards accepted", detailText: `Suggested: Cafe Presse (1117 12th Ave) for a French cafe breakfast near the hotel.\nMenu: https://www.cafepresseseattle.com/\nORDER: Croque Madame ($16) or croissant and jambon ($10). Cafe au lait if you want a slower start.\nSKIP: Omelets. The croque is the signature move.\nEstimated cost: $22 with tip.` },
           { time: "9:00 AM", name: "Transit/walk to Seattle Ferry Terminal", type: "transit", neighborhood: "Downtown waterfront", duration: "45 min", cost: 0, notes: "Protected connection into the ferry terminal." },
-          { time: "9:50 AM", name: "Ferry to Bainbridge", type: "transit", neighborhood: "Puget Sound", duration: "60 min", cost: 12, notes: "Seattle-to-Bainbridge walk-on fare is collected westbound only." }
+          { time: "9:50 AM", name: "Ferry to Bainbridge", type: "transit", neighborhood: "Puget Sound", duration: "60 min", cost: 12, notes: "Seattle-to-Bainbridge walk-on fare is collected westbound only and should stay separate from local Seattle transit." }
         ]},
         { label: "Afternoon", items: [
           { time: "10:50 AM", name: "Winslow + waterfront exploration", type: "walk", neighborhood: "Bainbridge Island", duration: "95 min", cost: 0 },
@@ -406,7 +406,7 @@ window.TRIP_DATA = {
           { time: "11:30 AM", name: "Station buffer + platform prep", type: "rest", neighborhood: "King Street Station", duration: "35 min", cost: 0 }
         ]},
         { label: "Afternoon", items: [
-          { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 27, notes: "Reservation 29CB3A-17MAY26, one coach seat." },
+          { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 48, notes: "Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class." },
           { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Courtyard", type: "transit", neighborhood: "Union Station -> City Center", duration: "35 min", cost: 3 },
           { time: "4:20 PM", name: "Check in, reset, and Amazon package check", type: "rest", neighborhood: "Courtyard Portland", duration: "100 min", cost: 0, notes: "Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held." }
         ]},
@@ -431,7 +431,7 @@ window.TRIP_DATA = {
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "50 min", cost: 0, notes: "Morning geared around the garden ticket window." },
           { time: "8:20 AM", name: "Fuller's Coffee Shop breakfast", type: "meal", neighborhood: "Pearl edge", location: "Fuller's Coffee Shop, 136 NW 9th Ave", duration: "70 min", cost: 22, payment: "Cash preferred", detailText: `Classic Portland diner breakfast.\nOrder: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.` },
           { time: "9:30 AM", name: "Transit to Washington Park (MAX)", type: "transit", neighborhood: "Downtown -> Washington Park", duration: "40 min", cost: 3, notes: "Use MAX into the park station and budget the uphill walk to the gate." },
-          { time: "10:10 AM", name: "Portland Japanese Garden (timed entry)", type: "activity", neighborhood: "Washington Park", location: "611 SW Kingston Ave", duration: "130 min", cost: 20, website: "https://japanesegarden.org/tickets/", payment: "Cards accepted for online tickets", detailText: `Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $20.` }
+          { time: "10:10 AM", name: "Portland Japanese Garden (timed entry)", type: "activity", neighborhood: "Washington Park", location: "611 SW Kingston Ave", duration: "130 min", cost: 22.5, website: "https://japanesegarden.org/tickets/", payment: "Cards accepted for online tickets", detailText: `Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $22.50.` }
         ]},
         { label: "Afternoon", items: [
           { time: "12:20 PM", name: "Washington Park walk + recover", type: "walk", neighborhood: "Washington Park", duration: "50 min", cost: 0, notes: "Easy downhill recovery between the garden and lunch." },

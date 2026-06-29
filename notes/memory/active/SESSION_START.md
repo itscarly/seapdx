@@ -1,7 +1,7 @@
 ---
 name: session-start
 source: obsidian-memory-collector
-last_verified: 2026-06-28T18:02:18.780Z
+last_verified: 2026-06-29T00:08:56.275Z
 status: active
 confidence: high
 next_action: Open today's digest, then source index notes, then proceed with task work.

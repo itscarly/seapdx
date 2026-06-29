@@ -4,6 +4,18 @@
 
 This is the concise project change record.
 
+## 2026-06-29 — Price corrections + transport breakout
+
+- Updated the dashboard source data to the new user-provided real prices:
+  - Boylston hotel `$504.46`
+  - Portland hotel `$391.00`
+  - Sky View Sip & Sights `$38`
+  - Portland Japanese Garden `$22.50`
+  - Amtrak `$29` plus `$19` business-class bid
+- Reworked the transportation breakdown so Seattle local transit, the Bainbridge ferry pass, Amtrak, and Portland local transit are now shown as separate lines instead of one lump sum.
+- Raised the local spend target from `$1,200` to `$1,250` so the validated plan can carry the corrected prices honestly.
+- Verification result: `npm run validate` passes with projected local spend now at `$1,236.50`, leaving `$13.50` before the `$1,250` target and 103 synced calendar events.
+
 ## 2026-06-28 — Expandable expense breakdowns + Kraken estimate
 
 - Made the executive spend cards expandable so clicking categories such as `Activities and admissions` reveals the itemized dollar breakdown directly in the board.

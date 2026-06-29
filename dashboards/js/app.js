@@ -1041,7 +1041,27 @@ function getPlannedAdditionalTotal() {
 }
 
 function moneyCompact(value) {
-  return `$${Math.round(Number(value) || 0)}`;
+  const amount = Number(value) || 0;
+  return `$${amount % 1 === 0 ? amount.toFixed(0) : amount.toFixed(2)}`;
+}
+
+function sumStopCosts(predicate) {
+  return (data.itinerary || []).reduce((tripSum, day) => tripSum + day.segments.reduce((daySum, segment) => (
+    daySum + segment.items.reduce((segmentSum, stop) => (
+      predicate(stop, day) ? segmentSum + Number(stop.cost || 0) : segmentSum
+    ), 0)
+  ), 0), 0);
+}
+
+function findStopCost(name) {
+  for (const day of data.itinerary || []) {
+    for (const segment of day.segments || []) {
+      for (const stop of segment.items || []) {
+        if (stop.name === name) return Number(stop.cost || 0);
+      }
+    }
+  }
+  return 0;
 }
 
 function buildTripCostBreakdown(allInTarget) {
@@ -1092,10 +1112,13 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Transportation",
       amount: transportationCategory?.amount || 0,
-      note: "Transit, ferry, and the Amtrak segment that sits inside the local trip plan.",
+      note: "Seattle local transit, Portland local transit, Bainbridge ferry, and Amtrak are broken out separately here.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Transit, ferry, and Amtrak", amount: transportationCategory?.amount || 0, detail: transportationCategory?.note || "" }
+        { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Puget Sound")), detail: "Link, buses, and other Seattle-side transit moves." },
+        { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
+        { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
+        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Courtyard -> PDX"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
       ]
     },
     {
@@ -1104,9 +1127,9 @@ function buildTripCostBreakdown(allInTarget) {
       note: "Paid attractions, admission-based itinerary stops, and one planned Kraken game.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Sailing Seattle downtown sail", amount: 45, detail: "Seattle Day 2 anchor activity." },
-        { label: "Columbia Center Sky View Observatory", amount: 17, detail: "Seattle sunset observation deck stop." },
-        { label: "Portland Japanese Garden", amount: 20, detail: "Timed Portland anchor stop." },
+        { label: "Sailing Seattle downtown sail", amount: findStopCost("Sailing Seattle - Downtown Sail (1.5 hrs)"), detail: "Seattle Day 2 anchor activity." },
+        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View sunset"), detail: "Sip & Sights Experience with the $10 cafe voucher." },
+        { label: "Portland Japanese Garden", amount: findStopCost("Portland Japanese Garden (timed entry)"), detail: "Timed Portland anchor stop." },
         { label: "Seattle Kraken ticket estimate", amount: 120, detail: "Planned mid-bowl seat with a better center-view feel once official 2026-27 single-game seats open." }
       ]
     },
