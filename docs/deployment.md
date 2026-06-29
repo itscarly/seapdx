@@ -5,22 +5,21 @@ The dashboard is a static site: HTML, CSS, JavaScript, and data files. The same 
 ## Local and Public Model
 
 - Local use: serve the project root with a static server or `localserv`.
-- Public use: deploy the same project root to Netlify.
+- Public use: deploy the same project root through the current GitHub-backed static publish flow.
 - Shared contract: `/` must resolve to the dashboard entry, and relative asset paths must stay unchanged.
 
 For the local workflow, see `docs/local-development.md`.
 
-## Recommended Option: Netlify
+## Recommended Option: GitHub-backed static publish
 
-Best for fast sharing without a build step and for keeping local edits aligned with the public site.
+Best for keeping local accepted edits aligned with the public site because the same pushed repo state becomes the shared reference point.
 
 1. Put this folder in a Git repository.
 2. Push it to GitHub.
-3. Create or log in to Netlify.
-4. Connect the GitHub repository to Netlify.
-5. Set the publish directory to the project root.
-6. Keep `netlify.toml` as the source of the root routing behavior.
-7. Share the generated `netlify.app` URL.
+3. Push accepted site changes to `main`.
+4. Let the current static publish workflow deploy the same project root.
+5. Keep the root redirect/static path assumptions unchanged.
+6. Share the resulting public GitHub-backed URL.
 
 Why this fits:
 
@@ -28,22 +27,9 @@ Why this fits:
 - No server is required.
 - Git-connected deploys update automatically whenever the itinerary data changes.
 - The local and public versions run from the same static file layout.
-- Netlify still supports drag-and-drop as a fallback if needed.
+- The important rule is that the public copy should come from the same pushed repo state you validated locally.
 
-Official docs: https://docs.netlify.com/site-deploys/create-deploys/
-
-## Manual Fallback: Netlify Drop
-
-If you need a one-off publish before the Git setup is ready:
-
-1. Create or log in to Netlify.
-2. Use Netlify Drop.
-3. Upload the project root folder.
-4. Confirm that the deployed root opens the dashboard correctly.
-
-This is a fallback, not the preferred long-term workflow.
-
-## Good Option: Vercel
+## Optional alternate host: Vercel
 
 Best if you later turn the static dashboard into a React app or want preview deployments from Git.
 
@@ -60,8 +46,8 @@ For this project:
 
 1. Create a GitHub repository.
 2. Push this project to GitHub.
-3. Connect the repository to Netlify.
-4. Set Netlify to redeploy on every push.
-5. Keep scheduled monitoring in GitHub Actions for validation and data-watch jobs.
+3. Keep the static publish workflow healthy.
+4. Keep validation in GitHub Actions before or alongside publish.
+5. Treat a push as part of completion whenever a local site change is accepted.
 
-This gives both public access and a clean path for automatic itinerary updates.
+This gives both public access and a clean path for keeping local and public copies identical.

@@ -17,7 +17,7 @@ The main layers are:
 ## Runtime model
 
 - Local preview uses a static server from the project root.
-- Public hosting uses the same static files and currently runs through Netlify.
+- Public hosting uses the same static files and currently runs through the GitHub-backed deploy flow in this repo.
 - Notes live in `notes/` and are meant for Obsidian plus agent maintenance.
 - The homepage and logistics hub now share `dashboards/js/app.js`, using `data-page` mode switches in the HTML body to keep the public itinerary surface and the utility hub on one client-side code path.
 - The homepage renders both an executive all-in trip-cost summary and a lower-level local activity-budget summary from the same trip-data source.

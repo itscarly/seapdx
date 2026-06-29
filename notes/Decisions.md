@@ -32,10 +32,10 @@
 - Status: active
 - Why: stale notes should be rewritten or archived carefully, not deleted blindly
 
-### Netlify is the active public host
+### GitHub-backed publishing is the active shared public path
 
 - Status: active
-- Why: the repo is static-only, Netlify already serves the live site, and GitHub Actions are better used here for validation and monitoring than for a second public deploy path
+- Why: the repo is static-only, the project now relies on GitHub-backed pushes as the shared completion path, and the local/GitHub copies must stay identical after accepted changes.
 
 ### The homepage is public-facing, not an editing workspace
 

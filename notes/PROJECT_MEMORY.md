@@ -18,7 +18,7 @@ dashboards/html/index.html loads trip-data.js directly
   ↓
 dashboards/js/app.js renders to DOM
   ↓
-User sees interactive itinerary (local or Netlify)
+User sees interactive itinerary (local or the current GitHub-backed public copy)
 
 Google Calendar export files (derived):
   - data/google-calendar-events-nov1-9-2026.json (for MCP import)
@@ -95,12 +95,12 @@ npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 | `dashboards/html/index.html` | Main itinerary UI shell |
 | `dashboards/js/app.js` | Renders trip-data.js to DOM |
 | `scripts/audit-budget.js` | Budget validation |
-| `netlify.toml` | Deploys to Netlify |
+| `netlify.toml` | Static routing config kept from earlier hosting setup |
 
 ## Deployment
 
 - **Local:** `npm run serve` → http://localhost:4173
-- **Production:** Netlify auto-deploys from GitHub on push to `main`
+- **Production:** current GitHub-backed publish flow updates from pushed repo state
 - **No build step required** — all files are static
 
 ## Important Decisions

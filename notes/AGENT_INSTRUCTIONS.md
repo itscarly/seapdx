@@ -5,7 +5,7 @@
 ### 1. Verify Before Claiming Completion
 
 - **Never claim a task is complete without testing it.**
-- Run `npm run audit:budget` — must show `"status": "ok"` with `$888`
+- Run `npm run audit:budget` — must show `"status": "ok"`
 - Run `npm run validate` — all checks must pass
 - If verification fails, fix the issue. Do not move forward with a failing state.
 
@@ -49,11 +49,11 @@
 A task is NOT complete until ALL of the following are true:
 
 1. **Source updated:** `data/trip-data.js` reflects the change
-2. **Budget validated:** `npm run audit:budget` passes with $888
+2. **Budget validated:** `npm run audit:budget` passes
 3. **Calendar files updated:** JSON/CSV exports match the source
 4. **Calendar synced:** Shared Google Calendar updated (if write access exists)
 5. **Local site verified:** Dashboard reflects the change when running locally
-6. **Git site verified:** Production site (Netlify) reflects the change
+6. **Git site verified:** The GitHub-backed public copy reflects the change after push
 7. **Documentation updated:** CHANGELOG, TASKS, PROJECT_CONTEXT reflect the change
 8. **Memory updated:** SESSION_START and relevant project memory files are current
 
@@ -63,7 +63,7 @@ A task is NOT complete until ALL of the following are true:
 - Update calendar JSON + CSV with matching event
 - Update Google Calendar (if possible)
 - Verify the stop appears on the local dashboard
-- Verify it appears on the Netlify site
+- Verify it appears on the pushed public GitHub-backed copy
 - Document in CHANGELOG and TASKS
 - Update SESSION_START with final state
 
@@ -115,7 +115,7 @@ If ANY step fails, fix it before considering the task done.
 3. Did I update the calendar export files?
 4. Did I update the shared Google Calendar?
 5. Does the local site (http://localhost:4173) reflect the change?
-6. Does the production site (Netlify) reflect the change?
+6. Does the pushed public GitHub-backed site reflect the change?
 7. Did I update CHANGELOG and/or TASKS?
 8. Did I update SESSION_START with the final state?
 
@@ -125,7 +125,7 @@ If you can't confidently answer "yes" to all 8, the task is not complete.
 
 - One source of truth (trip-data.js)
 - One itinerary (no conflicting versions)
-- One budget ($888)
+- One validated budget state from `data/trip-data.js`
 - One synchronized calendar
 - One set of generated outputs
 - Full validation passing

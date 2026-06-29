@@ -194,12 +194,7 @@
 - 264293f: Fix JS version cache busting
 - a869138: Add comprehensive redesign brief for Codex
 
-**Handoff:** Created `BOOKED_FLIGHTS_REDESIGN_BRIEF.md` with:
-- Detailed issue list
-- Data structure reference
-- Recommended redesign approaches
-- Codebase file locations
-- User design requirements
+**Handoff:** Created a temporary redesign brief for the booked-flights cleanup. That scratch file was later retired during repo cleanup after the redesign shipped.
 
 **Next:** Codex to take full redesign of booked flights section.
 
@@ -356,9 +351,7 @@
 
 **Files touched:**
 - `data/trip-data.js` (source data — no changes, read-only)
-- `CALENDAR_UPDATE_STATUS.md` (NEW — comprehensive progress report)
-- `apply-remaining-calendar-updates.sh` (NEW — helper script)
-- `calendar-update-commands.json` (NEW — API format export)
+- Temporary calendar-update helper artifacts were created in this session and later retired once the repo was cleaned and the normalized source flow was in place.
 - `remaining-updates.json` (NEW — 56 events ready to push)
 
 **Status:** 10.5% complete (15/143 events). No duplicate events remain. All remaining descriptions are prepared and ready for batch application via MCP tools or Python automation.
