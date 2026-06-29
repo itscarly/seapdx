@@ -4,6 +4,12 @@
 
 This is the concise project change record.
 
+## 2026-06-29 — Total-target audit view
+
+- Added a plain-language formula block above the executive spend cards so the page now shows exactly how the all-in target is computed: confirmed bookings + planned trip spend + planned purchases.
+- Added an explicit note that the lower grouped cards are explanations of that same total, not extra charges stacked on top.
+- Called out the Kraken ticket as the main current placeholder so it is easier to see what can be removed later if that game is skipped.
+
 ## 2026-06-29 — Price corrections + transport breakout
 
 - Updated the dashboard source data to the new user-provided real prices:

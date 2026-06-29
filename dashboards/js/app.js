@@ -1184,8 +1184,9 @@ function bindBudgetBreakdowns(scope = document) {
 
 function renderTripCostSummary() {
   const summaryEl = document.getElementById("tripCostSummary");
+  const formulaEl = document.getElementById("tripCostFormula");
   const breakdownEl = document.getElementById("tripCostBreakdown");
-  if (!summaryEl || !breakdownEl) return;
+  if (!summaryEl || !breakdownEl || !formulaEl) return;
 
   const confirmedAirfare = getConfirmedAirfareTotal();
   const confirmedHotels = getConfirmedHotelTotal();
@@ -1223,6 +1224,43 @@ function renderTripCostSummary() {
       <div class="budget-capline">
         <strong>${money(plannedPersonal)}</strong>
         <p>Personal purchases that should count toward the real savings target.</p>
+      </div>
+    </article>
+  `;
+
+  formulaEl.innerHTML = `
+    <article class="trip-cost-audit">
+      <div class="trip-cost-audit-header">
+        <div>
+          <span class="budget-kicker">How This Total Works</span>
+          <h3>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)} + ${moneyPrecise(plannedPersonal)}</h3>
+          <p>This page uses one plain formula so the savings target is easier to sanity-check.</p>
+        </div>
+      </div>
+      <div class="trip-cost-audit-grid">
+        <div class="trip-cost-audit-row">
+          <span class="trip-cost-audit-label">Confirmed bookings</span>
+          <strong>${moneyPrecise(confirmedTotal)}</strong>
+          <p>Real booked costs already locked in: airfare + hotels.</p>
+        </div>
+        <div class="trip-cost-audit-row">
+          <span class="trip-cost-audit-label">Planned trip spend</span>
+          <strong>${moneyPrecise(plannedTripSpend)}</strong>
+          <p>Seattle and Portland trip spending inside the itinerary: food, transit, attractions, shopping, and contingency.</p>
+        </div>
+        <div class="trip-cost-audit-row">
+          <span class="trip-cost-audit-label">Planned purchases</span>
+          <strong>${moneyPrecise(plannedPersonal)}</strong>
+          <p>Personal buys you still want to count toward the real amount you need to save.</p>
+        </div>
+      </div>
+      <div class="trip-cost-audit-exclusions">
+        <span class="trip-cost-audit-label">Not double-counted</span>
+        <p>Nothing below is extra on top of this formula. The lower cards are just the grouped explanation for the same total, not separate charges added again.</p>
+      </div>
+      <div class="trip-cost-audit-exclusions muted">
+        <span class="trip-cost-audit-label">Current exclusions or placeholders</span>
+        <p>Kraken is still an estimate, not a confirmed charge. If you skip it later, subtract ${moneyCompact(120)} from planned trip spend and from the all-in target.</p>
       </div>
     </article>
   `;

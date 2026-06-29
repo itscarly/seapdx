@@ -2138,3 +2138,25 @@ Remaining blocker:
 ### Follow-up
 
 - Replace the Kraken estimate with the real live seat price once official 2026-27 single-game inventory is up, but keep the transport split as the permanent board behavior.
+
+## 2026-06-29 (session 14: total-target audit view)
+
+### What changed
+
+- Added a clearer audit block above the executive spend categories so the user can read the exact formula behind the all-in total before looking at the grouped cards.
+- Added explicit copy that the lower category cards are not extra charges; they are just the grouped explanation of the same total.
+- Called out the Kraken estimate as the easiest future subtraction if that placeholder event gets dropped.
+
+### Verification
+
+- `npm run validate` passes.
+- Budget audit still resolves to `projected: 1236.5`, `target: 1250`, `ceiling: 1300`, `remaining: 13.5`.
+
+### Files touched
+
+- `dashboards/html/index.html`
+- `dashboards/html/logistics.html`
+- `dashboards/js/app.js`
+- `dashboards/css/styles.css`
+- `notes/CHANGELOG.md`
+- `notes/Project Log.md`
