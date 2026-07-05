@@ -85,6 +85,30 @@
 - The homepage had a `Cocktails` itinerary filter even though there were no live `type: "cocktails"` stops left in the data.
 - Prevention: when the dataset changes, re-check any exposed filters, tabs, or chips so the UI only offers categories that actually return content.
 
+### When text wraps early beside empty space, the real bug is usually width allocation
+
+- The homepage still looked wrong after a typography pass because the desktop subtitle copy was capped too narrowly and some card rows were still stretching to the tallest item.
+- Prevention: if a screenshot shows both premature wrapping and wide unused horizontal space, widen or rebalance the layout first, then fine-tune type size.
+- Also re-check CSS grid stretch behavior on mixed-height card rows so shorter cards do not look awkwardly underfilled.
+
+### Dense itinerary chips need visible semantic labels, not just better spacing
+
+- Compaction alone does not make a route easier to scan if every chip still looks like undifferentiated venue text.
+- For this homepage, adding visible labels like `Coffee`, `Photo ops`, `Happy hour`, and `Buffer` improved comprehension more than another small spacing tweak would have.
+- Prevention: after any density pass on route chips or timeline cards, ask whether the UI still requires too much inference and surface the category directly when it does.
+
+### Side-by-side dashboard cards can still feel broken when only one internal grid wraps
+
+- In the maps/transit atlas, the visual problem was not the outer card styling. It was the Portland summary grid wrapping one extra row while the Seattle one stayed shorter.
+- That one wrapped row pushed the Portland map lower and made the whole pair feel misaligned.
+- Prevention: for paired cards, verify the top edge of the primary content area, not just the outer card border. If one internal grid can wrap and the other cannot, lock the layout at the breakpoint where alignment matters.
+
+### Release cleanup should reconcile active notes and local Git noise in the same pass
+
+- A UI can be ready to ship while the repo still is not: contradictory active notes and unignored local tooling files create avoidable release ambiguity.
+- In this project, the risky pattern was mixing newer monthly-watch guidance with an older Kraken-only automation line, while local `.claude`, `.obsidian`, and `.impeccable` state still appeared in `git status`.
+- Prevention: before publishing, check `git status`, reconcile any conflicts across active notes, and decide explicitly whether each local-only file is a project artifact or should be ignored.
+
 ## How to use this note
 
 Add only patterns that should help future sessions.

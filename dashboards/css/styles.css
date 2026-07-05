@@ -2890,6 +2890,7 @@ main {
 /* ─── Editorial homepage + logistics hub overrides ─────────────────────── */
 
 .trip-home {
+  --content: min(1520px, calc(100% - 56px));
   --bg: #f6f3ec;
   --bg-2: #efe8dc;
   --panel: rgba(255, 252, 247, 0.92);
@@ -2943,21 +2944,45 @@ main {
 }
 
 .trip-home .hero-grid--editorial {
-  padding: 56px 0 36px;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 28px;
+  padding: 50px 0 30px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(460px, 0.92fr);
+  gap: 16px;
   align-items: start;
 }
 
 .trip-home .hero-copy {
   display: grid;
-  gap: 18px;
+  gap: 14px;
+}
+
+.trip-home h1 {
+  font-size: clamp(2.3rem, 3.7vw, 3.55rem);
+  line-height: 1.03;
+}
+
+.trip-home h2 {
+  font-size: clamp(1.45rem, 2.2vw, 2.4rem);
 }
 
 .trip-home .lede {
-  max-width: 60ch;
-  font-size: 1.15rem;
-  line-height: 1.68;
+  max-width: 78ch;
+  font-size: 1rem;
+  line-height: 1.48;
+}
+
+.trip-home .section-copy,
+.trip-home .flight-shell-copy {
+  max-width: none;
+  width: 100%;
+  font-size: 0.98rem;
+  line-height: 1.42;
+}
+
+.trip-home #budgetHeading {
+  max-width: none;
+  font-size: clamp(1.08rem, 1.52vw, 1.62rem);
+  line-height: 1.14;
+  letter-spacing: -0.03em;
 }
 
 .trip-home .hero-facts-list {
@@ -2969,26 +2994,27 @@ main {
 }
 
 .trip-home .hero-facts-list li {
-  padding-left: 18px;
+  padding-left: 20px;
   position: relative;
   color: var(--muted);
-  line-height: 1.55;
+  font-size: 1.03rem;
+  line-height: 1.42;
 }
 
 .trip-home .hero-facts-list li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.6em;
-  width: 8px;
-  height: 8px;
+  top: 0.56em;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--accent), var(--accent-4));
 }
 
 .trip-home .hero-panel-stack {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .trip-home .hero-note-card,
@@ -3014,159 +3040,223 @@ main {
 .trip-home .budget-panel,
 .trip-home .flight-shell,
 .trip-home .atlas-card {
-  border-radius: 28px;
+  border-radius: 24px;
 }
 
 .trip-home .trip-card,
 .trip-home .hero-note-card {
-  padding: 22px;
+  padding: 20px;
+}
+
+.trip-home .trip-card strong {
+  font-size: clamp(1.55rem, 2.15vw, 2.22rem);
+  line-height: 1.02;
+  margin: 10px 0 4px;
+}
+
+.trip-home #heroRemaining,
+.trip-home #fxMeta {
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.trip-home .fx-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.trip-home .fx-panel strong {
+  font-size: 0.92rem;
+  line-height: 1.2;
 }
 
 .trip-home .hero-note-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px 14px;
+  gap: 12px;
 }
 
 .trip-home .hero-note-label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .trip-home .hero-note-grid strong,
 .trip-home .hero-note-grid strong a {
   font-size: 1rem;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--ink);
   text-decoration: none;
 }
 
 .trip-home .section {
-  padding: 28px 0 0;
+  padding: 22px 0 0;
 }
 
 .trip-home .section-heading {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .trip-home .button,
 .trip-home .chip,
 .trip-home .tab,
 .trip-home .link-button {
-  min-height: 44px;
+  min-height: 38px;
+  padding-inline: 13px;
   border-radius: 999px;
+  font-size: 0.8rem;
 }
 
 .trip-home .summary-grid--editorial {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
+  align-items: start;
 }
 
 .trip-home .summary-card--editorial {
-  min-height: 164px;
-  padding: 20px;
-  border-radius: 24px;
+  min-height: 112px;
+  padding: 14px;
+  border-radius: 20px;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 8px;
 }
 
 .trip-home .summary-card--editorial span {
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
 }
 
 .trip-home .summary-card--editorial strong {
   margin-top: 0;
-  font-size: clamp(1.35rem, 2vw, 2.1rem);
-  line-height: 1.04;
+  font-size: clamp(1.12rem, 1.52vw, 1.62rem);
+  line-height: 1.08;
 }
 
 .trip-home .summary-card--editorial p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
+  font-size: 0.84rem;
+  line-height: 1.34;
 }
 
 .trip-home .budget-layout--home .budget-panel {
-  padding: 24px;
+  padding: 20px;
+}
+
+.trip-home .budget-summary-card {
+  display: grid;
+  align-content: start;
+  align-self: start;
+  gap: 8px;
+  min-height: auto;
+  padding: 14px;
+  border-radius: 20px;
 }
 
 .trip-home .budget-summary {
   grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(180px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.trip-home .budget-total {
+  font-size: clamp(1.65rem, 2.6vw, 2.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.trip-home .budget-copy {
+  margin: 6px 0 12px;
+  font-size: 0.9rem;
+  line-height: 1.34;
+}
+
+.trip-home .budget-kicker {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.trip-home .budget-capline strong {
+  font-size: 1.08rem;
+  line-height: 1.12;
+}
+
+.trip-home .budget-capline p {
+  font-size: 0.88rem;
+  line-height: 1.32;
 }
 
 .trip-home .days {
-  gap: 18px;
+  gap: 14px;
 }
 
 .trip-home .day-card {
-  border-radius: 28px;
+  border-radius: 24px;
   overflow: hidden;
 }
 
 .trip-home .day-head {
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
-  padding: 22px 24px;
+  gap: 16px;
+  padding: 18px 20px;
 }
 
 .trip-home .day-head h3 {
-  font-size: 1.38rem;
+  font-size: 1.22rem;
   line-height: 1.1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .trip-home .day-head p {
   margin: 0;
-  max-width: 78ch;
+  max-width: none;
   color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.55;
+  font-size: 0.84rem;
+  line-height: 1.36;
 }
 
 .trip-home .day-meta {
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .trip-home .day-toggle {
   display: inline-flex;
-  margin-top: 16px;
+  margin-top: 12px;
   color: var(--accent);
-  font-size: 0.84rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .trip-home .day-total {
-  min-width: 156px;
+  min-width: 144px;
   text-align: right;
-  font-size: 1.15rem;
+  font-size: 1.03rem;
   font-weight: 800;
   color: var(--ink);
   display: grid;
   justify-items: end;
-  gap: 8px;
+  gap: 6px;
 }
 
 .trip-home .day-total-note {
   color: var(--muted);
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .trip-home .day-body {
   display: none;
   border-top: 1px solid var(--line);
-  padding: 20px 22px 0;
+  padding: 16px 18px 0;
 }
 
 .trip-home .day-card.open .day-body {
@@ -3180,26 +3270,26 @@ main {
 .trip-home .day-timeline {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 0 0 18px;
+  gap: 8px;
+  padding: 0 0 14px;
   border-top: none;
 }
 
 .trip-home .timeline-divider {
-  margin-top: 8px;
-  padding: 12px 0 4px;
+  margin-top: 6px;
+  padding: 10px 0 3px;
 }
 
 .trip-home .stop--chip {
-  min-width: 210px;
-  max-width: 285px;
-  padding: 14px;
-  border-radius: 18px;
+  min-width: 194px;
+  max-width: 258px;
+  padding: 11px 12px;
+  border-radius: 16px;
   border: 1px solid rgba(49, 42, 35, 0.08);
   border-left-width: 4px;
   background: rgba(255, 252, 247, 0.95);
   box-shadow: var(--shadow-soft);
-  gap: 8px;
+  gap: 6px;
 }
 
 .trip-home .stop--chip:hover,
@@ -3210,24 +3300,31 @@ main {
 
 .trip-home .chip-timing {
   color: var(--accent);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
+.trip-home .chip-badge {
+  padding: 3px 8px;
+  font-size: 0.56rem;
+  letter-spacing: 0.09em;
+}
+
 .trip-home .chip-title {
-  font-size: 0.98rem;
-  line-height: 1.28;
+  font-size: 0.88rem;
+  line-height: 1.22;
 }
 
 .trip-home .chip-meta,
 .trip-home .chip-note {
-  line-height: 1.45;
+  font-size: 0.68rem;
+  line-height: 1.38;
 }
 
 .trip-home .day-detail-panel {
   display: block !important;
-  margin: 0 22px 22px;
+  margin: 0 18px 18px;
   padding: 0;
   border-top: none;
   background: transparent;
@@ -3240,20 +3337,20 @@ main {
 }
 
 .trip-home .stop-detail {
-  padding: 22px;
-  border-radius: 22px;
+  padding: 18px;
+  border-radius: 20px;
   background: linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(247, 240, 231, 0.9));
   border: 1px solid rgba(49, 42, 35, 0.08);
   box-shadow: var(--shadow-soft);
-  gap: 16px;
+  gap: 14px;
 }
 
 .trip-home .stop-detail-title .badge {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .trip-home .stop-detail-title h4 {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   line-height: 1.12;
 }
 
@@ -3263,34 +3360,35 @@ main {
 }
 
 .trip-home .stop-detail-cost {
-  font-size: 1rem;
+  font-size: 0.92rem;
   line-height: 1.3;
 }
 
 .trip-home .stop-detail-timing {
-  gap: 8px;
+  gap: 6px;
 }
 
 .trip-home .stop-detail-timing span {
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 999px;
   background: rgba(49, 42, 35, 0.04);
   border: 1px solid rgba(49, 42, 35, 0.07);
+  font-size: 0.76rem;
 }
 
 .trip-home .stop-detail-notes {
-  padding: 16px 18px;
-  border-radius: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
   background: rgba(47, 111, 228, 0.06);
   border: 1px solid rgba(47, 111, 228, 0.08);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .trip-home .stop-detail-notes strong {
   display: block;
-  margin-bottom: 10px;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  font-size: 0.74rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -3298,42 +3396,43 @@ main {
 .trip-home .stop-detail-notes p {
   margin: 0;
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .trip-home .stop-detail-notes p + p {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .trip-home .stop-detail-rich {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .trip-home .stop-detail-sections {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .trip-home .detail-section {
-  padding: 15px 16px;
-  border-radius: 18px;
+  padding: 13px 14px;
+  border-radius: 16px;
   background: rgba(49, 42, 35, 0.035);
   border: 1px solid rgba(49, 42, 35, 0.07);
 }
 
 .trip-home .detail-section h5 {
   margin: 0 0 8px;
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .trip-home .detail-section p {
   margin: 0;
-  line-height: 1.55;
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 .trip-home .detail-section a,
@@ -3346,42 +3445,72 @@ main {
 }
 
 .trip-home .stop-detail-map {
-  min-height: 220px;
-  border-radius: 18px;
+  min-height: 210px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(49, 42, 35, 0.08);
 }
 
 .trip-home .stop-detail-links,
 .trip-home .stop-detail-actions {
-  gap: 10px;
+  gap: 8px;
 }
 
 .trip-home .guide-panel {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
 }
 
 .trip-home .guide-card,
 .trip-home .transit-card,
 .trip-home .source-card {
-  padding: 18px;
-  border-radius: 22px;
+  padding: 16px;
+  border-radius: 20px;
 }
 
 .trip-home .trip-atlas {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .trip-home .atlas-card {
-  padding: 18px;
-  gap: 14px;
+  padding: 16px;
+  gap: 12px;
+}
+
+.trip-home .atlas-summary {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
+
+.trip-home .atlas-day-pill {
+  min-height: 78px;
+  padding: 10px 12px;
+}
+
+.trip-home .atlas-day-pill span {
+  font-size: 0.72rem;
+}
+
+.trip-home .atlas-day-pill strong {
+  margin-top: 3px;
+  font-size: 1rem;
+}
+
+.trip-home .atlas-day-pill em {
+  margin-top: 2px;
+  font-size: 0.82rem;
+}
+
+.trip-home .atlas-day-pill::before {
+  width: 38px;
+  margin-bottom: 8px;
 }
 
 .trip-home .atlas-map {
-  min-height: 320px;
+  min-height: 292px;
 }
 
 .trip-home .transit-grid--compact {
@@ -3397,58 +3526,69 @@ main {
 }
 
 .trip-home .flight-shell {
-  padding: 24px;
+  padding: 20px;
 }
 
 .trip-home .flight-shell-head {
-  margin-bottom: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 14px;
 }
 
 .trip-home .flight-journeys {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .trip-home .flight-journey {
-  padding: 20px;
-  border-radius: 24px;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  align-content: start;
+  height: 100%;
+  padding: 16px;
+  border-radius: 20px;
   border: 1px solid rgba(49, 42, 35, 0.08);
-  gap: 14px;
+  gap: 12px;
 }
 
 .trip-home .flight-journey-head {
   align-items: start;
+  gap: 10px;
+  min-height: 58px;
   margin-bottom: 0;
 }
 
 .trip-home .flight-journey-head h3 {
-  font-size: 1.22rem;
+  font-size: 1rem;
   line-height: 1.16;
 }
 
 .trip-home .flight-airfare {
-  padding: 8px 12px;
-  font-size: 0.84rem;
-  line-height: 1.35;
-  white-space: normal;
+  padding: 7px 10px;
+  font-size: 0.76rem;
+  line-height: 1.3;
+  white-space: nowrap;
   text-align: right;
 }
 
 .trip-home .flight-status-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .trip-home .flight-status-pill {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0 12px;
+  min-height: 30px;
+  padding: 0 10px;
   border-radius: 999px;
   background: rgba(49, 42, 35, 0.05);
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -3461,32 +3601,56 @@ main {
 .trip-home .flight-story p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.58;
+  font-size: 0.82rem;
+  line-height: 1.38;
 }
 
 .trip-home .flight-story p + p {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .trip-home .flight-leg {
-  padding: 14px;
-  border-radius: 18px;
+  padding: 12px;
+  border-radius: 16px;
 }
 
 .trip-home .flight-point strong {
-  font-size: 1.55rem;
+  font-size: 1.34rem;
 }
 
 .trip-home .flight-point time {
-  font-size: 1rem;
+  font-size: 0.92rem;
 }
 
 .trip-home .flight-leg-card h4 {
-  font-size: 0.96rem;
+  font-size: 0.9rem;
 }
 
 .trip-home .sources-list--logistics {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 1281px) {
+  .trip-home .atlas-summary {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1281px) {
+  .trip-home #summary .section-copy,
+  .trip-home #budget .section-copy,
+  .trip-home #activityBudget .section-copy,
+  .trip-home #flights .section-copy,
+  .trip-home .flight-shell-copy,
+  .trip-home #budgetHeading {
+    white-space: nowrap;
+  }
+
+  .trip-home .day-head p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .trip-home.logistics-page .hero h1 {
@@ -3494,7 +3658,7 @@ main {
 }
 
 .trip-home.logistics-page .section {
-  padding-top: 30px;
+  padding-top: 24px;
 }
 
 @media (max-width: 1280px) {
@@ -3534,21 +3698,28 @@ main {
     text-align: left;
     min-width: 0;
   }
+
+  .trip-home .section-copy,
+  .trip-home .flight-shell-copy {
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
 }
 
 @media (max-width: 640px) {
   .trip-home {
+    --content: min(100%, calc(100% - 28px));
     font-size: 14px;
   }
 
   .trip-home h1 {
     max-width: 100%;
-    font-size: clamp(2.25rem, 10vw, 3.3rem);
+    font-size: clamp(2rem, 8.6vw, 2.7rem);
   }
 
   .trip-home .hero-grid--editorial {
-    padding: 40px 0 24px;
-    gap: 18px;
+    padding: 34px 0 20px;
+    gap: 14px;
   }
 
   .trip-home .hero-note-grid,
@@ -3561,7 +3732,7 @@ main {
   .trip-home .budget-panel,
   .trip-home .flight-shell,
   .trip-home .atlas-card {
-    padding: 18px;
+    padding: 16px;
   }
 
   .trip-home .summary-card--editorial {
@@ -3569,15 +3740,15 @@ main {
   }
 
   .trip-home .day-head {
-    padding: 18px;
+    padding: 16px;
   }
 
   .trip-home .day-body {
-    padding: 18px 18px 0;
+    padding: 14px 16px 0;
   }
 
   .trip-home .day-detail-panel {
-    margin: 0 18px 18px;
+    margin: 0 16px 16px;
   }
 
   .trip-home .stop--chip {

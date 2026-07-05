@@ -4,6 +4,134 @@
 
 This is the concise project change record.
 
+## 2026-07-05 (session 31) — GitHub publish cleanup + doc reconciliation
+
+- Reconciled the active repo docs so the remaining automation path is described consistently as the monthly baseline watch, not a mix of monthly-watch and Kraken-only wording.
+- Refreshed the top-level `DESIGN.md` and `PRODUCT.md` docs so they match the accepted compact editorial dashboard instead of older visual experiments.
+- Tightened `.gitignore` so local `.claude`, `.obsidian`, and `.impeccable` state no longer pollutes the release worktree.
+
+## 2026-07-05 (session 30) — Maps/transit atlas alignment fix
+
+- Tightened the homepage atlas day-pill sizing and changed the desktop atlas summary from auto-fit wrapping to a stable five-slot row.
+- This prevents the Portland atlas from wrapping to an extra pill row and pushing its map lower than the Seattle card.
+- Result: the two cards inside `Route shape, walkability, and transit essentials` now align cleanly, with matching summary heights and matching map start lines.
+- Verification: `npm run validate` passed; browser metrics at `1440px` showed atlas summary heights of `100px / 100px`, equal map top positions (`733.23px / 733.23px`), and equal atlas card heights (`553.03px / 553.03px`).
+
+## 2026-07-05 (session 29) — One-line itinerary copy + labeled route chips
+
+- Kept the activity-budget headline on one line at desktop width and applied the same desktop one-line treatment to the reported day theme + weather rows where the layout already has room.
+- Tightened the homepage flight-board typography and gave each flight journey card a stable internal grid so the arrival and return panels now match height instead of reading as uneven siblings.
+- Added visible itinerary-chip labels derived from stop type and keywords, so the open day rows now expose categories such as `Transit`, `Walk`, `Buffer`, `Photo ops`, `Coffee`, `Meal`, `Cocktails`, and `Happy hour`.
+- Updated homepage and logistics HTML cache-bust tags to the new `2026-07-05-activity-labels` version.
+- Verification: `npm run validate` passed; browser checks at `1440px` confirmed the budget headline, overview subtitle, executive subtitle, and day weather line all render as one line, and both homepage flight cards measured the same height (`708.56px`).
+
+## 2026-07-05 (session 28) — Desktop width rebalance + subtitle single-line fix
+
+- Widened the `.trip-home` content shell and rebalanced the hero columns so the right-side stack reaches further left instead of leaving a large empty center gap.
+- Increased the hero fact bullet size and marker size so the four planning bullets read as primary support content rather than tiny footer text.
+- Removed the desktop max-width cap from homepage section subtitles and slightly raised their size so overview and executive-summary descriptions finally use the whole row.
+- Stopped overview and executive-summary support cards from stretching to match the tallest sibling, which removed the awkward underfilled-card look.
+- Verification: `npm run validate` passed; browser checks at `1440px` confirmed both reported subtitles now render on one line and the hero bullet size increased to `16.48px`.
+
+## 2026-07-05 (session 26) — Conservative homepage compaction + reveal fallback
+
+- Tightened only the `.trip-home` override layer in `dashboards/css/styles.css` so the homepage became denser without destabilizing the global visual system.
+- Reduced section spacing, card padding, chip/button heights, day-row padding, stop-chip widths, and several secondary type scales by roughly `10-15%`.
+- Preserved the existing color direction and overall design language while making the hero, summary, itinerary, flights, guides, maps, and logistics sections scan faster.
+- Added eager + timed fallback behavior in `dashboards/js/app.js:initReveal()` so lower `[data-reveal]` cards do not stay invisible when the page is captured, jumped through quickly, or rendered without normal scrolling.
+- Verification: `npm run validate` passed, and browser checks passed at `1440px`, `980px`, and `390px` with `hiddenRevealCount: 0`.
+
+## 2026-07-05 (session 27) — Screenshot-guided typography tightening + Photo ops restore
+
+- Reduced the hero title and the homepage all-in target type scales so the right-side amount blocks no longer overpower the layout or break as awkwardly.
+- Increased the available copy width for the hero lede and section subtitles so lines stop wrapping early while there is still open space on the row.
+- Reduced the overview-card minimum height and summary-value sizing to remove unnecessary blank space inside the four snapshot cards.
+- Fixed the `Photo ops` tab by calling `initReveal()` after its cards render; verification showed `guideCards: 4` and `hiddenGuides: 0`.
+- Verification: `npm run validate` passed, and desktop browser screenshots confirmed the affected sections now match the reported issues much more closely.
+
+## 2026-07-05 (session 25) — Premium travel dashboard visual redesign: warm, refined, editorial aesthetic
+
+- **Color palette redesign**: warm mist gray background (#f5f4f0, like old travel atlases), forest green primary accent (#1f7b4d, travel authority), muted terracotta secondary (#d4956f, travel categories), Apple-style text hierarchy (#1d1d1f/#6e6e73), subtle borders and refined shadows (0 2px 8px).
+- **Route marker visual**: added SVG route line (Seattle → Portland city dots + connector) above hero — minimal, non-decorative signature element that signals travel dashboard.
+- **Typography hierarchy**: hero 44-52px weight 700, sections 28-34px weight 600, body 13-15px weight 400-500, labels 11-12px weight 500 (no aggressive sizing).
+- **Card system unified**: all cards 18px radius, consistent 1px subtle borders, refined shadows, 24px padding desktop / 16-20px mobile — 5 intentional card types (trip status, metric, anchors, facts strip, base).
+- **Hero refinements**: removed decorative blur effects, forest green primary button, refined progress bar (6px height), compact trip anchors 2x2 grid, facts strip with warm accent dots.
+- **Button colors**: primary button background changed to forest green (#1f7b4d, not dark gray) — signals travel navigation authority.
+- Result: dashboard now feels like premium travel software (Apple Maps/Travel aesthetic) — warm, refined, calm, spatial, not generic admin tool. ✅ npm run validate passes.
+
+## 2026-07-05 (session 24) — Hero + overview redesign: compact responsive single-screen dashboard
+
+- **Removed duplicate navigation**: deleted pill-nav section (.dashboard-panels/.panel-chip), kept single .topbar; frees ~40px vertical space.
+- **Restructured hero grid from 2-col to responsive 3-col**: `minmax(0,1.45fr) minmax(320px,.8fr) minmax(280px,.65fr)` on desktop, stacks 2-col on tablet, 1-col on mobile.
+- **Simplified hero title**: "Seattle + Portland" (40-52px h1) + "trip dashboard" (16px kicker), drops redundant "trip command center" copy.
+- **Consolidated CSS `:root` blocks**: merged 3 separate blocks into 1 unified block (lines 3-61), updated stale warm-cream bg to neutral palette.
+- **Compacted All-in trip target card**: padding 22px→16px, added native `<details>` disclosure for FX rates (collapsed by default, chevron rotates on open).
+- **Redesigned facts strip**: changed from 2-col card grid to flex row with vertical dividers, removed floating card boxes and decorative dots.
+- **3-card overview grid**: removed "Route footprint" 4th card, shortened support text (e.g. "Airfare + hotels" vs long sentence), 3 cards auto-fit minmax(220px,1fr) on all widths.
+- **Shrank summary-cards**: min-height 156px→100px, padding 18px→14px, font-size clamped lower.
+- **Typography hierarchy**: support text 400-500 weight, card labels 600, All-in target number 700 (the one place boldness is spent).
+- **Added responsive media queries**: hero grid and card spacing adjust at tablet (≤1023px) and mobile (≤767px) breakpoints.
+- **Consolidated duplicate CSS selectors**: removed 10+ duplicate hero-grid/trip-card/summary-card declarations, deleted stale blocks, unified card radius/border/shadow to one `--radius-card:16px` variable.
+- Verification: npm run validate passed; FX disclosure opens/closes; facts strip displays horizontal; 3-card grid responsive.
+
+## 2026-07-05 (session 23) — Dashboard redesign: restore original clarity + confidence
+
+- Diagnosed design degradation after session 21 Impeccable polish: warm cream background (#f6f5f1) + Warm Rust accents + frosted glass cards had replaced original's neutral gray + strong blue + defined white structure.
+- Root cause: session 21 applied generic "premium consumer default" palette (warm cream + muted colors + frosted glass blur) that appears on any luxury brand, not grounded in this dashboard's subject matter (travel logistics, clarity, precision).
+- **Redesign:** Restored original's structural clarity (neutral gray bg, strong blue accents, solid white cards) while retaining modern Impeccable polish (spacing rhythm, typography hierarchy, refined interactions, motion curves).
+- **CSS overhaul** (dashboards/css/styles.css):
+  - `--bg: #f6f5f1 → #e5e5e7` (warm cream → neutral gray)
+  - `--panel: rgba(255,255,255,0.82) → #ffffff` (semi-transparent → solid white)
+  - `--ink: #161714 → #000000` (warm brown → black, +contrast)
+  - `--accent: #1667c9 → #0056b3` (original → stronger action blue)
+  - `--accent-3: #b46a2c → #0056b3` (removed Warm Rust palette)
+  - Removed `backdrop-filter: blur(12px)` from cards (frosted glass eliminated)
+  - Changed card borders from barely-visible to defined
+  - Fixed `body.trip-home` selector that was blocking color variables with warm gradient
+- Verification result: `npm run validate` passed; browser display now shows neutral gray background, solid white cards, black text, strong blue accents — visual clarity and confidence restored.
+
+## 2026-07-05 — Impeccable design polish + formal design system
+
+- Installed and configured the Impeccable design skill to enforce production-grade polish across the dashboard.
+- Ran `/impeccable document` to extract the existing design language and formalize it into PRODUCT.md, DESIGN.md, and `.impeccable/design.json` with full design tokens, components, and brand guidelines.
+- Polished the Maps section with targeted CSS refinements:
+  - Increased transit grid gap from `12px` → `14px` for improved spacing rhythm
+  - Increased transit card padding from `16px` → `18px` and added `min-height: 140px` for better visual proportion
+  - Enhanced disclosure button with `2px outline` on hover/focus, `2px offset`, and cubic-bezier transitions for smoother interaction feedback
+  - Added card-header border-bottom separator (`1px solid`) with proper padding rhythm for visual hierarchy
+  - Improved disclosure-body layout with flex column structure, `14px` gaps, and `16px` margin/padding for consistency
+  - Applied Warm Rust (#b46a2c) accent color to section labels per design system
+- Created design system documentation with:
+  - **North Star**: "The Editorial Atlas" – shared-quality, lively, editorial aesthetic
+  - **Brand personality**: Energetic minimalism with restrained system-font clarity
+  - **Named rules**: One Voice (True Blue ≤10%), One Font (SF Pro only), Frosted Glass (backdrop blur + semi-transparency on cards)
+  - **8 colors**, **5 typography scales**, **shadow vocabulary**, **motion curves**, **responsive breakpoints**
+- Verification result: `npm run validate` passed; browser audit confirmed all polish metrics (spacing rhythm, typography hierarchy, interaction states, accessibility, contrast, responsiveness).
+
+## 2026-07-04 — Apple-style itinerary dashboard redesign
+
+- Rebuilt the homepage visual system around the Apple-style system font stack and calmer travel-dashboard tokens instead of the mixed imported font/decorative card treatment.
+- Widened the hero editorial column so the title and subtitle no longer feel trapped on the left, while the right-side summary cards now align as a cleaner stacked pair.
+- Standardized the homepage cards into a tighter shared surface system with lighter borders, subtler shadows, smaller labels, and less billboard-style metric weight.
+- Removed the repeated `All-in target` shout from the overview strip and restructured the executive formula into grouped segments plus one explicit total card.
+- Repacked the activity-budget and day-route layouts so the grids avoid dead space, the itinerary filters sit with the section heading, and the route chips align more consistently across desktop and mobile.
+- Verification result: `npm run validate` passed, and a headless breakpoint sanity check passed at `1440px`, `1024px`, and `390px` with no horizontal overflow.
+
+## 2026-07-04 — Responsive dashboard shell + progressive disclosure
+
+- Reworked the homepage from a long static landing-style page into a denser responsive dashboard with a wider fluid shell and a sticky app-style panel bar.
+- Added `Overview`, `Itinerary`, `Budget`, `Guides`, and `Logistics` panel switching so only the active information group stays in the page flow at one time.
+- Moved the heavier content behind accessible chevron disclosures, including:
+  - trip-cost formula
+  - executive budget breakdown cards
+  - local budget categories
+  - flight detail blocks
+  - map/transit blocks
+  - guide card details
+  - utility cards
+- Reworked flight and budget cards so detail expansion is controlled by explicit right-aligned buttons using `aria-expanded` and `aria-controls`.
+- Verification result: `npm run validate` passed, and a browser check confirmed the compact overview default, correct panel filtering, working formula disclosure, and a `1376px` main-content width at a `1440px` viewport with no horizontal overflow.
+
 ## 2026-06-29 — Git cleanup and local-vault separation
 
 - Removed tracked one-off handoff files, old calendar-update scratch artifacts, and other repo clutter that no longer helps run or maintain the project.

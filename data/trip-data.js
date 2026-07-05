@@ -565,8 +565,10 @@ window.TRIP_DATA = {
     ],
     coffee: [
       { name: "Pike Place Starbucks", city: "Seattle", day: "Day 2", buy: "Seattle bag + city mug souvenir combo", roast: "Iconic Seattle location, renovated, fresh beans.", budget: "$15-18 bean bag + mug combo with tax/tip.", link: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
+      { name: "Seattle Best Tea - Chinatown International District", city: "Seattle", day: "Day 2", buy: "Quick tea or matcha stop", roast: "Best indoor tea break if you want a warm stop after Pike Place.", budget: "$9.", link: "https://seattlebesttea.com/" },
       { name: "Pegasus Coffee House", city: "Bainbridge Island", day: "Day 3", buy: "Coffee stop only if you skip the Seattle bean on Day 2", roast: "Island specialty coffee, fresh roast.", budget: "Treat as an optional swap, not an extra bean buy.", link: "https://pegasuscoffeehouse.com/" },
       { name: "Stumptown Downtown", city: "Portland", day: "Day 7", buy: "Portland bag + breakfast", roast: "Classic Portland specialty, 128 SW 3rd Ave.", budget: "$20-24 bean bag included in Day 7 breakfast cost.", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" },
+      { name: "Portland Cà Phê rose matcha", city: "Portland", day: "Day 7", buy: "Rose matcha or matcha latte", roast: "Best short Portland matcha stop with an indoor pull and a clear official site.", budget: "$10.", link: "https://portlandcaphe.com/" },
       { name: "Stumptown Downtown", city: "Portland", day: "Day 8", buy: "Repeat breakfast only", roast: "Second visit for breakfast or espresso, not a second Portland bean buy.", budget: "Keep this as food-and-coffee pacing only.", link: "https://www.stumptowncoffee.com/pages/portland-downtown-cafe" }
     ],
     photoOps: [

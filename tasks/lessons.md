@@ -97,3 +97,92 @@
 
 - For shared-calendar remediation, do not say a block is done until the live popup body matches the reference format the user showed.
 - Verify both stop-level events and day-level headline rows before calling the calendar pass complete.
+
+## 2026-07-05
+
+### Symptom
+
+- The user still saw desktop homepage subtitles wrapping onto second lines while large horizontal gaps and tall empty cards were still visible in the same screenshots.
+
+### Root cause
+
+- I tightened typography first but left a desktop copy-width cap and a stretched card-grid behavior in place.
+- That meant text could still wrap early even when there was unused row width, and shorter cards could still look awkwardly underfilled beside taller neighbors.
+
+### Fix
+
+- Widen the desktop shell and rebalance the columns before shrinking text further.
+- Remove desktop-only max-width caps from section subtitles when screenshots show obvious unused width.
+- Disable stretch on mixed-height summary-card rows so secondary cards keep their natural height.
+
+### Prevention rule
+
+- When a screenshot shows both wrapping and empty horizontal space, treat layout width allocation as the first bug, not font size alone.
+- Re-check grid stretch behavior on summary rows any time cards look tall and underfilled after a typography pass.
+
+## 2026-07-05
+
+### Symptom
+
+- The user still saw itinerary weather lines wrapping, uneven-looking flight cards, and unlabeled route chips even after the broader homepage compaction pass.
+
+### Root cause
+
+- I fixed the surrounding layout first, but I left some important content-level readability cues untouched:
+  - desktop day subtitle lines still had no explicit one-line rule
+  - flight-card equality depended on content length instead of a stable internal layout
+  - itinerary chips still relied on the user inferring categories from stop names
+
+### Fix
+
+- Add desktop-only no-wrap rules where the user explicitly wants one-line planning copy.
+- Equalize flight cards with a consistent grid row structure instead of hoping similar content will land at similar heights.
+- Add visible route-chip labels derived from stop type and keywords so the day view reads at a glance.
+
+### Prevention rule
+
+- When a screenshot complaint is about scanning speed, do not stop at spacing and type scale; also check whether semantic labels are missing from the densest UI.
+- For side-by-side cards with unequal copy, enforce consistent internal layout if the user expects them to read as a matched pair.
+
+## 2026-07-05
+
+### Symptom
+
+- The maps/transit atlas still looked awkward because the Seattle and Portland cards did not line up, even though the card styling itself was already consistent.
+
+### Root cause
+
+- I left the atlas summary grid on auto-fit behavior, so Portland wrapped to an extra day-pill row while Seattle did not.
+- That single extra wrapped row pushed only the Portland map downward and made the whole section feel uneven.
+
+### Fix
+
+- Normalize the homepage atlas summary to a stable five-slot desktop grid and slightly tighten the pill sizing so both city summaries consume the same vertical space.
+
+### Prevention rule
+
+- When two side-by-side dashboard cards are meant to read as peers, verify not only their styling but also the start line of their primary content block.
+- Auto-fit grids are convenient, but if one side can wrap and the other cannot, treat that as a rhythm bug and lock the grid at the breakpoint where the design is supposed to feel aligned.
+
+## 2026-07-05
+
+### Symptom
+
+- Release prep still had contradictory active notes and local editor/plugin files showing up in `git status`, even though the UI work itself was ready to ship.
+
+### Root cause
+
+- I treated code polish and note polish as separate cleanup layers instead of doing one final publish pass across both.
+- Some active docs still carried an older Kraken-only automation line while newer notes had already moved to the monthly baseline-watch wording.
+- Local `.claude`, `.obsidian`, and `.impeccable` state was not fully ignored, so repo status still looked noisier than the real project change set.
+
+### Fix
+
+- Reconcile the active docs to one automation truth before shipping.
+- Refresh top-level design/product docs so they describe the current accepted UI, not an intermediate experiment.
+- Ignore local editor/plugin state so GitHub only reflects real project files.
+
+### Prevention rule
+
+- Before publishing accepted work, run one final `git status` plus active-note conflict check.
+- If local tooling files appear in the worktree, either promote them intentionally as project artifacts or ignore them; do not leave that decision ambiguous at release time.

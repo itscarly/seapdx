@@ -798,19 +798,43 @@ function renderEditorActions(stop, options = {}) {
   ].filter(Boolean).join("");
 }
 
-function getStopTag(stop) {
-  const name = String(stop.name || "").toLowerCase();
-  if (name.includes("photo loop") || name.includes("photo")) return "Photo op";
-  if (name.includes("matcha")) return "Matcha stop";
-  if (name.includes("tea")) return "Tea stop";
-  return labelize(stop.anchorType ? stop.anchorType.replace(/-/g, " ") : stop.alternateType || stop.type || "stop");
+function getStopDisplayLabel(stop, options = {}) {
+  const explicit = stop.displayType || stop.anchorType;
+  if (explicit) return labelize(String(explicit).replace(/-/g, " "));
+
+  const text = `${stop.name || ""} ${stop.notes || ""} ${stop.detailText || ""}`.toLowerCase();
+  if (/happy hour/.test(text)) return "Happy hour";
+  if (/photo|sign \+ arcade|skyline|facade|interior|sunset|ferris wheel/.test(text)) return "Photo ops";
+  if (/cocktail|one-drink|rooftop bar|spritz|margarita|lychee|book bar/.test(text)) return "Cocktails";
+  if (options.isAlternate) return "Alternate option";
+
+  const type = String(stop.alternateType || stop.type || "activity").toLowerCase();
+  if (type === "rest") {
+    return /airport|layover|buffer|check-in|security/.test(text) ? "Buffer" : "Recovery";
+  }
+
+  const labels = {
+    coffee: "Coffee",
+    meal: "Meal",
+    food: "Meal",
+    activity: "Activity",
+    walk: "Walk",
+    shopping: "Shopping",
+    transit: "Transit",
+    hotel: "Hotel",
+    sightseeing: "Sightseeing",
+    cocktails: "Cocktails",
+    alternate: "Alternate option"
+  };
+
+  return labels[type] || labelize(type);
 }
 
 function renderStop(stop, options = {}) {
   const type = stop.alternateType || stop.type;
   const icon = iconMap[type] || iconMap.alternate;
   const costValue = options.isAlternate && stop.estimatedCost != null ? stop.estimatedCost : stop.cost;
-  const badgeLabel = options.isAlternate ? "alternate option" : getStopTag(stop);
+  const badgeLabel = getStopDisplayLabel(stop, options);
 
   if (options.isChip) {
     const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
@@ -818,8 +842,8 @@ function renderStop(stop, options = {}) {
       <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
         <div class="chip-timing">${stop.time || ""}</div>
         <div class="chip-body">
-          <div class="chip-badge">${labelize(getStopTag(stop))}</div>
-          <div class="chip-title">${getStopTag(stop)}: ${stop.name}</div>
+          <div class="chip-badge">${badgeLabel}</div>
+          <div class="chip-title">${stop.name}</div>
           <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${costValue != null ? ` · ${money(costValue)}` : ""}</div>
           ${shortNote ? `<div class="chip-note">${shortNote}</div>` : ""}
         </div>
@@ -849,7 +873,7 @@ function renderStop(stop, options = {}) {
     <article class="stop ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-reveal>
       <div class="stop-top">
         <div>
-          <span class="badge">${icon}<span>${labelize(badgeLabel)}</span></span>
+          <span class="badge">${icon}<span>${badgeLabel}</span></span>
           <h3>${stop.name}</h3>
           <p>${stop.neighborhood || ""}</p>
         </div>
@@ -1371,7 +1395,7 @@ function renderGuide(type = "reservations") {
     return;
   }
 
-  const content = data.guides?.[type] || baseData.guides?.[type] || [];
+  const content = data.guides[type] || [];
   panel.innerHTML = content.map((item, index) => {
     if (typeof item === "string") {
       return `<article class="guide-card" data-reveal style="transition-delay:${Math.min(index * 20, 180)}ms"><p>${item}</p></article>`;
@@ -1781,6 +1805,12 @@ function initReveal() {
     items.forEach((item) => item.classList.add("revealed"));
     return;
   }
+  const eagerCount = Math.min(items.length, 12);
+  items.forEach((item, index) => {
+    if (index < eagerCount) {
+      item.classList.add("revealed");
+    }
+  });
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -1789,7 +1819,19 @@ function initReveal() {
       }
     });
   }, { threshold: 0.12 });
-  items.forEach((item) => observer.observe(item));
+  items.forEach((item, index) => {
+    if (!item.classList.contains("revealed") || index >= eagerCount) {
+      observer.observe(item);
+    }
+  });
+  window.setTimeout(() => {
+    items.forEach((item) => {
+      if (!item.classList.contains("revealed")) {
+        item.classList.add("revealed");
+        observer.unobserve(item);
+      }
+    });
+  }, 900);
 }
 
 function getStopExpectation(stop) {

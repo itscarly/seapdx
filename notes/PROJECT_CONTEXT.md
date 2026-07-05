@@ -36,7 +36,7 @@ It is built to be:
 - **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
 - **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$504.46`, and Courtyard Portland `$391.00`.
 - **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
-- **Remaining automation**: only the Kraken ticket watch should remain in scope. Current cadence is the saved Codex automation `seattle-kraken-ticket-watch`.
+- **Remaining automation**: the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability remains in scope. Do not reintroduce the old airfare/hotel/itinerary monitor stack.
 
 ## Main commands
 
