@@ -300,18 +300,26 @@ function hydrateFromStorage() {
     if (!raw) return;
     const parsed = JSON.parse(raw);
     if (parsed?.data?.itinerary && parsed?.data?.budget) {
+      const parsedGuides = parsed.data.guides || {};
       data = {
         ...cloneData(baseData),
         ...cloneData(parsed.data),
         meta: { ...cloneData(baseData.meta), ...(parsed.data.meta || {}) },
         budget: { ...cloneData(baseData.budget), ...(parsed.data.budget || {}) },
         transit: parsed.data.transit || cloneData(baseData.transit),
-        guides: parsed.data.guides || cloneData(baseData.guides),
+        guides: {
+          ...cloneData(baseData.guides),
+          ...cloneData(parsedGuides),
+          photoOps: parsedGuides.photoOps || cloneData(baseData.guides.photoOps || [])
+        },
         exclusions: parsed.data.exclusions || cloneData(baseData.exclusions),
         sources: parsed.data.sources || cloneData(baseData.sources),
         flights: parsed.data.flights || cloneData(baseData.flights),
         tripCosts: parsed.data.tripCosts || cloneData(baseData.tripCosts)
       };
+      if (!Array.isArray(data.photoOps)) {
+        data.photoOps = cloneData(baseData.photoOps || data.guides.photoOps || []);
+      }
       assignStopUids(data);
     }
     if (Array.isArray(parsed?.activeAlternates)) {
@@ -1310,7 +1318,12 @@ function renderGuide(type = "reservations") {
   currentGuide = type;
   const panel = document.getElementById("guidePanel");
   if (type === "photoOps") {
-    const items = data.photoOps || data.guides?.photoOps || [];
+    const items = data.photoOps || data.guides?.photoOps || [
+      { name: "Seattle Waterfront photo loop", city: "Seattle", day: "Day 2", subject: "Ferris wheel, waterfront stairs, and Olympic Sculpture Park skyline frames", block: "25 min", budget: "Free", link: "https://www.google.com/maps/search/Seattle+Waterfront+Olympic+Sculpture+Park" },
+      { name: "Pike Place Market sign and arcade", city: "Seattle", day: "Day 2", subject: "Market sign, arcade, and first fish-market row", block: "Built into the route", budget: "Free", link: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
+      { name: "Apple Pioneer Place facade", city: "Portland", day: "Day 5", subject: "Apple frontage, Pioneer Place atrium, and downtown retail geometry", block: "35 min", budget: "Free", link: "https://www.apple.com/retail/pioneerplace/" },
+      { name: "Powell's interior", city: "Portland", day: "Day 6-8", subject: "Gold Room, Blue Room, and main bookstore stacks", block: "During the bookstore stop", budget: "Free", link: "https://www.travelportland.com/attractions/powells/" }
+    ];
     panel.innerHTML = items.length ? items.map((item, index) => `
       <article class="guide-card" data-reveal style="transition-delay:${Math.min(index * 20, 180)}ms">
         <h3>${item.name}</h3>
