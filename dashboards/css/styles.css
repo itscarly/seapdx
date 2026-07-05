@@ -828,6 +828,21 @@ h3 {
   color: var(--muted);
 }
 
+.chip-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(23, 73, 219, 0.08);
+  color: var(--accent);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .chip-body {
   display: flex;
   flex-direction: column;
