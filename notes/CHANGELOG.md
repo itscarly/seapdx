@@ -10,6 +10,14 @@ This is the concise project change record.
 - Refreshed the top-level `DESIGN.md` and `PRODUCT.md` docs so they match the accepted compact editorial dashboard instead of older visual experiments.
 - Tightened `.gitignore` so local `.claude`, `.obsidian`, and `.impeccable` state no longer pollutes the release worktree.
 
+## 2026-07-05 (session 32) — GitHub repo presentation + hygiene cleanup
+
+- Rewrote `README.md` so the repo homepage now leads with the live GitHub Pages URLs, current trip snapshot, local commands, deploy flow, and operational rules.
+- Reframed `docs/deployment.md` around GitHub Pages as the canonical publish path and kept `netlify.toml` documented only as a fallback.
+- Removed the tracked `notes/.obsidian` working-state files so the public repo stores project notes instead of editor-state noise.
+- Fixed the stale post-task reminder that still said the Kraken watch was the only automation, and corrected `.gitignore` so the tracked lockfile is no longer ignored.
+- Updated the GitHub About metadata with a real description, homepage URL, and repo topics.
+
 ## 2026-07-05 (session 30) — Maps/transit atlas alignment fix
 
 - Tightened the homepage atlas day-pill sizing and changed the desktop atlas summary from auto-fit wrapping to a stable five-slot row.

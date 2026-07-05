@@ -22,6 +22,7 @@ It is built to be:
 - Budget validation script: `scripts/audit-budget.js`
 - Local preview: `npm run serve`
 - Fast verification: `npm run validate`
+- Canonical public host: `https://limcarl83-maker.github.io/my_projects/`
 
 ## Homepage product direction
 
@@ -83,7 +84,7 @@ Use this order at the start of a new Claude/Codex session:
 
 ## Current validated budget snapshot
 
-- Local activity-budget projected total: `$1,236.50`
+- Local activity-budget projected total: `$1,241.50`
 - Local activity-budget cap: `$1,250`
 - Local activity-budget ceiling: `$1,300`
 - Confirmed airfare total: `$1,256.83`

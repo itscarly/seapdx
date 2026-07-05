@@ -26,7 +26,7 @@ Google Calendar export files (derived):
   
 Calendar files must match trip-data.js exactly:
   - Same event names, times, costs, locations
-  - Same 103 exported events in the current synced itinerary
+  - Same 113 exported events in the current synced itinerary
   - Same stable tags (SEAPDX-2026-day-X-XX) for idempotent sync
 ```
 
@@ -63,10 +63,10 @@ Calendar files must match trip-data.js exactly:
 
 ## Budget
 
-- **Projected local activity spend:** $1,236.50 USD
+- **Projected local activity spend:** $1,241.50 USD
 - **Budget cap:** $1,250 USD
 - **Absolute ceiling:** $1,300 USD
-- **Remaining headroom:** $13.50 USD
+- **Remaining headroom:** $8.50 USD
 - **Coffee bean max:** $60 USD (two bags total: one Seattle, one Portland)
 
 **Confirmed airfare total:** $1,256.83.
@@ -100,7 +100,7 @@ npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 ## Deployment
 
 - **Local:** `npm run serve` → http://localhost:4173
-- **Production:** current GitHub-backed publish flow updates from pushed repo state
+- **Production:** GitHub Pages updates from pushed repo state
 - **No build step required** — all files are static
 
 ## Important Decisions
@@ -109,4 +109,4 @@ npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 - **Data structure:** Flat list of days, each with ordered stop items; no nested sections in the source
 - **Mobile-first design:** Dashboard is responsive; no app download needed
 - **Verification-first:** All itinerary changes must be validated before claiming done
-- **Automation scope:** only the Kraken ticket watch remains active
+- **Automation scope:** the monthly baseline watch remains active for itinerary prices, menus, schedules, and Kraken availability

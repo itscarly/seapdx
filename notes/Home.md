@@ -6,7 +6,7 @@ This vault is the clean working memory for `codexproject`.
 
 - [[PROJECT_CONTEXT]]
 - [[ARCHITECTURE]]
-- [[Decisions]]
+- [[DECISIONS]]
 - [[TASKS]]
 - [[CHANGELOG]]
 - [[LEARNINGS]]
@@ -47,7 +47,7 @@ This vault is the clean working memory for `codexproject`.
 
 - [[Project Overview]]
 - [[Workflows]]
-- [[Decisions]]
+- [[DECISIONS]]
 - [[Welcome]]
 
 These older notes stay available for history and transition, but the standardized files above are now the main system.

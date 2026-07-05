@@ -10,6 +10,13 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
+- **GitHub repo presentation + hygiene cleanup** (2026-07-05, session 32)
+  - Rewrote the public README around the live site links, current budget snapshot, local commands, deploy flow, and repo shape so the GitHub homepage is easier to understand at a glance
+  - Reframed the deployment doc around GitHub Pages as the canonical public host while keeping Netlify documented only as a fallback
+  - Removed tracked `notes/.obsidian` working-state files so the repo stores plain project notes instead of editor-state noise
+  - Fixed stale maintenance text and the `.gitignore` contradiction that still ignored the tracked lockfile
+  - Updated the GitHub About metadata so the repo now has a real description, homepage URL, and useful topics
+
 - **GitHub publish cleanup + active-note reconciliation** (2026-07-05, session 31)
   - Reconciled the active automation wording so `tasks`, `PROJECT_CONTEXT`, maintenance notes, and the release-facing docs all point to the monthly baseline watch instead of mixing that with an older Kraken-only line
   - Refreshed the top-level product/design documentation so it describes the current compact editorial dashboard rather than an earlier experimental visual system
@@ -97,6 +104,7 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 - Shared-calendar-to-site alignment is in a good state for the current public route.
 - The old airfare, hotel, and itinerary monitor stack is retired.
 - The active automation is the monthly baseline watch for itinerary prices, menus, and schedules.
+- GitHub Pages is the canonical public host, and the repo homepage should send visitors there directly.
 
 ### Next review window
 

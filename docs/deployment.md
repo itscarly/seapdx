@@ -1,53 +1,60 @@
-# Publishing the Dashboard
+# Deployment
 
-The dashboard is a static site: HTML, CSS, JavaScript, and data files. The same codebase should be used for both local serving and public hosting. There is no separate site build and no required backend.
+This project is a static site. There is no build step, server runtime, or backend dependency required for the normal public dashboard.
 
-## Local and Public Model
+## Canonical public host
 
-- Local use: serve the project root with a static server or `localserv`.
-- Public use: deploy the same project root through the current GitHub-backed static publish flow.
-- Shared contract: `/` must resolve to the dashboard entry, and relative asset paths must stay unchanged.
+GitHub Pages is the primary public host for this repo.
 
-For the local workflow, see `docs/local-development.md`.
+- Repository: [limcarl83-maker/my_projects](https://github.com/limcarl83-maker/my_projects)
+- Live site: [limcarl83-maker.github.io/my_projects](https://limcarl83-maker.github.io/my_projects/)
 
-## Recommended Option: GitHub-backed static publish
+## How publish works
 
-Best for keeping local accepted edits aligned with the public site because the same pushed repo state becomes the shared reference point.
+1. Make and verify local changes from the project root.
+2. Run `npm run validate`.
+3. Commit the accepted state.
+4. Push to `main`.
+5. GitHub Actions validates and deploys the same static project root to GitHub Pages.
 
-1. Put this folder in a Git repository.
-2. Push it to GitHub.
-3. Push accepted site changes to `main`.
-4. Let the current static publish workflow deploy the same project root.
-5. Keep the root redirect/static path assumptions unchanged.
-6. Share the resulting public GitHub-backed URL.
+That keeps the public site tied to the exact repo state that was reviewed locally.
 
-Why this fits:
+## Active workflows
 
-- Static files work well.
-- No server is required.
-- Git-connected deploys update automatically whenever the itinerary data changes.
-- The local and public versions run from the same static file layout.
-- The important rule is that the public copy should come from the same pushed repo state you validated locally.
+- `.github/workflows/validate.yml`
+  - Runs the JavaScript syntax check, budget audit, and calendar export sync
+- `.github/workflows/deploy-pages.yml`
+  - Publishes the static site to GitHub Pages after push
+- `.github/workflows/git-integrity-check.yml`
+  - Fails if macOS junk files or git corruption artifacts appear in the repo
+- `.github/workflows/monthly-watch.yml`
+  - Runs the monthly planning review and uploads the report artifacts
 
-## Optional alternate host: Vercel
+## Public path contract
 
-Best if you later turn the static dashboard into a React app or want preview deployments from Git.
+The project root is the published artifact root.
 
-1. Push the project to GitHub.
-2. Import the repository into Vercel.
-3. Configure the project as a static site or no-build project.
-4. Share the generated Vercel URL.
+Important paths:
 
-Official docs: https://vercel.com/docs
+- `/`
+- `/dashboards/html/index.html`
+- `/dashboards/html/logistics.html`
+- `/data/trip-data.js`
+- `/favicon.svg`
 
-## Recommended Publishing Path
+Do not move the dashboard into a different published subdirectory unless the redirect and all relative asset paths are updated together.
 
-For this project:
+## Local-to-public rule
 
-1. Create a GitHub repository.
-2. Push this project to GitHub.
-3. Keep the static publish workflow healthy.
-4. Keep validation in GitHub Actions before or alongside publish.
-5. Treat a push as part of completion whenever a local site change is accepted.
+For accepted site work, local and public should stay identical:
 
-This gives both public access and a clean path for keeping local and public copies identical.
+- same root redirect behavior
+- same dashboard files
+- same trip data
+- same validation result
+
+If the public site must change, push the verified repo change in the same pass.
+
+## Optional alternate host
+
+`netlify.toml` remains in the repo as a lightweight static-host fallback, but it is not the canonical publish path right now. GitHub Pages should stay the first reference in repo docs, metadata, and maintenance notes unless the hosting decision changes.

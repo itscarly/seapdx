@@ -37,7 +37,7 @@ The active notes should describe the current verified state of the project witho
 ## Current repo reminder
 
 - The airfare tracker, hotel tracker, and repo monitor workflows are retired.
-- The only remaining trip automation is the Kraken ticket watch.
+- The remaining automation is the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability.
 
 ## Freshness check
 

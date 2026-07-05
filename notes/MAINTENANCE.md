@@ -82,4 +82,6 @@ When a change fixes drift, confusion, stale instructions, or a repeated mistake:
 - `data/trip-data.js` is the canonical itinerary and cost source.
 - `npm run validate` is the default regression check.
 - `npm run sync:calendar` rebuilds export artifacts.
-- The active trip automation is the monthly baseline watch for itinerary prices, menus, and schedules.
+- GitHub Pages is the canonical public host.
+- The active trip automation is the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability.
+- `notes/` should stay plain-file friendly; do not track `.obsidian` working-state files in the public repo.

@@ -186,3 +186,30 @@
 
 - Before publishing accepted work, run one final `git status` plus active-note conflict check.
 - If local tooling files appear in the worktree, either promote them intentionally as project artifacts or ignore them; do not leave that decision ambiguous at release time.
+
+## 2026-07-05
+
+### Symptom
+
+- The GitHub repository homepage still looked unfinished even though the product itself was in good shape because the About panel was empty, the README hid the live site, and public-facing docs mixed internal maintenance context with the first things a visitor needs.
+
+### Root cause
+
+- I treated repo presentation as something that would improve automatically once the codebase was clean.
+- I also left tracked note-vault working-state files in the repo even though the project rules already said those should stay local.
+
+### Fix
+
+- Rewrite the README around live links, quick-start commands, current trip snapshot, and the real deploy flow.
+- Reframe deployment docs around the actual canonical host.
+- Remove tracked vault/editor-state files from the public tree.
+- Update the GitHub About metadata in the same pass.
+
+### Prevention rule
+
+- For public repos, do a homepage audit before calling release cleanup complete:
+  - About description
+  - website URL
+  - topics
+  - first 30 lines of README
+  - tracked editor/vault state

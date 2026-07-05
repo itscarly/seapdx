@@ -1,5 +1,46 @@
 # Project Log
 
+## 2026-07-05 (session 32: GitHub repo presentation + hygiene cleanup)
+
+### COMPLETE: Public repo homepage and source-tree hygiene tightened
+
+**What changed:**
+- Rewrote `README.md` so the repo homepage now leads with the live GitHub Pages links, current trip snapshot, local commands, deploy flow, and the static-site operating rules.
+- Reframed `docs/deployment.md` around GitHub Pages as the canonical public host and demoted Netlify to an optional fallback.
+- Removed the tracked `notes/.obsidian` working-state files so the public repo stores only the markdown notes, not editor-state noise.
+- Fixed the stale post-task reminder that still described the old Kraken-only automation wording.
+- Corrected `.gitignore` so the tracked `package-lock.json` is no longer listed as ignored.
+
+**Files modified:**
+- `README.md`
+- `docs/deployment.md`
+- `.gitignore`
+- `hooks/post-task.md`
+- `notes/.obsidian/.gitignore` (deleted)
+- `notes/.obsidian/appearance.json` (deleted)
+- `notes/.obsidian/graph.json` (deleted)
+- `tasks/todo.md`
+- `tasks/lessons.md`
+- `notes/CHANGELOG.md`
+- `notes/Home.md`
+- `notes/TASKS.md`
+- `notes/LEARNINGS.md`
+- `notes/MAINTENANCE.md`
+- `notes/Project Log.md`
+
+**Verification:**
+- Confirmed the GitHub Pages site responds at `https://limcarl83-maker.github.io/my_projects/`.
+- Confirmed GitHub CLI auth is active for the repo owner, then updated the GitHub About metadata:
+  - description
+  - homepage URL
+  - topics
+- `npm run audit:notes` passed after restoring the required `[[DECISIONS]]` home-note link.
+
+**Result:**
+- The repo is easier to understand from the GitHub homepage, the docs now point to the right live host, and the source tree is cleaner for future releases.
+
+---
+
 ## 2026-07-05 (session 30: Maps/transit atlas alignment)
 
 ### COMPLETE: Seattle and Portland atlas cards now align cleanly

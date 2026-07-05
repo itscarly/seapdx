@@ -12,6 +12,10 @@
 
 ### Homepage polish follow-up
 
+- [x] Audit the public GitHub repo presentation, publishing docs, and repo hygiene for stale copy, missing metadata, or local-state clutter.
+- [x] Rewrite the public README and deployment guide so the live URL, local workflow, validation, automation, and repo structure are easy to understand from the repo homepage.
+- [x] Remove tracked or contradictory repo clutter that does not belong in the public source tree, including note-vault working-state files.
+- [x] Update the GitHub About metadata so the description, website, and topics match the current published dashboard.
 - [x] Audit the itinerary dashboard hero, overview, executive summary, activity budget, and day-route sections for layout and typography problems causing the cheap look.
 - [x] Replace the homepage visual system with an Apple-style system font stack, calmer tokens, tighter spacing, and one disciplined card family.
 - [x] Reduce repeated headline spend emphasis and restructure the executive summary formula into cleaner grouped panels.
@@ -57,7 +61,7 @@
 - Homepage compaction pass is complete: section rhythm, button/chip sizing, day-card density, and lower-section rendering have all been tightened and re-verified.
 - Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$895.46`.
 - Meta Ray-Ban glasses and BLEU DE CHANEL are included as planned purchases in the savings target.
-- Local activity-budget target is now `$1,250` with `$1,236.50` currently projected.
+- Local activity-budget target is now `$1,250` with `$1,241.50` currently projected.
 - The old airfare, hotel, and itinerary monitor stack is retired from the repo and public site.
 - The active automation scope is the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability.
 
@@ -86,3 +90,4 @@
   - Seattle and Portland atlas maps now start at the same top position (`733.23px / 733.23px`)
   - atlas card heights now match at `553.03px / 553.03px`
   - active notes and task docs now agree that the monthly baseline watch is the remaining automation path, rather than mixing that guidance with an older Kraken-only note
+  - the repo homepage now points visitors directly to the live GitHub Pages site, and tracked `notes/.obsidian` state is gone from source control

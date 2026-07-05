@@ -109,6 +109,12 @@
 - In this project, the risky pattern was mixing newer monthly-watch guidance with an older Kraken-only automation line, while local `.claude`, `.obsidian`, and `.impeccable` state still appeared in `git status`.
 - Prevention: before publishing, check `git status`, reconcile any conflicts across active notes, and decide explicitly whether each local-only file is a project artifact or should be ignored.
 
+### Public repo cleanup needs a homepage pass, not only a code pass
+
+- A repo can be operationally correct and still look unfinished if the About panel is empty, the README hides the live site, or tracked editor/vault state leaks into source control.
+- In this project, the useful release checklist became: live URL near the top, quick-start commands near the top, canonical deploy path stated plainly, and no tracked `.obsidian` working-state files.
+- Prevention: when the user asks for GitHub cleanup, audit the About metadata, the first screen of the README, and tracked local-state files together.
+
 ## How to use this note
 
 Add only patterns that should help future sessions.

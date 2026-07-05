@@ -16,7 +16,6 @@ Icon\r
 
 # Node modules
 node_modules/
-package-lock.json
 
 # Environment variables
 .env
