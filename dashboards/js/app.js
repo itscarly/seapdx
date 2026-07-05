@@ -798,11 +798,19 @@ function renderEditorActions(stop, options = {}) {
   ].filter(Boolean).join("");
 }
 
+function getStopTag(stop) {
+  const name = String(stop.name || "").toLowerCase();
+  if (name.includes("photo loop") || name.includes("photo")) return "Photo op";
+  if (name.includes("matcha")) return "Matcha stop";
+  if (name.includes("tea")) return "Tea stop";
+  return labelize(stop.anchorType ? stop.anchorType.replace(/-/g, " ") : stop.alternateType || stop.type || "stop");
+}
+
 function renderStop(stop, options = {}) {
   const type = stop.alternateType || stop.type;
   const icon = iconMap[type] || iconMap.alternate;
   const costValue = options.isAlternate && stop.estimatedCost != null ? stop.estimatedCost : stop.cost;
-  const badgeLabel = stop.anchorType ? stop.anchorType.replace(/-/g, " ") : (options.isAlternate ? "alternate option" : type);
+  const badgeLabel = options.isAlternate ? "alternate option" : getStopTag(stop);
 
   if (options.isChip) {
     const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
@@ -810,7 +818,8 @@ function renderStop(stop, options = {}) {
       <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
         <div class="chip-timing">${stop.time || ""}</div>
         <div class="chip-body">
-          <div class="chip-title">${stop.name}</div>
+          <div class="chip-badge">${labelize(getStopTag(stop))}</div>
+          <div class="chip-title">${getStopTag(stop)}: ${stop.name}</div>
           <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${costValue != null ? ` · ${money(costValue)}` : ""}</div>
           ${shortNote ? `<div class="chip-note">${shortNote}</div>` : ""}
         </div>
@@ -1338,6 +1347,7 @@ function renderGuide(type = "reservations") {
         </div>
       </article>
     `).join("") : `<p class="guide-empty">No photo ops loaded yet.</p>`;
+    initReveal();
     return;
   }
   if (type === "exclusions") {
@@ -1361,7 +1371,7 @@ function renderGuide(type = "reservations") {
     return;
   }
 
-  const content = data.guides[type] || [];
+  const content = data.guides?.[type] || baseData.guides?.[type] || [];
   panel.innerHTML = content.map((item, index) => {
     if (typeof item === "string") {
       return `<article class="guide-card" data-reveal style="transition-delay:${Math.min(index * 20, 180)}ms"><p>${item}</p></article>`;
