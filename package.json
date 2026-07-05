@@ -8,6 +8,8 @@
     "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js && node scripts/sync-calendar-exports.js",
     "audit:notes": "node scripts/audit-notes.js",
     "audit:budget": "node scripts/audit-budget.js",
+    "review:monthly": "node scripts/monthly-review-report.js",
+    "watch:monthly": "node scripts/monthly-watch-check.js",
     "update:verification": "node scripts/update-verification-summary.js",
     "sync:calendar": "node scripts/sync-calendar-exports.js",
     "session-status": "node scripts/session-status.js"

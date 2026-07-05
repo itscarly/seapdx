@@ -1,0 +1,50 @@
+name: Monthly trip watch
+
+on:
+  schedule:
+    - cron: "0 16 1 * *"
+  workflow_dispatch:
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run monthly page check
+        id: check
+        run: |
+          set +e
+          node scripts/monthly-watch-check.js > monthly-watch.json
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Render monthly report
+        run: node scripts/monthly-review-report.js > monthly-review.txt
+
+      - name: Build email body
+        run: |
+          {
+            echo "Monthly review complete or due now."
+            echo ""
+            cat monthly-review.txt
+            echo ""
+            echo "Report:"
+            cat monthly-watch.json
+          } > monthly-email.txt
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: monthly-watch-report
+          path: |
+            monthly-watch.json
+            monthly-review.txt
+            monthly-email.txt

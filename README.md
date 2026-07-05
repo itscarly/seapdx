@@ -49,4 +49,4 @@ See `docs/local-development.md` for the preferred local static-server workflow a
 
 ## Automation
 
-The only remaining trip automation in scope is the Kraken ticket watch. Old airfare, hotel, and itinerary monitor workflows are retired.
+The active trip automation is the monthly baseline watch for itinerary prices, menus, and schedules. The old airfare, hotel, and itinerary monitor workflows are retired.

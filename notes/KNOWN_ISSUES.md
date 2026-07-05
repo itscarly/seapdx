@@ -12,7 +12,7 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 ### November 2026 hours and ticket availability are still partly provisional
 
 - Status: open
-- Detail: business hours, some restaurant details, and the Kraken 2026-27 schedule or single-game inventory all still need closer review as the trip approaches.
+- Detail: business hours, some restaurant details, ticket availability, and menu pricing all still need closer review as the trip approaches. The strongest monthly watch candidates are Seattle sail pricing, Sky View Observatory hours and admission, Portland Japanese Garden hours and admission, Glo's hours/menu, and the Kraken 2026-27 schedule or single-game inventory.
 
 ### Homepage calendar links still prefer day-level fallback when no exact event URL is stored
 

@@ -82,4 +82,4 @@ When a change fixes drift, confusion, stale instructions, or a repeated mistake:
 - `data/trip-data.js` is the canonical itinerary and cost source.
 - `npm run validate` is the default regression check.
 - `npm run sync:calendar` rebuilds export artifacts.
-- The only remaining trip automation is the Kraken ticket watch.
+- The active trip automation is the monthly baseline watch for itinerary prices, menus, and schedules.

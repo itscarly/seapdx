@@ -1,6 +1,6 @@
 ---
 source: codex-memories
-last_verified: 2026-06-29T00:08:56.275Z
+last_verified: 2026-07-04T02:52:02.260Z
 status: active
 confidence: high
 next_action: Use this index for session startup context.
@@ -21,9 +21,9 @@ Session-start daily digest + rerun after meaningful project changes.
 - `/Users/kicker/.codex/memories`
 
 ## Top-priority changes
-- /Users/kicker/.codex/memories/memory_summary.md (updated 2026-06-29T00:08:56.275Z)
-- /Users/kicker/.codex/memories/MEMORY.md (updated 2026-06-29T00:08:46.020Z)
-- /Users/kicker/.codex/memories/raw_memories.md (updated 2026-06-29T00:08:09.793Z)
+- /Users/kicker/.codex/memories/raw_memories.md (updated 2026-07-04T02:52:02.260Z)
+- /Users/kicker/.codex/memories/rollout_summaries/2026-07-01T16-01-59-0fXp-seattle_kraken_ticket_watch_official_sources_no_nov_2026_tic.md (updated 2026-07-04T02:52:02.260Z)
+- /Users/kicker/.codex/memories/MEMORY.md (updated 2026-07-03T16:01:28.160Z)
 
 ## Blockers
 - none

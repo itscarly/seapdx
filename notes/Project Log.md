@@ -53,6 +53,98 @@
 - `notes/CHANGELOG.md`
 - `notes/Project Log.md`
 
+## 2026-07-04 (session 14: itinerary review + automation scoping)
+
+### IN PROGRESS: monthly price/menu review plan defined, email automation kept separate
+
+**What I checked:**
+1. Reviewed the active itinerary notes and confirmed the repo still treats Kraken as the only active automation.
+2. Verified live official pages for the highest-risk recheck items:
+   - Sky View Observatory hours and closure notices
+   - Portland Japanese Garden hours and admission
+   - Glo's hours and current site/menu entrypoint
+   - Argosy cruise page for the Seattle sail category
+   - Kraken official schedule and single-game ticket page
+3. Confirmed the repo already has the right source list for future monthly checks, but no reusable monthly email monitor exists in the current active stack.
+
+**What changed:**
+1. Added a monthly review item to `tasks/todo.md` for menus, prices, and schedules on the named stops.
+2. Tightened `notes/KNOWN_ISSUES.md` so the provisional-risk note now includes menu pricing and the strongest recheck candidates.
+
+**Decision:**
+- Keep the current repo automation rule intact for now: Kraken only.
+- Treat any future monthly Gmail price-alert system as a separate new monitor, not a revival of the retired airfare/hotel/itinerary stack.
+- Record the shared review calendar as `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com`.
+
+## 2026-07-04 (session 15: baseline-backed monthly checks requested)
+
+### IN PROGRESS: add baseline compare script, broaden market coverage, send self-only alerts
+
+**User request:**
+1. Add a monthly change-detection script that compares current official pages against saved baseline values.
+2. Send email notifications automatically to the user only, not to anyone else.
+3. Expand the monthly report to cover the full Pike Place and coffee-stop list with explicit visit order and spend/time notes.
+
+**Guardrails:**
+- Do not delete anything automatically.
+- Keep the new watcher separate from the retired airfare/hotel/itinerary monitor stack.
+
+**Follow-up completed in this pass:**
+1. Added `data/monthly-watch-baseline.json` plus `scripts/monthly-watch-check.js` so the monthly check can compare live pages against saved baseline markers.
+2. Expanded `scripts/monthly-review-report.js` to include Pike Place core stops and the explicit market list already in the itinerary.
+3. Sent the monthly review email to the user's Gmail address only.
+
+## 2026-07-04 (session 16: scheduled watch + no-secret watch retained)
+
+### COMPLETE: monthly GitHub watch scheduled without mail credential dependency
+
+**What changed:**
+1. Added `.github/workflows/monthly-watch.yml` with a monthly schedule and manual dispatch.
+2. Kept the workflow non-destructive: it compares against baselines, builds a report, and uploads artifacts only.
+3. Removed the Gmail SMTP send path so the repo does not require app-password setup.
+4. Expanded the Pike Place market stop text in `data/trip-data.js` so the dashboard and calendar exports show the stall sequence, line-time estimate, and order suggestions.
+
+**Verification:**
+- `npm run validate` passed.
+- `npm run sync:calendar` passed.
+
+**Files touched:**
+- `.github/workflows/monthly-watch.yml`
+- `data/trip-data.js`
+- `tasks/todo.md`
+- `notes/Project Log.md`
+
+## 2026-07-04 (session 17: stale wording cleanup + Pike Place split refinement)
+
+### COMPLETE: active notes trimmed, Pike Place route sharpened
+
+**What changed:**
+1. Removed stale SMTP/app-password references from the active task and log notes.
+2. Tightened the Pike Place market route into smaller standalone steps with explicit order hints and line-time notes.
+3. Updated the live shared calendar event for the Pike Place block to match the finer route sequence.
+
+**Files touched:**
+- `data/trip-data.js`
+- `notes/Project Log.md`
+- `tasks/todo.md`
+- shared Google Calendar Day 2 market event
+
+## 2026-07-04 (session 18: active notes normalized to monthly watch)
+
+### COMPLETE: stale Kraken-only wording replaced with the actual monthly watch
+
+**What changed:**
+1. Reworded the README and maintenance notes so they describe the monthly baseline watch instead of implying Kraken is the only remaining automation.
+2. Kept the retired airfare/hotel/itinerary monitor stack marked as retired without reintroducing the deleted SMTP/app-password path.
+3. Left the itinerary data and calendar export as the canonical source for the trip stops and prices.
+4. Added the live shared-calendar Salt & Straw stop so the calendar matches the updated Day 1 itinerary.
+
+**Files touched:**
+- `README.md`
+- `notes/MAINTENANCE.md`
+- `notes/TASKS.md`
+- `notes/Project Log.md`
+
 ## 2026-06-28 (session 11: monitor cleanup + executive spend summary)
 
 ### COMPLETE: Retired the old monitor stack and rebuilt the trip-cost model

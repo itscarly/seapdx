@@ -1,0 +1,22 @@
+{
+  "sailingSeattle": {
+    "url": "https://sailingseattle.com/sails",
+    "markers": ["$39 Morning Value Sail", "$45", "$55", "$69"]
+  },
+  "skyView": {
+    "url": "https://skyviewobservatory.com/location/",
+    "markers": ["Last Elevator and Ticket Sale to Observatory Stops One Hour Prior to Closing"]
+  },
+  "portlandJapaneseGarden": {
+    "url": "https://japanesegarden.org/hours-admission/",
+    "markers": ["Adult: $22.50", "Book tickets up to 10 days in advance", "Saturday's Hours"]
+  },
+  "glos": {
+    "url": "https://www.glosseattle.com/home/",
+    "markers": ["Hours of operation: Dining room open everyday except Thanksgiving and Christmas 8-3."]
+  },
+  "kraken": {
+    "url": "https://www.nhl.com/kraken/tickets/single-game",
+    "markers": ["Single Game Tickets"]
+  }
+}

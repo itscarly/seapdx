@@ -15,6 +15,7 @@
 - [ ] Recheck November-specific business hours for key stops as the trip approaches.
 - [ ] Recheck the live shared calendar and homepage alignment in the next couple of weeks.
 - [ ] Update `data/trip-data.js` if any price, hour, route, or transit assumption changes materially.
+- [ ] Recheck menus, ticket pages, and attraction schedules monthly for the named stops: Seattle sail, Sky View Observatory, Portland Japanese Garden, Glo's Cafe, coffee bean stops, and Kraken ticket window.
 
 ### Booking follow-up
 
@@ -25,6 +26,8 @@
 
 - [ ] Keep only the Kraken ticket watch active.
 - [ ] Do not recreate airfare, hotel, or itinerary monitor scripts unless the user explicitly asks for a new system.
+- [ ] If a new monthly price/menu watch is approved, keep it separate from the retired monitor stack and send only concise change notices.
+- [ ] Maintain a baseline-backed monthly check for the sail, menus, market stops, coffee stops, and Kraken availability.
 
 ## Stable current state
 

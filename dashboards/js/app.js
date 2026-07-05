@@ -1309,6 +1309,23 @@ function renderTripCostSummary() {
 function renderGuide(type = "reservations") {
   currentGuide = type;
   const panel = document.getElementById("guidePanel");
+  if (type === "photoOps") {
+    panel.innerHTML = (data.photoOps || []).map((item, index) => `
+      <article class="guide-card" data-reveal style="transition-delay:${Math.min(index * 20, 180)}ms">
+        <h3>${item.name}</h3>
+        <p><b>City:</b> ${item.city}</p>
+        <p><b>When:</b> ${item.day}</p>
+        <p><b>Shot:</b> ${item.subject}</p>
+        <p><b>Block:</b> ${item.block}</p>
+        <p><b>Budget:</b> ${item.budget}</p>
+        <p>Short photo stops. Treat these as quick, camera-first pauses that fit the weather and the transit plan.</p>
+        <div class="guide-card-actions">
+          ${item.link ? `<a class="link-button" href="${item.link}" target="_blank" rel="noreferrer">Open source</a>` : ""}
+        </div>
+      </article>
+    `).join("");
+    return;
+  }
   if (type === "exclusions") {
     panel.innerHTML = data.exclusions.map((item, index) => `
       <article class="guide-card exclusion-card" data-reveal style="transition-delay:${Math.min(index * 20, 180)}ms">
