@@ -548,6 +548,12 @@ window.TRIP_DATA = {
       { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" },
       { name: "Seattle Kraken game placeholder", status: "WATCH FOR 2026-27 SINGLE-GAME SALES", note: "Use the official Kraken schedule first, then book through the team's official single-game ticket page once seats open. The expense board now carries a $120 planning estimate for one normal lower-to-mid bowl seat with a good center-ice-ish view, but the exact Nov. 1-4, 2026 home game and live seat price still depend on the official single-game release.", link: "https://www.nhl.com/kraken/tickets/single-game" }
     ],
+    photoOps: [
+      { name: "Seattle Waterfront photo loop", city: "Seattle", day: "Day 2", subject: "Ferris wheel, waterfront stairs, and Olympic Sculpture Park skyline frames", block: "25 min", budget: "Free", link: "https://www.google.com/maps/search/Seattle+Waterfront+Olympic+Sculpture+Park" },
+      { name: "Pike Place Market sign and arcade", city: "Seattle", day: "Day 2", subject: "Market sign, arcade, and first fish-market row", block: "Built into the route", budget: "Free", link: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
+      { name: "Apple Pioneer Place facade", city: "Portland", day: "Day 5", subject: "Apple frontage, Pioneer Place atrium, and downtown retail geometry", block: "35 min", budget: "Free", link: "https://www.apple.com/retail/pioneerplace/" },
+      { name: "Powell's interior", city: "Portland", day: "Day 6-8", subject: "Gold Room, Blue Room, and main bookstore stacks", block: "During the bookstore stop", budget: "Free", link: "https://www.travelportland.com/attractions/powells/" }
+    ],
     happyHour: [
       { name: "Saint John's Bar and Eatery", city: "Seattle", deal: "Official happy hour runs Mon-Fri 2 PM-6 PM, with Rainier at $2, sangria/cava at $3, house wine at $4, Lemon-Aid Kit or Dickel Sweet Tea at $5, margaritas at $6, and discounted food.", drink: "Use this as the lower-cost arrival-night bar instead of Canon.", link: "https://www.saintjohnsseattle.com/happyhour-v1" },
       { name: "Poquitos Capitol Hill", city: "Seattle", deal: "Official Ocho Hour: $8 select tacos, nachos, margaritas, beer, wine, and more.", drink: "Best Capitol Hill dinner-and-drink value if timing lines up and the strongest two-cocktail budget fit in Seattle.", link: "https://www.vivapoquitos.com/" },

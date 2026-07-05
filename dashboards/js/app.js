@@ -1310,7 +1310,8 @@ function renderGuide(type = "reservations") {
   currentGuide = type;
   const panel = document.getElementById("guidePanel");
   if (type === "photoOps") {
-    panel.innerHTML = (data.photoOps || []).map((item, index) => `
+    const items = data.photoOps || data.guides?.photoOps || [];
+    panel.innerHTML = items.length ? items.map((item, index) => `
       <article class="guide-card" data-reveal style="transition-delay:${Math.min(index * 20, 180)}ms">
         <h3>${item.name}</h3>
         <p><b>City:</b> ${item.city}</p>
@@ -1323,7 +1324,7 @@ function renderGuide(type = "reservations") {
           ${item.link ? `<a class="link-button" href="${item.link}" target="_blank" rel="noreferrer">Open source</a>` : ""}
         </div>
       </article>
-    `).join("");
+    `).join("") : `<p class="guide-empty">No photo ops loaded yet.</p>`;
     return;
   }
   if (type === "exclusions") {
