@@ -50,13 +50,13 @@ window.TRIP_DATA = {
     absoluteCeiling: 1300,
     projectedTotal: 1069,
     categories: [
-      { name: "Transportation", amount: 95, note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and day-trip buses (Cannon Beach, Multnomah Falls) separated in the breakdown." },
+      { name: "Transportation", amount: 149, note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and day-trip buses (Cannon Beach $36 round trip, Multnomah Falls $16 round trip) all separated out in the breakdown below -- corrected from a stale $95 that undercounted the real itemized transit total." },
       { name: "Food", amount: 572, note: "Meals, coffee, airport food, and revised itinerary totals after full price audit. Corrected all Pike Place snacks (Piroshky, Beecher's, Daily Dozen, Mee Sum, MarketSpice), Glo's Cafe breakfast, FOB Sushi, Harbour Public House, Blackbird Bakery, Uneeda Burger, Ballard Coffee Works, Sea'd In, Luc Lac, Pretty Ugly Burger, Cartopia, and coffee-bean stops to reflect real 2026 menu prices." },
       { name: "Cocktails and social", amount: 121, note: "Cocktail-forward bars and social-night spend, corrected for Saint John's happy hour (2 drinks) and Novel Book Bar (2 drinks + light food + tip)." },
       { name: "Entrance fees", amount: 75, note: "Paid attractions in the synced route (Cannon Beach and Multnomah Falls free; Kraken removed)." },
       { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
       { name: "Souvenirs", amount: 80, note: "City mugs, magnets, market browsing, and local-goods drift kept visible." },
-      { name: "Contingency", amount: 66, note: "Remaining buffer after restructured Portland itinerary (Cannon Beach day trip, Multnomah Falls, Saturday Market)." }
+      { name: "Contingency", amount: 12, note: "Remaining buffer after restructured Portland itinerary (Cannon Beach day trip, Multnomah Falls, Saturday Market) and after correcting the Transportation category from $95 to the real $149 itemized total." }
     ]
   },
   tripCosts: {
@@ -548,10 +548,34 @@ window.TRIP_DATA = {
     }
   ],
   guides: {
+    dayTrips: [
+      {
+        name: "Cannon Beach / Haystack Rock (Day 6, Fri Nov 6)",
+        transitProvider: "POINT NorthWest, an Amtrak Thruway bus partner run by Oregon-Point. Year-round service, no group minimum required.",
+        howToBook: "Book at oregon-point.com/routes/northwest, at an Amtrak ticket kiosk, or by phone at 1-800-872-7245.",
+        departure: "Depart Portland Union Station (800 NW 6th Ave) westbound at 8:28 AM, arriving Cannon Beach around 10:46 AM. One-way fare runs $12-30; this itinerary budgets $18 per leg -- confirm the exact price when booking.",
+        onceThere: "The bus stops at 1170 S Hemlock St in downtown Cannon Beach, a short walk from Haystack Rock at Tolovana Beach State Recreation Site. No admission fee -- it is public land, open 24/7.",
+        tidePools: "Tide-pool access around the base of Haystack Rock depends on low tide. Check NOAA tide tables for November 6, 2026 (noaa.gov or tide-forecast.com) closer to the trip and time the walk for a couple hours around the lowest tide.",
+        returnCaveat: "IMPORTANT: the exact eastbound return time from Cannon Beach is not fully confirmed yet. One data point shows a 5:55 PM Astoria departure arriving Portland around 9:00 PM (Cannon Beach departs earlier than Astoria on the same route). Call 1-800-872-7245 or check oregon-point.com/routes/northwest for the specific Nov 6, 2026 return time before booking tickets.",
+        budgetForTheDay: "$36 round-trip bus fare (2 legs at $18 each) plus about $20 for lunch/snacks in town, all already built into the Day 6 itinerary and the Transportation budget line.",
+        link: "https://oregon-point.com/routes/northwest"
+      },
+      {
+        name: "Multnomah Falls / Vista House (Day 8, Sun Nov 8)",
+        transitProvider: "Columbia Gorge Express (CGX), operated by the Columbia Area Transit (CAT). Runs year-round, 7 days a week.",
+        howToBook: "Tickets at ridecatbus.org/columbia-gorge-express, or pay onboard by cash or card if seats are available.",
+        departure: "Board at Gateway Transit Center (10500 NE Brazee St). Departure is roughly 9:00 AM with a 45-60 minute ride to Multnomah Falls -- VERIFY the exact November 2026 timetable at ridecatbus.org before the trip, since winter frequency is reduced from summer's up to 8 trips a day.",
+        onceThere: "The main falls viewpoint needs no climbing. The Benson Bridge loop involves stairs. An optional uphill trail lets you view the falls from above -- add 60-90 minutes and expect moderate stairs and switchbacks.",
+        vistaHouse: "Vista House at Crown Point State Scenic Viewpoint is a short trip from the falls -- free entry, 360-degree gorge views, and a historic interpretive center inside. It is frequently windy up there, so bring layers.",
+        returnCaveat: "The return CGX departure back to Gateway Transit Center also needs verification at ridecatbus.org before booking. This itinerary budgets a 2:15 PM departure from the Gorge, arriving back around 3:30 PM.",
+        budgetForTheDay: "$16 round-trip bus fare (2 legs at $8 each) plus about $12 for lunch near the falls, all already built into the Day 8 itinerary and the Transportation budget line. The same evening continues on to Cartopia food carts (about $35).",
+        link: "https://www.ridecatbus.org/columbia-gorge-express"
+      }
+    ],
     reservations: [
       { name: "Best Buy Northgate Meta fit check", status: "ACTIVE DAY-2 LOGISTICS STOP", note: "Use the Northgate Best Buy stop on Seattle Day 2 to confirm Ray-Ban Meta frame fit, then order through Amazon for Courtyard Portland delivery if the fit works.", link: "https://www.meta.com/demo/scheduler/best-buy/" },
       { name: "Hotel Vance Portland - Amazon package delivery confirmation", status: "CALL BEFORE ORDERING", note: "Call hotel concierge to confirm Amazon guest package delivery policy before ordering Meta glasses for hotel arrival.", link: "https://www.hotelvance.com/" },
-      { name: "Portland Japanese Garden", status: "Optional", note: "Timed tickets recommended up to 10 days ahead. Skipped in favor of Powell's and indoor activities.", link: "https://japanesegarden.org/hours-admission/" },
+      { name: "Portland Japanese Garden", status: "Optional -- not in the active itinerary or budget", note: "Admission is $19.95 adult (verify current rate at japanesegarden.org before adding). No cost is shown because this stop was intentionally skipped in favor of Powell's and other indoor activities -- it is not counted anywhere in the trip budget. Timed tickets recommended up to 10 days ahead if you decide to add it back in.", link: "https://japanesegarden.org/hours-admission/" },
       { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" }
     ],
     photoOps: [

@@ -1153,13 +1153,15 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Transportation",
       amount: transportationCategory?.amount || 0,
-      note: "Seattle local transit, Portland local transit, Bainbridge ferry, and Amtrak are broken out separately here.",
+      note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and both day-trip buses are broken out separately here.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Puget Sound")), detail: "Link, buses, and other Seattle-side transit moves." },
+        { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("POINT NorthWest") && !stop.name.includes("Columbia Gorge Express") && !stop.name.includes("CGX return") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Intercity bus") && !String(stop.neighborhood || "").includes("Puget Sound") && !String(stop.neighborhood || "").includes("Gorge") && !String(stop.neighborhood || "").includes("Gateway") && !String(stop.neighborhood || "").includes("Hotel Vance") && !String(stop.neighborhood || "").includes("Union Station")), detail: "Link, buses, and other Seattle-side transit moves." },
         { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
         { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
-        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
+        { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Cannon Beach (POINT NorthWest return)"), detail: "Day 6 bus to and from Cannon Beach; fare estimate, verify exact price at booking." },
+        { label: "Multnomah Falls round trip (Columbia Gorge Express)", amount: findStopCost("Depart Gateway Transit Center (Columbia Gorge Express)") + findStopCost("Transit back to Gateway Transit Center (CGX return)"), detail: "Day 8 bus to and from Multnomah Falls; fare estimate, verify exact price at booking." },
+        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && !stop.name.includes("Columbia Gorge Express") && !stop.name.includes("CGX return") && !String(stop.neighborhood || "").includes("Gorge") && !String(stop.neighborhood || "").includes("Intercity bus") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Gateway") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
       ]
     },
     {
@@ -1237,12 +1239,50 @@ function renderTripCostSummary() {
   const tripSpendBreakdown = buildTripCostBreakdown(allInTarget);
 
   summaryEl.innerHTML = `
-    <article class="budget-summary-card main">
+    <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
       <span class="budget-kicker">All-in target</span>
       <strong class="budget-total">${moneyPrecise(allInTarget)}</strong>
       <p class="budget-copy">${moneyPrecise(confirmedTotal)} already committed + ${money(plannedTripSpend + plannedPersonal)} still to plan or buy.</p>
       <div class="budget-main-meter" aria-hidden="true">
         <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
+      </div>
+      <div class="budget-breakdown">
+        <div class="budget-breakdown-label">How this total works <span class="chevron-icon" aria-hidden="true">&#9662;</span></div>
+        <ul class="budget-breakdown-list how-total-details">
+          <li>
+            <div>
+              <strong>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)} + ${moneyPrecise(plannedPersonal)}</strong>
+              <span>One plain formula so the savings target is easy to sanity-check.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Confirmed bookings</strong>
+              <span>Real booked costs already locked in: airfare + hotels.</span>
+            </div>
+            <b>${moneyPrecise(confirmedTotal)}</b>
+          </li>
+          <li>
+            <div>
+              <strong>Planned trip spend</strong>
+              <span>Seattle and Portland spending inside the itinerary: food, transit, attractions, shopping, and contingency.</span>
+            </div>
+            <b>${moneyPrecise(plannedTripSpend)}</b>
+          </li>
+          <li>
+            <div>
+              <strong>Planned purchases</strong>
+              <span>Personal buys that should count toward the real savings target.</span>
+            </div>
+            <b>${moneyPrecise(plannedPersonal)}</b>
+          </li>
+          <li>
+            <div>
+              <strong>Not double-counted</strong>
+              <span>The category cards below are the grouped explanation for this same total, not separate charges added again.</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </article>
     <article class="budget-summary-card">
@@ -1267,43 +1307,8 @@ function renderTripCostSummary() {
       </div>
     </article>
   `;
-
-  formulaEl.innerHTML = `
-    <article class="trip-cost-audit">
-      <div class="trip-cost-audit-header">
-        <div>
-          <span class="budget-kicker">How This Total Works</span>
-          <h3>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)} + ${moneyPrecise(plannedPersonal)}</h3>
-          <p>This page uses one plain formula so the savings target is easier to sanity-check.</p>
-        </div>
-      </div>
-      <div class="trip-cost-audit-grid">
-        <div class="trip-cost-audit-row">
-          <span class="trip-cost-audit-label">Confirmed bookings</span>
-          <strong>${moneyPrecise(confirmedTotal)}</strong>
-          <p>Real booked costs already locked in: airfare + hotels.</p>
-        </div>
-        <div class="trip-cost-audit-row">
-          <span class="trip-cost-audit-label">Planned trip spend</span>
-          <strong>${moneyPrecise(plannedTripSpend)}</strong>
-          <p>Seattle and Portland trip spending inside the itinerary: food, transit, attractions, shopping, and contingency.</p>
-        </div>
-        <div class="trip-cost-audit-row">
-          <span class="trip-cost-audit-label">Planned purchases</span>
-          <strong>${moneyPrecise(plannedPersonal)}</strong>
-          <p>Personal buys you still want to count toward the real amount you need to save.</p>
-        </div>
-      </div>
-      <div class="trip-cost-audit-exclusions">
-        <span class="trip-cost-audit-label">Not double-counted</span>
-        <p>Nothing below is extra on top of this formula. The lower cards are just the grouped explanation for the same total, not separate charges added again.</p>
-      </div>
-      <div class="trip-cost-audit-exclusions muted">
-        <span class="trip-cost-audit-label">Current status</span>
-        <p>All confirmed activities and day-trip costs are synced. Kraken ticket was removed from the plan as of Aug 2, 2026.</p>
-      </div>
-    </article>
-  `;
+  bindBudgetBreakdowns(summaryEl);
+  formulaEl.innerHTML = "";
 
   const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68", "#6d5bd0"];
   breakdownEl.innerHTML = tripSpendBreakdown.map((category, index) => {

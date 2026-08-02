@@ -1931,6 +1931,16 @@ h3 {
   display: grid;
 }
 
+.budget-breakdown-label .chevron-icon {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 160ms ease;
+}
+
+.budget-item--expandable[aria-expanded="true"] .chevron-icon {
+  transform: rotate(180deg);
+}
+
 .budget-breakdown-list li {
   display: flex;
   align-items: flex-start;
