@@ -43,6 +43,13 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 
 - SFO→MNL: $370.50 | ORD→MNL: $375.50 (verified 2026-05-24, not re-verified since)
 
+### Homepage structure (session 38, 2026-08-02)
+
+- The "Trip overview" section is gone. Executive Summary and Activity Budget are merged into one "Trip cost" section, rendered as a single 4-column card grid (`.budget-panel--unified` in `dashboards/css/styles.css`). Do not reintroduce a separate high-signal-numbers summary block — it was deleted because it duplicated the hero card's all-in target.
+- Six sections default-collapsed behind a visible `<details>` toggle: Trip cost, Day-by-day route, Booked flights, Planning guides, Maps and transit, Utility pages. Anchor links auto-expand their target via `initCollapsibleAnchors()` in `app.js`.
+- Guides tabs are now: Reservations, Day trip guides, Happy hour, Coffee + tea, Photo ops, Rainy day + packing. "Social + Dating" was removed entirely. Do not reintroduce it unless the user explicitly asks.
+- Reservations tab content is thin by design, not a bug: only Poquitos Capitol Hill is an actual bookable reservation; the other three entries are logistics notes.
+
 [[feedback_confirm_hotel_before_price]]
 [[feedback_airfare_award_vs_cash]]
 [[feedback_sync_both_hotel_files]]

@@ -268,7 +268,6 @@ if (pageMode === "logistics") {
 function initHomePage() {
   initHero();
   renderHeroFacts();
-  renderSummary();
   renderTripCostSummary();
   renderItinerary();
   window.addEventListener("hashchange", openStopFromHash);
@@ -278,8 +277,28 @@ function initHomePage() {
   initTabs();
   renderHomeSupport();
   initReveal();
+  initCollapsibleAnchors();
   refreshExchangeRate();
   window.setInterval(refreshExchangeRate, FX_REFRESH_MS);
+}
+
+function openCollapsibleFor(target) {
+  if (!target) return;
+  target.closest("details.collapsible")?.setAttribute("open", "");
+  target.querySelectorAll("details.collapsible").forEach((details) => details.setAttribute("open", ""));
+}
+
+function initCollapsibleAnchors() {
+  openCollapsibleFor(document.getElementById(location.hash.slice(1)));
+  window.addEventListener("hashchange", () => {
+    openCollapsibleFor(document.getElementById(location.hash.slice(1)));
+  });
+  document.querySelectorAll('a[href*="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const hash = link.getAttribute("href").split("#")[1];
+      if (hash) openCollapsibleFor(document.getElementById(hash));
+    });
+  });
 }
 
 function initLogisticsPage() {
@@ -551,7 +570,6 @@ function handleImageError(img) {
 
 function rerenderMoneyViews() {
   initHero();
-  renderSummary();
   renderTripCostSummary();
   renderItinerary(currentFilter);
   renderBudget();
@@ -613,28 +631,6 @@ function stopMatches(stop, filter, day) {
   if (filter === "Seattle") return day.city.includes("Seattle");
   if (filter === "Portland") return day.city.includes("Portland");
   return stop.type === filter || stop.alternateType === filter;
-}
-
-function renderSummary() {
-  const summaryEl = document.getElementById("summaryGrid");
-  if (!summaryEl) return;
-  const confirmedTotal = getConfirmedTripTotal();
-  const plannedTripSpend = data.budget.projectedTotal;
-  const plannedPurchases = getPlannedPersonalPurchaseTotal();
-  const allInTarget = confirmedTotal + plannedTripSpend + plannedPurchases;
-  const cards = [
-    ["Confirmed booked cost", moneyPrecise(confirmedTotal), "Airfare and hotel costs already committed to the trip."],
-    ["Planned local spend", money(plannedTripSpend), "Seattle and Portland activity, food, transport, and contingency planning."],
-    ["Planned personal buys", money(plannedPurchases), "Meta Ray-Ban glasses and BLEU DE CHANEL are added to the real savings target."],
-    ["All-in target", moneyPrecise(allInTarget), "The full amount to save for confirmed bookings plus planned spending."]
-  ];
-  summaryEl.innerHTML = cards.map(([label, value, note], index) => `
-    <article class="summary-card summary-card--editorial" data-reveal style="transition-delay:${index * 50}ms">
-      <span>${label}</span>
-      <strong>${value}</strong>
-      <p>${note}</p>
-    </article>
-  `).join("");
 }
 
 function renderFlightLeg(leg) {
@@ -1004,18 +1000,11 @@ function renderBudget() {
 
   document.getElementById("budgetSummary").innerHTML = `
     <article class="budget-summary-card main">
-      <span class="budget-kicker">Activity budget status</span>
+      <span class="budget-kicker">Local spend vs. cap</span>
       <strong class="budget-total">${money(projected)}</strong>
-      <p class="budget-copy">${money(Math.abs(remaining))} ${remaining >= 0 ? "under target" : "over target"} with ${money(ceiling)} set as the hard ceiling for the trip.</p>
+      <p class="budget-copy">${money(Math.abs(remaining))} ${remaining >= 0 ? "under" : "over"} the ${money(cap)} cap, with ${money(ceiling)} as the hard ceiling. See the category cards above for the itemized breakdown.</p>
       <div class="budget-main-meter" aria-hidden="true">
         <span style="width:${capRatio}%"></span>
-      </div>
-    </article>
-    <article class="budget-summary-card">
-      <span class="budget-kicker">Target cap</span>
-      <div class="budget-capline">
-        <strong>${money(cap)}</strong>
-        <p>Local Seattle and Portland spending target before confirmed bookings.</p>
       </div>
     </article>
     <article class="budget-summary-card">
@@ -1025,40 +1014,7 @@ function renderBudget() {
         <p>${projected <= ceiling ? "Remaining before the hard ceiling is hit." : "Trip spend now exceeds the hard ceiling."}</p>
       </div>
     </article>
-    <article class="budget-summary-card airfare">
-      <span class="budget-kicker">Booked costs live above</span>
-      <div class="budget-capline">
-        <strong>${moneyPrecise(getConfirmedTripTotal())}</strong>
-        <p>Use the executive summary above for airfare, hotels, and planned personal purchases.</p>
-      </div>
-    </article>
   `;
-
-  const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68"];
-  document.getElementById("budgetList").innerHTML = data.budget.categories.map((category, index) => {
-    const share = (category.amount / cap) * 100;
-    const normalized = Math.min(100, Math.max(6, share));
-    const color = colors[index % colors.length];
-    return `
-      <article class="budget-item" style="--budget-color:${color}">
-        <div class="budget-item-top">
-          <div>
-            <h3>${category.name}</h3>
-            <strong>${money(category.amount)}</strong>
-          </div>
-          <span class="budget-item-share">${Math.round(share)}%</span>
-        </div>
-        <div class="budget-gauge" aria-hidden="true">
-          <span class="budget-gauge-fill" style="width:${normalized}%"></span>
-        </div>
-        <div class="budget-meter-labels">
-          <span>Share of target</span>
-          <span>${usdMoney(category.amount)} of ${usdMoney(cap)}</span>
-        </div>
-        <p>${category.note}</p>
-      </article>
-    `;
-  }).join("");
 }
 
 function getConfirmedAirfareTotal() {
@@ -1226,9 +1182,8 @@ function bindBudgetBreakdowns(scope = document) {
 
 function renderTripCostSummary() {
   const summaryEl = document.getElementById("tripCostSummary");
-  const formulaEl = document.getElementById("tripCostFormula");
   const breakdownEl = document.getElementById("tripCostBreakdown");
-  if (!summaryEl || !breakdownEl || !formulaEl) return;
+  if (!summaryEl || !breakdownEl) return;
 
   const confirmedAirfare = getConfirmedAirfareTotal();
   const confirmedHotels = getConfirmedHotelTotal();
@@ -1240,9 +1195,9 @@ function renderTripCostSummary() {
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
-      <span class="budget-kicker">All-in target</span>
-      <strong class="budget-total">${moneyPrecise(allInTarget)}</strong>
-      <p class="budget-copy">${moneyPrecise(confirmedTotal)} already committed + ${money(plannedTripSpend + plannedPersonal)} still to plan or buy.</p>
+      <span class="budget-kicker">${moneyPrecise(allInTarget)} all-in target -- how it breaks down</span>
+      <strong class="budget-total">${moneyPrecise(confirmedTotal)} <span style="font-weight:400;">confirmed</span></strong>
+      <p class="budget-copy">Plus ${money(plannedTripSpend)} planned local spend and ${money(plannedPersonal)} planned purchases (itemized below). See the hero card up top for the single all-in number.</p>
       <div class="budget-main-meter" aria-hidden="true">
         <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
       </div>
@@ -1257,58 +1212,15 @@ function renderTripCostSummary() {
           </li>
           <li>
             <div>
-              <strong>Confirmed bookings</strong>
-              <span>Real booked costs already locked in: airfare + hotels.</span>
-            </div>
-            <b>${moneyPrecise(confirmedTotal)}</b>
-          </li>
-          <li>
-            <div>
-              <strong>Planned trip spend</strong>
-              <span>Seattle and Portland spending inside the itinerary: food, transit, attractions, shopping, and contingency.</span>
-            </div>
-            <b>${moneyPrecise(plannedTripSpend)}</b>
-          </li>
-          <li>
-            <div>
-              <strong>Planned purchases</strong>
-              <span>Personal buys that should count toward the real savings target.</span>
-            </div>
-            <b>${moneyPrecise(plannedPersonal)}</b>
-          </li>
-          <li>
-            <div>
               <strong>Not double-counted</strong>
-              <span>The category cards below are the grouped explanation for this same total, not separate charges added again.</span>
+              <span>The category cards below are the itemized explanation for this same total, not separate charges added again.</span>
             </div>
           </li>
         </ul>
       </div>
     </article>
-    <article class="budget-summary-card">
-      <span class="budget-kicker">Confirmed total</span>
-      <div class="budget-capline">
-        <strong>${moneyPrecise(confirmedTotal)}</strong>
-        <p>Airfare and hotels already tied to real bookings.</p>
-      </div>
-    </article>
-    <article class="budget-summary-card">
-      <span class="budget-kicker">Planned trip spend</span>
-      <div class="budget-capline">
-        <strong>${money(plannedTripSpend)}</strong>
-        <p>Local Seattle and Portland spending plan from the synced itinerary.</p>
-      </div>
-    </article>
-    <article class="budget-summary-card airfare">
-      <span class="budget-kicker">Planned purchases</span>
-      <div class="budget-capline">
-        <strong>${money(plannedPersonal)}</strong>
-        <p>Personal purchases that should count toward the real savings target.</p>
-      </div>
-    </article>
   `;
   bindBudgetBreakdowns(summaryEl);
-  formulaEl.innerHTML = "";
 
   const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68", "#6d5bd0"];
   breakdownEl.innerHTML = tripSpendBreakdown.map((category, index) => {
@@ -1375,6 +1287,22 @@ function renderGuide(type = "reservations") {
         </div>
       </article>
     `).join("") : `<p class="guide-empty">No photo ops loaded yet.</p>`;
+    initReveal();
+    return;
+  }
+  if (type === "rainyPacking") {
+    const rainyDay = data.guides.rainyDay || [];
+    const packing = data.guides.packing || [];
+    panel.innerHTML = `
+      <article class="guide-card" data-reveal>
+        <h3>Rainy day backup</h3>
+        ${rainyDay.map((item) => `<p>${item}</p>`).join("")}
+      </article>
+      <article class="guide-card" data-reveal style="transition-delay:20ms">
+        <h3>Packing list</h3>
+        ${packing.map((item) => `<p>${item}</p>`).join("")}
+      </article>
+    `;
     initReveal();
     return;
   }
@@ -2238,7 +2166,6 @@ function persistAndRender() {
 function rerenderApp() {
   initHero();
   renderHeroFacts();
-  renderSummary();
   renderTripCostSummary();
   renderItinerary(currentFilter);
   renderBudget();

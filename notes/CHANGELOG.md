@@ -4,6 +4,14 @@
 
 This is the concise project change record.
 
+## 2026-08-02 (session 38) — Homepage redundancy audit, collapsible sections, budget-card grid fix
+
+- Deleted the redundant "Trip overview" section (duplicated the hero card's all-in target) and merged Executive Summary + Activity Budget into one "Trip cost" section; removed the flat granular budget-category list since the same numbers already live inside the category cards' click-to-expand breakdowns.
+- Unified the Trip Cost cards into one 4-column CSS grid with equal heights; fixed a leftover `:last-child` rule that was forcing the Contingency card onto its own full-width row instead of sitting with Local spend vs. cap and Buffer left.
+- Added default-collapsed, clearly visible `<details>` toggles to six sections: Trip cost, Day-by-day route, Booked flights, Planning guides, Maps and transit, Utility pages. Anchor links now auto-expand their target section.
+- Removed the "Social + Dating" guide tab; merged "Rainy day" and "Packing" into one tab; removed a duplicate `photoOps` data key.
+- Reviewed the Reservations tab: only Poquitos Capitol Hill is an actual bookable reservation, flagged to the user.
+
 ## 2026-08-02 (session 37) — Full price audit, transportation accuracy, day-trip guides
 
 - Corrected ~20 underpriced itinerary line items (Pike Place snacks, several meals, coffee-bean stops, cocktail bars) against real 2026 menu prices; projected local spend moved from $926 to $1,069.

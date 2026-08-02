@@ -1,3 +1,42 @@
+## 2026-08-02 (session 38: Homepage redundancy audit, collapsible sections, budget-card grid fix)
+
+### COMPLETE: Dashboard content/redundancy audit, unified budget grid, six default-collapsed sections
+
+**Why this session happened:** The user asked for an audit of the public dashboard, flagging that Trip Overview, Executive Summary, and Activity Budget appeared to repeat the same spend numbers, that the flight-timing and maps/transit sections should collapse instead of dominating the page, that Reservations/Social+Dating/Rainy day/Packing needed review, and that the day-trip guides and coffee/tea/happy-hour tabs needed a freshness check. Two follow-up passes refined the layout (unequal card heights/whitespace in the budget grid, then extending the same collapsible pattern to more sections).
+
+**Redundancy audit and fix:**
+- Confirmed real duplication: the "All-in target" number was shown 3x (hero card, Trip Overview grid, Executive Summary card) and "Confirmed total" 3x across sections.
+- Deleted the "Trip overview" section (`#summary` / `summaryGrid`) entirely — pure duplicate of the hero card. Removed `renderSummary()` and all its call sites in `dashboards/js/app.js`.
+- Merged Executive Summary and Activity Budget into one "Trip cost" section. Removed the flat granular budget-category list (`budgetList`) since `buildTripCostBreakdown()` already nests the same Transportation/Food/Entrance/etc. numbers inside the category cards' click-to-expand breakdowns — that flat list was re-showing identical numbers at a different granularity.
+- Removed a dead, always-empty `#tripCostFormula` div (and its JS/CSS) that was silently eating a grid cell.
+
+**Unified budget-card grid:**
+- All Trip Cost cards (all-in summary + 8 category cards + local-spend/buffer status) now render inside one CSS grid (`.budget-panel--unified`, `display: contents` on the three inner containers) with 4 columns, `align-items: stretch`, responsive to 2-col/1-col on smaller screens.
+- Found and fixed a leftover `.budget-list .budget-item:last-child { grid-column: 1 / -1 }` rule from the old 3-column layout — it was forcing the Contingency card onto its own full-width row instead of sitting alongside Local spend vs. cap and Buffer left. Overrode it to `grid-column: auto` inside the unified panel.
+
+**Six collapsible sections:**
+- Added native `<details>`/`<summary>` (no JS needed for the mechanics) to Trip cost, Day-by-day route, Booked flights, Planning guides, Maps and transit, and Utility pages — all default-collapsed on load.
+- Styled the `<summary>` toggle with a filled `--accent-soft` background, chevron icon, and an explicit "Click to expand"/"Click to collapse" label so the affordance is impossible to miss (user's prior version used a bare bordered strip that "couldn't be noticed").
+- Added `initCollapsibleAnchors()` in `app.js` so clicking any `#hash` link (hero nav, "Jump to totals") auto-opens the `<details>` ancestor/descendant of its target — otherwise those links would scroll to a collapsed, empty-looking section.
+
+**Guides tab cleanup:**
+- Removed "Social + Dating" tab entirely (button + `data.guides.socialDating` array deleted from `data/trip-data.js`).
+- Merged "Rainy day" and "Packing" into one "Rainy day + packing" tab with two subsections via a new `rainyPacking` case in `renderGuide()`.
+- Found and removed a duplicate `photoOps` key in `data/trip-data.js`'s `guides` object that was silently shadowing itself (harmless but dead).
+- Reviewed Reservations content per user request: of 4 entries, only Poquitos Capitol Hill is an actual bookable restaurant reservation; the other three (Best Buy Meta fit-check, Hotel Vance Amazon delivery call, Portland Japanese Garden note) are logistics/notes, not reservations. Left the tab structure as-is (not asked to restructure it) and reported the finding to the user directly.
+
+**Verified, not changed:**
+- Flight-schedule risk: the Asiana OZ271/272 Sunday-vs-published-schedule mismatch was already correctly flagged in `data/trip-data.js` (`scheduleRisk` field, alert copy on the journey card) — matches the open watch item, nothing new needed.
+- "4 Seattle days, 5 Portland or transfer days" hero fact: confirmed correct — it's computed live in `renderHeroFacts()` from each day's `city` tag (Days 1-4 tagged Seattle, Days 5-9 tagged Portland including the Nov 5 Amtrak transfer day), not hardcoded, and matches the 9-day Nov 1-9 span.
+
+**Files modified this session:** `dashboards/html/index.html`, `dashboards/js/app.js`, `dashboards/css/styles.css`, `data/trip-data.js`, `notes/TASKS.md`, `notes/CHANGELOG.md`, `notes/Project Log.md`, `notes/memory/active/project_current_state.md`, `notes/memory/active/SESSION_START.md`.
+
+**Verification:** `npm run validate` passed at every step (`projected: 1069, target: 1250, ceiling: 1300, remaining: 181`). Live-checked in Chrome via `npm run serve`: no console errors, unified grid renders with no orphaned rows, all six collapsibles default-closed with visible toggles and expand/collapse correctly, anchor-link auto-expand confirmed.
+
+**Open items for next session:** unchanged from session 37 — see the four open watch items at the top of `notes/memory/active/project_current_state.md` (Cannon Beach return time, Multnomah Falls bus schedule, "Sea'd In Capitol Hill" existence, Asiana Nov 1 date reconfirmation).
+
+---
+
 ## 2026-08-02 (session 37: Full price audit, transportation accuracy, day-trip guides, memory cleanup)
 
 ### COMPLETE: Comprehensive price correction, dashboard transparency fixes, and stale-memory cleanup

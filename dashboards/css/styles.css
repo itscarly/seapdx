@@ -1565,6 +1565,61 @@ h3 {
   margin: 18px 0 8px;
 }
 
+.collapsible > summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  list-style: none;
+  transition: background 0.15s ease;
+}
+
+.collapsible > summary:hover,
+.collapsible > summary:focus-visible {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible > summary::before {
+  content: "\25B8";
+  display: inline-block;
+  font-size: 1.1rem;
+  transition: transform 0.15s ease;
+}
+
+.collapsible[open] > summary {
+  margin-bottom: 18px;
+  border-radius: 14px 14px 0 0;
+}
+
+.collapsible[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+.collapsible > summary::after {
+  content: "Click to expand";
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+
+.collapsible[open] > summary::after {
+  content: "Click to collapse";
+}
+
 .future-flight-board {
   margin-top: 16px;
 }
@@ -1963,10 +2018,6 @@ h3 {
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.45;
-}
-
-.trip-cost-formula {
-  margin: 18px 0 22px;
 }
 
 .trip-cost-audit {
@@ -3200,6 +3251,62 @@ main {
 .trip-home .budget-capline p {
   font-size: 0.88rem;
   line-height: 1.32;
+}
+
+.budget-panel--unified {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.budget-panel--unified > #tripCostSummary,
+.budget-panel--unified > #tripCostBreakdown,
+.budget-panel--unified > #budgetSummary {
+  display: contents;
+}
+
+.budget-panel--unified .budget-summary-card,
+.budget-panel--unified .budget-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.budget-panel--unified .budget-item-top,
+.budget-panel--unified .budget-capline,
+.budget-panel--unified .budget-breakdown {
+  margin-top: auto;
+}
+
+.budget-panel--unified .budget-list .budget-item:last-child {
+  grid-column: auto;
+}
+
+@media (max-width: 960px) {
+  .budget-panel--unified {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .budget-panel--unified {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.budget-panel--unified .budget-total {
+  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  line-height: 1.05;
+}
+
+.budget-panel--unified .budget-copy {
+  font-size: 0.82rem;
+  margin: 6px 0 10px;
+}
+
+.budget-panel--unified .budget-kicker {
+  font-size: 0.62rem;
 }
 
 .trip-home .days {

@@ -10,6 +10,15 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
+- **Homepage redundancy audit, collapsible sections, budget-card grid fix** (2026-08-02, session 38)
+  - Deleted the redundant "Trip overview" section (duplicated the hero's all-in target number) and merged Executive Summary + Activity Budget into one "Trip cost" section; removed the flat granular budget-category list since the same numbers already live inside the category cards' click-to-expand breakdowns
+  - Unified all Trip Cost cards into a single 4-column CSS grid with equal heights; found and fixed a leftover `:last-child { grid-column: 1/-1 }` rule from the old 3-column layout that was forcing Contingency onto its own full-width row instead of sitting with Local spend vs. cap and Buffer left
+  - Added native `<details>`/`<summary>` collapsibles (default-collapsed, visible accent-colored toggle bar) to six sections: Trip cost, Day-by-day route, Booked flights, Planning guides, Maps and transit, Utility pages; added a small script so anchor links auto-expand their target section instead of landing on hidden content
+  - Removed the "Social + Dating" guide tab entirely; merged "Rainy day" and "Packing" into one tab with two subsections; removed a duplicate `photoOps` key in `data/trip-data.js` that was silently shadowing itself
+  - Reviewed the Reservations tab per user request: only Poquitos Capitol Hill is an actual bookable reservation, the other three entries are logistics notes — left as-is, flagged for the user
+  - Confirmed the flight-schedule risk (Asiana OZ271/272 Sunday-vs-published-schedule mismatch) was already correctly surfaced in the data; confirmed the "4 Seattle days, 5 Portland or transfer days" hero fact is accurate (computed live from itinerary city tags, not hardcoded)
+  - See `notes/Project Log.md` (session 38) for full detail
+
 - **Full price audit, transportation accuracy, day-trip guides, memory cleanup** (2026-08-02, session 37)
   - Corrected roughly 20 underpriced itinerary items against real 2026 menu prices; projected local spend moved from $926 to $1,069 (still $181 under the $1,250 cap)
   - Fixed the Transportation budget category (stale $95 vs. real itemized $149) and added explicit Cannon Beach / Multnomah Falls bus-fare lines to the dashboard breakdown
@@ -101,19 +110,17 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Stable current state
 
-- Main homepage redesign is complete.
-- The itinerary dashboard homepage now uses the Apple-style system font stack, tighter section rhythm, calmer surfaces, and a more disciplined card hierarchy.
-- The homepage density pass is complete and the reveal behavior no longer leaves lower sections looking empty on first load or non-interactive captures.
-- The hero, executive summary, activity budget, and day-route sections have been re-packed to reduce dead space and repeated full-weight spend callouts.
-- The desktop homepage shell now uses a wider content lane, larger hero bullets, and non-stretched secondary cards so screenshot-style whitespace and wrap issues are materially reduced.
-- The itinerary rows now expose visible stop-category labels, and the long weather-planning line plus activity-budget headline both stay on one line at desktop width.
-- The maps/transit atlas now uses a stable desktop summary row so the Seattle and Portland cards align instead of staggering vertically.
-- The homepage now defaults to a compact overview panel and uses progressive disclosure for budget formulas, breakdowns, guide details, flights, and map/transit content so the main screen does not behave like one long static report.
+- Main homepage redesign is complete (session 38, 2026-08-02).
+- The old "Trip overview" (high-signal numbers) section was deleted entirely — it duplicated numbers already shown in the hero card. Executive summary and Activity budget were merged into a single "Trip cost" section, and the flat granular category list under it was removed since the same numbers already exist inside the click-to-expand category cards.
+- The Trip cost breakdown (all-in target card + 8 category cards + local-spend/buffer status cards) renders as one unified 4-column CSS grid with equal card heights and no orphaned full-width rows.
+- Six homepage sections now use native `<details>`/`<summary>` collapsibles, all default-collapsed on load with a clearly visible filled accent-colored toggle bar ("Click to expand"/"Click to collapse"): Trip cost, Day-by-day route, Booked flights, Planning guides, Maps and transit, and Utility pages. Anchor links (hero nav, "Jump to totals") auto-expand their target section on click/hashchange so they never land on hidden content.
+- Planning guides tabs: "Social + Dating" was removed entirely (data and UI). "Rainy day" and "Packing" were merged into one "Rainy day + packing" tab with two subsections. Reservations tab was reviewed — only Poquitos Capitol Hill is an actual bookable reservation; the other three entries are logistics notes, not reservations.
 - Executive all-in spend summary is live and should stay aligned with:
   - confirmed airfare `$1,256.83`
-  - confirmed hotels `$895.46`
-  - planned personal purchases for Meta Ray-Ban glasses `$409` and BLEU DE CHANEL `$173`
-  - local activity-budget totals derived from the itinerary, including the `$120` Kraken game estimate and the separated ferry / Amtrak / local-transit breakdown
+  - confirmed hotels `$917.42` (Boylston $504.46 + Hotel Vance $412.96)
+  - planned personal purchases: Meta Ray-Ban Gen 2 Wayfarer `$490` and BLEU DE CHANEL EDP 3.4oz `$173`
+  - local activity-budget projected total `$1,069` against the `$1,250` cap / `$1,300` ceiling
+  - all-in target: `$3,906.25`
 - Shared-calendar-to-site alignment is in a good state for the current public route.
 - The old airfare, hotel, and itinerary monitor stack is retired.
 - The active automation is the monthly baseline watch for itinerary prices, menus, and schedules.

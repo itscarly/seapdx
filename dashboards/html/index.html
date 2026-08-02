@@ -74,48 +74,24 @@
     </header>
 
     <main>
-      <section id="summary" class="section section--overview">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow">Trip overview</p>
-            <h2>High-signal numbers before you dive into the route</h2>
-            <p class="section-copy">The homepage now keeps the most important planning numbers visible without flooding the page with repetitive metric cards.</p>
-          </div>
-        </div>
-        <div class="summary-grid summary-grid--editorial" id="summaryGrid"></div>
-      </section>
-
       <section id="budget" class="section section--budget">
         <div class="section-heading compact-heading">
           <div>
-            <p class="eyebrow">Executive summary</p>
+            <p class="eyebrow">Trip cost</p>
             <h2 id="tripCostHeading">Total money to save for this trip</h2>
-            <p class="section-copy">Confirmed bookings, local trip spending, and planned personal purchases all live together here so the real savings target is obvious.</p>
+            <p class="section-copy">One target number (also shown up top), broken down by what is already booked and what is still planned -- with the local Seattle/Portland spend itemized underneath.</p>
           </div>
         </div>
-        <div class="budget-layout budget-layout--home">
-          <div class="budget-panel">
-            <div id="tripCostSummary" class="budget-summary" aria-label="Executive trip cost summary"></div>
-            <div id="tripCostFormula" class="trip-cost-formula" aria-label="How the total target is computed"></div>
-            <div id="tripCostBreakdown" class="budget-list"></div>
+        <details class="collapsible">
+          <summary>Show/hide trip cost</summary>
+          <div class="budget-layout budget-layout--home">
+            <div class="budget-panel budget-panel--unified">
+              <div id="tripCostSummary" class="budget-summary" aria-label="Trip cost summary"></div>
+              <div id="tripCostBreakdown" class="budget-list"></div>
+              <div id="budgetSummary" class="budget-summary" aria-label="Local spend cap status"></div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section id="activityBudget" class="section section--budget">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow">Activity budget</p>
-            <h2 id="budgetHeading">Local trip-spend snapshot</h2>
-            <p class="section-copy">This lower block keeps the Seattle and Portland local spending plan visible without replacing the all-in trip total above it.</p>
-          </div>
-        </div>
-        <div class="budget-layout budget-layout--home">
-          <div class="budget-panel">
-            <div id="budgetSummary" class="budget-summary" aria-label="Budget summary"></div>
-            <div id="budgetList" class="budget-list"></div>
-          </div>
-        </div>
+        </details>
       </section>
 
       <section id="itinerary" class="section section--itinerary">
@@ -133,7 +109,10 @@
             <button type="button" class="chip" data-filter="meal">Meals</button>
           </div>
         </div>
-        <div id="days" class="days"></div>
+        <details class="collapsible">
+          <summary>Show/hide day-by-day route</summary>
+          <div id="days" class="days"></div>
+        </details>
       </section>
 
       <section id="flights" class="section section--flights">
@@ -145,7 +124,10 @@
           </div>
           <a class="button" href="./logistics.html">Open logistics hub</a>
         </div>
-        <div id="flightBoard" class="flight-board"></div>
+        <details class="collapsible">
+          <summary>Show/hide booked flights</summary>
+          <div id="flightBoard" class="flight-board"></div>
+        </details>
       </section>
 
       <section id="guides" class="section section--guides">
@@ -155,17 +137,18 @@
             <h2>Reservations, drinks, photos, social notes, and weather backups</h2>
           </div>
         </div>
-        <div class="tabs" role="tablist" aria-label="Planning guides">
-          <button type="button" role="tab" aria-selected="true" class="tab active" data-tab="reservations">Reservations</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="dayTrips">Day trip guides</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="happyHour">Happy hour</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="coffee">Coffee + tea</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="photoOps">Photo ops</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="socialDating">Social + Dating</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="rainyDay">Rainy day</button>
-          <button type="button" role="tab" aria-selected="false" class="tab" data-tab="packing">Packing</button>
-        </div>
-        <div id="guidePanel" class="guide-panel"></div>
+        <details class="collapsible">
+          <summary>Show/hide planning guides</summary>
+          <div class="tabs" role="tablist" aria-label="Planning guides">
+            <button type="button" role="tab" aria-selected="true" class="tab active" data-tab="reservations">Reservations</button>
+            <button type="button" role="tab" aria-selected="false" class="tab" data-tab="dayTrips">Day trip guides</button>
+            <button type="button" role="tab" aria-selected="false" class="tab" data-tab="happyHour">Happy hour</button>
+            <button type="button" role="tab" aria-selected="false" class="tab" data-tab="coffee">Coffee + tea</button>
+            <button type="button" role="tab" aria-selected="false" class="tab" data-tab="photoOps">Photo ops</button>
+            <button type="button" role="tab" aria-selected="false" class="tab" data-tab="rainyPacking">Rainy day + packing</button>
+          </div>
+          <div id="guidePanel" class="guide-panel"></div>
+        </details>
       </section>
 
       <section id="maps" class="section section--maps">
@@ -176,8 +159,11 @@
             <p class="section-copy">Keep the atlas useful, but tighter. The maps should support the itinerary instead of competing with it.</p>
           </div>
         </div>
-        <div id="tripAtlas" class="trip-atlas"></div>
-        <div id="transitCards" class="transit-grid transit-grid--compact"></div>
+        <details class="collapsible">
+          <summary>Show/hide maps and transit</summary>
+          <div id="tripAtlas" class="trip-atlas"></div>
+          <div id="transitCards" class="transit-grid transit-grid--compact"></div>
+        </details>
       </section>
 
       <section id="logistics" class="section section--logistics">
@@ -189,20 +175,23 @@
           </div>
           <a class="button primary" href="./logistics.html">Open logistics hub</a>
         </div>
-        <div class="transit-grid logistics-grid">
-          <article class="transit-card logistics-card">
-            <span class="badge">Hub</span>
-            <h3>Booked flights and later routing</h3>
-            <p>Open the logistics page for the deeper booked-flight view, including the later American Airlines Chicago routing.</p>
-            <a class="link-button" href="./logistics.html">Open hub</a>
-          </article>
-          <article class="transit-card logistics-card">
-            <span class="badge">Budget</span>
-            <h3>Confirmed vs planned</h3>
-            <p>The new executive summary separates already-paid bookings from planned local spend and personal purchases.</p>
-            <a class="link-button" href="#budget">Jump to totals</a>
-          </article>
-        </div>
+        <details class="collapsible">
+          <summary>Show/hide utility pages</summary>
+          <div class="transit-grid logistics-grid">
+            <article class="transit-card logistics-card">
+              <span class="badge">Hub</span>
+              <h3>Booked flights and later routing</h3>
+              <p>Open the logistics page for the deeper booked-flight view, including the later American Airlines Chicago routing.</p>
+              <a class="link-button" href="./logistics.html">Open hub</a>
+            </article>
+            <article class="transit-card logistics-card">
+              <span class="badge">Budget</span>
+              <h3>Confirmed vs planned</h3>
+              <p>The new executive summary separates already-paid bookings from planned local spend and personal purchases.</p>
+              <a class="link-button" href="#budget">Jump to totals</a>
+            </article>
+          </div>
+        </details>
       </section>
     </main>
 
