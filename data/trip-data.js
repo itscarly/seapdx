@@ -48,10 +48,10 @@ window.TRIP_DATA = {
   budget: {
     cap: 1250,
     absoluteCeiling: 1300,
-    projectedTotal: 926,
+    projectedTotal: 944,
     categories: [
       { name: "Transportation", amount: 95, note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and day-trip buses (Cannon Beach, Multnomah Falls) separated in the breakdown." },
-      { name: "Food", amount: 450, note: "Meals, coffee, airport food, and revised itinerary totals after route restructuring." },
+      { name: "Food", amount: 468, note: "Meals, coffee, airport food, and revised itinerary totals after route restructuring. Includes corrected coffee shop prices (Rachel's Ginger Beer $8, Analog $24, Stumptown $26)." },
       { name: "Cocktails and social", amount: 100, note: "Cocktail-forward bars and social-night spend now with Saturday Market and day-trip focus." },
       { name: "Entrance fees", amount: 75, note: "Paid attractions in the synced route (Cannon Beach and Multnomah Falls free; Kraken removed)." },
       { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
@@ -315,7 +315,7 @@ window.TRIP_DATA = {
           { time: "10:35 AM", name: "Daily Dozen Doughnut Company", type: "coffee", neighborhood: "Downtown", location: "Daily Dozen Doughnut Company, Pike Place Market", duration: "10 min", cost: 2, payment: "Cash preferred", detailText: `Tiny doughnut stop built for a quick bite.\nOrder: A small mix of mini doughnuts so you can share or keep moving.\nLine time: Usually quick, about 5-10 min.\nEstimated cost: $6-8.` },
           { time: "10:45 AM", name: "Mee Sum Pastry", type: "meal", neighborhood: "Downtown", location: "Mee Sum Pastry, Pike Place Market", duration: "15 min", cost: 2, payment: "Cash preferred", detailText: `Steamed-bun or pastry stop.\nOrder: Pork bun or other hot handheld if the case looks good.\nLine time: About 5-10 min unless the case is crowded.\nEstimated cost: $6-8.` },
           { time: "11:00 AM", name: "MarketSpice browse", type: "activity", neighborhood: "Downtown", location: "MarketSpice, Pike Place Market", duration: "10 min", cost: 1, payment: "Cards accepted", detailText: `Spice and tea browse before the drink stop.\nOrder: Tea sample or a small spice blend if you want a light souvenir.\nLine time: Usually browse-only.\nEstimated cost: $4-8.` },
-          { time: "11:10 AM", name: "Rachel's Ginger Beer", type: "activity", neighborhood: "Downtown", location: "Rachel's Ginger Beer, Pike Place Market", duration: "15 min", cost: 2, payment: "Cards accepted", detailText: `Drinkable market stop.\nOrder: Original ginger beer or one seasonal fruit-ginger option.\nLine time: Usually about 5-10 min.\nEstimated cost: $6-9.` },
+          { time: "11:10 AM", name: "Rachel's Ginger Beer", type: "activity", neighborhood: "Downtown", location: "Rachel's Ginger Beer, Pike Place Market", duration: "15 min", cost: 8, payment: "Cards accepted", detailText: `Drinkable market stop.\nOrder: Original ginger beer or one seasonal fruit-ginger option.\nLine time: Usually about 5-10 min.\nEstimated cost: $6-9.` },
           { time: "11:25 AM", name: "Totem Smokehouse souvenir fish stop", type: "shopping", neighborhood: "Downtown", location: "Totem Smokehouse, 1906 Pike Pl", duration: "30 min", cost: 3, payment: "Cards accepted", detailText: `Final core market stop for smoked salmon and a cleaner souvenir buy.\nOrder: Peppered smoked sockeye box or a smaller salmon pack if you want lighter baggage.\nLine time: Allow 5-15 min.\nEstimated cost: $34-44 if buying fish, but the walking stop itself stays low-cost if you only browse.\nPayment: Cards accepted.` }
         ]},
         { label: "Afternoon", items: [
@@ -379,7 +379,7 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Boylston base", duration: "40 min", cost: 0 },
-          { time: "8:20 AM", name: "Analog Coffee + light breakfast", type: "coffee", neighborhood: "Capitol Hill", location: "Analog Coffee, 235 Summit Ave E", duration: "60 min", cost: 18, website: "https://analogcoffee.com/", payment: "Cards accepted", detailText: `Analog Coffee for the final Seattle morning.\nWebsite: https://analogcoffee.com/\nORDER: Pour-over or latte, plus whatever pastry looks best in the case.\nCoffee beans: Ask whether they have retail whole-bean bags if you still need the Seattle bag.\nEstimated cost: $18 with light breakfast and bean purchase if buying.` },
+          { time: "8:20 AM", name: "Analog Coffee + light breakfast", type: "coffee", neighborhood: "Capitol Hill", location: "Analog Coffee, 235 Summit Ave E", duration: "60 min", cost: 24, website: "https://analogcoffee.com/", payment: "Cards accepted", detailText: `Analog Coffee for the final Seattle morning.\nWebsite: https://analogcoffee.com/\nORDER: Pour-over or latte, plus whatever pastry looks best in the case.\nCoffee beans: Ask whether they have retail whole-bean bags if you still need the Seattle bag.\nEstimated cost: $24 with coffee, pastry, and bean purchase if buying.` },
           { time: "9:20 AM", name: "Transit to Fremont", type: "transit", neighborhood: "Capitol Hill -> Fremont", duration: "60 min", cost: 3, notes: "Allow extra reposition time before the walk loop." },
           { time: "10:20 AM", name: "Fremont walking loop", type: "walk", neighborhood: "Fremont", duration: "110 min", cost: 0 }
         ]},
@@ -468,7 +468,7 @@ window.TRIP_DATA = {
       segments: [
         { label: "Morning", items: [
           { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "40 min", cost: 0 },
-          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "60 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.` },
+          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "60 min", cost: 26, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $26 with coffee, pastry, and bean purchase if buying.` },
           { time: "9:35 AM", name: "Walk to Portland Saturday Market", type: "walk", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0 }
         ]},
         { label: "Afternoon", items: [
