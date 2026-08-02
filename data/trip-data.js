@@ -2,12 +2,12 @@ window.TRIP_DATA = {
   meta: {
     title: "Seattle and Portland Interactive Travel Itinerary",
     dates: "November 1-9, 2026",
-    publicSiteUrl: "https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html",
+    publicSiteUrl: "https://itscarly.github.io/seadpdx/dashboards/html/index.html",
     travelerBase: {
       seattle: "The Boylston Hotel Capitol Hill",
-      portland: "Courtyard by Marriott Portland City Center"
+      portland: "Hotel Vance, a Tribute Portfolio Hotel"
     },
-    verifiedOn: "June 27, 2026",
+    verifiedOn: "Aug 2, 2026",
     budgetCap: 1250,
     absoluteCeiling: 1300,
     assumptions: [
@@ -18,7 +18,7 @@ window.TRIP_DATA = {
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
       "Dashboard USD amounts now also show PHP equivalents using the May 9, 2026 USD/PHP rate plus a 1.85% foreign transaction fee buffer.",
       "Coffee beans are capped at two bags total: one in Seattle and one in Portland, with a maximum bean budget of $60.",
-      "Portland home base is Courtyard by Marriott Portland City Center, 550 SW Oak Street, Portland, Oregon 97204, United States.",
+      "Portland home base is Hotel Vance, a Tribute Portfolio Hotel, Portland, Oregon, United States.",
       "November 2026 hours are not fully published for many businesses, so the dashboard flags current verified status and recommends rechecking before booking.",
       "The plan is curated best-fit; not every candidate location is included.",
       "May 18 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
@@ -48,15 +48,15 @@ window.TRIP_DATA = {
   budget: {
     cap: 1250,
     absoluteCeiling: 1300,
-    projectedTotal: 1236.5,
+    projectedTotal: 926,
     categories: [
-      { name: "Transportation", amount: 95, note: "Seattle local transit, Portland local transit, Bainbridge ferry, and Amtrak are separated in the breakdown instead of being lumped together." },
-      { name: "Food", amount: 525, note: "Meals, coffee, airport food, and the higher reality-based dinner totals now carried directly in the synced itinerary." },
-      { name: "Cocktails and social", amount: 120, note: "Cocktail-forward rooftop, book-bar, sushi, and social-night spend that stayed in the live calendar route." },
-      { name: "Entrance fees", amount: 225.5, note: "Paid attractions in the synced route plus one planned Kraken game with a realistic mid-bowl seat estimate." },
+      { name: "Transportation", amount: 95, note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and day-trip buses (Cannon Beach, Multnomah Falls) separated in the breakdown." },
+      { name: "Food", amount: 450, note: "Meals, coffee, airport food, and revised itinerary totals after route restructuring." },
+      { name: "Cocktails and social", amount: 100, note: "Cocktail-forward bars and social-night spend now with Saturday Market and day-trip focus." },
+      { name: "Entrance fees", amount: 75, note: "Paid attractions in the synced route (Cannon Beach and Multnomah Falls free; Kraken removed)." },
       { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
-      { name: "Souvenirs", amount: 100, note: "City mugs, magnets, smoked salmon, market browsing, and bookstore or local-goods drift kept visible instead of hidden." },
-      { name: "Contingency", amount: 111, note: "Remaining buffer after syncing the richer live-calendar route back into the source data." }
+      { name: "Souvenirs", amount: 80, note: "City mugs, magnets, market browsing, and local-goods drift kept visible." },
+      { name: "Contingency", amount: 66, note: "Remaining buffer after restructured Portland itinerary (Cannon Beach day trip, Multnomah Falls, Saturday Market)." }
     ]
   },
   tripCosts: {
@@ -81,8 +81,8 @@ window.TRIP_DATA = {
         ]
       },
       accommodations: {
-        total: 895.46,
-        note: "Use Boylston and Courtyard as the hotel source of truth for the executive summary.",
+        total: 917.42,
+        note: "Use Boylston and Hotel Vance as the hotel source of truth for the executive summary.",
         items: [
           {
             name: "The Boylston Hotel Capitol Hill",
@@ -92,8 +92,8 @@ window.TRIP_DATA = {
             nights: 3
           },
           {
-            name: "Courtyard by Marriott Portland City Center",
-            amount: 391,
+            name: "Hotel Vance, a Tribute Portfolio Hotel",
+            amount: 412.96,
             confirmation: "[redacted]",
             city: "Portland",
             nights: 5
@@ -105,7 +105,7 @@ window.TRIP_DATA = {
       {
         name: "Meta Ray-Ban glasses",
         category: "Personal item / shopping",
-        amount: 409,
+        amount: 490,
         status: "planned",
         note: "Meta Ray-Ban Gen 2 Wayfarer in matte black with polarized gradient graphite lenses."
       },
@@ -192,7 +192,7 @@ window.TRIP_DATA = {
         title: "Portland to Corpus Christi via Dallas/Fort Worth",
         dateLabel: "Monday, November 9, 2026",
         ticketCost: 716.40,
-        airportLeaveBy: "Leave Courtyard Portland by about 10:15 AM and aim to be inside PDX by about 10:40-10:45 AM for the 1:47 PM departure.",
+        airportLeaveBy: "Leave Hotel Vance by about 10:15 AM and aim to be inside PDX by about 10:40-10:45 AM for the 1:47 PM departure.",
         visibilityNote: "This is the November departure routing that replaces the old generic flight-dependent buffer language.",
         statusLabel: "Booked and ticketed under confirmation [redacted].",
         alertCopy: "This fare already covers the later February 27, 2027 American Airlines continuation to Chicago, so the trip-cost summary should not treat that later leg as unpaid.",
@@ -392,8 +392,7 @@ window.TRIP_DATA = {
         { label: "Evening", items: [
           { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Ballard -> Capitol Hill", duration: "65 min", cost: 0 },
           { time: "5:50 PM", name: "Sea'd In Capitol Hill dinner", type: "meal", neighborhood: "Capitol Hill", duration: "75 min", cost: 45, payment: "Cards accepted", detailText: `Seafood-forward final Seattle dinner.\nPurpose: Keep the last Seattle night polished without blowing up the route.\nORDER: Ask for the freshest fish special and keep the dish lighter rather than cream-heavy.\nFruity: Ask for a citrus-forward seasonal cocktail that works with fish.\nSKIP: The heaviest rich dishes if you want to stay comfortable before the train day.\nEstimated cost: $45 with cocktail and tip.` },
-          { time: "7:20 PM", name: "Seattle Kraken game (if Nov 1-4 home game lines up)", type: "activity", neighborhood: "Climate Pledge Arena", duration: "3 hrs", cost: 120, payment: "Official single-game tickets once released", detailText: `Planned Seattle sports-night add if the official Kraken home schedule lands during Nov. 1-4.\nOfficial ticket hub: https://www.nhl.com/kraken/tickets/single-game\nSeat target: One normal mid-bowl seat with a cleaner center-view feel, not nosebleeds and not premium club pricing.\nBudget: Carry a $120 planning number for the ticket itself until the official 2026-27 single-game inventory opens.\nImportant: The exact opponent and live seat price still depend on the official regular-season release and single-game on-sale.` },
-          { time: "10:35 PM", name: "Return and pack for train day", type: "rest", neighborhood: "Boylston base", duration: "5 hrs", cost: 0, notes: "Late pack-and-reset block after the game so the train departure still stays protected." }
+          { time: "8:45 PM", name: "Return and pack for train day", type: "rest", neighborhood: "Boylston base", duration: "6.5 hrs", cost: 0, notes: "Late night wind-down and rest block so the train departure stays protected." }
         ]}
       ]
     },
@@ -401,7 +400,7 @@ window.TRIP_DATA = {
       id: "day-5",
       isoDate: "2026-11-05",
       date: "Thu, Nov 5",
-      city: "Seattle to Portland",
+      city: "Portland",
       title: "Checkout + Amtrak transfer + light Portland evening",
       theme: "Transition day",
       dayTotal: 112,
@@ -416,14 +415,14 @@ window.TRIP_DATA = {
         ]},
         { label: "Afternoon", items: [
           { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 48, notes: "Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class." },
-          { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Courtyard", type: "transit", neighborhood: "Union Station -> City Center", duration: "35 min", cost: 3 },
-          { time: "4:20 PM", name: "Check in, reset, and Amazon package check", type: "rest", neighborhood: "Courtyard Portland", duration: "100 min", cost: 0, notes: "Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held." }
+          { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "35 min", cost: 3 },
+          { time: "4:20 PM", name: "Check in, reset, and Amazon package check", type: "rest", neighborhood: "Hotel Vance Portland", duration: "100 min", cost: 0, notes: "Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held." }
         ]},
         { label: "Evening", items: [
           { time: "6:00 PM", name: "Easy downtown orientation walk", type: "walk", neighborhood: "Downtown Portland", duration: "30 min", cost: 0 },
           { time: "6:35 PM", name: "Apple Pioneer Place time block", type: "shopping", neighborhood: "Downtown Portland", location: "Apple Pioneer Place, 450 SW Yamhill St", duration: "35 min", cost: 0, website: "https://www.apple.com/retail/pioneerplace/", payment: "Cards accepted", detailText: `Short downtown stop to check the Apple store and Pioneer Place architecture.\nPurpose: Use this as the Portland phone / accessory browse block, not a full shopping spree.\nPhoto angle: The store frontage and mall atrium make a clean city-photo backdrop.\nEstimated cost: Free unless you buy the new phone or accessories.\nPayment: Cards accepted.` },
           { time: "7:15 PM", name: "Luc Lac Vietnamese Kitchen dinner", type: "meal", neighborhood: "Downtown Portland", duration: "75 min", cost: 50, website: "https://luclacpdx.com/", payment: "Cards accepted", detailText: `First dinner in Portland after the travel day.\nMenu: https://luclacpdx.com/\nOrder: Shaking Beef is the signature move. Add fried rice only if you are actually hungry.\nFruity: Ask for the most fruit-forward seasonal cocktail or their coconut-leaning drink.\nSkip: Soup. Save room for the rice-and-beef lane.\nEstimated cost: $50 with tip.` },
-          { time: "8:30 PM", name: "Courtyard wind-down / Sleep", type: "rest", neighborhood: "Courtyard Portland", duration: "10 hrs", cost: 0, notes: "Full recovery night before the first deeper Portland day." }
+          { time: "8:30 PM", name: "Hotel Vance wind-down / Sleep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "10 hrs", cost: 0, notes: "Full recovery night before the first deeper Portland day." }
         ]}
       ]
     },
@@ -432,27 +431,28 @@ window.TRIP_DATA = {
       isoDate: "2026-11-06",
       date: "Fri, Nov 6",
       city: "Portland",
-      title: "Japanese Garden + Powell's + Luc Lac happy hour",
-      theme: "Classic Portland anchor day",
-      dayTotal: 140,
-      weatherPlan: "Garden and bookstore carry the day even if the weather turns; keep the timed entry protected.",
+      title: "Cannon Beach / Haystack Rock day trip (public transit)",
+      theme: "Iconic sea stack + tide pools via POINT NorthWest bus",
+      dayTotal: 62,
+      weatherPlan: "Coastal weather varies; low tide timing essential for tide-pool access. Check NOAA tides for Nov 6, 2026 before confirming the day.",
       segments: [
         { label: "Morning", items: [
-          { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "50 min", cost: 0, notes: "Morning geared around the garden ticket window." },
-          { time: "8:20 AM", name: "Fuller's Coffee Shop breakfast", type: "meal", neighborhood: "Pearl edge", location: "Fuller's Coffee Shop, 136 NW 9th Ave", duration: "70 min", cost: 22, payment: "Cash preferred", detailText: `Classic Portland diner breakfast.\nOrder: Biscuits and gravy or Eggs Benedict.\nSkip: Pancakes if you only want one real diner pick.\nEstimated cost: $22 with tip.\nPayment: Cash preferred. ATM is on-site.` },
-          { time: "9:30 AM", name: "Transit to Washington Park (MAX)", type: "transit", neighborhood: "Downtown -> Washington Park", duration: "40 min", cost: 3, notes: "Use MAX into the park station and budget the uphill walk to the gate." },
-          { time: "10:10 AM", name: "Portland Japanese Garden (timed entry)", type: "activity", neighborhood: "Washington Park", location: "611 SW Kingston Ave", duration: "130 min", cost: 22.5, website: "https://japanesegarden.org/tickets/", payment: "Cards accepted for online tickets", detailText: `Timed Portland anchor stop.\nBook in advance: https://japanesegarden.org/tickets/\nRoute: Natural Garden, Flat Garden, Sand and Stone, Strolling Pond, then Tea Garden.\nBest photo: Strolling Pond with the pagoda reflection if fall color shows up.\nEstimated cost: $22.50.` }
+          { time: "7:30 AM", name: "Wake + quick breakfast + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "50 min", cost: 0, notes: "Early start to catch the westbound POINT NorthWest bus." },
+          { time: "8:20 AM", name: "Transit to Portland Union Station", type: "transit", neighborhood: "Hotel Vance -> Union Station", duration: "25 min", cost: 3, notes: "Walk or MAX to Union Station (800 NW 6th Ave)." },
+          { time: "8:45 AM", name: "POINT NorthWest bus to Cannon Beach (boarding)", type: "transit", neighborhood: "Portland Union Station", duration: "15 min", cost: 0, notes: "Arrive early for 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245." }
         ]},
-        { label: "Afternoon", items: [
-          { time: "12:20 PM", name: "Washington Park walk + recover", type: "walk", neighborhood: "Washington Park", duration: "50 min", cost: 0, notes: "Easy downhill recovery between the garden and lunch." },
-          { time: "1:10 PM", name: "Lunch at Tasty n Alder", type: "meal", neighborhood: "Downtown Portland", location: "Tasty n Alder, 580 SW 12th Ave", duration: "80 min", cost: 32, payment: "Cards accepted", detailText: `Strong Portland brunch-lunch stop.\nOrder: Skirt Steak Hash or one of the Benedicts.\nFruity: Blood orange smash or the freshest seasonal fruit cocktail.\nEstimated cost: $32 with tip.` },
-          { time: "2:30 PM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", location: "1005 W Burnside St", duration: "110 min", cost: 35, website: "https://www.powells.com/", payment: "Cards accepted", detailText: `World's largest independent bookstore.\nWebsite: https://www.powells.com/\nStart: Gold Room for used and rare books, then Blue Room for travel and arts.\nBudget tip: Set a hard book-spend cap before you walk in.\nEstimated cost: $35 book budget.` },
-          { time: "4:20 PM", name: "Coffee break (Heart Coffee Roasters)", type: "coffee", neighborhood: "Pearl District", location: "Heart Coffee Roasters", duration: "55 min", cost: 8, website: "https://www.heartroasters.com/", payment: "Cards accepted", detailText: `One of Portland's strongest specialty coffee resets.\nOrder: Oat milk latte or iced pour-over.\nEstimated cost: $8.` },
-          { time: "5:15 PM", name: "Hotel reset / freshen up before Luc Lac", type: "rest", neighborhood: "Courtyard Portland", duration: "65 min", cost: 0, notes: "Also check the front desk again for the Meta package hold." }
+        { label: "Daytime", items: [
+          { time: "8:28 AM", name: "Depart Portland Union Station (POINT NorthWest)", type: "transit", neighborhood: "Intercity bus", duration: "138 min", cost: 18, notes: "IMPORTANT: Verify exact departure time and return schedule at oregon-point.com/routes/northwest or by phone (1-800-872-7245) before the trip. Fare range $12-30; budget $18 as estimate." },
+          { time: "10:46 AM", name: "Arrive Cannon Beach", type: "transit", neighborhood: "Cannon Beach", duration: "0 min", cost: 0, notes: "Bus stops at 1170 S Hemlock St, downtown Cannon Beach." },
+          { time: "10:50 AM", name: "Orientation + Haystack Rock walk", type: "activity", neighborhood: "Cannon Beach", location: "Haystack Rock, Tolovana Beach State Recreation Site", duration: "180 min", cost: 0, website: "https://www.cannonbeach.org/things-to-do/beaches-and-parks/haystack-rock/", payment: "No admission; public land open 24/7", detailText: `Iconic Cannon Beach sea-stack exploration.\nWhat to see: 235-foot Haystack Rock visible from the beach.\nTide pools: Low tide is essential for exploring tide pools around the base of the rock. Check NOAA tide times for November 6, 2026 before the trip at noaa.gov or tide-forecast.com. Optimal window usually a couple hours before/after the lowest tide.\nWhat to bring: Layers (coastal wind), water, snacks, camera.\nWarnings: Lifeguards and patrol trucks monitor the area; stay off exposed rocks to protect tide-pool ecosystems.\nEstimated cost: Free.` },
+          { time: "1:50 PM", name: "Lunch/snack in Cannon Beach town", type: "meal", neighborhood: "Cannon Beach downtown", duration: "60 min", cost: 20, payment: "Cards accepted", detailText: `Quick meal in town before the return bus.\nOptions: Casual cafe, cart-style food, or a light sit-down spot.\nOrder: Keep it light and quick so you don't miss the return bus.\nEstimated cost: $20.` },
+          { time: "2:50 PM", name: "Last Cannon Beach walk + rest", type: "walk", neighborhood: "Cannon Beach", duration: "90 min", cost: 0, notes: "Relax, take photos, walk the town a bit before heading back." }
         ]},
-        { label: "Evening", items: [
-          { time: "6:20 PM", name: "Luc Lac Vietnamese Kitchen happy hour", type: "meal", neighborhood: "Downtown Portland", duration: "75 min", cost: 20, website: "https://luclacpdx.com/", payment: "Cards accepted", detailText: `Happy-hour version of the Luc Lac stop.\nMenu: https://luclacpdx.com/\nFruity: Ask for the most fruit-forward seasonal cocktail or a lychee-leaning martini during the HH window.\nOrder: Pulled chicken salad and multiple spring rolls are the value play.\nSkip: Full-price entrees if you are still inside happy hour.\nEstimated cost: $20 with tip.` },
-          { time: "7:35 PM", name: "Courtyard wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "12 hrs", cost: 0, notes: "Longer sleep block after the first real Portland full day." }
+        { label: "Evening / Return", items: [
+          { time: "4:20 PM", name: "Transit to bus stop + board return bus", type: "transit", neighborhood: "Downtown Cannon Beach", duration: "15 min", cost: 0, notes: "CRITICAL: Exact return bus time must be confirmed before the trip. One data point: 5:55 PM Astoria departure → 9:00 PM Portland arrival (Cannon Beach departs before Astoria). Call 1-800-872-7245 or check oregon-point.com/routes/northwest for the specific Nov 6 return time." },
+          { time: "TBD", name: "Depart Cannon Beach (POINT NorthWest return)", type: "transit", neighborhood: "Intercity bus", duration: "~150 min", cost: 18, notes: "VERIFY TIME BEFORE BOOKING: Estimated arrival Portland ~6-9 PM depending on exact departure. Plan to arrive back at hotel by early evening." },
+          { time: "8:00-9:00 PM (est)", name: "Arrive Portland Union Station + transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "30 min", cost: 3 },
+          { time: "9:00 PM", name: "Hotel wind-down + early sleep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "10 hrs", cost: 0, notes: "Settle in and rest after a full coastal day." }
         ]}
       ]
     },
@@ -461,26 +461,26 @@ window.TRIP_DATA = {
       isoDate: "2026-11-07",
       date: "Sat, Nov 7",
       city: "Portland",
-      title: "Powell's + Tope rooftop sunset + Momiji AYCE",
-      theme: "Books, rooftop sunset, fresh sushi",
-      dayTotal: 182,
-      weatherPlan: "Powell's is indoor-friendly; Tope rooftop weather-dependent (backup indoor cocktail bar nearby).",
+      title: "Portland Saturday Market + local food + shopping",
+      theme: "Market, artisan goods, community vibes",
+      dayTotal: 126,
+      weatherPlan: "Market is outdoor but covered; rain-friendly. Easy indoor backup if needed.",
       segments: [
         { label: "Morning", items: [
-          { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:20 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "50 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.` },
-          { time: "9:10 AM", name: "Powell's City of Books", type: "activity", neighborhood: "Pearl District", location: "1005 W Burnside St", duration: "160 min", cost: 14, website: "https://www.powells.com/", payment: "Cards accepted", detailText: `Longer Saturday bookstore block with room to linger.\nWebsite: https://www.powells.com/\nEstimated cost: $14 base browse or small-purchase budget.` }
+          { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "40 min", cost: 0 },
+          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #3", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "60 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Hairbender espresso drink and one bag of Holler Mountain beans if this is still the Portland bean buy.\nEstimated cost: $20.` },
+          { time: "9:35 AM", name: "Walk to Portland Saturday Market", type: "walk", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0 }
         ]},
         { label: "Afternoon", items: [
-          { time: "11:50 AM", name: "Transit + lunch near Powell's", type: "meal", neighborhood: "Pearl District", location: "Lardo, 1205 SW Washington St", duration: "60 min", cost: 28, website: "https://lardopdx.com/", payment: "Cards accepted", detailText: `Suggested: Lardo near Powell's.\nWebsite: https://lardopdx.com/\nOrder: Pork meatball sandwich or Dirty Fries.\nFruity: Seasonal fruit cocktail or sangria if you want lunch to lean social.\nEstimated cost: $28 with tip.` },
-          { time: "12:50 PM", name: "MadeHere PDX + Pearl browsing", type: "shopping", neighborhood: "Pearl District", location: "MadeHere PDX, 40 NW 10th Ave", duration: "100 min", cost: 35, website: "https://madehereonline.com/", payment: "Cards accepted", detailText: `Pearl District browse plus the most useful local-gift stop.\nWebsite: https://madehereonline.com/\nSouvenirs: MadeHere PDX for locally made goods, Portland mug if still needed, and one magnet if you want the cleaner downtown version instead of the market one.\nEstimated cost: $25-50 depending on what you buy.` },
-          { time: "2:30 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "105 min", cost: 0 }
+          { time: "10:05 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", location: "2 SW Naito Pkwy", duration: "120 min", cost: 24, website: "https://www.portlandsaturdaymarket.com/", payment: "Many vendors prefer cash; some accept cards", detailText: `Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and enjoy the community vibe.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $24 base shopping budget.` },
+          { time: "12:05 PM", name: "Market lunch + snacks", type: "meal", neighborhood: "Waterfront", duration: "60 min", cost: 22, payment: "Cash preferred", detailText: `Graze multiple market vendors instead of leaving for lunch.\nOrder: Pupusas, Thai noodles, empanadas, or wood-fired crepes depending on what looks best.\nFruity: Fresh lemonade or smoothies from the market stalls.\nSkip: Sit-down restaurants nearby. The vendor food is the point here.\nEstimated cost: $22 plus any souvenir drift.\nPayment: Bring cash because not every booth takes cards.` },
+          { time: "1:05 PM", name: "Transit + Pearl/downtown reset", type: "rest", neighborhood: "Downtown/Pearl", duration: "120 min", cost: 0 }
         ]},
         { label: "Evening", items: [
-          { time: "4:15 PM", name: "Transit to Tope", type: "transit", neighborhood: "Downtown -> Tope", duration: "10 min", cost: 0 },
-          { time: "4:45 PM", name: "Tope rooftop bar + sunset", type: "activity", neighborhood: "Downtown Portland", location: "Tope at The Hoxton, 15 NW 4th Ave", duration: "90 min", cost: 45, website: "https://www.thehoxton.com/portland/tope/", payment: "Cards accepted", detailText: `Tope rooftop sunset stop at The Hoxton.\nWebsite: https://www.thehoxton.com/portland/tope/\nOrder: Margaritas, tableside guac, and a couple tacos to graze.\nFruity: Mango-jalapeno or the freshest seasonal margarita.\nSkip: Heavy mains before Momiji.\nEstimated cost: $45 with two drinks and snacks.` },
-          { time: "6:15 PM", name: "Momiji AYCE sushi dinner", type: "meal", neighborhood: "Downtown Portland", location: "Momiji Sushi Restaurant", duration: "90 min", cost: 40, payment: "Cards accepted", detailText: `AYCE Japanese dinner.\nOrder strategy: Round one sashimi and soup, round two specialty rolls, round three hot dishes only if you still have room.\nFruity: Lychee martini or yuzu-leaning cocktail.\nEstimated cost: $40 with drink and tip.` },
-          { time: "7:45 PM", name: "Wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "12 hrs", cost: 0 }
+          { time: "3:05 PM", name: "Hotel Vance reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "115 min", cost: 0 },
+          { time: "5:00 PM", name: "Pretty Ugly Burger dinner", type: "meal", neighborhood: "Downtown Portland", location: "Pretty Ugly Bar, 927 SW 2nd Ave", duration: "75 min", cost: 35, payment: "Cards accepted", detailText: `Burger-and-cocktail stop for a great Saturday night.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.` },
+          { time: "6:15 PM", name: "Novel Book Bar cocktail + browse", type: "activity", neighborhood: "NW Everett / Pearl edge", location: "Novel Book Bar, Portland", duration: "90 min", cost: 25, website: "https://www.instagram.com/novelpdx/", payment: "Cards accepted", detailText: `Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light. If you want a snack, the lighter menu items are the better play.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.` },
+          { time: "7:45 PM", name: "Wind-down", type: "rest", neighborhood: "Hotel Vance Portland", duration: "12 hrs", cost: 0 }
         ]}
       ]
     },
@@ -489,26 +489,33 @@ window.TRIP_DATA = {
       isoDate: "2026-11-08",
       date: "Sun, Nov 8",
       city: "Portland",
-      title: "Saturday Market + Pretty Ugly Burger + Novel Book Bar",
-      theme: "Market, prime beef, books + cocktails",
-      dayTotal: 126,
-      weatherPlan: "Market is outdoor but covered; Pretty Ugly and Novel both indoor-friendly.",
+      title: "Multnomah Falls / Vista House day trip (public transit) + Cartopia food carts",
+      theme: "Iconic 620-ft waterfall + historical Vista House via Columbia Gorge Express",
+      dayTotal: 85,
+      weatherPlan: "Weather-dependent: check forecast. Falls are stunning in rain but visibility at Vista House varies. Wind common; layer up.",
       segments: [
         { label: "Morning", items: [
-          { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Courtyard Portland", duration: "40 min", cost: 0 },
-          { time: "8:35 AM", name: "Stumptown Downtown breakfast + coffee bean #4", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "60 min", cost: 20, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Morning ritual reset before the market.\nWebsite: https://www.stumptowncoffee.com/\nOrder: A different drink from Day 7 and, only if desired, one final bean bag.\nEstimated cost: $20.` },
-          { time: "9:35 AM", name: "Walk to Portland Saturday Market", type: "walk", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0 }
+          { time: "7:30 AM", name: "Wake + quick breakfast + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "50 min", cost: 0, notes: "Early start for Columbia Gorge Express from Gateway Transit Center." },
+          { time: "8:20 AM", name: "Transit to Gateway Transit Center", type: "transit", neighborhood: "Hotel Vance -> Gateway Center", duration: "30 min", cost: 3, notes: "Travel to Gateway Transit Center (10500 NE Brazee St) for CGX boarding." },
+          { time: "8:50 AM", name: "Columbia Gorge Express bus boarding", type: "transit", neighborhood: "Gateway Transit Center", duration: "10 min", cost: 0, notes: "Arrive early. Tickets: ridecatbus.org or onboard if available. VERIFY exact Nov 2026 schedule and fare at ridecatbus.org/columbia-gorge-express before the trip." }
         ]},
-        { label: "Afternoon", items: [
-          { time: "10:05 AM", name: "Portland Saturday Market browse", type: "activity", neighborhood: "Waterfront", location: "2 SW Naito Pkwy", duration: "120 min", cost: 24, website: "https://www.portlandsaturdaymarket.com/", payment: "Many vendors prefer cash; some accept cards", detailText: `Waterfront artisan market block.\nWebsite: https://www.portlandsaturdaymarket.com/\nPurpose: Shop local makers, pick up the cleaner low-cost souvenirs, and keep the trip's last full day feeling open-ended.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $24 base shopping budget.` },
-          { time: "12:05 PM", name: "Market lunch + snacks", type: "meal", neighborhood: "Waterfront", duration: "60 min", cost: 22, payment: "Cash preferred", detailText: `Graze multiple market vendors instead of leaving for lunch.\nOrder: Pupusas, Thai noodles, empanadas, or wood-fired crepes depending on what looks best.\nFruity: Fresh lemonade or smoothies from the market stalls.\nSkip: Sit-down restaurants nearby. The vendor food is the point here.\nEstimated cost: $22 plus any souvenir drift.\nPayment: Bring cash because not every booth takes cards.` },
-          { time: "1:05 PM", name: "Transit + Pearl/downtown reset", type: "rest", neighborhood: "Downtown/Pearl", duration: "120 min", cost: 0 }
+        { label: "Daytime", items: [
+          { time: "9:00 AM (est)", name: "Depart Gateway Transit Center (Columbia Gorge Express)", type: "transit", neighborhood: "Portland -> Gorge", duration: "45-60 min (est)", cost: 8, notes: "IMPORTANT: Exact departure time and return schedule must be verified at ridecatbus.org/columbia-gorge-express before the trip. Winter frequency may be reduced from summer's up to 8/day service." },
+          { time: "10:00 AM (est)", name: "Arrive Multnomah Falls area", type: "transit", neighborhood: "Gorge", duration: "0 min", cost: 0 },
+          { time: "10:05 AM", name: "Multnomah Falls walk + photo loop", type: "activity", neighborhood: "Multnomah Falls", location: "Multnomah Falls, Historic Highway area", duration: "90 min", cost: 0, website: "https://www.oregonhikers.org/field_guides/multnomah-falls-hike/", payment: "No admission; free public access", detailText: `Iconic 620-foot waterfall in Columbia River Gorge.\nWhat to see: Main falls viewpoint (accessible with no climbing), Benson Bridge loop (requires stairs), and trail to top if energy and time permit.\nBest photos: From the bridge for the classic full-waterfall shot.\nEstimated time: 60-90 min depending on how far you hike.\nWhat to bring: Layers (spray from falls + wind), water, camera.\nNote: The restaurant and gift shop on-site can supplement a snack if needed.\nEstimated cost: Free.` },
+          { time: "11:35 AM", name: "Benson Bridge trail (optional hike upward)", type: "activity", neighborhood: "Multnomah Falls", location: "Benson Bridge / Upper Falls trail", duration: "60 min (opt)", cost: 0, website: "https://www.oregonhikers.org/field_guides/multnomah-falls-hike/", detailText: `Optional: Uphill trail to view the falls from above.\nEffort: Moderate stairs and switchbacks; allow extra time and hydration.\nPurpose: Different angle on the falls and surrounding gorge; only go if energy and time allow.\nEstimated time: 60-90 min total from bottom.\nCost: Free.` },
+          { time: "12:45 PM", name: "Vista House walk (nearby historical stop)", type: "activity", neighborhood: "Columbia River Gorge", location: "Vista House, Crown Point State Scenic Viewpoint", duration: "45 min", cost: 0, website: "https://oregonstateparks.org/index.cfm?do=park.profile&parkId=74", detailText: `Scenic viewpoint and historical site overlooking the Columbia River.\nWhat to see: 360-degree views of the gorge and river; historic interpretive center inside (free).\nNote: Frequently windy; plan for layered clothing and be prepared for strong wind gusts.\nEstimated cost: Free (parking and entry both free).` },
+          { time: "1:30 PM", name: "Lunch near the Gorge (on-site or light snack)", type: "meal", neighborhood: "Multnomah Falls area", duration: "45 min", cost: 12, payment: "Cards accepted", detailText: `Quick lunch or snack to refuel before heading back.\nOptions: On-site restaurant at Multnomah Falls, or bring trail snacks.\nEstimated cost: $12.` }
+        ]},
+        { label: "Return", items: [
+          { time: "2:15 PM", name: "Transit back to Gateway Transit Center (CGX return)", type: "transit", neighborhood: "Gorge -> Gateway", duration: "50-60 min (est)", cost: 8, notes: "VERIFY EXACT TIME: Return bus departure must be confirmed before the trip. Budget for early afternoon return to be back in Portland by mid-late afternoon." },
+          { time: "3:30 PM (est)", name: "Arrive Gateway Transit Center", type: "transit", neighborhood: "Gateway Center", duration: "0 min", cost: 0 },
+          { time: "4:00 PM", name: "Transit to Cartopia food carts", type: "transit", neighborhood: "Gateway -> SE Hawthorne (Cartopia)", duration: "30 min", cost: 3, notes: "Head directly to Cartopia food cart pod from Gateway to maximize evening time." }
         ]},
         { label: "Evening", items: [
-          { time: "3:05 PM", name: "Courtyard reset", type: "rest", neighborhood: "Courtyard Portland", duration: "115 min", cost: 0 },
-          { time: "5:00 PM", name: "Pretty Ugly Burger dinner", type: "meal", neighborhood: "Downtown Portland", location: "Pretty Ugly Bar, 927 SW 2nd Ave", duration: "75 min", cost: 35, payment: "Cards accepted", detailText: `Burger-and-cocktail stop for the last real dinner lane.\nOrder: Signature double smash burger and fries.\nFruity: Ask for the most fruit-forward cocktail on the current menu.\nSkip: Skipping the cocktail here would be missing half the point.\nEstimated cost: $35 with drink and tip.` },
-          { time: "6:15 PM", name: "Novel Book Bar cocktail + browse", type: "activity", neighborhood: "NW Everett / Pearl edge", location: "Novel Book Bar, Portland", duration: "90 min", cost: 25, website: "https://www.instagram.com/novelpdx/", payment: "Cards accepted", detailText: `Books and cocktails close to the hotel base.\nWebsite: https://www.instagram.com/novelpdx/\nOrder: One or two literary cocktails and keep the food very light. If you want a snack, the lighter menu items are the better play.\nFruity: Ask what their most fruit-forward cocktail is that night.\nSkip: Heavy food -- this is a browse-and-drink stop.\nEstimated cost: $25 with two drinks and tip.` },
-          { time: "7:45 PM", name: "Wind-down", type: "rest", neighborhood: "Courtyard Portland", duration: "9.5 hrs", cost: 0 }
+          { time: "4:30 PM", name: "Cartopia food cart pod + Lardo browse", type: "meal", neighborhood: "SE Hawthorne", location: "Cartopia, SE Alder near 10th Ave + nearby Lardo", duration: "75 min", cost: 30, payment: "Cash preferred", detailText: `Portland's largest food cart cluster, open late/holidays.\nWhat to order: BKK pad thai, Korean BBQ, wood-fired pizza, or whatever looks fresh.\nLardo side: Nearby brick-and-mortar sandwich shop (1205 SW Washington St) if you want a sit-down alternative.\nEstimated cost: $25-35 including drinks and tips.\nPayment: Bring cash; not all carts accept cards.` },
+          { time: "5:45 PM", name: "Transit back to Hotel Vance", type: "transit", neighborhood: "SE Hawthorne -> Hotel Vance", duration: "25 min", cost: 3 },
+          { time: "6:15 PM", name: "Hotel wind-down + early rest", type: "rest", neighborhood: "Hotel Vance Portland", duration: "10.5 hrs", cost: 0, notes: "Settle in and sleep well for the flight day tomorrow morning." }
         ]}
       ]
     },
@@ -516,18 +523,18 @@ window.TRIP_DATA = {
       id: "day-9",
       isoDate: "2026-11-09",
       date: "Mon, Nov 9",
-      city: "Portland to Corpus Christi",
+      city: "Portland",
       title: "Final coffee and departure",
       theme: "Departure-safe pacing",
       dayTotal: 43,
       weatherPlan: "Protect airport timeline; final coffee grab only.",
       segments: [
         { label: "Morning", items: [
-          { time: "7:00 AM", name: "Wake + final packing", type: "rest", neighborhood: "Courtyard Portland", duration: "60 min", cost: 0 },
-          { time: "8:10 AM", name: "Courtyard breakfast + checkout prep", type: "meal", neighborhood: "Downtown Portland", location: "Courtyard Portland or nearby cafe", duration: "70 min", cost: 10, payment: "Cards accepted", detailText: `Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.` },
+          { time: "7:00 AM", name: "Wake + final packing", type: "rest", neighborhood: "Hotel Vance Portland", duration: "60 min", cost: 0 },
+          { time: "8:10 AM", name: "Hotel Vance breakfast + checkout prep", type: "meal", neighborhood: "Downtown Portland", location: "Hotel Vance Portland or nearby cafe", duration: "70 min", cost: 10, payment: "Cards accepted", detailText: `Light final morning food before the airport.\nOrder: Keep it simple -- coffee and a pastry, not a full sit-down breakfast.\nEstimated cost: $10.` },
           { time: "8:45 AM", name: "Stumptown final coffee", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "30 min", cost: 12, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Final Portland coffee before the airport run.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Your favorite drink of the trip or the one thing you still have not tried.\nEstimated cost: $12.` },
-          { time: "9:20 AM", name: "Courtyard final walk", type: "walk", neighborhood: "Downtown Portland", duration: "40 min", cost: 0 },
-          { time: "10:15 AM", name: "Checkout + transfer to PDX", type: "transit", neighborhood: "Courtyard -> PDX", duration: "60 min", cost: 3, notes: "Leave the hotel by about 10:15 AM to stay comfortably ahead of the domestic departure." },
+          { time: "9:20 AM", name: "Hotel Vance final walk", type: "walk", neighborhood: "Downtown Portland", duration: "40 min", cost: 0 },
+          { time: "10:15 AM", name: "Checkout + transfer to PDX", type: "transit", neighborhood: "Hotel Vance -> PDX", duration: "60 min", cost: 3, notes: "Leave the hotel by about 10:15 AM to stay comfortably ahead of the domestic departure." },
           { time: "11:00 AM", name: "Airport check-in and security buffer", type: "rest", neighborhood: "PDX", duration: "95 min", cost: 0 },
           { time: "12:35 PM", name: "PDX airport food + gate buffer", type: "meal", neighborhood: "PDX", duration: "40 min", cost: 18, payment: "Cards accepted", detailText: `PDX has unusually good post-security food.\nOrder: Burgerville seasonal milkshake if the fruit flavor looks good, plus a light meal from one of the local vendors.\nFruity: Fruity cider or the seasonal milkshake is the correct final-airport move.\nSkip: Generic chains if a local option is open nearby.\nEstimated cost: $18.` }
         ]},
@@ -543,10 +550,9 @@ window.TRIP_DATA = {
   guides: {
     reservations: [
       { name: "Best Buy Northgate Meta fit check", status: "ACTIVE DAY-2 LOGISTICS STOP", note: "Use the Northgate Best Buy stop on Seattle Day 2 to confirm Ray-Ban Meta frame fit, then order through Amazon for Courtyard Portland delivery if the fit works.", link: "https://www.meta.com/demo/scheduler/best-buy/" },
-      { name: "Courtyard Portland - Amazon package delivery confirmation", status: "CALL BEFORE ORDERING", note: "Call +1-503-233-3343 to confirm Amazon guest package delivery policy before ordering Meta glasses for hotel arrival.", link: "https://www.marriott.com/en/hotels/pdxcy-courtyard-portland-city-center/overview/" },
+      { name: "Hotel Vance Portland - Amazon package delivery confirmation", status: "CALL BEFORE ORDERING", note: "Call hotel concierge to confirm Amazon guest package delivery policy before ordering Meta glasses for hotel arrival.", link: "https://www.hotelvance.com/" },
       { name: "Portland Japanese Garden", status: "Optional", note: "Timed tickets recommended up to 10 days ahead. Skipped in favor of Powell's and indoor activities.", link: "https://japanesegarden.org/hours-admission/" },
-      { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" },
-      { name: "Seattle Kraken game placeholder", status: "WATCH FOR 2026-27 SINGLE-GAME SALES", note: "Use the official Kraken schedule first, then book through the team's official single-game ticket page once seats open. The expense board now carries a $120 planning estimate for one normal lower-to-mid bowl seat with a good center-ice-ish view, but the exact Nov. 1-4, 2026 home game and live seat price still depend on the official single-game release.", link: "https://www.nhl.com/kraken/tickets/single-game" }
+      { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" }
     ],
     photoOps: [
       { name: "Seattle Waterfront photo loop", city: "Seattle", day: "Day 2", subject: "Ferris wheel, waterfront stairs, and Olympic Sculpture Park skyline frames", block: "25 min", budget: "Free", link: "https://www.google.com/maps/search/Seattle+Waterfront+Olympic+Sculpture+Park" },
