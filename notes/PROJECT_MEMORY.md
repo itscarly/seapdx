@@ -58,22 +58,22 @@ Calendar files must match trip-data.js exactly:
 - **Zero-cost activities:** Are typed `"walk"` for outdoor exploration blocks, not `"activity"` (e.g., "Fremont walking loop", "Neighborhood orientation walk")
 - **Overnight sleep blocks:** Must have end dates on the next calendar day (e.g., start 2026-11-01 21:25, end 2026-11-02 07:55), not same-day end times
 - **Boylston Seattle base:** All Nov 1-5 events route through Boylston Hotel Capitol Hill, not Reside or other Seattle hotels
-- **Courtyard Portland base:** All Nov 5-9 events route through Courtyard by Marriott Portland City Center, 550 SW Oak Street
+- **Hotel Vance Portland base:** All Nov 5-9 events route through Hotel Vance, a Tribute Portfolio Hotel. Courtyard by Marriott Portland City Center was the stale/cancelled option -- do not reintroduce it.
 - **Calendar links:** If a stop does not yet store an exact event URL, the homepage uses a day-level Google Calendar fallback link.
 
-## Budget
+## Budget (as of 2026-08-02 comprehensive price audit)
 
-- **Projected local activity spend:** $1,241.50 USD
+- **Projected local activity spend:** $1,069 USD
 - **Budget cap:** $1,250 USD
 - **Absolute ceiling:** $1,300 USD
-- **Remaining headroom:** $8.50 USD
+- **Remaining headroom:** $181 USD
 - **Coffee bean max:** $60 USD (two bags total: one Seattle, one Portland)
 
 **Confirmed airfare total:** $1,256.83.
-**Confirmed hotel total:** $895.46.
-**Planned personal purchases:** Meta Ray-Ban glasses `$409`, BLEU DE CHANEL `$173`.
-**Planned Kraken ticket estimate:** `$120` for one normal mid-bowl seat once official 2026-27 single-game tickets open.
-**Transportation breakout:** Seattle local transit, Bainbridge ferry, Amtrak plus business-class bid, and Portland local transit are now shown as separate lines in the board.
+**Confirmed hotel total:** $917.42 (Boylston $504.46 + Hotel Vance $412.96).
+**Planned personal purchases:** Meta Ray-Ban glasses `$490`, BLEU DE CHANEL `$173`.
+**Kraken hockey removed:** fully removed from the plan on 2026-08-02; no longer a budget line or a watch item.
+**Transportation breakout:** Seattle local transit, Bainbridge ferry, Amtrak plus business-class bid, Cannon Beach round-trip bus, Multnomah Falls round-trip bus, and Portland local transit are now shown as separate lines in the board. The Transportation category total was corrected from a stale $95 to the real itemized $149.
 **Activity budget stays separate** from the all-in trip-cost summary.
 
 ## Validation Commands
@@ -109,4 +109,4 @@ npm run sync:calendar         # Rebuild calendar exports from trip-data.js
 - **Data structure:** Flat list of days, each with ordered stop items; no nested sections in the source
 - **Mobile-first design:** Dashboard is responsive; no app download needed
 - **Verification-first:** All itinerary changes must be validated before claiming done
-- **Automation scope:** the monthly baseline watch remains active for itinerary prices, menus, schedules, and Kraken availability
+- **Automation scope:** the monthly baseline watch remains active for itinerary prices, menus, schedules, and day-trip transit fares (Kraken removed 2026-08-02)

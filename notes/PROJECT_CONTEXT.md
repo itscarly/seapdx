@@ -22,7 +22,7 @@ It is built to be:
 - Budget validation script: `scripts/audit-budget.js`
 - Local preview: `npm run serve`
 - Fast verification: `npm run validate`
-- Canonical public host: `https://limcarl83-maker.github.io/my_projects/`
+- Canonical public host: `https://itscarly.github.io/seadpdx/`
 
 ## Homepage product direction
 
@@ -35,9 +35,9 @@ It is built to be:
 - **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
 - **Executive spend summary**: active and now part of the homepage. Confirmed airfare, confirmed hotels, planned local spend, and planned personal purchases should stay aligned with `data/trip-data.js`.
 - **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
-- **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$504.46`, and Courtyard Portland `$391.00`.
+- **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$504.46`, and Hotel Vance `$412.96` (confirmed accommodations total `$917.42`).
 - **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
-- **Remaining automation**: the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability remains in scope. Do not reintroduce the old airfare/hotel/itinerary monitor stack.
+- **Remaining automation**: the monthly baseline watch for itinerary prices, menus, schedules, and transit fares remains in scope. Kraken hockey was fully removed from the plan on 2026-08-02 and is no longer part of the watch. Do not reintroduce the old airfare/hotel/itinerary monitor stack.
 
 ## Main commands
 
@@ -62,7 +62,7 @@ It is built to be:
 
 - Seattle itinerary and shared Google Calendar routing use The Boylston Hotel Capitol Hill as the Nov 1-5 base. Do not create new Reside/104 Pine routing unless the user explicitly reverses the hotel decision.
 - Bainbridge should stay a breakfast-first island day unless the itinerary changes on purpose.
-- Portland should stay anchored around Courtyard by Marriott Portland City Center (550 SW Oak St) and close-in neighborhood routing.
+- Portland should stay anchored around Hotel Vance, a Tribute Portfolio Hotel, and close-in neighborhood routing. Courtyard by Marriott Portland City Center was the stale/cancelled option -- do not reintroduce it as the base.
 - Prices, hours, and transportation assumptions should be rechecked as the trip gets closer.
 
 ## Related notes
@@ -82,13 +82,13 @@ Use this order at the start of a new Claude/Codex session:
 2. latest note in `notes/session-start/`
 3. relevant source index note(s) in `notes/sources/`
 
-## Current validated budget snapshot
+## Current validated budget snapshot (as of 2026-08-02 comprehensive price audit)
 
-- Local activity-budget projected total: `$1,241.50`
+- Local activity-budget projected total: `$1,069`
 - Local activity-budget cap: `$1,250`
 - Local activity-budget ceiling: `$1,300`
 - Confirmed airfare total: `$1,256.83`
-- Confirmed hotel total: `$895.46`
-- Planned personal purchases total: `$582.00`
-- All-in savings target: `$3,970.79`
-- Kraken remains a `$120` estimate inside planned trip spend until the official 2026-27 single-game release is live.
+- Confirmed hotel total: `$917.42` (Boylston `$504.46` + Hotel Vance `$412.96`)
+- Planned personal purchases total: `$663.00` (Meta Ray-Ban `$490` + BLEU DE CHANEL `$173`)
+- All-in savings target: `$3,906.25` (confirmed `$2,174.25` + planned trip spend `$1,069` + planned purchases `$663`)
+- Kraken hockey was fully removed from the plan on 2026-08-02 and is no longer part of the budget or the automation watch.

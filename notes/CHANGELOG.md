@@ -4,6 +4,21 @@
 
 This is the concise project change record.
 
+## 2026-08-02 (session 37) — Full price audit, transportation accuracy, day-trip guides
+
+- Corrected ~20 underpriced itinerary line items (Pike Place snacks, several meals, coffee-bean stops, cocktail bars) against real 2026 menu prices; projected local spend moved from $926 to $1,069.
+- Fixed the Transportation budget category, which was stale at $95 while the real itemized transit total is $149; corrected it and added explicit Cannon Beach ($36) and Multnomah Falls ($16) round-trip bus lines to the dashboard breakdown instead of them being silently dropped.
+- Added a "Day trip guides" tab with full step-by-step Cannon Beach and Multnomah Falls guides (booking links, departure times, verify-before-booking flags).
+- Moved "How This Total Works" into a collapsible chevron on the All-in Target card.
+- Corrected stale project-memory notes that had the Portland hotel backwards (said Courtyard was active, Vance should be cancelled — reverse is true) and fixed a code bug in `scripts/session-status.js` that hardcoded a stale hotel total and a Kraken watch item that no longer exists.
+
+## 2026-07-05 (session 33) — GitHub repo rename to `itscarly/seadpdx`
+
+- Renamed the GitHub repository from `itscarly/my_projects` to `itscarly/seadpdx`.
+- Updated the local `origin` remote and GitHub About homepage so both point at the new repo and the new GitHub Pages URL.
+- Switched the public-site source link in `data/trip-data.js`, then regenerated the calendar export artifacts so every itinerary backlink now targets `/seadpdx/`.
+- Reconciled the public docs and active notes so the repo URL and canonical Pages host no longer mention the retired `my_projects` path.
+
 ## 2026-07-05 (session 31) — GitHub publish cleanup + doc reconciliation
 
 - Reconciled the active repo docs so the remaining automation path is described consistently as the monthly baseline watch, not a mix of monthly-watch and Kraken-only wording.

@@ -1,3 +1,49 @@
+## 2026-08-02 (session 37: Full price audit, transportation accuracy, day-trip guides, memory cleanup)
+
+### COMPLETE: Comprehensive price correction, dashboard transparency fixes, and stale-memory cleanup
+
+**Why this session happened:** After session 36's audit, the user found that many itinerary line items were still badly underpriced (some 4-8x, e.g. Pike Place snacks shown at $1-2 when real prices are $6-14), that the Transportation budget category didn't reflect real day-trip bus costs, that Cannon Beach and Multnomah Falls had no rider-facing guide despite being committed day trips, and that project memory still had the Portland hotel backwards (claiming Courtyard was active and Hotel Vance should be cancelled, when it's the reverse).
+
+**Price audit (two passes, `data/trip-data.js`):**
+- First pass only corrected 3 coffee-bean stops (Rachel's Ginger Beer $2→$8, Analog Day 4 $18→$24, Stumptown Day 6 $20→$26) — user caught that this left the rest of the previously-documented audit findings unapplied.
+- Second pass applied the full remaining list: Pike Place snacks (Piroshky $2→$9, Beecher's $2→$11, Daily Dozen $2→$9, Mee Sum $2→$9, MarketSpice $1→$8), Glo's Cafe breakfast $18→$32, FOB Sushi $38→$42 (corrected: it's weight-based, not AYCE), Harbour Public House $32→$42, Blackbird Bakery $10→$14, Saint John's happy hour $18→$22, Uneeda Burger $26→$28, Ballard Coffee Works $8→$11, Sea'd In $45→$55 (flagged: could not confirm this restaurant exists), Luc Lac $50→$52, Pretty Ugly Burger $35→$48, Novel Book Bar $25→$42, Cartopia $30→$35.
+- Budget categories updated to match: Food $450→$572, Cocktails and social $100→$121. Projected total moved from $926→$1,069 (Food $468 intermediate step from the first pass).
+- `npm run validate` confirmed the itemized day-by-day sums, category sums, and projected total all reconcile exactly at every step.
+
+**Transportation category accuracy fix:**
+- Discovered the Transportation budget category was stale at $95 while the real itemized transit cost (Seattle transit, Bainbridge ferry, Amtrak, Cannon Beach bus, Multnomah Falls bus, Portland local transit) actually totals $149.
+- Corrected the category to $149 and reduced Contingency from $66 to $12 to keep the overall $1,069 total unchanged — this is a relabeling fix, not new spend.
+- Fixed `dashboards/js/app.js`'s `buildTripCostBreakdown()` Transportation section to show explicit "Cannon Beach round trip ($36)" and "Multnomah Falls round trip ($16)" lines, and fixed the Seattle/Portland local-transit filters, which previously had gaps (e.g. excluded "Intercity rail" but not "Intercity bus") that caused the day-trip bus fares to be silently dropped or double-counted. Verified line-by-line with a script that every dollar of the real $149 total is now accounted for exactly once.
+
+**Day-trip guides added:**
+- New `guides.dayTrips` array in `data/trip-data.js` with full step-by-step guides for Cannon Beach/Haystack Rock (Day 6) and Multnomah Falls/Vista House (Day 8): booking links, exact departure times, tide-pool/Vista House notes, and explicit "verify before booking" flags on the unconfirmed return times.
+- New "Day trip guides" tab added to the Planning Guides section in `dashboards/html/index.html` (uses the existing generic guide-card renderer, no new render function needed).
+
+**UI change — "How This Total Works" chevron:**
+- Moved the formula block out of its own separate section and into a collapsible chevron on the All-in Target card in `dashboards/js/app.js`, reusing the existing `.budget-item--expandable` pattern. Added matching chevron-rotation CSS to `dashboards/css/styles.css`.
+
+**Japanese Garden clarification:**
+- Confirmed its missing price is correct behavior (it's an intentionally skipped/optional stop, not an active budget item). Added its real $19.95 adult admission to the guide note for reference.
+
+**Memory and handoff cleanup (this pass):**
+- Rewrote `notes/memory/active/project_current_state.md` — it had the Portland hotel completely backwards (said Courtyard was active, Vance should be cancelled). Corrected to reflect Hotel Vance as the real active booking.
+- Corrected stale Courtyard/Kraken/wrong-total references in `notes/PROJECT_CONTEXT.md`, `notes/KNOWN_ISSUES.md`, `notes/MAINTENANCE.md`, `notes/PROJECT_MEMORY.md`, and `notes/memory/active/project_calendar.md` (which still described a Reside Seattle Downtown + Courtyard Portland base from session 17).
+- Updated `notes/memory/active/MEMORY.md` index line for `project_current_state.md` to match the corrected file.
+- Fixed a real code bug in `scripts/session-status.js`: it hardcoded a stale $871.98 hotel total and a phantom "Seattle Kraken home-game tickets" watch item that doesn't exist anywhere in the live data. Rewrote it to load `data/trip-data.js` directly and print live numbers, so this can't go stale again.
+- Committed the backlog of legitimate but previously-uncommitted changes from the July 5 GitHub repo rename (`itscarly/seadpdx`), which had been sitting in the working tree unstaged.
+
+**Files modified this session:** `data/trip-data.js`, `dashboards/js/app.js`, `dashboards/css/styles.css`, `dashboards/html/index.html`, `scripts/session-status.js`, `notes/memory/active/project_current_state.md`, `notes/memory/active/project_calendar.md`, `notes/memory/active/MEMORY.md`, `notes/PROJECT_CONTEXT.md`, `notes/KNOWN_ISSUES.md`, `notes/MAINTENANCE.md`, `notes/PROJECT_MEMORY.md`, `notes/Project Log.md`, `notes/CHANGELOG.md`, `notes/TASKS.md`, `tasks/todo.md`.
+
+**Verification:** `npm run validate` passes clean at every step (`projected: 1069, target: 1250, ceiling: 1300, remaining: 181`).
+
+**Open items for next session:**
+- Verify the exact POINT NorthWest return time from Cannon Beach (Day 6) and the Columbia Gorge Express November schedule/fare for Multnomah Falls (Day 8) — both flagged "confirm before booking" in the itinerary and guides.
+- Confirm whether "Sea'd In Capitol Hill" (Day 4 dinner) is a real, bookable restaurant — could not verify via research.
+- Reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana; the airline's published schedule notice lists that route as Mon/Tue/Wed/Fri/Sat, not Sunday.
+- Consider whether the "Cocktails and social" category's $121 (vs. the $79 sum of pure bar-only stops, with meal-bundled cocktails counted separately under Food) should be tightened to an exact sum — currently left as an intentional buffer, flagged to the user, not yet resolved either way.
+
+---
+
 ## 2026-08-02 (session 36: Dashboard comprehensive audit)
 
 ### COMPLETE: Full dashboard audit and consistency verification

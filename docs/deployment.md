@@ -6,8 +6,8 @@ This project is a static site. There is no build step, server runtime, or backen
 
 GitHub Pages is the primary public host for this repo.
 
-- Repository: [limcarl83-maker/my_projects](https://github.com/limcarl83-maker/my_projects)
-- Live site: [limcarl83-maker.github.io/my_projects](https://limcarl83-maker.github.io/my_projects/)
+- Repository: [itscarly/seadpdx](https://github.com/itscarly/seadpdx)
+- Live site: [itscarly.github.io/seadpdx](https://itscarly.github.io/seadpdx/)
 
 ## How publish works
 

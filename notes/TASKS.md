@@ -10,6 +10,19 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
+- **Full price audit, transportation accuracy, day-trip guides, memory cleanup** (2026-08-02, session 37)
+  - Corrected roughly 20 underpriced itinerary items against real 2026 menu prices; projected local spend moved from $926 to $1,069 (still $181 under the $1,250 cap)
+  - Fixed the Transportation budget category (stale $95 vs. real itemized $149) and added explicit Cannon Beach / Multnomah Falls bus-fare lines to the dashboard breakdown
+  - Added a "Day trip guides" tab with full Cannon Beach and Multnomah Falls step-by-step guides
+  - Moved "How This Total Works" into a chevron on the All-in Target card
+  - Corrected stale memory notes that had the Portland hotel backwards, and fixed a `scripts/session-status.js` bug that hardcoded a stale hotel total and a dead Kraken watch item
+  - See `notes/Project Log.md` (session 37) for the full itemized before/after list
+
+- **GitHub repo rename to `itscarly/seadpdx`** (2026-07-05, session 33)
+  - Renamed the GitHub repository and updated the local `origin` remote so this checkout no longer depends on the old redirecting URL
+  - Updated the GitHub About homepage and the project docs so the repo and public Pages links both point at `/seadpdx/`
+  - Switched `data/trip-data.js` to the new public site path, then regenerated the calendar export files so itinerary backlinks stay correct
+
 - **GitHub repo presentation + hygiene cleanup** (2026-07-05, session 32)
   - Rewrote the public README around the live site links, current budget snapshot, local commands, deploy flow, and repo shape so the GitHub homepage is easier to understand at a glance
   - Reframed the deployment doc around GitHub Pages as the canonical public host while keeping Netlify documented only as a fallback

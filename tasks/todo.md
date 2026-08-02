@@ -2,6 +2,8 @@
 
 ## Latest verified state
 
+- [x] August 2, 2026: Full price audit completed across the itinerary; Transportation budget category corrected ($95 stale → $149 real); Cannon Beach and Multnomah Falls day-trip guides added to the dashboard; "How This Total Works" moved into a chevron; stale project-memory notes (Portland hotel, Kraken watch) corrected.
+- [x] July 5, 2026: GitHub repository renamed to `itscarly/seadpdx`, local `origin` updated, and Pages host switched to `/seadpdx/`.
 - [x] June 27, 2026: Seattle + Portland itinerary rebuild completed and finalized.
 - [x] June 27, 2026: Dashboard cache-bust updated and deployed.
 - [x] June 27, 2026: Project log updated with the final session handoff.
@@ -41,32 +43,37 @@
 - [ ] Recheck November-specific business hours for key stops as the trip approaches.
 - [ ] Recheck the live shared calendar and homepage alignment in the next couple of weeks.
 - [ ] Update `data/trip-data.js` if any price, hour, route, or transit assumption changes materially.
-- [ ] Recheck menus, ticket pages, and attraction schedules monthly for the named stops: Seattle sail, Sky View Observatory, Portland Japanese Garden, Glo's Cafe, coffee bean stops, and Kraken ticket window.
+- [ ] Recheck menus, ticket pages, and attraction schedules monthly for the named stops: Seattle sail, Sky View Observatory, Portland Japanese Garden, Glo's Cafe, and coffee bean stops.
+- [ ] Verify the exact POINT NorthWest return time from Cannon Beach (Day 6) and the Columbia Gorge Express November schedule/fare for Multnomah Falls (Day 8) before booking either.
+- [ ] Confirm whether "Sea'd In Capitol Hill" (Day 4 dinner) is a real, bookable restaurant.
+- [ ] Reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana (published schedule notice lists Mon/Tue/Wed/Fri/Sat, not Sunday).
 
 ### Booking follow-up
 
-- [ ] Confirm the active Seattle and Portland hotel bookings still match the real trip plan.
-- [ ] Cancel any older hotel bookings that are still active outside the repo truth.
+- [x] Confirmed the active hotel bookings as of 2026-08-02: Seattle is The Boylston Hotel Capitol Hill ($504.46), Portland is Hotel Vance, a Tribute Portfolio Hotel ($412.96). Total $917.42.
+- [ ] Confirm no older hotel bookings (Reside, Palihotel, Courtyard) remain active outside the repo truth.
 
 ### Remaining automation
 
-- [ ] Keep the monthly baseline watch active for itinerary prices, menus, schedules, and the Kraken ticket window.
+- [ ] Keep the monthly baseline watch active for itinerary prices, menus, schedules, and day-trip transit fares. Kraken hockey was fully removed from the plan on 2026-08-02 and is no longer part of the watch.
 - [ ] Do not recreate airfare, hotel, or itinerary monitor scripts unless the user explicitly asks for a new system.
 - [ ] If a new watch expansion is approved, keep it separate from the retired monitor stack and send only concise change notices.
-- [ ] Maintain a baseline-backed monthly check for the sail, menus, market stops, coffee stops, and Kraken availability.
+- [ ] Maintain a baseline-backed monthly check for the sail, menus, market stops, and coffee stops.
 
 ## Stable current state
 
 - Homepage redesign, logistics split, executive trip-cost summary, and calendar-detail sync are complete.
 - Homepage compaction pass is complete: section rhythm, button/chip sizing, day-card density, and lower-section rendering have all been tightened and re-verified.
-- Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$895.46`.
-- Meta Ray-Ban glasses and BLEU DE CHANEL are included as planned purchases in the savings target.
-- Local activity-budget target is now `$1,250` with `$1,241.50` currently projected.
+- Confirmed airfare total is `$1,256.83`; confirmed hotel total is `$917.42` (Boylston `$504.46` + Hotel Vance `$412.96`).
+- Meta Ray-Ban glasses (`$490`) and BLEU DE CHANEL (`$173`) are included as planned purchases in the savings target.
+- Local activity-budget target is `$1,250` with `$1,069` currently projected as of the 2026-08-02 comprehensive price audit.
 - The old airfare, hotel, and itinerary monitor stack is retired from the repo and public site.
-- The active automation scope is the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability.
+- The active automation scope is the monthly baseline watch for itinerary prices, menus, schedules, and day-trip transit fares. Kraken hockey was fully removed from the plan on 2026-08-02.
 
 ## Review
 
+- Verified GitHub now serves the repo at `https://github.com/itscarly/seadpdx`.
+- Verified the GitHub Pages configuration now reports `https://itscarly.github.io/seadpdx/` as the published site URL.
 - `npm run validate` passed after the CSS and reveal-logic changes.
 - Browser checks passed at roughly desktop (`1440px`), tablet (`980px`), and mobile (`390px`) widths.
 - Verified outcome:

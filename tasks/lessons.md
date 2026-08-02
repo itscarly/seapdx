@@ -102,6 +102,27 @@
 
 ### Symptom
 
+- A repo rename request initially looked ambiguous because the local checkout still used the old owner/path URL while GitHub already resolved the live repo under a different owner.
+
+### Root cause
+
+- I trusted the local `origin` URL too early even though GitHub was already redirecting it to the current repository.
+- That made the local checkout look like it belonged to a different owner until the live repo metadata was checked directly.
+
+### Fix
+
+- Verify both the local remote and the live GitHub repository object before changing repo settings.
+- Treat redirecting remotes as stale local state and normalize them in the same pass as the repo rename.
+
+### Prevention rule
+
+- For GitHub rename or ownership tasks, check the live repo identity with GitHub first, not just `git remote -v`.
+- If local `origin` and the live repo owner/path disagree, confirm the canonical repo object before editing docs or settings.
+
+## 2026-07-05
+
+### Symptom
+
 - The user still saw desktop homepage subtitles wrapping onto second lines while large horizontal gaps and tall empty cards were still visible in the same screenshots.
 
 ### Root cause

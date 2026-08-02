@@ -4,9 +4,9 @@ Static travel-planning dashboard for a November 1-9, 2026 Seattle and Portland t
 
 ## Live site
 
-- GitHub Pages: [limcarl83-maker.github.io/my_projects](https://limcarl83-maker.github.io/my_projects/)
-- Dashboard entry: [dashboards/html/index.html](https://limcarl83-maker.github.io/my_projects/dashboards/html/index.html)
-- Logistics hub: [dashboards/html/logistics.html](https://limcarl83-maker.github.io/my_projects/dashboards/html/logistics.html)
+- GitHub Pages: [itscarly.github.io/seadpdx](https://itscarly.github.io/seadpdx/)
+- Dashboard entry: [dashboards/html/index.html](https://itscarly.github.io/seadpdx/dashboards/html/index.html)
+- Logistics hub: [dashboards/html/logistics.html](https://itscarly.github.io/seadpdx/dashboards/html/logistics.html)
 
 ## Current trip snapshot
 

@@ -83,5 +83,5 @@ When a change fixes drift, confusion, stale instructions, or a repeated mistake:
 - `npm run validate` is the default regression check.
 - `npm run sync:calendar` rebuilds export artifacts.
 - GitHub Pages is the canonical public host.
-- The active trip automation is the monthly baseline watch for itinerary prices, menus, schedules, and Kraken availability.
+- The active trip automation is the monthly baseline watch for itinerary prices, menus, schedules, and day-trip transit fares (Kraken hockey was removed from the plan on 2026-08-02 and is no longer part of the watch).
 - `notes/` should stay plain-file friendly; do not track `.obsidian` working-state files in the public repo.

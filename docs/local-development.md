@@ -28,7 +28,7 @@ What to expect:
 
 ## Keep Localhost Online Automatically
 
-This project includes a local health check for this Mac. It checks `http://127.0.0.1:4173/` and starts the same static preview used by `npm run serve` if the local preview is down.
+This project includes a local health check for this Mac. It checks `http://127.0.0.1:4173/dashboards/html/index.html` and starts the same static preview used by `npm run serve` if the local preview is down.
 
 To turn it on:
 

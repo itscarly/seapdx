@@ -4,6 +4,7 @@ set -u
 PROJECT_DIR="/Users/kicker/Downloads/codexproject"
 PORT="4173"
 HEALTH_URL="http://127.0.0.1:${PORT}/"
+DASHBOARD_URL="http://127.0.0.1:${PORT}/dashboards/html/index.html"
 LOG_DIR="${PROJECT_DIR}/logs"
 HEALTH_LOG="${LOG_DIR}/localhost-health.log"
 SERVER_LOG="${LOG_DIR}/localhost-server.log"
@@ -26,11 +27,11 @@ log() {
 }
 
 is_healthy() {
-  /usr/bin/curl --silent --show-error --fail --max-time 5 "$HEALTH_URL" >/dev/null 2>&1
+  /usr/bin/curl --silent --show-error --fail --max-time 5 "$DASHBOARD_URL" >/dev/null 2>&1
 }
 
 if is_healthy; then
-  log "Local preview is healthy at ${HEALTH_URL}."
+  log "Local preview is healthy at ${DASHBOARD_URL}."
   exit 0
 fi
 
@@ -59,7 +60,7 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 
 if /usr/sbin/lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
-  log "Port ${PORT} is in use, but ${HEALTH_URL} did not respond. Leaving the existing process in place for manual review."
+  log "Port ${PORT} is in use, but ${DASHBOARD_URL} did not respond. Leaving the existing process in place for manual review."
   exit 1
 fi
 
@@ -71,10 +72,10 @@ cd "$PROJECT_DIR" || {
 }
 
 if [ "$FOREGROUND" = "true" ]; then
-  log "Starting local preview in foreground for LaunchAgent ownership with python3 -m http.server ${PORT}."
+  log "Starting local preview in foreground for LaunchAgent ownership with python3 -m http.server ${PORT} --directory ${PROJECT_DIR}."
   rmdir "$LOCK_DIR" 2>/dev/null || true
   trap - EXIT
-  exec python3 -m http.server "$PORT" >> "$SERVER_LOG" 2>&1
+  exec python3 -m http.server "$PORT" --directory "$PROJECT_DIR" >> "$SERVER_LOG" 2>&1
 fi
 
 /usr/bin/nohup npm run serve >> "$SERVER_LOG" 2>&1 &

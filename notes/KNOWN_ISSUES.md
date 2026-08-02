@@ -6,13 +6,13 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 ### Hotel booking cleanup still needs human confirmation
 
-- Status: open — action required
-- Detail: the dashboard now treats Boylston and Courtyard Portland as the active hotel truth, but any older Seattle or Portland hotel bookings still need to be manually confirmed or cancelled outside the repo.
+- Status: resolved as of 2026-08-02
+- Detail: the dashboard now treats Boylston and Hotel Vance, a Tribute Portfolio Hotel, as the active hotel truth (confirmed accommodations total `$917.42`). Courtyard by Marriott Portland City Center was the stale booking and has been fully removed from trip-data.js, app.js, index.html, logistics.html, and the memory notes.
 
-### November 2026 hours and ticket availability are still partly provisional
+### November 2026 hours, transit fares, and a couple of unverified prices still need closer review
 
 - Status: open
-- Detail: business hours, some restaurant details, ticket availability, and menu pricing all still need closer review as the trip approaches. The strongest monthly watch candidates are Seattle sail pricing, Sky View Observatory hours and admission, Portland Japanese Garden hours and admission, Glo's hours/menu, and the Kraken 2026-27 schedule or single-game inventory.
+- Detail: business hours, some restaurant details, and a few day-trip transit fares still need closer review as the trip approaches. Specifically flag: (1) the exact POINT NorthWest return time from Cannon Beach on Day 6, (2) the exact Columbia Gorge Express November schedule and fare for Day 8, (3) whether "Sea'd In Capitol Hill" (Day 4 dinner) is a real, bookable restaurant -- research could not confirm it exists, (4) Asiana's OZ271/272 schedule notice lists Mon/Tue/Wed/Fri/Sat rather than the booked Sunday Nov 1 arrival date -- reconfirm directly with Asiana. The Seattle Kraken watch item is retired; Kraken tickets were removed from the plan on 2026-08-02 and should not be reintroduced.
 
 ### Homepage calendar links still prefer day-level fallback when no exact event URL is stored
 
