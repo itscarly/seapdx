@@ -495,8 +495,8 @@ function initHero() {
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
-  if (seattleBaseEl) seattleBaseEl.textContent = data.meta.travelerBase.seattle;
-  if (portlandBaseEl) portlandBaseEl.textContent = data.meta.travelerBase.portland;
+  if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="https://www.theboylstonseatle.com/" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
+  if (portlandBaseEl) portlandBaseEl.innerHTML = `<a href="https://www.hotelvanceportland.com/" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
   if (verifiedEl) verifiedEl.textContent = data.meta.verifiedOn;
 }
@@ -1132,7 +1132,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Hotel accommodations",
       amount: getConfirmedHotelTotal(),
-      note: "Boylston in Seattle and Courtyard in Portland.",
+      note: "Boylston in Seattle and Hotel Vance in Portland.",
       shareBase: allInTarget,
       breakdown: hotelItems.map((item) => ({
         label: item.name,
@@ -1159,19 +1159,18 @@ function buildTripCostBreakdown(allInTarget) {
         { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Puget Sound")), detail: "Link, buses, and other Seattle-side transit moves." },
         { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
         { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
-        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Courtyard -> PDX"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
+        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
       ]
     },
     {
       name: "Activities and admissions",
       amount: entranceCategory?.amount || 0,
-      note: "Paid attractions, admission-based itinerary stops, and one planned Kraken game.",
+      note: "Paid attractions and admission-based itinerary stops.",
       shareBase: allInTarget,
       breakdown: [
         { label: "Sailing Seattle downtown sail", amount: findStopCost("Sailing Seattle - Downtown Sail (1.5 hrs)"), detail: "Seattle Day 2 anchor activity." },
         { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View sunset"), detail: "Sip & Sights Experience with the $10 cafe voucher." },
         { label: "Portland Japanese Garden", amount: findStopCost("Portland Japanese Garden (timed entry)"), detail: "Timed Portland anchor stop." },
-        { label: "Seattle Kraken ticket estimate", amount: 120, detail: "Planned mid-bowl seat with a better center-view feel once official 2026-27 single-game seats open." }
       ]
     },
     {
@@ -1300,8 +1299,8 @@ function renderTripCostSummary() {
         <p>Nothing below is extra on top of this formula. The lower cards are just the grouped explanation for the same total, not separate charges added again.</p>
       </div>
       <div class="trip-cost-audit-exclusions muted">
-        <span class="trip-cost-audit-label">Current exclusions or placeholders</span>
-        <p>Kraken is still an estimate, not a confirmed charge. If you skip it later, subtract ${moneyCompact(120)} from planned trip spend and from the all-in target.</p>
+        <span class="trip-cost-audit-label">Current status</span>
+        <p>All confirmed activities and day-trip costs are synced. Kraken ticket was removed from the plan as of Aug 2, 2026.</p>
       </div>
     </article>
   `;
@@ -1535,7 +1534,7 @@ function renderTripAtlas() {
       <div class="atlas-head">
         <div>
           <span class="badge">Portland</span>
-          <h3>Courtyard Portland base, eastside swings, airport departure</h3>
+          <h3>Hotel Vance Portland base, eastside swings, airport departure</h3>
           <p>Shows what stays close to the hotel, where you start needing transit, and how far the outer detours really push the route.</p>
         </div>
         <div id="${TRIP_MAP_CONFIG.portland.summaryId}" class="atlas-summary"></div>
