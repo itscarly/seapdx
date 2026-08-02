@@ -495,8 +495,8 @@ function initHero() {
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
-  if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="https://www.theboylstonseatle.com/" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
-  if (portlandBaseEl) portlandBaseEl.innerHTML = `<a href="https://www.hotelvanceportland.com/" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
+  if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
+  if (portlandBaseEl) portlandBaseEl.innerHTML = `<a href="https://www.hotelvance.com/contact-location" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
   if (verifiedEl) verifiedEl.textContent = data.meta.verifiedOn;
 }
