@@ -3550,6 +3550,7 @@ main {
   margin: 0;
   font-size: 0.84rem;
   line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .trip-home .detail-section a,

@@ -1127,7 +1127,7 @@ function buildTripCostBreakdown(allInTarget) {
       shareBase: allInTarget,
       breakdown: [
         { label: "Sailing Seattle downtown sail", amount: findStopCost("Sailing Seattle - Downtown Sail (1.5 hrs)"), detail: "Seattle Day 2 anchor activity." },
-        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View sunset"), detail: "Sip & Sights Experience with the $10 cafe voucher." },
+        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View sunset + cocktail"), detail: "Observatory ticket plus a Sky View Cafe cocktail." },
         { label: "Portland Japanese Garden", amount: findStopCost("Portland Japanese Garden (timed entry)"), detail: "Timed Portland anchor stop." },
       ]
     },
