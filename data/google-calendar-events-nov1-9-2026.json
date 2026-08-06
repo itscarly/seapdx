@@ -547,30 +547,30 @@
     "tag": "SEAPDX-2026-day-5-69",
     "title": "🛌 Portland Day 5 · Hotel Vance wind-down / Sleep",
     "start": "2026-11-05T20:30:00-08:00",
-    "end": "2026-11-06T07:30:00-08:00",
+    "end": "2026-11-06T07:00:00-08:00",
     "location": "Hotel Vance Portland",
     "description": "Purpose: Full recovery night before the first deeper Portland day.\nDuration: 10 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-2-3-hotel-vance-wind-down-sleep"
   },
   {
     "tag": "SEAPDX-2026-day-6-70",
     "title": "🛌 Portland Day 6 · Wake + quick breakfast + prep",
-    "start": "2026-11-06T07:30:00-08:00",
-    "end": "2026-11-06T08:20:00-08:00",
+    "start": "2026-11-06T07:00:00-08:00",
+    "end": "2026-11-06T07:50:00-08:00",
     "location": "Hotel Vance Portland",
     "description": "Purpose: Early start to catch the westbound POINT NorthWest bus.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-0-wake-quick-breakfast-prep"
   },
   {
     "tag": "SEAPDX-2026-day-6-71",
     "title": "🚇 Portland Day 6 · Transit to Portland Union Station",
-    "start": "2026-11-06T08:20:00-08:00",
-    "end": "2026-11-06T08:45:00-08:00",
+    "start": "2026-11-06T07:50:00-08:00",
+    "end": "2026-11-06T08:10:00-08:00",
     "location": "Hotel Vance -> Union Station",
-    "description": "Purpose: Walk or MAX to Union Station (800 NW 6th Ave).\nEstimated cost: $3.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-1-transit-to-portland-union-stat"
+    "description": "Purpose: Walk or MAX to Union Station (800 NW 6th Ave).\nEstimated cost: $3.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-1-transit-to-portland-union-stat"
   },
   {
     "tag": "SEAPDX-2026-day-6-72",
     "title": "🚇 Portland Day 6 · POINT NorthWest bus to Cannon Beach (boarding)",
-    "start": "2026-11-06T08:45:00-08:00",
+    "start": "2026-11-06T08:10:00-08:00",
     "end": "2026-11-06T08:28:00-08:00",
     "location": "Portland Union Station",
     "description": "Purpose: Arrive early for 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245.\nDuration: 15 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-2-point-northwest-bus-to-cannon-"
@@ -619,22 +619,22 @@
     "tag": "SEAPDX-2026-day-6-78",
     "title": "🚇 Portland Day 6 · Transit to bus stop + board return bus",
     "start": "2026-11-06T16:20:00-08:00",
-    "end": "2026-11-06TNaN:undefined:00-08:00",
+    "end": "2026-11-06T16:35:00-08:00",
     "location": "Downtown Cannon Beach",
     "description": "Purpose: CRITICAL: Exact return bus time must be confirmed before the trip. One data point: 5:55 PM Astoria departure → 9:00 PM Portland arrival (Cannon Beach departs before Astoria). Call 1-800-872-7245 or check oregon-point.com/routes/northwest for the specific Nov 6 return time.\nDuration: 15 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-0-transit-to-bus-stop-board-retu"
   },
   {
     "tag": "SEAPDX-2026-day-6-79",
     "title": "🚇 Portland Day 6 · Depart Cannon Beach (POINT NorthWest return)",
-    "start": "2026-11-06TNaN:undefined:00-08:00",
-    "end": "2026-11-06T20:NaN:00-08:00",
+    "start": "2026-11-06T16:35:00-08:00",
+    "end": "2026-11-06T19:05:00-08:00",
     "location": "Intercity bus",
-    "description": "Purpose: VERIFY TIME BEFORE BOOKING: Estimated arrival Portland ~6-9 PM depending on exact departure. Plan to arrive back at hotel by early evening.\nEstimated cost: $18.\nDuration: ~150 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-1-depart-cannon-beach-point-nort"
+    "description": "Purpose: VERIFY TIME BEFORE BOOKING: placeholder departure based on the 5:55 PM Astoria data point (Cannon Beach departs earlier on the same route). Estimated arrival Portland ~6-9 PM depending on exact departure. Plan to arrive back at hotel by early evening.\nEstimated cost: $18.\nDuration: ~150 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-1-depart-cannon-beach-point-nort"
   },
   {
     "tag": "SEAPDX-2026-day-6-80",
     "title": "🚇 Portland Day 6 · Arrive Portland Union Station + transfer to Hotel Vance",
-    "start": "2026-11-06T20:NaN:00-08:00",
+    "start": "2026-11-06T19:05:00-08:00",
     "end": "2026-11-06T21:00:00-08:00",
     "location": "Union Station -> Hotel Vance",
     "description": "Purpose: Arrive Portland Union Station + transfer to Hotel Vance keeps the cannon beach / haystack rock day trip (public transit) route on track.\nEstimated cost: $3.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-2-arrive-portland-union-station-"

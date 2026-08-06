@@ -436,9 +436,9 @@ window.TRIP_DATA = {
       weatherPlan: "Coastal weather varies; low tide timing essential for tide-pool access. Check NOAA tides for Nov 6, 2026 before confirming the day.",
       segments: [
         { label: "Morning", items: [
-          { time: "7:30 AM", name: "Wake + quick breakfast + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "50 min", cost: 0, notes: "Early start to catch the westbound POINT NorthWest bus." },
-          { time: "8:20 AM", name: "Transit to Portland Union Station", type: "transit", neighborhood: "Hotel Vance -> Union Station", duration: "25 min", cost: 3, notes: "Walk or MAX to Union Station (800 NW 6th Ave)." },
-          { time: "8:45 AM", name: "POINT NorthWest bus to Cannon Beach (boarding)", type: "transit", neighborhood: "Portland Union Station", duration: "15 min", cost: 0, notes: "Arrive early for 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245." }
+          { time: "7:00 AM", name: "Wake + quick breakfast + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "50 min", cost: 0, notes: "Early start to catch the westbound POINT NorthWest bus." },
+          { time: "7:50 AM", name: "Transit to Portland Union Station", type: "transit", neighborhood: "Hotel Vance -> Union Station", duration: "20 min", cost: 3, notes: "Walk or MAX to Union Station (800 NW 6th Ave)." },
+          { time: "8:10 AM", name: "POINT NorthWest bus to Cannon Beach (boarding)", type: "transit", neighborhood: "Portland Union Station", duration: "15 min", cost: 0, notes: "Arrive early for 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245." }
         ]},
         { label: "Daytime", items: [
           { time: "8:28 AM", name: "Depart Portland Union Station (POINT NorthWest)", type: "transit", neighborhood: "Intercity bus", duration: "138 min", cost: 18, notes: "IMPORTANT: Verify exact departure time and return schedule at oregon-point.com/routes/northwest or by phone (1-800-872-7245) before the trip. Fare range $12-30; budget $18 as estimate." },
@@ -449,8 +449,8 @@ window.TRIP_DATA = {
         ]},
         { label: "Evening / Return", items: [
           { time: "4:20 PM", name: "Transit to bus stop + board return bus", type: "transit", neighborhood: "Downtown Cannon Beach", duration: "15 min", cost: 0, notes: "CRITICAL: Exact return bus time must be confirmed before the trip. One data point: 5:55 PM Astoria departure → 9:00 PM Portland arrival (Cannon Beach departs before Astoria). Call 1-800-872-7245 or check oregon-point.com/routes/northwest for the specific Nov 6 return time." },
-          { time: "TBD", name: "Depart Cannon Beach (POINT NorthWest return)", type: "transit", neighborhood: "Intercity bus", duration: "~150 min", cost: 18, notes: "VERIFY TIME BEFORE BOOKING: Estimated arrival Portland ~6-9 PM depending on exact departure. Plan to arrive back at hotel by early evening." },
-          { time: "8:00-9:00 PM (est)", name: "Arrive Portland Union Station + transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "30 min", cost: 3 },
+          { time: "4:35 PM", name: "Depart Cannon Beach (POINT NorthWest return)", type: "transit", neighborhood: "Intercity bus", duration: "~150 min", cost: 18, notes: "VERIFY TIME BEFORE BOOKING: placeholder departure based on the 5:55 PM Astoria data point (Cannon Beach departs earlier on the same route). Estimated arrival Portland ~6-9 PM depending on exact departure. Plan to arrive back at hotel by early evening." },
+          { time: "7:05 PM", name: "Arrive Portland Union Station + transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "30 min", cost: 3 },
           { time: "9:00 PM", name: "Hotel wind-down + early sleep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "10 hrs", cost: 0, notes: "Settle in and rest after a full coastal day." }
         ]}
       ]
