@@ -1,27 +1,23 @@
 ---
 name: session-start
-source: obsidian-memory-collector
-last_verified: 2026-07-05T03:00:47.787Z
+source: manual
+last_verified: 2026-08-06T00:00:00.000Z
 status: active
 confidence: high
-next_action: Open today's digest, then source index notes, then proceed with task work.
+next_action: Read notes/Project Log.md (top entry) and notes/memory/active/project_current_state.md, then proceed with task work.
 ---
 
 # Session Start
 
 This file is the startup pointer for all new Claude/Codex sessions in this repo.
 
-## Manual update, 2026-08-02
+## Current state, 2026-08-06
 
-The obsidian-memory-collector digest below has not run since 2026-07-05 -- nearly a month behind the real project state. Read `notes/Project Log.md` (session 38, at the top) and `notes/memory/active/project_current_state.md` first; both are current as of 2026-08-02 and supersede the stale digest pointer.
+Read `notes/Project Log.md` (session 39, at the top) and `notes/memory/active/project_current_state.md` first; both are current as of 2026-08-06.
 
-Key facts as of 2026-08-02: Portland's active hotel is Hotel Vance, a Tribute Portfolio Hotel (not Courtyard). Kraken hockey was fully removed from the plan. Projected local spend is $1,069 against a $1,250 cap. The homepage's "Trip overview" section is gone (merged into "Trip cost"), and six sections now default-collapsed. See `notes/memory/active/project_current_state.md` for the full current-state summary.
+Key facts: Seattle base is The Boylston Hotel Capitol Hill; Portland base is Hotel Vance, a Tribute Portfolio Hotel (never Courtyard). Projected local spend is **$1,049.35** against a $1,250 cap / $1,300 ceiling. "Sea'd In Capitol Hill dinner" has been deleted from the itinerary entirely. The live Google Calendar ("Seattle & Portland 2026") is fully resynced and matches `trip-data.js` for all of Nov 1-9 — but `npm run sync:calendar` only regenerates local export files, it never touches the live calendar API; any future drift must be fixed by hand via the Google Calendar MCP tools.
 
 ## Startup sequence
 1. Read `notes/Project Log.md` (top entry) and `notes/memory/active/project_current_state.md` for current state
-2. Read [[session-start/2026-07-05]] only for older automated-digest context; treat it as historical, not current
-3. Read relevant source index notes in [[sources/codex-memories]], [[sources/claude-home]], [[sources/vscode-context]] if deeper history is needed
-4. Confirm open blockers before making edits
-
-## Current digest
-- [[session-start/2026-07-05]] (stale -- see manual update above)
+2. Read relevant source index notes in [[sources/codex-memories]], [[sources/claude-home]], [[sources/vscode-context]] if deeper history is needed
+3. Confirm open blockers in `notes/KNOWN_ISSUES.md` before making edits

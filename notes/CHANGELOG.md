@@ -4,6 +4,13 @@
 
 This is the concise project change record.
 
+## 2026-08-06 (session 39) — Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes
+
+- Reconciled real Nov 1-5 receipts into `trip-data.js`: corrected ~20 venue costs, added order/menu links, deleted "Sea'd In Capitol Hill dinner", added a $20 QFC seltzer line, split Sky View into ticket + cocktail. Projected local spend: $1,069 → $1,049.35.
+- Fixed overlapping Poquitos happy-hour card text (`overflow-wrap` CSS fix) and a $0 Columbia Center Sky View entrance-fee card (stale lookup string in `app.js`).
+- Discovered the local calendar sync script never wrote to the live Google Calendar API. Fully resynced all 117 Nov 1-9 events on the live "Seattle & Portland 2026" calendar (132 stale events deleted, 117 recreated), including removing a stale Courtyard by Marriott Portland booking record with explicit user confirmation.
+- Fixed two Cannon Beach (Day 6) itinerary data bugs: an unparseable `"TBD"` return-bus time and a boarding time scheduled after its own departure.
+
 ## 2026-08-02 (session 38) — Homepage redundancy audit, collapsible sections, budget-card grid fix
 
 - Deleted the redundant "Trip overview" section (duplicated the hero card's all-in target) and merged Executive Summary + Activity Budget into one "Trip cost" section; removed the flat granular budget-category list since the same numbers already live inside the category cards' click-to-expand breakdowns.

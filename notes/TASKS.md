@@ -10,6 +10,13 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
+- **Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes** (2026-08-06, session 39)
+  - Reconciled real receipts (Nov 1-5) into `trip-data.js`: corrected ~20 costs, added menu/order links, deleted "Sea'd In Capitol Hill dinner" entirely, added a $20 QFC seltzer line, split Columbia Center Sky View into ticket + cocktail. Projected local spend is now $1,049.35 (was $1,069).
+  - Fixed two dashboard bugs from user screenshot review: overlapping Poquitos happy-hour card text (long URL needed `overflow-wrap`) and a $0 Sky View entrance-fee card (stale exact-string lookup in `app.js`'s `findStopCost()`).
+  - Discovered `npm run sync:calendar` never touches the live Google Calendar API, only local export files — the live "Seattle & Portland 2026" calendar was months out of date. Fully resynced all 117 Nov 1-9 events on the live calendar via the Google Calendar MCP tools (132 stale events deleted total across both halves of the trip, 117 recreated from the corrected local export), including removing a genuine Courtyard by Marriott Portland booking record with user's explicit confirmation.
+  - Found and fixed two Cannon Beach (Day 6) itinerary data bugs: an unparseable `time: "TBD"` return-bus field and a boarding time scheduled after its own departure time.
+  - See `notes/Project Log.md` (session 39) for full detail
+
 - **Homepage redundancy audit, collapsible sections, budget-card grid fix** (2026-08-02, session 38)
   - Deleted the redundant "Trip overview" section (duplicated the hero's all-in target number) and merged Executive Summary + Activity Budget into one "Trip cost" section; removed the flat granular budget-category list since the same numbers already live inside the category cards' click-to-expand breakdowns
   - Unified all Trip Cost cards into a single 4-column CSS grid with equal heights; found and fixed a leftover `:last-child { grid-column: 1/-1 }` rule from the old 3-column layout that was forcing Contingency onto its own full-width row instead of sitting with Local spend vs. cap and Buffer left

@@ -1,10 +1,10 @@
 ---
 name: project-current-state
-description: "Current verified state of codexproject as of 2026-08-02 — Boylston is active Seattle base, Hotel Vance is active Portland base, confirmed accommodations total $917.42"
+description: "Current verified state of codexproject as of 2026-08-06 — Boylston is active Seattle base, Hotel Vance is active Portland base, confirmed accommodations total $917.42, live Google Calendar fully resynced for all of Nov 1-9"
 metadata:
   node_type: memory
   type: project
-  originSessionId: session-Aug2-audit
+  originSessionId: session-39-calendar-resync
 ---
 
 Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]) is the active booking. Portland hotel is finalized: **Hotel Vance, a Tribute Portfolio Hotel** (conf [redacted]) is the active booking.
@@ -12,6 +12,14 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 **Why:** The Aug 2, 2026 comprehensive audit found the prior memory note had Portland's hotel roles backwards (it said Courtyard was active and Vance should be cancelled). Hotel Vance is confirmed correct across trip-data.js, the dashboard, and the hotel-monitor JSON files.
 
 **How to apply:** Seattle base is Boylston (Capitol Hill). Portland base is Hotel Vance. Do not reintroduce Courtyard by Marriott Portland City Center anywhere in the itinerary, dashboard, or calendar exports — it was the stale booking, not the active one.
+
+## Verified state as of 2026-08-06 (session 39)
+
+- Local Nov 1-5 costs reconciled against real receipts; projected local spend is now **$1,049.35** (was $1,069) against the $1,250 cap / $1,300 ceiling.
+- "Sea'd In Capitol Hill dinner" was **deleted from the itinerary entirely**, not just flagged as unconfirmed — do not reintroduce it.
+- `npm run sync:calendar` only regenerates local `data/google-calendar-events-nov1-9-2026.json`/`.csv` — it never calls the Google Calendar API. If the live calendar and the local export ever drift again, the live calendar must be updated by hand via the Google Calendar MCP tools (delete stale events, recreate from the local export), scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"` — never the personal calendar `limcarl83@gmail.com`.
+- The live Google Calendar was fully resynced for all of Nov 1-9 (117 events) as of this session and matches `trip-data.js` exactly. A prior Nov 6-9 calendar version referencing Fuller's Coffee Shop, Portland Japanese Garden, Tasty n Alder, Powell's, Heart Coffee Roasters, Momiji, Tope, MadeHere PDX, and Courtyard by Marriott Portland (booking confirmation [redacted], now cancelled) was fully replaced.
+- `data/trip-data.js`'s Cannon Beach return-bus item previously had `time: "TBD"`, which is unparseable by the calendar sync script and produces invalid timestamps. It now has a concrete placeholder time (4:35 PM depart) with a "VERIFY BEFORE BOOKING" note preserved. Any future itinerary edit that sets a `time` field to a non-clock-time placeholder (e.g. "TBD", a text range) will silently corrupt the calendar export — always use a real `H:MM AM/PM` value even for unconfirmed times, and flag uncertainty in `notes` instead.
 
 ## Verified state as of 2026-08-02
 
@@ -53,4 +61,5 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 [[feedback_confirm_hotel_before_price]]
 [[feedback_airfare_award_vs_cash]]
 [[feedback_sync_both_hotel_files]]
+[[feedback_calendar_local_vs_live_sync]]
 [[user_profile]]

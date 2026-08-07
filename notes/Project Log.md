@@ -1,3 +1,40 @@
+## 2026-08-06 (session 39: Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes)
+
+### COMPLETE: Reconciled real receipts into the dashboard, discovered and fixed the local-vs-live calendar sync gap, resynced all 117 itinerary events on the actual Google Calendar
+
+**Why this session happened:** The user had logged real receipts (with tips/tax) for Nov 1-5 in a CSV and wanted them treated as source of truth for costs, order details, and menu links; wanted "Sea'd In Capitol Hill dinner" removed since it could not be confirmed to exist; and — after confirming the Nov 1-5 dashboard fix looked right — asked for the same treatment to be extended through Nov 9 (the Portland days), with an explicit hard constraint that all calendar writes go to the "Seattle & Portland 2026" calendar only, never the personal calendar.
+
+**CSV reconciliation (Nov 1-5, `data/trip-data.js`):**
+- Overwrote roughly 20 venue costs with real receipt totals (both up and down), added correct menu/order links, and folded the CSV's itemized sub-rows into each stop's ORDER line.
+- Deleted "Sea'd In Capitol Hill dinner" entirely (Nov 4) — unconfirmed venue, no replacement.
+- Added a new $20 QFC Truly Hard Seltzer line item (Nov 1).
+- Split Columbia Center Sky View into ticket ($40.35) + Sky View Cafe cocktail ($22).
+- Recalculated day totals and budget categories; `audit-budget.js` now computes **$1,049.35** projected (was $1,069 before this session).
+
+**Two dashboard bugs found and fixed from user screenshot review:**
+- Overlapping "HAPPY HOUR MENU"/"ORDER" card text on Poquitos — an unwrapped long PDF URL was spilling past its CSS grid column. Fixed with `overflow-wrap: anywhere` on `.trip-home .detail-section p`.
+- Columbia Center Sky View showing $0 in the entrance-fee breakdown — `app.js`'s `findStopCost()` does exact-string matching against `stop.name`; renaming the stop to include "+ cocktail" broke the hardcoded lookup in `buildTripCostBreakdown()`. Fixed the lookup string.
+
+**Major discovery: local calendar "sync" never touched the live Google Calendar.** `npm run sync:calendar` (`scripts/sync-calendar-exports.js`) only regenerates local `data/google-calendar-events-nov1-9-2026.json`/`.csv` — there is no code path that calls the Google Calendar API. The live "Seattle & Portland 2026" calendar was stale: old Nov 1-5 prices, Sea'd In still present, and a completely different Nov 6-9 itinerary from an earlier plan version (Fuller's Coffee Shop, Portland Japanese Garden, Tasty n Alder, Powell's, Heart Coffee Roasters, Luc Lac HH, Tope rooftop bar, Momiji AYCE sushi, MadeHere PDX — none of which match the current Cannon Beach / Saturday Market / Multnomah Falls plan).
+
+**Full live-calendar resync (both halves of the trip, via MCP Google Calendar tools):**
+- Nov 1-5: deleted 63 stale events, recreated 69 from the corrected local export. Flights/lounge/hotel-admin events outside the itinerary structure were left untouched.
+- Nov 6-9: deleted 43 stale events (including a genuine "🏨 Courtyard by Marriott Portland Check-Out" booking record, confirmation [redacted] — user explicitly confirmed deleting it since Hotel Vance is the correct current hotel) and created 48 events matching the current Cannon Beach, Saturday Market, and Multnomah Falls itinerary. Unlike Nov 1-5, the Nov 9 flight events (AA 2496 PDX→DFW, DFW layover, AA 5273 DFW→CRP) ARE part of day-9's itinerary structure in `trip-data.js` and so were included in the delete/recreate.
+- All calendar writes scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"`; the personal calendar (`limcarl83@gmail.com`) was never touched.
+- Verified post-sync: 48/48 Nov 6-9 events confirmed live, zero overlaps, zero stale venue names remaining (grepped for Courtyard/Fuller's/Japanese Garden/Tasty n Alder/Powell's/Heart Coffee/Momiji/Tope/MadeHere — none found).
+
+**Two Cannon Beach (Day 6) data bugs found while extracting the Nov 6-9 calendar export:**
+- The return-bus item had `time: "TBD"` — unparseable, produced `2026-11-06TNaN:undefined:00-08:00` timestamps in the calendar export. Replaced with a concrete placeholder (4:35 PM depart / 7:05 PM arrive), keeping the existing "VERIFY TIME BEFORE BOOKING" language since the real Oregon-Point schedule is still unconfirmed.
+- The POINT NorthWest boarding item was scheduled at 8:45 AM — *after* the 8:28 AM departure it was meant to precede. Shifted the whole morning sequence 30 min earlier (wake 7:00 AM, transit 7:50 AM, boarding 8:10 AM) so boarding correctly precedes departure.
+
+**Files modified this session:** `data/trip-data.js`, `dashboards/css/styles.css`, `dashboards/js/app.js`, `data/google-calendar-events-nov1-9-2026.json`, `data/google-calendar-import-nov1-9-2026.csv`.
+
+**Verification:** `npm run validate` passed at every step (final: `projected: 1049.35, target: 1250, ceiling: 1300, remaining: 200.65`). Live Google Calendar spot-checked via `list_events` + jq for both Nov 1-5 and Nov 6-9 ranges. Committed and pushed to `itscarly/seadpdx` main (`ae94bbd`, then `f901d3b` for the Cannon Beach timing fix).
+
+**Open items for next session:** "Sea'd In Capitol Hill" watch item is now resolved (the venue was deleted, not just flagged). Still open: verify the real POINT NorthWest Cannon Beach return time and the real Columbia Gorge Express November schedule/fare before booking either day trip; reconfirm the Asiana OZ271/272 Nov 1 arrival date directly with Asiana.
+
+---
+
 ## 2026-08-02 (session 38: Homepage redundancy audit, collapsible sections, budget-card grid fix)
 
 ### COMPLETE: Dashboard content/redundancy audit, unified budget grid, six default-collapsed sections

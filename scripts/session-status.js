@@ -57,9 +57,8 @@ function main() {
   lines.push("");
 
   lines.push("--- Open Watch Items ---");
-  lines.push("  Verify POINT NorthWest exact return time from Cannon Beach (Day 6) before booking.");
+  lines.push("  Verify POINT NorthWest exact return time from Cannon Beach (Day 6) before booking -- placeholder is 4:35 PM depart.");
   lines.push("  Verify Columbia Gorge Express November schedule/fare for Multnomah Falls (Day 8) before booking.");
-  lines.push("  Verify \"Sea'd In Capitol Hill\" (Day 4 dinner) actually exists -- could not confirm via research.");
   lines.push("  Reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana (published schedule notice lists Mon/Tue/Wed/Fri/Sat, not Sunday).");
   lines.push("");
 
