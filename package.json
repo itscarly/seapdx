@@ -5,7 +5,8 @@
   "description": "Static Seattle and Portland travel itinerary dashboard with synced trip planning and executive spend summaries.",
   "scripts": {
     "serve": "python3 -m http.server 4173 --directory .",
-    "validate": "node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js && node scripts/sync-calendar-exports.js",
+    "validate": "node scripts/stamp-last-updated.js && node --check data/trip-data.js && node --check dashboards/js/app.js && node scripts/audit-budget.js && node scripts/sync-calendar-exports.js",
+    "stamp:updated": "node scripts/stamp-last-updated.js",
     "audit:notes": "node scripts/audit-notes.js",
     "audit:budget": "node scripts/audit-budget.js",
     "review:monthly": "node scripts/monthly-review-report.js",

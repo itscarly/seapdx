@@ -3273,15 +3273,12 @@ main {
 
 .budget-panel--unified .budget-summary-card,
 .budget-panel--unified .budget-item {
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.budget-panel--unified .budget-item-top,
-.budget-panel--unified .budget-capline,
-.budget-panel--unified .budget-breakdown {
-  margin-top: auto;
+.budget-panel--unified .budget-list {
+  align-items: start;
 }
 
 .budget-panel--unified .budget-list .budget-item:last-child {

@@ -6,7 +6,10 @@ require(path.join(__dirname, "..", "data", "trip-data.js"));
 const data = global.window.TRIP_DATA;
 const categoryTotal = data.budget.categories.reduce((sum, item) => sum + item.amount, 0);
 const plannedPurchasesTotal = (data.tripCosts?.plannedPurchases || []).reduce((sum, item) => sum + item.amount, 0);
-const dayTotal = data.itinerary.reduce((sum, day) => sum + day.dayTotal, 0) + plannedPurchasesTotal;
+const onlinePurchasesTotal = (data.tripCosts?.onlinePurchases || [])
+  .reduce((sum, group) => sum + (group.items || []).reduce((groupSum, item) => groupSum + item.amount, 0), 0);
+const chicagoPocketMoneyTotal = Number(data.tripCosts?.chicagoPocketMoney?.amount || 0);
+const dayTotal = data.itinerary.reduce((sum, day) => sum + day.dayTotal, 0) + plannedPurchasesTotal + onlinePurchasesTotal + chicagoPocketMoneyTotal;
 const mismatches = data.itinerary
   .map((day) => ({
     date: day.date,

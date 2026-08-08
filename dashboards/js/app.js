@@ -29,12 +29,6 @@ const TRIP_VISUALS = [
     image: `${IMAGE_BASE}bainbridge-ferry.jpg`
   },
   {
-    name: "Portland Japanese Garden",
-    city: "Portland",
-    caption: "A softer Portland anchor that makes the garden day read like a real highlight.",
-    image: `${IMAGE_BASE}portland-japanese-garden.jpg`
-  },
-  {
     name: "Downtown Portland",
     city: "Portland",
     caption: "Use this to visually carry Powell's, downtown coffee, cocktails, and the last full-day loop.",
@@ -140,8 +134,6 @@ const STOP_COORDINATES = {
   "Diner breakfast": { lat: 47.6157, lng: -122.3192, label: "Glo's Cafe" },
   "Pike Place Market light grazing route": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
   "Pike Place Market main loop + Totem Smokehouse": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
-  "Luke's Lobster lunch": { lat: 47.6084, lng: -122.3409, label: "Luke's Lobster" },
-  "Sailing Seattle - Downtown Sail (1.5 hrs)": { lat: 47.6072, lng: -122.3421, label: "Pier 56" },
   "Ghost Alley Espresso (coffee to-go before Northgate)": { lat: 47.6099, lng: -122.3428, label: "Ghost Alley Espresso" },
   "Best Buy Northgate - Ray-Ban Meta glasses fit check": { lat: 47.7062, lng: -122.3255, label: "Best Buy Northgate" },
   "Seattle Waterfront + Olympic Sculpture Park": { lat: 47.6159, lng: -122.3554, label: "Olympic Sculpture Park" },
@@ -167,7 +159,6 @@ const STOP_COORDINATES = {
   "Walgreens Pharmacy Capitol Hill": { lat: 47.6159, lng: -122.3201, label: "Walgreens Broadway" },
   "Powell's City of Books + Life of Pie NW": { lat: 45.5231, lng: -122.6818, label: "Powell's / Pearl start" },
   "Fuller's Coffee Shop breakfast": { lat: 45.5267, lng: -122.6814, label: "Fuller's Coffee Shop" },
-  "Washington Park + Portland Japanese Garden": { lat: 45.5186, lng: -122.7081, label: "Portland Japanese Garden" },
   "Tasty Corner PDX lunch": { lat: 45.5114, lng: -122.6837, label: "Tasty Corner" },
   "Powell's City of Books + Hello From Portland": { lat: 45.5232, lng: -122.6816, label: "Powell's / Hello From Portland" },
   "Lunch at Tasty n Alder": { lat: 45.5181, lng: -122.6825, label: "Tasty n Alder" },
@@ -504,10 +495,11 @@ function initHero() {
   const seattleBaseEl = document.getElementById("heroSeattleBase");
   const portlandBaseEl = document.getElementById("heroPortlandBase");
   const railWindowEl = document.getElementById("heroRailWindow");
-  const verifiedEl = document.getElementById("heroVerified");
+  const chicagoBaseEl = document.getElementById("heroChicagoBase");
+  const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed + ${money(plannedTotal)} still to plan/spend`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed (hotels + Korean Air) + ${money(plannedTotal)} still to plan/spend -- Asiana + AA airfare already paid, not counted here`;
   if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
@@ -515,7 +507,8 @@ function initHero() {
   if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
   if (portlandBaseEl) portlandBaseEl.innerHTML = `<a href="https://www.hotelvance.com/contact-location" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
-  if (verifiedEl) verifiedEl.textContent = data.meta.verifiedOn;
+  if (chicagoBaseEl) chicagoBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.chicago}</a>`;
+  if (lastUpdatedEl) lastUpdatedEl.textContent = data.meta.verifiedOn;
 }
 
 function renderHeroFacts() {
@@ -527,7 +520,7 @@ function renderHeroFacts() {
   const lines = [
     `${data.itinerary.length} trip days with one continuous Seattle-to-Portland flow`,
     `${seattleDays} Seattle days, ${portlandDays} Portland or transfer days`,
-    `${moneyPrecise(getConfirmedTripTotal())} already committed before local trip spending`,
+    `${moneyPrecise(getConfirmedTripTotal())} still owed for hotels + outstanding airfare before local trip spending (Asiana + AA already paid)`,
     `${futureJourneys ? `${futureJourneys} later booked flight still lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
   ];
   factsEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join("");
@@ -1020,6 +1013,18 @@ function getConfirmedAirfareTotal() {
   return data.tripCosts?.confirmed?.airfare?.total ?? data.flights?.airfareTotal ?? 0;
 }
 
+function getAirfareItems() {
+  return data.tripCosts?.confirmed?.airfare?.items || [];
+}
+
+function getPaidAirfareTotal() {
+  return getAirfareItems().filter((item) => item.paid).reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+}
+
+function getOutstandingAirfareTotal() {
+  return getConfirmedAirfareTotal() - getPaidAirfareTotal();
+}
+
 function getConfirmedHotelTotal() {
   return data.tripCosts?.confirmed?.accommodations?.total ?? 0;
 }
@@ -1028,8 +1033,18 @@ function getPlannedPersonalPurchaseTotal() {
   return (data.tripCosts?.plannedPurchases || []).reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
 }
 
+function getOnlinePurchaseGroups() {
+  return data.tripCosts?.onlinePurchases || [];
+}
+
+function getOnlinePurchasesTotal() {
+  return getOnlinePurchaseGroups().reduce((sum, group) => (
+    sum + (group.items || []).reduce((groupSum, item) => groupSum + (Number(item.amount) || 0), 0)
+  ), 0);
+}
+
 function getConfirmedTripTotal() {
-  return getConfirmedAirfareTotal() + getConfirmedHotelTotal();
+  return getOutstandingAirfareTotal() + getConfirmedHotelTotal();
 }
 
 function getPlannedAdditionalTotal() {
@@ -1069,19 +1084,22 @@ function buildTripCostBreakdown(allInTarget) {
   const entranceCategory = data.budget.categories.find((item) => item.name === "Entrance fees");
   const shoppingCategory = data.budget.categories.find((item) => item.name === "Shopping");
   const tattooCategory = data.budget.categories.find((item) => item.name === "Tattoo");
+  const chicagoPocketMoneyCategory = data.budget.categories.find((item) => item.name === "Chicago pocket money");
   const contingencyCategory = data.budget.categories.find((item) => item.name === "Contingency");
   const plannedPurchases = data.tripCosts?.plannedPurchases || [];
   const plannedPurchasesTotal = getPlannedPersonalPurchaseTotal();
-  const coffeeBeansAndSouvenirs = (shoppingCategory?.amount || 0) - plannedPurchasesTotal;
+  const onlinePurchaseGroups = getOnlinePurchaseGroups();
+  const onlinePurchasesTotal = getOnlinePurchasesTotal();
+  const coffeeBeansAndSouvenirs = (shoppingCategory?.amount || 0) - plannedPurchasesTotal - onlinePurchasesTotal;
 
   return [
     {
       name: "Airfare",
-      amount: getConfirmedAirfareTotal(),
-      note: "Asiana plus the paid American Airlines [redacted] booking.",
+      amount: getOutstandingAirfareTotal(),
+      note: `Only the Korean Air balance counts toward the all-in target above -- Asiana and American Airlines ([redacted]) are already paid in full ($${getPaidAirfareTotal().toFixed(2)} combined) and listed below for reference only.`,
       shareBase: allInTarget,
       breakdown: airfareItems.map((item) => ({
-        label: item.name,
+        label: `${item.name}${item.paid ? " (already paid)" : " (confirmed, not yet charged)"}`,
         amount: item.amount,
         detail: item.covers || item.confirmation || ""
       }))
@@ -1089,7 +1107,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Hotel accommodations",
       amount: getConfirmedHotelTotal(),
-      note: "Boylston in Seattle and Hotel Vance in Portland.",
+      note: "Boylston in Seattle, Hotel Vance in Portland, and Hotel Blake in Chicago (Feb 27 - Mar 5, 2027 layover).",
       shareBase: allInTarget,
       breakdown: hotelItems.map((item) => ({
         label: item.name,
@@ -1117,7 +1135,7 @@ function buildTripCostBreakdown(allInTarget) {
         { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
         { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
         { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
-        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
+        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, airport-side Portland transit, and the Nov 7 Shonen Tattoo bus 33 round trip ($2.80 each way)." }
       ]
     },
     {
@@ -1126,19 +1144,22 @@ function buildTripCostBreakdown(allInTarget) {
       note: "Paid attractions and admission-based itinerary stops.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Sailing Seattle downtown sail", amount: findStopCost("Sailing Seattle - Downtown Sail (1.5 hrs)"), detail: "Seattle Day 2 anchor activity." },
-        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View sunset + cocktail"), detail: "Observatory ticket plus a Sky View Cafe cocktail." },
-        { label: "Portland Japanese Garden", amount: findStopCost("Portland Japanese Garden (timed entry)"), detail: "Timed Portland anchor stop." },
+        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View + cocktail"), detail: "Observatory ticket plus a Sky View Cafe cocktail. Sailing Seattle removed from the itinerary -- no longer a separate line here." },
       ]
     },
     {
       name: "Shopping",
       amount: shoppingCategory?.amount || 0,
-      note: "Everything to buy or keep: coffee beans, souvenirs/keepsakes, and planned personal purchases, all in one number.",
+      note: "Everything to buy or keep: coffee beans, souvenirs/keepsakes, planned personal purchases, and confirmed online orders (Amazon, Calvin Klein, Hollister), all in one number.",
       shareBase: allInTarget,
       breakdown: [
         { label: "Coffee beans and souvenirs/keepsakes", amount: coffeeBeansAndSouvenirs, detail: "Two coffee bags, Totem Smokehouse salmon, QFC seltzer 12-pack, city mugs, magnets, market browsing." },
-        ...plannedPurchases.map((item) => ({ label: item.name, amount: item.amount, detail: item.note || "" }))
+        ...plannedPurchases.map((item) => ({ label: item.name, amount: item.amount, detail: item.note || "" })),
+        ...onlinePurchaseGroups.map((group) => ({
+          label: `${group.store} order`,
+          amount: (group.items || []).reduce((sum, item) => sum + (Number(item.amount) || 0), 0),
+          detail: (group.items || []).map((item) => `${item.name} -- $${Number(item.amount).toFixed(2)}`).join("\n")
+        }))
       ]
     },
     {
@@ -1148,6 +1169,15 @@ function buildTripCostBreakdown(allInTarget) {
       shareBase: allInTarget,
       breakdown: [
         { label: "Shonen Tattoo appointment", amount: tattooCategory?.amount || 0, detail: tattooCategory?.note || "" }
+      ]
+    },
+    {
+      name: "Chicago pocket money",
+      amount: chicagoPocketMoneyCategory?.amount || 0,
+      note: "Discretionary spending money for the Feb 27 - Mar 5, 2027 Chicago layover, separate from the Hotel Blake cost.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Chicago layover pocket money", amount: chicagoPocketMoneyCategory?.amount || 0, detail: chicagoPocketMoneyCategory?.note || "" }
       ]
     },
     {
