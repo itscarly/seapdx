@@ -57,9 +57,8 @@ function main() {
   lines.push("");
 
   lines.push("--- Open Watch Items ---");
-  lines.push("  Verify POINT NorthWest exact return time from Cannon Beach (Day 6) before booking -- placeholder is 4:35 PM depart.");
-  lines.push("  Verify Columbia Gorge Express November schedule/fare for Multnomah Falls (Day 8) before booking.");
   lines.push("  Reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana (published schedule notice lists Mon/Tue/Wed/Fri/Sat, not Sunday).");
+  lines.push("  Projected total $1,296.35 is $46.35 over the $1,250 cap (under the $1,300 ceiling) after the Nov 6-9 reconciliation -- real receipts, not a bug.");
   lines.push("");
 
   lines.push("--- Quick Commands ---");

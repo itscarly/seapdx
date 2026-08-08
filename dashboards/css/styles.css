@@ -822,6 +822,11 @@ h3 {
   border-left-color: var(--accent-2);
 }
 
+.stop--chip.has-cost {
+  border-left-color: var(--accent-4);
+  background: rgba(244, 178, 49, 0.08);
+}
+
 .chip-timing {
   font-size: 0.7rem;
   font-weight: 800;
@@ -3407,6 +3412,11 @@ main {
   background: rgba(255, 252, 247, 0.95);
   box-shadow: var(--shadow-soft);
   gap: 6px;
+}
+
+.trip-home .stop--chip.has-cost {
+  border-left-color: var(--accent-4);
+  background: rgba(215, 163, 90, 0.1);
 }
 
 .trip-home .stop--chip:hover,

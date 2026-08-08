@@ -1,3 +1,26 @@
+## 2026-08-07 (session 40: Nov 6-9 CSV reconciliation, Multnomah Falls removed, live-calendar resync)
+
+### COMPLETE: Reconciled real Nov 6-9 receipts into the dashboard, removed the Multnomah Falls day trip in favor of a tattoo-rest day, added flight events to the live calendar for the first time
+
+**Why this session happened:** Continuing the Nov 1-5 reconciliation from session 39, the user provided `Expenses - Sheet38.csv` with real Nov 6-9 receipts and confirmed PDX-DFW-CRP flight details, and wanted two itinerary changes: drop the Multnomah Falls/Vista House day trip (Day 8) because a tattoo appointment was added to Day 7 and needs to rest and wrap rather than doing a hiking day the next day, and keep Cartopia as a light brunch-time stop instead.
+
+**CSV reconciliation (Nov 6-9, `data/trip-data.js`):**
+- Day 6: confirmed POINT NorthWest bus times (depart PDX 8:28 AM/arrive Astoria 11:46 AM, return depart Astoria 5:55 PM/arrive PDX 9:00 PM), combined lunch/coffee/cocktail stop at $100.
+- Day 7: rebuilt around the tattoo in sequence coffee -> tattoo (Shonen Tattoo, $177 incl. tip) -> Saturday Market ($50) -> Sephora perfume browse (tracked outside the trip budget) -> Pretty Ugly Burger dinner ($63) -> Novel Book Bar ($29). (Initial pass double-counted these two at $125.50/$57.50 -- CSV's aggregate line was the total, not an addition on top of the itemized cocktails/tip. Corrected same session, including the live calendar event descriptions.)
+- Day 8: Multnomah Falls, Vista House, and the Columbia Gorge Express transit removed entirely. Replaced with a rest day plus brunch-time Cartopia ($50).
+- Day 9: Hotel Vance breakfast ($31), corrected PDX-DFW/DFW-CRP flight times to match the confirmed AA booking (previously stale by about 50 minutes on each leg).
+- Added a new "Tattoo" budget category ($177); Transportation dropped from $149 to $128 (Multnomah Falls fare removed); projected total rose from $1,049.35 (Nov 1-5 only) to **$1,296.35**, now $46.35 over the $1,250 cap but under the $1,300 ceiling -- flagged in `budget.overCeilingNote`, not hidden.
+
+**`data/trip-data.js` self-recompute discovery:** the file has a self-executing IIFE near the bottom that recomputes `day.dayTotal` and `budget.projectedTotal` from actual per-stop `cost` fields on every load, and auto-fills `Contingency` as the remainder (clamped at 0). Hand-set `dayTotal`/`projectedTotal` are cosmetic; category amounts must stay at or below the real itinerary total or Contingency silently clamps to zero. Caught this via `npm run validate`'s category-total mismatch and rebalanced the Food category to fit.
+
+**`dashboards/js/app.js` cleanup:** removed the dead "Multnomah Falls round trip" transportation breakdown line (referenced stops that no longer exist), removed obsolete Columbia Gorge Express / CGX exclusions from the Seattle/Portland local-transit filters.
+
+**Live calendar resync:** read the existing Nov 6-9 events first, then deleted 48 stale events (old Multnomah Falls itinerary, stale flight times, old bus timing) and created 38 events matching the corrected itinerary -- including, for the first time, the two Nov 9 flight legs (previously the sync script never touched flights; they're now itinerary stops with real times so the existing sync path picked them up automatically).
+
+**Notes cleanup:** narrowed `KNOWN_ISSUES.md`'s transit-verification item (Cannon Beach and Multnomah Falls watch items both resolved/retired), added a new "over ceiling" known issue, updated `project_current_state.md` and `scripts/session-status.js`'s watch-item list.
+
+**Open items for next session:** reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana; decide whether to raise the $1,300 ceiling to match real spend or trim a category.
+
 ## 2026-08-06 (session 39: Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes)
 
 ### COMPLETE: Reconciled real receipts into the dashboard, discovered and fixed the local-vs-live calendar sync gap, resynced all 117 itinerary events on the actual Google Calendar

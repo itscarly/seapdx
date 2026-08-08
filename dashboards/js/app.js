@@ -832,13 +832,14 @@ function renderStop(stop, options = {}) {
 
   if (options.isChip) {
     const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
+    const hasCost = costValue != null && costValue > 0;
     return `
-      <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
+      <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""} ${hasCost ? "has-cost" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
         <div class="chip-timing">${stop.time || ""}</div>
         <div class="chip-body">
           <div class="chip-badge">${badgeLabel}</div>
           <div class="chip-title">${stop.name}</div>
-          <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${costValue != null ? ` · ${money(costValue)}` : ""}</div>
+          <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${hasCost ? ` · <span class="chip-cost">${money(costValue)}</span>` : ""}</div>
           ${shortNote ? `<div class="chip-note">${shortNote}</div>` : ""}
         </div>
       </article>
@@ -1068,6 +1069,7 @@ function buildTripCostBreakdown(allInTarget) {
   const entranceCategory = data.budget.categories.find((item) => item.name === "Entrance fees");
   const coffeeBeansCategory = data.budget.categories.find((item) => item.name === "Coffee beans");
   const souvenirsCategory = data.budget.categories.find((item) => item.name === "Souvenirs");
+  const tattooCategory = data.budget.categories.find((item) => item.name === "Tattoo");
   const contingencyCategory = data.budget.categories.find((item) => item.name === "Contingency");
   const plannedPurchases = data.tripCosts?.plannedPurchases || [];
 
@@ -1113,9 +1115,8 @@ function buildTripCostBreakdown(allInTarget) {
         { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("POINT NorthWest") && !stop.name.includes("Columbia Gorge Express") && !stop.name.includes("CGX return") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Intercity bus") && !String(stop.neighborhood || "").includes("Puget Sound") && !String(stop.neighborhood || "").includes("Gorge") && !String(stop.neighborhood || "").includes("Gateway") && !String(stop.neighborhood || "").includes("Hotel Vance") && !String(stop.neighborhood || "").includes("Union Station")), detail: "Link, buses, and other Seattle-side transit moves." },
         { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
         { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
-        { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Cannon Beach (POINT NorthWest return)"), detail: "Day 6 bus to and from Cannon Beach; fare estimate, verify exact price at booking." },
-        { label: "Multnomah Falls round trip (Columbia Gorge Express)", amount: findStopCost("Depart Gateway Transit Center (Columbia Gorge Express)") + findStopCost("Transit back to Gateway Transit Center (CGX return)"), detail: "Day 8 bus to and from Multnomah Falls; fare estimate, verify exact price at booking." },
-        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && !stop.name.includes("Columbia Gorge Express") && !stop.name.includes("CGX return") && !String(stop.neighborhood || "").includes("Gorge") && !String(stop.neighborhood || "").includes("Intercity bus") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Gateway") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
+        { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
+        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, and airport-side Portland transit." }
       ]
     },
     {
@@ -1137,6 +1138,15 @@ function buildTripCostBreakdown(allInTarget) {
       breakdown: [
         { label: "Coffee beans", amount: coffeeBeansCategory?.amount || 0, detail: coffeeBeansCategory?.note || "" },
         { label: "Souvenirs and keepsakes", amount: souvenirsCategory?.amount || 0, detail: souvenirsCategory?.note || "" }
+      ]
+    },
+    {
+      name: "Tattoo",
+      amount: tattooCategory?.amount || 0,
+      note: "Nov 7 tattoo appointment, scheduled early in the day so it has the rest of the trip to heal.",
+      shareBase: allInTarget,
+      breakdown: [
+        { label: "Shonen Tattoo appointment", amount: tattooCategory?.amount || 0, detail: tattooCategory?.note || "" }
       ]
     },
     {

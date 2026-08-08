@@ -9,10 +9,15 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 - Status: resolved as of 2026-08-02
 - Detail: the dashboard now treats Boylston and Hotel Vance, a Tribute Portfolio Hotel, as the active hotel truth (confirmed accommodations total `$917.42`). Courtyard by Marriott Portland City Center was the stale booking and has been fully removed from trip-data.js, app.js, index.html, logistics.html, and the memory notes.
 
-### November 2026 hours and a couple of unverified transit times still need closer review
+### November 2026 hours and one unverified transit time still need closer review
 
-- Status: open
-- Detail: (1) the exact POINT NorthWest return time from Cannon Beach on Day 6 is still a placeholder (4:35 PM depart) pending confirmation from oregon-point.com or 1-800-872-7245, (2) the exact Columbia Gorge Express November schedule and fare for Day 8 needs verification at ridecatbus.org/columbia-gorge-express, (3) Asiana's OZ271/272 schedule notice lists Mon/Tue/Wed/Fri/Sat rather than the booked Sunday Nov 1 arrival date -- reconfirm directly with Asiana. The Seattle Kraken watch item is retired; Kraken tickets were removed from the plan on 2026-08-02 and should not be reintroduced. "Sea'd In Capitol Hill" is resolved -- the venue was deleted from the itinerary on 2026-08-06, not just flagged.
+- Status: open (narrowed 2026-08-07)
+- Detail: (1) Asiana's OZ271/272 schedule notice lists Mon/Tue/Wed/Fri/Sat rather than the booked Sunday Nov 1 arrival date -- reconfirm directly with Asiana. The Seattle Kraken watch item is retired; Kraken tickets were removed from the plan on 2026-08-02 and should not be reintroduced. "Sea'd In Capitol Hill" is resolved -- the venue was deleted from the itinerary on 2026-08-06, not just flagged. The POINT NorthWest Cannon Beach round-trip bus time (Day 6) is now resolved -- confirmed 8:28 AM depart PDX / 11:46 AM arrive Astoria, 5:55 PM depart Astoria / 9:00 PM arrive PDX, source: user's CSV/screenshot. The Columbia Gorge Express / Multnomah Falls watch item is retired entirely -- Multnomah Falls was removed from the itinerary on 2026-08-07 (Day 8 is now a tattoo-rest day), so there is no longer a Gorge Express schedule to verify.
+
+### Projected trip spend now exceeds the $1,250 cap
+
+- Status: open, flagged not fixed
+- Detail: as of the 2026-08-07 Nov 6-9 reconciliation (corrected 2026-08-07 for a Pretty Ugly Burger/Novel Book Bar cost double-count), projected total is $1,296.35 against a $1,250 cap / $1,300 absolute ceiling -- $46.35 over cap but under ceiling. Driven by real receipts (Nov 7 tattoo $177, Pretty Ugly Burger dinner $63, Novel Book Bar $29). `npm run validate` will report this as a failure by design; it is not a script bug. Resolve by either raising the cap to match real spend or trimming a category.
 
 ### Local calendar sync script does not touch the live Google Calendar
 

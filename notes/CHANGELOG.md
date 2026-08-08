@@ -430,6 +430,17 @@ Removed the orphaned legacy flight-status polling track: `scripts/monitor-flight
 - Added Google Calendar import file: data/google-calendar-import-nov1-9-2026.csv.
 - Rebalanced budget/day totals to match new detailed schedule (projected total: $888).
 
+## 2026-08-07
+
+- Reconciled Nov 6-9 itinerary and costs against real receipts from the trip expense tracker (`Expenses - Sheet38.csv`), matching the Nov 1-5 reconciliation from the prior session.
+- Removed Multnomah Falls / Vista House and the Columbia Gorge Express day trip entirely from Day 8. Day 8 is now a light rest day (brunch-time Cartopia food carts only) because Day 7 now includes a tattoo appointment that needs to rest and wrap.
+- Rebuilt Day 7 around the tattoo: coffee, tattoo appointment (Shonen Tattoo), Portland Saturday Market, Sephora perfume browse (tracked as a personal purchase, not trip budget), Pretty Ugly Burger dinner, Novel Book Bar.
+- Confirmed Day 6 Cannon Beach POINT NorthWest bus times (previously a placeholder watch item): depart PDX 8:28 AM / arrive Astoria 11:46 AM, return depart Astoria 5:55 PM / arrive PDX 9:00 PM.
+- Corrected the Nov 9 return flight times to match the confirmed AA booking (PDX-DFW now 2:34 PM-8:29 PM, DFW-CRP now 10:30 PM-11:58 PM) and added both flight legs to the live Google Calendar for the first time.
+- Projected budget total is now $1,296.35, $46.35 over the $1,250 cap but under the $1,300 ceiling -- flagged as real spend (tattoo, Day 7 dinner/bar), not corrected downward.
+- Corrected a cost double-count on Pretty Ugly Burger dinner ($125.50 -> $63) and Novel Book Bar ($57.50 -> $29): the CSV's aggregate line was the total, not an additional charge on top of the itemized cocktails/tip.
+- Live "Seattle & Portland 2026" Google Calendar resynced for Nov 6-9: deleted 48 stale events (old Multnomah Falls itinerary, stale flight times) and created 38 events matching the corrected `trip-data.js`.
+
 ## 2026-06-27
 
 - Completed the live shared Google Calendar Portland cleanup for Nov 6-9.

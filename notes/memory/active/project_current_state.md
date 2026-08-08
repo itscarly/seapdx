@@ -1,10 +1,10 @@
 ---
 name: project-current-state
-description: "Current verified state of codexproject as of 2026-08-06 — Boylston is active Seattle base, Hotel Vance is active Portland base, confirmed accommodations total $917.42, live Google Calendar fully resynced for all of Nov 1-9"
+description: "Current verified state of codexproject as of 2026-08-07 — Nov 6-9 reconciled against real receipts, Multnomah Falls removed (Day 8 is a tattoo-rest day), flights added to live calendar, projected total $1,296.35"
 metadata:
   node_type: memory
   type: project
-  originSessionId: session-39-calendar-resync
+  originSessionId: session-40-nov6-9-reconciliation
 ---
 
 Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]) is the active booking. Portland hotel is finalized: **Hotel Vance, a Tribute Portfolio Hotel** (conf [redacted]) is the active booking.
@@ -13,13 +13,17 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 
 **How to apply:** Seattle base is Boylston (Capitol Hill). Portland base is Hotel Vance. Do not reintroduce Courtyard by Marriott Portland City Center anywhere in the itinerary, dashboard, or calendar exports — it was the stale booking, not the active one.
 
-## Verified state as of 2026-08-06 (session 39)
+## Verified state as of 2026-08-07 (session 40)
 
-- Local Nov 1-5 costs reconciled against real receipts; projected local spend is now **$1,049.35** (was $1,069) against the $1,250 cap / $1,300 ceiling.
-- "Sea'd In Capitol Hill dinner" was **deleted from the itinerary entirely**, not just flagged as unconfirmed — do not reintroduce it.
+- Nov 6-9 costs reconciled against real receipts from `Expenses - Sheet38.csv`. Projected total is now **$1,296.35**, $46.35 over the $1,250 cap but under the $1,300 ceiling — this is real spend (tattoo + Day 7 dinner/bar), not a planning error. `npm run validate` will fail on the cap check until the user either raises it or trims spend elsewhere; the category-total and day-total math checks pass cleanly.
+- Correction (2026-08-07, same session): initial reconciliation double-counted Pretty Ugly Burger dinner ($125.50) and Novel Book Bar ($57.50) — the CSV's aggregate line ("$63", "$29") was the total, not an addition on top of the itemized cocktails/tip. Corrected to Pretty Ugly $63 and Novel Book Bar $29; live calendar event descriptions updated to match. When reading itemized CSV rows with a leading aggregate amount followed by itemized sub-charges that sum to roughly that amount, treat the aggregate as the total, not a separate line item.
+- Day 8 was restructured: **Multnomah Falls / Vista House and the Columbia Gorge Express day trip were removed entirely** — do not reintroduce them. Day 8 is now a light rest day (brunch-time Cartopia food carts only, $50) because the user gets a tattoo on Day 7 and wants it to rest/wrap rather than doing a hiking day the next day.
+- Day 7 was rebuilt around the tattoo: coffee → tattoo appointment (Shonen Tattoo, $177 incl. tip) → Portland Saturday Market (lunch + browse, $50) → Sephora Portland Downtown perfume browse (Bleu de Chanel, tracked as a personal purchase, NOT in the trip budget) → Pretty Ugly Burger dinner ($63) → Novel Book Bar ($29).
+- Day 6 Cannon Beach POINT NorthWest bus times are now **confirmed**, not placeholder: depart PDX Union Station 8:28 AM → arrive Astoria 11:46 AM; return depart Astoria 5:55 PM → arrive PDX 9:00 PM. Fare $40 confirmed round trip. This resolves the "verify exact return time" watch item — source was the user's CSV/screenshot, not a live re-verification with the carrier.
+- Nov 9 return flight times corrected to match the confirmed AA booking (previously stale in `trip-data.js`): PDX→DFW (AA 2496) now departs 2:34 PM / arrives 8:29 PM (was 1:47 PM/7:34 PM); DFW→CRP (AA 5273) now departs 10:30 PM / arrives 11:58 PM (was 9:10 PM/10:45 PM). Both flight events were added to the live Google Calendar for the first time this session — previously flights were never synced to the calendar at all.
+- "Sea'd In Capitol Hill dinner" remains deleted from the itinerary entirely — do not reintroduce it.
 - `npm run sync:calendar` only regenerates local `data/google-calendar-events-nov1-9-2026.json`/`.csv` — it never calls the Google Calendar API. If the live calendar and the local export ever drift again, the live calendar must be updated by hand via the Google Calendar MCP tools (delete stale events, recreate from the local export), scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"` — never the personal calendar `limcarl83@gmail.com`.
-- The live Google Calendar was fully resynced for all of Nov 1-9 (117 events) as of this session and matches `trip-data.js` exactly. A prior Nov 6-9 calendar version referencing Fuller's Coffee Shop, Portland Japanese Garden, Tasty n Alder, Powell's, Heart Coffee Roasters, Momiji, Tope, MadeHere PDX, and Courtyard by Marriott Portland (booking confirmation [redacted], now cancelled) was fully replaced.
-- `data/trip-data.js`'s Cannon Beach return-bus item previously had `time: "TBD"`, which is unparseable by the calendar sync script and produces invalid timestamps. It now has a concrete placeholder time (4:35 PM depart) with a "VERIFY BEFORE BOOKING" note preserved. Any future itinerary edit that sets a `time` field to a non-clock-time placeholder (e.g. "TBD", a text range) will silently corrupt the calendar export — always use a real `H:MM AM/PM` value even for unconfirmed times, and flag uncertainty in `notes` instead.
+- `data/trip-data.js` has a self-executing IIFE near the bottom of the file that recomputes `day.dayTotal` and `budget.projectedTotal` from the actual per-stop `cost` fields on every load, and auto-fills `Contingency` as the remainder against non-contingency category totals (clamped at 0). Hand-set `dayTotal`/`projectedTotal` values are cosmetic only — the real source of truth is always the sum of stop `cost` fields. Keep category amounts (excluding Contingency) at or below the real itinerary total or Contingency will silently clamp to $0.
 
 ## Verified state as of 2026-08-02
 
@@ -44,7 +48,8 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 
 - 9 days total: Days 1-4 Seattle, Days 5-9 Portland (Day 5 is the Amtrak transition day, Day 9 is the flight-home day).
 - Day 6: Cannon Beach / Haystack Rock day trip via POINT NorthWest bus (Amtrak Thruway partner).
-- Day 8: Multnomah Falls / Vista House day trip via Columbia Gorge Express, plus Cartopia food carts in the evening.
+- Day 7: Coffee, tattoo appointment, Portland Saturday Market, Sephora, Pretty Ugly Burger dinner, Novel Book Bar.
+- Day 8: Light rest day (tattoo aftercare) with brunch-time Cartopia food carts. Multnomah Falls / Vista House removed — see session 40 note above.
 - Kraken hockey tickets were fully removed from the plan (Aug 2, 2026) — no longer a live watch item. If `scripts/session-status.js` or any other file still references a Kraken watch, that is stale and should be removed.
 
 ### PAL Award Tax Monitor
