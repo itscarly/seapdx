@@ -1,6 +1,6 @@
 ---
 name: project-current-state
-description: "Current verified state of codexproject as of 2026-08-07 — Nov 6-9 reconciled against real receipts, Multnomah Falls removed (Day 8 is a tattoo-rest day), flights added to live calendar, projected total $1,296.35"
+description: "Current verified state of codexproject as of 2026-08-08 — budget restructured to one $2,500-capped 'still to plan/spend' number ($1,959.35), Korean Air return-to-Manila airfare added ($1,915.23 confirmed total), all future flight legs on the live calendar"
 metadata:
   node_type: memory
   type: project
@@ -24,6 +24,19 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 - "Sea'd In Capitol Hill dinner" remains deleted from the itinerary entirely — do not reintroduce it.
 - `npm run sync:calendar` only regenerates local `data/google-calendar-events-nov1-9-2026.json`/`.csv` — it never calls the Google Calendar API. If the live calendar and the local export ever drift again, the live calendar must be updated by hand via the Google Calendar MCP tools (delete stale events, recreate from the local export), scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"` — never the personal calendar `limcarl83@gmail.com`.
 - `data/trip-data.js` has a self-executing IIFE near the bottom of the file that recomputes `day.dayTotal` and `budget.projectedTotal` from the actual per-stop `cost` fields on every load, and auto-fills `Contingency` as the remainder against non-contingency category totals (clamped at 0). Hand-set `dayTotal`/`projectedTotal` values are cosmetic only — the real source of truth is always the sum of stop `cost` fields. Keep category amounts (excluding Contingency) at or below the real itinerary total or Contingency will silently clamp to $0.
+
+## Added return-to-Manila airfare (2026-08-08)
+
+- Added a third confirmed airfare item: **Korean Air ORD→ICN→MNL, March 5-6, 2027** ($658.40: $275 fare + $251.80 carrier fee + $40.50 taxes + $91.10 seat selection). Confirmation number not yet provided by the user — currently "TBD" in `tripCosts.confirmed.airfare.items`, update it once known.
+- Confirmed airfare total is now **$1,915.23** ($540.43 Asiana + $716.40 AA [redacted] + $658.40 Korean Air), up from $1,256.83. This is outside the $2,500 local-spend cap (airfare/hotels excluded per the cap's scope).
+
+## Budget restructure as of 2026-08-07 (later same session)
+
+- User found the old presentation confusing (planned local spend $1,296.35 shown separately from personal-item purchases $663, with two different cap numbers). Restructured into one combined number: `budget.projectedTotal` now = itinerary stop costs + `tripCosts.plannedPurchases` (Meta Ray-Ban $490 + Bleu de Chanel perfume $173), computed by the IIFE in `trip-data.js`. Do not add `getPlannedPersonalPurchaseTotal()` on top of `projectedTotal` anywhere in `app.js` — that would double-count; it stays a plain function only for itemizing the Shopping card breakdown.
+- "Coffee beans" and "Souvenirs" categories were merged with personal purchases into one "Shopping" category (amount $860 = $60 coffee + $137 souvenirs/keepsakes + $663 personal purchases). Tattoo stayed its own separate category ($177) — it was not part of this merge.
+- New cap = new absolute ceiling = **$2,500** (was $1,250 target / $1,300 ceiling), explicitly set equal by the user, covers everything except confirmed airfare/hotels. Projected total is now $1,959.35, $540.65 under the cap — no more over-cap flag needed, `overCeilingNote` was removed from `budget`.
+- `scripts/audit-budget.js` was updated to compare `dayTotal + plannedPurchasesTotal` against `projectedTotal` (previously just `dayTotal`), and the now-defunct standalone "Coffee beans" $60-cap check was removed since coffee beans no longer have their own category.
+- `dashboards/js/app.js`: `getPlannedAdditionalTotal()` simplified to just return `projectedTotal`; `renderTripCostSummary()`'s `allInTarget` no longer adds `plannedPersonal` separately; `buildTripCostBreakdown()` has one merged "Shopping" card (itemizes coffee+souvenirs as one line plus each planned purchase) instead of separate "Shopping and keepsakes" + "Personal item purchases" cards; hero/budget heading copy reworded to "Still to plan/spend" language instead of "Local trip-spend snapshot".
 
 ## Verified state as of 2026-08-02
 

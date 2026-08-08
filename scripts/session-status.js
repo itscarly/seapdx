@@ -52,13 +52,13 @@ function main() {
 
   lines.push("--- Budget Snapshot ---");
   if (data?.budget) {
-    lines.push(`  Projected local spend: ${money(data.budget.projectedTotal)} / cap ${money(data.budget.cap)} / ceiling ${money(data.budget.absoluteCeiling)}`);
+    lines.push(`  Still to plan/spend (local spend + shopping + tattoo): ${money(data.budget.projectedTotal)} / cap ${money(data.budget.cap)} / ceiling ${money(data.budget.absoluteCeiling)}`);
   }
   lines.push("");
 
   lines.push("--- Open Watch Items ---");
   lines.push("  Reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana (published schedule notice lists Mon/Tue/Wed/Fri/Sat, not Sunday).");
-  lines.push("  Projected total $1,296.35 is $46.35 over the $1,250 cap (under the $1,300 ceiling) after the Nov 6-9 reconciliation -- real receipts, not a bug.");
+  lines.push("  Budget restructured 2026-08-07: cap/ceiling raised to $2,500/$2,500 and now covers local spend + Shopping (merged coffee beans/souvenirs/personal purchases) + tattoo in one number -- $1,959.35 projected, $540.65 buffer.");
   lines.push("");
 
   lines.push("--- Quick Commands ---");

@@ -5,8 +5,8 @@ require(path.join(__dirname, "..", "data", "trip-data.js"));
 
 const data = global.window.TRIP_DATA;
 const categoryTotal = data.budget.categories.reduce((sum, item) => sum + item.amount, 0);
-const dayTotal = data.itinerary.reduce((sum, day) => sum + day.dayTotal, 0);
-const coffee = data.budget.categories.find((item) => item.name === "Coffee beans")?.amount ?? 0;
+const plannedPurchasesTotal = (data.tripCosts?.plannedPurchases || []).reduce((sum, item) => sum + item.amount, 0);
+const dayTotal = data.itinerary.reduce((sum, day) => sum + day.dayTotal, 0) + plannedPurchasesTotal;
 const mismatches = data.itinerary
   .map((day) => ({
     date: day.date,
@@ -37,10 +37,6 @@ if (data.budget.absoluteCeiling && data.budget.projectedTotal > data.budget.abso
   failures.push(`Projected total ${data.budget.projectedTotal} exceeds ceiling ${data.budget.absoluteCeiling}.`);
 }
 
-if (coffee > 60) {
-  failures.push(`Coffee bean budget ${coffee} exceeds $60 cap.`);
-}
-
 if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
@@ -51,6 +47,5 @@ console.log(JSON.stringify({
   projected: data.budget.projectedTotal,
   target: data.budget.cap,
   ceiling: data.budget.absoluteCeiling,
-  remaining: data.budget.cap - data.budget.projectedTotal,
-  coffee
+  remaining: data.budget.cap - data.budget.projectedTotal
 }, null, 2));

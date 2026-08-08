@@ -24,6 +24,10 @@ Timezone: America/Los_Angeles
 - Portland base: **Hotel Vance, a Tribute Portfolio Hotel** (conf [redacted], Nov 4–9). Courtyard by Marriott Portland City Center (550 SW Oak St) was the stale/cancelled option -- do not reintroduce it.
 - Portland breakfast stops now route through Analog Coffee, Stumptown Coffee Roasters, and Hotel Vance itself depending on the day -- see `data/trip-data.js` itinerary for the current per-day breakfast plan, since Fuller's Coffee Shop (which was walking distance from Courtyard) no longer fits the Hotel Vance base.
 
+## Future-dated flights also live on this calendar (added 2026-08-08)
+
+This calendar isn't just Nov 1-9, 2026 — it also holds later booked flight legs tied to the same trip's airfare, so nothing gets lost track of. Currently: Feb 27, 2027 (AA 3774 CRP->DFW, AA 3114 DFW->ORD, included in confirmation [redacted]) and Mar 5-6, 2027 (KE038 ORD->ICN, KE623 ICN->MNL, Korean Air, confirmation TBD). When adding any future-dated flight leg from `data/trip-data.js`'s `flights.journeys`, add it here too — this calendar is the single place both the Nov trip and its later connecting flights are tracked.
+
 ## H Mart shopping stops
 
 Historical note only -- these were tied to the earlier Reside Seattle Downtown base (600 Pine St) and are not part of the current itinerary anchored on Boylston.

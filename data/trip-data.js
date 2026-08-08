@@ -8,11 +8,11 @@ window.TRIP_DATA = {
       portland: "Hotel Vance, a Tribute Portfolio Hotel"
     },
     verifiedOn: "Aug 2, 2026",
-    budgetCap: 1250,
-    absoluteCeiling: 1300,
+    budgetCap: 2500,
+    absoluteCeiling: 2500,
     assumptions: [
       "The activity-budget block stays separate from the all-in trip-cost summary.",
-      "Booked flight costs and hotel costs are shown in the executive summary, while the $1250 target and $1300 ceiling still describe the local trip-spend plan only.",
+      "Booked flight costs and hotel costs are shown in the executive summary. The $2,500 cap/ceiling covers everything still to plan or spend: local trip spend, shopping/keepsakes/personal purchases, and the tattoo -- all combined into one number.",
       "Amtrak Cascades 517 and the business-class bid upgrade are carried separately from Seattle and Portland local transit.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
@@ -46,26 +46,24 @@ window.TRIP_DATA = {
     ]
   },
   budget: {
-    cap: 1250,
-    absoluteCeiling: 1300,
-    projectedTotal: 1296.35,
-    overCeilingNote: "Nov 6-9 reconciliation (tattoo, Cannon Beach, Pretty Ugly Burger, Novel Book Bar) pushes the projected total $46.35 over the $1250 cap, but under the $1300 absolute ceiling. This reflects real receipts, not a planning error -- flagged here rather than hidden.",
+    cap: 2500,
+    absoluteCeiling: 2500,
+    projectedTotal: 1959.35,
     categories: [
       { name: "Transportation", amount: 128, note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and day-trip buses (Cannon Beach $40 confirmed round trip via POINT NorthWest) all separated out in the breakdown below. Multnomah Falls day trip and its Columbia Gorge Express fare removed entirely -- Day 8 is now a rest day, no Gorge transit." },
       { name: "Food", amount: 500, note: "Meals, coffee, and snack totals for Nov 1-9 now reflect actual receipts from the trip expense tracker (real tips and sales tax included). Sea'd In Capitol Hill (Nov 4 dinner) removed entirely. Nov 6-9 reconciled: Cannon Beach lunch/coffee/cocktail $100, Day 7 coffee $31 + Saturday Market lunch $50, Cartopia brunch $50, Hotel Vance final breakfast $31." },
       { name: "Cocktails and social", amount: 181, note: "Saint John's Bar and Eatery, Salt & Straw, and Rachel's Ginger Beer corrected against actual receipts. Nov 7 reconciled against CSV: Pretty Ugly Burger dinner $63 (2 cocktails + Billy Madison Burger + tip) and Novel Book Bar $29 (Partly Cloudy + Carajillo + tip)." },
       { name: "Entrance fees", amount: 108.35, note: "Paid attractions in the synced route (Cannon Beach free; Kraken removed). Sailing Seattle and Columbia Center Sky View corrected against actual receipts. Multnomah Falls/Vista House removed from the route entirely, so its free-admission note no longer applies." },
-      { name: "Coffee beans", amount: 60, note: "Two bags total: one Seattle bag and one Portland bag, with the rest of the coffee spend folded into meal pacing." },
-      { name: "Souvenirs", amount: 137, note: "City mugs, magnets, market browsing, and local-goods drift kept visible. Totem Smokehouse salmon purchase corrected to the real $40 receipt, plus a $20 QFC Truly Hard Seltzer 12-pack from Nov 1. The $173 Bleu de Chanel perfume (Nov 7 Sephora stop) is tracked separately under plannedPurchases, not in this trip-spend category." },
+      { name: "Shopping", amount: 860, note: "Everything to buy/keep in one place: coffee beans $60 (one Seattle bag, one Portland bag), souvenirs/keepsakes $137 (Totem Smokehouse salmon $40, QFC Truly Hard Seltzer 12-pack $20, city mugs, magnets, market browsing), and planned personal purchases $663 (Meta Ray-Ban glasses $490 + Bleu de Chanel perfume $173, itemized in tripCosts.plannedPurchases)." },
       { name: "Tattoo", amount: 177, note: "New category for the Nov 7 tattoo appointment (Shonen Tattoo, $150 + $27 tip), scheduled early on Day 7 so it has the rest of the trip to heal. Day 8 was restructured into a rest day around this." },
-      { name: "Contingency", amount: 5, note: "Remaining buffer after the Nov 6-9 reconciliation: Cannon Beach day trip, tattoo, Saturday Market, Cartopia-only Day 8 (Multnomah Falls removed), and confirmed flight times." }
+      { name: "Contingency", amount: 5, note: "Remaining buffer against the $2,500 cap after Transportation, Food, Cocktails and social, Entrance fees, Shopping, and Tattoo." }
     ]
   },
   tripCosts: {
     confirmed: {
       airfare: {
-        total: 1256.83,
-        note: "Confirmed airfare already paid across the Asiana arrival and the American Airlines [redacted] booking.",
+        total: 1915.23,
+        note: "Confirmed airfare already paid across the Asiana arrival, the American Airlines [redacted] booking, and the Korean Air return-to-Manila booking.",
         items: [
           {
             name: "Asiana arrival booking",
@@ -79,6 +77,13 @@ window.TRIP_DATA = {
             confirmation: "[redacted]",
             ticketNumber: "[redacted]",
             covers: "Portland to Corpus Christi on November 9, 2026 plus Corpus Christi to Chicago on February 27, 2027"
+          },
+          {
+            name: "Korean Air booking",
+            amount: 658.40,
+            confirmation: "[redacted]",
+            covers: "Chicago/O'Hare to Manila via Seoul/Incheon on March 5-6, 2027 (KE038 ORD-ICN, KE623 ICN-MNL)",
+            note: "Fare $275.00 + carrier-imposed fee $251.80 + taxes/fees $40.50 + seat selection $91.10 = $658.40. Confirmation number not yet provided."
           }
         ]
       },
@@ -144,7 +149,7 @@ window.TRIP_DATA = {
     }
   ],
   flights: {
-    airfareTotal: 1256.83,
+    airfareTotal: 1915.23,
     journeys: [
       {
         id: "journey-arrival-2026-11-01",
@@ -264,6 +269,47 @@ window.TRIP_DATA = {
             cabin: "Economy (N)",
             seat: "8A",
             meals: ""
+          }
+        ]
+      },
+      {
+        id: "journey-future-2027-03-05",
+        kind: "Future journey",
+        title: "Chicago/O'Hare to Manila via Seoul/Incheon",
+        dateLabel: "Friday, March 5 - Saturday, March 6, 2027",
+        ticketCost: 658.40,
+        airportLeaveBy: "Be at ORD Terminal 5 well ahead of the 11:25 AM departure.",
+        visibilityNote: "Return-to-Manila routing on Korean Air, booked separately from the November trip and its AA continuation to Chicago.",
+        statusLabel: "Booked and paid; confirmation number not yet provided -- update once available.",
+        alertCopy: "Total duration is 21h 0m including the Incheon transfer. Fare breakdown: $275.00 base fare + $251.80 carrier-imposed fee + $40.50 taxes/fees (incl. Sept 11 security fee, US international transportation tax, passenger service charge, passenger facility charge) + $91.10 seat selection = $658.40 total.",
+        statusSource: "https://www.koreanair.com/booking/flight-status",
+        airportSource: "https://www.flychicago.com/ohare/home/pages/default.aspx",
+        legs: [
+          {
+            from: { code: "ORD", city: "Chicago / O'Hare" },
+            to: { code: "ICN", city: "Seoul / Incheon" },
+            departureTime: "11:25 AM (Fri, Mar 5, 2027)",
+            arrivalTime: "5:15 PM (Sat, Mar 6, 2027)",
+            duration: "14h 50m",
+            connectionNote: "1h 50m transfer at Incheon",
+            flightNumber: "KE038",
+            aircraft: "B777-300ER",
+            cabin: "Economy",
+            operator: "Operated by Korean Air",
+            terminal: "Depart Terminal 5, arrive Terminal 2"
+          },
+          {
+            from: { code: "ICN", city: "Seoul / Incheon" },
+            to: { code: "MNL", city: "Manila" },
+            departureTime: "7:05 PM (Sat, Mar 6, 2027)",
+            arrivalTime: "10:25 PM (Sat, Mar 6, 2027)",
+            duration: "4h 20m",
+            connectionNote: "Final leg into Manila",
+            flightNumber: "KE623",
+            aircraft: "A330-300",
+            cabin: "Economy",
+            operator: "Operated by Korean Air",
+            terminal: "Depart Terminal 2, arrive Terminal 1"
           }
         ]
       }
@@ -733,13 +779,17 @@ window.TRIP_DATA = {
     return tripSum + dayTotal;
   }, 0);
 
-  tripData.budget.projectedTotal = itineraryTotal;
+  const plannedPurchasesTotal = (tripData.tripCosts?.plannedPurchases || [])
+    .reduce((sum, item) => sum + Number(item.amount || 0), 0);
+
+  const combinedTotal = itineraryTotal + plannedPurchasesTotal;
+  tripData.budget.projectedTotal = combinedTotal;
 
   const contingency = tripData.budget.categories.find((category) => category.name === "Contingency");
   if (contingency) {
     const nonContingencyTotal = tripData.budget.categories
       .filter((category) => category.name !== "Contingency")
       .reduce((sum, category) => sum + Number(category.amount || 0), 0);
-    contingency.amount = Math.max(0, itineraryTotal - nonContingencyTotal);
+    contingency.amount = Math.max(0, combinedTotal - nonContingencyTotal);
   }
 })();

@@ -4,6 +4,13 @@
 
 This is the concise project change record.
 
+## 2026-08-07 (session 40, budget restructure) — Merged Shopping category, folded personal purchases into one capped total
+
+- Combined `budget.projectedTotal` to include both itinerary spend and `tripCosts.plannedPurchases` (previously tracked separately, causing confusion between a $1,296 "planned local spend" figure and a $2,174 "trip cost" figure).
+- Merged "Coffee beans" + "Souvenirs" + planned personal purchases (Meta Ray-Ban glasses, Bleu de Chanel perfume) into one "Shopping" category ($860). Tattoo stayed its own category.
+- Raised cap and absolute ceiling to $2,500/$2,500 (was $1,250/$1,300), user-set equal, covering everything except confirmed airfare/hotels. New projected total $1,959.35, $540.65 under cap.
+- Updated `app.js` (`getPlannedAdditionalTotal`, `renderTripCostSummary`, `buildTripCostBreakdown`, hero/budget copy) and `scripts/audit-budget.js` to match, avoiding double-counting the personal-purchases figure.
+
 ## 2026-08-06 (session 39) — Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes
 
 - Reconciled real Nov 1-5 receipts into `trip-data.js`: corrected ~20 venue costs, added order/menu links, deleted "Sea'd In Capitol Hill dinner", added a $20 QFC seltzer line, split Sky View into ticket + cocktail. Projected local spend: $1,069 → $1,049.35.

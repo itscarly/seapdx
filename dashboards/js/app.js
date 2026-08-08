@@ -507,8 +507,8 @@ function initHero() {
   const verifiedEl = document.getElementById("heroVerified");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed + ${money(plannedTotal)} planned`;
-  if (budgetHeadingEl) budgetHeadingEl.textContent = `Local trip-spend snapshot: ${money(data.budget.cap)} target, ${money(data.budget.absoluteCeiling || data.budget.cap)} ceiling`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed + ${money(plannedTotal)} still to plan/spend`;
+  if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
@@ -999,7 +999,7 @@ function renderBudget() {
 
   document.getElementById("budgetSummary").innerHTML = `
     <article class="budget-summary-card main">
-      <span class="budget-kicker">Local spend vs. cap</span>
+      <span class="budget-kicker">Still to plan/spend vs. cap</span>
       <strong class="budget-total">${money(projected)}</strong>
       <p class="budget-copy">${money(Math.abs(remaining))} ${remaining >= 0 ? "under" : "over"} the ${money(cap)} cap, with ${money(ceiling)} as the hard ceiling. See the category cards above for the itemized breakdown.</p>
       <div class="budget-main-meter" aria-hidden="true">
@@ -1033,7 +1033,7 @@ function getConfirmedTripTotal() {
 }
 
 function getPlannedAdditionalTotal() {
-  return data.budget.projectedTotal + getPlannedPersonalPurchaseTotal();
+  return data.budget.projectedTotal;
 }
 
 function moneyCompact(value) {
@@ -1067,11 +1067,12 @@ function buildTripCostBreakdown(allInTarget) {
   const cocktailsCategory = data.budget.categories.find((item) => item.name === "Cocktails and social");
   const transportationCategory = data.budget.categories.find((item) => item.name === "Transportation");
   const entranceCategory = data.budget.categories.find((item) => item.name === "Entrance fees");
-  const coffeeBeansCategory = data.budget.categories.find((item) => item.name === "Coffee beans");
-  const souvenirsCategory = data.budget.categories.find((item) => item.name === "Souvenirs");
+  const shoppingCategory = data.budget.categories.find((item) => item.name === "Shopping");
   const tattooCategory = data.budget.categories.find((item) => item.name === "Tattoo");
   const contingencyCategory = data.budget.categories.find((item) => item.name === "Contingency");
   const plannedPurchases = data.tripCosts?.plannedPurchases || [];
+  const plannedPurchasesTotal = getPlannedPersonalPurchaseTotal();
+  const coffeeBeansAndSouvenirs = (shoppingCategory?.amount || 0) - plannedPurchasesTotal;
 
   return [
     {
@@ -1131,13 +1132,13 @@ function buildTripCostBreakdown(allInTarget) {
       ]
     },
     {
-      name: "Shopping and keepsakes",
-      amount: (coffeeBeansCategory?.amount || 0) + (souvenirsCategory?.amount || 0),
-      note: "Coffee-bean buys, smoked salmon, mugs, magnets, and trip keepsakes.",
+      name: "Shopping",
+      amount: shoppingCategory?.amount || 0,
+      note: "Everything to buy or keep: coffee beans, souvenirs/keepsakes, and planned personal purchases, all in one number.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Coffee beans", amount: coffeeBeansCategory?.amount || 0, detail: coffeeBeansCategory?.note || "" },
-        { label: "Souvenirs and keepsakes", amount: souvenirsCategory?.amount || 0, detail: souvenirsCategory?.note || "" }
+        { label: "Coffee beans and souvenirs/keepsakes", amount: coffeeBeansAndSouvenirs, detail: "Two coffee bags, Totem Smokehouse salmon, QFC seltzer 12-pack, city mugs, magnets, market browsing." },
+        ...plannedPurchases.map((item) => ({ label: item.name, amount: item.amount, detail: item.note || "" }))
       ]
     },
     {
@@ -1148,17 +1149,6 @@ function buildTripCostBreakdown(allInTarget) {
       breakdown: [
         { label: "Shonen Tattoo appointment", amount: tattooCategory?.amount || 0, detail: tattooCategory?.note || "" }
       ]
-    },
-    {
-      name: "Personal item purchases",
-      amount: getPlannedPersonalPurchaseTotal(),
-      note: "Meta Ray-Ban glasses and BLEU DE CHANEL.",
-      shareBase: allInTarget,
-      breakdown: plannedPurchases.map((item) => ({
-        label: item.name,
-        amount: item.amount,
-        detail: item.note || ""
-      }))
     },
     {
       name: "Contingency",
@@ -1197,15 +1187,14 @@ function renderTripCostSummary() {
   const confirmedHotels = getConfirmedHotelTotal();
   const confirmedTotal = getConfirmedTripTotal();
   const plannedTripSpend = data.budget.projectedTotal;
-  const plannedPersonal = getPlannedPersonalPurchaseTotal();
-  const allInTarget = confirmedTotal + plannedTripSpend + plannedPersonal;
+  const allInTarget = confirmedTotal + plannedTripSpend;
   const tripSpendBreakdown = buildTripCostBreakdown(allInTarget);
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
       <span class="budget-kicker">${moneyPrecise(allInTarget)} all-in target -- how it breaks down</span>
       <strong class="budget-total">${moneyPrecise(confirmedTotal)} <span style="font-weight:400;">confirmed</span></strong>
-      <p class="budget-copy">Plus ${money(plannedTripSpend)} planned local spend and ${money(plannedPersonal)} planned purchases (itemized below). See the hero card up top for the single all-in number.</p>
+      <p class="budget-copy">Plus ${money(plannedTripSpend)} still to plan or spend -- local trip spend, shopping, and the tattoo, all combined and capped at ${money(data.budget.cap)} (itemized below). See the hero card up top for the single all-in number.</p>
       <div class="budget-main-meter" aria-hidden="true">
         <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
       </div>
@@ -1214,7 +1203,7 @@ function renderTripCostSummary() {
         <ul class="budget-breakdown-list how-total-details">
           <li>
             <div>
-              <strong>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)} + ${moneyPrecise(plannedPersonal)}</strong>
+              <strong>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)}</strong>
               <span>One plain formula so the savings target is easy to sanity-check.</span>
             </div>
           </li>

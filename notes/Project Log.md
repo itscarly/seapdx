@@ -1,3 +1,30 @@
+## 2026-08-07/08 (session 41: budget restructure, Korean Air return-to-Manila airfare added)
+
+### COMPLETE: Folded personal purchases into the local-spend cap, merged Shopping categories, raised cap/ceiling to $2,500, added a new confirmed Korean Air booking with full flight detail on the live calendar
+
+**Why this session happened:** The user found the budget presentation confusing — a $1,296.35 "planned local spend" figure sat next to a $2,174.25 "trip cost" figure with personal purchases ($663 Meta Ray-Ban + Bleu de Chanel) tracked separately from Shopping/keepsakes, and two different cap numbers. They wanted one combined "everything still to plan/spend" number. Separately, they provided a new Korean Air ORD-ICN-MNL booking confirmation (Mar 5-6, 2027, $658.40) to add to the airfare tracker.
+
+**Budget restructure (`data/trip-data.js`, `dashboards/js/app.js`, `scripts/audit-budget.js`):**
+- `budget.projectedTotal` now includes both itinerary stop costs and `tripCosts.plannedPurchases` (computed by the bottom-of-file IIFE) — previously `plannedPurchases` was tracked and displayed separately, which is what caused the two-different-numbers confusion.
+- Merged "Coffee beans" ($60) + "Souvenirs" ($137) + planned personal purchases ($663) into one "Shopping" category ($860). Tattoo stayed its own category ($177) — not part of this merge, per explicit user instruction.
+- Cap and absolute ceiling both raised to **$2,500** (was $1,250 cap / $1,300 ceiling), set equal per the user's explicit choice, covering everything except confirmed airfare/hotels. New projected total: **$1,959.35**, $540.65 under cap — the old "over ceiling" flag is gone, not hidden, because the underlying numbers no longer exceed it.
+- Fixed a double-counting risk: `getPlannedAdditionalTotal()` and `renderTripCostSummary()`'s `allInTarget` previously added `getPlannedPersonalPurchaseTotal()` on top of `projectedTotal` — now that purchases live inside `projectedTotal`, those call sites were changed to stop adding it a second time. `buildTripCostBreakdown()` now returns one merged "Shopping" card instead of separate "Shopping and keepsakes" + "Personal item purchases" cards. Hero and budget copy reworded from "Local trip-spend snapshot" to "Still to plan/spend" language to reflect the broadened scope.
+- `scripts/audit-budget.js` updated to compare `dayTotal + plannedPurchasesTotal` against `projectedTotal` (previously just `dayTotal`); removed the now-meaningless standalone "Coffee beans $60 cap" check since coffee beans no longer have their own category.
+- Verified in-browser via `npm run serve`: all-in target $4,133.60 = $2,174.25 confirmed + $1,959.35 to plan/spend, single Shopping card renders correctly, $540.65 buffer shown against the $2,500 cap.
+
+**New confirmed airfare — Korean Air return to Manila:**
+- Added a third `tripCosts.confirmed.airfare.items` entry: ORD→ICN (KE038, B777-300ER, 14h 50m) → ICN→MNL (KE623, A330-300, 4h 20m), Mar 5-6, 2027, $658.40 total ($275 fare + $251.80 carrier-imposed fee + $40.50 taxes/fees + $91.10 seat selection). Confirmation number was not provided — stored as `"TBD"`, needs updating once known.
+- Confirmed airfare total rose from $1,256.83 to **$1,915.23**; `flights.airfareTotal` and the new `flights.journeys` entry (full leg detail: times, terminals, aircraft, operator) were added to match the existing Feb 27, 2027 future-journey pattern.
+- Discovered while adding this that the Feb 27, 2027 CRP→DFW→ORD future leg (already in `trip-data.js`, included in the [redacted] booking) had never been added to the live Google Calendar in any prior session. Added it now alongside the new Korean Air legs so future sessions don't lose track of either.
+
+**Live calendar additions (`Seattle & Portland 2026` calendar, all `notificationLevel: "NONE"`):** checked the Feb 26-Mar 7, 2027 date range first (feedback: always read before writing) — empty, no conflicts. Created 4 new events: AA 3774 (CRP→DFW, Feb 27), AA 3114 (DFW→ORD, Feb 27), KE038 (ORD→ICN, Mar 5-6), KE623 (ICN→MNL, Mar 6). Each event's start/end used explicit UTC-offset ISO8601 timestamps (not the `timeZone` param, which would have overridden the offsets) so each leg's local departure/arrival time displays correctly across Central/Korea/Philippines time zones.
+
+**Notes cleanup:** removed the now-resolved "$1,250 cap exceeded" `KNOWN_ISSUES.md` entry (cap is now $2,500 and spend is under it); added a new open item for the missing Korean Air confirmation number; updated `project_current_state.md` and `scripts/session-status.js` watch-item text.
+
+**Open items for next session:** get the actual Korean Air confirmation number from the user and update both `trip-data.js` and the two live-calendar event descriptions (currently "TBD"); still need to reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana (unrelated, carried over from session 40).
+
+---
+
 ## 2026-08-07 (session 40: Nov 6-9 CSV reconciliation, Multnomah Falls removed, live-calendar resync)
 
 ### COMPLETE: Reconciled real Nov 6-9 receipts into the dashboard, removed the Multnomah Falls day trip in favor of a tattoo-rest day, added flight events to the live calendar for the first time
@@ -19,7 +46,7 @@
 
 **Notes cleanup:** narrowed `KNOWN_ISSUES.md`'s transit-verification item (Cannon Beach and Multnomah Falls watch items both resolved/retired), added a new "over ceiling" known issue, updated `project_current_state.md` and `scripts/session-status.js`'s watch-item list.
 
-**Open items for next session:** reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana; decide whether to raise the $1,300 ceiling to match real spend or trim a category.
+**Open items for next session:** reconfirm the Nov 1 Asiana OZ271/272 arrival date directly with Asiana. (The $1,300-ceiling-vs-real-spend question was resolved in session 41 — see above.)
 
 ## 2026-08-06 (session 39: Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes)
 
