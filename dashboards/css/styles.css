@@ -11,11 +11,13 @@
   --line-strong: rgba(22, 23, 20, 0.18);
   --accent: #0EA5E9;
   --accent-rgb: 14, 165, 233;
+  --accent-dark: #0284c7;
   --accent-2: #0f766e;
   --accent-2-rgb: 15, 118, 110;
   --accent-3: #F97316;
   --accent-3-rgb: 249, 115, 22;
   --accent-4: #f4b231;
+  --accent-4-rgb: 244, 178, 49;
   --accent-soft: rgba(14, 165, 233, 0.12);
   --ok-soft: rgba(15, 118, 110, 0.12);
   --shadow: 0 12px 40px rgba(20, 24, 20, 0.08);
@@ -110,7 +112,7 @@ h3 {
   height: 280px;
   right: 13%;
   top: 10%;
-  background: rgba(252, 92, 51, 0.16);
+  background: rgba(var(--accent-3-rgb), 0.16);
 }
 
 .hero::after {
@@ -118,7 +120,7 @@ h3 {
   height: 240px;
   left: 8%;
   bottom: 12%;
-  background: rgba(23, 73, 219, 0.12);
+  background: rgba(var(--accent-rgb), 0.12);
 }
 
 .topbar {
@@ -296,8 +298,8 @@ h3 {
 .chip.active,
 .tab.active {
   color: #fff;
-  background: linear-gradient(135deg, var(--accent), #0284c7);
-  border-color: #0284c7;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-color: var(--accent-dark);
 }
 
 .link-button {
@@ -321,7 +323,7 @@ h3 {
   align-items: center;
   gap: 10px;
   border-radius: 18px;
-  border: 1px solid rgba(23, 73, 219, 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.08);
   background: rgba(255, 255, 255, 0.78);
   color: var(--muted);
   box-shadow: var(--shadow-soft);
@@ -351,7 +353,7 @@ h3 {
 .tracker-pill-alert,
 .airfare-pill.is-signal,
 .airfare-pill.is-state-watch {
-  background: rgba(252, 92, 51, 0.12);
+  background: rgba(var(--accent-3-rgb), 0.12);
   color: var(--accent);
 }
 
@@ -398,7 +400,7 @@ h3 {
   background: linear-gradient(135deg, var(--accent), var(--accent-4));
   display: inline-block;
   margin-bottom: 14px;
-  box-shadow: 0 0 0 8px rgba(252, 92, 51, 0.08);
+  box-shadow: 0 0 0 8px rgba(var(--accent-3-rgb), 0.08);
 }
 
 .trip-card strong {
@@ -557,7 +559,7 @@ h3 {
   min-height: 176px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94)),
-    linear-gradient(135deg, rgba(23, 73, 219, 0.045), transparent 58%);
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.045), transparent 58%);
 }
 
 .tracker-summary-card strong {
@@ -584,7 +586,7 @@ h3 {
   padding: 22px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(245, 248, 244, 0.92)),
-    linear-gradient(135deg, rgba(252, 92, 51, 0.06), transparent 55%);
+    linear-gradient(135deg, rgba(var(--accent-3-rgb), 0.06), transparent 55%);
 }
 
 .tracker-entry-card,
@@ -797,7 +799,7 @@ h3 {
 }
 
 .stop--chip.has-cost {
-  background: rgba(244, 178, 49, 0.08);
+  background: rgba(var(--accent-4-rgb), 0.08);
 }
 
 .chip-timing {
@@ -813,7 +815,7 @@ h3 {
   gap: 6px;
   padding: 2px 8px;
   border-radius: 999px;
-  background: rgba(23, 73, 219, 0.08);
+  background: rgba(var(--accent-rgb), 0.08);
   color: var(--accent);
   font-size: 0.58rem;
   font-weight: 900;
@@ -885,7 +887,7 @@ h3 {
   display: none !important;
   border-top: 1px solid var(--line);
   padding: 14px 16px 16px;
-  background: rgba(23, 73, 219, 0.02);
+  background: rgba(var(--accent-rgb), 0.02);
 }
 
 .day-detail-panel:not([hidden]) {
@@ -985,7 +987,7 @@ h3 {
 }
 
 .alternate-section {
-  background: linear-gradient(180deg, rgba(23, 73, 219, 0.05), rgba(255, 255, 255, 0.84));
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.05), rgba(255, 255, 255, 0.84));
 }
 
 .alternate-section .segment-title {
@@ -1188,7 +1190,7 @@ h3 {
 .airfare-entry-card.is-discovery-card {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 244, 241, 0.94)),
-    linear-gradient(135deg, rgba(252, 92, 51, 0.06), transparent 58%);
+    linear-gradient(135deg, rgba(var(--accent-3-rgb), 0.06), transparent 58%);
 }
 
 .trip-atlas {
@@ -1211,7 +1213,7 @@ h3 {
   align-content: start;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 242, 0.92)),
-    linear-gradient(135deg, rgba(23, 73, 219, 0.05), transparent 50%);
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.05), transparent 50%);
 }
 
 .atlas-head {
@@ -1318,7 +1320,7 @@ h3 {
   padding: 22px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 245, 0.9)),
-    linear-gradient(135deg, rgba(23, 73, 219, 0.06), transparent 55%);
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.06), transparent 55%);
 }
 
 .budget-summary {
@@ -1340,13 +1342,13 @@ h3 {
   border: 1px solid rgba(22, 23, 20, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94)),
-    linear-gradient(135deg, rgba(252, 92, 51, 0.06), transparent 60%);
+    linear-gradient(135deg, rgba(var(--accent-3-rgb), 0.06), transparent 60%);
   box-shadow: var(--shadow-soft);
 }
 
 .budget-summary-card.main {
   background:
-    radial-gradient(circle at top right, rgba(252, 92, 51, 0.12), transparent 34%),
+    radial-gradient(circle at top right, rgba(var(--accent-3-rgb), 0.12), transparent 34%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94));
 }
 
@@ -1367,7 +1369,7 @@ h3 {
   height: 10px;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--accent), var(--accent-4));
-  box-shadow: 0 0 0 7px rgba(252, 92, 51, 0.1);
+  box-shadow: 0 0 0 7px rgba(var(--accent-3-rgb), 0.1);
 }
 
 .budget-total {
@@ -1501,7 +1503,7 @@ h3 {
   text-align: center;
   text-transform: uppercase;
   background:
-    linear-gradient(135deg, rgba(252, 92, 51, 0.1), transparent 52%),
+    linear-gradient(135deg, rgba(var(--accent-3-rgb), 0.1), transparent 52%),
     rgba(22, 23, 20, 0.06);
 }
 
@@ -1528,7 +1530,7 @@ h3 {
 }
 
 .visual-card-link:focus-visible {
-  outline: 3px solid rgba(23, 73, 219, 0.22);
+  outline: 3px solid rgba(var(--accent-rgb), 0.22);
   outline-offset: 4px;
 }
 
@@ -1617,7 +1619,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.82);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 248, 244, 0.9)),
-    linear-gradient(135deg, rgba(23, 73, 219, 0.05), transparent 60%);
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.05), transparent 60%);
   box-shadow: var(--shadow);
 }
 
@@ -1664,7 +1666,7 @@ h3 {
   border: 1px solid rgba(22, 23, 20, 0.12);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94)),
-    linear-gradient(135deg, rgba(252, 92, 51, 0.05), transparent 52%);
+    linear-gradient(135deg, rgba(var(--accent-3-rgb), 0.05), transparent 52%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
@@ -1701,8 +1703,8 @@ h3 {
   gap: 8px;
   padding: 14px 16px;
   border-radius: 18px;
-  background: rgba(23, 73, 219, 0.06);
-  border: 1px solid rgba(23, 73, 219, 0.08);
+  background: rgba(var(--accent-rgb), 0.06);
+  border: 1px solid rgba(var(--accent-rgb), 0.08);
   margin-bottom: 16px;
 }
 
@@ -1789,7 +1791,7 @@ h3 {
   height: 2px;
   margin-bottom: 8px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(var(--accent-rgb, 23, 73, 219), 0.22), rgba(var(--accent-3-rgb, 252, 92, 51), 0.22));
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.22), rgba(var(--accent-3-rgb), 0.22));
 }
 
 .flight-leg-card {
@@ -1823,7 +1825,7 @@ h3 {
 
 .budget-summary-card.airfare {
   background:
-    radial-gradient(circle at top right, rgba(var(--accent-rgb, 23, 73, 219), 0.12), transparent 34%),
+    radial-gradient(circle at top right, rgba(var(--accent-rgb), 0.12), transparent 34%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 242, 0.94));
 }
 
@@ -1860,7 +1862,7 @@ h3 {
   border: 1px solid rgba(22, 23, 20, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 248, 243, 0.92)),
-    linear-gradient(135deg, rgba(23, 73, 219, 0.05), transparent 58%);
+    linear-gradient(135deg, rgba(var(--accent-rgb), 0.05), transparent 58%);
 }
 
 .budget-item--expandable {
@@ -2014,7 +2016,7 @@ h3 {
   border: 1px solid rgba(22, 23, 20, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 246, 242, 0.95)),
-    radial-gradient(circle at top right, rgba(23, 73, 219, 0.08), transparent 35%);
+    radial-gradient(circle at top right, rgba(var(--accent-rgb), 0.08), transparent 35%);
 }
 
 .trip-cost-audit h3 {
@@ -2162,9 +2164,9 @@ h3 {
 .editor-grid input:focus-visible,
 .editor-grid select:focus-visible,
 .editor-grid textarea:focus-visible {
-  outline: 3px solid rgba(23, 73, 219, 0.16);
+  outline: 3px solid rgba(var(--accent-rgb), 0.16);
   outline-offset: 2px;
-  border-color: rgba(23, 73, 219, 0.28);
+  border-color: rgba(var(--accent-rgb), 0.28);
 }
 
 .editor-grid textarea {
@@ -2199,7 +2201,7 @@ h3 {
 .alternate-toggle:focus-visible,
 .alternate-remove:focus-visible,
 .stop-action:focus-visible {
-  outline: 3px solid rgba(23, 73, 219, 0.22);
+  outline: 3px solid rgba(var(--accent-rgb), 0.22);
   outline-offset: 3px;
 }
 
@@ -2428,28 +2430,35 @@ h3 {
 
 .dark-tracker {
   --dt-bg: #0d1117;
+  --dt-bg-rgb: 13, 17, 23;
   --dt-bg-2: #161b22;
   --dt-bg-3: #1c2128;
-  --dt-panel: rgba(22, 27, 34, 0.94);
-  --dt-panel-strong: rgba(28, 33, 40, 0.98);
+  --dt-panel-rgb: 22, 27, 34;
+  --dt-panel: rgba(var(--dt-panel-rgb), 0.94);
+  --dt-panel-strong-rgb: 28, 33, 40;
+  --dt-panel-strong: rgba(var(--dt-panel-strong-rgb), 0.98);
   --dt-ink: #e6edf3;
   --dt-muted: #8b949e;
   --dt-line: rgba(255, 255, 255, 0.07);
   --dt-line-strong: rgba(255, 255, 255, 0.12);
   --dt-gold: #f4b231;
+  --dt-gold-rgb: 244, 178, 49;
   --dt-teal: #3fb950;
+  --dt-teal-rgb: 63, 185, 80;
   --dt-blue: #58a6ff;
+  --dt-blue-rgb: 88, 166, 255;
   --dt-red: #f85149;
-  --dt-gold-soft: rgba(244, 178, 49, 0.14);
-  --dt-teal-soft: rgba(63, 185, 80, 0.14);
-  --dt-red-soft: rgba(248, 81, 73, 0.14);
-  --dt-blue-soft: rgba(88, 166, 255, 0.12);
+  --dt-red-rgb: 248, 81, 73;
+  --dt-gold-soft: rgba(var(--dt-gold-rgb), 0.14);
+  --dt-teal-soft: rgba(var(--dt-teal-rgb), 0.14);
+  --dt-red-soft: rgba(var(--dt-red-rgb), 0.14);
+  --dt-blue-soft: rgba(var(--dt-blue-rgb), 0.12);
 
   color: var(--dt-ink);
   background:
-    radial-gradient(ellipse 80% 40% at 15% 0%, rgba(88, 166, 255, 0.08), transparent),
-    radial-gradient(ellipse 60% 35% at 85% 0%, rgba(244, 178, 49, 0.07), transparent),
-    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(63, 185, 80, 0.05), transparent),
+    radial-gradient(ellipse 80% 40% at 15% 0%, rgba(var(--dt-blue-rgb), 0.08), transparent),
+    radial-gradient(ellipse 60% 35% at 85% 0%, rgba(var(--dt-gold-rgb), 0.07), transparent),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(var(--dt-teal-rgb), 0.05), transparent),
     linear-gradient(180deg, #0a0e14 0%, #0d1117 40%, #0b0f15 100%);
 }
 
@@ -2470,15 +2479,15 @@ h3 {
 }
 
 .dark-tracker .hero::before {
-  background: rgba(244, 178, 49, 0.1);
+  background: rgba(var(--dt-gold-rgb), 0.1);
 }
 
 .dark-tracker .hero::after {
-  background: rgba(88, 166, 255, 0.09);
+  background: rgba(var(--dt-blue-rgb), 0.09);
 }
 
 .dark-tracker .topbar::before {
-  background: rgba(13, 17, 23, 0.88);
+  background: rgba(var(--dt-bg-rgb), 0.88);
   border-color: var(--dt-line-strong);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
@@ -2511,7 +2520,7 @@ h3 {
 
 .dark-tracker .button.primary {
   background: linear-gradient(135deg, var(--dt-blue), #1e4fa0);
-  border-color: rgba(88, 166, 255, 0.3);
+  border-color: rgba(var(--dt-blue-rgb), 0.3);
   color: #fff;
 }
 
@@ -2527,21 +2536,21 @@ h3 {
 }
 
 .dark-tracker .link-button {
-  background: rgba(88, 166, 255, 0.1);
+  background: rgba(var(--dt-blue-rgb), 0.1);
   color: var(--dt-blue);
-  border-color: rgba(88, 166, 255, 0.2);
+  border-color: rgba(var(--dt-blue-rgb), 0.2);
 }
 
 .dark-tracker .link-button:hover,
 .dark-tracker .link-button:focus-visible {
-  background: rgba(88, 166, 255, 0.18);
+  background: rgba(var(--dt-blue-rgb), 0.18);
 }
 
 /* Hero trip-card */
 .dark-tracker .trip-card {
   background:
-    linear-gradient(145deg, rgba(28, 33, 40, 0.97), rgba(18, 22, 28, 0.94)),
-    linear-gradient(135deg, rgba(244, 178, 49, 0.06), transparent 50%);
+    linear-gradient(145deg, rgba(var(--dt-panel-strong-rgb), 0.97), rgba(18, 22, 28, 0.94)),
+    linear-gradient(135deg, rgba(var(--dt-gold-rgb), 0.06), transparent 50%);
   border-color: var(--dt-line-strong);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
@@ -2556,7 +2565,7 @@ h3 {
 
 .dark-tracker .trip-card strong {
   color: var(--dt-gold);
-  text-shadow: 0 0 40px rgba(244, 178, 49, 0.3);
+  text-shadow: 0 0 40px rgba(var(--dt-gold-rgb), 0.3);
 }
 
 .dark-tracker .trip-card p {
@@ -2565,7 +2574,7 @@ h3 {
 
 .dark-tracker .status-dot {
   background: linear-gradient(135deg, var(--dt-gold), var(--dt-teal));
-  box-shadow: 0 0 0 8px rgba(244, 178, 49, 0.1);
+  box-shadow: 0 0 0 8px rgba(var(--dt-gold-rgb), 0.1);
 }
 
 .dark-tracker .meter {
@@ -2587,7 +2596,7 @@ h3 {
 /* Callouts */
 .dark-tracker .tracker-callout,
 .dark-tracker .airfare-callout {
-  background: rgba(22, 27, 34, 0.88);
+  background: rgba(var(--dt-panel-rgb), 0.88);
   border-color: var(--dt-line-strong);
   color: var(--dt-muted);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
@@ -2617,8 +2626,8 @@ h3 {
 .dark-tracker .summary-card,
 .dark-tracker .tracker-summary-card {
   background:
-    linear-gradient(180deg, rgba(28, 33, 40, 0.96), rgba(18, 22, 28, 0.92)),
-    linear-gradient(135deg, rgba(88, 166, 255, 0.04), transparent 60%);
+    linear-gradient(180deg, rgba(var(--dt-panel-strong-rgb), 0.96), rgba(18, 22, 28, 0.92)),
+    linear-gradient(135deg, rgba(var(--dt-blue-rgb), 0.04), transparent 60%);
   border-color: var(--dt-line-strong);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
 }
@@ -2639,8 +2648,8 @@ h3 {
 /* Transit / content cards */
 .dark-tracker .transit-card {
   background:
-    linear-gradient(180deg, rgba(28, 33, 40, 0.97), rgba(20, 24, 30, 0.93)),
-    linear-gradient(135deg, rgba(88, 166, 255, 0.03), transparent 55%);
+    linear-gradient(180deg, rgba(var(--dt-panel-strong-rgb), 0.97), rgba(20, 24, 30, 0.93)),
+    linear-gradient(135deg, rgba(var(--dt-blue-rgb), 0.03), transparent 55%);
   border-color: var(--dt-line-strong);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
 }
@@ -2656,8 +2665,8 @@ h3 {
 /* Feature cards */
 .dark-tracker .tracker-feature-card {
   background:
-    linear-gradient(180deg, rgba(28, 33, 40, 0.97), rgba(20, 24, 30, 0.93)),
-    linear-gradient(135deg, rgba(244, 178, 49, 0.05), transparent 55%);
+    linear-gradient(180deg, rgba(var(--dt-panel-strong-rgb), 0.97), rgba(20, 24, 30, 0.93)),
+    linear-gradient(135deg, rgba(var(--dt-gold-rgb), 0.05), transparent 55%);
   border-color: var(--dt-line-strong);
 }
 
@@ -2669,16 +2678,16 @@ h3 {
 
 .dark-tracker .airfare-entry-card.is-verified-card {
   background:
-    linear-gradient(180deg, rgba(28, 33, 40, 0.97), rgba(18, 24, 22, 0.94)),
-    linear-gradient(135deg, rgba(63, 185, 80, 0.06), transparent 55%);
-  border-color: rgba(63, 185, 80, 0.18);
+    linear-gradient(180deg, rgba(var(--dt-panel-strong-rgb), 0.97), rgba(18, 24, 22, 0.94)),
+    linear-gradient(135deg, rgba(var(--dt-teal-rgb), 0.06), transparent 55%);
+  border-color: rgba(var(--dt-teal-rgb), 0.18);
 }
 
 .dark-tracker .airfare-entry-card.is-discovery-card {
   background:
-    linear-gradient(180deg, rgba(28, 33, 40, 0.97), rgba(24, 20, 18, 0.94)),
-    linear-gradient(135deg, rgba(244, 178, 49, 0.06), transparent 55%);
-  border-color: rgba(244, 178, 49, 0.14);
+    linear-gradient(180deg, rgba(var(--dt-panel-strong-rgb), 0.97), rgba(24, 20, 18, 0.94)),
+    linear-gradient(135deg, rgba(var(--dt-gold-rgb), 0.06), transparent 55%);
+  border-color: rgba(var(--dt-gold-rgb), 0.14);
 }
 
 .dark-tracker .airfare-entry-price strong {
@@ -2747,9 +2756,9 @@ h3 {
 /* Airfare summary card accent */
 .dark-tracker .airfare-summary-card {
   background:
-    linear-gradient(180deg, rgba(28, 33, 40, 0.96), rgba(18, 22, 28, 0.92)),
-    linear-gradient(135deg, rgba(244, 178, 49, 0.05), transparent 60%);
-  border-color: rgba(244, 178, 49, 0.12);
+    linear-gradient(180deg, rgba(var(--dt-panel-strong-rgb), 0.96), rgba(18, 22, 28, 0.92)),
+    linear-gradient(135deg, rgba(var(--dt-gold-rgb), 0.05), transparent 60%);
+  border-color: rgba(var(--dt-gold-rgb), 0.12);
 }
 
 /* Tracker badge muted */
@@ -2942,11 +2951,13 @@ main {
   --content: min(1520px, calc(100% - 56px));
   --bg: #f6f3ec;
   --bg-2: #efe8dc;
-  --panel: rgba(255, 252, 247, 0.92);
-  --panel-strong: rgba(255, 252, 247, 0.98);
+  --panel-rgb: 255, 252, 247;
+  --panel: rgba(var(--panel-rgb), 0.92);
+  --panel-strong: rgba(var(--panel-rgb), 0.98);
   --ink: #1f1b16;
   --muted: #655d53;
-  --line: rgba(49, 42, 35, 0.1);
+  --line: rgba(var(--line-rgb), 0.1);
+  --line-rgb: 49, 42, 35;
   --accent: #2f6fe4;
   --accent-rgb: 47, 111, 228;
   --accent-2: #1f7a67;
@@ -2954,11 +2965,13 @@ main {
   --accent-3: #bd6b2f;
   --accent-3-rgb: 189, 107, 47;
   --accent-4: #d7a35a;
-  --shadow: 0 24px 60px rgba(46, 34, 22, 0.08);
-  --shadow-soft: 0 12px 28px rgba(46, 34, 22, 0.06);
+  --accent-4-rgb: 215, 163, 90;
+  --shadow-rgb: 46, 34, 22;
+  --shadow: 0 24px 60px rgba(var(--shadow-rgb), 0.08);
+  --shadow-soft: 0 12px 28px rgba(var(--shadow-rgb), 0.06);
   background:
-    radial-gradient(circle at top left, rgba(47, 111, 228, 0.08), transparent 22%),
-    radial-gradient(circle at top right, rgba(215, 163, 90, 0.12), transparent 25%),
+    radial-gradient(circle at top left, rgba(var(--accent-rgb), 0.08), transparent 22%),
+    radial-gradient(circle at top right, rgba(var(--accent-4-rgb), 0.12), transparent 25%),
     linear-gradient(180deg, #fcfaf6 0%, #f6f1e8 48%, #f9f5ee 100%);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
@@ -2986,7 +2999,7 @@ main {
 }
 
 .trip-home .hero {
-  border-bottom: 1px solid rgba(49, 42, 35, 0.08);
+  border-bottom: 1px solid rgba(var(--line-rgb), 0.08);
 }
 
 .trip-home .hero-grid--editorial {
@@ -3384,8 +3397,8 @@ main {
   max-width: 258px;
   padding: 11px 12px 11px 20px;
   border-radius: 16px;
-  border: 1px solid rgba(49, 42, 35, 0.08);
-  background: rgba(255, 252, 247, 0.95);
+  border: 1px solid rgba(var(--line-rgb), 0.08);
+  background: rgba(var(--panel-rgb), 0.95);
   box-shadow: var(--shadow-soft);
   gap: 6px;
 }
@@ -3395,13 +3408,13 @@ main {
 }
 
 .trip-home .stop--chip.has-cost {
-  background: rgba(215, 163, 90, 0.1);
+  background: rgba(var(--accent-4-rgb), 0.1);
 }
 
 .trip-home .stop--chip:hover,
 .trip-home .stop--chip.stop--selected {
   transform: translateY(-3px);
-  box-shadow: 0 18px 32px rgba(46, 34, 22, 0.12);
+  box-shadow: 0 18px 32px rgba(var(--shadow-rgb), 0.12);
 }
 
 .trip-home .chip-timing {
@@ -3445,8 +3458,8 @@ main {
 .trip-home .stop-detail {
   padding: 18px;
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(247, 240, 231, 0.9));
-  border: 1px solid rgba(49, 42, 35, 0.08);
+  background: linear-gradient(180deg, rgba(var(--panel-rgb), 0.98), rgba(247, 240, 231, 0.9));
+  border: 1px solid rgba(var(--line-rgb), 0.08);
   box-shadow: var(--shadow-soft);
   gap: 14px;
 }
@@ -3477,16 +3490,16 @@ main {
 .trip-home .stop-detail-timing span {
   padding: 7px 10px;
   border-radius: 999px;
-  background: rgba(49, 42, 35, 0.04);
-  border: 1px solid rgba(49, 42, 35, 0.07);
+  background: rgba(var(--line-rgb), 0.04);
+  border: 1px solid rgba(var(--line-rgb), 0.07);
   font-size: 0.76rem;
 }
 
 .trip-home .stop-detail-notes {
   padding: 14px 16px;
   border-radius: 16px;
-  background: rgba(47, 111, 228, 0.06);
-  border: 1px solid rgba(47, 111, 228, 0.08);
+  background: rgba(var(--accent-rgb), 0.06);
+  border: 1px solid rgba(var(--accent-rgb), 0.08);
   font-size: 0.88rem;
 }
 
@@ -3523,8 +3536,8 @@ main {
 .trip-home .detail-section {
   padding: 13px 14px;
   border-radius: 16px;
-  background: rgba(49, 42, 35, 0.035);
-  border: 1px solid rgba(49, 42, 35, 0.07);
+  background: rgba(var(--line-rgb), 0.035);
+  border: 1px solid rgba(var(--line-rgb), 0.07);
 }
 
 .trip-home .detail-section h5 {
@@ -3555,7 +3568,7 @@ main {
   min-height: 210px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(49, 42, 35, 0.08);
+  border: 1px solid rgba(var(--line-rgb), 0.08);
 }
 
 .trip-home .stop-detail-links,
@@ -3657,7 +3670,7 @@ main {
   height: 100%;
   padding: 16px;
   border-radius: 20px;
-  border: 1px solid rgba(49, 42, 35, 0.08);
+  border: 1px solid rgba(var(--line-rgb), 0.08);
   gap: 12px;
 }
 
@@ -3693,7 +3706,7 @@ main {
   min-height: 30px;
   padding: 0 10px;
   border-radius: 999px;
-  background: rgba(49, 42, 35, 0.05);
+  background: rgba(var(--line-rgb), 0.05);
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 800;
