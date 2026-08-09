@@ -6,7 +6,10 @@
     <meta name="theme-color" content="#f6f3ec">
     <title>Seattle + Portland Travel Dashboard</title>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/styles.css?v=2026-07-05-activity-labels">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-08-09-slider-fix">
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -41,7 +44,11 @@
             <h2>All-in trip target</h2>
             <strong id="heroSpend">$0</strong>
             <p id="heroRemaining">Calculating...</p>
-            <div class="meter"><span id="heroMeter"></span></div>
+            <div class="meter">
+              <span id="heroMeter"></span>
+              <input type="range" id="heroMeterSlider" class="hero-meter-slider" min="0" max="100" step="1" value="0" aria-label="Drag to preview confirmed vs all-in target ratio">
+            </div>
+            <p class="meter-hint" id="heroMeterHint">Adjust any category card below to recalculate this target live.</p>
             <div class="fx-panel">
               <p class="fx-label">Live USD to PHP + 1.85% fee</p>
               <strong id="fxRateDisplay">Loading latest rate...</strong>
@@ -209,6 +216,6 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="../js/app.js?v=2026-07-05-activity-labels"></script>
+    <script src="../js/app.js?v=2026-08-09-slider-fix"></script>
   </body>
 </html>

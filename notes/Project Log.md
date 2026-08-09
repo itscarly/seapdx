@@ -1,3 +1,36 @@
+## 2026-08-09 (session 45: font-consistency fix, adjustable hero meter slider, DESIGN.md six-section rewrite, full /impeccable audit pass)
+
+### COMPLETE: Fixed unloaded-font fallback bug, made the "All-in trip target" meter draggable, then ran a full /impeccable audit closing all color/radius/font-size documentation-gap findings
+
+**Why this session happened:** User reviewed the live dashboard and noticed inconsistent-looking fonts, and wanted the "All-in trip target" gradient meter bar to be adjustable/explorable. Once that shipped, user asked for `/impeccable document` (DESIGN.md was out of date against the actual codebase) and then `/impeccable audit dashboards/css/styles.css`, fixing findings one by one.
+
+**Font-consistency fix (`dashboards/css/styles.css`):**
+- Root cause: 4 rules (`.budget-total`, `.leaflet-container`, `.flight-point strong`, `.airfare-entry-price strong`) set `font-family: "Sora"`/`"Manrope"`, but neither font was ever loaded anywhere in the project (no `@font-face`, no Google Fonts `<link>`, no `@import`) — browsers silently fell back to generic `sans-serif`, which rendered visibly different from the SF Pro system stack used everywhere else.
+- Fix: removed all 4 overrides so those elements inherit the same system-font stack as the rest of the page. Zero risk of FOUT since no new font loading was introduced.
+
+**Adjustable hero meter (`dashboards/html/index.html`, `dashboards/js/app.js`):**
+- Added a native `<input type="range" id="heroMeterSlider">` under the existing `.meter` gradient bar, defaulting to the live computed confirmed/all-in-target ratio.
+- Wired `input`/`change` listeners in `initHero()`: dragging live-previews the bar width and a hint label ("Previewing X% confirmed..."), releasing snaps back to the real computed ratio. Purely a what-if preview — never writes back to `trip-data.js`, resets on reload, per the project's data-integrity rule that `trip-data.js` stays the sole source of truth.
+- Added `budgetOverrides`/`applyBudgetOverrides`/`getBudgetTotals` helpers in `app.js` supporting the same in-memory (non-persisted) what-if pattern for per-category budget-card edits.
+
+**DESIGN.md rewrite + `/impeccable document`:** Regenerated DESIGN.md as a six-section spec matching the actual current codebase, with a matching `.impeccable/design.json` sidecar (gitignored, local-only).
+
+**`/impeccable audit dashboards/css/styles.css` — fixed one by one:**
+- Bounce-easing finding: fixed one non-`ease-out` transition.
+- 3 stale hardcoded-color findings: `rgba(15, 118, 110, ...)` literals in `.tracker-pill-good`, `.airfare-pill.is-verified`, `.airfare-entry-card.is-verified-card` had gone stale after `--accent-2` was overridden in `.trip-home` — replaced with `rgba(var(--accent-2-rgb), alpha)` so token updates propagate everywhere.
+- `.stop`/`side-tab` finding: reviewed, confirmed a deliberate timeline rail marker (carried from session 43/44's config exception), left unchanged.
+- `#1749db` color finding: confirmed intentional with the user, registered as a shared `.impeccable/config.json` ignore-value exception via `hook-admin.mjs`.
+- Color/radius documentation-gap findings: per user's explicit choice ("Expand DESIGN.md to cover them"), documented 8 micro-tint colors and a 13-step `rounded:` radius scale in DESIGN.md's frontmatter + a new "Micro tints" body subsection, and added matching `colorMeta` entries to `.impeccable/design.json`.
+- **Font-size findings (79 hits across ~40 ad-hoc values) — the big one:** discovered these only surfaced correctly from the *global* `~/.claude/skills/impeccable/scripts/detect.mjs`, not the outdated project-local copy at `.claude/skills/impeccable/scripts/detect.mjs` (which has no `design-system-font-size` rule at all — confirmed via grep). Per user's explicit choice ("Consolidate to a real scale"), snapped all font-size declarations to a canonical 26-step scale (`0.65rem` to `5rem`), documented it as `typography.scale` (a name→value object — the frontmatter parser requires an object, not a top-level list, per `design-system.mjs`'s `addTypographySizes()`) in DESIGN.md's frontmatter, added a "Type scale" body subsection, and mirrored it into `.impeccable/design.json`'s `typographyMeta.scale`.
+
+**Verified:** `node ~/.claude/skills/impeccable/scripts/detect.mjs --json dashboards/css/styles.css` → 0 findings (down from 79+ color/radius/font-size findings combined across the audit). CSS brace-balance check: 603 open / 603 close. `npm run validate` passes. Dev server (`http://127.0.0.1:4173/`) serves the updated stylesheet with HTTP 200; hero slider drag-and-release behavior confirmed live.
+
+**Committed and pushed:** see commit immediately following this entry on `main`.
+
+**Open items carried forward:** Korean Air confirmation number still "TBD"; Asiana OZ271/272 Nov 1 date still needs reconfirming directly with Asiana (both unrelated to this session's work).
+
+---
+
 ## 2026-08-09 (session 44: closed out the remaining design-detector color-drift findings deferred from session 43)
 
 ### COMPLETE: Tokenized all remaining hardcoded colors flagged by the design-detector Stop hook; registered legitimate exceptions for the rest

@@ -246,6 +246,19 @@ const editorEls = {
   cancel: document.getElementById("cancelEditor")
 };
 
+// In-memory what-if overrides keyed by trip-cost category name.
+// Never written back to trip-data.js -- resets on reload, per project data-integrity rule.
+const budgetOverrides = {};
+
+function applyBudgetOverrides(categories) {
+  return categories.map((category) => ({
+    ...category,
+    amount: budgetOverrides[category.name] ?? category.amount
+  }));
+}
+
+const CONFIRMED_CATEGORY_NAMES = ["Airfare", "Hotel accommodations"];
+
 if (pageMode === "home") {
   initHomePage();
 }
@@ -482,9 +495,7 @@ function iconRoute() {
 }
 
 function initHero() {
-  const confirmedTotal = getConfirmedTripTotal();
-  const plannedTotal = getPlannedAdditionalTotal();
-  const allInTarget = confirmedTotal + plannedTotal;
+  const { confirmedTotal, plannedTripSpend: plannedTotal, allInTarget } = getBudgetTotals();
   const targetRatio = allInTarget > 0 ? Math.min(100, Math.max(0, (confirmedTotal / allInTarget) * 100)) : 0;
   const spendEl = document.getElementById("heroSpend");
   const remainingEl = document.getElementById("heroRemaining");
@@ -502,6 +513,28 @@ function initHero() {
   if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed (hotels + Korean Air) + ${money(plannedTotal)} still to plan/spend -- Asiana + AA airfare already paid, not counted here`;
   if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
+  const meterSlider = document.getElementById("heroMeterSlider");
+  const meterHintEl = document.getElementById("heroMeterHint");
+  if (meterSlider) {
+    meterSlider.value = Math.round(targetRatio);
+    meterSlider.dataset.realRatio = String(targetRatio);
+    // Bind once; every later rerender just re-syncs .value/width/dataset above, snapping
+    // any drag preview back to the real computed ratio (this bar is a derived total, not
+    // an editable category -- per-category what-if edits live in the cards below).
+    if (!meterSlider.dataset.bound) {
+      meterSlider.dataset.bound = "true";
+      meterSlider.addEventListener("input", () => {
+        if (meterEl) meterEl.style.width = `${meterSlider.value}%`;
+        if (meterHintEl) meterHintEl.textContent = `Previewing ${meterSlider.value}% confirmed -- release or reload to see the real total again.`;
+      });
+      meterSlider.addEventListener("change", () => {
+        const realRatio = Number(meterSlider.dataset.realRatio) || 0;
+        meterSlider.value = Math.round(realRatio);
+        if (meterEl) meterEl.style.width = `${realRatio}%`;
+        if (meterHintEl) meterHintEl.textContent = "Adjust any category card below to recalculate this target live.";
+      });
+    }
+  }
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
   if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
@@ -1056,6 +1089,17 @@ function getPlannedAdditionalTotal() {
   return data.budget.projectedTotal;
 }
 
+function getBudgetTotals() {
+  const rawCategories = applyBudgetOverrides(buildTripCostBreakdown(0));
+  const confirmedTotal = rawCategories
+    .filter((c) => CONFIRMED_CATEGORY_NAMES.includes(c.name))
+    .reduce((sum, c) => sum + c.amount, 0);
+  const plannedTripSpend = rawCategories
+    .filter((c) => !CONFIRMED_CATEGORY_NAMES.includes(c.name))
+    .reduce((sum, c) => sum + c.amount, 0);
+  return { confirmedTotal, plannedTripSpend, allInTarget: confirmedTotal + plannedTripSpend };
+}
+
 function moneyCompact(value) {
   const amount = Number(value) || 0;
   return `$${amount % 1 === 0 ? amount.toFixed(0) : amount.toFixed(2)}`;
@@ -1200,15 +1244,53 @@ function buildTripCostBreakdown(allInTarget) {
 function bindBudgetBreakdowns(scope = document) {
   scope.querySelectorAll(".budget-item--expandable").forEach((item) => {
     item.addEventListener("click", (event) => {
-      if (event.target.closest("a, button")) return;
+      if (event.target.closest("a, button, input")) return;
       const next = item.getAttribute("aria-expanded") !== "true";
       item.setAttribute("aria-expanded", next ? "true" : "false");
     });
     item.addEventListener("keydown", (event) => {
+      if (event.target.closest("input")) return;
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
       const next = item.getAttribute("aria-expanded") !== "true";
       item.setAttribute("aria-expanded", next ? "true" : "false");
+    });
+  });
+}
+
+function setBudgetOverride(category, rawValue) {
+  const value = Number(rawValue);
+  budgetOverrides[category] = Number.isFinite(value) && value >= 0 ? value : 0;
+}
+
+function bindBudgetInputs(scope = document) {
+  scope.querySelectorAll(".budget-item-input").forEach((input) => {
+    // Belt-and-suspenders: never let interacting with the input also toggle the card,
+    // regardless of event-timing edge cases around the parent's own click guard.
+    input.addEventListener("click", (event) => event.stopPropagation());
+    input.addEventListener("change", (event) => {
+      event.stopPropagation();
+      setBudgetOverride(input.dataset.category, input.value);
+      rerenderMoneyViews();
+    });
+  });
+
+  scope.querySelectorAll(".budget-gauge-input").forEach((slider) => {
+    const card = slider.closest(".budget-item");
+    const fill = card?.querySelector(".budget-gauge-fill");
+    const numberInput = card?.querySelector(".budget-item-input");
+    slider.addEventListener("click", (event) => event.stopPropagation());
+    // Live-preview the drag without a full rerender (which would drop focus mid-drag).
+    slider.addEventListener("input", (event) => {
+      event.stopPropagation();
+      if (fill) fill.style.width = `${Math.min(100, (Number(slider.value) / Number(slider.max)) * 100)}%`;
+      if (numberInput) numberInput.value = Number(slider.value).toFixed(2);
+    });
+    // Commit + full rerender once the drag ends.
+    slider.addEventListener("change", (event) => {
+      event.stopPropagation();
+      setBudgetOverride(slider.dataset.category, slider.value);
+      rerenderMoneyViews();
     });
   });
 }
@@ -1220,10 +1302,11 @@ function renderTripCostSummary() {
 
   const confirmedAirfare = getConfirmedAirfareTotal();
   const confirmedHotels = getConfirmedHotelTotal();
-  const confirmedTotal = getConfirmedTripTotal();
-  const plannedTripSpend = data.budget.projectedTotal;
-  const allInTarget = confirmedTotal + plannedTripSpend;
-  const tripSpendBreakdown = buildTripCostBreakdown(allInTarget);
+  const { confirmedTotal, plannedTripSpend, allInTarget } = getBudgetTotals();
+  const tripSpendBreakdown = applyBudgetOverrides(buildTripCostBreakdown(allInTarget));
+  // Pristine (un-overridden) amounts, used only to pin each slider's max so dragging
+  // one category can never inflate another category's range on the next render.
+  const pristineBreakdown = buildTripCostBreakdown(0);
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
@@ -1256,8 +1339,12 @@ function renderTripCostSummary() {
 
   const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68", "#6d5bd0"];
   breakdownEl.innerHTML = tripSpendBreakdown.map((category, index) => {
-    const share = category.shareBase ? (category.amount / category.shareBase) * 100 : 0;
-    const normalized = Math.min(100, Math.max(6, share));
+    const pristineAmount = pristineBreakdown.find((c) => c.name === category.name)?.amount || category.amount || 1;
+    // Fixed ceiling based on the original data, not the live (override-affected) total --
+    // stops one drag from rescaling every other category's slider on the next render.
+    const sliderMax = Math.max(100, Math.ceil(pristineAmount * 4));
+    const sliderPct = Math.min(100, (category.amount / sliderMax) * 100);
+    const share = (category.amount / (category.shareBase || allInTarget || 1)) * 100;
     const color = colors[index % colors.length];
     const breakdownItems = (category.breakdown || []).map((item) => `
       <li>
@@ -1273,12 +1360,18 @@ function renderTripCostSummary() {
         <div class="budget-item-top">
           <div>
             <h3>${category.name}</h3>
-            <strong>${moneyPrecise(category.amount)}</strong>
+            <label class="budget-item-input-wrap">
+              <span>$</span>
+              <input type="number" class="budget-item-input" data-category="${category.name}" value="${category.amount.toFixed(2)}" step="0.01" min="0" aria-label="Adjust ${category.name} amount">
+            </label>
           </div>
           <span class="budget-item-share">${Math.round(share)}%</span>
         </div>
-        <div class="budget-gauge" aria-hidden="true">
-          <span class="budget-gauge-fill" style="width:${normalized}%"></span>
+        <div class="budget-gauge">
+          <span class="budget-gauge-fill" style="width:${sliderPct}%"></span>
+          <input type="range" class="budget-gauge-input" data-category="${category.name}"
+            min="0" max="${sliderMax}" step="1"
+            value="${Math.round(category.amount)}" aria-label="Drag to adjust ${category.name} amount">
         </div>
         <div class="budget-meter-labels">
           <span>Share of all-in target</span>
@@ -1293,6 +1386,7 @@ function renderTripCostSummary() {
     `;
   }).join("");
   bindBudgetBreakdowns(breakdownEl);
+  bindBudgetInputs(breakdownEl);
 }
 
 function renderGuide(type = "reservations") {

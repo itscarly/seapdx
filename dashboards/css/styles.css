@@ -1,6 +1,7 @@
-/* System font stack — no import needed, zero load cost */
+/* Bricolage Grotesque, loaded via Google Fonts <link> in each HTML head */
 
 :root {
+  --font-sans: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --bg: #f4f6f3;
   --bg-2: #eef2ec;
   --panel: rgba(255, 255, 255, 0.88);
@@ -19,7 +20,7 @@
   --accent-4: #f4b231;
   --accent-4-rgb: 244, 178, 49;
   --accent-soft: rgba(14, 165, 233, 0.12);
-  --ok-soft: rgba(15, 118, 110, 0.12);
+  --ok-soft: rgba(var(--accent-2-rgb), 0.12);
   --shadow: 0 12px 40px rgba(20, 24, 20, 0.08);
   --shadow-soft: 0 8px 20px rgba(20, 24, 20, 0.05);
   --radius-xl: 24px;
@@ -40,7 +41,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.6;
   background:
@@ -66,7 +67,7 @@ h3 {
 
 h1,
 h2 {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: -0.025em;
 }
@@ -213,7 +214,7 @@ h3 {
 
 .lede {
   max-width: 58ch;
-  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
   margin: 10px 0 0;
 }
 
@@ -346,7 +347,7 @@ h3 {
 .tracker-pill-good,
 .airfare-pill.is-verified,
 .airfare-pill.is-state-book {
-  background: rgba(15, 118, 110, 0.12);
+  background: rgba(var(--accent-2-rgb), 0.12);
   color: var(--accent-2);
 }
 
@@ -373,16 +374,26 @@ h3 {
 .editor-bar,
 .segment {
   background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(var(--accent-rgb), 0.16);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.day-card:hover {
-  transform: translateY(-2px);
+.day-card:hover,
+.trip-card:hover,
+.summary-card:hover,
+.budget-panel:hover,
+.budget-item:hover,
+.guide-card:hover,
+.transit-card:hover,
+.source-card:hover,
+.editor-bar:hover,
+.segment:hover {
+  transform: translateY(-4px) scale(1.015);
   box-shadow: 0 16px 40px rgba(20,24,20,0.13);
+  border-color: rgba(var(--accent-rgb), 0.4);
 }
 
 .trip-card {
@@ -429,10 +440,65 @@ h3 {
 }
 
 .meter {
+  position: relative;
   height: 12px;
   background: rgba(22, 23, 20, 0.08);
   border-radius: 999px;
   overflow: hidden;
+}
+
+.hero-meter-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: grab;
+}
+
+.hero-meter-slider:active {
+  cursor: grabbing;
+}
+
+.hero-meter-slider::-webkit-slider-runnable-track {
+  height: 12px;
+  background: transparent;
+}
+
+.hero-meter-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 20px;
+  margin-top: -4px;
+  border-radius: 6px;
+  background: var(--accent);
+  border: 2px solid var(--panel);
+  box-shadow: 0 2px 6px rgba(20, 24, 20, 0.35);
+}
+
+.hero-meter-slider::-moz-range-track {
+  height: 12px;
+  background: transparent;
+  border: none;
+}
+
+.hero-meter-slider::-moz-range-thumb {
+  width: 12px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--accent);
+  border: 2px solid var(--panel);
+  box-shadow: 0 2px 6px rgba(20, 24, 20, 0.35);
+}
+
+.meter-hint {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--muted);
 }
 
 .meter span {
@@ -547,7 +613,7 @@ h3 {
 .summary-card strong {
   display: block;
   margin-top: 6px;
-  font-size: clamp(1.15rem, 1.5vw, 1.65rem);
+  font-size: clamp(1.15rem, 1.5vw, 1.6rem);
   line-height: 1.1;
 }
 
@@ -563,7 +629,7 @@ h3 {
 }
 
 .tracker-summary-card strong {
-  font-size: clamp(1.55rem, 2vw, 2.15rem);
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
 }
 
 .tracker-panel-grid {
@@ -817,7 +883,7 @@ h3 {
   border-radius: 999px;
   background: rgba(var(--accent-rgb), 0.08);
   color: var(--accent);
-  font-size: 0.58rem;
+  font-size: 0.65rem;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1058,7 +1124,7 @@ h3 {
 
 .stop-top strong {
   flex: 0 0 auto;
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
 .badge {
@@ -1154,7 +1220,6 @@ h3 {
 
 .airfare-entry-price strong {
   display: block;
-  font-family: "Sora", ui-sans-serif, sans-serif;
   font-size: 1.6rem;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -1184,7 +1249,7 @@ h3 {
 .airfare-entry-card.is-verified-card {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 248, 246, 0.94)),
-    linear-gradient(135deg, rgba(15, 118, 110, 0.06), transparent 58%);
+    linear-gradient(135deg, rgba(var(--accent-2-rgb), 0.06), transparent 58%);
 }
 
 .airfare-entry-card.is-discovery-card {
@@ -1301,10 +1366,6 @@ h3 {
   background: linear-gradient(180deg, rgba(22, 23, 20, 0.03), rgba(22, 23, 20, 0.01));
 }
 
-.leaflet-container {
-  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
-}
-
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   box-shadow: 0 18px 44px rgba(20, 24, 20, 0.18);
@@ -1375,8 +1436,7 @@ h3 {
 .budget-total {
   display: block;
   margin-top: 14px;
-  font-family: "Sora", ui-sans-serif, sans-serif;
-  font-size: clamp(2rem, 4vw, 3.35rem);
+  font-size: clamp(2rem, 4vw, 3.6rem);
   line-height: 1;
   letter-spacing: -0.05em;
 }
@@ -1632,7 +1692,7 @@ h3 {
 }
 
 .flight-shell-head h2 {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   margin-bottom: 8px;
 }
 
@@ -1743,7 +1803,7 @@ h3 {
   display: block;
   margin-bottom: 4px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1751,7 +1811,6 @@ h3 {
 
 .flight-point strong {
   display: block;
-  font-family: "Sora", ui-sans-serif, sans-serif;
   font-size: 2rem;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -1801,7 +1860,7 @@ h3 {
 
 .flight-leg-card h4 {
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.2;
 }
 
@@ -1909,6 +1968,39 @@ h3 {
   color: var(--budget-color);
 }
 
+.budget-item-input-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.budget-item-input-wrap span {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--budget-color);
+}
+
+.budget-item-input {
+  width: 110px;
+  border: none;
+  border-bottom: 2px dashed rgba(var(--accent-rgb), 0.35);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--budget-color);
+  padding: 0 0 2px;
+  transition: border-color 0.2s ease;
+}
+
+.budget-item-input:hover,
+.budget-item-input:focus {
+  border-bottom-color: var(--budget-color);
+  outline: none;
+}
+
 .budget-item-share {
   flex: 0 0 auto;
   min-width: 72px;
@@ -1947,6 +2039,55 @@ h3 {
   border-radius: inherit;
   background: linear-gradient(90deg, var(--budget-color), color-mix(in srgb, var(--budget-color) 68%, white));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+  pointer-events: none;
+}
+
+.budget-gauge-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: grab;
+}
+
+.budget-gauge-input:active {
+  cursor: grabbing;
+}
+
+.budget-gauge-input::-webkit-slider-runnable-track {
+  height: 16px;
+  background: transparent;
+}
+
+.budget-gauge-input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 24px;
+  margin-top: -4px;
+  border-radius: 6px;
+  background: var(--budget-color);
+  border: 2px solid var(--panel);
+  box-shadow: 0 2px 6px rgba(20, 24, 20, 0.35);
+}
+
+.budget-gauge-input::-moz-range-track {
+  height: 16px;
+  background: transparent;
+  border: none;
+}
+
+.budget-gauge-input::-moz-range-thumb {
+  width: 16px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--budget-color);
+  border: 2px solid var(--panel);
+  box-shadow: 0 2px 6px rgba(20, 24, 20, 0.35);
 }
 
 .budget-breakdown {
@@ -2344,7 +2485,7 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3.1rem, 14vw, 4.8rem);
+    font-size: clamp(3rem, 14vw, 4.8rem);
   }
 }
 
@@ -2927,7 +3068,7 @@ main {
 
 .stop-detail-map .leaflet-container {
   background: #fafafa;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .stop-detail-map .leaflet-popup-content-wrapper {
@@ -2974,26 +3115,26 @@ main {
     radial-gradient(circle at top right, rgba(var(--accent-4-rgb), 0.12), transparent 25%),
     linear-gradient(180deg, #fcfaf6 0%, #f6f1e8 48%, #f9f5ee 100%);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-  font-size: 15px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
 }
 
 .trip-home h1,
 .trip-home h2,
 .trip-home h3 {
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .trip-home h1 {
   max-width: 12ch;
-  font-size: clamp(2.9rem, 6vw, 5rem);
+  font-size: clamp(2.8rem, 6vw, 5rem);
   line-height: 0.98;
   letter-spacing: -0.05em;
 }
 
 .trip-home h2 {
-  font-size: clamp(1.55rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
 }
@@ -3015,12 +3156,12 @@ main {
 }
 
 .trip-home h1 {
-  font-size: clamp(2.3rem, 3.7vw, 3.55rem);
+  font-size: clamp(2.2rem, 3.7vw, 3.6rem);
   line-height: 1.03;
 }
 
 .trip-home h2 {
-  font-size: clamp(1.45rem, 2.2vw, 2.4rem);
+  font-size: clamp(1.4rem, 2.2vw, 2.4rem);
 }
 
 .trip-home .lede {
@@ -3033,13 +3174,13 @@ main {
 .trip-home .flight-shell-copy {
   max-width: none;
   width: 100%;
-  font-size: 0.98rem;
+  font-size: 1rem;
   line-height: 1.42;
 }
 
 .trip-home #budgetHeading {
   max-width: none;
-  font-size: clamp(1.08rem, 1.52vw, 1.62rem);
+  font-size: clamp(1.1rem, 1.52vw, 1.6rem);
   line-height: 1.14;
   letter-spacing: -0.03em;
 }
@@ -3056,7 +3197,7 @@ main {
   padding-left: 20px;
   position: relative;
   color: var(--muted);
-  font-size: 1.03rem;
+  font-size: 1.05rem;
   line-height: 1.42;
 }
 
@@ -3108,7 +3249,7 @@ main {
 }
 
 .trip-home .trip-card strong {
-  font-size: clamp(1.55rem, 2.15vw, 2.22rem);
+  font-size: clamp(1.6rem, 2.15vw, 2.2rem);
   line-height: 1.02;
   margin: 10px 0 4px;
 }
@@ -3120,7 +3261,7 @@ main {
 }
 
 .trip-home .fx-label {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
 }
 
@@ -3139,7 +3280,7 @@ main {
   display: block;
   margin-bottom: 4px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -3186,14 +3327,14 @@ main {
 }
 
 .trip-home .summary-card--editorial span {
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.09em;
 }
 
 .trip-home .summary-card--editorial strong {
   margin-top: 0;
-  font-size: clamp(1.12rem, 1.52vw, 1.62rem);
+  font-size: clamp(1.1rem, 1.52vw, 1.6rem);
   line-height: 1.08;
 }
 
@@ -3225,7 +3366,7 @@ main {
 }
 
 .trip-home .budget-total {
-  font-size: clamp(1.65rem, 2.6vw, 2.7rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.8rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
 }
@@ -3237,12 +3378,12 @@ main {
 }
 
 .trip-home .budget-kicker {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
 }
 
 .trip-home .budget-capline strong {
-  font-size: 1.08rem;
+  font-size: 1.1rem;
   line-height: 1.12;
 }
 
@@ -3291,7 +3432,7 @@ main {
 }
 
 .budget-panel--unified .budget-total {
-  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.6rem);
   line-height: 1.05;
 }
 
@@ -3301,7 +3442,7 @@ main {
 }
 
 .budget-panel--unified .budget-kicker {
-  font-size: 0.62rem;
+  font-size: 0.65rem;
 }
 
 .trip-home .days {
@@ -3350,7 +3491,7 @@ main {
 .trip-home .day-total {
   min-width: 144px;
   text-align: right;
-  font-size: 1.03rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--ink);
   display: grid;
@@ -3419,14 +3560,14 @@ main {
 
 .trip-home .chip-timing {
   color: var(--accent);
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .trip-home .chip-badge {
   padding: 3px 8px;
-  font-size: 0.56rem;
+  font-size: 0.65rem;
   letter-spacing: 0.09em;
 }
 
@@ -3437,7 +3578,7 @@ main {
 
 .trip-home .chip-meta,
 .trip-home .chip-note {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   line-height: 1.38;
 }
 
@@ -3469,7 +3610,7 @@ main {
 }
 
 .trip-home .stop-detail-title h4 {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   line-height: 1.12;
 }
 
@@ -3735,7 +3876,7 @@ main {
 }
 
 .trip-home .flight-point strong {
-  font-size: 1.34rem;
+  font-size: 1.4rem;
 }
 
 .trip-home .flight-point time {
@@ -3834,7 +3975,7 @@ main {
 
   .trip-home h1 {
     max-width: 100%;
-    font-size: clamp(2rem, 8.6vw, 2.7rem);
+    font-size: clamp(2rem, 8.6vw, 2.8rem);
   }
 
   .trip-home .hero-grid--editorial {

@@ -10,6 +10,13 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
+- **Font-consistency fix, adjustable hero meter slider, DESIGN.md rewrite, full /impeccable audit** (2026-08-09, session 45)
+  - Removed 4 unloaded-font (`"Sora"`/`"Manrope"`) overrides in `styles.css` that were silently falling back to generic sans-serif — those elements now match the system-font stack used everywhere else
+  - Added a draggable native range-input under the "All-in trip target" gradient meter as a live what-if preview; never writes back to `trip-data.js`, resets on reload
+  - Regenerated `DESIGN.md` as a six-section spec matching the live codebase; ran `/impeccable audit dashboards/css/styles.css` and fixed every finding one by one: bounce-easing, 3 stale hardcoded-teal colors, an `#1749db` intentional-color exception, 8 micro-tint colors + a 13-step radius scale documented, and 79 font-size findings consolidated into a documented 26-step `typography.scale`
+  - Discovered the project-local `.claude/skills/impeccable/` detector copy is stale (missing the `design-system-font-size` rule entirely) — use the global `~/.claude/skills/impeccable/` copy for accurate audits going forward
+  - Detector re-run: 0 findings. See `notes/Project Log.md` (session 45) for full detail
+
 - **Nov 1-9 CSV reconciliation, full live-calendar resync, Cannon Beach timing bug fixes** (2026-08-06, session 39)
   - Reconciled real receipts (Nov 1-5) into `trip-data.js`: corrected ~20 costs, added menu/order links, deleted "Sea'd In Capitol Hill dinner" entirely, added a $20 QFC seltzer line, split Columbia Center Sky View into ticket + cocktail. Projected local spend is now $1,049.35 (was $1,069).
   - Fixed two dashboard bugs from user screenshot review: overlapping Poquitos happy-hour card text (long URL needed `overflow-wrap`) and a $0 Sky View entrance-fee card (stale exact-string lookup in `app.js`'s `findStopCost()`).

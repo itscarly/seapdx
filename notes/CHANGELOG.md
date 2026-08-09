@@ -4,6 +4,13 @@
 
 This is the concise project change record.
 
+## 2026-08-09 (session 45) — Font-consistency fix, adjustable hero meter, DESIGN.md rewrite, full /impeccable audit (color/radius/font-size → 0 findings)
+
+- Removed 4 unloaded-font (`"Sora"`/`"Manrope"`) overrides in `styles.css` causing silent sans-serif fallback; those elements now match the system-font stack.
+- Added a draggable range-input under the "All-in trip target" gradient meter for a live, non-persisted what-if preview.
+- Regenerated `DESIGN.md` as a six-section spec and ran the full `/impeccable audit`: fixed bounce-easing, 3 stale hardcoded-teal colors, registered an `#1749db` intentional-color exception, documented 8 micro-tint colors + a 13-step radius scale, and consolidated 79 ad-hoc font-size declarations into a documented 26-step `typography.scale`. Detector confirmed 0 findings.
+- Noted the project-local `.claude/skills/impeccable/` detector copy is stale (missing `design-system-font-size`); use the global `~/.claude/skills/impeccable/` copy going forward.
+
 ## 2026-08-09 (session 44) — Closed out remaining design-detector color findings (115 → 0)
 
 - Tokenized ~50 hardcoded colors in `dashboards/css/styles.css` that duplicated existing theme tokens, across base `:root`, `.dark-tracker`, and `.trip-home` scopes. Added RGB-channel companion tokens so `rgba(var(--x-rgb), alpha)` could replace literal rgba() values with zero visual change.
