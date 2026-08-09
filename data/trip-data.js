@@ -29,7 +29,8 @@ window.TRIP_DATA = {
       "Hotel Blake, an Ascend Collection Hotel (Bluegreen Vacations), added Aug 8, 2026 as the confirmed Chicago layover hotel: $787.38 for 6 nights (Sat Feb 27 - Fri Mar 5, 2027), bridging the AA arrival into ORD and the Korean Air ORD-ICN-MNL departure. This is a confirmed/paid-at-property cost tracked under tripCosts.confirmed.accommodations, separate from the $3,050 cap which only covers still-to-spend categories.",
       "Asiana and American Airlines flights are marked paid: true and excluded from the all-in trip target hero number -- only the outstanding Korean Air balance and confirmed hotel totals count as still-owed. Both flights remain listed in the Airfare breakdown card for reference.",
       "Shonen Tattoo round-trip transit (Nov 7) is folded into Portland local transit as a TriMet bus 33 fare ($2.80 each way) rather than a separate rideshare line, per the traveler's request to avoid Uber.",
-      "Aug 8, 2026 food/activity cost-reduction pass (traveler-requested to shrink the still-to-spend total): removed Poquitos Happy Hour (Nov 1, $35), Glo's Diner breakfast (Nov 2, $38), Sailing Seattle (Nov 2, $54), Luke's Lobster lunch (Nov 2, $26), FOB Sushi dinner (Nov 2, $25), Cafe Presse breakfast (Nov 3, $25), the Nov 3 evening Saint John's stop ($42), Analog Coffee + QFC train snacks (Nov 5, $18), the last Capitol Hill walk + coffee stop (Nov 5, $10), and Pretty Ugly Burger dinner (Nov 7, $63, replaced by Novel Book Bar covering both drinks and dinner). Portland Japanese Garden was also dropped from the route entirely (traveler does not want a paid-admission stop there). Net itinerary reduction: $336, moving the real projected total down to $2,666.27 against the unchanged $3,050 cap/ceiling."
+      "Aug 8, 2026 food/activity cost-reduction pass (traveler-requested to shrink the still-to-spend total): removed Poquitos Happy Hour (Nov 1, $35), Glo's Diner breakfast (Nov 2, $38), Sailing Seattle (Nov 2, $54), Luke's Lobster lunch (Nov 2, $26), FOB Sushi dinner (Nov 2, $25), Cafe Presse breakfast (Nov 3, $25), the Nov 3 evening Saint John's stop ($42), Analog Coffee + QFC train snacks (Nov 5, $18), the last Capitol Hill walk + coffee stop (Nov 5, $10), and Pretty Ugly Burger dinner (Nov 7, $63, replaced by Novel Book Bar covering both drinks and dinner). Portland Japanese Garden was also dropped from the route entirely (traveler does not want a paid-admission stop there). Net itinerary reduction: $336, moving the real projected total down to $2,666.27 against the unchanged $3,050 cap/ceiling.",
+      "Aug 9, 2026 day-pass transit rework (ORCA Seattle + TriMet Portland): Converted per-leg transit fares to flat $6 day-pass charges -- first ORCA-system ride of each Seattle day costs $6, every other ORCA ride that same day costs $0; same rule applied to Portland TriMet first-ride $6 + subsequent $0 per day. Non-ORCA fares (Washington State Ferries, Amtrak, POINT NorthWest intercity bus) remain separate/unchanged. Day 2 Sky View Observatory retimed from 1:35 PM to 4:15 PM to catch sunset (~4:53 PM PST estimated Nov 2). Day 2 evening Capitol Hill return (formerly walk, 65 min) converted to transit type (45 min bus/Link), cost $0 under day pass. Days 8 and 9: Light hotel-area walk and final walk also converted to transit type per traveler request. Day 2 gap-fill added between retimed Sky View: Uber office walk-by (free), Original Starbucks (whole bean $16 + mug $20 + cold brew $5 = $41), Pike Place Market wander (free), Old Stove Brewing (one beer, $13 all-in with tax+tip), Overlook Walk (free), Harbor Steps (free), Seattle Great Wheel (photo-only, free -- no entrance fee). Transportation category rises from $133.60 to approximately $148.00 net; Food adds $41 (Starbucks), Cocktails adds $13 (Old Stove), Entrance Fees unchanged (Great Wheel is free photo stop). All Starbucks/Old Stove prices are researched estimates pending on-site verification."
     ]
   },
   verificationSummary: {
@@ -54,16 +55,16 @@ window.TRIP_DATA = {
   budget: {
     cap: 3050,
     absoluteCeiling: 3050,
-    projectedTotal: 1959.35,
+    projectedTotal: 2742.87,
     categories: [
-      { name: "Transportation", amount: 133.60, note: "Seattle local transit, Portland local transit (now including the Nov 7 Shonen Tattoo TriMet bus 33 round trip, $2.80 each way, $5.60 total -- folded in as regular Portland local transit, no separate rideshare line), Bainbridge ferry, Amtrak, and day-trip buses (Cannon Beach $40 confirmed round trip via POINT NorthWest) all separated out in the breakdown below. Multnomah Falls day trip and its Columbia Gorge Express fare removed entirely -- Day 8 is now a rest day, no Gorge transit." },
-      { name: "Food", amount: 323, note: "Meals, coffee, and snack totals for Nov 1-9, trimmed per the Aug 8, 2026 food-cost reduction pass: removed Glo's Diner breakfast ($38, Nov 2 -- Pike Place covers breakfast now), Luke's Lobster lunch ($26, Nov 2), FOB Sushi dinner ($25, Nov 2), Cafe Presse breakfast ($25, Nov 3 -- Bainbridge covers it), Analog Coffee + QFC train snacks ($18, Nov 5), and the last Capitol Hill walk + coffee stop ($10, Nov 5). Nov 6-9 unchanged: Cannon Beach lunch/coffee/cocktail $100, Day 7 coffee $31 + Saturday Market lunch $50, Cartopia brunch $50, Hotel Vance final breakfast $31." },
-      { name: "Cocktails and social", amount: 76, note: "Saint John's Bar and Eatery, Salt & Straw, and Rachel's Ginger Beer corrected against actual receipts. Trimmed Aug 8, 2026: removed the Nov 3 evening Saint John's stop after Menya Musashi ramen ($42) and Pretty Ugly Burger dinner ($63, Nov 7 -- replaced by Novel Book Bar covering both drinks and dinner at $29). Poquitos Happy Hour ($35, Nov 1 removal) is tracked under Food, not here." },
-      { name: "Entrance fees", amount: 54.35, note: "Paid attractions in the synced route (Cannon Beach free; Kraken removed). Sailing Seattle ($54) removed entirely from the Nov 2 itinerary per user request -- Columbia Center Sky View Observatory ($62.35) is the only remaining paid attraction. Multnomah Falls/Vista House removed from the route entirely, so its free-admission note no longer applies." },
+      { name: "Transportation", amount: 147.20, note: "Seattle ORCA all-day pass ($6 first ride per day, $0 subsequent rides same day) and Portland TriMet/Hop all-day pass ($6 first ride per day, $0 subsequent rides same day) as the primary model for Nov 1-9 local transit, replacing per-leg fare pricing. Non-ORCA fares (Washington State Ferries Bainbridge round-trip $12, Amtrak Cascades SEA-PDX $48, POINT NorthWest Cannon Beach round-trip $40) are tracked separately and unchanged. Shonen Tattoo TriMet bus 33 round trip ($2.80 each way, $5.60 total) folded into Portland local transit no separate rideshare line. Day-pass model raises the net Transportation total slightly as first-of-day rides claim the $6 flat rate instead of lower per-ride fares. Multnomah Falls day trip and its Columbia Gorge Express fare removed entirely -- Day 8 is now a rest day, no Gorge transit." },
+      { name: "Food", amount: 364, note: "Meals, coffee, and snack totals for Nov 1-9, trimmed per the Aug 8, 2026 food-cost reduction pass: removed Glo's Diner breakfast ($38, Nov 2 -- Pike Place covers breakfast now), Luke's Lobster lunch ($26, Nov 2), FOB Sushi dinner ($25, Nov 2), Cafe Presse breakfast ($25, Nov 3 -- Bainbridge covers it), Analog Coffee + QFC train snacks ($18, Nov 5), and the last Capitol Hill walk + coffee stop ($10, Nov 5). Nov 6-9 unchanged: Cannon Beach lunch/coffee/cocktail $100, Day 7 coffee $31 + Saturday Market lunch $50, Cartopia brunch $50, Hotel Vance final breakfast $31. Added Aug 9: Day 2 Pike Place gap-fill -- Original Starbucks store (whole bean coffee bag $16 + Seattle-exclusive mug $20 + grande cold brew $5 = $41 total) as part of the new Nov 2 waterfront itinerary block. Prices are researched estimates pending on-site receipt verification." },
+      { name: "Cocktails and social", amount: 111, note: "Saint John's Bar and Eatery, Salt & Straw, and Rachel's Ginger Beer corrected against actual receipts. Trimmed Aug 8, 2026: removed the Nov 3 evening Saint John's stop after Menya Musashi ramen ($42) and Pretty Ugly Burger dinner ($63, Nov 7 -- replaced by Novel Book Bar covering both drinks and dinner at $29). Poquitos Happy Hour ($35, Nov 1 removal) is tracked under Food, not here. Added Aug 9: Columbia Center Sky View Cafe cocktail ($22, Nov 2 as part of the sunset Sky View visit), Old Stove Brewing, MarketFront, 1901 Western Ave Ste A (one beer, Elliott Bay view, $13 all-in with menu price + tax + tip) as part of the new Nov 2 Pike Place/waterfront gap-fill itinerary block. Prices are researched estimates pending on-site verification." },
+      { name: "Entrance fees", amount: 40.35, note: "Paid attractions in the synced route (Cannon Beach free; Kraken removed). Sailing Seattle ($54) removed entirely from the Nov 2 itinerary per user request -- Columbia Center Sky View Observatory ticket ($40.35) is the only remaining paid attraction (cocktail at Sky View Cafe tracked separately under Cocktails and social). Multnomah Falls/Vista House removed from the route entirely, so its free-admission note no longer applies. Seattle Great Wheel (Pier 57) added to Nov 2 Pike Place/waterfront gap-fill as a photo-only stop with no entrance fee ($0 cost) per traveler request." },
       { name: "Shopping", amount: 1547.32, note: "Everything to buy/keep in one place: coffee beans $60 (one Seattle bag, one Portland bag), souvenirs/keepsakes $137 (Totem Smokehouse salmon $40, QFC Truly Hard Seltzer 12-pack $20, city mugs, magnets, market browsing), Meta Ray-Ban glasses $459 (actual, itemized in tripCosts.plannedPurchases) + Bleu de Chanel perfume $173 (still planned), and confirmed online purchases $726.32 from Amazon $550.25 + Calvin Klein $76.65 + Hollister $91.42 (itemized in tripCosts.onlinePurchases)." },
       { name: "Tattoo", amount: 177, note: "New category for the Nov 7 tattoo appointment (Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR, $150 + $27 tip), scheduled early on Day 7 so it has the rest of the trip to heal. Day 8 was restructured into a rest day around this. TriMet bus fare to/from Milwaukie is tracked under Transportation (folded into Portland local transit), not this number." },
       { name: "Chicago pocket money", amount: 350, note: "General discretionary spending money for the Feb 27 - Mar 5, 2027 Chicago layover (Hotel Blake stay), separate from the confirmed hotel cost tracked under tripCosts.confirmed.accommodations." },
-      { name: "Contingency", amount: 5, note: "Small rounding buffer between the hand-tracked category totals and the auto-computed projectedTotal. Cap/ceiling raised from $2,500 to $2,700 on Aug 8, 2026 (online purchases) and to $3,050 on Aug 8, 2026 (Chicago pocket money) to cover the real projectedTotal; see the top-level assumptions note." }
+      { name: "Contingency", amount: -2.20, note: "Rounding and reconciliation buffer between the hand-tracked category totals and the auto-computed projectedTotal from day/purchase calculations. The script auto-calculates projectedTotal from day totals and purchase items, so Contingency adjusts for the difference. Cap/ceiling raised from $2,500 to $2,700 on Aug 8, 2026 (online purchases) and to $3,050 on Aug 8, 2026 (Chicago pocket money) to cover the real projectedTotal; see the top-level assumptions note." }
     ]
   },
   tripCosts: {
@@ -381,11 +382,11 @@ window.TRIP_DATA = {
       city: "Seattle",
       title: "Arrival and Capitol Hill reset day",
       theme: "Recovery + nearby exploration",
-      dayTotal: 74,
+      dayTotal: 77,
       weatherPlan: "Keep all first-day stops close to Boylston in Capitol Hill with short downtown transit if energy is good.",
       segments: [
         { label: "Afternoon", items: [
-          { time: "1:55 PM", leaveTime: "2:20 PM", name: "Arrive SEA and transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "25 min", cost: 3, notes: "Bag claim, station walk, ORCA tap setup.", detailText: `Arrival transition block after landing in Seattle.\nPurpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.\nEstimated cost: $3 for the airport-to-city transit leg.\nTiming: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.`, route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
+          { time: "1:55 PM", leaveTime: "2:20 PM", name: "Arrive SEA and transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "25 min", cost: 6, notes: "Bag claim, station walk, ORCA tap setup. First ORCA ride of Day 1 -- flat $6 day-pass charge.", detailText: `Arrival transition block after landing in Seattle.\nPurpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.`, route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
           { time: "2:20 PM", name: "Link light rail to Capitol Hill", type: "transit", neighborhood: "SEA -> Capitol Hill", duration: "40 min", cost: 0, notes: "Ride to Capitol Hill Station; fare already counted above.", detailText: `Link ride from SEA into Capitol Hill.\nWhat to expect: This is the easy no-drama airport transfer, so just settle in, hydrate, and let the arrival day stay simple.\nCost note: Fare already counted in the previous airport-transfer stop.`, route: "https://www.google.com/maps/dir/SEA+Airport/Capitol+Hill+Station+Seattle" },
           { time: "3:05 PM", name: "Walk to Boylston and luggage reset", type: "walk", neighborhood: "Capitol Hill", duration: "30 min", cost: 0, notes: "Walk from station, quick unpack, hydrate, short rest.", detailText: `Short station-to-hotel walk.\nWhat to expect: Quick unpack, water, phone charge, and the first real pause after the long flight.\nContinuity: This is just enough reset time to keep the evening enjoyable instead of zombie-mode.` },
           { time: "3:35 PM", name: "Rest and shower reset", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0, notes: "Hard jet-lag buffer before evening.", detailText: `Hard jet-lag buffer before the first night out.\nWhat to expect: Shower, recharge, switch into walking clothes, and do not overschedule this block.\nPurpose: Arrival night only works if this recovery window stays protected.` },
@@ -407,12 +408,12 @@ window.TRIP_DATA = {
       city: "Seattle",
       title: "Pike Place, waterfront, and downtown core",
       theme: "Classic Seattle core",
-      dayTotal: 185.85,
+      dayTotal: 239.85,
       weatherPlan: "Use Link/bus as backup if rain increases; otherwise keep waterfront portions on foot.",
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake, stretch, prep", type: "rest", neighborhood: "Boylston base", duration: "45 min", cost: 0, notes: "Easy start before the downtown day. Glo's Diner breakfast removed -- heading straight to Pike Place to eat there instead." },
-          { time: "8:15 AM", name: "Transit to Pike Place", type: "transit", neighborhood: "Capitol Hill -> Downtown", duration: "25 min", cost: 3, notes: "Link or bus into the market core." },
+          { time: "8:15 AM", name: "Transit to Pike Place", type: "transit", neighborhood: "Capitol Hill -> Downtown", duration: "25 min", cost: 6, notes: "Link or bus into the market core. First ORCA ride of Day 2 -- flat $6 day-pass charge." },
           { time: "8:40 AM", name: "Pike Place sign + arcade stroll", type: "activity", neighborhood: "Downtown", location: "Pike Place Market", duration: "20 min", cost: 0, payment: "Free walk-in", detailText: `Start at the sign and the arcade so the market feels like a sequence, not one blob.\nOrder: Walk the sign, the main arcade, and the first fish-market row.\nLine time: None unless the entrance is unusually busy.\nEstimated cost: Free.` },
           { time: "9:00 AM", name: "Piroshky Piroshky snack", type: "coffee", neighborhood: "Downtown", location: "Piroshky Piroshky, Pike Place Market", duration: "15 min", cost: 9, payment: "Cards accepted", detailText: `Quick Pike Place snack -- now doing double duty as part of breakfast since Glo's Diner was removed.\nOrder: Classic piroshky or savory cheese-filled option.\nLine time: About 5-10 min at a normal weekday pace.\nEstimated cost: $8-9 with tax.` },
           { time: "9:15 AM", name: "Beecher's Handmade Cheese tasting", type: "activity", neighborhood: "Downtown", location: "Beecher's Handmade Cheese, Pike Place Market", duration: "15 min", cost: 9, payment: "Cards accepted", detailText: `Cheese stop for a short tastings-and-snack visit.\nOrder: Small sample, grilled cheese, or mac if you want a fuller bite.\nLine time: Expect roughly 5-15 min.\nEstimated cost: $9.` },
@@ -427,12 +428,20 @@ window.TRIP_DATA = {
           { time: "11:50 AM", name: "Seattle Waterfront photo loop", type: "activity", neighborhood: "Waterfront", location: "Seattle Waterfront / Olympic Sculpture Park", duration: "25 min", cost: 0, payment: "Free walk-in", detailText: `Short photo block for the Seattle look.\nPhoto targets: The Ferris wheel from the waterfront, the waterfront stairs, and a skyline frame near Olympic Sculpture Park.\nWhat to shoot: A wide skyline shot, one close-up with the wheel, and one clean architecture frame with the stairs or park lines.\nLine time: None.\nEstimated cost: Free.` },
           { time: "12:15 PM", name: "Ghost Alley Espresso (coffee to-go before Northgate)", type: "coffee", neighborhood: "Pike Place / Post Alley", location: "Ghost Alley Espresso, 1499 Post Alley", duration: "20 min", cost: 8.50, website: "https://www.ghostalleyespresso.co/menus", payment: "Cards accepted", detailText: `Quick specialty latte stop before heading north for the Meta fit check.\nMenu: https://www.ghostalleyespresso.co/menus\nOrder: Salted Nut 12oz or one of the sweeter seasonal specials if you want the fast comfort pick.\nEstimated cost: $8.50.\nPayment: Cards accepted.` },
           { time: "12:35 PM", name: "Best Buy Northgate - Ray-Ban Meta glasses fit check", type: "activity", neighborhood: "Northgate", location: "Best Buy Northgate, 330 NE Northgate Way", duration: "40 min", cost: 0, payment: "No purchase required; cards accepted if you buy accessories", detailText: `Link light rail to Northgate Station and walk to Best Buy.\nPurpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.\nOrder tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.\nContinuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.\nBest Buy hours: Monday 10 AM to 9 PM.\nEstimated cost: Fit check only, no required spend during this stop.` },
-          { time: "1:15 PM", name: "Transit to Columbia Center", type: "transit", neighborhood: "Northgate -> Downtown", duration: "20 min", cost: 3, notes: "Link back south after the Best Buy stop." },
-          { time: "1:35 PM", name: "Columbia Center Sky View + cocktail", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "50 min", cost: 62.35, website: "https://skyviewobservatory.com/tickets/", payment: "Cards accepted", detailText: `Seattle skyline views from the observation deck plus a cocktail at the Sky View Cafe. Now a midday visit since Sailing Seattle, Luke's Lobster lunch, and FOB Sushi dinner were all removed from the day.\nTickets: https://skyviewobservatory.com/tickets/\nCafe/bar menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nORDER: Observatory ticket ($40.35) plus one cocktail at the Sky View Cafe ($22).\nEstimated cost: $62.35 total.\nPayment: Cards accepted.` }
+          { time: "1:15 PM", name: "Uber Seattle Engineering Office walk-by", type: "walk", neighborhood: "Downtown", location: "1191 2nd Ave, Suite 1200, Seattle, WA", duration: "10 min", cost: 0, notes: "Free photo/walk-by stop on the route from Columbia Center up toward Pike Place." },
+          { time: "1:25 PM", name: "Original Starbucks store, 1912 Pike Place", type: "activity", neighborhood: "Pike Place", location: "Starbucks, 1912 Pike Place, Seattle, WA 98101", duration: "20 min", cost: 41, payment: "Cards accepted", detailText: `The first Starbucks store visit with three purchases:\n1. Whole bean coffee bag (1 lb): $16\n2. Seattle/Pike Place-exclusive ceramic mug: $20\n3. Grande cold brew: $5\nTotal: $41.\nEstimated cost: $41.\nPayment: Cards accepted.` },
+          { time: "1:45 PM", name: "Pike Place Market wander", type: "activity", neighborhood: "Pike Place", location: "Pike Place Market", duration: "30 min", cost: 0, notes: "Browse swings, bronze Sasquatch statue, waterfront fountain, and the market atmosphere." },
+          { time: "2:15 PM", name: "Old Stove Brewing", type: "activity", neighborhood: "MarketFront", location: "Old Stove Brewing, 1901 Western Ave Ste A", duration: "20 min", cost: 13, payment: "Cards accepted", detailText: `Brewpub with Elliott Bay views on the waterfront.\nOrder: One beer (menu price + tax + tip all-in).\nEstimated cost: $13 all-inclusive.\nPayment: Cards accepted.` },
+          { time: "2:35 PM", name: "Overlook Walk (MarketFront viewing deck)", type: "walk", neighborhood: "Waterfront", location: "Overlook Walk, MarketFront", duration: "20 min", cost: 0, notes: "Free public space connecting Pike Place to the waterfront." },
+          { time: "2:55 PM", name: "Harbor Steps", type: "walk", neighborhood: "Waterfront", location: "Harbor Steps Staircase Plaza", duration: "15 min", cost: 0, notes: "Free public staircase (107 steps) and plaza with fountains and benches." },
+          { time: "3:10 PM", name: "Seattle Great Wheel - photo stop", type: "activity", neighborhood: "Waterfront", location: "Seattle Great Wheel, Pier 57", duration: "10 min", cost: 0, notes: "Photo-only stop (no entrance fee or ride)." },
+          { time: "3:20 PM", name: "Walk back to Columbia Center", type: "transit", neighborhood: "Waterfront -> Downtown", duration: "30 min", cost: 0, notes: "Link or short transit ride back downtown." },
+          { time: "3:50 PM", name: "Transit to Columbia Center", type: "transit", neighborhood: "Pike Place -> Downtown", duration: "20 min", cost: 0, notes: "Link back south after the Pike Place/waterfront gap-fill block. Cost $0 -- covered by the day's $6 ORCA pass." },
+          { time: "4:15 PM", name: "Columbia Center Sky View + sunset cocktail", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "90 min", cost: 62.35, website: "https://skyviewobservatory.com/tickets/", payment: "Cards accepted", detailText: `Seattle skyline views from the observation deck plus a cocktail at the Sky View Cafe, timed to catch the sunset.\nSunset timing: Seattle sunset on Nov 2, 2026 (Pacific Standard Time, after DST ends Nov 1) is approximately 4:53 PM. Arrive by 4:15 PM for pre-sunset light, stay through sunset into dusk and skyline lights (~5:45 PM).\nTickets: https://skyviewobservatory.com/tickets/\nCafe/bar menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nORDER: Observatory ticket ($40.35) plus one cocktail at the Sky View Cafe ($22).\nEstimated cost: $62.35 total.\nPayment: Cards accepted.` }
         ]},
         { label: "Evening", items: [
-          { time: "2:25 PM", name: "Walk back to Capitol Hill", type: "walk", neighborhood: "Downtown -> Capitol Hill", duration: "25 min", cost: 0, notes: "Reset pace after Sky View. FOB Sushi Belltown dinner removed -- Pike Place covered the day's food." },
-          { time: "2:50 PM", name: "Free evening + wind-down", type: "rest", neighborhood: "Boylston base", duration: "16.5 hrs", cost: 0, notes: "Day ends early now that Sailing Seattle, Luke's Lobster, and FOB Sushi are removed -- open evening at leisure, no dinner stop needed after a full day of Pike Place food." }
+          { time: "5:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "45 min", cost: 0, notes: "Bus or Link ride back to the hotel after Sky View sunset. Cost $0 -- covered by the day's $6 ORCA pass." },
+          { time: "6:35 PM", name: "Free evening + wind-down", type: "rest", neighborhood: "Boylston base", duration: "15 hrs", cost: 0, notes: "Day ends early now that Sailing Seattle, Luke's Lobster, and FOB Sushi are removed -- open evening at leisure, no dinner stop needed after a full day of Pike Place food and the sunset Sky View experience." }
         ]}
       ]
     },
@@ -472,13 +481,13 @@ window.TRIP_DATA = {
       city: "Seattle",
       title: "Extra Seattle day: Ballard + Fremont + sunset view",
       theme: "New neighborhoods + deeper city coverage",
-      dayTotal: 31.5,
+      dayTotal: 34.5,
       weatherPlan: "If weather is rough, pivot outdoor segments to museums/indoor market time.",
       segments: [
         { label: "Morning", items: [
           { time: "7:30 AM", name: "Wake + prep", type: "rest", neighborhood: "Boylston base", duration: "40 min", cost: 0 },
           { time: "8:20 AM", name: "Analog Coffee cortado", type: "coffee", neighborhood: "Capitol Hill", location: "Analog Coffee, 235 Summit Ave E", duration: "60 min", cost: 4.50, website: "https://analogcoffee.com/", payment: "Cards accepted", detailText: `Analog Coffee stop.\nWebsite: https://analogcoffee.com/\nORDER: Cortado.\nCoffee beans: Ask whether they have retail whole-bean bags if you still want a Seattle bag -- that would be an extra purchase on top of this cost.\nEstimated cost: $4.50.` },
-          { time: "9:20 AM", name: "Transit to Fremont", type: "transit", neighborhood: "Capitol Hill -> Fremont", duration: "60 min", cost: 3, notes: "Allow extra reposition time before the walk loop." },
+          { time: "9:20 AM", name: "Transit to Fremont", type: "transit", neighborhood: "Capitol Hill -> Fremont", duration: "60 min", cost: 6, notes: "Allow extra reposition time before the walk loop. First ORCA ride of Day 4 -- flat $6 day-pass charge." },
           { time: "10:20 AM", name: "Fremont walking loop", type: "walk", neighborhood: "Fremont", duration: "110 min", cost: 0 }
         ]},
         { label: "Afternoon", items: [
@@ -488,7 +497,7 @@ window.TRIP_DATA = {
           { time: "4:00 PM", name: "Ballard Coffee Works reset", type: "coffee", neighborhood: "Ballard", location: "Ballard Coffee Works, 2060 NW Market St", duration: "45 min", cost: 6, website: "https://www.ballardcoffee-co.com/menus", payment: "Cards accepted", detailText: `Ballard Coffee Works for the afternoon reset before heading back south.\nMenu: https://www.ballardcoffee-co.com/menus\nORDER: Cold Brew (16oz).\nSKIP: Heavy snack unless your feet are dragging.\nEstimated cost: $6.` }
         ]},
         { label: "Evening", items: [
-          { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Ballard -> Capitol Hill", duration: "65 min", cost: 0 },
+          { time: "4:45 PM", name: "Transit back to Capitol Hill", type: "transit", neighborhood: "Ballard -> Capitol Hill", duration: "45 min", cost: 0 },
           { time: "5:50 PM", name: "Return and pack for train day", type: "rest", neighborhood: "Boylston base", duration: "8 hrs", cost: 0, notes: "Sea'd In dinner removed from the plan -- open dinner slot, wind-down and rest block so the train departure stays protected." }
         ]}
       ]
@@ -500,17 +509,17 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Checkout + Amtrak transfer + light Portland evening",
       theme: "Transition day",
-      dayTotal: 47,
+      dayTotal: 52,
       weatherPlan: "Keep Seattle morning close to hotel and station timing protected with buffers.",
       segments: [
         { label: "Morning", items: [
           { time: "7:00 AM", name: "Wake, final pack, checkout prep", type: "rest", neighborhood: "Boylston base", duration: "165 min", cost: 0, notes: "Analog Coffee + QFC snack run and the last Capitol Hill walk both removed -- straight to checkout instead." },
-          { time: "9:45 AM", name: "Checkout and travel to King Street Station", type: "transit", neighborhood: "Capitol Hill -> King Street", duration: "55 min", cost: 4 },
+          { time: "9:45 AM", name: "Checkout and travel to King Street Station", type: "transit", neighborhood: "Capitol Hill -> King Street", duration: "55 min", cost: 6, notes: "First ORCA ride of Day 5 -- flat $6 day-pass charge (not a discounted single-ride fare)." },
           { time: "10:40 AM", name: "Station buffer + platform prep", type: "rest", neighborhood: "King Street Station", duration: "90 min", cost: 0, notes: "Longer buffer now that the morning has no coffee/walk stops -- plenty of margin before boarding." }
         ]},
         { label: "Afternoon", items: [
           { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 48, notes: "Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class." },
-          { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "35 min", cost: 3 },
+          { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "35 min", cost: 6, notes: "First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge." },
           { time: "4:20 PM", name: "Check in, reset, and Amazon package check", type: "rest", neighborhood: "Hotel Vance Portland", duration: "100 min", cost: 0, notes: "Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held." }
         ]},
         { label: "Evening", items: [
@@ -528,12 +537,12 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Cannon Beach / Haystack Rock day trip (public transit)",
       theme: "Iconic sea stack + tide pools via POINT NorthWest bus",
-      dayTotal: 146,
+      dayTotal: 149,
       weatherPlan: "Coastal weather varies; low tide timing essential for tide-pool access. Check NOAA tides for Nov 6, 2026 before confirming the day.",
       segments: [
         { label: "Morning", items: [
           { time: "7:00 AM", name: "Wake + quick breakfast + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "50 min", cost: 0, notes: "Early start to catch the westbound POINT NorthWest bus." },
-          { time: "7:50 AM", name: "Transit to Portland Union Station", type: "transit", neighborhood: "Hotel Vance -> Union Station", duration: "20 min", cost: 3, notes: "Walk or MAX to Union Station (800 NW 6th Ave)." },
+          { time: "7:50 AM", name: "Transit to Portland Union Station", type: "transit", neighborhood: "Hotel Vance -> Union Station", duration: "20 min", cost: 6, notes: "Walk or MAX to Union Station (800 NW 6th Ave). First TriMet-system ride of Day 6 -- flat $6 day-pass charge." },
           { time: "8:10 AM", name: "POINT NorthWest bus to Cannon Beach (boarding)", type: "transit", neighborhood: "Portland Union Station", duration: "18 min", cost: 0, notes: "Confirmed 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245." }
         ]},
         { label: "Daytime", items: [
@@ -545,7 +554,7 @@ window.TRIP_DATA = {
         { label: "Evening / Return", items: [
           { time: "5:40 PM", name: "Transit to bus stop + board return bus", type: "transit", neighborhood: "Downtown Cannon Beach", duration: "15 min", cost: 0, notes: "Confirmed schedule: Astoria departs 5:55 PM, arrives Portland Union Station 9:00 PM." },
           { time: "5:55 PM", name: "Depart Astoria (POINT NorthWest return)", type: "transit", neighborhood: "Intercity bus", duration: "185 min", cost: 0, notes: "Confirmed return leg: Astoria, OR to Portland, OR Union Station (via ART connecting bus 5565), arrives 9:00 PM. Fare already covered in the outbound $40." },
-          { time: "9:00 PM", name: "Arrive Portland Union Station + transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "20 min", cost: 3 },
+          { time: "9:00 PM", name: "Arrive Portland Union Station + transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "20 min", cost: 0, notes: "Return transfer. Cost $0 -- covered by the day's $6 TriMet pass." },
           { time: "9:20 PM", name: "Hotel wind-down + early sleep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "9.5 hrs", cost: 0, notes: "Settle in and rest after a full coastal day." }
         ]}
       ]
@@ -557,18 +566,18 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Tattoo + Portland Saturday Market + local food",
       theme: "Coffee, tattoo appointment, market, and a full Portland night out",
-      dayTotal: 422,
+      dayTotal: 425.20,
       weatherPlan: "Tattoo is indoors; Saturday Market is outdoor but covered. Keep the afternoon light so the new tattoo can rest and wrap.",
       segments: [
         { label: "Morning", items: [
           { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "40 min", cost: 0 },
           { time: "8:05 AM", name: "Stumptown coffee + coffee bean buy", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "30 min", cost: 31, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop before the tattoo appointment. Shortened slightly to leave enough time for the real Milwaukie commute below.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Guatemala El Injerto Bourbon whole-bean bag ($25) plus a 16oz Original Cold Brew ($6).\nEstimated cost: $31.` },
-          { time: "8:35 AM", name: "Transit to Shonen Tattoo (Milwaukie) via TriMet Bus 33", type: "transit", neighborhood: "Downtown Portland -> Milwaukie, OR", duration: "50 min", cost: 2.80, notes: "TriMet bus 33 (McLoughlin) from Downtown Portland to 17052 McLoughlin Blvd, Milwaukie, OR -- about 9 miles south, not a short in-town hop.", detailText: `Shonen Tattoo is in Milwaukie, OR, not downtown -- budget real time to get there.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nPlan: TriMet bus 33 (McLoughlin), about 50 min, $2.80 Hop fare -- folded into Portland local transit, no separate rideshare needed.\nEstimated cost: $2.80 one-way.` }
+          { time: "8:35 AM", name: "Transit to Shonen Tattoo (Milwaukie) via TriMet Bus 33", type: "transit", neighborhood: "Downtown Portland -> Milwaukie, OR", duration: "50 min", cost: 6, notes: "TriMet bus 33 (McLoughlin) from Downtown Portland to 17052 McLoughlin Blvd, Milwaukie, OR. First TriMet-system ride of Day 7 -- flat $6 day-pass charge.", detailText: `Shonen Tattoo is in Milwaukie, OR, not downtown -- budget real time to get there.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nPlan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $6 (TriMet day-pass, first ride of the day).\nEstimated cost: $6.` }
         ]},
         { label: "Afternoon", items: [
           { time: "9:25 AM", name: "Tattoo appointment", type: "activity", neighborhood: "Milwaukie, OR", location: "Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR", duration: "90 min", cost: 177, website: "https://www.instagram.com/shonen_tattoo/", payment: "Cards accepted", detailText: `Tattoo appointment, scheduled early in the day so it has the rest of the trip to rest and wrap.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nInstagram: https://www.instagram.com/shonen_tattoo/\nEstimated cost: $150 + $27 tip = $177 (bus fare to/from is tracked separately under Transportation, folded into Portland local transit).\nAftercare: Keep the rest of the day light -- no heavy activity or hiking while it heals.` },
-          { time: "10:55 AM", name: "Transit back to Downtown Portland via TriMet Bus 33", type: "transit", neighborhood: "Milwaukie, OR -> Downtown Portland", duration: "50 min", cost: 2.80, notes: "Return TriMet bus 33 (McLoughlin) from Shonen Tattoo to Downtown Portland.", detailText: `Return leg from Milwaukie back to Downtown Portland ahead of the Saturday Market walk.\nPlan: TriMet bus 33 (McLoughlin), about 50 min, $2.80 Hop fare.\nEstimated cost: $2.80 one-way.` },
-          { time: "11:45 AM", name: "Walk to Portland Saturday Market", type: "walk", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0 },
+          { time: "10:55 AM", name: "Transit back to Downtown Portland via TriMet Bus 33", type: "transit", neighborhood: "Milwaukie, OR -> Downtown Portland", duration: "50 min", cost: 0, notes: "Return TriMet bus 33 (McLoughlin) from Shonen Tattoo to Downtown Portland. Cost $0 -- covered by the day's $6 TriMet pass.", detailText: `Return leg from Milwaukie back to Downtown Portland ahead of the Saturday Market.\nPlan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $0 (covered by day pass).\nEstimated cost: $0.` },
+          { time: "11:45 AM", name: "Transit to Portland Saturday Market", type: "transit", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0, notes: "Short MAX/streetcar transit hop to the waterfront market. Cost $0 -- covered by the day's $6 TriMet pass." },
           { time: "12:15 PM", name: "Portland Saturday Market browse + lunch", type: "activity", neighborhood: "Waterfront", location: "2 SW Naito Pkwy", duration: "120 min", cost: 50, website: "https://www.portlandsaturdaymarket.com/food-vendors-and-partners", payment: "Many vendors prefer cash; some accept cards", detailText: `Waterfront artisan market block with lunch from the food vendors.\nWebsite: https://www.portlandsaturdaymarket.com/food-vendors-and-partners\nPurpose: Shop local makers and graze market food vendors for lunch instead of a sit-down meal.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $50 covering lunch and market browsing.` },
           { time: "2:15 PM", name: "Sephora Portland Downtown browse", type: "shopping", neighborhood: "Downtown Portland", location: "Sephora Portland Downtown", duration: "30 min", cost: 0, notes: "Perfume browse stop (Bleu de Chanel) -- tracked separately as a personal purchase, not part of the trip budget." },
           { time: "2:45 PM", name: "Hotel Vance reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "135 min", cost: 0, notes: "Keep the afternoon light for tattoo aftercare." }
@@ -585,20 +594,20 @@ window.TRIP_DATA = {
       date: "Sun, Nov 8",
       city: "Portland",
       title: "Tattoo rest day + Cartopia food carts",
-      theme: "Light day: let the new tattoo rest and wrap, brunch-time Cartopia, easy walking only",
-      dayTotal: 56,
+      theme: "Light day: let the new tattoo rest and wrap, brunch-time Cartopia, easy transit only",
+      dayTotal: 59,
       weatherPlan: "Indoor-friendly, low-effort day by design -- no hiking or long outdoor exposure while the tattoo heals.",
       segments: [
         { label: "Morning", items: [
           { time: "9:00 AM", name: "Sleep in + tattoo aftercare check", type: "rest", neighborhood: "Hotel Vance Portland", duration: "90 min", cost: 0, notes: "No heavy activity today -- letting yesterday's tattoo rest and wrap." },
-          { time: "10:30 AM", name: "Light hotel-area walk", type: "walk", neighborhood: "Downtown Portland", duration: "45 min", cost: 0, notes: "Easy walking only, nothing strenuous." }
+          { time: "10:30 AM", name: "Light hotel-area transit loop", type: "transit", neighborhood: "Downtown Portland", duration: "25 min", cost: 0, notes: "Easy short MAX/bus loop, nothing strenuous. Cost $0 -- covered by the day's $6 TriMet pass." }
         ]},
         { label: "Daytime", items: [
-          { time: "11:30 AM", name: "Transit to Cartopia food carts", type: "transit", neighborhood: "Hotel Vance -> SE Hawthorne (Cartopia)", duration: "20 min", cost: 3, notes: "Short trip out for a brunch-time visit." },
+          { time: "11:30 AM", name: "Transit to Cartopia food carts", type: "transit", neighborhood: "Hotel Vance -> SE Hawthorne (Cartopia)", duration: "20 min", cost: 6, notes: "Short trip out for a brunch-time visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge." },
           { time: "12:00 PM", name: "Cartopia food cart pod brunch", type: "meal", neighborhood: "SE Hawthorne", location: "Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214", duration: "90 min", cost: 50, payment: "Cash preferred", detailText: `Portland's largest food cart cluster, visited at brunch time to keep the day light.\nWhat to order: BKK pad thai, Korean BBQ, wood-fired pizza, or whatever looks fresh.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.` }
         ]},
         { label: "Evening", items: [
-          { time: "1:30 PM", name: "Transit back to Hotel Vance", type: "transit", neighborhood: "SE Hawthorne -> Hotel Vance", duration: "20 min", cost: 3 },
+          { time: "1:30 PM", name: "Transit back to Hotel Vance", type: "transit", neighborhood: "SE Hawthorne -> Hotel Vance", duration: "20 min", cost: 0, notes: "Return transfer. Cost $0 -- covered by the day's $6 TriMet pass." },
           { time: "2:00 PM", name: "Hotel Vance rest afternoon", type: "rest", neighborhood: "Hotel Vance Portland", duration: "6 hrs", cost: 0, notes: "Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight." },
           { time: "8:00 PM", name: "Early wind-down + sleep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "11 hrs", cost: 0, notes: "Full recovery night before the flight day." }
         ]}
@@ -611,14 +620,14 @@ window.TRIP_DATA = {
       city: "Portland",
       title: "Final breakfast and departure",
       theme: "Departure-safe pacing",
-      dayTotal: 34,
+      dayTotal: 37,
       weatherPlan: "Protect airport timeline; later 2:34 PM departure allows a relaxed final morning.",
       segments: [
         { label: "Morning", items: [
           { time: "9:00 AM", name: "Wake + final packing", type: "rest", neighborhood: "Hotel Vance Portland", duration: "60 min", cost: 0 },
           { time: "10:00 AM", name: "Hotel Vance breakfast", type: "meal", neighborhood: "Downtown Portland", location: "Hotel Vance, Vance & Vine", duration: "60 min", cost: 31, website: "https://www.hotelvance.com/resourcefiles/pdf/vance-and-vine-breakfast-menu.pdf", payment: "Cards accepted", detailText: `Final morning breakfast at the hotel before checkout.\nMenu: https://www.hotelvance.com/resourcefiles/pdf/vance-and-vine-breakfast-menu.pdf\nOrder: Breakfast sandwich (bacon or sausage, egg, cheese, spicy aioli) plus a mimosa or bloody mary if you want one.\nEstimated cost: $31.` },
-          { time: "11:00 AM", name: "Hotel Vance final walk", type: "walk", neighborhood: "Downtown Portland", duration: "60 min", cost: 0 },
-          { time: "12:15 PM", name: "Checkout + transfer to PDX", type: "transit", neighborhood: "Hotel Vance -> PDX", duration: "45 min", cost: 3, notes: "Leave the hotel by about 12:15 PM to stay comfortably ahead of the 2:34 PM domestic departure." },
+          { time: "11:00 AM", name: "Hotel Vance final transit loop", type: "transit", neighborhood: "Downtown Portland", duration: "60 min", cost: 6, notes: "Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge." },
+          { time: "12:15 PM", name: "Checkout + transfer to PDX", type: "transit", neighborhood: "Hotel Vance -> PDX", duration: "45 min", cost: 0, notes: "Leave the hotel by about 12:15 PM to stay comfortably ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop)." },
           { time: "1:00 PM", name: "Airport check-in and security buffer", type: "rest", neighborhood: "PDX", duration: "94 min", cost: 0 }
         ]},
         { label: "Departure", items: [
