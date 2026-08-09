@@ -505,7 +505,11 @@ function initHero() {
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
   if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
-  if (portlandBaseEl) portlandBaseEl.innerHTML = `<a href="https://www.hotelvance.com/contact-location" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
+  if (portlandBaseEl) {
+    const portlandHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Portland');
+    const portlandHotelUrl = portlandHotel?.url || 'https://www.hotelvance.com/';
+    portlandBaseEl.innerHTML = `<a href="${portlandHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
+  }
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
   if (chicagoBaseEl) chicagoBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.chicago}</a>`;
   if (lastUpdatedEl) lastUpdatedEl.textContent = data.meta.verifiedOn;
