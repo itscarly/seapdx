@@ -1,9 +1,107 @@
-# codexproject Claude guidance
+# CLAUDE.md
 
-Start with `notes/memory/active/SESSION_START.md`, then read deeper project notes only when needed. `notes/Home.md` is the Obsidian entry point.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-For meaningful verified work, update only affected standardized notes and `notes/Project Log.md`. Reconcile stale guidance, archive superseded history, and do not create duplicate handoffs or boilerplate notes.
+## Project Overview
 
-Use `npm run serve` for local verification and `npm run validate` after itinerary or dashboard JavaScript changes. Prefer text, DOM inspection, and logs over screenshots unless the issue is genuinely visual.
+**Seattle + Portland Travel Planner** is a static travel-planning dashboard for November 1-9, 2026. The codebase is intentionally static-first: one shared HTML/CSS/JS/data foundation powers local preview, GitHub Pages, and simple static hosts. No backend required for normal use.
 
-Global safety, memory, and tool defaults come from `~/.claude/CLAUDE.md`; this file deliberately avoids repeating them.
+**Live site:** https://itscarly.github.io/seadpdx/
+
+## Key Development Commands
+
+```bash
+npm run serve           # Start local preview at http://localhost:4173/
+npm run validate        # Syntax check, budget audit, calendar export regression check
+npm run audit:budget    # Detailed budget breakdown and day-by-day cost audit
+npm run audit:notes     # Check required project notes are present
+npm run review:monthly  # Generate monthly review artifact for itinerary verification
+npm run watch:monthly   # Monitor baseline itinerary prices, menus, schedules
+npm run sync:calendar   # Sync Google Calendar exports to trip-data.js
+npm run session-status  # Print current trip spend status and notes status
+npm run stamp:updated   # Update last-verified timestamp
+```
+
+**Before pushing:** Run `npm run validate` to catch syntax errors, budget mismatches, and calendar export regressions.
+
+## Codebase Structure
+
+### Data Layer
+- **`data/trip-data.js`** — The canonical source of truth for itinerary, budget, costs, and trip metadata. Global `window.TRIP_DATA` object. Includes:
+  - Meta (title, dates, base hotels, verification status, assumptions)
+  - Budget (category breakdown with amounts)
+  - Trip costs (confirmed airfare, hotels; planned purchases; online purchases)
+  - Itinerary (9 days, each with segments—each segment has items with costs)
+  - Verification summary (checks on flights, transit, activities)
+  - References (maps, visuals, guides, transit routes)
+
+### Dashboard Layer
+- **`dashboards/html/index.html`** — Main public trip command center. Renders hero, executive summary, budget cards, itinerary, guides, maps, and flight details.
+- **`dashboards/html/logistics.html`** — Secondary page: flight details and utilities.
+- **`dashboards/css/styles.css`** — Shared visual system, layout, typography, responsive rules. System fonts only. Editorial, compact, calm design.
+- **`dashboards/js/app.js`** — Rendering logic: loads trip-data.js, renders sections, handles filters/panels/map blocks/itinerary expand behavior, FX rate fetching, local storage for customizations.
+
+### Automation & Scripts
+- **`scripts/audit-budget.js`** — Validates day totals match segment item sums. Catches cost mismatches.
+- **`scripts/sync-calendar-exports.js`** — Syncs Google Calendar exports into verification summary format.
+- **`scripts/monthly-review-report.js`** — Generates checklist of venues to reverify (hours, prices, schedules).
+- **`scripts/monthly-watch-check.js`** — Monitors baseline.json itinerary against live URLs for material changes.
+- **`scripts/session-status.js`** — Prints spend status, notes health, and outstanding items.
+- **`scripts/stamp-last-updated.js`** — Timestamps trip-data.js verifiedOn field.
+
+### Project Documentation
+- **`notes/Home.md`** — Obsidian entry point (maps to GitHub Pages root).
+- **`notes/Project Log.md`** — Chronological session log.
+- **`notes/ARCHITECTURE.md`** — Design patterns and module boundaries.
+- **`notes/PROJECT_CONTEXT.md`** — Trip scope, dates, travelers, constraints.
+- **`notes/CHANGELOG.md`** — Major feature/cost/itinerary changes.
+- **`docs/local-development.md`** — Full local workflow (includes localhost setup).
+- **`docs/deployment.md`** — GitHub Pages CI/CD, release process.
+- **`DESIGN.md`** — Design system rules: hierarchy, compaction, typography, color, cards, layout by section.
+
+## Data Integrity Rules
+
+1. **`trip-data.js` is the source of truth** — All itinerary, budget, and cost updates start here. Never edit the dashboard or notes to override it.
+2. **Day totals must match segment sums** — `npm run audit:budget` enforces this. Run before committing cost changes.
+3. **Commit data and notes together** — When changing costs or itinerary, update trip-data.js in the same commit as the explanatory note in `Project Log.md` or `CHANGELOG.md`.
+4. **Keep `verifiedOn` current** — Timestamp should reflect the last time trip-data.js was verified against live sources (flights, hotels, restaurant hours, etc.). Use `npm run stamp:updated`.
+
+## Design System Reference
+
+See `DESIGN.md` for visual principles. Key guidelines:
+- **Hierarchy:** Hero and executive summary first; itinerary, guides, maps secondary.
+- **Compaction:** Remove wasted height; prefer tighter padding and smaller labels over hiding content.
+- **Typography:** System fonts, bold hero headlines, strong section headings, slightly tightened supporting copy.
+- **Color:** Light editorial background; blue (primary action), teal, warm orange (supporting). Do not redesign palette without explicit request.
+- **Cards:** One disciplined family with subtle borders, soft shadows, rounded corners. Primary cards slightly more padding; secondary cards lighter and shorter.
+
+## Verification & QA
+
+- **30-45 days before trip:** Recheck restaurant hours, happy hours, ferry fares, sports schedules, menu prices against live sources.
+- **Final trip week:** Reverify critical itinerary items (flight times, hotel confirmations, transit schedules).
+- Use `npm run review:monthly` to generate the full verification checklist.
+
+## Notes & Memory
+
+Start with `notes/Home.md` for Obsidian context, then read deeper notes only when needed. Key files:
+- `PROJECT_CONTEXT.md` — Trip scope and travelers.
+- `ARCHITECTURE.md` — Code structure and patterns.
+- `MAINTENANCE.md` — Operational checklist.
+- `KNOWN_ISSUES.md` — Outstanding bugs or tech debt.
+
+Global memory (Claude, Codex, Obsidian shared) is in `notes/memory/`. Session-specific state is in `notes/memory/active/SESSION_START.md`.
+
+For meaningful verified work: update only affected standardized notes and `Project Log.md`. Reconcile stale guidance; archive superseded history; do not create duplicate handoffs or boilerplate notes.
+
+## Project Constraints
+
+- **Static-first:** No backend for normal operation.
+- **GitHub Pages host:** Default public deploy.
+- **Node.js ≥20** required.
+- **Playwright** for E2E testing if automation tests are added.
+- **Trip dates:** November 1-9, 2026 (Seattle + Bainbridge + Portland).
+- **Budget ceiling:** $3,050 (still-to-spend). Confirmed airfare and hotels excluded from cap.
+
+## Global Defaults
+
+Safety, memory, and tool defaults come from `~/.claude/CLAUDE.md`. Development style follows ECC coding conventions (immutability, error handling, input validation, DRY).
