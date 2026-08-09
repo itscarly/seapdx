@@ -4,6 +4,12 @@
 
 This is the concise project change record.
 
+## 2026-08-09 (session 44) — Closed out remaining design-detector color findings (115 → 0)
+
+- Tokenized ~50 hardcoded colors in `dashboards/css/styles.css` that duplicated existing theme tokens, across base `:root`, `.dark-tracker`, and `.trip-home` scopes. Added RGB-channel companion tokens so `rgba(var(--x-rgb), alpha)` could replace literal rgba() values with zero visual change.
+- Fixed a broken `side-tab` ignore-config entry from session 43 (malformed value string meant it never worked) and registered ~30 legitimate remaining findings (neutral whites/grays, glassmorphism overlays, one-off dark-tracker gradient shades) as reviewed exceptions in `.impeccable/config.json`.
+- Detector confirmed 0 findings post-fix; `npm run validate` and browser check both pass with no regressions. Commit `7b11822`.
+
 ## 2026-08-09 (session 43) — Dashboard audit + polish: flight leg direction labels, removed AI-slop patterns sitewide
 
 - Added "Departs"/"Arrives" text labels to flight legs, fixing an ambiguous stacked layout on mobile (≤980px).

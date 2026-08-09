@@ -20,7 +20,7 @@ const mismatches = data.itinerary
 
 const failures = [];
 
-if (categoryTotal !== data.budget.projectedTotal) {
+if (Math.abs(categoryTotal - data.budget.projectedTotal) > 0.01) {
   failures.push(`Category total ${categoryTotal} does not match projected total ${data.budget.projectedTotal}.`);
 }
 

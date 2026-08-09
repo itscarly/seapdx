@@ -5,7 +5,7 @@
     "start": "2026-11-01T13:55:00-08:00",
     "end": "2026-11-01T14:20:00-08:00",
     "location": "SEA Airport",
-    "description": "Arrival transition block after landing in Seattle.\nPurpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.\nEstimated cost: $3 for the airport-to-city transit leg.\nTiming: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.\nEstimated cost: $3.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-and-transfer-to-lin"
+    "description": "Arrival transition block after landing in Seattle.\nPurpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.\nEstimated cost: $6.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-and-transfer-to-lin"
   },
   {
     "tag": "SEAPDX-2026-day-1-02",
@@ -93,7 +93,7 @@
     "start": "2026-11-02T08:15:00-08:00",
     "end": "2026-11-02T08:40:00-08:00",
     "location": "Capitol Hill -> Downtown",
-    "description": "Purpose: Link or bus into the market core.\nEstimated cost: $3.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-1-transit-to-pike-place"
+    "description": "Purpose: Link or bus into the market core. First ORCA ride of Day 2 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-1-transit-to-pike-place"
   },
   {
     "tag": "SEAPDX-2026-day-2-13",
@@ -193,38 +193,110 @@
   },
   {
     "tag": "SEAPDX-2026-day-2-25",
-    "title": "🚇 Seattle Day 2 · Transit to Columbia Center",
+    "title": "🚇 Seattle Day 2 · Transit to Downtown / Uber office area",
     "start": "2026-11-02T13:15:00-08:00",
-    "end": "2026-11-02T13:35:00-08:00",
+    "end": "2026-11-02T13:45:00-08:00",
     "location": "Northgate -> Downtown",
-    "description": "Purpose: Link back south after the Best Buy stop.\nEstimated cost: $3.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-4-transit-to-columbia-center"
+    "description": "Purpose: Link back south toward Pike Place area. Cost $0 -- covered by the day's $6 ORCA pass.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-4-transit-to-downtown-uber-offic"
   },
   {
     "tag": "SEAPDX-2026-day-2-26",
-    "title": "🎟️ Seattle Day 2 · Columbia Center Sky View + cocktail",
-    "start": "2026-11-02T13:35:00-08:00",
-    "end": "2026-11-02T14:25:00-08:00",
-    "location": "Sky View Observatory, 700 4th Ave",
-    "description": "Seattle skyline views from the observation deck plus a cocktail at the Sky View Cafe. Now a midday visit since Sailing Seattle, Luke's Lobster lunch, and FOB Sushi dinner were all removed from the day.\nTickets: https://skyviewobservatory.com/tickets/\nCafe/bar menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nORDER: Observatory ticket ($40.35) plus one cocktail at the Sky View Cafe ($22).\nEstimated cost: $62.35 total.\nPayment: Cards accepted.\nLocation: Sky View Observatory, 700 4th Ave\nPayment: Cards accepted\nEstimated cost: $62.35.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-5-columbia-center-sky-view-cockt"
+    "title": "🚶 Seattle Day 2 · Uber Seattle Engineering Office - photo walk-by",
+    "start": "2026-11-02T13:45:00-08:00",
+    "end": "2026-11-02T14:00:00-08:00",
+    "location": "1191 2nd Ave, Suite 1200, Seattle, WA",
+    "description": "Purpose: Free photo/walk-by stop on the way from Downtown to Pike Place Market.\nLocation: 1191 2nd Ave, Suite 1200, Seattle, WA\nDuration: 15 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-5-uber-seattle-engineering-offic"
   },
   {
     "tag": "SEAPDX-2026-day-2-27",
-    "title": "🚶 Seattle Day 2 · Walk back to Capitol Hill",
-    "start": "2026-11-02T14:25:00-08:00",
-    "end": "2026-11-02T14:50:00-08:00",
-    "location": "Downtown -> Capitol Hill",
-    "description": "Purpose: Reset pace after Sky View. FOB Sushi Belltown dinner removed -- Pike Place covered the day's food.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-0-walk-back-to-capitol-hill"
+    "title": "🎟️ Seattle Day 2 · Original Starbucks store, 1912 Pike Place",
+    "start": "2026-11-02T14:00:00-08:00",
+    "end": "2026-11-02T14:20:00-08:00",
+    "location": "Starbucks, 1912 Pike Place, Seattle, WA 98101",
+    "description": "The first Starbucks store visit with three purchases:\n1. Whole bean coffee bag (1 lb): $16\n2. Seattle/Pike Place-exclusive ceramic mug: $20\n3. Grande cold brew: $5\nTotal: $41.\nEstimated cost: $41.\nPayment: Cards accepted.\nLocation: Starbucks, 1912 Pike Place, Seattle, WA 98101\nPayment: Cards accepted\nEstimated cost: $41.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-6-original-starbucks-store-1912-"
   },
   {
     "tag": "SEAPDX-2026-day-2-28",
-    "title": "🛌 Seattle Day 2 · Free evening + wind-down",
-    "start": "2026-11-02T14:50:00-08:00",
-    "end": "2026-11-03T07:20:00-08:00",
-    "location": "Boylston base",
-    "description": "Purpose: Day ends early now that Sailing Seattle, Luke's Lobster, and FOB Sushi are removed -- open evening at leisure, no dinner stop needed after a full day of Pike Place food.\nDuration: 16.5 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-1-free-evening-wind-down"
+    "title": "🎟️ Seattle Day 2 · Pike Place Market wander",
+    "start": "2026-11-02T14:20:00-08:00",
+    "end": "2026-11-02T14:50:00-08:00",
+    "location": "Pike Place Market",
+    "description": "Purpose: Browse swings, bronze Sasquatch statue, waterfront fountain, and the market atmosphere.\nLocation: Pike Place Market\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-7-pike-place-market-wander"
   },
   {
-    "tag": "SEAPDX-2026-day-3-29",
+    "tag": "SEAPDX-2026-day-2-29",
+    "title": "🎟️ Seattle Day 2 · Old Stove Brewing",
+    "start": "2026-11-02T14:50:00-08:00",
+    "end": "2026-11-02T15:10:00-08:00",
+    "location": "Old Stove Brewing, 1901 Western Ave Ste A",
+    "description": "Brewpub with Elliott Bay views on the waterfront.\nOrder: One beer (menu price + tax + tip all-in).\nEstimated cost: $13 all-inclusive.\nPayment: Cards accepted.\nLocation: Old Stove Brewing, 1901 Western Ave Ste A\nPayment: Cards accepted\nEstimated cost: $13.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-8-old-stove-brewing"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-30",
+    "title": "🚶 Seattle Day 2 · Overlook Walk (MarketFront viewing deck)",
+    "start": "2026-11-02T15:10:00-08:00",
+    "end": "2026-11-02T15:30:00-08:00",
+    "location": "Overlook Walk, MarketFront",
+    "description": "Purpose: Free public space connecting Pike Place to the waterfront.\nLocation: Overlook Walk, MarketFront\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-9-overlook-walk-marketfront-view"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-31",
+    "title": "🚶 Seattle Day 2 · Harbor Steps",
+    "start": "2026-11-02T15:30:00-08:00",
+    "end": "2026-11-02T15:45:00-08:00",
+    "location": "Harbor Steps Staircase Plaza",
+    "description": "Purpose: Free public staircase (107 steps) and plaza with fountains and benches.\nLocation: Harbor Steps Staircase Plaza\nDuration: 15 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-10-harbor-steps"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-32",
+    "title": "🎟️ Seattle Day 2 · Seattle Great Wheel - photo stop",
+    "start": "2026-11-02T15:45:00-08:00",
+    "end": "2026-11-02T15:55:00-08:00",
+    "location": "Seattle Great Wheel, Pier 57",
+    "description": "Purpose: Photo-only stop (no entrance fee or ride).\nLocation: Seattle Great Wheel, Pier 57\nDuration: 10 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-11-seattle-great-wheel-photo-sto"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-33",
+    "title": "🚇 Seattle Day 2 · Transit to Columbia Center",
+    "start": "2026-11-02T15:55:00-08:00",
+    "end": "2026-11-02T16:15:00-08:00",
+    "location": "Waterfront -> Downtown",
+    "description": "Purpose: Link back south after the Pike Place/waterfront cluster. Cost $0 -- covered by the day's $6 ORCA pass.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-12-transit-to-columbia-center"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-34",
+    "title": "🎟️ Seattle Day 2 · Columbia Center Sky View Observatory - Elite Experience ticket",
+    "start": "2026-11-02T16:15:00-08:00",
+    "end": "2026-11-02T17:15:00-08:00",
+    "location": "Sky View Observatory, 700 4th Ave",
+    "description": "Seattle skyline views from the observation deck, timed to catch the sunset.\nSunset timing: Seattle sunset on Nov 2, 2026 (Pacific Standard Time, after DST ends Nov 1) is approximately 4:53 PM. Arrive by 4:15 PM for pre-sunset light.\nTickets: https://skyviewobservatory.com/tickets/ — Elite Experience Adult: $49 + booking fee $1 + WA tax $2.50 = $52.50.\nEstimated cost: $52.50.\nPayment: Cards accepted.\nLocation: Sky View Observatory, 700 4th Ave\nPayment: Cards accepted\nEstimated cost: $52.5.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-13-columbia-center-sky-view-obse"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-35",
+    "title": "🎟️ Seattle Day 2 · Sky View Cafe - sunset cocktail + sandwich",
+    "start": "2026-11-02T17:15:00-08:00",
+    "end": "2026-11-02T17:45:00-08:00",
+    "location": "Sky View Observatory Cafe, 700 4th Ave",
+    "description": "Food and cocktail at the Sky View Cafe while watching sunset and dusk lights.\nCafe menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nORDER: One cocktail (~$18) + BLT sandwich ($14) + ~10.5% WA sales tax + 18% tip = ~$41.12 all-in.\nEstimated cost: $41.12.\nPayment: Cards accepted.\nLocation: Sky View Observatory Cafe, 700 4th Ave\nPayment: Cards accepted\nEstimated cost: $41.12.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-14-sky-view-cafe-sunset-cocktail"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-36",
+    "title": "🚇 Seattle Day 2 · Transit back to Capitol Hill",
+    "start": "2026-11-02T17:45:00-08:00",
+    "end": "2026-11-02T18:35:00-08:00",
+    "location": "Downtown -> Capitol Hill",
+    "description": "Purpose: Bus or Link ride back to the hotel after Sky View sunset. Cost $0 -- covered by the day's $6 ORCA pass.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-0-transit-back-to-capitol-hill"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-37",
+    "title": "🛌 Seattle Day 2 · Free evening + wind-down",
+    "start": "2026-11-02T18:35:00-08:00",
+    "end": "2026-11-03T07:20:00-08:00",
+    "location": "Boylston base",
+    "description": "Purpose: Day ends early now that Sailing Seattle, Luke's Lobster, and FOB Sushi are removed -- open evening at leisure, no dinner stop needed after a full day of Pike Place food and the sunset Sky View experience.\nDuration: 15 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-1-free-evening-wind-down"
+  },
+  {
+    "tag": "SEAPDX-2026-day-3-38",
     "title": "🛌 Seattle Day 3 · Wake + prep",
     "start": "2026-11-03T07:20:00-08:00",
     "end": "2026-11-03T08:00:00-08:00",
@@ -232,7 +304,7 @@
     "description": "Purpose: Cafe Presse breakfast removed -- heading straight to the ferry terminal, food starts at Bainbridge.\nDuration: 40 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-0-wake-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-3-30",
+    "tag": "SEAPDX-2026-day-3-39",
     "title": "🚇 Seattle Day 3 · Transit/walk to Seattle Ferry Terminal",
     "start": "2026-11-03T08:00:00-08:00",
     "end": "2026-11-03T08:50:00-08:00",
@@ -240,7 +312,7 @@
     "description": "Purpose: Protected connection into the ferry terminal.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-1-transit-walk-to-seattle-ferry-"
   },
   {
-    "tag": "SEAPDX-2026-day-3-31",
+    "tag": "SEAPDX-2026-day-3-40",
     "title": "🚇 Seattle Day 3 · Ferry to Bainbridge",
     "start": "2026-11-03T08:50:00-08:00",
     "end": "2026-11-03T09:50:00-08:00",
@@ -248,7 +320,7 @@
     "description": "Purpose: Seattle-to-Bainbridge walk-on fare is collected westbound only and should stay separate from local Seattle transit.\nEstimated cost: $12.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-2-ferry-to-bainbridge"
   },
   {
-    "tag": "SEAPDX-2026-day-3-32",
+    "tag": "SEAPDX-2026-day-3-41",
     "title": "🚶 Seattle Day 3 · Winslow + waterfront exploration",
     "start": "2026-11-03T09:50:00-08:00",
     "end": "2026-11-03T11:30:00-08:00",
@@ -256,7 +328,7 @@
     "description": "Purpose: Winslow + waterfront exploration keeps the bainbridge day trip route on track.\nDuration: 95 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-0-winslow-waterfront-exploration"
   },
   {
-    "tag": "SEAPDX-2026-day-3-33",
+    "tag": "SEAPDX-2026-day-3-42",
     "title": "🍽️ Seattle Day 3 · Harbour Public House lunch",
     "start": "2026-11-03T11:30:00-08:00",
     "end": "2026-11-03T12:45:00-08:00",
@@ -264,7 +336,7 @@
     "description": "Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry. Now covers breakfast/lunch since Cafe Presse was removed.\nMenu: https://harbourpub.com/\nORDER: Braised Beef BBQ Sandwich and a ginger ale.\nFruity: Bainbridge cider is the move if you want something lighter than beer.\nEstimated cost: $29 with tip and tax.\nLocation: Harbour Public House, 231 Parfitt Way SW\nPayment: Cards accepted\nEstimated cost: $29.\nDuration: 75 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-1-harbour-public-house-lunch"
   },
   {
-    "tag": "SEAPDX-2026-day-3-34",
+    "tag": "SEAPDX-2026-day-3-43",
     "title": "☕ Seattle Day 3 · Blackbird Coffee stop",
     "start": "2026-11-03T12:45:00-08:00",
     "end": "2026-11-03T13:35:00-08:00",
@@ -272,7 +344,7 @@
     "description": "Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.\nMenu: https://www.blackbirdbakeryandcafe.com/bakery-menu\nORDER: Coffee plus a scone or cookie.\nEstimated cost: $8.\nLocation: Blackbird Bakery, 210 Winslow Way E\nPayment: Cards accepted\nEstimated cost: $8.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-2-blackbird-coffee-stop"
   },
   {
-    "tag": "SEAPDX-2026-day-3-35",
+    "tag": "SEAPDX-2026-day-3-44",
     "title": "🚇 Seattle Day 3 · Return ferry to Seattle",
     "start": "2026-11-03T13:35:00-08:00",
     "end": "2026-11-03T14:35:00-08:00",
@@ -280,7 +352,7 @@
     "description": "Purpose: Return walk-on passenger fare is already covered.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-3-return-ferry-to-seattle"
   },
   {
-    "tag": "SEAPDX-2026-day-3-36",
+    "tag": "SEAPDX-2026-day-3-45",
     "title": "🚇 Seattle Day 3 · Transit back to Capitol Hill",
     "start": "2026-11-03T14:35:00-08:00",
     "end": "2026-11-03T15:20:00-08:00",
@@ -288,7 +360,7 @@
     "description": "Purpose: Transit back to Capitol Hill keeps the bainbridge day trip route on track.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-0-transit-back-to-capitol-hill"
   },
   {
-    "tag": "SEAPDX-2026-day-3-37",
+    "tag": "SEAPDX-2026-day-3-46",
     "title": "🛌 Seattle Day 3 · Hotel recharge",
     "start": "2026-11-03T15:20:00-08:00",
     "end": "2026-11-03T17:15:00-08:00",
@@ -296,7 +368,7 @@
     "description": "Purpose: Longer recharge window now that the evening has no second stop after dinner.\nDuration: 115 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-1-hotel-recharge"
   },
   {
-    "tag": "SEAPDX-2026-day-3-38",
+    "tag": "SEAPDX-2026-day-3-47",
     "title": "🍽️ Seattle Day 3 · Menya Musashi ramen dinner -- Spicy Curry Ramen",
     "start": "2026-11-03T17:15:00-08:00",
     "end": "2026-11-03T18:15:00-08:00",
@@ -304,7 +376,7 @@
     "description": "Japanese ramen chain, warming November dinner after the Bainbridge return.\nMenu: https://menyamuso.us/ramen-menu-seattle/\nORDER: Spicy Curry Ramen.\nFruity: Go sake or beer here, not cocktails.\nEstimated cost: $27 with tip.\nPayment: Cards accepted\nEstimated cost: $27.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-2-menya-musashi-ramen-dinner-spi"
   },
   {
-    "tag": "SEAPDX-2026-day-3-39",
+    "tag": "SEAPDX-2026-day-3-48",
     "title": "🛌 Seattle Day 3 · Return and rest",
     "start": "2026-11-03T18:15:00-08:00",
     "end": "2026-11-04T07:30:00-08:00",
@@ -312,7 +384,7 @@
     "description": "Purpose: Saint John's Bar and Eatery removed after ramen -- straight to rest before the last Seattle full day.\nDuration: 13.25 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-3-return-and-rest"
   },
   {
-    "tag": "SEAPDX-2026-day-4-40",
+    "tag": "SEAPDX-2026-day-4-49",
     "title": "🛌 Seattle Day 4 · Wake + prep",
     "start": "2026-11-04T07:30:00-08:00",
     "end": "2026-11-04T08:20:00-08:00",
@@ -320,7 +392,7 @@
     "description": "Purpose: Wake + prep keeps the extra seattle day: ballard + fremont + sunset view route on track.\nDuration: 40 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-0-wake-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-4-41",
+    "tag": "SEAPDX-2026-day-4-50",
     "title": "☕ Seattle Day 4 · Analog Coffee cortado",
     "start": "2026-11-04T08:20:00-08:00",
     "end": "2026-11-04T09:20:00-08:00",
@@ -328,15 +400,15 @@
     "description": "Analog Coffee stop.\nWebsite: https://analogcoffee.com/\nORDER: Cortado.\nCoffee beans: Ask whether they have retail whole-bean bags if you still want a Seattle bag -- that would be an extra purchase on top of this cost.\nEstimated cost: $4.50.\nLocation: Analog Coffee, 235 Summit Ave E\nPayment: Cards accepted\nEstimated cost: $4.5.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-1-analog-coffee-cortado"
   },
   {
-    "tag": "SEAPDX-2026-day-4-42",
+    "tag": "SEAPDX-2026-day-4-51",
     "title": "🚇 Seattle Day 4 · Transit to Fremont",
     "start": "2026-11-04T09:20:00-08:00",
     "end": "2026-11-04T10:20:00-08:00",
     "location": "Capitol Hill -> Fremont",
-    "description": "Purpose: Allow extra reposition time before the walk loop.\nEstimated cost: $3.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-2-transit-to-fremont"
+    "description": "Purpose: Allow extra reposition time before the walk loop. First ORCA ride of Day 4 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-2-transit-to-fremont"
   },
   {
-    "tag": "SEAPDX-2026-day-4-43",
+    "tag": "SEAPDX-2026-day-4-52",
     "title": "🚶 Seattle Day 4 · Fremont walking loop",
     "start": "2026-11-04T10:20:00-08:00",
     "end": "2026-11-04T12:10:00-08:00",
@@ -344,7 +416,7 @@
     "description": "Purpose: Fremont walking loop keeps the extra seattle day: ballard + fremont + sunset view route on track.\nDuration: 110 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-3-fremont-walking-loop"
   },
   {
-    "tag": "SEAPDX-2026-day-4-44",
+    "tag": "SEAPDX-2026-day-4-53",
     "title": "🍽️ Seattle Day 4 · Uneeda Burger Fremont lunch",
     "start": "2026-11-04T12:10:00-08:00",
     "end": "2026-11-04T13:35:00-08:00",
@@ -352,7 +424,7 @@
     "description": "Counter-service Fremont burger institution.\nMenu: https://uneedaburger.com/seattle-fremont-uneeda-burger-food-menu\nORDER: Uneeda Burger Chipotle Chicken Burger.\nFruity: Strawberry or seasonal milkshake is the fruit-leaning move here.\nEstimated cost: $18 with tip.\nLocation: Uneeda Burger\nPayment: Cards accepted\nEstimated cost: $18.\nDuration: 85 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-0-uneeda-burger-fremont-lunch"
   },
   {
-    "tag": "SEAPDX-2026-day-4-45",
+    "tag": "SEAPDX-2026-day-4-54",
     "title": "🚇 Seattle Day 4 · Transit to Ballard",
     "start": "2026-11-04T13:35:00-08:00",
     "end": "2026-11-04T14:10:00-08:00",
@@ -360,7 +432,7 @@
     "description": "Purpose: Transit to Ballard keeps the extra seattle day: ballard + fremont + sunset view route on track.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-1-transit-to-ballard"
   },
   {
-    "tag": "SEAPDX-2026-day-4-46",
+    "tag": "SEAPDX-2026-day-4-55",
     "title": "🚶 Seattle Day 4 · Ballard Ave + locks area explore",
     "start": "2026-11-04T14:10:00-08:00",
     "end": "2026-11-04T16:00:00-08:00",
@@ -368,7 +440,7 @@
     "description": "Purpose: Ballard Ave + locks area explore keeps the extra seattle day: ballard + fremont + sunset view route on track.\nDuration: 110 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-2-ballard-ave-locks-area-explore"
   },
   {
-    "tag": "SEAPDX-2026-day-4-47",
+    "tag": "SEAPDX-2026-day-4-56",
     "title": "☕ Seattle Day 4 · Ballard Coffee Works reset",
     "start": "2026-11-04T16:00:00-08:00",
     "end": "2026-11-04T16:45:00-08:00",
@@ -376,15 +448,15 @@
     "description": "Ballard Coffee Works for the afternoon reset before heading back south.\nMenu: https://www.ballardcoffee-co.com/menus\nORDER: Cold Brew (16oz).\nSKIP: Heavy snack unless your feet are dragging.\nEstimated cost: $6.\nLocation: Ballard Coffee Works, 2060 NW Market St\nPayment: Cards accepted\nEstimated cost: $6.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-3-ballard-coffee-works-reset"
   },
   {
-    "tag": "SEAPDX-2026-day-4-48",
+    "tag": "SEAPDX-2026-day-4-57",
     "title": "🚇 Seattle Day 4 · Transit back to Capitol Hill",
     "start": "2026-11-04T16:45:00-08:00",
     "end": "2026-11-04T17:50:00-08:00",
     "location": "Ballard -> Capitol Hill",
-    "description": "Purpose: Transit back to Capitol Hill keeps the extra seattle day: ballard + fremont + sunset view route on track.\nDuration: 65 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-0-transit-back-to-capitol-hill"
+    "description": "Purpose: Transit back to Capitol Hill keeps the extra seattle day: ballard + fremont + sunset view route on track.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-0-transit-back-to-capitol-hill"
   },
   {
-    "tag": "SEAPDX-2026-day-4-49",
+    "tag": "SEAPDX-2026-day-4-58",
     "title": "🛌 Seattle Day 4 · Return and pack for train day",
     "start": "2026-11-04T17:50:00-08:00",
     "end": "2026-11-05T07:00:00-08:00",
@@ -392,7 +464,7 @@
     "description": "Purpose: Sea'd In dinner removed from the plan -- open dinner slot, wind-down and rest block so the train departure stays protected.\nDuration: 8 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-1-return-and-pack-for-train-day"
   },
   {
-    "tag": "SEAPDX-2026-day-5-50",
+    "tag": "SEAPDX-2026-day-5-59",
     "title": "🛌 Portland Day 5 · Wake, final pack, checkout prep",
     "start": "2026-11-05T07:00:00-08:00",
     "end": "2026-11-05T09:45:00-08:00",
@@ -400,15 +472,15 @@
     "description": "Purpose: Analog Coffee + QFC snack run and the last Capitol Hill walk both removed -- straight to checkout instead.\nDuration: 165 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-0-wake-final-pack-checkout-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-5-51",
+    "tag": "SEAPDX-2026-day-5-60",
     "title": "🚇 Portland Day 5 · Checkout and travel to King Street Station",
     "start": "2026-11-05T09:45:00-08:00",
     "end": "2026-11-05T10:40:00-08:00",
     "location": "Capitol Hill -> King Street",
-    "description": "Purpose: Checkout and travel to King Street Station keeps the checkout + amtrak transfer + light portland evening route on track.\nEstimated cost: $4.\nDuration: 55 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-1-checkout-and-travel-to-king-st"
+    "description": "Purpose: First ORCA ride of Day 5 -- flat $6 day-pass charge (not a discounted single-ride fare).\nEstimated cost: $6.\nDuration: 55 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-1-checkout-and-travel-to-king-st"
   },
   {
-    "tag": "SEAPDX-2026-day-5-52",
+    "tag": "SEAPDX-2026-day-5-61",
     "title": "🛌 Portland Day 5 · Station buffer + platform prep",
     "start": "2026-11-05T10:40:00-08:00",
     "end": "2026-11-05T12:10:00-08:00",
@@ -416,7 +488,7 @@
     "description": "Purpose: Longer buffer now that the morning has no coffee/walk stops -- plenty of margin before boarding.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-2-station-buffer-platform-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-5-53",
+    "tag": "SEAPDX-2026-day-5-62",
     "title": "🚇 Portland Day 5 · Amtrak Cascades 517 SEA -> PDX",
     "start": "2026-11-05T12:10:00-08:00",
     "end": "2026-11-05T15:35:00-08:00",
@@ -424,15 +496,15 @@
     "description": "Purpose: Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class.\nEstimated cost: $48.\nDuration: 3h 25m.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-0-amtrak-cascades-517-sea-pdx"
   },
   {
-    "tag": "SEAPDX-2026-day-5-54",
+    "tag": "SEAPDX-2026-day-5-63",
     "title": "🚇 Portland Day 5 · Arrive Portland Union Station and transfer to Hotel Vance",
     "start": "2026-11-05T15:35:00-08:00",
     "end": "2026-11-05T16:20:00-08:00",
     "location": "Union Station -> Hotel Vance",
-    "description": "Purpose: Arrive Portland Union Station and transfer to Hotel Vance keeps the checkout + amtrak transfer + light portland evening route on track.\nEstimated cost: $3.\nDuration: 35 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-1-arrive-portland-union-station-"
+    "description": "Purpose: First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 35 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-1-arrive-portland-union-station-"
   },
   {
-    "tag": "SEAPDX-2026-day-5-55",
+    "tag": "SEAPDX-2026-day-5-64",
     "title": "🛌 Portland Day 5 · Check in, reset, and Amazon package check",
     "start": "2026-11-05T16:20:00-08:00",
     "end": "2026-11-05T18:00:00-08:00",
@@ -440,7 +512,7 @@
     "description": "Purpose: Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held.\nDuration: 100 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-2-check-in-reset-and-amazon-pack"
   },
   {
-    "tag": "SEAPDX-2026-day-5-56",
+    "tag": "SEAPDX-2026-day-5-65",
     "title": "🚶 Portland Day 5 · Easy downtown orientation walk",
     "start": "2026-11-05T18:00:00-08:00",
     "end": "2026-11-05T18:35:00-08:00",
@@ -448,7 +520,7 @@
     "description": "Purpose: Easy downtown orientation walk keeps the checkout + amtrak transfer + light portland evening route on track.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-2-0-easy-downtown-orientation-walk"
   },
   {
-    "tag": "SEAPDX-2026-day-5-57",
+    "tag": "SEAPDX-2026-day-5-66",
     "title": "🛍️ Portland Day 5 · Apple Pioneer Place time block",
     "start": "2026-11-05T18:35:00-08:00",
     "end": "2026-11-05T19:15:00-08:00",
@@ -456,7 +528,7 @@
     "description": "Short downtown stop to check the Apple store and Pioneer Place architecture.\nPurpose: Use this as the Portland phone / accessory browse block, not a full shopping spree.\nPhoto angle: The store frontage and mall atrium make a clean city-photo backdrop.\nEstimated cost: Free unless you buy the new phone or accessories.\nPayment: Cards accepted.\nLocation: Apple Pioneer Place, 450 SW Yamhill St\nWebsite: https://www.apple.com/retail/pioneerplace/\nPayment: Cards accepted\nDuration: 35 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-2-1-apple-pioneer-place-time-block"
   },
   {
-    "tag": "SEAPDX-2026-day-5-58",
+    "tag": "SEAPDX-2026-day-5-67",
     "title": "🍽️ Portland Day 5 · Luc Lac Vietnamese Kitchen dinner",
     "start": "2026-11-05T19:15:00-08:00",
     "end": "2026-11-05T20:30:00-08:00",
@@ -464,7 +536,7 @@
     "description": "First dinner in Portland after the travel day.\nMenu: https://luclacpdx.com/\nORDER: Round Steak & Lean Brisket -- rare slices of steak cooked with citrus, pineapple sauce, cilantro, onions, fresh herbs, peanuts and shallots.\nFruity: Ask for the most fruit-forward seasonal cocktail or their coconut-leaning drink.\nSkip: Soup. Save room for the rice-and-beef lane.\nEstimated cost: $15.\nPayment: Cards accepted\nEstimated cost: $15.\nDuration: 75 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-2-2-luc-lac-vietnamese-kitchen-din"
   },
   {
-    "tag": "SEAPDX-2026-day-5-59",
+    "tag": "SEAPDX-2026-day-5-68",
     "title": "🛌 Portland Day 5 · Hotel Vance wind-down / Sleep",
     "start": "2026-11-05T20:30:00-08:00",
     "end": "2026-11-06T07:00:00-08:00",
@@ -472,7 +544,7 @@
     "description": "Purpose: Full recovery night before the first deeper Portland day.\nDuration: 10 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-2-3-hotel-vance-wind-down-sleep"
   },
   {
-    "tag": "SEAPDX-2026-day-6-60",
+    "tag": "SEAPDX-2026-day-6-69",
     "title": "🛌 Portland Day 6 · Wake + quick breakfast + prep",
     "start": "2026-11-06T07:00:00-08:00",
     "end": "2026-11-06T07:50:00-08:00",
@@ -480,15 +552,15 @@
     "description": "Purpose: Early start to catch the westbound POINT NorthWest bus.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-0-wake-quick-breakfast-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-6-61",
+    "tag": "SEAPDX-2026-day-6-70",
     "title": "🚇 Portland Day 6 · Transit to Portland Union Station",
     "start": "2026-11-06T07:50:00-08:00",
     "end": "2026-11-06T08:10:00-08:00",
     "location": "Hotel Vance -> Union Station",
-    "description": "Purpose: Walk or MAX to Union Station (800 NW 6th Ave).\nEstimated cost: $3.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-1-transit-to-portland-union-stat"
+    "description": "Purpose: Walk or MAX to Union Station (800 NW 6th Ave). First TriMet-system ride of Day 6 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-1-transit-to-portland-union-stat"
   },
   {
-    "tag": "SEAPDX-2026-day-6-62",
+    "tag": "SEAPDX-2026-day-6-71",
     "title": "🚇 Portland Day 6 · POINT NorthWest bus to Cannon Beach (boarding)",
     "start": "2026-11-06T08:10:00-08:00",
     "end": "2026-11-06T08:28:00-08:00",
@@ -496,7 +568,7 @@
     "description": "Purpose: Confirmed 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245.\nDuration: 18 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-0-2-point-northwest-bus-to-cannon-"
   },
   {
-    "tag": "SEAPDX-2026-day-6-63",
+    "tag": "SEAPDX-2026-day-6-72",
     "title": "🚇 Portland Day 6 · Depart Portland Union Station (POINT NorthWest)",
     "start": "2026-11-06T08:28:00-08:00",
     "end": "2026-11-06T11:46:00-08:00",
@@ -504,7 +576,7 @@
     "description": "Purpose: Confirmed schedule: PDX Union Station to Astoria, OR (via ART connecting bus 5500), arrives 11:46 AM. $40 covers the confirmed round-trip fare.\nEstimated cost: $40.\nDuration: 198 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-1-0-depart-portland-union-station-"
   },
   {
-    "tag": "SEAPDX-2026-day-6-64",
+    "tag": "SEAPDX-2026-day-6-73",
     "title": "🚇 Portland Day 6 · Arrive Cannon Beach",
     "start": "2026-11-06T11:46:00-08:00",
     "end": "2026-11-06T11:50:00-08:00",
@@ -512,7 +584,7 @@
     "description": "Purpose: Bus stops at 1170 S Hemlock St, downtown Cannon Beach.\nDuration: 0 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-1-1-arrive-cannon-beach"
   },
   {
-    "tag": "SEAPDX-2026-day-6-65",
+    "tag": "SEAPDX-2026-day-6-74",
     "title": "🎟️ Portland Day 6 · Orientation + Haystack Rock walk",
     "start": "2026-11-06T11:50:00-08:00",
     "end": "2026-11-06T14:50:00-08:00",
@@ -520,7 +592,7 @@
     "description": "Iconic Cannon Beach sea-stack exploration.\nWhat to see: 235-foot Haystack Rock visible from the beach.\nTide pools: Low tide is essential for exploring tide pools around the base of the rock. Check NOAA tide times for November 6, 2026 before the trip at noaa.gov or tide-forecast.com. Optimal window usually a couple hours before/after the lowest tide.\nWhat to bring: Layers (coastal wind), water, snacks, camera.\nWarnings: Lifeguards and patrol trucks monitor the area; stay off exposed rocks to protect tide-pool ecosystems.\nEstimated cost: Free.\nLocation: Haystack Rock, Tolovana Beach State Recreation Site\nWebsite: https://www.cannonbeach.org/things-to-do/beaches-and-parks/haystack-rock/\nPayment: No admission; public land open 24/7\nDuration: 180 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-1-2-orientation-haystack-rock-walk"
   },
   {
-    "tag": "SEAPDX-2026-day-6-66",
+    "tag": "SEAPDX-2026-day-6-75",
     "title": "🍽️ Portland Day 6 · Cannon Beach lunch, coffee, and cocktail",
     "start": "2026-11-06T14:50:00-08:00",
     "end": "2026-11-06T17:40:00-08:00",
@@ -528,7 +600,7 @@
     "description": "Relaxed lunch/coffee/cocktail stop in town before the return bus.\nEstimated cost: $100 (lunch, coffee, and a cocktail with tip).\nPayment: Cards accepted\nEstimated cost: $100.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-1-3-cannon-beach-lunch-coffee-and-"
   },
   {
-    "tag": "SEAPDX-2026-day-6-67",
+    "tag": "SEAPDX-2026-day-6-76",
     "title": "🚇 Portland Day 6 · Transit to bus stop + board return bus",
     "start": "2026-11-06T17:40:00-08:00",
     "end": "2026-11-06T17:55:00-08:00",
@@ -536,7 +608,7 @@
     "description": "Purpose: Confirmed schedule: Astoria departs 5:55 PM, arrives Portland Union Station 9:00 PM.\nDuration: 15 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-0-transit-to-bus-stop-board-retu"
   },
   {
-    "tag": "SEAPDX-2026-day-6-68",
+    "tag": "SEAPDX-2026-day-6-77",
     "title": "🚇 Portland Day 6 · Depart Astoria (POINT NorthWest return)",
     "start": "2026-11-06T17:55:00-08:00",
     "end": "2026-11-06T21:00:00-08:00",
@@ -544,15 +616,15 @@
     "description": "Purpose: Confirmed return leg: Astoria, OR to Portland, OR Union Station (via ART connecting bus 5565), arrives 9:00 PM. Fare already covered in the outbound $40.\nDuration: 185 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-1-depart-astoria-point-northwest"
   },
   {
-    "tag": "SEAPDX-2026-day-6-69",
+    "tag": "SEAPDX-2026-day-6-78",
     "title": "🚇 Portland Day 6 · Arrive Portland Union Station + transfer to Hotel Vance",
     "start": "2026-11-06T21:00:00-08:00",
     "end": "2026-11-06T21:20:00-08:00",
     "location": "Union Station -> Hotel Vance",
-    "description": "Purpose: Arrive Portland Union Station + transfer to Hotel Vance keeps the cannon beach / haystack rock day trip (public transit) route on track.\nEstimated cost: $3.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-2-arrive-portland-union-station-"
+    "description": "Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-2-arrive-portland-union-station-"
   },
   {
-    "tag": "SEAPDX-2026-day-6-70",
+    "tag": "SEAPDX-2026-day-6-79",
     "title": "🛌 Portland Day 6 · Hotel wind-down + early sleep",
     "start": "2026-11-06T21:20:00-08:00",
     "end": "2026-11-07T07:45:00-08:00",
@@ -560,7 +632,7 @@
     "description": "Purpose: Settle in and rest after a full coastal day.\nDuration: 9.5 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-3-hotel-wind-down-early-sleep"
   },
   {
-    "tag": "SEAPDX-2026-day-7-71",
+    "tag": "SEAPDX-2026-day-7-80",
     "title": "🛌 Portland Day 7 · Wake + prep",
     "start": "2026-11-07T07:45:00-08:00",
     "end": "2026-11-07T08:05:00-08:00",
@@ -568,7 +640,7 @@
     "description": "Purpose: Wake + prep keeps the tattoo + portland saturday market + local food route on track.\nDuration: 40 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-0-wake-prep"
   },
   {
-    "tag": "SEAPDX-2026-day-7-72",
+    "tag": "SEAPDX-2026-day-7-81",
     "title": "☕ Portland Day 7 · Stumptown coffee + coffee bean buy",
     "start": "2026-11-07T08:05:00-08:00",
     "end": "2026-11-07T08:35:00-08:00",
@@ -576,15 +648,15 @@
     "description": "Portland flagship coffee stop before the tattoo appointment. Shortened slightly to leave enough time for the real Milwaukie commute below.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Guatemala El Injerto Bourbon whole-bean bag ($25) plus a 16oz Original Cold Brew ($6).\nEstimated cost: $31.\nLocation: Stumptown Coffee Roasters, 1026 SW Stark St\nPayment: Cards accepted\nEstimated cost: $31.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-1-stumptown-coffee-coffee-bean-b"
   },
   {
-    "tag": "SEAPDX-2026-day-7-73",
+    "tag": "SEAPDX-2026-day-7-82",
     "title": "🚇 Portland Day 7 · Transit to Shonen Tattoo (Milwaukie) via TriMet Bus 33",
     "start": "2026-11-07T08:35:00-08:00",
     "end": "2026-11-07T09:25:00-08:00",
     "location": "Downtown Portland -> Milwaukie, OR",
-    "description": "Shonen Tattoo is in Milwaukie, OR, not downtown -- budget real time to get there.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nPlan: TriMet bus 33 (McLoughlin), about 50 min, $2.80 Hop fare -- folded into Portland local transit, no separate rideshare needed.\nEstimated cost: $2.80 one-way.\nEstimated cost: $2.8.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-2-transit-to-shonen-tattoo-milwa"
+    "description": "Shonen Tattoo is in Milwaukie, OR, not downtown -- budget real time to get there.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nPlan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $6 (TriMet day-pass, first ride of the day).\nEstimated cost: $6.\nEstimated cost: $6.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-2-transit-to-shonen-tattoo-milwa"
   },
   {
-    "tag": "SEAPDX-2026-day-7-74",
+    "tag": "SEAPDX-2026-day-7-83",
     "title": "🎟️ Portland Day 7 · Tattoo appointment",
     "start": "2026-11-07T09:25:00-08:00",
     "end": "2026-11-07T10:55:00-08:00",
@@ -592,23 +664,23 @@
     "description": "Tattoo appointment, scheduled early in the day so it has the rest of the trip to rest and wrap.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nInstagram: https://www.instagram.com/shonen_tattoo/\nEstimated cost: $150 + $27 tip = $177 (bus fare to/from is tracked separately under Transportation, folded into Portland local transit).\nAftercare: Keep the rest of the day light -- no heavy activity or hiking while it heals.\nLocation: Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR\nPayment: Cards accepted\nEstimated cost: $177.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-0-tattoo-appointment"
   },
   {
-    "tag": "SEAPDX-2026-day-7-75",
+    "tag": "SEAPDX-2026-day-7-84",
     "title": "🚇 Portland Day 7 · Transit back to Downtown Portland via TriMet Bus 33",
     "start": "2026-11-07T10:55:00-08:00",
     "end": "2026-11-07T11:45:00-08:00",
     "location": "Milwaukie, OR -> Downtown Portland",
-    "description": "Return leg from Milwaukie back to Downtown Portland ahead of the Saturday Market walk.\nPlan: TriMet bus 33 (McLoughlin), about 50 min, $2.80 Hop fare.\nEstimated cost: $2.80 one-way.\nEstimated cost: $2.8.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-1-transit-back-to-downtown-portl"
+    "description": "Return leg from Milwaukie back to Downtown Portland ahead of the Saturday Market.\nPlan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $0 (covered by day pass).\nEstimated cost: $0.\nDuration: 50 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-1-transit-back-to-downtown-portl"
   },
   {
-    "tag": "SEAPDX-2026-day-7-76",
-    "title": "🚶 Portland Day 7 · Walk to Portland Saturday Market",
+    "tag": "SEAPDX-2026-day-7-85",
+    "title": "🚇 Portland Day 7 · Transit to Portland Saturday Market",
     "start": "2026-11-07T11:45:00-08:00",
     "end": "2026-11-07T12:15:00-08:00",
     "location": "Downtown -> Waterfront",
-    "description": "Purpose: Walk to Portland Saturday Market keeps the tattoo + portland saturday market + local food route on track.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-2-walk-to-portland-saturday-mark"
+    "description": "Purpose: Short MAX/streetcar transit hop to the waterfront market. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-2-transit-to-portland-saturday-m"
   },
   {
-    "tag": "SEAPDX-2026-day-7-77",
+    "tag": "SEAPDX-2026-day-7-86",
     "title": "🎟️ Portland Day 7 · Portland Saturday Market browse + lunch",
     "start": "2026-11-07T12:15:00-08:00",
     "end": "2026-11-07T14:15:00-08:00",
@@ -616,7 +688,7 @@
     "description": "Waterfront artisan market block with lunch from the food vendors.\nWebsite: https://www.portlandsaturdaymarket.com/food-vendors-and-partners\nPurpose: Shop local makers and graze market food vendors for lunch instead of a sit-down meal.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $50 covering lunch and market browsing.\nLocation: 2 SW Naito Pkwy\nPayment: Many vendors prefer cash; some accept cards\nEstimated cost: $50.\nDuration: 120 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-3-portland-saturday-market-brows"
   },
   {
-    "tag": "SEAPDX-2026-day-7-78",
+    "tag": "SEAPDX-2026-day-7-87",
     "title": "🛍️ Portland Day 7 · Sephora Portland Downtown browse",
     "start": "2026-11-07T14:15:00-08:00",
     "end": "2026-11-07T14:45:00-08:00",
@@ -624,7 +696,7 @@
     "description": "Purpose: Perfume browse stop (Bleu de Chanel) -- tracked separately as a personal purchase, not part of the trip budget.\nLocation: Sephora Portland Downtown\nDuration: 30 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-4-sephora-portland-downtown-brow"
   },
   {
-    "tag": "SEAPDX-2026-day-7-79",
+    "tag": "SEAPDX-2026-day-7-88",
     "title": "🛌 Portland Day 7 · Hotel Vance reset",
     "start": "2026-11-07T14:45:00-08:00",
     "end": "2026-11-07T17:00:00-08:00",
@@ -632,7 +704,7 @@
     "description": "Purpose: Keep the afternoon light for tattoo aftercare.\nDuration: 135 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-5-hotel-vance-reset"
   },
   {
-    "tag": "SEAPDX-2026-day-7-80",
+    "tag": "SEAPDX-2026-day-7-89",
     "title": "🎟️ Portland Day 7 · Novel Book Bar dinner + cocktail + browse",
     "start": "2026-11-07T17:00:00-08:00",
     "end": "2026-11-07T19:45:00-08:00",
@@ -640,7 +712,7 @@
     "description": "Books, food, and cocktails close to the hotel base. Pretty Ugly Burger dinner removed -- dinner happens here instead so there's no duplicate meal.\nMenu: https://www.novelmaine.com/menu\nOrder: Partly Cloudy ($10) and Carajillo ($14), plus a light food item from the menu (burger $7 / salad $10 / salmon $15) to cover dinner.\nEstimated cost: $10 + $14 + $4.50 tip = $29 (add ~$8-15 more if ordering a full food item; kept at $29 baseline).\nLocation: Novel Book Bar, Portland\nPayment: Cards accepted\nEstimated cost: $29.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-2-0-novel-book-bar-dinner-cocktail"
   },
   {
-    "tag": "SEAPDX-2026-day-7-81",
+    "tag": "SEAPDX-2026-day-7-90",
     "title": "🛌 Portland Day 7 · Wind-down",
     "start": "2026-11-07T19:45:00-08:00",
     "end": "2026-11-08T09:00:00-08:00",
@@ -648,7 +720,7 @@
     "description": "Purpose: Wind-down keeps the tattoo + portland saturday market + local food route on track.\nDuration: 12 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-2-1-wind-down"
   },
   {
-    "tag": "SEAPDX-2026-day-8-82",
+    "tag": "SEAPDX-2026-day-8-91",
     "title": "🛌 Portland Day 8 · Sleep in + tattoo aftercare check",
     "start": "2026-11-08T09:00:00-08:00",
     "end": "2026-11-08T10:30:00-08:00",
@@ -656,23 +728,23 @@
     "description": "Purpose: No heavy activity today -- letting yesterday's tattoo rest and wrap.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-0-0-sleep-in-tattoo-aftercare-chec"
   },
   {
-    "tag": "SEAPDX-2026-day-8-83",
-    "title": "🚶 Portland Day 8 · Light hotel-area walk",
+    "tag": "SEAPDX-2026-day-8-92",
+    "title": "🚇 Portland Day 8 · Light hotel-area transit loop",
     "start": "2026-11-08T10:30:00-08:00",
     "end": "2026-11-08T11:30:00-08:00",
     "location": "Downtown Portland",
-    "description": "Purpose: Easy walking only, nothing strenuous.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-0-1-light-hotel-area-walk"
+    "description": "Purpose: Easy short MAX/bus loop, nothing strenuous. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-0-1-light-hotel-area-transit-loop"
   },
   {
-    "tag": "SEAPDX-2026-day-8-84",
+    "tag": "SEAPDX-2026-day-8-93",
     "title": "🚇 Portland Day 8 · Transit to Cartopia food carts",
     "start": "2026-11-08T11:30:00-08:00",
     "end": "2026-11-08T12:00:00-08:00",
     "location": "Hotel Vance -> SE Hawthorne (Cartopia)",
-    "description": "Purpose: Short trip out for a brunch-time visit.\nEstimated cost: $3.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-1-0-transit-to-cartopia-food-carts"
+    "description": "Purpose: Short trip out for a brunch-time visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-1-0-transit-to-cartopia-food-carts"
   },
   {
-    "tag": "SEAPDX-2026-day-8-85",
+    "tag": "SEAPDX-2026-day-8-94",
     "title": "🍽️ Portland Day 8 · Cartopia food cart pod brunch",
     "start": "2026-11-08T12:00:00-08:00",
     "end": "2026-11-08T13:30:00-08:00",
@@ -680,15 +752,15 @@
     "description": "Portland's largest food cart cluster, visited at brunch time to keep the day light.\nWhat to order: BKK pad thai, Korean BBQ, wood-fired pizza, or whatever looks fresh.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.\nLocation: Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214\nPayment: Cash preferred\nEstimated cost: $50.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-1-1-cartopia-food-cart-pod-brunch"
   },
   {
-    "tag": "SEAPDX-2026-day-8-86",
+    "tag": "SEAPDX-2026-day-8-95",
     "title": "🚇 Portland Day 8 · Transit back to Hotel Vance",
     "start": "2026-11-08T13:30:00-08:00",
     "end": "2026-11-08T14:00:00-08:00",
     "location": "SE Hawthorne -> Hotel Vance",
-    "description": "Purpose: Transit back to Hotel Vance keeps the tattoo rest day + cartopia food carts route on track.\nEstimated cost: $3.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-2-0-transit-back-to-hotel-vance"
+    "description": "Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-2-0-transit-back-to-hotel-vance"
   },
   {
-    "tag": "SEAPDX-2026-day-8-87",
+    "tag": "SEAPDX-2026-day-8-96",
     "title": "🛌 Portland Day 8 · Hotel Vance rest afternoon",
     "start": "2026-11-08T14:00:00-08:00",
     "end": "2026-11-08T20:00:00-08:00",
@@ -696,7 +768,7 @@
     "description": "Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.\nDuration: 6 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-2-1-hotel-vance-rest-afternoon"
   },
   {
-    "tag": "SEAPDX-2026-day-8-88",
+    "tag": "SEAPDX-2026-day-8-97",
     "title": "🛌 Portland Day 8 · Early wind-down + sleep",
     "start": "2026-11-08T20:00:00-08:00",
     "end": "2026-11-09T09:00:00-08:00",
@@ -704,7 +776,7 @@
     "description": "Purpose: Full recovery night before the flight day.\nDuration: 11 hrs.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-2-2-early-wind-down-sleep"
   },
   {
-    "tag": "SEAPDX-2026-day-9-89",
+    "tag": "SEAPDX-2026-day-9-98",
     "title": "🛌 Portland Day 9 · Wake + final packing",
     "start": "2026-11-09T09:00:00-08:00",
     "end": "2026-11-09T10:00:00-08:00",
@@ -712,7 +784,7 @@
     "description": "Purpose: Wake + final packing keeps the final breakfast and departure route on track.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-0-wake-final-packing"
   },
   {
-    "tag": "SEAPDX-2026-day-9-90",
+    "tag": "SEAPDX-2026-day-9-99",
     "title": "🍽️ Portland Day 9 · Hotel Vance breakfast",
     "start": "2026-11-09T10:00:00-08:00",
     "end": "2026-11-09T11:00:00-08:00",
@@ -720,23 +792,23 @@
     "description": "Final morning breakfast at the hotel before checkout.\nMenu: https://www.hotelvance.com/resourcefiles/pdf/vance-and-vine-breakfast-menu.pdf\nOrder: Breakfast sandwich (bacon or sausage, egg, cheese, spicy aioli) plus a mimosa or bloody mary if you want one.\nEstimated cost: $31.\nLocation: Hotel Vance, Vance & Vine\nPayment: Cards accepted\nEstimated cost: $31.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-1-hotel-vance-breakfast"
   },
   {
-    "tag": "SEAPDX-2026-day-9-91",
-    "title": "🚶 Portland Day 9 · Hotel Vance final walk",
+    "tag": "SEAPDX-2026-day-9-100",
+    "title": "🚇 Portland Day 9 · Hotel Vance final transit loop",
     "start": "2026-11-09T11:00:00-08:00",
     "end": "2026-11-09T12:15:00-08:00",
     "location": "Downtown Portland",
-    "description": "Purpose: Hotel Vance final walk keeps the final breakfast and departure route on track.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-2-hotel-vance-final-walk"
+    "description": "Purpose: Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-2-hotel-vance-final-transit-loop"
   },
   {
-    "tag": "SEAPDX-2026-day-9-92",
+    "tag": "SEAPDX-2026-day-9-101",
     "title": "🚇 Portland Day 9 · Checkout + transfer to PDX",
     "start": "2026-11-09T12:15:00-08:00",
     "end": "2026-11-09T13:00:00-08:00",
     "location": "Hotel Vance -> PDX",
-    "description": "Purpose: Leave the hotel by about 12:15 PM to stay comfortably ahead of the 2:34 PM domestic departure.\nEstimated cost: $3.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-3-checkout-transfer-to-pdx"
+    "description": "Purpose: Leave the hotel by about 12:15 PM to stay comfortably ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).\nDuration: 45 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-3-checkout-transfer-to-pdx"
   },
   {
-    "tag": "SEAPDX-2026-day-9-93",
+    "tag": "SEAPDX-2026-day-9-102",
     "title": "🛌 Portland Day 9 · Airport check-in and security buffer",
     "start": "2026-11-09T13:00:00-08:00",
     "end": "2026-11-09T14:34:00-08:00",
@@ -744,7 +816,7 @@
     "description": "Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.\nDuration: 94 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-4-airport-check-in-and-security-"
   },
   {
-    "tag": "SEAPDX-2026-day-9-94",
+    "tag": "SEAPDX-2026-day-9-103",
     "title": "🚇 Portland Day 9 · Flight PDX -> DFW",
     "start": "2026-11-09T14:34:00-08:00",
     "end": "2026-11-09T20:29:00-08:00",
@@ -752,7 +824,7 @@
     "description": "Purpose: AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget.\nDuration: 5h 55m.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-1-0-flight-pdx-dfw"
   },
   {
-    "tag": "SEAPDX-2026-day-9-95",
+    "tag": "SEAPDX-2026-day-9-104",
     "title": "🛌 Portland Day 9 · DFW layover buffer",
     "start": "2026-11-09T20:29:00-08:00",
     "end": "2026-11-09T22:30:00-08:00",
@@ -760,7 +832,7 @@
     "description": "Purpose: 2h 01m connection at DFW.\nDuration: 121 min.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-1-1-dfw-layover-buffer"
   },
   {
-    "tag": "SEAPDX-2026-day-9-96",
+    "tag": "SEAPDX-2026-day-9-105",
     "title": "🚇 Portland Day 9 · Flight DFW -> CRP",
     "start": "2026-11-09T22:30:00-08:00",
     "end": "2026-11-09T23:58:00-08:00",
@@ -768,7 +840,7 @@
     "description": "Purpose: AA 5273, Economy, seat 8F, operated by PSA Airlines as American Eagle.\nDuration: 1h 28m.\nSite link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-1-2-flight-dfw-crp"
   },
   {
-    "tag": "SEAPDX-2026-day-9-97",
+    "tag": "SEAPDX-2026-day-9-106",
     "title": "🛌 Portland Day 9 · Arrival and end-of-trip recovery",
     "start": "2026-11-09T23:58:00-08:00",
     "end": "2026-11-10T00:58:00-08:00",

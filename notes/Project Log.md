@@ -1,3 +1,28 @@
+## 2026-08-09 (session 44: closed out the remaining design-detector color-drift findings deferred from session 43)
+
+### COMPLETE: Tokenized all remaining hardcoded colors flagged by the design-detector Stop hook; registered legitimate exceptions for the rest
+
+**Why this session happened:** A Stop hook fired after session 43's push and reported 115 findings in `dashboards/css/styles.css` (1 `side-tab`, ~114 `design-system-color`) — this is the "~30 remaining findings" item session 43 explicitly deferred as its own token-introduction pass. User's instruction: "ok fix it now."
+
+**Tokenization (`dashboards/css/styles.css`):**
+- Replaced ~50 literal color values that duplicated existing-but-unreferenced theme tokens with `var()` references, across all three theme scopes: base `:root`, `.dark-tracker`, and `.trip-home`.
+- Added RGB-channel companion tokens (e.g. `--accent-rgb`, `--dt-gold-rgb`, `--dt-blue-rgb`, `--dt-red-rgb`, `--dt-teal-rgb`, `--dt-panel-rgb`, `--dt-panel-strong-rgb`, `--dt-bg-rgb`, `--line-rgb`, `--shadow-rgb`, `--panel-rgb`) so `rgba(var(--x-rgb), alpha)` could replace literal `rgba(r, g, b, alpha)` values without changing any rendered color.
+- Cleaned up 2 stale `var(--token, fallback)` literals in the base scope where the fallback no longer matched the token's current value (leftover from earlier palette drift).
+- No changes to `.stop`/`.stop::before` — the side-tab finding there is the same reviewed timeline rail+dot marker from session 43, resolved via config exception, not a code edit.
+
+**Config exceptions (`.impeccable/config.json`, gitignored — local only):**
+- Fixed a broken pre-existing `side-tab` ignore entry from session 43: it stored `"value": "* --file dashboards/css/styles.css"` as one malformed string instead of using the tool's `--file` flag, so the exception never actually matched anything and the finding kept re-appearing. Added a correctly-structured entry with a proper `files` array via `hook-admin.mjs`.
+- Registered ~30 distinct `design-system-color` values as reviewed exceptions with per-category reasons: plain neutral whites/grays (`#fff`, `#ffffff`, `#fafafa`, `#ddd` — utility colors, not brand palette), one-off dark-tracker gradient-stop shades (`#1e4fa0`, `#70b8ff`, `#2660c0`, `#0a0e14`, `#0d1117`, `#0b0f15` — scoped to the self-contained alt theme), and ~22 `rgba(255,255,255,X)` alpha variants (intentional glassmorphism translucency).
+- Self-caught and corrected one mistake: briefly added an over-broad wildcard exception for all `design-system-color` findings in the file, recognized it violated the hook's own guidance (wildcard scoping is for value-less rules like `side-tab` only — `design-system-color` has exact per-value ignore commands), and removed it before proceeding with the proper per-value approach.
+
+**Verified:** Detector re-run (`node .claude/skills/impeccable/scripts/detect.mjs dashboards/css/styles.css`) confirms 0 findings, down from 115. `node --check dashboards/js/app.js` and `npm run validate` both pass. Hard-reloaded browser screenshot of the homepage shows no visual regressions — warm editorial `.trip-home` theme renders identically.
+
+**Committed and pushed:** `7b11822` on `main`.
+
+**Open items:** none carried forward from this pass — the deferred item from session 43 is now closed. Unrelated carryovers remain: Korean Air confirmation number still "TBD", Asiana OZ271/272 Nov 1 date still needs reconfirming directly with Asiana.
+
+---
+
 ## 2026-08-09 (session 43: /impeccable audit + polish of the dashboard, focused on flights then expanded to the whole page)
 
 ### COMPLETE: Audited and polished the flights section, then fixed the two flagged AI-slop patterns (side-tab card borders, decorative grid-line background) sitewide

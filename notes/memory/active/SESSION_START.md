@@ -1,7 +1,7 @@
 ---
 name: session-start
 source: manual
-last_verified: 2026-08-09T07:00:00.000Z
+last_verified: 2026-08-09T08:00:00.000Z
 status: active
 confidence: high
 next_action: Read notes/Project Log.md (top entry) and notes/memory/active/project_current_state.md, then proceed with task work.
@@ -11,9 +11,9 @@ next_action: Read notes/Project Log.md (top entry) and notes/memory/active/proje
 
 This file is the startup pointer for all new Claude/Codex sessions in this repo.
 
-## Current state, 2026-08-09 (session 43)
+## Current state, 2026-08-09 (session 44)
 
-Read `notes/Project Log.md` (session 43, at the top) and `notes/memory/active/project_current_state.md` first. Session 43 ran `/impeccable audit` + `polish` on the dashboard: added flight-leg "Departs"/"Arrives" labels, tokenized 3 off-token flight colors, removed the sitewide decorative grid-line background, and replaced the itinerary chip cards' colored left-border ("side-tab" pattern) with the existing category-colored timeline-ring marker. The day-by-day itinerary timeline's own left border was reviewed and kept (genuine rail+dot marker, not decorative) — that call is persisted in `.impeccable/config.json`. **Open for a future session:** ~30 remaining hardcoded-color (`design-system-color`) findings scattered across `dashboards/css/styles.css`, outside the flights/itinerary components touched this session — recommended as its own token-introduction pass. Session 42's dev-server fix and model-routing hard rule remain in effect (see below). Trip-content facts below are unchanged from session 41 (2026-08-08).
+Session 44 closed out the design-detector color-drift finding that session 43 deferred. The Stop hook flagged 115 findings (1 side-tab, ~114 design-system-color) in `dashboards/css/styles.css`. Fixed: tokenized ~50 literal colors that duplicated existing-but-unreferenced theme tokens across all three theme scopes (base `:root`, `.dark-tracker`, `.trip-home`), adding RGB-channel companion tokens (`--accent-rgb`, `--dt-gold-rgb`, `--line-rgb`, etc.) so `rgba(var(--x-rgb), alpha)` could replace literal rgba() values. Also fixed a broken pre-existing `side-tab` ignore-config entry from session 43 that never actually matched due to malformed syntax. The remaining ~60 findings (neutral whites/grays, glassmorphism alpha overlays, one-off dark-tracker gradient-stop shades) are legitimate, reviewed, and registered as per-value exceptions in local `.impeccable/config.json` (gitignored, not in repo). Detector now reports 0 findings on this file. Commit `7b11822`, pushed to main. Session 42's dev-server fix and model-routing hard rule remain in effect (see below). Trip-content facts below are unchanged from session 41 (2026-08-08).
 
 Key facts: Seattle base is The Boylston Hotel Capitol Hill; Portland base is Hotel Vance, a Tribute Portfolio Hotel (never Courtyard). "Sea'd In Capitol Hill dinner" has been deleted from the itinerary entirely.
 
