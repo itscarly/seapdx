@@ -10,17 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Key Development Commands
 
-```bash
-npm run serve           # Start local preview at http://localhost:4173/
-npm run validate        # Syntax check, budget audit, calendar export regression check
-npm run audit:budget    # Detailed budget breakdown and day-by-day cost audit
-npm run audit:notes     # Check required project notes are present
-npm run review:monthly  # Generate monthly review artifact for itinerary verification
-npm run watch:monthly   # Monitor baseline itinerary prices, menus, schedules
-npm run sync:calendar   # Sync Google Calendar exports to trip-data.js
-npm run session-status  # Print current trip spend status and notes status
-npm run stamp:updated   # Update last-verified timestamp
-```
+See `package.json` scripts for the full list.
 
 **Before pushing:** Run `npm run validate` to catch syntax errors, budget mismatches, and calendar export regressions.
 
@@ -102,6 +92,26 @@ For meaningful verified work: update only affected standardized notes and `Proje
 - **Trip dates:** November 1-9, 2026 (Seattle + Bainbridge + Portland).
 - **Budget ceiling:** $3,050 (still-to-spend). Confirmed airfare and hotels excluded from cap.
 
+## Model Routing
+
+Follows the global hard rule in `~/.claude/rules/ecc/common/performance.md`: planning starts on Sonnet 5, execution runs on Haiku 4.5 (or lower), Opus/Fable only on explicit user request. No project-level override.
+
+See `~/.claude/projects/-Users-kicker/memory/codexproject_model_routing.md` for prior examples.
+
+## Persistent Dev Server (LOCKED RULE)
+
+**Status:** Active, running 24/7 at `http://127.0.0.1:4173/`  
+**Auto-restart:** Every 5 seconds if process dies  
+**Boot:** Starts automatically on system restart via LaunchAgent  
+**Deploy:** `git push origin main` → GitHub Pages (CI auto-deploys)  
+
+Daemon script: `/Users/kicker/Projects/codexproject/dev-server-daemon.sh`  
+LaunchAgent: `/Users/kicker/Library/LaunchAgents/com.kicker.codexproject-dev-server.plist`
+
+See `~/.claude/projects/-Users-kicker/memory/codexproject_dev_server_setup.md` for full details.
+
 ## Global Defaults
 
 Safety, memory, and tool defaults come from `~/.claude/CLAUDE.md`. Development style follows ECC coding conventions (immutability, error handling, input validation, DRY).
+
+**Obsidian sync:** Bidirectional (SessionStart pulls, Stop pushes) — memories auto-sync via `~/.codex/scripts/obsidian-memory-sync.sh`

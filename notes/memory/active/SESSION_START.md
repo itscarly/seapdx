@@ -1,7 +1,7 @@
 ---
 name: session-start
 source: manual
-last_verified: 2026-08-08T00:00:00.000Z
+last_verified: 2026-08-09T07:00:00.000Z
 status: active
 confidence: high
 next_action: Read notes/Project Log.md (top entry) and notes/memory/active/project_current_state.md, then proceed with task work.
@@ -11,9 +11,9 @@ next_action: Read notes/Project Log.md (top entry) and notes/memory/active/proje
 
 This file is the startup pointer for all new Claude/Codex sessions in this repo.
 
-## Current state, 2026-08-08 (session 41)
+## Current state, 2026-08-09 (session 43)
 
-Read `notes/Project Log.md` (session 41, at the top) and `notes/memory/active/project_current_state.md` first; both are current as of 2026-08-08.
+Read `notes/Project Log.md` (session 43, at the top) and `notes/memory/active/project_current_state.md` first. Session 43 ran `/impeccable audit` + `polish` on the dashboard: added flight-leg "Departs"/"Arrives" labels, tokenized 3 off-token flight colors, removed the sitewide decorative grid-line background, and replaced the itinerary chip cards' colored left-border ("side-tab" pattern) with the existing category-colored timeline-ring marker. The day-by-day itinerary timeline's own left border was reviewed and kept (genuine rail+dot marker, not decorative) — that call is persisted in `.impeccable/config.json`. **Open for a future session:** ~30 remaining hardcoded-color (`design-system-color`) findings scattered across `dashboards/css/styles.css`, outside the flights/itinerary components touched this session — recommended as its own token-introduction pass. Session 42's dev-server fix and model-routing hard rule remain in effect (see below). Trip-content facts below are unchanged from session 41 (2026-08-08).
 
 Key facts: Seattle base is The Boylston Hotel Capitol Hill; Portland base is Hotel Vance, a Tribute Portfolio Hotel (never Courtyard). "Sea'd In Capitol Hill dinner" has been deleted from the itinerary entirely.
 

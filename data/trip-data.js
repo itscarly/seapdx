@@ -8,7 +8,7 @@ window.TRIP_DATA = {
       portland: "Hotel Vance, a Tribute Portfolio Hotel",
       chicago: "Hotel Blake, an Ascend Collection Hotel"
     },
-    verifiedOn: "Aug 8, 2026",
+    verifiedOn: "Aug 9, 2026",
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [

@@ -4,6 +4,14 @@
 
 This is the concise project change record.
 
+## 2026-08-09 (session 43) — Dashboard audit + polish: flight leg direction labels, removed AI-slop patterns sitewide
+
+- Added "Departs"/"Arrives" text labels to flight legs, fixing an ambiguous stacked layout on mobile (≤980px).
+- Fixed 3 off-token colors in flight-specific CSS by introducing `--accent-rgb`/`--accent-3-rgb` channel tokens.
+- Replaced the `.stop--chip` colored left-border accent (the "side-tab" AI-UI tell) with the existing category-colored timeline-ring marker, preserving DESIGN.md's category-communication requirement without the thick stripe.
+- Removed the sitewide decorative grid-line background (`body::before`/`.trip-home::before`).
+- Left the `.stop` itinerary timeline's border-left in place — verified it's a genuine rail+dot marker, not a decorative accent, and persisted that call in `.impeccable/config.json`.
+
 ## 2026-08-07 (session 40, budget restructure) — Merged Shopping category, folded personal purchases into one capped total
 
 - Combined `budget.projectedTotal` to include both itinerary spend and `tripCosts.plannedPurchases` (previously tracked separately, causing confusion between a $1,296 "planned local spend" figure and a $2,174 "trip cost" figure).

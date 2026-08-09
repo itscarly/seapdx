@@ -4,6 +4,11 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 ## Current known issues
 
+### Local dev server was silently down despite a memory note claiming it was verified
+
+- Status: resolved 2026-08-09 (session 42)
+- Detail: `dev-server-daemon.sh` called `npm run serve`, which fails under launchd's minimal PATH (`npm: command not found`) — the daemon crash-looped and never held port 4173. A second unrelated LaunchAgent (`com.kicker.codexproject.localhost`) filled the gap by serving `~/Downloads/codexproject` (a decoy, not the real project) whenever the port came free, so requests intermittently 404'd. Fixed by having the daemon call `python3 -m http.server` directly and disabling the rogue watchdog. If the site 404s on `dashboards/html/index.html` or `data/trip-data.js` again, check `lsof -nP -iTCP:4173 -sTCP:LISTEN` for which process actually owns the port before assuming the daemon is fine — see `~/.claude/projects/-Users-kicker/memory/codexproject_dev_server_setup.md`.
+
 ### Hotel booking cleanup still needs human confirmation
 
 - Status: resolved as of 2026-08-02

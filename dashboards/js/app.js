@@ -630,12 +630,14 @@ function renderFlightLeg(leg) {
       <div class="flight-route">
         <div class="flight-route-points">
           <div class="flight-point depart">
+            <span class="flight-point-label">Departs</span>
             <strong>${leg.from.code}</strong>
             <span>${leg.from.city}</span>
             <time>${leg.departureTime}</time>
           </div>
           <div class="flight-connector">${leg.duration || "Flight"}${leg.connectionNote ? `<br>${leg.connectionNote}` : ""}</div>
           <div class="flight-point arrive">
+            <span class="flight-point-label">Arrives</span>
             <strong>${leg.to.code}</strong>
             <span>${leg.to.city}</span>
             <time>${leg.arrivalTime}</time>
@@ -650,7 +652,6 @@ function renderFlightLeg(leg) {
           ${leg.cabin ? `<span>Class: ${leg.cabin}</span>` : ""}
           ${leg.meals ? `<span>Meals: ${leg.meals}</span>` : ""}
           ${leg.mileage ? `<span>${leg.mileage}</span>` : ""}
-          ${leg.operator ? `<span>${leg.operator}</span>` : ""}
         </div>
       </div>
     </article>

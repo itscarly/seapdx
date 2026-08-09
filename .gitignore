@@ -44,6 +44,7 @@ build/
 *.tmp
 *.temp
 .tmp/
+.dev-server.pid
 
 # OS temp directories
 Thumbs.db
