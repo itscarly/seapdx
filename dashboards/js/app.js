@@ -1149,7 +1149,7 @@ function buildTripCostBreakdown(allInTarget) {
       note: "Paid attractions and admission-based itinerary stops.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View + cocktail"), detail: "Observatory ticket plus a Sky View Cafe cocktail. Sailing Seattle removed from the itinerary -- no longer a separate line here." },
+        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View Observatory - Elite Experience ticket"), detail: "Observatory ticket. Sailing Seattle removed from the itinerary -- no longer a separate line here." },
       ]
     },
     {
