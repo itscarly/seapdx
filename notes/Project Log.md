@@ -25,7 +25,7 @@
 
 **Verified:** `node ~/.claude/skills/impeccable/scripts/detect.mjs --json dashboards/css/styles.css` → 0 findings (down from 79+ color/radius/font-size findings combined across the audit). CSS brace-balance check: 603 open / 603 close. `npm run validate` passes. Dev server (`http://127.0.0.1:4173/`) serves the updated stylesheet with HTTP 200; hero slider drag-and-release behavior confirmed live.
 
-**Committed and pushed:** see commit immediately following this entry on `main`.
+**Committed and pushed:** `8b99c9a` on `main`.
 
 **Open items carried forward:** Korean Air confirmation number still "TBD"; Asiana OZ271/272 Nov 1 date still needs reconfirming directly with Asiana (both unrelated to this session's work).
 
