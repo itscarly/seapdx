@@ -112,7 +112,8 @@ window.TRIP_DATA = {
             amount: 412.96,
             confirmation: "[redacted]",
             city: "Portland",
-            nights: 5
+            nights: 5,
+            url: "[private reservation link removed]"
           },
           {
             name: "Hotel Blake, an Ascend Collection Hotel (Bluegreen Vacations)",
