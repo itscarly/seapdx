@@ -1952,8 +1952,8 @@ function renderDetailPanel(stop, day) {
         ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
       </div>
       ${stop.image ? `
-        <a class="visual-card-link image-frame" href="${stop.image}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">
-          <img src="${stop.image}" alt="${escapeAttribute(stop.name)}" loading="lazy" />
+        <a class="visual-card-link image-frame" href="${IMAGE_BASE}${stop.image}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">
+          <img src="${IMAGE_BASE}${stop.image}" alt="${escapeAttribute(stop.name)}" loading="lazy" />
         </a>
       ` : ""}
       ${stop.time || stop.duration || stop.leaveTime ? `
