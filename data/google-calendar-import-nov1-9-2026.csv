@@ -1,76 +1,85 @@
 Subject,Start Date,Start Time,End Date,End Time,Location,Description
-"🚇 Seattle Day 1 · Arrive SEA and transfer to Link","2026-11-01","13:55","2026-11-01","14:20","SEA Airport","Arrival transition block after landing in Seattle.
-Purpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.
+"🚇 Seattle Day 1 · Arrive SEA -- passport control, baggage claim, transfer to Link","2026-11-01","13:55","2026-11-01","14:40","SEA Airport","Arrival transition block after landing in Seattle on Asiana OZ272 (ICN-SEA), confirmation [redacted].
+Purpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.
 Estimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).
-Timing: Keep this efficient so the downtown Palihotel arrival still feels calm instead of rushed.
+Timing: Land 1:55 PM, leave the secure area by about 2:40 PM.
 Estimated cost: $6.
-Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-and-transfer-to-lin"
-"🚇 Seattle Day 1 · Link light rail to Downtown Seattle","2026-11-01","14:20","2026-11-01","15:05","SEA -> Downtown","Link ride from SEA into Downtown Seattle.
-What to expect: This is the easy no-drama airport transfer, so just settle in, hydrate, and let the arrival day stay simple.
+Duration: 45 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-passport-control-ba"
+"🚇 Seattle Day 1 · Link light rail to Downtown Seattle","2026-11-01","14:40","2026-11-01","15:25","SEA -> Downtown","Link ride from SEA into Downtown Seattle.
+What to expect: Easy no-drama airport transfer -- settle in, hydrate, let the arrival day stay simple.
 Cost note: Fare already counted in the previous airport-transfer stop.
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-1-link-light-rail-to-downtown-se"
-"🚶 Seattle Day 1 · Walk to Palihotel and luggage reset","2026-11-01","15:05","2026-11-01","15:20","Downtown","Short station-to-hotel walk.
+"🚶 Seattle Day 1 · Walk to Palihotel Seattle","2026-11-01","15:25","2026-11-01","15:30","Downtown","Short station-to-hotel walk.
 What to expect: Palihotel is right in the heart of downtown near Pike Place, so this walk is very manageable even jet-lagged.
-Continuity: This is just enough reset time to keep the evening calm instead of zombie-mode.
-Duration: 15 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-palihotel-and-luggage-"
-"🛌 Seattle Day 1 · Palihotel check-in and shower reset","2026-11-01","15:20","2026-11-01","16:20","Palihotel base","Check-in and jet-lag buffer.
-What to expect: Shower, recharge, and rest without rushing. This block is protected time.
-Purpose: Arrival night works best when recovery stays a priority.
+Estimated arrival: 3:30-3:45 PM window.
+Duration: 10 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-palihotel-seattle"
+"📍 Seattle Day 1 · Palihotel Seattle check-in","2026-11-01","15:30","2026-11-01","16:30","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Trivia: Palihotel Seattle is a boutique hotel in the Palisociety group, set right in the heart of downtown Seattle a few blocks from Pike Place Market -- known for a design-forward, mid-century-leaning look distinct from typical big-chain downtown hotels.
+Location: 107 Pine St, Seattle, WA 98101 -- steps from Pike Place, 2nd Ave shopping, and the Link tunnel stations.
+Reservation: Confirmation #[redacted], itinerary #[redacted], Deluxe Room 1 Queen Bed, 2 adults, total $662.00 (already paid). Official check-in is 3:00 PM so early arrival around 3:30-3:45 PM should be right at or just after check-in opens.
+Safety note: Downtown core / Pike Place blocks report a 15% year-over-year drop in violent crime through 2025 and are described as busy and well-policed during the day (Downtown Seattle Association reporting via KOMO News, Aug 2025). Standard city awareness is enough for a mid-afternoon hotel check-in.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Website: https://www.palihotel.com/hotels/palihotel-seattle/
+Payment: Prepaid -- $662.00 total, already charged
 Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-3-palihotel-check-in-and-shower-"
-"🚶 Seattle Day 1 · Light downtown walk and early dinner","2026-11-01","16:20","2026-11-01","19:40","Downtown / Pike Place area","Relaxed downtown orientation on your first evening.
-Vibe: Keep it loose. Spot cafes, see the evening neighborhood, get comfortable.
-Food: Grab something casual/light nearby (coffee, snack, or light dinner) rather than a structured sit-down; you can decide what you want when you see what's around.
-Cost: Included in your daily discretionary food spend.
-Purpose: Meet the downtown vibe and rest before Day 2's full itinerary.
-Duration: 180 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-4-light-downtown-walk-and-early-"
-"🍽️ Seattle Day 1 · Pike Place Chowder - light dinner","2026-11-01","19:40","2026-11-01","20:25","Pike Place Chowder, 1530 Post Alley","Light, casual arrival-night dinner.
-Why this spot: 4-minute walk from Palihotel, counter service (no wait for a table), award-winning clam chowder -- easy on a jet-lagged stomach and doesn't require decision-making energy.
-Order: Cup of clam chowder + sourdough roll + drink.
-Estimated cost: $22 (food + WA sales tax + tip).
-Purpose: Eat something warm and simple, then head back to Palihotel for early sleep to reset jet lag. Day 2 is the full Pike Place day and you'll want fresh energy for it.
-Location: Pike Place Chowder, 1530 Post Alley
-Website: https://pikeplacechowder.com/
-Payment: Cards accepted
-Estimated cost: $22.
-Duration: 45 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-0-pike-place-chowder-light-dinne"
-"🚶 Seattle Day 1 · Walk to Target Downtown Seattle","2026-11-01","20:25","2026-11-01","20:29","Downtown","Purpose: Target (1401 2nd Ave) is a few doors from Palihotel (107 Pine St) -- no transit needed.
-Duration: 4 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-1-walk-to-target-downtown-seattl"
-"🛍️ Seattle Day 1 · Target Downtown Seattle - Truly Hard Seltzer run","2026-11-01","20:29","2026-11-01","20:49","Target, 1401 2nd Ave","Quick stop for the Truly Hard Seltzer fix to keep in the room for the rest of the Seattle stay.
-ORDER: Truly Hard Seltzer 12-pack.
-Estimated cost: $20.00 + 10.5% WA sales tax = $22.10.
-Location: Target, 1401 2nd Ave
-Website: https://www.target.com/store-locator/store/seattle-downtown-1584/
-Payment: Cards accepted
-Estimated cost: $22.1.
-Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-2-target-downtown-seattle-truly-"
-"🚶 Seattle Day 1 · Walk to H Mart Downtown Seattle","2026-11-01","20:49","2026-11-01","20:52","Downtown","Purpose: H Mart (1601 2nd Ave) is two blocks up 2nd Ave from Target, still walkable, no transit needed.
-Duration: 3 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-3-walk-to-h-mart-downtown-seattl"
-"🛍️ Seattle Day 1 · H Mart Downtown Seattle - grocery run","2026-11-01","20:52","2026-11-01","21:17","H Mart, 1601 2nd Ave","Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) for cheaper in-room meals over the Seattle stay -- the Palihotel has an in-room fridge/microwave-friendly setup for this.
-ORDER: A mix of ready-to-heat meals, snacks, and drinks, budgeted around $18.
-Estimated cost: $18.00 + 10.5% WA sales tax = $19.89.
-Location: H Mart, 1601 2nd Ave
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-3-palihotel-seattle-check-in"
+"🛍️ Seattle Day 1 · H Mart Downtown Seattle -- grocery run","2026-11-01","16:30","2026-11-01","16:50","H Mart, 1601 2nd Ave, Seattle, WA 98101","Trivia: H Mart (""Han Ah Reum,"" Korean for ""one arm full of groceries"") is the largest Korean-American grocery chain in the US, known for fresh produce, a huge banchan/ready-to-heat section, and an in-store food court in some locations -- this downtown Seattle location is grocery-focused.
+Why this stop: Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) to bring back to Palihotel as tonight's dinner, since Pike Place Chowder's ~4:30 PM close makes it unreachable on this timeline.
+ORDER: A mix of ready-to-heat meals, snacks, and drinks (see reference photo), budgeted around $18.
+Estimated cost: $18.00 + 10.35% WA/Seattle sales tax = $19.89.
+Safety note: Late-afternoon (~4:30-5:00 PM) on the 2nd Ave retail corridor is described in local reporting as one of the cleaner downtown stretches compared to the 3rd Ave corridor a block over, which is documented as the area with the most visible street-drug activity in the central city (KOMO News, Aug 2025). Standard awareness recommended; this stop is during busy daylight retail hours.
+Location: H Mart, 1601 2nd Ave, Seattle, WA 98101
 Website: https://www.hmart.com/
 Payment: Cards/Apple Pay only -- H Mart does not accept cash
 Estimated cost: $19.89.
+Duration: 20 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-4-h-mart-downtown-seattle-grocer"
+"🚶 Seattle Day 1 · Walk back to Palihotel to drop off food","2026-11-01","16:50","2026-11-01","17:00","Downtown","Purpose: Drop the H Mart food in the room fridge/microwave setup so it's ready as dinner around 5-6 PM.
+Duration: 10 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-5-walk-back-to-palihotel-to-drop"
+"🛍️ Seattle Day 1 · Target Downtown Seattle (Pike Plaza) -- pickup order","2026-11-01","17:00","2026-11-01","17:25","Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)","Order Pickup at Seattle Pike Plaza -- 2 items:
+- Zantac 360 Maximum Strength Heartburn Prevention and Relief Tablets, Famotidine, 25ct -- $10.89
+- Truly Unruly Variety Pack, 12pk/12 fl oz cans -- $18.99
+Estimated total (incl. WA sales tax): $34.36.
+Safety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.
+Location: Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)
+Website: https://www.target.com/
+Payment: Cards accepted
+Estimated cost: $34.36.
 Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-4-h-mart-downtown-seattle-grocer"
-"🚶 Seattle Day 1 · Walk back to Palihotel","2026-11-01","21:17","2026-11-01","21:23","Downtown","Purpose: Short walk back down 2nd Ave / Pine St to Palihotel.
-Duration: 6 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-5-walk-back-to-palihotel"
-"🛌 Seattle Day 1 · Wind-down and early sleep","2026-11-01","21:23","2026-11-02","07:30","Palihotel base","Arrival-night wind-down.
-Purpose: Get good sleep after dinner and the Target/H Mart run. Day 2 is the full Pike Place day and you'll want fresh energy for it.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-0-target-downtown-seattle-pike-p"
+"🚶 Seattle Day 1 · Walk to Pike Place Bar & Grill","2026-11-01","17:25","2026-11-01","17:40","Downtown / Pike Place","Purpose: Short walk from Target to Pike Place Bar & Grill.
+Duration: 10 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-1-walk-to-pike-place-bar-grill"
+"🍽️ Seattle Day 1 · Dinner at Pike Place Bar & Grill","2026-11-01","17:40","2026-11-01","18:40","Pike Place Bar & Grill","Menu: https://www.eatatpikeplace.com/happy-hour
+ORDER:
+- Grilled Chicken Burger (tomato, lettuce, creamy horseradish, sourdough) -- $14.95
+- Prickly-Pear Margarita (Cuervo Gold, triple sec, prickly-pear cactus puree, fresh lime sour, salt rim, on the rocks) -- $10.00
+- Fresca (Absolut Citron, muddled citrus, soda water, splash grapefruit juice) -- $10.00
+Subtotal: $34.95. Plus 10.35% WA/Seattle sales tax ($3.62) and 18% tip on the subtotal ($6.29) = est. total $44.86.
+Safety note: Pike Place itself is described as busy and well-policed daily (KOMO News, Aug 2025); early-evening dinner hour here is a core tourist area with heavy foot traffic.
+Location: Pike Place Bar & Grill
+Payment: Cards accepted
+Estimated cost: $44.86.
+Duration: 60 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-2-dinner-at-pike-place-bar-grill"
+"🎟️ Seattle Day 1 · Waterfront Park","2026-11-01","18:40","2026-11-01","19:40","Waterfront Park (Pier 62/Pier 58 area)","Trivia: Seattle's new Waterfront Park is the centerpiece of the ~$1.2B Waterfront Seattle redevelopment -- a ~20-acre string of public spaces from Pier 57 to Pier 62, including the Seattle Aquarium and Pier 62's floating dock and lawn (ASCE, Jan 2026).
+IMPORTANT -- posted hours: Pier 62 / Waterfront Park is posted open daily 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org). Arriving right at 10 PM means the park will likely already be closing or closed -- go earlier in the evening (e.g. right after dinner, ~6:30-7:30 PM) to actually have time there before it shuts.
+Safety note (sourced, not a live feed): Seattle Parks & Rec's 2026 ""Summer of Safety"" initiative specifically calls out increased staffing/security, clearer signage, and lighting/sight-line improvements at high-use parks including the waterfront (Seattle Parks, May 2026); Seattle Center also states the park's operations prioritize clear sight lines and lighting as safety measures. No source found with a specific crime count or homelessness figure for Waterfront Park at night as of this writing -- that gap is stated here rather than guessed at. General downtown-Seattle guidance from multiple 2026 visitor-safety writeups: core tourist areas including the waterfront feel safe during the day and evening hours when busy; visible homelessness/drug activity downtown is common and generally not dangerous, but isolated/empty stretches after dark warrant normal city caution. Given the 10 PM close, plan to be there earlier while it's still lit, staffed, and populated rather than right at closing.
+Location: Waterfront Park (Pier 62/Pier 58 area)
+Payment: Free walk-in
+Duration: 60 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-3-waterfront-park"
+"🚶 Seattle Day 1 · Walk back to Palihotel","2026-11-01","19:40","2026-11-01","20:00","Waterfront -> Downtown","Purpose: Walk back up to Palihotel to rest.
+Duration: 15 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-4-walk-back-to-palihotel"
+"🛌 Seattle Day 1 · Wind-down and early sleep","2026-11-01","20:00","2026-11-02","07:30","Palihotel base","Arrival-night wind-down.
+Purpose: Get good sleep after a long travel day. Day 2 is the full Pike Place day and you'll want fresh energy for it.
 Continuity: Sleep protection to stabilize next day.
 Duration: 10+ hrs.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-6-wind-down-and-early-sleep"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-5-wind-down-and-early-sleep"
 "🛌 Seattle Day 2 · Wake, stretch, prep","2026-11-02","07:30","2026-11-02","08:15","Palihotel base","Purpose: Easy start. Pike Place walk is your breakfast -- no sit-down meal needed.
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-0-wake-stretch-prep"

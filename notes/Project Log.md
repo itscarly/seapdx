@@ -1,3 +1,36 @@
+## 2026-08-15 (session 46: Day 1 rebuild -- real arrival timing, Palihotel/H Mart/Target/Pike Place Bar & Grill order, researched safety notes)
+
+### COMPLETE: Rebuilt Day 1 (Sun, Nov 1) around the confirmed Asiana arrival and Palihotel booking, reordered the evening, added sourced safety notes
+
+**Why this session happened:** User supplied their actual Asiana booking (OZ702/OZ272, confirmation [redacted], SEA arrival 1:55 PM) and Palihotel Seattle reservation (confirmation #[redacted], $662 total), and wanted Day 1 rebuilt around a firm 45-minute passport-control/baggage-claim buffer, a reordered evening (H Mart -> drop food at hotel -> Target -> Pike Place Bar & Grill dinner -> Waterfront Park, dropping Pike Place Chowder since it closes too early), specific purchases with prices, trivia for each stop, a real H Mart food photo, and a researched (not invented) safety note per stop.
+
+**`data/trip-data.js` (Day 1 rewrite):**
+- Arrival buffer extended from 25 to 45 minutes for passport control + baggage claim (leaveTime 2:20 PM -> 2:40 PM), all downstream Afternoon/Evening times shifted accordingly.
+- Palihotel check-in item now carries the real reservation details (confirmation, itinerary #, room type, official check-in/check-out, $662 total) and trivia.
+- Evening fully reordered per the user's plan: H Mart grocery run (~4:30 PM, added `image` field pointing at a locally-stored photo) -> walk back to drop food at Palihotel -> Target Pike Plaza pickup order (Zantac 360 25ct $10.89 + Truly Unruly 12pk $18.99, est. total $34.36) -> Pike Place Bar & Grill dinner (Grilled Chicken Burger $14.95, Prickly-Pear Margarita $10, Fresca $10, plus WA sales tax and 18% tip, est. total $44.86) -> Waterfront Park -> walk back to Palihotel. Pike Place Chowder dinner item removed entirely (not kept as a backup) since its ~4:30 PM close made it infeasible under the new timeline.
+- `dayTotal` recomputed to $105.11, verified against the sum of item costs and against `npm run audit:budget` (still within the $3,050 ceiling with $196.11 remaining).
+
+**Safety notes -- sourced, not invented:** Before writing any `safetyNote`/detailText safety language, ran web research against SPD/Downtown Seattle Association 2025-2026 crime reporting (KOMO News), Seattle Parks & Rec's 2026 "Summer of Safety" initiative, and Seattle Center's own Waterfront Park safety-operations language, then cited what each note is based on. Two gaps found and stated explicitly rather than guessed: no source found with a specific crime count or homelessness figure for Waterfront Park at night. Also surfaced that Waterfront Park/Pier 62 is posted open only 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org) -- arriving at 10 PM as originally floated would mean the park is closing or closed, so the itinerary schedules the visit right after dinner (~6:40 PM) instead and flags the closing-time conflict in the detail text.
+
+**Images added (`assets/images/`):** `hmart-food-sample.webp` (the user's shared Google Photos food sample, downloaded locally so the link can't expire) and `waterfront-park-dusk.jpg` (CC BY 2.0 licensed Wikimedia Commons photo by Jeff Wilcox, used since no real-time night photo of the current 2026 redevelopment was available).
+
+**`dashboards/js/app.js`:** Added image rendering to `renderDetailPanel` -- reuses the existing airfare-card `image-frame`/`<img>` markup, gated on `stop.image` being present, so no other itinerary item's rendering changes. `reservation` and `safetyNote` fields were already rendered by the existing details list, no changes needed there.
+
+**Verification:** `npm run validate` (syntax check, budget audit, calendar-export sync) passed clean; day-1 item cost sum hand-verified against `dayTotal` via a one-off Node script.
+
+**Files modified:**
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `assets/images/hmart-food-sample.webp` (new)
+- `assets/images/waterfront-park-dusk.jpg` (new)
+- `notes/Project Log.md`
+
+**Follow-up:**
+- Google Calendar sync ("Seattle and Portland 2026") for the updated Day 1 events is still pending as of this entry -- see next session or immediate follow-up work.
+- No live crime-index API is wired into this project; safety notes are a point-in-time research pass, not continuously updated data. Re-verify before the actual trip if planning a similar late-night stop again.
+
+---
+
 ## 2026-08-09 (session 45: font-consistency fix, adjustable hero meter slider, DESIGN.md six-section rewrite, full /impeccable audit pass)
 
 ### COMPLETE: Fixed unloaded-font fallback bug, made the "All-in trip target" meter draggable, then ran a full /impeccable audit closing all color/radius/font-size documentation-gap findings
