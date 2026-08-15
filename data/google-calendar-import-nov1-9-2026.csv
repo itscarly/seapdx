@@ -39,34 +39,34 @@ Payment: Cards accepted
 Estimated cost: $22.
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-0-pike-place-chowder-light-dinne"
-"🚶 Seattle Day 1 · Walk to Target Downtown Seattle","2026-11-01","20:25","2026-11-01","20:31","Downtown","Purpose: Short walk from Pike Place Chowder to Target for the Truly Hard Seltzer run.
-Duration: 6 min.
+"🚶 Seattle Day 1 · Walk to Target Downtown Seattle","2026-11-01","20:25","2026-11-01","20:29","Downtown","Purpose: Target (1401 2nd Ave) is a few doors from Palihotel (107 Pine St) -- no transit needed.
+Duration: 4 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-1-walk-to-target-downtown-seattl"
-"🛍️ Seattle Day 1 · Target Downtown Seattle - Truly Hard Seltzer run","2026-11-01","20:31","2026-11-01","20:51","Target, 1600 2nd Ave","Quick stop for the Truly Hard Seltzer fix to keep in the room for the rest of the Seattle stay.
+"🛍️ Seattle Day 1 · Target Downtown Seattle - Truly Hard Seltzer run","2026-11-01","20:29","2026-11-01","20:49","Target, 1401 2nd Ave","Quick stop for the Truly Hard Seltzer fix to keep in the room for the rest of the Seattle stay.
 ORDER: Truly Hard Seltzer 12-pack.
 Estimated cost: $20.00 + 10.5% WA sales tax = $22.10.
-Location: Target, 1600 2nd Ave
+Location: Target, 1401 2nd Ave
 Website: https://www.target.com/store-locator/store/seattle-downtown-1584/
 Payment: Cards accepted
 Estimated cost: $22.1.
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-2-target-downtown-seattle-truly-"
-"🚇 Seattle Day 1 · Transit to H Mart International District","2026-11-01","20:51","2026-11-01","21:01","Downtown -> International District","Purpose: Link light rail, one stop. Already covered under the $6 ORCA day-pass claimed at the airport transfer earlier today -- $0 for this ride.
-Duration: 10 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-3-transit-to-h-mart-internationa"
-"🛍️ Seattle Day 1 · H Mart International District - grocery run","2026-11-01","21:01","2026-11-01","21:26","H Mart, 601 5th Ave S","Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) for cheaper in-room meals over the Seattle stay -- the Palihotel has an in-room fridge/microwave-friendly setup for this.
+"🚶 Seattle Day 1 · Walk to H Mart Downtown Seattle","2026-11-01","20:49","2026-11-01","20:52","Downtown","Purpose: H Mart (1601 2nd Ave) is two blocks up 2nd Ave from Target, still walkable, no transit needed.
+Duration: 3 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-3-walk-to-h-mart-downtown-seattl"
+"🛍️ Seattle Day 1 · H Mart Downtown Seattle - grocery run","2026-11-01","20:52","2026-11-01","21:17","H Mart, 1601 2nd Ave","Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) for cheaper in-room meals over the Seattle stay -- the Palihotel has an in-room fridge/microwave-friendly setup for this.
 ORDER: A mix of ready-to-heat meals, snacks, and drinks, budgeted around $18.
 Estimated cost: $18.00 + 10.5% WA sales tax = $19.89.
-Location: H Mart, 601 5th Ave S
-Website: https://www.hmart.com/store/2270
-Payment: Cards accepted
+Location: H Mart, 1601 2nd Ave
+Website: https://www.hmart.com/
+Payment: Cards/Apple Pay only -- H Mart does not accept cash
 Estimated cost: $19.89.
 Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-4-h-mart-international-district-"
-"🚇 Seattle Day 1 · Transit back to Palihotel","2026-11-01","21:26","2026-11-01","21:36","International District -> Downtown","Purpose: Link light rail back downtown, covered under today's day-pass -- $0.
-Duration: 10 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-5-transit-back-to-palihotel"
-"🛌 Seattle Day 1 · Wind-down and early sleep","2026-11-01","21:36","2026-11-02","07:30","Palihotel base","Arrival-night wind-down.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-4-h-mart-downtown-seattle-grocer"
+"🚶 Seattle Day 1 · Walk back to Palihotel","2026-11-01","21:17","2026-11-01","21:23","Downtown","Purpose: Short walk back down 2nd Ave / Pine St to Palihotel.
+Duration: 6 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-5-walk-back-to-palihotel"
+"🛌 Seattle Day 1 · Wind-down and early sleep","2026-11-01","21:23","2026-11-02","07:30","Palihotel base","Arrival-night wind-down.
 Purpose: Get good sleep after dinner and the Target/H Mart run. Day 2 is the full Pike Place day and you'll want fresh energy for it.
 Continuity: Sleep protection to stabilize next day.
 Duration: 10+ hrs.
@@ -139,7 +139,7 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 ORDER: Hawaiian-style Pork Hum Bao (the classic here since 1935) -- ask for it warm.
 Estimated cost: $9.
 Location: Mee Sum Pastry, 1526 Pike Pl
-Payment: Cards accepted
+Payment: Cards accepted, but reports of a ~$10 card minimum -- carry small cash as backup
 Estimated cost: $9.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-9-mee-sum-pastry"
@@ -147,7 +147,7 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 ORDER: Dozen mini cinnamon-sugar doughnuts fresh from the fryer, plus a mocha to go with it.
 Estimated cost: $16.
 Location: Daily Dozen Doughnuts, Pike Place Market
-Payment: Cards accepted
+Payment: Conflicting reports -- some say cash-only, newer reviews say cards work but cash is faster -- carry cash as backup
 Estimated cost: $16.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-10-daily-dozen-doughnuts-mocha"
@@ -156,7 +156,7 @@ Menu: https://www.ghostalleyespresso.co/menus
 Order: Salted Nut 12oz.
 Estimated cost: $8.50.
 Location: Ghost Alley Espresso, 1499 Post Alley
-Payment: Cards accepted
+Payment: Unconfirmed -- no explicit payment info found for this small walk-up stall; carry cash as backup
 Estimated cost: $8.5.
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-11-ghost-alley-espresso"
@@ -297,7 +297,7 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 "🍽️ Seattle Day 3 · Menya Musashi ramen dinner","2026-11-03","20:05","2026-11-03","21:05","Capitol Hill","Menu: https://menyamuso.us/ramen-menu-seattle/
 ORDER: Musashi Tonkotsu ramen (the house signature) with a side of gyoza to split.
 Estimated cost: $27.
-Payment: Cards accepted
+Payment: Cards/gift cards only -- Menya Musashi is explicitly cashless
 Estimated cost: $27.
 Duration: 60 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-6-menya-musashi-ramen-dinner"
@@ -347,7 +347,7 @@ ORDER: Cold Brew (16oz).
 SKIP: Heavy snack unless your feet are dragging.
 Estimated cost: $6.
 Location: Ballard Coffee Works, 2060 NW Market St
-Payment: Cards accepted
+Payment: Cards confirmed; mixed reviews on whether cash is always accepted -- use card as primary
 Estimated cost: $6.
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-3-ballard-coffee-works-reset"
@@ -477,7 +477,7 @@ Instagram: https://www.instagram.com/shonen_tattoo/
 Estimated cost: $150 + $27 tip = $177 (bus fare to/from is tracked separately under Transportation, folded into Portland local transit).
 Aftercare: Keep the rest of the day light -- no heavy activity or hiking while it heals.
 Location: Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR
-Payment: Cards accepted
+Payment: Not confirmed -- no shop-specific payment info found; tattoo shops often prefer cash to avoid card fees, call ahead to confirm
 Estimated cost: $177.
 Duration: 90 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-0-tattoo-appointment"
