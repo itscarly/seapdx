@@ -1927,8 +1927,7 @@ function renderDetailPanel(stop, day) {
     ["Payment", stop.payment],
     ["Happy hour", stop.happyHour],
     ["Tip guidance", stop.tipGuidance],
-    ["Social fit", stop.socialFit],
-    ["Safety note", stop.safetyNote]
+    ["Social fit", stop.socialFit]
   ].filter(([, value]) => value);
 
   const linksHtml = [
@@ -1940,6 +1939,9 @@ function renderDetailPanel(stop, day) {
   const mapContainerId = `chip-map-${stop._uid.replace(/\W/g, "_")}`;
   const hasCoordinates = stop.name && STOP_COORDINATES[stop.name];
   const richSectionsHtml = renderRichDetailSections(stop.detailText);
+  const routeMapSrc = stop.mapFrom && stop.mapTo
+    ? `https://www.google.com/maps?saddr=${encodeURIComponent(stop.mapFrom)}&daddr=${encodeURIComponent(stop.mapTo)}&output=embed`
+    : "";
 
   return `
     <div class="stop-detail">
@@ -1952,10 +1954,11 @@ function renderDetailPanel(stop, day) {
         ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
       </div>
       ${stop.image ? `
-        <a class="visual-card-link image-frame" href="${IMAGE_BASE}${stop.image}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">
+        <a class="visual-card-link stop-detail-image" href="${IMAGE_BASE}${stop.image}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">
           <img src="${IMAGE_BASE}${stop.image}" alt="${escapeAttribute(stop.name)}" loading="lazy" />
         </a>
       ` : ""}
+      ${stop.safetyNote ? `<div class="safety-badge">${escapeHtml(stop.safetyNote)}</div>` : ""}
       ${stop.time || stop.duration || stop.leaveTime ? `
         <div class="stop-detail-timing">
           ${stop.time ? `<span>Planned: ${stop.time}</span>` : ""}
@@ -1975,7 +1978,11 @@ function renderDetailPanel(stop, day) {
           ${details.map(([label, value]) => `<div class="detail"><b>${label}</b><span>${value}</span></div>`).join("")}
         </div>
       ` : ""}
-      ${hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" aria-label="Map for ${escapeAttribute(stop.name)}"></div>` : ""}
+      ${routeMapSrc ? `
+        <div class="stop-detail-route-map" aria-label="Route map from ${escapeAttribute(stop.mapFrom)} to ${escapeAttribute(stop.mapTo)}">
+          <iframe src="${routeMapSrc}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Route: ${escapeAttribute(stop.mapFrom)} to ${escapeAttribute(stop.mapTo)}"></iframe>
+        </div>
+      ` : hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" aria-label="Map for ${escapeAttribute(stop.name)}"></div>` : ""}
       ${linksHtml ? `<div class="stop-detail-links">${linksHtml}</div>` : ""}
       <div class="stop-detail-actions">
         ${hasCoordinates && stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noopener">Get directions</a>` : ""}
