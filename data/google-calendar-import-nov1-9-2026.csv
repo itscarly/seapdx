@@ -2,275 +2,218 @@ Subject,Start Date,Start Time,End Date,End Time,Location,Description
 "🚇 Seattle Day 1 · Arrive SEA and transfer to Link","2026-11-01","13:55","2026-11-01","14:20","SEA Airport","Arrival transition block after landing in Seattle.
 Purpose: Clear baggage claim, get oriented inside SEA, and set up the first ORCA tap before heading into the city.
 Estimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).
-Timing: Keep this efficient so the Capitol Hill arrival still feels calm instead of rushed.
+Timing: Keep this efficient so the downtown Palihotel arrival still feels calm instead of rushed.
 Estimated cost: $6.
 Duration: 25 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-and-transfer-to-lin"
-"🚇 Seattle Day 1 · Link light rail to Capitol Hill","2026-11-01","14:20","2026-11-01","15:05","SEA -> Capitol Hill","Link ride from SEA into Capitol Hill.
+"🚇 Seattle Day 1 · Link light rail to Downtown Seattle","2026-11-01","14:20","2026-11-01","15:05","SEA -> Downtown","Link ride from SEA into Downtown Seattle.
 What to expect: This is the easy no-drama airport transfer, so just settle in, hydrate, and let the arrival day stay simple.
 Cost note: Fare already counted in the previous airport-transfer stop.
-Duration: 40 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-1-link-light-rail-to-capitol-hil"
-"🚶 Seattle Day 1 · Walk to Boylston and luggage reset","2026-11-01","15:05","2026-11-01","15:35","Capitol Hill","Short station-to-hotel walk.
-What to expect: Quick unpack, water, phone charge, and the first real pause after the long flight.
-Continuity: This is just enough reset time to keep the evening enjoyable instead of zombie-mode.
-Duration: 30 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-boylston-and-luggage-r"
-"🛌 Seattle Day 1 · Rest and shower reset","2026-11-01","15:35","2026-11-01","16:30","Boylston base","Hard jet-lag buffer before the first night out.
-What to expect: Shower, recharge, switch into walking clothes, and do not overschedule this block.
-Purpose: Arrival night only works if this recovery window stays protected.
 Duration: 45 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-3-rest-and-shower-reset"
-"🚶 Seattle Day 1 · Neighborhood orientation walk","2026-11-01","16:30","2026-11-01","17:35","Broadway / Pike-Pine","Capitol Hill orientation walk to learn the grid before the full Seattle days.
-Route: Boylston -> Pike St -> Pine St -> Broadway -> back.
-Souvenir tip: You walk right past Starbucks Reserve Roastery at 1124 Pike St, which is a strong early Seattle mug stop if the Day 2 market block gets busy.
-What to expect: Use this hour to spot QFC, pharmacy, transit anchors, and the easiest late-night snack options.
-Estimated cost: Free walk, plus about $20-24 only if you decide to grab the Reserve mug.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-1-link-light-rail-to-downtown-se"
+"🚶 Seattle Day 1 · Walk to Palihotel and luggage reset","2026-11-01","15:05","2026-11-01","15:20","Downtown","Short station-to-hotel walk.
+What to expect: Palihotel is right in the heart of downtown near Pike Place, so this walk is very manageable even jet-lagged.
+Continuity: This is just enough reset time to keep the evening calm instead of zombie-mode.
+Duration: 15 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-palihotel-and-luggage-"
+"🛌 Seattle Day 1 · Palihotel check-in and shower reset","2026-11-01","15:20","2026-11-01","16:20","Palihotel base","Check-in and jet-lag buffer.
+What to expect: Shower, recharge, and rest without rushing. This block is protected time.
+Purpose: Arrival night works best when recovery stays a priority.
 Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-4-neighborhood-orientation-walk"
-"🚶 Seattle Day 1 · Walk through Pike-Pine social strip","2026-11-01","17:35","2026-11-01","18:20","Capitol Hill","Pike-Pine vibe check before dinner.
-What to expect: This is not about packing in another stop. It is just a smart first-night loop to see what feels lively, easy, or worth coming back to later in the trip.
-Purpose: Learn the nightlife geography without committing to a full second venue.
-Duration: 40 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-0-walk-through-pike-pine-social-"
-"🎟️ Seattle Day 1 · Saint John's Bar and Eatery dinner","2026-11-01","18:20","2026-11-01","19:25","Saint John's Bar and Eatery, 719 E Pike St","Dinner and drink stop at Saint John's -- now the single cocktail-and-dinner anchor for the first night, with Poquitos happy hour removed.
-Dinner menu: https://static1.squarespace.com/static/53cb2316e4b09faa58ccb592/t/6a62a67b53cb7d59147cd2ae/1784850043584/STJ+DINNER-11.pdf
-Drinks menu: https://static1.squarespace.com/static/53cb2316e4b09faa58ccb592/t/6a5be56b2e3b510768277a82/1784407403912/STJ+Drinks-30.pdf
-ORDER: Blackened Chicken Sandwich -- house cajun spice, dill pickles, red onion, romaine, aioli, rustic Macrina ciabatta bun ($19). Brand New Cherry Flavor cocktail -- whiskey, cherry syrup, citrus, foaming bitters ($13).
-Estimated cost: $42 total with tip and tax.
-Payment: Cards accepted.
-Location: Saint John's Bar and Eatery, 719 E Pike St
-Website: https://saintjohnssea.com/
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-3-palihotel-check-in-and-shower-"
+"🚶 Seattle Day 1 · Light downtown walk and early dinner","2026-11-01","16:20","2026-11-01","19:40","Downtown / Pike Place area","Relaxed downtown orientation on your first evening.
+Vibe: Keep it loose. Spot cafes, see the evening neighborhood, get comfortable.
+Food: Grab something casual/light nearby (coffee, snack, or light dinner) rather than a structured sit-down; you can decide what you want when you see what's around.
+Cost: Included in your daily discretionary food spend.
+Purpose: Meet the downtown vibe and rest before Day 2's full itinerary.
+Duration: 180 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-0-4-light-downtown-walk-and-early-"
+"🍽️ Seattle Day 1 · Pike Place Chowder - light dinner","2026-11-01","19:40","2026-11-01","20:25","Pike Place Chowder, 1530 Post Alley","Light, casual arrival-night dinner.
+Why this spot: 4-minute walk from Palihotel, counter service (no wait for a table), award-winning clam chowder -- easy on a jet-lagged stomach and doesn't require decision-making energy.
+Order: Cup of clam chowder + sourdough roll + drink.
+Estimated cost: $22 (food + WA sales tax + tip).
+Purpose: Eat something warm and simple, then head back to Palihotel for early sleep to reset jet lag. Day 2 is the full Pike Place day and you'll want fresh energy for it.
+Location: Pike Place Chowder, 1530 Post Alley
+Website: https://pikeplacechowder.com/
 Payment: Cards accepted
-Estimated cost: $42.
-Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-1-saint-john-s-bar-and-eatery-di"
-"🎟️ Seattle Day 1 · Salt & Straw Capitol Hill dessert","2026-11-01","19:25","2026-11-01","19:50","Salt & Straw Capitol Hill","Capitol Hill ice cream stop.
-Order: https://orders.saltandstraw.com/menu/salt-straw-capital-hill
-One scoop plus a seasonal flavor if the board looks good.
-Line time: Usually 5-15 min.
-Skip: Extra toppings unless you want the richer version of the stop.
-Estimated cost: $9 with tax.
-Location: Salt & Straw Capitol Hill
-Payment: Cards accepted
-Estimated cost: $9.
-Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-2-salt-straw-capitol-hill-desser"
-"🛍️ Seattle Day 1 · QFC Broadway -- seltzer run","2026-11-01","19:50","2026-11-01","20:15","QFC, 1401 Broadway, Seattle, WA 98122","Practical late-night convenience run.
-Buy: Truly Hard Seltzer Lemonade Mix Pack -- 12pk/12 fl oz slim cans, plus water and a quick breakfast item.
-Estimated cost: $20 for the seltzer pack.
-Location: QFC, 1401 Broadway, Seattle, WA 98122
-Estimated cost: $20.
-Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-3-qfc-broadway-seltzer-run"
-"🛌 Seattle Day 1 · Sleep buffer","2026-11-01","20:15","2026-11-02","07:30","Boylston base","Arrival-night sleep protection block.
-Purpose: Do not cannibalize this time. The next two Seattle days work much better if the jet lag gets checked early.
-Duration: 10.5 hrs.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-4-sleep-buffer"
-"🛌 Seattle Day 2 · Wake, stretch, prep","2026-11-02","07:30","2026-11-02","08:15","Boylston base","Purpose: Easy start before the downtown day. Glo's Diner breakfast removed -- heading straight to Pike Place to eat there instead.
+Estimated cost: $22.
+Duration: 45 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-0-pike-place-chowder-light-dinne"
+"🛌 Seattle Day 1 · Wind-down and early sleep","2026-11-01","20:25","2026-11-02","07:30","Palihotel base","Arrival-night wind-down.
+Purpose: Get good sleep after dinner. Day 2 is the full Pike Place day and you'll want fresh energy for it.
+Continuity: Sleep protection to stabilize next day.
+Duration: 10+ hrs.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-1-1-1-wind-down-and-early-sleep"
+"🛌 Seattle Day 2 · Wake, stretch, prep","2026-11-02","07:30","2026-11-02","08:15","Palihotel base","Purpose: Easy start. Pike Place walk is your breakfast -- no sit-down meal needed.
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-0-wake-stretch-prep"
-"🚇 Seattle Day 2 · Transit to Pike Place","2026-11-02","08:15","2026-11-02","08:35","Capitol Hill -> Downtown","Purpose: Link or bus into the market core. First ORCA ride of Day 2 -- flat $6 day-pass charge.
-Estimated cost: $6.
-Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-1-transit-to-pike-place"
-"🎟️ Seattle Day 2 · Pike Place sign + arcade stroll","2026-11-02","08:35","2026-11-02","08:55","Pike Place Market","Start at the sign and the arcade so the market feels like a sequence, not one blob.
-Order: Walk the sign, the main arcade, and the first fish-market row.
-Line time: None unless the entrance is unusually busy.
+"🚶 Seattle Day 2 · Short walk to Pike Place Market","2026-11-02","08:15","2026-11-02","08:35","Downtown","Purpose: Palihotel is steps from Pike Place, walk direct.
+Duration: 10 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-1-short-walk-to-pike-place-marke"
+"🎟️ Seattle Day 2 · Pike Place sign + arcade stroll","2026-11-02","08:35","2026-11-02","08:55","Pike Place Market","Iconic market entrance. Walk the sign, arcade, first fish row.
+Line time: None unless busy.
 Estimated cost: Free.
 Location: Pike Place Market
 Payment: Free walk-in
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-2-pike-place-sign-arcade-stroll"
 "🛍️ Seattle Day 2 · Totem Smokehouse fish stop","2026-11-02","08:55","2026-11-02","09:25","Totem Smokehouse, 1906 Pike Pl","Core market stop for smoked salmon.
-Order: Peppered smoked sockeye box or a smaller salmon pack if you want lighter baggage.
-Line time: Allow 5-15 min.
-Estimated cost: $40 for the salmon purchase.
-Payment: Cards accepted.
+Order: Peppered smoked sockeye box or smaller pack.
+Line time: 5-15 min.
+Estimated cost: $40.
 Location: Totem Smokehouse, 1906 Pike Pl
 Payment: Cards accepted
 Estimated cost: $40.
 Duration: 30 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-3-totem-smokehouse-fish-stop"
-"☕ Seattle Day 2 · Piroshky Piroshky snack","2026-11-02","09:25","2026-11-02","09:40","Piroshky Piroshky, Pike Place Market","Quick Pike Place snack -- now doing double duty as part of breakfast since Glo's Diner was removed.
-Order: Classic piroshky or savory cheese-filled option.
-Line time: About 5-10 min at a normal weekday pace.
-Estimated cost: $8-9 with tax.
-Location: Piroshky Piroshky, Pike Place Market
+"🍽️ Seattle Day 2 · Piroshky Piroshky snack","2026-11-02","09:25","2026-11-02","09:40","Piroshky Piroshky, 1908 Pike Pl","Menu: https://piroshkybakery.com/menu/
+ORDER: Smoked Salmon Pate piroshky (savory, most iconic) or the Beef & Onion if you want something heartier. Apple Cinnamon Roll if you'd rather go sweet.
+Estimated cost: $9.
+Location: Piroshky Piroshky, 1908 Pike Pl
 Payment: Cards accepted
 Estimated cost: $9.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-4-piroshky-piroshky-snack"
-"🎟️ Seattle Day 2 · Original Starbucks store, 1912 Pike Place","2026-11-02","09:40","2026-11-02","10:00","Starbucks, 1912 Pike Place, Seattle, WA 98101","The first Starbucks store visit with three purchases:
-1. Whole bean coffee bag (1 lb): $16
-2. Seattle/Pike Place-exclusive ceramic mug: $20
-3. Grande cold brew: $5
-Total: $41.
+"🎟️ Seattle Day 2 · Original Starbucks store, 1912 Pike Place","2026-11-02","09:40","2026-11-02","10:10","Starbucks, 1912 Pike Place, Seattle, WA 98101","First Starbucks visit: whole bean coffee bag ($16) + Seattle-exclusive mug ($20) + grande cold brew ($5) = $41.
+ORDER: Grande cold brew (or a shop-exclusive Pike Place Roast drip if you want to keep it classic) plus the whole-bean bag and mug as souvenirs.
 Estimated cost: $41.
-Payment: Cards accepted.
 Location: Starbucks, 1912 Pike Place, Seattle, WA 98101
 Payment: Cards accepted
 Estimated cost: $41.
-Duration: 20 min.
+Duration: 30 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-5-original-starbucks-store-1912-"
-"☕ Seattle Day 2 · Hellenika Cultured Creamery","2026-11-02","10:00","2026-11-02","10:15","Hellenika Cultured Creamery, Pike Place Market","Greek yogurt/creamery stop, traveler-pegged price from the Google Maps route.
-Order: A cup or cone of Greek yogurt/gelato.
-Estimated cost: $13.
-Payment: Cards accepted.
+"🍽️ Seattle Day 2 · Hellenika Cultured Creamery","2026-11-02","10:10","2026-11-02","10:25","Hellenika Cultured Creamery, Pike Place Market","Menu: https://www.eathellenika.com/menu
+ORDER: Build-your-own Greek yogurt bowl -- go with honey, walnuts, and fresh fruit toppings, or their signature Mediterranean bowl if you want it pre-built.
+Estimated cost: $13 (traveler-pegged).
 Location: Hellenika Cultured Creamery, Pike Place Market
 Payment: Cards accepted
 Estimated cost: $13.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-6-hellenika-cultured-creamery"
-"🎟️ Seattle Day 2 · Beecher's Handmade Cheese tasting","2026-11-02","10:15","2026-11-02","10:30","Beecher's Handmade Cheese, Pike Place Market","Cheese stop for a short tastings-and-snack visit.
-Order: Small sample, grilled cheese, or mac if you want a fuller bite.
-Line time: Expect roughly 5-15 min.
+"🍽️ Seattle Day 2 · Beecher's Handmade Cheese tasting","2026-11-02","10:25","2026-11-02","10:40","Beecher's Handmade Cheese, 1600 Pike Pl","Watch cheese being made through the front window, then try it.
+Menu: https://beechershandmadecheese.com/menus/seattle-flagship-menu/
+ORDER: World's Best Mac & Cheese cup, or the Flagship cheddar curds if you want something to walk with.
 Estimated cost: $9.
-Location: Beecher's Handmade Cheese, Pike Place Market
+Location: Beecher's Handmade Cheese, 1600 Pike Pl
 Payment: Cards accepted
 Estimated cost: $9.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-7-beecher-s-handmade-cheese-tast"
-"🎟️ Seattle Day 2 · Rachel's Ginger Beer -- Frozen Mango Margarita","2026-11-02","10:30","2026-11-02","10:45","Rachel's Ginger Beer, Pike Place Market","Frozen cocktail stop.
-Menu: https://rachelsgingerbeer.com/pages/menu
-ORDER: Frozen Mango Margarita -- ginger, mango, triple sec, tequila.
-Line time: Usually about 5-10 min.
+"🍽️ Seattle Day 2 · Rachel's Ginger Beer - Frozen Mango Margarita","2026-11-02","10:40","2026-11-02","10:55","Rachel's Ginger Beer, 1530 Post Alley","Menu: https://rachelsgingerbeer.com/menus/
+ORDER: Frozen Mango Margarita ginger beer (the signature frozen slushy, not a straight ginger beer) -- ask for it ""frozen.""
+Pastry option nearby: Mee Sum Pastry two doors down covers the sweet side if you want a bite with it.
 Estimated cost: $18.
-Location: Rachel's Ginger Beer, Pike Place Market
+Location: Rachel's Ginger Beer, 1530 Post Alley
 Payment: Cards accepted
 Estimated cost: $18.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-8-rachel-s-ginger-beer-frozen-ma"
-"🍽️ Seattle Day 2 · Mee Sum Pastry","2026-11-02","10:45","2026-11-02","11:00","Mee Sum Pastry, Pike Place Market","Steamed-bun or pastry stop.
-Order: Pork bun or other hot handheld if the case looks good.
-Line time: About 5-10 min unless the case is crowded.
-Estimated cost: $8-9.
-Location: Mee Sum Pastry, Pike Place Market
-Payment: Cash preferred
+"🍽️ Seattle Day 2 · Mee Sum Pastry","2026-11-02","10:55","2026-11-02","11:10","Mee Sum Pastry, 1526 Pike Pl","Menu: https://www.meesumpastry.com/menu
+ORDER: Hawaiian-style Pork Hum Bao (the classic here since 1935) -- ask for it warm.
+Estimated cost: $9.
+Location: Mee Sum Pastry, 1526 Pike Pl
+Payment: Cards accepted
 Estimated cost: $9.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-9-mee-sum-pastry"
-"☕ Seattle Day 2 · Daily Dozen Doughnuts + Mocha","2026-11-02","11:00","2026-11-02","11:10","Daily Dozen Doughnut Company, Pike Place Market","Tiny doughnut stop built for a quick bite.
-ORDER: Daily Dozen assorted mini doughnuts, plus a 12oz Mocha Hot Coffee.
-Line time: Usually quick, about 5-10 min.
+"🍽️ Seattle Day 2 · Daily Dozen Doughnuts + Mocha","2026-11-02","11:10","2026-11-02","11:25","Daily Dozen Doughnuts, Pike Place Market","Menu: https://dailydozendoughnuts.com/
+ORDER: Dozen mini cinnamon-sugar doughnuts fresh from the fryer, plus a mocha to go with it.
 Estimated cost: $16.
-Location: Daily Dozen Doughnut Company, Pike Place Market
-Payment: Cash preferred
+Location: Daily Dozen Doughnuts, Pike Place Market
+Payment: Cards accepted
 Estimated cost: $16.
-Duration: 10 min.
+Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-10-daily-dozen-doughnuts-mocha"
-"☕ Seattle Day 2 · Ghost Alley Espresso","2026-11-02","11:10","2026-11-02","11:30","Ghost Alley Espresso, 1499 Post Alley","Quick specialty latte stop closing out the market food crawl before heading to the waterfront.
+"☕ Seattle Day 2 · Ghost Alley Espresso","2026-11-02","11:25","2026-11-02","11:45","Ghost Alley Espresso, 1499 Post Alley","Quality specialty latte before the waterfront walk.
 Menu: https://www.ghostalleyespresso.co/menus
-Order: Salted Nut 12oz or one of the sweeter seasonal specials if you want the fast comfort pick.
+Order: Salted Nut 12oz.
 Estimated cost: $8.50.
-Payment: Cards accepted.
 Location: Ghost Alley Espresso, 1499 Post Alley
 Payment: Cards accepted
 Estimated cost: $8.5.
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-11-ghost-alley-espresso"
-"🎟️ Seattle Day 2 · Seattle Waterfront photo loop","2026-11-02","11:30","2026-11-02","11:55","Seattle Waterfront","Short photo block for the Seattle look.
-Photo targets: The Ferris wheel from the waterfront and a wide skyline frame.
-What to shoot: A wide skyline shot and one close-up with the wheel.
-Line time: None.
-Estimated cost: Free.
-Location: Seattle Waterfront
-Payment: Free walk-in
-Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-0-seattle-waterfront-photo-loop"
-"🚶 Seattle Day 2 · Overlook Walk (MarketFront viewing deck)","2026-11-02","11:55","2026-11-02","12:15","Overlook Walk, MarketFront","Purpose: Free public space connecting Pike Place to the waterfront.
-Location: Overlook Walk, MarketFront
+"🚶 Seattle Day 2 · Light Pike Place browse + casual snack","2026-11-02","11:45","2026-11-02","12:15","Pike Place","Purpose: Browse the market stalls, spot lunch spots for later, enjoy the morning vibe. No structured stops -- just wander.
+Duration: 30 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-0-12-light-pike-place-browse-casua"
+"🚶 Seattle Day 2 · Walk to Seattle Waterfront","2026-11-02","12:15","2026-11-02","12:35","Downtown -> Waterfront","Purpose: Leisurely walk down to the waterfront.
 Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-1-overlook-walk-marketfront-view"
-"🎟️ Seattle Day 2 · Old Stove Brewing","2026-11-02","12:15","2026-11-02","12:35","Old Stove Brewing, 1901 Western Ave Ste A","Brewpub with Elliott Bay views on the waterfront.
-Order: One beer (menu price + tax + tip all-in).
-Estimated cost: $13 all-inclusive.
-Payment: Cards accepted.
-Location: Old Stove Brewing, 1901 Western Ave Ste A
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-0-walk-to-seattle-waterfront"
+"🚶 Seattle Day 2 · Waterfront walk + photo time","2026-11-02","12:35","2026-11-02","14:05","Seattle Waterfront & Olympic Sculpture Park","Relaxed waterfront afternoon. Walk along the shore, Overlook Walk, Olympic Sculpture Park, Great Wheel photos, Harbor Steps -- no rush.
+What to do: Walk at your own pace, take photos, sit and people-watch if you want.
+Estimated cost: Free.
+Location: Seattle Waterfront & Olympic Sculpture Park
+Payment: Free walk-in
+Duration: 90 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-1-waterfront-walk-photo-time"
+"🍽️ Seattle Day 2 · Old Stove Brewing","2026-11-02","14:05","2026-11-02","14:25","Old Stove Brewing, MarketFront, 1901 Western Ave Ste A","Menu: https://oldstove.com/menus/
+ORDER: Wheyhey Pilsner or the Chowder Beer (Old Stove's signature) with Elliott Bay views from the MarketFront patio.
+Estimated cost: $13 all-in (menu price + tax + tip).
+Location: Old Stove Brewing, MarketFront, 1901 Western Ave Ste A
 Payment: Cards accepted
 Estimated cost: $13.
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-2-old-stove-brewing"
-"🚶 Seattle Day 2 · Walk to Olympic Sculpture Park","2026-11-02","12:35","2026-11-02","13:00","Waterfront","Purpose: Longer waterfront leg south to north along the shoreline.
+"🍽️ Seattle Day 2 · Lunch stop (self-choose)","2026-11-02","14:25","2026-11-02","15:05","Waterfront or Pike Place area","Suggested default: Marination Ma Kai, Pier 54 waterfront (Hawaiian-Korean fusion, casual walk-up counter, harbor view seating).
+Menu: https://marinationmakai.com/menus/
+ORDER: Kalbi short rib tacos or the Spam musubi plate.
+Backup if you'd rather stay in the market: Lowell's (Pike Place, 3rd floor, water-view dining room) -- fish and chips or a burger.
+This is flexible -- pick whichever spot you're near when you get hungry -- trimmed to 40 min to leave room for the Best Buy Northgate round trip before Sky View.
+Estimated cost: $26.12 (lunch with tax and tip).
+Payment: Cards accepted
+Estimated cost: $26.12.
+Duration: 40 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-3-lunch-stop-self-choose"
+"🎟️ Seattle Day 2 · Uber Seattle Engineering Office visit","2026-11-02","15:05","2026-11-02","15:45","Uber Seattle Engineering Office","Purpose: Brief visit to the Uber Seattle Engineering Office.
+Location: Uber Seattle Engineering Office
+Payment: N/A
+Duration: 40 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-4-uber-seattle-engineering-offic"
+"🚇 Seattle Day 2 · Transit to Best Buy Northgate","2026-11-02","15:45","2026-11-02","16:10","Downtown -> Northgate","Purpose: Link light rail to Northgate (confirmed ~14 min ride) plus walk/wait time to and from the station.
 Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-3-walk-to-olympic-sculpture-park"
-"🎟️ Seattle Day 2 · Olympic Sculpture Park browse","2026-11-02","13:00","2026-11-02","13:20","Olympic Sculpture Park","Purpose: Free outdoor sculpture park, part of the waterfront loop back toward the Great Wheel.
-Location: Olympic Sculpture Park
-Payment: Free walk-in
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-5-transit-to-best-buy-northgate"
+"🛍️ Seattle Day 2 · Best Buy Northgate - Ray-Ban Meta glasses fit check","2026-11-02","16:10","2026-11-02","16:30","Best Buy Northgate","Purpose: Confirm Ray-Ban Meta frame fit in person, then order through Amazon for Hotel Vance Portland delivery if the fit works.
+Location: Best Buy Northgate
+Website: https://www.meta.com/demo/scheduler/best-buy/
 Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-4-olympic-sculpture-park-browse"
-"🎟️ Seattle Day 2 · Seattle Great Wheel - photo stop","2026-11-02","13:20","2026-11-02","13:30","Seattle Great Wheel, Pier 57","Purpose: Photo-only stop (no entrance fee or ride).
-Location: Seattle Great Wheel, Pier 57
-Duration: 10 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-5-seattle-great-wheel-photo-stop"
-"🚶 Seattle Day 2 · Harbor Steps","2026-11-02","13:30","2026-11-02","13:45","Harbor Steps Staircase Plaza","Purpose: Free public staircase (107 steps) and plaza with fountains and benches.
-Location: Harbor Steps Staircase Plaza
-Duration: 15 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-6-harbor-steps"
-"🎟️ Seattle Day 2 · Pike Place Market swings","2026-11-02","13:45","2026-11-02","14:00","Pike Place Market","Purpose: Browse swings and the bronze Sasquatch statue -- last stop of the Pike Place/waterfront loop before the Uber office.
-Location: Pike Place Market
-Duration: 15 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-7-pike-place-market-swings"
-"🚶 Seattle Day 2 · Uber Seattle Engineering Office visit","2026-11-02","14:00","2026-11-02","14:40","1191 2nd Ave, Suite 1200, Seattle, WA","Purpose: Short walk from the swings, then 30-45 min to look around and take photos outside the office before Best Buy.
-Location: 1191 2nd Ave, Suite 1200, Seattle, WA
-Duration: 40 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-8-uber-seattle-engineering-offic"
-"🚇 Seattle Day 2 · Transit to Best Buy Northgate","2026-11-02","14:40","2026-11-02","15:15","Downtown -> Northgate","Purpose: Link north to Northgate. Cost $0 -- covered by the day's $6 ORCA pass.
-Duration: 35 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-9-transit-to-best-buy-northgate"
-"🎟️ Seattle Day 2 · Best Buy Northgate - Ray-Ban Meta glasses fit check","2026-11-02","15:15","2026-11-02","15:55","Best Buy Northgate, 330 NE Northgate Way","Link light rail to Northgate Station and walk to Best Buy.
-Purpose: Try on Ray-Ban Meta glasses for frame fit only. No demo needed -- just confirm fit.
-Order tip: Once fit is confirmed, order through Amazon for delivery to Courtyard Portland.
-Continuity: Courtyard Portland address for delivery is 550 SW Oak St, Portland, OR 97204. Call +1-503-233-3343 to confirm they hold packages.
-Best Buy hours: Monday 10 AM to 9 PM.
-Estimated cost: Fit check only, no required spend during this stop.
-Location: Best Buy Northgate, 330 NE Northgate Way
-Payment: No purchase required; cards accepted if you buy accessories
-Duration: 40 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-10-best-buy-northgate-ray-ban-me"
-"🚇 Seattle Day 2 · Transit to Columbia Center","2026-11-02","15:55","2026-11-02","16:35","Northgate -> Downtown","Purpose: Link back south to Columbia Center. Cost $0 -- covered by the day's $6 ORCA pass.
-Duration: 38 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-11-transit-to-columbia-center"
-"🎟️ Seattle Day 2 · Columbia Center Sky View Observatory - Elite Experience ticket","2026-11-02","16:35","2026-11-02","17:35","Sky View Observatory, 700 4th Ave","Seattle skyline views from the observation deck, timed to catch the sunset.
-Sunset timing: Seattle sunset on Nov 2, 2026 (Pacific Standard Time, after DST ends Nov 1) is approximately 4:53 PM -- sunset lands mid-visit.
-Tickets: https://skyviewobservatory.com/tickets/ — Elite Experience Adult: $49 + booking fee $1 + WA tax $2.50 = $52.50.
-Estimated cost: $52.50.
-Payment: Cards accepted.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-6-best-buy-northgate-ray-ban-met"
+"🚇 Seattle Day 2 · Transit back to Downtown for Sky View","2026-11-02","16:30","2026-11-02","16:55","Northgate -> Downtown","Purpose: Link light rail back downtown (confirmed ~14 min ride) plus walk/wait time, timed to land at Sky View by 4:55 PM.
+Duration: 25 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-7-transit-back-to-downtown-for-s"
+"🎟️ Seattle Day 2 · Columbia Center Sky View Observatory - Elite Experience ticket","2026-11-02","16:55","2026-11-02","17:55","Sky View Observatory, 700 4th Ave","Seattle skyline views from the observation deck at dusk.
+Tickets: Elite Experience Adult $49 + booking fee $1 + tax $2.50 = $52.50.
 Location: Sky View Observatory, 700 4th Ave
+Website: https://skyviewobservatory.com/tickets/
 Payment: Cards accepted
 Estimated cost: $52.5.
 Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-12-columbia-center-sky-view-obse"
-"🎟️ Seattle Day 2 · Sky View Cafe - sunset cocktail + sandwich","2026-11-02","17:35","2026-11-02","18:05","Sky View Observatory Cafe, 700 4th Ave","Food and cocktail at the Sky View Cafe while watching dusk skyline lights after sunset.
-Cafe menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/
-ORDER: One cocktail (~$18) + BLT sandwich ($14) + ~10.5% WA sales tax + 18% tip = ~$41.12 all-in.
-Estimated cost: $41.12.
-Payment: Cards accepted.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-8-columbia-center-sky-view-obser"
+"🎟️ Seattle Day 2 · Sky View Cafe - sunset cocktail","2026-11-02","17:55","2026-11-02","18:35","Sky View Observatory Cafe, 700 4th Ave","Purpose: Included in the Sky View admission. Enjoy the dusk lights from the deck.
 Location: Sky View Observatory Cafe, 700 4th Ave
+Website: https://skyviewobservatory.com/sky-view-cafe-bar-menu/
 Payment: Cards accepted
-Estimated cost: $41.12.
 Duration: 30 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-13-sky-view-cafe-sunset-cocktail"
-"🚇 Seattle Day 2 · Transit back to Capitol Hill","2026-11-02","18:05","2026-11-02","18:25","Downtown -> Capitol Hill","Purpose: Bus or Link ride back to the hotel after Sky View sunset/dusk. Cost $0 -- covered by the day's $6 ORCA pass.
-Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-0-transit-back-to-capitol-hill"
-"🛌 Seattle Day 2 · Free evening + wind-down","2026-11-02","18:25","2026-11-03","07:20","Boylston base","Purpose: Day ends after the full Pike Place/waterfront loop, Best Buy, the Uber office visit, and the sunset Sky View experience -- no dinner stop needed.
-Duration: 14 hrs.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-1-free-evening-wind-down"
-"🛌 Seattle Day 3 · Wake + prep","2026-11-03","07:20","2026-11-03","08:00","Boylston base","Purpose: Cafe Presse breakfast removed -- heading straight to the ferry terminal, food starts at Bainbridge.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-9-sky-view-cafe-sunset-cocktail"
+"🚶 Seattle Day 2 · Walk back to Palihotel + free evening","2026-11-02","18:35","2026-11-02","18:50","Downtown -> Palihotel","Purpose: Short walk back to the hotel. Evening is open -- find dinner nearby, meet people, relax.
+Duration: 15 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-0-walk-back-to-palihotel-free-ev"
+"🛌 Seattle Day 2 · Dinner and wind-down (self-choose)","2026-11-02","18:50","2026-11-03","07:20","Palihotel area or Downtown","Purpose: Open evening. Grab dinner somewhere casual nearby, settle in, early sleep or continue exploring if you feel like it.
+Duration: 10+ hrs.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-1-dinner-and-wind-down-self-choo"
+"🛌 Seattle Day 3 · Wake + prep","2026-11-03","07:20","2026-11-03","08:00","Palihotel base","Purpose: Light prep. Ferry terminal is walkable/short transit from downtown. Food starts at Bainbridge.
 Duration: 40 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-0-wake-prep"
-"🚇 Seattle Day 3 · Transit/walk to Seattle Ferry Terminal","2026-11-03","08:00","2026-11-03","08:50","Downtown waterfront","Purpose: Protected connection into the ferry terminal.
-Duration: 45 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-1-transit-walk-to-seattle-ferry-"
-"🚇 Seattle Day 3 · Ferry to Bainbridge","2026-11-03","08:50","2026-11-03","09:50","Puget Sound","Purpose: Seattle-to-Bainbridge walk-on fare is collected westbound only and should stay separate from local Seattle transit.
+"🚇 Seattle Day 3 · Walk/transit to Seattle Ferry Terminal","2026-11-03","08:00","2026-11-03","08:30","Downtown -> Ferry Terminal waterfront","Purpose: Palihotel is close to the ferry terminal via short walk + Link if needed. Use ORCA if any transit needed.
+Duration: 20 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-1-walk-transit-to-seattle-ferry-"
+"🚇 Seattle Day 3 · Ferry to Bainbridge","2026-11-03","08:30","2026-11-03","09:30","Puget Sound","Purpose: Seattle-to-Bainbridge walk-on fare is collected westbound only and should stay separate from local Seattle transit.
 Estimated cost: $12.
 Duration: 60 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-0-2-ferry-to-bainbridge"
-"🚶 Seattle Day 3 · Winslow + waterfront exploration","2026-11-03","09:50","2026-11-03","11:30","Bainbridge Island","Purpose: Winslow + waterfront exploration keeps the bainbridge day trip route on track.
+"🚶 Seattle Day 3 · Winslow + waterfront exploration","2026-11-03","09:30","2026-11-03","11:05","Bainbridge Island","Purpose: Winslow + waterfront exploration keeps the bainbridge day trip - ferry from downtown route on track.
 Duration: 95 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-0-winslow-waterfront-exploration"
-"🍽️ Seattle Day 3 · Harbour Public House lunch","2026-11-03","11:30","2026-11-03","12:45","Harbour Public House, 231 Parfitt Way SW","Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry. Now covers breakfast/lunch since Cafe Presse was removed.
+"🍽️ Seattle Day 3 · Harbour Public House lunch","2026-11-03","11:05","2026-11-03","12:20","Harbour Public House, 231 Parfitt Way SW","Suggested: Harbour Public House -- waterfront pub, five minutes from the ferry. Early lunch on Bainbridge.
 Menu: https://harbourpub.com/
 ORDER: Braised Beef BBQ Sandwich and a ginger ale.
 Fruity: Bainbridge cider is the move if you want something lighter than beer.
@@ -280,7 +223,7 @@ Payment: Cards accepted
 Estimated cost: $29.
 Duration: 75 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-1-harbour-public-house-lunch"
-"☕ Seattle Day 3 · Blackbird Coffee stop","2026-11-03","12:45","2026-11-03","13:35","Blackbird Bakery, 210 Winslow Way E","Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.
+"☕ Seattle Day 3 · Blackbird Coffee stop","2026-11-03","12:20","2026-11-03","13:10","Blackbird Bakery, 210 Winslow Way E","Suggested: Blackbird Bakery, just a couple minutes from the ferry terminal.
 Menu: https://www.blackbirdbakeryandcafe.com/bakery-menu
 ORDER: Coffee plus a scone or cookie.
 Estimated cost: $8.
@@ -289,48 +232,64 @@ Payment: Cards accepted
 Estimated cost: $8.
 Duration: 50 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-2-blackbird-coffee-stop"
-"🚇 Seattle Day 3 · Return ferry to Seattle","2026-11-03","13:35","2026-11-03","14:35","Puget Sound","Purpose: Return walk-on passenger fare is already covered.
+"🚇 Seattle Day 3 · Return ferry to Seattle","2026-11-03","13:10","2026-11-03","14:10","Puget Sound","Purpose: Return walk-on passenger fare is already covered.
 Duration: 60 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-1-3-return-ferry-to-seattle"
-"🚇 Seattle Day 3 · Transit back to Capitol Hill","2026-11-03","14:35","2026-11-03","15:20","Downtown -> Capitol Hill","Purpose: Transit back to Capitol Hill keeps the bainbridge day trip route on track.
-Duration: 45 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-0-transit-back-to-capitol-hill"
-"🛌 Seattle Day 3 · Hotel recharge","2026-11-03","15:20","2026-11-03","17:15","Boylston base","Purpose: Longer recharge window now that the evening has no second stop after dinner.
-Duration: 115 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-1-hotel-recharge"
-"🍽️ Seattle Day 3 · Menya Musashi ramen dinner -- Spicy Curry Ramen","2026-11-03","17:15","2026-11-03","18:15","Capitol Hill","Japanese ramen chain, warming November dinner after the Bainbridge return.
-Menu: https://menyamuso.us/ramen-menu-seattle/
-ORDER: Spicy Curry Ramen.
-Fruity: Go sake or beer here, not cocktails.
-Estimated cost: $27 with tip.
+"🚇 Seattle Day 3 · Walk/transit back to Palihotel","2026-11-03","14:10","2026-11-03","14:40","Ferry Terminal -> Downtown","Purpose: Short return to downtown hotel.
+Duration: 20 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-0-walk-transit-back-to-palihotel"
+"🛌 Seattle Day 3 · Hotel recharge + rest","2026-11-03","14:40","2026-11-03","18:00","Palihotel base","Purpose: Afternoon rest before the restored Capitol Hill evening block.
+Duration: 3h 20m.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-1-hotel-recharge-rest"
+"🚇 Seattle Day 3 · Transit to Capitol Hill","2026-11-03","18:00","2026-11-03","18:20","Downtown -> Capitol Hill","Purpose: Restored consolidated Capitol Hill evening: Saint John's dinner, Salt & Straw dessert, and Menya Musashi ramen.
+Duration: 20 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-2-transit-to-capitol-hill"
+"🍽️ Seattle Day 3 · Saint John's Bar and Eatery dinner","2026-11-03","18:20","2026-11-03","19:35","Capitol Hill","Menu/happy hour: https://www.saintjohnsseattle.com/happyhour-v1
+ORDER: Fried chicken sandwich or the burger, plus a Rainier ($2 happy hour) if you land inside the 2-6 PM window -- otherwise a house margarita ($6 flat).
+Estimated cost: $42 with tax and tip.
+Payment: Cards accepted
+Estimated cost: $42.
+Duration: 75 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-3-saint-john-s-bar-and-eatery-di"
+"📍 Seattle Day 3 · Salt & Straw Capitol Hill dessert","2026-11-03","19:35","2026-11-03","20:05","Capitol Hill","Menu: https://saltandstraw.com/pages/capitol-hill
+ORDER: A seasonal flavor flight (2-3 scoop taste) if you can't decide, or go straight for Honey Lavender / Sea Salt with Caramel Ribbons as the signature picks.
+Estimated cost: $9.
+Payment: Cards accepted
+Estimated cost: $9.
+Duration: 30 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-4-salt-straw-capitol-hill-desser"
+"🍽️ Seattle Day 3 · Menya Musashi ramen dinner","2026-11-03","20:05","2026-11-03","21:05","Capitol Hill","Menu: https://menyamuso.us/ramen-menu-seattle/
+ORDER: Musashi Tonkotsu ramen (the house signature) with a side of gyoza to split.
+Estimated cost: $27.
 Payment: Cards accepted
 Estimated cost: $27.
 Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-2-menya-musashi-ramen-dinner-spi"
-"🛌 Seattle Day 3 · Return and rest","2026-11-03","18:15","2026-11-04","07:30","Boylston base","Purpose: Saint John's Bar and Eatery removed after ramen -- straight to rest before the last Seattle full day.
-Duration: 13.25 hrs.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-3-return-and-rest"
-"🛌 Seattle Day 4 · Wake + prep","2026-11-04","07:30","2026-11-04","08:20","Boylston base","Purpose: Wake + prep keeps the extra seattle day: ballard + fremont + sunset view route on track.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-5-menya-musashi-ramen-dinner"
+"🚇 Seattle Day 3 · Transit back to Palihotel","2026-11-03","21:05","2026-11-03","21:25","Capitol Hill -> Downtown","Purpose: Transit back to Palihotel keeps the bainbridge day trip - ferry from downtown route on track.
+Duration: 20 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-6-transit-back-to-palihotel"
+"🛌 Seattle Day 3 · Hotel wind-down / Sleep","2026-11-03","21:25","2026-11-04","07:30","Palihotel base","Purpose: Full recovery before the last Seattle full-activity day.
+Duration: 10 hrs.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-7-hotel-wind-down-sleep"
+"🛌 Seattle Day 4 · Wake + prep","2026-11-04","07:30","2026-11-04","08:10","Palihotel base","Purpose: Wake + prep keeps the fremont + ballard neighborhood day - direct from downtown base route on track.
 Duration: 40 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-0-wake-prep"
-"☕ Seattle Day 4 · Analog Coffee cortado","2026-11-04","08:20","2026-11-04","09:20","Analog Coffee, 235 Summit Ave E","Analog Coffee stop.
-Website: https://analogcoffee.com/
-ORDER: Cortado.
-Coffee beans: Ask whether they have retail whole-bean bags if you still want a Seattle bag -- that would be an extra purchase on top of this cost.
+"☕ Seattle Day 4 · Analog Coffee stop","2026-11-04","08:10","2026-11-04","08:30","Analog Coffee, 235 Summit Ave E","Menu: https://www.analogcoffee.com/
+ORDER: Cortado (their signature pull) or a drip coffee if you want something simpler for the transit ahead.
 Estimated cost: $4.50.
 Location: Analog Coffee, 235 Summit Ave E
 Payment: Cards accepted
 Estimated cost: $4.5.
-Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-1-analog-coffee-cortado"
-"🚇 Seattle Day 4 · Transit to Fremont","2026-11-04","09:20","2026-11-04","10:20","Capitol Hill -> Fremont","Purpose: Allow extra reposition time before the walk loop. First ORCA ride of Day 4 -- flat $6 day-pass charge.
+Duration: 20 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-1-analog-coffee-stop"
+"🚇 Seattle Day 4 · Transit to Fremont","2026-11-04","08:30","2026-11-04","09:15","Capitol Hill -> Fremont","Purpose: First ORCA ride of Day 4 -- flat $6 day-pass charge.
 Estimated cost: $6.
-Duration: 60 min.
+Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-2-transit-to-fremont"
-"🚶 Seattle Day 4 · Fremont walking loop","2026-11-04","10:20","2026-11-04","12:10","Fremont","Purpose: Fremont walking loop keeps the extra seattle day: ballard + fremont + sunset view route on track.
+"🚶 Seattle Day 4 · Fremont walking loop","2026-11-04","09:15","2026-11-04","11:05","Fremont","Purpose: Fremont walking loop keeps the fremont + ballard neighborhood day - direct from downtown base route on track.
 Duration: 110 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-3-fremont-walking-loop"
-"🍽️ Seattle Day 4 · Uneeda Burger Fremont lunch","2026-11-04","12:10","2026-11-04","13:35","Uneeda Burger","Counter-service Fremont burger institution.
+"🍽️ Seattle Day 4 · Uneeda Burger Fremont lunch","2026-11-04","11:05","2026-11-04","12:30","Uneeda Burger","Counter-service Fremont burger institution.
 Menu: https://uneedaburger.com/seattle-fremont-uneeda-burger-food-menu
 ORDER: Uneeda Burger Chipotle Chicken Burger.
 Fruity: Strawberry or seasonal milkshake is the fruit-leaning move here.
@@ -340,13 +299,13 @@ Payment: Cards accepted
 Estimated cost: $18.
 Duration: 85 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-0-uneeda-burger-fremont-lunch"
-"🚇 Seattle Day 4 · Transit to Ballard","2026-11-04","13:35","2026-11-04","14:10","Fremont -> Ballard","Purpose: Transit to Ballard keeps the extra seattle day: ballard + fremont + sunset view route on track.
+"🚇 Seattle Day 4 · Transit to Ballard","2026-11-04","12:30","2026-11-04","12:55","Fremont -> Ballard","Purpose: Transit to Ballard keeps the fremont + ballard neighborhood day - direct from downtown base route on track.
 Duration: 25 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-1-transit-to-ballard"
-"🚶 Seattle Day 4 · Ballard Ave + locks area explore","2026-11-04","14:10","2026-11-04","16:00","Ballard","Purpose: Ballard Ave + locks area explore keeps the extra seattle day: ballard + fremont + sunset view route on track.
+"🚶 Seattle Day 4 · Ballard Ave + locks area explore","2026-11-04","12:55","2026-11-04","14:45","Ballard","Purpose: Ballard Ave + locks area explore keeps the fremont + ballard neighborhood day - direct from downtown base route on track.
 Duration: 110 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-2-ballard-ave-locks-area-explore"
-"☕ Seattle Day 4 · Ballard Coffee Works reset","2026-11-04","16:00","2026-11-04","16:45","Ballard Coffee Works, 2060 NW Market St","Ballard Coffee Works for the afternoon reset before heading back south.
+"☕ Seattle Day 4 · Ballard Coffee Works reset","2026-11-04","14:45","2026-11-04","15:30","Ballard Coffee Works, 2060 NW Market St","Ballard Coffee Works for the afternoon reset before heading back downtown.
 Menu: https://www.ballardcoffee-co.com/menus
 ORDER: Cold Brew (16oz).
 SKIP: Heavy snack unless your feet are dragging.
@@ -356,22 +315,21 @@ Payment: Cards accepted
 Estimated cost: $6.
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-1-3-ballard-coffee-works-reset"
-"🚇 Seattle Day 4 · Transit back to Capitol Hill","2026-11-04","16:45","2026-11-04","17:50","Ballard -> Capitol Hill","Purpose: Transit back to Capitol Hill keeps the extra seattle day: ballard + fremont + sunset view route on track.
+"🚇 Seattle Day 4 · Transit back to Palihotel","2026-11-04","15:30","2026-11-04","16:15","Ballard -> Downtown","Purpose: Transit back to Palihotel keeps the fremont + ballard neighborhood day - direct from downtown base route on track.
 Duration: 45 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-0-transit-back-to-capitol-hill"
-"🛌 Seattle Day 4 · Return and pack for train day","2026-11-04","17:50","2026-11-05","07:00","Boylston base","Purpose: Sea'd In dinner removed from the plan -- open dinner slot, wind-down and rest block so the train departure stays protected.
-Duration: 8 hrs.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-0-transit-back-to-palihotel"
+"🛌 Seattle Day 4 · Return and pack for train day","2026-11-04","16:15","2026-11-05","07:00","Palihotel base","Purpose: Dinner removed from plan -- open evening slot, wind-down and rest block so the train departure stays protected. Last night in Seattle.
+Duration: 8+ hrs.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-1-return-and-pack-for-train-day"
-"🛌 Portland Day 5 · Wake, final pack, checkout prep","2026-11-05","07:00","2026-11-05","09:45","Boylston base","Purpose: Analog Coffee + QFC snack run and the last Capitol Hill walk both removed -- straight to checkout instead.
-Duration: 165 min.
+"🛌 Portland Day 5 · Wake, final pack, checkout prep","2026-11-05","07:00","2026-11-05","09:00","Palihotel base","Purpose: Light prep and packing. King Street Station is walking distance from downtown Palihotel.
+Duration: 120 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-0-wake-final-pack-checkout-prep"
-"🚇 Portland Day 5 · Checkout and travel to King Street Station","2026-11-05","09:45","2026-11-05","10:40","Capitol Hill -> King Street","Purpose: First ORCA ride of Day 5 -- flat $6 day-pass charge (not a discounted single-ride fare).
-Estimated cost: $6.
+"🚶 Portland Day 5 · Checkout and walk to King Street Station","2026-11-05","09:00","2026-11-05","09:15","Downtown -> King Street","Purpose: Short walk from downtown to King Street Station. Palihotel proximity makes this very manageable.
+Duration: 15 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-1-checkout-and-walk-to-king-stre"
+"🛌 Portland Day 5 · Station arrival + platform prep","2026-11-05","09:15","2026-11-05","12:10","King Street Station","Purpose: Settle in at the station with plenty of margin before boarding.
 Duration: 55 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-1-checkout-and-travel-to-king-st"
-"🛌 Portland Day 5 · Station buffer + platform prep","2026-11-05","10:40","2026-11-05","12:10","King Street Station","Purpose: Longer buffer now that the morning has no coffee/walk stops -- plenty of margin before boarding.
-Duration: 90 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-2-station-buffer-platform-prep"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-2-station-arrival-platform-prep"
 "🚇 Portland Day 5 · Amtrak Cascades 517 SEA -> PDX","2026-11-05","12:10","2026-11-05","15:35","Intercity rail","Purpose: Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class.
 Estimated cost: $48.
 Duration: 3h 25m.
@@ -437,7 +395,10 @@ Website: https://www.cannonbeach.org/things-to-do/beaches-and-parks/haystack-roc
 Payment: No admission; public land open 24/7
 Duration: 180 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-1-2-orientation-haystack-rock-walk"
-"🍽️ Portland Day 6 · Cannon Beach lunch, coffee, and cocktail","2026-11-06","14:50","2026-11-06","17:40","Cannon Beach downtown","Relaxed lunch/coffee/cocktail stop in town before the return bus.
+"🍽️ Portland Day 6 · Cannon Beach lunch, coffee, and cocktail","2026-11-06","14:50","2026-11-06","17:40","Cannon Beach downtown","Suggested default: Pelican Brewing Cannon Beach, oceanfront taproom right on the beach.
+Menu: https://pelicanbrewing.com/menus/
+ORDER: Fish and chips or the Pelican burger, plus a Kiwanda Cream Ale or a seasonal cocktail.
+Coffee alternate: Sea Level Bakery (2 minutes inland) for coffee/pastry if you'd rather split the stop.
 Estimated cost: $100 (lunch, coffee, and a cocktail with tip).
 Payment: Cards accepted
 Estimated cost: $100.
@@ -532,7 +493,8 @@ Estimated cost: $6.
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-1-0-transit-to-cartopia-food-carts"
 "🍽️ Portland Day 8 · Cartopia food cart pod brunch","2026-11-08","12:00","2026-11-08","13:30","Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214","Portland's largest food cart cluster, visited at brunch time to keep the day light.
-What to order: BKK pad thai, Korean BBQ, wood-fired pizza, or whatever looks fresh.
+Cart directory: https://www.cartopiapdx.com/carts
+ORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.
 Estimated cost: $50.
 Payment: Bring cash; not all carts accept cards.
 Location: Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214
@@ -546,13 +508,13 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 "🛌 Portland Day 8 · Hotel Vance rest afternoon","2026-11-08","14:00","2026-11-08","20:00","Hotel Vance Portland","Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.
 Duration: 6 hrs.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-2-1-hotel-vance-rest-afternoon"
-"🛌 Portland Day 8 · Early wind-down + sleep","2026-11-08","20:00","2026-11-09","09:00","Hotel Vance Portland","Purpose: Full recovery night before the flight day.
+"🛌 Portland Day 8 · Early wind-down + sleep","2026-11-08","20:00","2026-11-09","08:05","Hotel Vance Portland","Purpose: Full recovery night before the flight day.
 Duration: 11 hrs.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-2-2-early-wind-down-sleep"
-"🛌 Portland Day 9 · Wake + final packing","2026-11-09","09:00","2026-11-09","10:00","Hotel Vance Portland","Purpose: Wake + final packing keeps the final breakfast and departure route on track.
+"🛌 Portland Day 9 · Wake + final packing","2026-11-09","08:05","2026-11-09","09:05","Hotel Vance Portland","Purpose: Wake + final packing keeps the final breakfast and departure route on track.
 Duration: 60 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-0-wake-final-packing"
-"🍽️ Portland Day 9 · Hotel Vance breakfast","2026-11-09","10:00","2026-11-09","11:00","Hotel Vance, Vance & Vine","Final morning breakfast at the hotel before checkout.
+"🍽️ Portland Day 9 · Hotel Vance breakfast","2026-11-09","09:05","2026-11-09","10:05","Hotel Vance, Vance & Vine","Final morning breakfast at the hotel before checkout.
 Menu: https://www.hotelvance.com/resourcefiles/pdf/vance-and-vine-breakfast-menu.pdf
 Order: Breakfast sandwich (bacon or sausage, egg, cheese, spicy aioli) plus a mimosa or bloody mary if you want one.
 Estimated cost: $31.
@@ -561,15 +523,15 @@ Payment: Cards accepted
 Estimated cost: $31.
 Duration: 60 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-1-hotel-vance-breakfast"
-"🚇 Portland Day 9 · Hotel Vance final transit loop","2026-11-09","11:00","2026-11-09","12:15","Downtown Portland","Purpose: Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge.
+"🚇 Portland Day 9 · Hotel Vance final transit loop","2026-11-09","10:05","2026-11-09","11:05","Downtown Portland","Purpose: Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge. Morning shifted 55 min earlier (Aug 15, 2026) to fit the 3 hr PDX arrival buffer without overlap.
 Estimated cost: $6.
 Duration: 60 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-2-hotel-vance-final-transit-loop"
-"🚇 Portland Day 9 · Checkout + transfer to PDX","2026-11-09","12:15","2026-11-09","13:00","Hotel Vance -> PDX","Purpose: Leave the hotel by about 12:15 PM to stay comfortably ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).
-Duration: 45 min.
+"🚇 Portland Day 9 · Checkout + transfer to PDX","2026-11-09","11:05","2026-11-09","11:34","Hotel Vance -> PDX","Purpose: Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).
+Duration: 29 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-3-checkout-transfer-to-pdx"
-"🛌 Portland Day 9 · Airport check-in and security buffer","2026-11-09","13:00","2026-11-09","14:34","PDX","Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.
-Duration: 94 min.
+"🛌 Portland Day 9 · Airport check-in and security buffer","2026-11-09","11:34","2026-11-09","14:34","PDX","Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.
+Duration: 180 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-9-0-4-airport-check-in-and-security-"
 "🚇 Portland Day 9 · Flight PDX -> DFW","2026-11-09","14:34","2026-11-09","20:29","Air travel","Purpose: AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget.
 Duration: 5h 55m.

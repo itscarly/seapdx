@@ -126,7 +126,9 @@ const TRIP_MAP_CONFIG = {
 
 const STOP_COORDINATES = {
   "Arrive SEA, Link light rail to Capitol Hill": { lat: 47.4502, lng: -122.3088, label: "SEA Airport" },
-  "Check in at The Boylston Hotel Capitol Hill": { lat: 47.6158, lng: -122.3206, label: "The Boylston Hotel" },
+  "Walk to Palihotel and luggage reset": { lat: 47.6097, lng: -122.3402, label: "Palihotel Seattle" },
+  "Palihotel check-in and shower reset": { lat: 47.6097, lng: -122.3402, label: "Palihotel Seattle" },
+  "Pike Place Chowder - light dinner": { lat: 47.6096, lng: -122.3421, label: "Pike Place Chowder" },
   "Tailwind Cafe at Good Weather": { lat: 47.618, lng: -122.3209, label: "Tailwind Cafe" },
   "Saint John's Bar and Eatery": { lat: 47.6154, lng: -122.3168, label: "Saint John's" },
   "Poquitos Capitol Hill": { lat: 47.6162, lng: -122.3201, label: "Poquitos" },
@@ -135,9 +137,9 @@ const STOP_COORDINATES = {
   "Pike Place Market light grazing route": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
   "Pike Place Market main loop + Totem Smokehouse": { lat: 47.6095, lng: -122.3422, label: "Pike Place Market" },
   "Ghost Alley Espresso (coffee to-go before Northgate)": { lat: 47.6099, lng: -122.3428, label: "Ghost Alley Espresso" },
-  "Best Buy Northgate - Ray-Ban Meta glasses fit check": { lat: 47.7062, lng: -122.3255, label: "Best Buy Northgate" },
   "Seattle Waterfront + Olympic Sculpture Park": { lat: 47.6159, lng: -122.3554, label: "Olympic Sculpture Park" },
   "Seattle Starbucks city mug + Pike Place magnet stop": { lat: 47.6101, lng: -122.3426, label: "Seattle Starbucks + souvenirs" },
+  "Best Buy Northgate - Ray-Ban Meta glasses fit check": { lat: 47.7062, lng: -122.3255, label: "Best Buy Northgate" },
   "Columbia Center Sky View Observatory": { lat: 47.6042, lng: -122.3305, label: "Sky View Observatory" },
   "Columbia Center Sky View sunset": { lat: 47.6042, lng: -122.3305, label: "Columbia Center" },
   "Biang Biang Noodles - Capitol Hill": { lat: 47.6177, lng: -122.3204, label: "Biang Biang" },
@@ -537,7 +539,11 @@ function initHero() {
   }
   if (fxRateEl) fxRateEl.textContent = `1 USD = ${effectiveUsdToPhpRate.toFixed(4)} PHP`;
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
-  if (seattleBaseEl) seattleBaseEl.innerHTML = `<a href="[private reservation link removed]" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
+  if (seattleBaseEl) {
+    const seattleHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Seattle');
+    const seattleHotelUrl = seattleHotel?.url || 'https://www.palihotel.com/seattle/';
+    seattleBaseEl.innerHTML = `<a href="${seattleHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
+  }
   if (portlandBaseEl) {
     const portlandHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Portland');
     const portlandHotelUrl = portlandHotel?.url || 'https://www.hotelvance.com/';
@@ -1156,7 +1162,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Hotel accommodations",
       amount: getConfirmedHotelTotal(),
-      note: "Boylston in Seattle, Hotel Vance in Portland, and Hotel Blake in Chicago (Feb 27 - Mar 5, 2027 layover).",
+      note: "Palihotel in Seattle, Hotel Vance in Portland, and Hotel Blake in Chicago (Feb 27 - Mar 5, 2027 layover).",
       shareBase: allInTarget,
       breakdown: hotelItems.map((item) => ({
         label: item.name,
