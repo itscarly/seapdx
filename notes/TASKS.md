@@ -10,9 +10,15 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Next up
 
-- **Roll the Day 1 rich-stop rebuild pattern out to Days 2-9** -- Day 1 (session 47, 2026-08-15) established a repeatable schema (`image`, `mapFrom`/`mapTo`, `safetyScore`/`safetyNote`) and matching UI (sized images, embedded route maps, safety badges). Apply the exact checklist in `notes/MAINTENANCE.md` ("Day rebuild playbook") to Days 2-9, one day at a time: research real safety data first, add the schema fields, verify in-browser (desktop + mobile), resync the live calendar, verify the commit and the live deploy before calling a day done.
+- **Roll the Day 1-3 rich-stop rebuild pattern out to Days 4-9** -- Days 1-3 (sessions 47 and 49, 2026-08-15) established and refined a repeatable schema (`image`, `mapFrom`/`mapTo`, `safetyScore`/`safetyNote`, `detailText`) and matching UI (sized images, embedded route maps, safety badges). Apply the exact checklist in `notes/MAINTENANCE.md` ("Day rebuild playbook") to Days 4-9, one day at a time: research real safety data first, add the schema fields, source a dedicated per-stop image (not one generic reused photo -- see [[feedback_per_stop_image_sourcing]]), apply the 10:00 PM sleep-ceiling rule to each day's wind-down block (see [[feedback_sleep_ceiling]]), verify in-browser (desktop + mobile), resync the live calendar, verify the commit and the live deploy before calling a day done.
 
 ### Just completed
+
+- **Day 2/3 sleep-ceiling fix + per-stop image sourcing + route/detailText audit** (2026-08-15, session 49)
+  - Split Day 1 and Day 2's single wind-down-through-sleep blocks (previously starting 8:00 PM / 6:50 PM) into an evening segment plus a Sleep segment starting no earlier than 10:00 PM; resynced the live calendar to match
+  - Replaced a single generic reused photo across ~17 Day 2 stops with 15 individually-sourced, subject-verified, recent images from Wikimedia Commons and Pike Place Market's own vendor directory; 2 stops (Totem Smokehouse, the Pike Place "swings") have no freely-licensed photo available anywhere and keep the generic fallback, disclosed rather than faked
+  - Audited every Day 2/3 real stop for `route`/`mapFrom`/`mapTo`/`detailText` completeness and fixed 11 stops missing map routes
+  - Projected total now $2,909.91/$3,050. See `notes/Project Log.md` (session 49) for full detail
 
 - **Day 1 full rebuild + rich-stop schema (image/route-map/safety-badge)** (2026-08-15, session 47)
   - Rebuilt Day 1 around the confirmed Asiana arrival (1:55 PM, 45-min customs buffer) and Palihotel reservation; reordered the evening (H Mart -> Target -> Pike Place Bar & Grill dinner -> Waterfront Park), dropped Pike Place Chowder

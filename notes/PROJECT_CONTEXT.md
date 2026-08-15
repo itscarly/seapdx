@@ -35,7 +35,7 @@ It is built to be:
 - **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
 - **Executive spend summary**: active and now part of the homepage. Confirmed airfare, confirmed hotels, planned local spend, and planned personal purchases should stay aligned with `data/trip-data.js`.
 - **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
-- **Booked cost truth**: use Asiana `$540.43`, American Airlines [redacted] `$716.40`, Boylston `$504.46`, and Hotel Vance `$412.96` (confirmed accommodations total `$917.42`).
+- **Booked cost truth (updated 2026-08-15, session 49 — see `notes/memory/active/project_current_state.md` for the authoritative current figure)**: Asiana `$540.43`, American Airlines [redacted] `$716.40`, Palihotel Seattle `$662.00` (was Boylston `$504.46` -- swapped 2026-08-14), Hotel Vance `$412.96`, Hotel Blake (Chicago layover) `$787.38`. Confirmed airfare total `$2,247.84` (Philippine Airlines PR133 direct replaced the two-leg Korean Air return, session 46). Local trip-spend projected total `$2,909.91` against a `$3,050` cap/ceiling.
 - **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
 - **Remaining automation**: the monthly baseline watch for itinerary prices, menus, schedules, and transit fares remains in scope. Kraken hockey was fully removed from the plan on 2026-08-02 and is no longer part of the watch. Do not reintroduce the old airfare/hotel/itinerary monitor stack.
 
@@ -60,9 +60,11 @@ It is built to be:
 
 ## Trip-specific defaults
 
-- Seattle itinerary and shared Google Calendar routing use The Boylston Hotel Capitol Hill as the Nov 1-5 base. Do not create new Reside/104 Pine routing unless the user explicitly reverses the hotel decision.
+- Seattle itinerary and shared Google Calendar routing use **Palihotel Seattle (107 Pine St)** as the Nov 1-4 base -- The Boylston Hotel Capitol Hill was swapped out 2026-08-14 (session 46) and is stale; do not reintroduce it or Reside/104 Pine routing unless the user explicitly reverses the hotel decision again.
 - Bainbridge should stay a breakfast-first island day unless the itinerary changes on purpose.
 - Portland should stay anchored around Hotel Vance, a Tribute Portfolio Hotel, and close-in neighborhood routing. Courtyard by Marriott Portland City Center was the stale/cancelled option -- do not reintroduce it as the base.
+- Sleep/lights-out on any itinerary day must never start before 10:00 PM (see `notes/memory/active/feedback_sleep_ceiling.md`).
+- Every itinerary stop needs its own individually-sourced, recent, subject-verified image -- never one generic photo reused across many stops, and never a rehosted copyrighted Google Images result (see `notes/memory/active/feedback_per_stop_image_sourcing.md`).
 - Prices, hours, and transportation assumptions should be rechecked as the trip gets closer.
 
 ## Related notes
@@ -82,7 +84,7 @@ Use this order at the start of a new Claude/Codex session:
 2. latest note in `notes/session-start/`
 3. relevant source index note(s) in `notes/sources/`
 
-## Current validated budget snapshot (as of 2026-08-02 comprehensive price audit)
+## Historical budget snapshot (as of 2026-08-02 comprehensive price audit -- SUPERSEDED, see `notes/memory/active/project_current_state.md` for current figures)
 
 - Local activity-budget projected total: `$1,069`
 - Local activity-budget cap: `$1,250`

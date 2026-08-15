@@ -56,12 +56,14 @@ Calendar files must match trip-data.js exactly:
 ## Known Data Gaps / Conventions
 
 - **Zero-cost activities:** Are typed `"walk"` for outdoor exploration blocks, not `"activity"` (e.g., "Fremont walking loop", "Neighborhood orientation walk")
-- **Overnight sleep blocks:** Must have end dates on the next calendar day (e.g., start 2026-11-01 21:25, end 2026-11-02 07:55), not same-day end times
-- **Boylston Seattle base:** All Nov 1-5 events route through Boylston Hotel Capitol Hill, not Reside or other Seattle hotels
+- **Overnight sleep blocks:** Must have end dates on the next calendar day (e.g., start 2026-11-01 21:25, end 2026-11-02 07:55), not same-day end times. Sleep must never start before 10:00 PM on any day -- split the evening into a wind-down block plus a separate "Sleep" block starting no earlier than 10:00 PM (see `notes/memory/active/feedback_sleep_ceiling.md`).
+- **Palihotel Seattle base (updated 2026-08-14, session 46):** All Nov 1-4 events route through Palihotel Seattle (107 Pine St), not Boylston, Reside, or other Seattle hotels -- Boylston was the active booking through session 45 but is now stale.
 - **Hotel Vance Portland base:** All Nov 5-9 events route through Hotel Vance, a Tribute Portfolio Hotel. Courtyard by Marriott Portland City Center was the stale/cancelled option -- do not reintroduce it.
 - **Calendar links:** If a stop does not yet store an exact event URL, the homepage uses a day-level Google Calendar fallback link.
 
-## Budget (as of 2026-08-02 comprehensive price audit)
+## Budget -- HISTORICAL SNAPSHOT (as of 2026-08-02 comprehensive price audit, SUPERSEDED)
+
+See `notes/memory/active/project_current_state.md` for the current figures (as of 2026-08-15, session 49: projected total $2,909.91 against a $3,050 cap/ceiling, confirmed airfare $2,247.84, confirmed hotels Palihotel Seattle $662.00 + Hotel Vance $412.96 + Hotel Blake $787.38). Everything below this line predates the Palihotel swap, the Philippine Airlines swap, and the $2,500 -> $3,050 cap increase.
 
 - **Projected local activity spend:** $1,069 USD
 - **Budget cap:** $1,250 USD

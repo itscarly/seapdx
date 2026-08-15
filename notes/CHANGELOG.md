@@ -4,6 +4,16 @@
 
 This is the concise project change record.
 
+## 2026-08-15 (session 49) — Sleep-ceiling fix, per-stop image sourcing, Day 2/3 route audit, memory consolidation
+
+- **Sleep-ceiling rule** applied: Day 1 (was 8:00 PM start) and Day 2 (was 6:50 PM start) wind-down/sleep blocks split into an evening segment plus a "Sleep" segment that never starts before 10:00 PM, in `trip-data.js` and on the live calendar. Day 3's sleep block (10:15 PM) was already compliant.
+- **Per-stop images**: replaced a single generic reused photo across ~17 Day 2 stops with 15 individually-sourced, subject-verified, recent (2022-2024 where available) images from Wikimedia Commons and Pike Place Market's own official vendor directory. Totem Smokehouse and the Pike Place "swings" have no freely-licensed photo available anywhere searched (confirmed via Commons, the live-rendered official vendor page, and Google Images) — kept the generic fallback rather than rehosting copyrighted Instagram/Yelp/Facebook photos.
+- **Day 2/3 field-completeness audit**: script-checked every real stop for `route`/`mapFrom`/`mapTo`/`detailText`; fixed 11 stops missing map routes (Best Buy Northgate, Sky View Observatory + Cafe, Ferry to Bainbridge, Harbour Public House, Blackbird Coffee, Return ferry, Hart and the Hunter, Saint John's, Salt & Straw, Menya Musashi).
+- Projected total now **$2,909.91** against the unchanged $3,050 cap/ceiling ($140.09 remaining).
+- **Memory/notes consolidation**: fixed a broken `MEMORY.md` link (referenced a deleted `feedback_propose_before_executing.md`), indexed 4 previously-unindexed memory files, added `feedback_sleep_ceiling.md` and `feedback_per_stop_image_sourcing.md`, mirrored both into the global Claude auto-memory and pushed to the Obsidian vault via `obsidian-memory-sync.sh push-claude`, ran `graphify --update` (code graph: 456 nodes/819 edges) plus a scoped semantic re-extraction of the 12 changed docs.
+- Commit `b8ed434`, pushed to main.
+- Full detail: `notes/Project Log.md` (session 49).
+
 ## 2026-08-15 (session 47) — Day 1 rebuild + reusable rich-stop schema (image/route-map/safety-badge)
 
 - **Day 1 rebuilt** around the confirmed Asiana arrival (SEA 1:55 PM, confirmation [redacted]) with a 45-min passport/baggage buffer; reordered the evening to H Mart -> Target -> Pike Place Bar & Grill dinner -> Waterfront Park; dropped Pike Place Chowder (closes too early for the new timing); added the real Palihotel reservation (#[redacted]) and priced purchases at Target/the bar.

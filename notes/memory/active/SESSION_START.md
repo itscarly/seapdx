@@ -4,14 +4,18 @@ source: manual
 last_verified: 2026-08-15T00:00:00.000Z
 status: active
 confidence: high
-next_action: Day 1 (Nov 1) is fully rebuilt with the new rich-stop schema (image/mapFrom-mapTo/safetyScore-safetyNote). Roll the same pattern to Days 2-9, one day at a time, following notes/MAINTENANCE.md "Day rebuild playbook". Read notes/Project Log.md (top entry) first.
+next_action: Days 1-3 are fully rebuilt with the rich-stop schema (image/mapFrom-mapTo/safetyScore-safetyNote), the 10 PM sleep-ceiling rule, and a clean route/detailText audit. Roll the same pattern to Days 4-9, one day at a time, following notes/MAINTENANCE.md "Day rebuild playbook" -- apply the sleep-ceiling rule (feedback_sleep_ceiling) and per-stop image sourcing rule (feedback_per_stop_image_sourcing) to each. Read notes/Project Log.md (top entry) first.
 ---
 
 # Session Start
 
 This file is the startup pointer for all new Claude/Codex sessions in this repo.
 
-## Current state, 2026-08-15 (session 47)
+## Current state, 2026-08-15 (session 49)
+
+Day 2 and Day 3 got the same rich-stop treatment as Day 1 (session 47), plus two new rules the user set explicitly: (1) sleep/lights-out never starts before 10:00 PM on any day -- Day 1 and Day 2's old single wind-down-through-sleep blocks were split accordingly; (2) every stop needs its own individually-sourced, recent, subject-verified image, never one generic photo reused across many stops -- 15 of 17 Day 2 stops now have dedicated images (2 have no freely-licensed photo anywhere and keep the generic fallback, disclosed). A field-completeness audit on Day 2/3 found and fixed 11 stops missing map routes. Projected total is now $2,909.91/$3,050. Live calendar resynced through Day 3. See `notes/Project Log.md` (session 49), [[feedback_sleep_ceiling]], [[feedback_per_stop_image_sourcing]].
+
+## Prior state, 2026-08-15 (session 47)
 
 Day 1 (Sunday Nov 1) was fully rebuilt around the confirmed Asiana arrival and Palihotel reservation, and a new reusable per-stop schema was established: `image`, `mapFrom`/`mapTo` (inline route map), `safetyScore`/`safetyNote` (sourced safety badge). **Days 2-9 still use the old, thinner schema and are next up** — apply the exact checklist in `notes/MAINTENANCE.md` ("Day rebuild playbook") to each remaining day. Live calendar is resynced through Day 1 only; Days 2-9 calendar entries are unchanged from session 46. See `notes/Project Log.md` (session 47) and `notes/TASKS.md` for full detail.
 

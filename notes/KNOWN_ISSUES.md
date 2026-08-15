@@ -4,6 +4,11 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 ## Current known issues
 
+### Two Day 2 stops have no freely-licensed image
+
+- Status: known limitation, not a bug to fix unless requested
+- Detail: Totem Smokehouse and the Pike Place Market "swings" (Park Promenade / Overlook Walk) have no freely-licensed photo available on Wikimedia Commons, the official Pike Place Market vendor directory, or elsewhere confirmed via Google Images (2026-08-15, session 49) -- every result found was a copyrighted Instagram/Facebook/Yelp photo, which was deliberately not downloaded or rehosted into this public repo. Both stops currently use the generic `pike-place-market.jpg` fallback in `data/trip-data.js`. Revisit if a freely-licensed photo of either ever surfaces, or if the user takes their own photo on the trip and wants it added afterward.
+
 ### Local dev server was silently down despite a memory note claiming it was verified
 
 - Status: resolved 2026-08-09 (session 42)

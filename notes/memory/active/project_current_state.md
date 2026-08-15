@@ -1,10 +1,20 @@
 ---
 name: project-current-state
-description: "Current verified state of codexproject as of 2026-08-14 (session 46) — Palihotel Seattle (was Boylston), Philippine Airlines PR133 direct Manila return (was Korean Air), full visual overhaul shipped (raised-card 3D system replaces flat DESIGN.md). See the top block; everything after the --- divider is historical."
+description: "Current verified state of codexproject as of 2026-08-15 (session 49) — Day 1-2 sleep-ceiling fix, per-stop images sourced/verified for Day 2, Day 2/3 route+detailText audit clean, projected total $2909.91/$3050. See the top block; everything after the --- divider is historical."
 metadata:
   node_type: memory
   type: project
   originSessionId: session-40-nov6-9-reconciliation
+---
+
+**SUPERSEDED (2026-08-15, session 49): everything below this line predates the Day 2/3 sleep-ceiling fix, per-stop image sourcing, and route/detailText audit.** Current verified state:
+
+- **Sleep-ceiling rule now in effect for all days** — Day 1 and Day 2 sleep blocks (previously single items starting 8:00 PM and 6:50 PM respectively, running straight through to next-day wake) split into "Evening wind-down" + "Sleep," with Sleep never starting before 10:00 PM. Day 3's sleep block (10:15 PM) was already compliant. Days 4-9 still need this applied when their rich-stop rebuild happens. See [[feedback_sleep_ceiling]].
+- **Day 2 per-stop images**: 15 of 17 stops now have individually-sourced, subject-verified, recent (2022-2024 where available) photos from Wikimedia Commons or Pike Place Market's own vendor directory, replacing a single generic reused photo. Totem Smokehouse and the Pike Place Market "swings" (Park Promenade/Overlook Walk) have no freely-licensed photo available anywhere searched (Commons, official vendor page, Google Images) — both still use the generic `pike-place-market.jpg` fallback, disclosed rather than silently left. See [[feedback_per_stop_image_sourcing]].
+- **Day 2/3 field-completeness audit clean** — every real stop (activity/meal/food/shopping/coffee type) now has `route`/`mapFrom`/`mapTo` and `detailText`; 11 stops that were missing map routes were fixed (Best Buy Northgate, Sky View Observatory, Sky View Cafe, Ferry to Bainbridge, Harbour Public House, Blackbird Coffee, Return ferry, Hart and the Hunter, Saint John's, Salt & Straw, Menya Musashi).
+- **Projected total is now $2,909.91** against the unchanged $3,050 cap/ceiling ($140.09 remaining) — up from the session-46 figure below due to Day 2 rebuild costs (Totem Smokehouse souvenir budget raised to $60, H Mart cap raised to $30, new Day 2 stops added). Re-run `npm run audit:budget` before trusting this number if trip-data.js changes again.
+- Live "Seattle & Portland 2026" calendar fully resynced through Day 3 (Days 2 and 3 rebuilt with the rich-stop schema and rebalanced 50-event calendar sync; sleep-block split applied on the live calendar too).
+
 ---
 
 **SUPERSEDED (2026-08-14, session 46): everything below this line predates the Palihotel swap and the Korean Air → Philippine Airlines swap.** Current verified state:
@@ -93,4 +103,6 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 [[feedback_airfare_award_vs_cash]]
 [[feedback_sync_both_hotel_files]]
 [[feedback_calendar_local_vs_live_sync]]
+[[feedback_sleep_ceiling]]
+[[feedback_per_stop_image_sourcing]]
 [[user_profile]]
