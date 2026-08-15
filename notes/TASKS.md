@@ -8,7 +8,18 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ## Current active work
 
+### Next up
+
+- **Roll the Day 1 rich-stop rebuild pattern out to Days 2-9** -- Day 1 (session 47, 2026-08-15) established a repeatable schema (`image`, `mapFrom`/`mapTo`, `safetyScore`/`safetyNote`) and matching UI (sized images, embedded route maps, safety badges). Apply the exact checklist in `notes/MAINTENANCE.md` ("Day rebuild playbook") to Days 2-9, one day at a time: research real safety data first, add the schema fields, verify in-browser (desktop + mobile), resync the live calendar, verify the commit and the live deploy before calling a day done.
+
 ### Just completed
+
+- **Day 1 full rebuild + rich-stop schema (image/route-map/safety-badge)** (2026-08-15, session 47)
+  - Rebuilt Day 1 around the confirmed Asiana arrival (1:55 PM, 45-min customs buffer) and Palihotel reservation; reordered the evening (H Mart -> Target -> Pike Place Bar & Grill dinner -> Waterfront Park), dropped Pike Place Chowder
+  - Added a reusable per-stop schema now used as the template for Days 2-9: sized/representative images, inline point-to-point Google Maps route embeds, and sourced safety badges (emoji + %)
+  - Fixed two real bugs: images saved to the wrong directory (repo-root `assets/images/` instead of `dashboards/assets/images/`), and a `git add -A` bad-pathspec that silently dropped files from a commit
+  - Fully resynced the live Google Calendar for all Day 1 events
+  - See `notes/Project Log.md` (session 47) for full detail and `notes/MAINTENANCE.md` for the repeatable playbook
 
 - **Font-consistency fix, adjustable hero meter slider, DESIGN.md rewrite, full /impeccable audit** (2026-08-09, session 45)
   - Removed 4 unloaded-font (`"Sora"`/`"Manrope"`) overrides in `styles.css` that were silently falling back to generic sans-serif — those elements now match the system-font stack used everywhere else

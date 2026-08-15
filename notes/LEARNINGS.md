@@ -2,6 +2,35 @@
 
 ## Reusable patterns
 
+### New images always go in `dashboards/assets/images/`, referenced by filename only
+
+- Every image in this project lives under `dashboards/assets/images/`, and `app.js`'s `IMAGE_BASE = "../assets/images/"` resolves relative to `dashboards/html/index.html`, not the repo root.
+- A repo-root `assets/images/` folder will 404 on both local and the deployed site even though the file exists and `curl`s fine at the wrong path.
+- Prevention: save new stop images directly into `dashboards/assets/images/`, store just the filename in `trip-data.js`, and let `app.js` prefix it with `IMAGE_BASE`.
+
+### Crop and select images for what the stop actually is, not just for aspect ratio
+
+- A default `object-fit: cover` crop on a tall/odd-aspect source photo can land on the least representative part of the image (an empty shelf rail instead of the food; a distant skyline instead of the park itself).
+- Prevention: after adding any stop image, open the rendered card and ask "does this look like the thing described" -- not just "does it load." Re-crop the source or pick a different photo if not.
+
+### After any `git add` meant to bundle several files, verify the commit actually contains them
+
+- `git add -A -- <bad-pathspec> <real files>` fails fast on the bad pathspec and silently drops every argument listed after it -- the command errors, but doesn't tell you the trailing `add`s never happened.
+- A commit can succeed and look normal while containing far less than intended.
+- Prevention: run `git show --stat HEAD` right after committing multiple files together and confirm the expected files and line counts are actually there, before pushing.
+
+### Safety/crime commentary must be sourced research, never invented text
+
+- When a user asks for a safety read on a location/time, research it first (city police/crime-dashboard reporting, local news, official parks/safety initiatives) and cite what each claim is based on.
+- If no solid source exists for a specific claim (e.g. a crime rate at a specific park at night), say so explicitly in the text rather than filling the gap with a plausible-sounding guess.
+- This project renders sourced safety notes as a compact emoji+percentage badge (see `notes/MAINTENANCE.md` "Day rebuild playbook") plus the full cited writeup in `detailText`.
+
+### A "the live site isn't updated" report is often cache, not a broken deploy
+
+- Check `gh run list` for the Actions run status and `curl` the live URL directly for the actual served content before assuming a push failed to deploy.
+- GitHub Pages' CDN also carries its own short cache window (`cache-control: max-age=600` observed), separate from the visitor's browser cache.
+- Prevention: verify deploy + live content server-side first; only then attribute a stale-looking page to the visitor's browser cache (hard refresh / incognito).
+
 ### When a workflow is retired, remove its public pages, scripts, and active-note instructions together
 
 - Deleting only the UI is not enough.

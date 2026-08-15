@@ -4,6 +4,14 @@
 
 This is the concise project change record.
 
+## 2026-08-15 (session 47) — Day 1 rebuild + reusable rich-stop schema (image/route-map/safety-badge)
+
+- **Day 1 rebuilt** around the confirmed Asiana arrival (SEA 1:55 PM, confirmation [redacted]) with a 45-min passport/baggage buffer; reordered the evening to H Mart -> Target -> Pike Place Bar & Grill dinner -> Waterfront Park; dropped Pike Place Chowder (closes too early for the new timing); added the real Palihotel reservation (#[redacted]) and priced purchases at Target/the bar.
+- **New reusable per-stop schema**, now the template for Days 2-9: `image` (sized/cropped for content, served from `dashboards/assets/images/`), `mapFrom`/`mapTo` (inline point-to-point Google Maps route embed, no API key), `safetyScore`/`safetyNote` (emoji + % badge backed by sourced research, e.g. SPD/Downtown Seattle Association reporting — never invented).
+- Fixed two bugs caught by self-audit: images initially saved to the wrong directory (repo-root `assets/images/` instead of `dashboards/assets/images/`), and a `git add -A` bad pathspec that silently dropped files from a commit.
+- Fully resynced the live "Seattle & Portland 2026" Google Calendar for Day 1.
+- Full detail: `notes/Project Log.md` (session 47). Repeatable playbook for Days 2-9: `notes/MAINTENANCE.md` ("Day rebuild playbook").
+
 ## 2026-08-14 (session 46) — Budget/itinerary edits (flight swap, happy hour, payment audit) + full visual overhaul
 
 - **Trip data**: swapped ORD→MNL flight to direct Philippine Airlines PR133 (was two-leg Korean Air); added Palihotel happy hour (Day 3) and a Day 1 evening Target/H Mart/Truly Hard Seltzer run (moved off the original Day 5 travel-day placement after user pushback); corrected H Mart/Target addresses to the real downtown-Seattle locations, removing invented transit legs; ran a dedicated research subagent to verify credit-card acceptance at every paid stop (found 3 card-only/cashless venues, several cash-backup-recommended) instead of leaving unverified "Cards accepted" claims. All changes validated (`npm run validate`), live Google Calendar resynced, pushed across 4 commits (`e958404`, `15cafc6`, `1c1bcbe`, `1d42591`).

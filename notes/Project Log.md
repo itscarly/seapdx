@@ -1,33 +1,34 @@
-## 2026-08-15 (session 46: Day 1 rebuild -- real arrival timing, Palihotel/H Mart/Target/Pike Place Bar & Grill order, researched safety notes)
+## 2026-08-15 (session 47: Day 1 full rebuild + rich-stop schema (image/route-map/safety-badge) -- now the template for Days 2-9)
 
-### COMPLETE: Rebuilt Day 1 (Sun, Nov 1) around the confirmed Asiana arrival and Palihotel booking, reordered the evening, added sourced safety notes
+### COMPLETE: Rebuilt Day 1 around the confirmed Asiana arrival + Palihotel booking, added a reusable rich-stop UI (sized images, embedded route maps, safety badges), fixed two path bugs, resynced the live calendar
 
-**Why this session happened:** User supplied their actual Asiana booking (OZ702/OZ272, confirmation [redacted], SEA arrival 1:55 PM) and Palihotel Seattle reservation (confirmation #[redacted], $662 total), and wanted Day 1 rebuilt around a firm 45-minute passport-control/baggage-claim buffer, a reordered evening (H Mart -> drop food at hotel -> Target -> Pike Place Bar & Grill dinner -> Waterfront Park, dropping Pike Place Chowder since it closes too early), specific purchases with prices, trivia for each stop, a real H Mart food photo, and a researched (not invented) safety note per stop.
+**Why this session happened:** User supplied their actual Asiana booking (OZ702/OZ272, confirmation [redacted], SEA arrival 1:55 PM) and Palihotel Seattle reservation (confirmation #[redacted], $662 total), and wanted Day 1 rebuilt around a firm 45-minute passport-control/baggage-claim buffer, a reordered evening, specific priced purchases, trivia per stop, a representative photo per stop, a sourced (not invented) safety read per stop, and an inline map of the actual route between stops. This became the template for rolling the same pattern out across Days 2-9.
 
-**`data/trip-data.js` (Day 1 rewrite):**
-- Arrival buffer extended from 25 to 45 minutes for passport control + baggage claim (leaveTime 2:20 PM -> 2:40 PM), all downstream Afternoon/Evening times shifted accordingly.
-- Palihotel check-in item now carries the real reservation details (confirmation, itinerary #, room type, official check-in/check-out, $662 total) and trivia.
-- Evening fully reordered per the user's plan: H Mart grocery run (~4:30 PM, added `image` field pointing at a locally-stored photo) -> walk back to drop food at Palihotel -> Target Pike Plaza pickup order (Zantac 360 25ct $10.89 + Truly Unruly 12pk $18.99, est. total $34.36) -> Pike Place Bar & Grill dinner (Grilled Chicken Burger $14.95, Prickly-Pear Margarita $10, Fresca $10, plus WA sales tax and 18% tip, est. total $44.86) -> Waterfront Park -> walk back to Palihotel. Pike Place Chowder dinner item removed entirely (not kept as a backup) since its ~4:30 PM close made it infeasible under the new timeline.
-- `dayTotal` recomputed to $105.11, verified against the sum of item costs and against `npm run audit:budget` (still within the $3,050 ceiling with $196.11 remaining).
+**`data/trip-data.js` (Day 1 rewrite, final state):**
+- Arrival buffer extended 25 -> 45 min for passport control + baggage claim (leaveTime 2:20 PM -> 2:40 PM); downstream times shifted accordingly.
+- Evening reordered: H Mart grocery run -> drop food at Palihotel -> Target Pike Plaza pickup ($34.36) -> Pike Place Bar & Grill dinner ($44.86) -> Waterfront Park -> walk back to Palihotel. Pike Place Chowder removed entirely (closes before the new timeline reaches it, not kept as a fallback).
+- `dayTotal` recomputed to $105.11, verified against item-cost sum and `npm run audit:budget` ($196.11 remaining under the $3,050 ceiling).
+- Palihotel check-in carries the real reservation (confirmation #[redacted], itinerary #[redacted], $662 total, official check-in/check-out).
 
-**Safety notes -- sourced, not invented:** Before writing any `safetyNote`/detailText safety language, ran web research against SPD/Downtown Seattle Association 2025-2026 crime reporting (KOMO News), Seattle Parks & Rec's 2026 "Summer of Safety" initiative, and Seattle Center's own Waterfront Park safety-operations language, then cited what each note is based on. Two gaps found and stated explicitly rather than guessed: no source found with a specific crime count or homelessness figure for Waterfront Park at night. Also surfaced that Waterfront Park/Pier 62 is posted open only 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org) -- arriving at 10 PM as originally floated would mean the park is closing or closed, so the itinerary schedules the visit right after dinner (~6:40 PM) instead and flags the closing-time conflict in the detail text.
+**New reusable rich-stop schema, now the pattern for Days 2-9:**
+- `image: "<filename>"` -- file lives in `dashboards/assets/images/` (NOT repo-root `assets/images/` -- see bug below), rendered via `IMAGE_BASE` in `app.js`, sized via `.stop-detail-image` CSS (220px desktop / 160px mobile, `object-fit: cover`, rounded card).
+- `mapFrom` / `mapTo: "<address string>"` on any stop with a `route` -- renders an inline Google Maps directions embed (`?saddr=...&daddr=...&output=embed`, no API key needed) instead of just a "Map route" external-link button.
+- `safetyScore: <0-100>` + `safetyNote: "<emoji> <score>% · <short label>"` -- renders as a compact badge (🟢 80-100 / 🟡 50-79 / 🔴 <50) above the existing full sourced safety writeup in `detailText`. Every score must be backed by real research (SPD/Downtown Seattle Association reporting, Seattle Parks initiatives, etc.) -- never invented. If no solid source exists for a specific claim, say so in the text instead of guessing a number.
+- Images must show what the stop actually is -- crop/select for that, not just for aspect ratio. Two real mistakes caught and fixed this session: the first H Mart crop landed on an empty shelf rail (fixed by re-cropping the source to the food-dense band); the first "Waterfront Park" photo was actually a downtown skyline/buildings shot, not the park (swapped for a real Wikimedia Commons photo of the actual pier/water, CC BY-SA 4.0, credited).
 
-**Images added (`assets/images/`):** `hmart-food-sample.webp` (the user's shared Google Photos food sample, downloaded locally so the link can't expire) and `waterfront-park-dusk.jpg` (CC BY 2.0 licensed Wikimedia Commons photo by Jeff Wilcox, used since no real-time night photo of the current 2026 redevelopment was available).
+**Two real bugs hit and fixed -- avoid repeating on Days 2-9:**
+1. Downloaded images went to repo-root `assets/images/` instead of `dashboards/assets/images/` (where every other image in this project lives, and where `app.js`'s `IMAGE_BASE = "../assets/images/"` resolves relative to `dashboards/html/index.html`). Both images 404'd until moved. **Always save new images directly into `dashboards/assets/images/`.**
+2. A `git add -A -- <bad-pathspec> <real files>` failed on the first bad path and silently dropped every argument after it, so a commit landed with only half the intended changes (caught via `git show --stat HEAD` showing 0 insertions on a commit that should have had code changes). **After any commit meant to bundle multiple files, verify with `git show --stat HEAD` before pushing -- don't assume `git add` succeeded for every path just because the command didn't error.**
 
-**`dashboards/js/app.js`:** Added image rendering to `renderDetailPanel` -- reuses the existing airfare-card `image-frame`/`<img>` markup, gated on `stop.image` being present, so no other itinerary item's rendering changes. `reservation` and `safetyNote` fields were already rendered by the existing details list, no changes needed there.
+**Deploy/cache note:** after pushing, the user saw the GitHub Pages site as "not updated" -- the deploy had actually succeeded (`gh run list` showed success, `curl` against the live URL showed the new file content). It was browser cache. Before assuming a push failed to deploy: check `gh run list` for the Actions run status, `curl` the live URL directly for the actual served content, and only then attribute it to browser/CDN caching (hard refresh / incognito) rather than a broken deploy.
 
-**Verification:** `npm run validate` (syntax check, budget audit, calendar-export sync) passed clean; day-1 item cost sum hand-verified against `dayTotal` via a one-off Node script.
+**Live Google Calendar** ("Seattle & Portland 2026"): all 12 Day 1 events fully replaced (old timing/order deleted, new timing/order/links/safety notes created) via the Google Calendar MCP tools; the Waterfront Park event's photo-credit line was updated to match the corrected image.
 
-**Files modified:**
-- `data/trip-data.js`
-- `dashboards/js/app.js`
-- `assets/images/hmart-food-sample.webp` (new)
-- `assets/images/waterfront-park-dusk.jpg` (new)
-- `notes/Project Log.md`
+**Verification:** `npm run validate` clean; day-1 item-cost sum hand-verified against `dayTotal`; both rich-stop images and the route-map embed checked live in-browser at desktop and a 390x844 mobile viewport (not just HTTP 200).
 
-**Follow-up:**
-- Google Calendar sync ("Seattle and Portland 2026") for the updated Day 1 events is still pending as of this entry -- see next session or immediate follow-up work.
-- No live crime-index API is wired into this project; safety notes are a point-in-time research pass, not continuously updated data. Re-verify before the actual trip if planning a similar late-night stop again.
+**Files modified:** `data/trip-data.js`, `dashboards/js/app.js`, `dashboards/css/styles.css`, `dashboards/assets/images/hmart-food-sample.jpg` (new), `dashboards/assets/images/waterfront-park.jpg` (new), `notes/Project Log.md`.
+
+**Follow-up / next session:** Days 2-9 still need the same rebuild pass (rich-stop schema: image + mapFrom/mapTo + safetyScore/safetyNote, sourced safety research, representative photos) applied per day. See `notes/MAINTENANCE.md` "Day rebuild playbook" for the exact repeatable checklist, and `notes/memory/active/SESSION_START.md` for the current handoff pointer. No live crime-index API is wired into this project -- safety notes are a point-in-time research pass, not continuously updated data.
 
 ---
 

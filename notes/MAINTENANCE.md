@@ -46,6 +46,26 @@ The goal is to keep active notes accurate without turning the notes folder into 
   - gold: shopping, souvenirs, errands
   - lavender: optional-only blocks
 
+## Day rebuild playbook (Day 1 -> Days 2-9)
+
+Day 1 (session 47, 2026-08-15) established a richer per-stop schema and UI. Apply the same pattern when rebuilding any other day so all 9 days stay consistent.
+
+**Schema fields to add per stop, as applicable:**
+- `image: "<filename>"` -- save the file into `dashboards/assets/images/` (never repo-root `assets/images/` -- `app.js`'s `IMAGE_BASE` resolves relative to `dashboards/html/index.html`). Crop/select for what the stop actually is (food should look like food, a park photo should show the park) -- don't just grab the first search result and trust the default `object-fit: cover` crop.
+- `mapFrom` / `mapTo: "<address>"` on any stop that already has a `route` -- renders an inline point-to-point Google Maps embed instead of a plain external link.
+- `safetyScore: <0-100>` + `safetyNote: "<emoji> <score>% · <short label>"` -- 🟢 80-100 / 🟡 50-79 / 🔴 <50. Every score must come from real research (SPD/Downtown Seattle Association reporting, city parks safety initiatives, etc.), never invented. State the gap in the long-form `detailText` note if no solid source exists for a specific claim rather than guessing.
+
+**Steps per day:**
+1. Research real safety data for that day's neighborhoods/times before writing any safety fields (WebSearch: `<neighborhood> Seattle/Portland crime statistics <year>`, plus the city's own parks/safety initiative pages).
+2. Rewrite the day's `segments` in `data/trip-data.js` with the new fields, recompute `dayTotal`, verify it against the item-cost sum.
+3. Add/verify `mapFrom`/`mapTo` for every stop with a `route`.
+4. Source and add representative images for stops that would benefit from one (food stops, scenic/activity stops) -- save to `dashboards/assets/images/`, reference by filename only.
+5. Run `npm run validate` (syntax, budget audit, calendar-export sync).
+6. Verify live in-browser -- open the actual stop card, confirm the image loads and looks representative, confirm the safety badge and route map render -- at both desktop and a mobile viewport (390x844). Don't stop at an HTTP 200 check.
+7. Resync the live Google Calendar ("Seattle & Portland 2026") for the changed day's events via the Google Calendar MCP tools -- diff first, get approval, then replace.
+8. Commit, then verify the commit actually contains what you intended (`git show --stat HEAD`) before pushing -- a bad `git add` pathspec can silently drop trailing arguments.
+9. Push, then verify the live GitHub Pages deploy directly (`gh run list`, `curl` the live URL) rather than trusting a browser tab that may be showing a cached copy.
+
 ## Memory layers
 
 - `notes/memory/active/`: current working memory and active guidance
