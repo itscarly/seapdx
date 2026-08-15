@@ -128,6 +128,8 @@ const STOP_COORDINATES = {
   "Arrive SEA, Link light rail to Capitol Hill": { lat: 47.4502, lng: -122.3088, label: "SEA Airport" },
   "Walk to Palihotel and luggage reset": { lat: 47.6097, lng: -122.3402, label: "Palihotel Seattle" },
   "Palihotel check-in and shower reset": { lat: 47.6097, lng: -122.3402, label: "Palihotel Seattle" },
+  "The Hart and the Hunter happy hour - 2 cocktails": { lat: 47.6097, lng: -122.3402, label: "The Hart and the Hunter" },
+  "Target Downtown Seattle - breakfast + Truly Hard Seltzer run": { lat: 47.6113, lng: -122.3374, label: "Target Downtown Seattle" },
   "Pike Place Chowder - light dinner": { lat: 47.6096, lng: -122.3421, label: "Pike Place Chowder" },
   "Tailwind Cafe at Good Weather": { lat: 47.618, lng: -122.3209, label: "Tailwind Cafe" },
   "Saint John's Bar and Eatery": { lat: 47.6154, lng: -122.3168, label: "Saint John's" },

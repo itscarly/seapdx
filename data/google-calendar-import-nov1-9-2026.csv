@@ -238,39 +238,48 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 "🚇 Seattle Day 3 · Walk/transit back to Palihotel","2026-11-03","14:10","2026-11-03","14:40","Ferry Terminal -> Downtown","Purpose: Short return to downtown hotel.
 Duration: 20 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-0-walk-transit-back-to-palihotel"
-"🛌 Seattle Day 3 · Hotel recharge + rest","2026-11-03","14:40","2026-11-03","18:00","Palihotel base","Purpose: Afternoon rest before the restored Capitol Hill evening block.
-Duration: 3h 20m.
+"🛌 Seattle Day 3 · Hotel recharge + rest","2026-11-03","14:40","2026-11-03","16:10","Palihotel base","Purpose: Afternoon rest before Palihotel happy hour.
+Duration: 90 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-1-hotel-recharge-rest"
-"🚇 Seattle Day 3 · Transit to Capitol Hill","2026-11-03","18:00","2026-11-03","18:20","Downtown -> Capitol Hill","Purpose: Restored consolidated Capitol Hill evening: Saint John's dinner, Salt & Straw dessert, and Menya Musashi ramen.
-Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-2-transit-to-capitol-hill"
+"📍 Seattle Day 3 · The Hart and the Hunter happy hour - 2 cocktails","2026-11-03","16:10","2026-11-03","17:50","The Hart and the Hunter, 111 Pine St","Palihotel's in-house restaurant runs Tuesday ALL NIGHT happy hour, 3-9pm: $4 draft beers, $8 wines by the glass, $12 cocktails, and snacks (Tue-Sat is 3-6pm otherwise).
+ORDER: Any two of Espresso Martini, Bloody Mary, House Spritz, French 75, Irish Coffee, or Japanese Old Fashioned -- all $12 at happy hour price (normally $17 each).
+Estimated cost: 2 cocktails at $12 = $24 + 10.5% WA sales tax ($2.52) + 18% tip ($4.32) = $30.84.
+Location: The Hart and the Hunter, 111 Pine St
+Website: https://thehartandthehunter.com/
+Payment: Cards accepted, no cash
+Estimated cost: $30.84.
+Duration: 100 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-2-the-hart-and-the-hunter-happy-"
+"🚇 Seattle Day 3 · Transit to Capitol Hill","2026-11-03","17:50","2026-11-03","18:20","Downtown -> Capitol Hill","Purpose: Restored consolidated Capitol Hill evening: Saint John's dinner, Salt & Straw dessert, and Menya Musashi ramen.
+Duration: 10 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-3-transit-to-capitol-hill"
 "🍽️ Seattle Day 3 · Saint John's Bar and Eatery dinner","2026-11-03","18:20","2026-11-03","19:35","Capitol Hill","Menu/happy hour: https://www.saintjohnsseattle.com/happyhour-v1
 ORDER: Fried chicken sandwich or the burger, plus a Rainier ($2 happy hour) if you land inside the 2-6 PM window -- otherwise a house margarita ($6 flat).
 Estimated cost: $42 with tax and tip.
 Payment: Cards accepted
 Estimated cost: $42.
 Duration: 75 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-3-saint-john-s-bar-and-eatery-di"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-4-saint-john-s-bar-and-eatery-di"
 "📍 Seattle Day 3 · Salt & Straw Capitol Hill dessert","2026-11-03","19:35","2026-11-03","20:05","Capitol Hill","Menu: https://saltandstraw.com/pages/capitol-hill
 ORDER: A seasonal flavor flight (2-3 scoop taste) if you can't decide, or go straight for Honey Lavender / Sea Salt with Caramel Ribbons as the signature picks.
 Estimated cost: $9.
 Payment: Cards accepted
 Estimated cost: $9.
 Duration: 30 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-4-salt-straw-capitol-hill-desser"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-5-salt-straw-capitol-hill-desser"
 "🍽️ Seattle Day 3 · Menya Musashi ramen dinner","2026-11-03","20:05","2026-11-03","21:05","Capitol Hill","Menu: https://menyamuso.us/ramen-menu-seattle/
 ORDER: Musashi Tonkotsu ramen (the house signature) with a side of gyoza to split.
 Estimated cost: $27.
 Payment: Cards accepted
 Estimated cost: $27.
 Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-5-menya-musashi-ramen-dinner"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-6-menya-musashi-ramen-dinner"
 "🚇 Seattle Day 3 · Transit back to Palihotel","2026-11-03","21:05","2026-11-03","21:25","Capitol Hill -> Downtown","Purpose: Transit back to Palihotel keeps the bainbridge day trip - ferry from downtown route on track.
 Duration: 20 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-6-transit-back-to-palihotel"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-7-transit-back-to-palihotel"
 "🛌 Seattle Day 3 · Hotel wind-down / Sleep","2026-11-03","21:25","2026-11-04","07:30","Palihotel base","Purpose: Full recovery before the last Seattle full-activity day.
 Duration: 10 hrs.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-7-hotel-wind-down-sleep"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-3-2-8-hotel-wind-down-sleep"
 "🛌 Seattle Day 4 · Wake + prep","2026-11-04","07:30","2026-11-04","08:10","Palihotel base","Purpose: Wake + prep keeps the fremont + ballard neighborhood day - direct from downtown base route on track.
 Duration: 40 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-0-0-wake-prep"
@@ -321,15 +330,28 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 "🛌 Seattle Day 4 · Return and pack for train day","2026-11-04","16:15","2026-11-05","07:00","Palihotel base","Purpose: Dinner removed from plan -- open evening slot, wind-down and rest block so the train departure stays protected. Last night in Seattle.
 Duration: 8+ hrs.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-4-2-1-return-and-pack-for-train-day"
-"🛌 Portland Day 5 · Wake, final pack, checkout prep","2026-11-05","07:00","2026-11-05","09:00","Palihotel base","Purpose: Light prep and packing. King Street Station is walking distance from downtown Palihotel.
-Duration: 120 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-0-wake-final-pack-checkout-prep"
+"🛌 Portland Day 5 · Wake + prep","2026-11-05","07:00","2026-11-05","07:40","Palihotel base","Purpose: Wake + prep keeps the checkout + amtrak transfer + light portland evening route on track.
+Duration: 40 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-0-wake-prep"
+"🛍️ Portland Day 5 · Target Downtown Seattle - breakfast + Truly Hard Seltzer run","2026-11-05","07:40","2026-11-05","08:15","Target, 1600 2nd Ave","Grab-and-go breakfast items plus a Truly Hard Seltzer 12-pack -- both cheaper here than at the hotel restaurant.
+Alternative: The Hart and the Hunter (Palihotel's own restaurant) brunch is also an option if you'd rather sit down -- H&H Breakfast $17, Eggs Benedict $21, Waffle $15, or Biscuits & Gravy $16, plus a $17 brunch cocktail (Mimosa, Bloody Mary, Espresso Martini) if you want to make it boozy.
+ORDER (Target run): quick pastry/fruit/protein breakfast items (~$12) + Truly Hard Seltzer 12-pack ($20).
+Estimated cost: $32.00 subtotal + 10.5% WA sales tax ($3.36) = $35.36.
+Location: Target, 1600 2nd Ave
+Website: https://www.target.com/store-locator/store/seattle-downtown-1584/
+Payment: Cards accepted
+Estimated cost: $35.36.
+Duration: 35 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-1-target-downtown-seattle-breakf"
+"🛌 Portland Day 5 · Finish packing","2026-11-05","08:15","2026-11-05","09:00","Palihotel base","Purpose: Finish packing keeps the checkout + amtrak transfer + light portland evening route on track.
+Duration: 45 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-2-finish-packing"
 "🚶 Portland Day 5 · Checkout and walk to King Street Station","2026-11-05","09:00","2026-11-05","09:15","Downtown -> King Street","Purpose: Short walk from downtown to King Street Station. Palihotel proximity makes this very manageable.
 Duration: 15 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-1-checkout-and-walk-to-king-stre"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-3-checkout-and-walk-to-king-stre"
 "🛌 Portland Day 5 · Station arrival + platform prep","2026-11-05","09:15","2026-11-05","12:10","King Street Station","Purpose: Settle in at the station with plenty of margin before boarding.
 Duration: 55 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-2-station-arrival-platform-prep"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-0-4-station-arrival-platform-prep"
 "🚇 Portland Day 5 · Amtrak Cascades 517 SEA -> PDX","2026-11-05","12:10","2026-11-05","15:35","Intercity rail","Purpose: Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class.
 Estimated cost: $48.
 Duration: 3h 25m.
