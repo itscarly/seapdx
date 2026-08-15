@@ -14,4 +14,4 @@ metadata:
 
 **How to apply:** When asked "check if X needs updating" and a recent, thorough audit of X exists, lead with that audit's findings + status table. Only re-check if the user explicitly requests it or time has clearly passed (new session, weeks later).
 
-**Related:** [[model_routing_policy]] (documented and trusted, no re-discussion needed)
+**Related:** [[codexproject_model_routing]] (documented and trusted, no re-discussion needed)
