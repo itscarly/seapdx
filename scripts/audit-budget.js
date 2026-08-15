@@ -16,7 +16,7 @@ const mismatches = data.itinerary
     declared: day.dayTotal,
     actual: day.segments.flatMap((segment) => segment.items).reduce((sum, item) => sum + (item.cost || 0), 0)
   }))
-  .filter((day) => day.declared !== day.actual);
+  .filter((day) => Math.abs(day.declared - day.actual) > 0.01);
 
 const failures = [];
 

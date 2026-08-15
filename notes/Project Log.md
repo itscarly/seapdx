@@ -1,3 +1,27 @@
+## 2026-08-15 (session 49: sleep-ceiling fix + per-stop images sourced from Google Images/Wikimedia + Day 2/3 route audit)
+
+### COMPLETE: Fixed Day 1/Day 2 sleep blocks starting too early, sourced real per-stop photos (not one generic reused image), filled in missing route/mapFrom/mapTo and detailText fields, resynced the live calendar
+
+**Why this session happened:** User flagged from the live Google Calendar month view that Day 1's "sleep" ran 8:00 PM-7:30 AM and Day 2's ran 6:50 PM-4:50 AM -- unrealistic on vacation. User set a hard rule: sleep never starts before 10:00 PM, never as early as 6:50 PM. User also called out that Day 2 images were lazily reused (one generic Pike Place photo for ~17 different stops -- pastries, cider stand, cheese shop, etc. all sharing one image) and demanded per-stop images sourced from Google Images/web search, not just Wikimedia Commons. Finally, user asked for a full field-completeness audit on Day 2/Day 3 (image, trivia, location, map route) before pushing to GitHub.
+
+**Sleep-ceiling fix (`data/trip-data.js`, live calendar):**
+- Day 1 "Wind-down and early sleep" (8:00 PM, 10+ hrs) split into "Evening wind-down" (8:00-10:00 PM) + "Sleep" (10:00 PM-5:30 AM).
+- Day 2 "Dinner and wind-down" (6:50 PM, 10+ hrs) split into "Dinner and wind-down" (6:50-10:00 PM) + "Sleep" (10:00 PM-7:20 AM).
+- Day 3's existing sleep block (10:15 PM-7:15 AM) was already correct, left untouched.
+- Live "Seattle & Portland 2026" calendar: deleted the 2 old single-block sleep events, created 4 replacement split events, scoped to calendarId `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com`.
+
+**Per-stop images -- sourced individually, not reused (`dashboards/assets/images/`, `data/trip-data.js`):**
+- Downloaded and visually verified (by actually viewing each photo, not just trusting filenames) 15 distinct images from Wikimedia Commons: Mee Sum Pastry, Beecher's, Le Panier, Piroshky, Original Starbucks (storefront at 1912 Pike Pl, correcting an earlier mistaken 1977 historical photo), Hellenika, Rachel the Pig, Molly Moon's, Daily Dozen Doughnuts, Gum Wall, Ghost Alley Espresso, Rachel's Ginger Beer, Seattle Great Wheel, Olympic Sculpture Park -- prioritized recent (2022-2024) photos over older ones per user's "no old photos" requirement.
+- Tiny's Apple Cider stand: found and verified via Pike Place Market's own official vendor directory page (images.pikeplacemarket.org) -- real photo of the actual cider tent with fruit crates.
+- Totem Smokehouse and the Pike Place Market "swings" (Park Promenade, Overlook Walk): searched Wikimedia Commons (a dozen term variants), the live-rendered official pikeplacemarket.org vendor page (via Chrome MCP, confirmed no dedicated photo exists), and Google Images directly -- confirmed these have no freely-licensed photo available anywhere; the only results are copyrighted Instagram/Facebook/Yelp photos, which were not downloaded or rehosted (would be copyright infringement in a public GitHub repo). Both stops still use the generic `pike-place-market.jpg` fallback, disclosed rather than silently left as-is.
+
+**Field-completeness audit (Day 2 + Day 3, `data/trip-data.js`):**
+- Wrote a Node audit script checking every real stop (activity/meal/food/shopping/coffee type, or cost > 0) for `route`/`mapFrom`/`mapTo` and `detailText`, and every `image` reference against the actual file on disk.
+- Found and fixed 11 stops missing `route`/`mapFrom`/`mapTo`: Best Buy Northgate, Sky View Observatory, Sky View Cafe, Ferry to Bainbridge (also missing `detailText` -- added ferry trivia), Harbour Public House, Blackbird Coffee, Return ferry, The Hart and the Hunter, Saint John's, Salt & Straw, Menya Musashi.
+- Re-ran the audit clean (zero missing fields) and `npm run validate` (status ok, projected $2909.91 against the unchanged $3050 ceiling).
+
+**Not touched:** `scripts/validate.sh` (untracked, pre-existing, unrelated to this session -- left for the user to review/commit separately).
+
 ## 2026-08-15 (session 47: Day 1 full rebuild + rich-stop schema (image/route-map/safety-badge) -- now the template for Days 2-9)
 
 ### COMPLETE: Rebuilt Day 1 around the confirmed Asiana arrival + Palihotel booking, added a reusable rich-stop UI (sized images, embedded route maps, safety badges), fixed two path bugs, resynced the live calendar
@@ -3221,5 +3245,33 @@ Remaining blocker:
 
 **Result:**
 - The repo is now cleaner to publish, easier to hand off, and less likely to carry stale operating guidance into the next session.
+
+---
+## 2026-08-15 (session 48: H Mart budget cap + Day 2 early-start rebuild + Day 2/Day 3 waterfront split)
+
+### COMPLETE: H Mart cap raised to $30; Day 2 rebuilt for a 5:30 AM early start with an expanded Pike Place crawl; waterfront loop (Harbor Steps, Great Wheel, Pier 62, Olympic Sculpture Park, Sirens of Spring, Old Stove Brewing, Gourmondo Café) moved to Day 3 after a timing audit found the original single-day plan missed the 4:55 PM Sky View sunset hard stop
+
+**What changed:**
+- Day 1: H Mart Downtown Seattle grocery run raised from a fixed $19.89 estimate to a $30 budget cap (traveler-requested headroom).
+- Day 2: wake moved 7:30 AM -> 5:30 AM, Pike Place sign arrival moved 8:35 AM -> 7:30 AM to beat 8 AM store openings/crowds. Morning cluster expanded: Mee Sum Pastry reordered to Curry Beef Hong Bao ($6.62 w/ tax), new Tiny's Apple Cider stand (3 flavors, $9.93), new Le Panier (cortado $5.68 confirmed, pastry self-choose unpriced), Pike Place Bakery explicitly skipped (closed Mondays), new Rachel the Pig + Billie photo stop, new Molly Moon's Ice Cream, new Gum Wall stop, Totem Smokehouse souvenir budget raised $40 -> $60.
+- Timing audit (traveler explicitly requested a real geography/hours review, not accepting the stated order as-is): the full expanded day did not fit before the 4:55 PM Sky View hard stop once real addresses were used -- Gourmondo Café (Queen Anne) to the Uber Seattle Engineering Office (1191 2nd Ave, downtown) is a ~15-20 min transit leg, not a quick walk. Traveler confirmed moving the entire waterfront loop to Day 3 afternoon (after the Bainbridge ferry returns ~2:10 PM), replacing the old "hotel recharge" block.
+- Day 3 waterfront loop resequenced Gourmondo-first (it closes 3:30 PM weekdays) rather than last, to actually fit within hours: Gourmondo -> Sirens of Spring -> Olympic Sculpture Park -> Pier 62 -> Old Stove Brewing (moved from Day 2) -> Great Wheel -> Harbor Steps -> back to hotel. Hart and the Hunter happy hour shifted 4:10 PM -> 5:00 PM and the rest of the Capitol Hill evening ~50 min later accordingly.
+- Day 2 afternoon simplified to Pike Place -> Uber office (short walk) -> Best Buy Northgate -> Sky View, with Best Buy dwell time extended from 20 min to up to 60 min now that it isn't squeezed against the sunset hard stop.
+- "Puget Sound Perks" (traveler-mentioned) could not be verified via web search and was dropped rather than added on an unconfirmed name.
+- `scripts/audit-budget.js`: day/item mismatch check switched from strict equality to a $0.01 epsilon tolerance, since segment-grouped vs. flat-array floating-point summation of the same costs can differ by float dust (e.g. 176.51999999999998 vs 176.52) even when the underlying numbers are identical.
+- `dashboards/js/app.js`: added `STOP_COORDINATES` entries for the new/renamed Day 2 and Day 3 stops so map markers render.
+
+**Files modified:**
+- `data/trip-data.js`
+- `dashboards/js/app.js`
+- `scripts/audit-budget.js`
+- `notes/Project Log.md`
+
+**Verification target:**
+- `npm run validate` passes (syntax check, budget audit, calendar sync).
+- Projected total $2,909.91 against the unchanged $3,050 cap/ceiling, $140.09 remaining.
+
+**Result:**
+- Day 2 now has real timing buffer before its sunset hard stop instead of an unaccounted-for ~45 min shortfall. Day 3's waterfront loop reuses the Bainbridge ferry's downtown return instead of adding a redundant cross-town trip. All new stops are sourced (traveler-supplied menus/prices, web-search-verified names and hours).
 
 ---

@@ -125,6 +125,19 @@ const TRIP_MAP_CONFIG = {
 };
 
 const STOP_COORDINATES = {
+  "Mee Sum Pastry": { lat: 47.6096, lng: -122.3425, label: "Mee Sum Pastry" },
+  "Tiny's Apple Cider stand": { lat: 47.6094, lng: -122.3422, label: "Tiny's Apple Cider" },
+  "Le Panier": { lat: 47.6098, lng: -122.3423, label: "Le Panier" },
+  "Rachel the Pig + Billie -- photo stop": { lat: 47.6088, lng: -122.3405, label: "Rachel the Piggy Bank" },
+  "Molly Moon's Ice Cream": { lat: 47.6088, lng: -122.3405, label: "Molly Moon's (Pike Place)" },
+  "Gum Wall": { lat: 47.6087, lng: -122.3421, label: "Gum Wall" },
+  "Uber Seattle Engineering Office visit": { lat: 47.6068, lng: -122.3374, label: "Uber Seattle Engineering Office" },
+  "Gourmondo Café": { lat: 47.6238, lng: -122.3564, label: "Gourmondo Café" },
+  "Sirens of Spring - photo stop": { lat: 47.6172, lng: -122.3543, label: "Sirens of Spring" },
+  "Pier 62 - photo stop": { lat: 47.6088, lng: -122.3459, label: "Pier 62" },
+  "Seattle Great Wheel - photo stop": { lat: 47.6067, lng: -122.3427, label: "Seattle Great Wheel" },
+  "Harbor Steps": { lat: 47.6062, lng: -122.3396, label: "Harbor Steps" },
+  "Old Stove Brewing": { lat: 47.6094, lng: -122.343, label: "Old Stove Brewing" },
   "Arrive SEA, Link light rail to Capitol Hill": { lat: 47.4502, lng: -122.3088, label: "SEA Airport" },
   "Walk to Palihotel and luggage reset": { lat: 47.6097, lng: -122.3402, label: "Palihotel Seattle" },
   "Palihotel check-in and shower reset": { lat: 47.6097, lng: -122.3402, label: "Palihotel Seattle" },
