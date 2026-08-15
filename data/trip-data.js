@@ -38,7 +38,8 @@ window.TRIP_DATA = {
       "Aug 14, 2026 (Restore/Consolidate) Confirmed Menya Musashi is a Capitol Hill ramen shop (menyamuso.us, Capitol Hill menu). Restored the Capitol Hill evening block onto Day 3 instead of Day 1: transit to Capitol Hill (6:00 PM) -> Saint John's Bar and Eatery dinner $42 (6:20 PM) -> Salt & Straw Capitol Hill dessert $9 (7:35 PM) -> Menya Musashi ramen $27 (8:05 PM) -> transit back to Palihotel (9:05 PM), placed after the Bainbridge ferry return and a shortened 2:40-6:00 PM hotel recharge block. Day 3 total rises from $49 to $127. Also restored Day 4 Analog Coffee ($4.50, Capitol Hill) to its original 8:10 AM morning slot before the Fremont transit, shifting the rest of Day 4's times by 20 minutes; Day 4 total rises from $30 to $34.50. npm run validate confirms status ok, projected $2745.94 against the unchanged $3050 ceiling, remaining $304.06.",
       "Aug 14, 2026 (Sequencing audit) Traveler confirmed the Best Buy Northgate in-person fit check is required, not optional -- Day 2's afternoon is re-sequenced to budget real travel time instead of dropping the stop: lunch trimmed 60 -> 40 min (2:25-3:05 PM), Uber Seattle Engineering Office visit moved to 3:05-3:45 PM, then a 25-min Link light rail leg to Northgate (3:45-4:10 PM, confirmed ~14 min ride + walk/wait), the 20-min Best Buy fit check (4:10-4:30 PM), and a 25-min Link leg back downtown (4:30-4:55 PM). Sky View Observatory starts at 4:55 PM, landing inside the traveler's required 4:45-5:00 PM arrival window to still catch the sunset; Sky View Cafe cocktail shifts to 5:55 PM accordingly. STOP_COORDINATES entry for Best Buy Northgate confirmed present in dashboards/js/app.js. Also verified Day 3 Capitol Hill evening block against real addresses (Saint John's 719 E Pike St and Salt & Straw 714 E Pike St are directly across the street from each other; Menya Musashi at 1510 Belmont Ave is a ~0.4 mi / 8-10 min walk -- geographically sound). Fixed the Seattle hero 'trip anchor' link in dashboards/js/app.js (line ~541), which was hardcoded to an old Cloudbeds/Boylston confirmation URL instead of reading the Palihotel Seattle United reservation URL from trip-data.js -- now looks it up the same way the Portland hotel link does. Cleared remaining stale 'Courtyard Portland' / 'The Boylston Hotel Capitol Hill Seattle' references, including the backup-route Google Maps URL strings in alternatesConsidered, updating them to Hotel Vance Portland and Palihotel Seattle. No cost or day-total change (Best Buy was and remains $0; Sky View unchanged at $52.50).",
       "Aug 14, 2026 (Night) Fix: Day 1 evening had been left with a generic 'dinner at Palihotel area' placeholder and no cost after the Capitol Hill outing was removed -- this was an incomplete edit. Replaced with a specific, named stop: Pike Place Chowder (1530 Post Alley), a casual counter-service spot 4 minutes from Palihotel, cup of chowder + roll + drink, $22 all-in. Chosen deliberately light/casual for an arrival evening rather than a sit-down reservation. Day 1 total moves from $6 to $28 (auto-recomputed from itinerary item costs by the projectedTotal script at the bottom of this file, which also reconciles the Contingency category and overall projectedTotal automatically -- no other manual total edits were needed).",
-      "Aug 15, 2026 airport-buffer standardization: applied traveler-specified arrival buffers to every airportLeaveBy field. International departures (Manila->Incheon OZ702, Chicago->Manila KE038) now use a 3.5 hr buffer where the traveler specified it (Manila) and 3 hr where specified (Chicago/ORD); domestic legs (Portland->Corpus AA2496, Corpus->Chicago AA3338) now use a 3 hr buffer. Manila: 'be at airport by 9:05 AM' (3h) -> '8:35 AM' (3.5h) for the 12:05 PM departure. Portland: 'inside PDX by 12:40-12:45 PM' (~1h50m) -> 'leave Hotel Vance by 11:05 AM, inside PDX by 11:34 AM' (3h) for the 2:34 PM departure. Corpus: 'be at CRP by 8:20 AM' (2h01m) -> '7:21 AM' (3h) for the 10:21 AM departure. Chicago/ORD: vague 'well ahead of' -> explicit '8:25 AM' (3h) for the 11:25 AM departure. Amtrak Cascades (Seattle->Portland, 2.5 hr requirement) already met the buffer at 2h55m (9:15 AM station arrival vs 12:10 PM departure) -- no change needed. Also cleared the stale OZ272 scheduleRisk/alertCopy language (previously flagged a Sunday-routing mismatch against Asiana's general route notice) now that the official Asiana confirmation [redacted] directly confirms the Sunday, Nov 1, 2026 OZ702/OZ272 routing as booked."
+      "Aug 15, 2026 airport-buffer standardization: applied traveler-specified arrival buffers to every airportLeaveBy field. International departures (Manila->Incheon OZ702, Chicago->Manila KE038) now use a 3.5 hr buffer where the traveler specified it (Manila) and 3 hr where specified (Chicago/ORD); domestic legs (Portland->Corpus AA2496, Corpus->Chicago AA3338) now use a 3 hr buffer. Manila: 'be at airport by 9:05 AM' (3h) -> '8:35 AM' (3.5h) for the 12:05 PM departure. Portland: 'inside PDX by 12:40-12:45 PM' (~1h50m) -> 'leave Hotel Vance by 11:05 AM, inside PDX by 11:34 AM' (3h) for the 2:34 PM departure. Corpus: 'be at CRP by 8:20 AM' (2h01m) -> '7:21 AM' (3h) for the 10:21 AM departure. Chicago/ORD: vague 'well ahead of' -> explicit '8:25 AM' (3h) for the 11:25 AM departure. Amtrak Cascades (Seattle->Portland, 2.5 hr requirement) already met the buffer at 2h55m (9:15 AM station arrival vs 12:10 PM departure) -- no change needed. Also cleared the stale OZ272 scheduleRisk/alertCopy language (previously flagged a Sunday-routing mismatch against Asiana's general route notice) now that the official Asiana confirmation [redacted] directly confirms the Sunday, Nov 1, 2026 OZ702/OZ272 routing as booked.",
+      "Aug 15, 2026 return-to-Manila flight swap: replaced the two-leg Korean Air routing (KE038 ORD-ICN + KE623 ICN-MNL via Incheon, $658.40 cash fare, 21h 0m total with transfer) with a direct Philippine Airlines award booking, PR 133, Airbus A350, Business class (Standard Business, class A), departing ORD 10:45 PM Fri Mar 5, 2027 and arriving MNL 5:25 AM Sun Mar 7, 2027 local time, 16h 40m nonstop. Per standing tracker rule (PAL award taxes, not cash fares), the tracked cost is the $385.50 taxes/fees/charges only (67,000 miles redeemed separately, not tracked in USD). tripCosts.confirmed.airfare total moves from $1,915.23 to $1,642.33 (-$272.90); flights.airfareTotal updated to match. airportLeaveBy recalculated for the new 10:45 PM departure at a 3 hr domestic-to-international buffer: be at ORD Terminal 5 by 7:45 PM. Hotel Blake's noon Mar 5 checkout now precedes the new 10:45 PM Mar 5 departure by a wide margin (previously the old itinerary had checkout the same day as an 11:25 AM Korean Air departure that had already passed by checkout -- that timeline was already for the following departure date, so this note is corrected to flag the actual gap: a full afternoon/evening between checkout and airport departure to plan for, e.g. bag storage or a day room). All references to 'Korean Air' elsewhere in trip-data.js (hero notes, hotel note, executive summary) and dashboards/js/app.js (still-owed hero copy, airfare breakdown note) updated to Philippine Airlines. npm run validate passes; day totals unaffected since this is a confirmed-airfare change, not an itinerary/activity cost change."
     ]
   },
   verificationSummary: {
@@ -78,8 +79,8 @@ window.TRIP_DATA = {
   tripCosts: {
     confirmed: {
       airfare: {
-        total: 1915.23,
-        note: "Confirmed airfare across the Asiana arrival, the American Airlines [redacted] booking, and the Korean Air return-to-Manila booking. Asiana and AA are already paid in full and excluded from the all-in trip target hero number below -- only the Korean Air balance still counts toward that headline figure.",
+        total: 1642.33,
+        note: "Confirmed airfare across the Asiana arrival, the American Airlines [redacted] booking, and the Philippine Airlines return-to-Manila award booking. Asiana and AA are already paid in full and excluded from the all-in trip target hero number below -- only the Philippine Airlines award taxes still count toward that headline figure. Per standing tracker rule, PAL award bookings are tracked by redemption taxes only, not a cash fare.",
         items: [
           {
             name: "Asiana arrival booking",
@@ -97,17 +98,17 @@ window.TRIP_DATA = {
             paid: true
           },
           {
-            name: "Korean Air booking",
-            amount: 658.40,
+            name: "Philippine Airlines award booking",
+            amount: 385.50,
             confirmation: "[redacted]",
-            covers: "Chicago/O'Hare to Manila via Seoul/Incheon on March 5-6, 2027 (KE038 ORD-ICN, KE623 ICN-MNL)",
-            note: "Fare $275.00 + carrier-imposed fee $251.80 + taxes/fees $40.50 + seat selection $91.10 = $658.40. Confirmation number not yet provided."
+            covers: "Chicago/O'Hare to Manila direct, March 5-7, 2027 (PR 133, Airbus A350, Business)",
+            note: "67,000-mile award redemption, Standard Business fare, class A. Air transportation charges $0.00 + taxes/fees/charges $385.50 = $385.50 total cash outlay. Confirmation number not yet provided. Replaces the earlier two-leg Korean Air routing (KE038/KE623 via Incheon, $658.40 cash fare) with a direct flight."
           }
         ]
       },
       accommodations: {
         total: 1862.34,
-        note: "Palihotel Seattle, Hotel Vance, and Hotel Blake (Chicago layover between the Feb 27 AA arrival and the Mar 5 Korean Air departure) as the hotel source of truth for the executive summary.",
+        note: "Palihotel Seattle, Hotel Vance, and Hotel Blake (Chicago layover between the Feb 27 AA arrival and the Mar 5 Philippine Airlines departure) as the hotel source of truth for the executive summary.",
         items: [
           {
             name: "Palihotel Seattle",
@@ -136,8 +137,8 @@ window.TRIP_DATA = {
             itinerary: "73459920188647",
             city: "Chicago",
             nights: 6,
-            covers: "Sat Feb 27, 2027, 3 PM check-in - Fri Mar 5, 2027, noon check-out, bridging the AA arrival into ORD and the Korean Air ORD-ICN-MNL departure",
-            note: "2 adults, 1 room. Room rate $101.32/night (Feb 27-28) then $114.92/night (Mar 1-4) plus $125.06 taxes = $787.38 total, pay at property. Member Deal Tier 2 (15%) already applied, $116.88 saved off rack rate. Flag: hotel checkout is noon Mar 5, but the Korean Air KE038 ORD-ICN departure that same day is 11:25 AM local -- earlier than checkout, so bags must be packed and ready well before the reservation's own checkout time."
+            covers: "Sat Feb 27, 2027, 3 PM check-in - Fri Mar 5, 2027, noon check-out, bridging the AA arrival into ORD and the Philippine Airlines direct ORD-MNL departure",
+            note: "2 adults, 1 room. Room rate $101.32/night (Feb 27-28) then $114.92/night (Mar 1-4) plus $125.06 taxes = $787.38 total, pay at property. Member Deal Tier 2 (15%) already applied, $116.88 saved off rack rate. Note: hotel checkout is noon Mar 5, and the Philippine Airlines PR 133 ORD-MNL departure that same day is 10:45 PM local -- well after checkout, so there is a full afternoon/evening gap between checkout and airport departure to plan for (bag storage or a day room may be worth considering)."
           }
         ]
       }
@@ -221,7 +222,7 @@ window.TRIP_DATA = {
     }
   ],
   flights: {
-    airfareTotal: 1915.23,
+    airfareTotal: 1642.33,
     journeys: [
       {
         id: "journey-arrival-2026-11-01",
@@ -347,41 +348,29 @@ window.TRIP_DATA = {
       {
         id: "journey-future-2027-03-05",
         kind: "Future journey",
-        title: "Chicago/O'Hare to Manila via Seoul/Incheon",
-        dateLabel: "Friday, March 5 - Saturday, March 6, 2027",
-        ticketCost: 658.40,
-        airportLeaveBy: "Be at ORD Terminal 5 by 8:25 AM for the 11:25 AM international departure (3 hr buffer).",
-        visibilityNote: "Return-to-Manila routing on Korean Air, booked separately from the November trip and its AA continuation to Chicago.",
-        statusLabel: "Booked and paid; confirmation number not yet provided -- update once available.",
-        alertCopy: "Total duration is 21h 0m including the Incheon transfer. Fare breakdown: $275.00 base fare + $251.80 carrier-imposed fee + $40.50 taxes/fees (incl. Sept 11 security fee, US international transportation tax, passenger service charge, passenger facility charge) + $91.10 seat selection = $658.40 total.",
-        statusSource: "https://www.koreanair.com/booking/flight-status",
+        title: "Chicago/O'Hare to Manila (direct)",
+        dateLabel: "Friday, March 5 - Sunday, March 7, 2027",
+        ticketCost: 385.50,
+        airportLeaveBy: "Be at ORD Terminal 5 by 7:45 PM for the 10:45 PM international departure (3 hr buffer).",
+        visibilityNote: "Direct return-to-Manila routing on Philippine Airlines, an award redemption booked separately from the November trip and its AA continuation to Chicago.",
+        statusLabel: "Booked as an award redemption; confirmation number not yet provided -- update once available.",
+        alertCopy: "67,000-mile award redemption in Business Class (fare type Standard Business, class A). Air transportation charges $0.00, taxes/fees/charges $385.50 -- consistent with this tracker's rule of tracking PAL award taxes, not a cash fare. Total duration 16h 40m, direct/non-stop, no Incheon transfer required.",
+        statusSource: "https://www.philippineairlines.com/en/us/plan/flight-status",
         airportSource: "https://www.flychicago.com/ohare/home/pages/default.aspx",
         legs: [
           {
             from: { code: "ORD", city: "Chicago / O'Hare" },
-            to: { code: "ICN", city: "Seoul / Incheon" },
-            departureTime: "11:25 AM (Fri, Mar 5, 2027)",
-            arrivalTime: "5:15 PM (Sat, Mar 6, 2027)",
-            duration: "14h 50m",
-            connectionNote: "1h 50m transfer at Incheon",
-            flightNumber: "KE038",
-            aircraft: "B777-300ER",
-            cabin: "Economy",
-            operator: "Operated by Korean Air",
-            terminal: "Depart Terminal 5, arrive Terminal 2"
-          },
-          {
-            from: { code: "ICN", city: "Seoul / Incheon" },
             to: { code: "MNL", city: "Manila" },
-            departureTime: "7:05 PM (Sat, Mar 6, 2027)",
-            arrivalTime: "10:25 PM (Sat, Mar 6, 2027)",
-            duration: "4h 20m",
-            connectionNote: "Final leg into Manila",
-            flightNumber: "KE623",
-            aircraft: "A330-300",
-            cabin: "Economy",
-            operator: "Operated by Korean Air",
-            terminal: "Depart Terminal 2, arrive Terminal 1"
+            departureTime: "10:45 PM (Fri, Mar 5, 2027)",
+            arrivalTime: "5:25 AM (Sun, Mar 7, 2027)",
+            duration: "16h 40m",
+            connectionNote: "Direct flight, no transfer",
+            flightNumber: "PR 133",
+            aircraft: "Airbus A350",
+            cabin: "Business (A)",
+            operator: "Philippine Airlines",
+            terminal: "Depart Terminal 5, arrive Terminal 1",
+            mileage: "67,000 miles"
           }
         ]
       }

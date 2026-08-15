@@ -512,7 +512,7 @@ function initHero() {
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed (hotels + Korean Air) + ${money(plannedTotal)} still to plan/spend -- Asiana + AA airfare already paid, not counted here`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed (hotels + Philippine Airlines award taxes) + ${money(plannedTotal)} still to plan/spend -- Asiana + AA airfare already paid, not counted here`;
   if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   const meterSlider = document.getElementById("heroMeterSlider");
@@ -1151,7 +1151,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Airfare",
       amount: getOutstandingAirfareTotal(),
-      note: `Only the Korean Air balance counts toward the all-in target above -- Asiana and American Airlines ([redacted]) are already paid in full ($${getPaidAirfareTotal().toFixed(2)} combined) and listed below for reference only.`,
+      note: `Only the Philippine Airlines award taxes count toward the all-in target above -- Asiana and American Airlines ([redacted]) are already paid in full ($${getPaidAirfareTotal().toFixed(2)} combined) and listed below for reference only.`,
       shareBase: allInTarget,
       breakdown: airfareItems.map((item) => ({
         label: `${item.name}${item.paid ? " (already paid)" : " (confirmed, not yet charged)"}`,
