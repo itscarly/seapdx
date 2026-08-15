@@ -178,32 +178,36 @@ Beyond the five named roles above, dozens of smaller controls (badges, meter hin
 
 ## 4. Elevation
 
-The system is mostly flat with one soft ambient shadow used consistently for lift, not a graded elevation scale. Depth comes from layering translucent panels over the paper background and from a single soft shadow, not from stacked shadow tiers.
+*Revised — full visual overhaul, [date TBD].* The system moved from a single flat ambient shadow to a **layered "raised card" elevation system**: every card reads as a physically lifted, rounded object above the paper, not a flat bordered rectangle. Depth comes from stacked shadow tiers (an inset highlight simulating a lit top edge, plus two offset ambient shadows at different blur radii) rather than one soft shadow.
 
 ### Shadow Vocabulary
-- **Ambient card** (`box-shadow: 0 24px 60px rgba(46, 34, 22, 0.08)`): default resting shadow for cards and panels.
-- **Ambient soft** (`box-shadow: 0 12px 28px rgba(46, 34, 22, 0.06)`): lighter variant for secondary/nested-feeling elements (buttons, chips at rest).
-- **Hover lift** (`box-shadow: 0 8px 16px rgba(20, 24, 20, 0.08)`, with `transform: translateY(-2px)`): the only elevation change in the system — hover/focus on buttons, chips, tabs.
+- **Raised** (`--shadow-raised`: inset top highlight + inset bottom shade + `0 18px 36px` and `0 36px 72px` ambient tiers): default resting shadow for every card-family element (`trip-card`, `summary-card`, `day-card`, `budget-panel`, `budget-item`, `guide-card`, `transit-card`, `source-card`, `editor-bar`, `segment`).
+- **Ambient / soft** (`--shadow` / `--shadow-soft`): reserved for smaller inline elements that shouldn't compete with card elevation.
+- **Pressed** (`--shadow-pressed`: inset shadow only): buttons/chips/tabs on `:active`, simulating a physical push.
+- **Hover lift** — deepened: cards lift `translateY(-6px) scale(1.012)` with shadows growing to `0 26px 50px` / `0 46px 90px`; buttons/chips/tabs lift `translateY(-3px)`.
 
 ### Named Rules
-**The One Lift Rule.** Elevation only changes on hover/focus (translateY(-2px) + slightly firmer shadow). Nothing elevates at rest beyond the ambient card shadow; there is no elevated/pressed/floating tier vocabulary to manage.
+**The Raised Card Rule.** Every card-family element carries the raised shadow at rest (this replaces the old One Lift Rule, which held nothing elevates at rest — that no longer applies post-overhaul). Hover deepens the lift further; active/pressed states on controls invert to an inset shadow. This 3D "lifted object" read is the signature of the new visual direction.
+**The Accent Cap Rule.** Every card-family element carries a 6px gradient bar (`accent → accent-3 → accent-4`) across its top edge, rounded to match the card's corners — the one recurring colorful/dimensional signature tying hero, budget, itinerary, and guide cards into one family.
 
 ## 5. Components
 
 ### Buttons
 - **Shape:** fully pill-shaped (`border-radius: 999px`), `min-height: 40px`, `padding: 0 14px`.
-- **Primary:** `linear-gradient(135deg, #2f6fe4, #0284c7)` background, white text, border-color matches the gradient's dark stop.
-- **Secondary/default:** `rgba(255, 252, 247, 0.92)` background, ink text, hairline border, ambient-soft shadow at rest.
-- **Hover/Focus:** lifts 2px, shadow firms to hover-lift, `outline: 2px solid var(--accent)` with 2px offset for focus-visible.
+- **Primary:** `linear-gradient(135deg, #2f6fe4, #0284c7)` background, white text, border-color matches the gradient's dark stop, plus an inset top highlight and a colored ambient glow shadow (`0 8px 18px rgba(accent, 0.35)`).
+- **Secondary/default:** subtle top-to-bottom white→paper gradient background, ink text, hairline border, inset top highlight + soft ambient shadow at rest.
+- **Hover/Focus:** lifts 3px, shadow firms and grows, `outline: 2px solid var(--accent)` with 2px offset for focus-visible.
+- **Active/pressed:** inset shadow only, slight `scale(0.99)` — physical push feedback.
 
 ### Chips / Tabs
-- **Style:** same pill shape and sizing as buttons; unselected state matches the secondary button; `.active`/`.chip.active` state matches the primary button gradient.
+- **Style:** same pill shape and sizing as buttons; unselected state matches the secondary button; `.active`/`.chip.active` state matches the primary button gradient + glow.
 - **State:** exactly two states — active and inactive. No intermediate "selected but not primary" treatment.
 
 ### Cards / Containers
-- **Corner Style:** 24px radius (`--radius-xl`) for primary cards (hero trip-card), 18px (`--radius-lg`) for standard section cards.
-- **Background:** translucent card white over paper, occasionally with a subtle diagonal accent wash (`linear-gradient(135deg, rgba(47,111,228,0.04), transparent 45%)`) on the hero card only — never on secondary cards.
-- **Shadow Strategy:** ambient card shadow at rest; no hover elevation on static content cards (hover lift is reserved for interactive controls).
+- **Corner Style:** *deepened* — 32px radius (`--radius-xl`) for primary cards (hero trip-card), 26px (`--radius-lg`) for standard section cards, 18px (`--radius-md`) / 12px (`--radius-sm`) for smaller nested elements. Rounder across the board than the prior system — this is the "3D, rounded" signature the overhaul asked for.
+- **Background:** `--panel-strong` (near-opaque white) over paper, occasionally with a subtle diagonal accent wash on the hero card only — never on secondary cards.
+- **Shadow Strategy:** raised shadow at rest (see Elevation above); deepened lift on hover across the whole card family, not just interactive controls.
+- **Top edge:** every card carries the 6px accent gradient cap (see Accent Cap Rule).
 - **Border:** 1px hairline border in most cases; the hero trip-card omits a border and relies on the shadow + tint wash instead.
 - **Internal Padding:** 20px standard.
 
