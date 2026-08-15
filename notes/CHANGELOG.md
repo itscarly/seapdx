@@ -4,6 +4,12 @@
 
 This is the concise project change record.
 
+## 2026-08-14 (session 46) — Budget/itinerary edits (flight swap, happy hour, payment audit) + full visual overhaul
+
+- **Trip data**: swapped ORD→MNL flight to direct Philippine Airlines PR133 (was two-leg Korean Air); added Palihotel happy hour (Day 3) and a Day 1 evening Target/H Mart/Truly Hard Seltzer run (moved off the original Day 5 travel-day placement after user pushback); corrected H Mart/Target addresses to the real downtown-Seattle locations, removing invented transit legs; ran a dedicated research subagent to verify credit-card acceptance at every paid stop (found 3 card-only/cashless venues, several cash-backup-recommended) instead of leaving unverified "Cards accepted" claims. All changes validated (`npm run validate`), live Google Calendar resynced, pushed across 4 commits (`e958404`, `15cafc6`, `1c1bcbe`, `1d42591`).
+- **Full visual overhaul** (user-authorized departure from the prior "Trip Notebook" flat system, commit `2735eeb`): replaced the single flat ambient shadow with a layered "raised card" 3D elevation system (inset highlights + dual ambient shadow tiers), deepened corner radii site-wide (32/26/18/12px, up from 24/18/12), added a colorful gradient accent cap to every card top edge, deepened hover-lift and added tactile pressed states on buttons/chips. Brought the maps/transit toggle, day-distance pills, and map frame in line with the new system. Fixed a real layout bug where the "Food and drink" budget-breakdown card had no height cap and blew out several times taller than its siblings — capped at 360px with a scrollbar and fade mask. `DESIGN.md` rewritten to document the new elevation/component rules as authoritative, replacing the old "One Lift Rule."
+- Verified both `index.html` and `logistics.html` load clean (zero console errors) via browser check before push.
+
 ## 2026-08-09 (session 45) — Font-consistency fix, adjustable hero meter, DESIGN.md rewrite, full /impeccable audit (color/radius/font-size → 0 findings)
 
 - Removed 4 unloaded-font (`"Sora"`/`"Manrope"`) overrides in `styles.css` causing silent sans-serif fallback; those elements now match the system-font stack.

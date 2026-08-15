@@ -1,10 +1,23 @@
 ---
 name: project-current-state
-description: "Current verified state of codexproject as of 2026-08-08 — budget restructured to one $2,500-capped 'still to plan/spend' number ($1,959.35), Korean Air return-to-Manila airfare added ($1,915.23 confirmed total), all future flight legs on the live calendar"
+description: "Current verified state of codexproject as of 2026-08-14 (session 46) — Palihotel Seattle (was Boylston), Philippine Airlines PR133 direct Manila return (was Korean Air), full visual overhaul shipped (raised-card 3D system replaces flat DESIGN.md). See the top block; everything after the --- divider is historical."
 metadata:
   node_type: memory
   type: project
   originSessionId: session-40-nov6-9-reconciliation
+---
+
+**SUPERSEDED (2026-08-14, session 46): everything below this line predates the Palihotel swap and the Korean Air → Philippine Airlines swap.** Current verified state:
+- **Seattle hotel is now Palihotel Seattle** (107 Pine St, 98101, 4 nights, $662.00) — the Boylston Hotel Capitol Hill claim below is stale; do not reintroduce Boylston.
+- **Portland hotel is still Hotel Vance, a Tribute Portfolio Hotel** (conf [redacted]) — this one below is still correct.
+- **Chicago layover hotel: Hotel Blake, an Ascend Collection Hotel** (6 nights, $787.38) — not mentioned below, added since.
+- **Return-to-Manila airfare is now Philippine Airlines PR133 direct** ($385.50 award taxes, 67,000 miles) — the Korean Air ORD→ICN→MNL two-leg entry below is stale; do not reintroduce Korean Air for this leg.
+- **Confirmed airfare total is now $2,247.84** (Asiana $540.43 + AA $716.40 + Philippine Airlines $385.50 — but see note: only the PAL taxes count toward the all-in target per [[feedback_airfare_award_vs_cash]]).
+- **Full visual overhaul shipped** (commit `2735eeb`) — DESIGN.md's flat "One Lift Rule" system below is also stale; DESIGN.md §4-5 (raised-card 3D elevation) is now authoritative. See `~/.claude/projects/-Users-kicker/memory/codexproject_session_2026_08_14_overhaul.md`.
+- Day 1 evening now includes a Target/H Mart/Truly Hard Seltzer run (walking distance from Palihotel); Day 3 includes a Palihotel happy hour stop. Payment-acceptance fields across the itinerary were verified via research subagent, not assumed.
+
+Full detail in `notes/CHANGELOG.md` (2026-08-14 session 46 entry) — that is the source of truth.
+
 ---
 
 Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]) is the active booking. Portland hotel is finalized: **Hotel Vance, a Tribute Portfolio Hotel** (conf [redacted]) is the active booking.
