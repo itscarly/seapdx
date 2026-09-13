@@ -741,6 +741,7 @@ function renderFlightJourney(journey, options = {}) {
       </div>
       <div class="flight-story">
         ${detailCopy ? `<p>${detailCopy}</p>` : ""}
+        ${journey.layoverPlan ? `<p>${journey.layoverPlan}</p>` : ""}
         ${options.detailed ? `<p>${journey.alertCopy}</p>` : ""}
       </div>
       <div class="flight-legs">
