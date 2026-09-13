@@ -10,11 +10,6 @@ const reviewItems = [
     url: "https://skyviewobservatory.com/location/"
   },
   {
-    name: "Portland Japanese Garden",
-    check: "Confirm hours, admission, and timed-entry window.",
-    url: "https://japanesegarden.org/hours-admission/"
-  },
-  {
     name: "Glo's Cafe",
     check: "Confirm hours and menu/homepage changes.",
     url: "https://www.glosseattle.com/home/"
