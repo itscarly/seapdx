@@ -10,9 +10,18 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Next up
 
-- **Roll the Day 1-3 rich-stop rebuild pattern out to Days 4-9** -- Days 1-3 (sessions 47 and 49, 2026-08-15) established and refined a repeatable schema (`image`, `mapFrom`/`mapTo`, `safetyScore`/`safetyNote`, `detailText`) and matching UI (sized images, embedded route maps, safety badges). Apply the exact checklist in `notes/MAINTENANCE.md` ("Day rebuild playbook") to Days 4-9, one day at a time: research real safety data first, add the schema fields, source a dedicated per-stop image (not one generic reused photo -- see [[feedback_per_stop_image_sourcing]]), apply the 10:00 PM sleep-ceiling rule to each day's wind-down block (see [[feedback_sleep_ceiling]]), verify in-browser (desktop + mobile), resync the live calendar, verify the commit and the live deploy before calling a day done.
+- **Hold for the next user-provided change list** -- the Sep 13 restore/update pass is complete and published. Local source, GitHub repo, GitHub Pages, generated calendar exports, and the live `Seattle & Portland 2026` calendar are aligned.
+- **Use Graphify first next session** -- for architecture, source-of-truth, data-flow, or project-content questions, run `graphify query "<question>"` before broad file reads. After edits, run `graphify update .`.
+- **Optional later work:** roll the Day 1-3 rich-stop rebuild pattern out to Days 4-9 using `notes/MAINTENANCE.md` ("Day rebuild playbook"). Do this only when the user asks for that polish pass; current priority is targeted itinerary/cost updates.
 
 ### Just completed
+
+- **Sep 13 restore/update closeout**
+  - Restored the local project under `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx`.
+  - Updated repo/public identity from typo `seadpdx` to `seapdx`; live site is `https://itscarly.github.io/seapdx/dashboards/html/index.html#itinerary`.
+  - Updated trip costs: ACME Chicago replaced Hotel Blake, airfare kept at the PAL installment, Seattle/Portland/Chicago hotel and pocket-money lines reconciled, removed Meta Ray-Ban/Bleu de Chanel/old Amazon/tattoo/Best Buy items, added the new Amazon cart block.
+  - Updated arrival flight: EMR56H now uses OZ702 MNL->ICN and Korean Air KE047 ICN->SEA, with Day 1 Seattle timing shifted to the 2:10 PM arrival.
+  - Regenerated calendar exports, patched the live `Seattle & Portland 2026` calendar, validated, committed, pushed, and verified GitHub Pages.
 
 - **Day 2/3 sleep-ceiling fix + per-stop image sourcing + route/detailText audit** (2026-08-15, session 49)
   - Split Day 1 and Day 2's single wind-down-through-sleep blocks (previously starting 8:00 PM / 6:50 PM) into an evening segment plus a Sleep segment starting no earlier than 10:00 PM; resynced the live calendar to match

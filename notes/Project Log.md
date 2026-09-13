@@ -3247,6 +3247,19 @@ Remaining blocker:
 - The repo is now cleaner to publish, easier to hand off, and less likely to carry stale operating guidance into the next session.
 
 ---
+## 2026-09-13 (session closeout: Graphify handoff map)
+
+### COMPLETE: Wrote the next-session architecture map and refreshed the project graph
+
+**What changed:**
+- Updated `notes/ARCHITECTURE.md` with the restored local path, corrected `seapdx` repo/site URLs, static source-of-truth flow, generated-export vs. live-calendar boundary, and the default next-session workflow.
+- Updated `notes/TASKS.md` so the active state no longer points first at stale August work. The project is now waiting for the next user-provided change list; Day 4-9 rich-stop polish is explicitly optional.
+- Preserved the Sep 13 factual closeout: cost edits, ACME hotel swap, Amazon cart, repo rename, flight retime to KE047, live calendar patch, validation, push, and GitHub Pages verification.
+
+**Prevention rule:**
+- Always call Graphify first for architecture, source-of-truth, data-flow, or project-content questions in this repo. After edits, run `graphify update .` before closing.
+
+---
 ## 2026-09-13 (arrival flight retime: EMR56H -> KE047)
 
 ### COMPLETE: Updated arrival flight routing, shifted Day 1 timing, regenerated exports, and patched the live Seattle & Portland 2026 calendar
