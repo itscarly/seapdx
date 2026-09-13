@@ -155,7 +155,6 @@ const STOP_COORDINATES = {
   "Ghost Alley Espresso (coffee to-go before Northgate)": { lat: 47.6099, lng: -122.3428, label: "Ghost Alley Espresso" },
   "Seattle Waterfront + Olympic Sculpture Park": { lat: 47.6159, lng: -122.3554, label: "Olympic Sculpture Park" },
   "Seattle Starbucks city mug + Pike Place magnet stop": { lat: 47.6101, lng: -122.3426, label: "Seattle Starbucks + souvenirs" },
-  "Best Buy Northgate - Ray-Ban Meta glasses fit check": { lat: 47.7062, lng: -122.3255, label: "Best Buy Northgate" },
   "Columbia Center Sky View Observatory": { lat: 47.6042, lng: -122.3305, label: "Sky View Observatory" },
   "Columbia Center Sky View sunset": { lat: 47.6042, lng: -122.3305, label: "Columbia Center" },
   "Biang Biang Noodles - Capitol Hill": { lat: 47.6177, lng: -122.3204, label: "Biang Biang" },
@@ -566,7 +565,11 @@ function initHero() {
     portlandBaseEl.innerHTML = `<a href="${portlandHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
   }
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
-  if (chicagoBaseEl) chicagoBaseEl.innerHTML = `<a href="https://us.hotels.united.com/trips/egti-K9T-HLN-PETJ/details/Nzk4ZWQ5OGQtZGFiNS01ZWIwLWI5YTYtZDRjM2NiNmY0YWVlO2E3YjFjOGYxLWIyZjAtNDU5NC1hY2FhLTk1MzhhOGU0YWQ2MV8wO2VnOnByb3BlcnR5OnYyOjE1ZDM1YWI4OGFjZmI0MDhkYTVmMDUyODlhOTMzYTgw" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.chicago}</a>`;
+  if (chicagoBaseEl) {
+    const chicagoHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Chicago');
+    const chicagoHotelUrl = chicagoHotel?.url || 'https://www.hilton.com/en/hotels/chiaoup-acme-hotel-chicago/';
+    chicagoBaseEl.innerHTML = `<a href="${chicagoHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.chicago}</a>`;
+  }
   if (lastUpdatedEl) lastUpdatedEl.textContent = data.meta.verifiedOn;
 }
 
@@ -1178,7 +1181,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Hotel accommodations",
       amount: getConfirmedHotelTotal(),
-      note: "Palihotel in Seattle, Hotel Vance in Portland, and Hotel Blake in Chicago (Feb 27 - Mar 5, 2027 layover).",
+      note: "Palihotel in Seattle, Hotel Vance in Portland, and ACME Hotel Chicago (Feb 27 - Mar 2, 2027 layover).",
       shareBase: allInTarget,
       breakdown: hotelItems.map((item) => ({
         label: item.name,
@@ -1206,7 +1209,7 @@ function buildTripCostBreakdown(allInTarget) {
         { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
         { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
         { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
-        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, airport-side Portland transit, and the Nov 7 Shonen Tattoo bus 33 round trip ($2.80 each way)." }
+        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, airport-side Portland transit, and local Portland hops." }
       ]
     },
     {
@@ -1221,7 +1224,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Shopping",
       amount: shoppingCategory?.amount || 0,
-      note: "Everything to buy or keep: coffee beans, souvenirs/keepsakes, planned personal purchases, and confirmed online orders (Amazon, Calvin Klein, Hollister), all in one number.",
+      note: "Everything to buy or keep: coffee beans, souvenirs/keepsakes, and confirmed online orders still kept in scope.",
       shareBase: allInTarget,
       breakdown: [
         { label: "Coffee beans and souvenirs/keepsakes", amount: coffeeBeansAndSouvenirs, detail: "Two coffee bags, Totem Smokehouse salmon, QFC seltzer 12-pack, city mugs, magnets, market browsing." },
@@ -1233,19 +1236,19 @@ function buildTripCostBreakdown(allInTarget) {
         }))
       ]
     },
-    {
+    ...(tattooCategory ? [{
       name: "Tattoo",
-      amount: tattooCategory?.amount || 0,
-      note: "Nov 7 tattoo appointment, scheduled early in the day so it has the rest of the trip to heal.",
+      amount: tattooCategory.amount || 0,
+      note: tattooCategory.note || "Tattoo budget item.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Shonen Tattoo appointment", amount: tattooCategory?.amount || 0, detail: tattooCategory?.note || "" }
+        { label: "Tattoo appointment", amount: tattooCategory.amount || 0, detail: tattooCategory.note || "" }
       ]
-    },
+    }] : []),
     {
       name: "Chicago pocket money",
       amount: chicagoPocketMoneyCategory?.amount || 0,
-      note: "Discretionary spending money for the Feb 27 - Mar 5, 2027 Chicago layover, separate from the Hotel Blake cost.",
+      note: "Discretionary spending money for the Feb 27 - Mar 2, 2027 Chicago layover, separate from the ACME Hotel Chicago cost.",
       shareBase: allInTarget,
       breakdown: [
         { label: "Chicago layover pocket money", amount: chicagoPocketMoneyCategory?.amount || 0, detail: chicagoPocketMoneyCategory?.note || "" }

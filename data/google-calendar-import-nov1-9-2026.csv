@@ -242,18 +242,12 @@ Location: Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101
 Payment: N/A
 Duration: 45 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-1-uber-seattle-engineering-offic"
-"🚇 Seattle Day 2 · Transit to Best Buy Northgate","2026-11-02","14:30","2026-11-02","14:55","Downtown -> Northgate","Purpose: Link light rail to Northgate (confirmed ~14 min ride) plus walk/wait time to and from the station.
-Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-2-transit-to-best-buy-northgate"
-"🛍️ Seattle Day 2 · Best Buy Northgate - Ray-Ban Meta glasses fit check","2026-11-02","14:55","2026-11-02","15:55","Best Buy Northgate","Purpose: in-person frame fit check for Ray-Ban Meta glasses before ordering online for Portland delivery.
-Estimated cost: Free (fit check only, purchase happens via Amazon).
-Location: Best Buy Northgate
-Website: https://www.meta.com/demo/scheduler/best-buy/
-Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-3-best-buy-northgate-ray-ban-met"
-"🚇 Seattle Day 2 · Transit back to Downtown for Sky View","2026-11-02","15:55","2026-11-02","16:55","Northgate -> Downtown","Purpose: Link light rail back downtown (confirmed ~14 min ride) plus walk/wait time, timed to land at Sky View by 4:55 PM with real buffer.
-Duration: 25 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-4-transit-back-to-downtown-for-s"
+"🛌 Seattle Day 2 · Hotel reset before Sky View","2026-11-02","14:30","2026-11-02","16:25","Palihotel base","Purpose: Best Buy Northgate fit check removed Sep 13, 2026. Use this as an open buffer before the hard sunset-view appointment.
+Duration: 115 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-2-hotel-reset-before-sky-view"
+"🚶 Seattle Day 2 · Walk to Columbia Center Sky View","2026-11-02","16:25","2026-11-02","16:55","Downtown","Purpose: Leave Palihotel with a relaxed buffer and arrive at Sky View by 4:55 PM.
+Duration: 30 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-3-walk-to-columbia-center-sky-vi"
 "🎟️ Seattle Day 2 · Columbia Center Sky View Observatory - Elite Experience ticket","2026-11-02","16:55","2026-11-02","17:55","Sky View Observatory, 700 4th Ave","Trivia: Sky View Observatory sits on the 73rd floor of Columbia Center, the tallest building in Washington State -- the highest public viewpoint in the city.
 Seattle skyline views from the observation deck at dusk.
 Tickets: Elite Experience Adult $49 + booking fee $1 + tax $2.50 = $52.50.
@@ -262,13 +256,13 @@ Website: https://skyviewobservatory.com/tickets/
 Payment: Cards accepted
 Estimated cost: $52.5.
 Duration: 60 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-5-columbia-center-sky-view-obser"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-4-columbia-center-sky-view-obser"
 "🎟️ Seattle Day 2 · Sky View Cafe - sunset cocktail","2026-11-02","17:55","2026-11-02","18:35","Sky View Observatory Cafe, 700 4th Ave","Menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/
 Included in the Sky View admission -- no separate cost.
 Location: Sky View Observatory Cafe, 700 4th Ave
 Payment: Cards accepted
 Duration: 30 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-6-sky-view-cafe-sunset-cocktail"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-1-5-sky-view-cafe-sunset-cocktail"
 "🚶 Seattle Day 2 · Walk back to Palihotel + free evening","2026-11-02","18:35","2026-11-02","18:50","Downtown -> Palihotel","Purpose: Short walk back to the hotel. Evening is open -- find dinner nearby, meet people, relax.
 Duration: 15 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-2-2-0-walk-back-to-palihotel-free-ev"
@@ -478,9 +472,9 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 Estimated cost: $6.
 Duration: 35 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-1-arrive-portland-union-station-"
-"🛌 Portland Day 5 · Check in, reset, and Amazon package check","2026-11-05","16:20","2026-11-05","18:00","Hotel Vance Portland","Purpose: Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held.
+"🛌 Portland Day 5 · Check in and reset","2026-11-05","16:20","2026-11-05","18:00","Hotel Vance Portland","Purpose: Settle into Hotel Vance after the Seattle-to-Portland transfer.
 Duration: 100 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-2-check-in-reset-and-amazon-pack"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-1-2-check-in-and-reset"
 "🚶 Portland Day 5 · Easy downtown orientation walk","2026-11-05","18:00","2026-11-05","18:35","Downtown Portland","Purpose: Easy downtown orientation walk keeps the checkout + amtrak transfer + light portland evening route on track.
 Duration: 30 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-5-2-0-easy-downtown-orientation-walk"
@@ -556,10 +550,10 @@ Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-da
 "🛌 Portland Day 6 · Hotel wind-down + early sleep","2026-11-06","21:20","2026-11-07","07:45","Hotel Vance Portland","Purpose: Settle in and rest after a full coastal day.
 Duration: 9.5 hrs.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-6-2-3-hotel-wind-down-early-sleep"
-"🛌 Portland Day 7 · Wake + prep","2026-11-07","07:45","2026-11-07","08:05","Hotel Vance Portland","Purpose: Wake + prep keeps the tattoo + portland saturday market + local food route on track.
+"🛌 Portland Day 7 · Wake + prep","2026-11-07","07:45","2026-11-07","08:05","Hotel Vance Portland","Purpose: Wake + prep keeps the portland saturday market + local food route on track.
 Duration: 40 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-0-wake-prep"
-"☕ Portland Day 7 · Stumptown coffee + coffee bean buy","2026-11-07","08:05","2026-11-07","08:35","Stumptown Coffee Roasters, 1026 SW Stark St","Portland flagship coffee stop before the tattoo appointment. Shortened slightly to leave enough time for the real Milwaukie commute below.
+"☕ Portland Day 7 · Stumptown coffee + coffee bean buy","2026-11-07","08:05","2026-11-07","08:35","Stumptown Coffee Roasters, 1026 SW Stark St","Portland flagship coffee stop before the Saturday Market day.
 Website: https://www.stumptowncoffee.com/
 Order: Guatemala El Injerto Bourbon whole-bean bag ($25) plus a 16oz Original Cold Brew ($6).
 Estimated cost: $31.
@@ -568,32 +562,13 @@ Payment: Cards accepted
 Estimated cost: $31.
 Duration: 30 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-1-stumptown-coffee-coffee-bean-b"
-"🚇 Portland Day 7 · Transit to Shonen Tattoo (Milwaukie) via TriMet Bus 33","2026-11-07","08:35","2026-11-07","09:25","Downtown Portland -> Milwaukie, OR","Shonen Tattoo is in Milwaukie, OR, not downtown -- budget real time to get there.
-Address: 17052 McLoughlin Blvd, Milwaukie, OR.
-Plan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $6 (TriMet day-pass, first ride of the day).
-Estimated cost: $6.
-Estimated cost: $6.
-Duration: 50 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-2-transit-to-shonen-tattoo-milwa"
-"🎟️ Portland Day 7 · Tattoo appointment","2026-11-07","09:25","2026-11-07","10:55","Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR","Tattoo appointment, scheduled early in the day so it has the rest of the trip to rest and wrap.
-Address: 17052 McLoughlin Blvd, Milwaukie, OR.
-Instagram: https://www.instagram.com/shonen_tattoo/
-Estimated cost: $150 + $27 tip = $177 (bus fare to/from is tracked separately under Transportation, folded into Portland local transit).
-Aftercare: Keep the rest of the day light -- no heavy activity or hiking while it heals.
-Location: Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR
-Payment: Not confirmed -- no shop-specific payment info found; tattoo shops often prefer cash to avoid card fees, call ahead to confirm
-Estimated cost: $177.
-Duration: 90 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-0-tattoo-appointment"
-"🚇 Portland Day 7 · Transit back to Downtown Portland via TriMet Bus 33","2026-11-07","10:55","2026-11-07","11:45","Milwaukie, OR -> Downtown Portland","Return leg from Milwaukie back to Downtown Portland ahead of the Saturday Market.
-Plan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $0 (covered by day pass).
-Estimated cost: $0.
-Duration: 50 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-1-transit-back-to-downtown-portl"
-"🚇 Portland Day 7 · Transit to Portland Saturday Market","2026-11-07","11:45","2026-11-07","12:15","Downtown -> Waterfront","Purpose: Short MAX/streetcar transit hop to the waterfront market. Cost $0 -- covered by the day's $6 TriMet pass.
+"🛌 Portland Day 7 · Slow morning reset","2026-11-07","08:35","2026-11-07","10:30","Hotel Vance Portland","Purpose: Tattoo appointment removed Sep 13, 2026. Keep the morning open before Saturday Market.
+Duration: 115 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-0-2-slow-morning-reset"
+"🚇 Portland Day 7 · Walk/transit to Portland Saturday Market","2026-11-07","10:30","2026-11-07","11:00","Downtown -> Waterfront","Purpose: Short walk, MAX, or streetcar hop to the waterfront market. Cost left at $0 because no day-pass transit is otherwise needed.
 Duration: 30 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-2-transit-to-portland-saturday-m"
-"🎟️ Portland Day 7 · Portland Saturday Market browse + lunch","2026-11-07","12:15","2026-11-07","14:15","2 SW Naito Pkwy","Waterfront artisan market block with lunch from the food vendors.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-0-walk-transit-to-portland-satur"
+"🎟️ Portland Day 7 · Portland Saturday Market browse + lunch","2026-11-07","11:00","2026-11-07","13:15","2 SW Naito Pkwy","Waterfront artisan market block with lunch from the food vendors.
 Website: https://www.portlandsaturdaymarket.com/food-vendors-and-partners
 Purpose: Shop local makers and graze market food vendors for lunch instead of a sit-down meal.
 Payment: Many vendors prefer cash even when some larger booths take cards.
@@ -602,14 +577,14 @@ Location: 2 SW Naito Pkwy
 Payment: Many vendors prefer cash; some accept cards
 Estimated cost: $50.
 Duration: 120 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-3-portland-saturday-market-brows"
-"🛍️ Portland Day 7 · Sephora Portland Downtown browse","2026-11-07","14:15","2026-11-07","14:45","Sephora Portland Downtown","Purpose: Perfume browse stop (Bleu de Chanel) -- tracked separately as a personal purchase, not part of the trip budget.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-1-portland-saturday-market-brows"
+"🛍️ Portland Day 7 · Sephora Portland Downtown browse","2026-11-07","13:15","2026-11-07","13:45","Sephora Portland Downtown","Purpose: Optional perfume browse only. Bleu de Chanel purchase removed Sep 13, 2026; add a new purchase later only if you decide to buy.
 Location: Sephora Portland Downtown
 Duration: 30 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-4-sephora-portland-downtown-brow"
-"🛌 Portland Day 7 · Hotel Vance reset","2026-11-07","14:45","2026-11-07","17:00","Hotel Vance Portland","Purpose: Keep the afternoon light for tattoo aftercare.
-Duration: 135 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-5-hotel-vance-reset"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-2-sephora-portland-downtown-brow"
+"🛌 Portland Day 7 · Hotel Vance reset","2026-11-07","13:45","2026-11-07","17:00","Hotel Vance Portland","Purpose: Keep the afternoon open before Novel Book Bar.
+Duration: 195 min.
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-1-3-hotel-vance-reset"
 "🎟️ Portland Day 7 · Novel Book Bar dinner + cocktail + browse","2026-11-07","17:00","2026-11-07","19:45","Novel Book Bar, Portland","Books, food, and cocktails close to the hotel base. Pretty Ugly Burger dinner removed -- dinner happens here instead so there's no duplicate meal.
 Menu: https://www.novelmaine.com/menu
 Order: Partly Cloudy ($10) and Carajillo ($14), plus a light food item from the menu (burger $7 / salad $10 / salmon $15) to cover dinner.
@@ -619,12 +594,12 @@ Payment: Cards accepted
 Estimated cost: $29.
 Duration: 90 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-2-0-novel-book-bar-dinner-cocktail"
-"🛌 Portland Day 7 · Wind-down","2026-11-07","19:45","2026-11-08","09:00","Hotel Vance Portland","Purpose: Wind-down keeps the tattoo + portland saturday market + local food route on track.
+"🛌 Portland Day 7 · Wind-down","2026-11-07","19:45","2026-11-08","09:00","Hotel Vance Portland","Purpose: Wind-down keeps the portland saturday market + local food route on track.
 Duration: 12 hrs.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-7-2-1-wind-down"
-"🛌 Portland Day 8 · Sleep in + tattoo aftercare check","2026-11-08","09:00","2026-11-08","10:30","Hotel Vance Portland","Purpose: No heavy activity today -- letting yesterday's tattoo rest and wrap.
+"🛌 Portland Day 8 · Sleep in + slow morning","2026-11-08","09:00","2026-11-08","10:30","Hotel Vance Portland","Purpose: No heavy activity today -- keep it light and easy.
 Duration: 90 min.
-Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-0-0-sleep-in-tattoo-aftercare-chec"
+Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-0-0-sleep-in-slow-morning"
 "🚇 Portland Day 8 · Light hotel-area transit loop","2026-11-08","10:30","2026-11-08","11:30","Downtown Portland","Purpose: Easy short MAX/bus loop, nothing strenuous. Cost $0 -- covered by the day's $6 TriMet pass.
 Duration: 25 min.
 Site link: https://itscarly.github.io/seadpdx/dashboards/html/index.html#stop-day-8-0-1-light-hotel-area-transit-loop"

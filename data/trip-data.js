@@ -6,9 +6,9 @@ window.TRIP_DATA = {
     travelerBase: {
       seattle: "Palihotel Seattle",
       portland: "Hotel Vance, a Tribute Portfolio Hotel",
-      chicago: "Hotel Blake, an Ascend Collection Hotel"
+      chicago: "ACME Hotel Chicago, Outset Collection by Hilton"
     },
-    verifiedOn: "Aug 15, 2026",
+    verifiedOn: "Sep 13, 2026",
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [
@@ -26,9 +26,9 @@ window.TRIP_DATA = {
       "A 20% realism buffer is now treated as the planning default for flexible paid categories such as food, coffee, cocktails, and small shopping so the live budget reflects real-world drift better than the earlier tighter draft.",
       "Souvenir pricing should stay explicit whenever possible: Starbucks city mugs, one coffee with each mug errand, coffee-bean buys, and small magnet-style gifts are now modeled directly instead of being hidden inside generic buffers.",
       "As of the Aug 8, 2026 online-purchases update (Amazon $550.25, Calvin Klein $76.65, Hollister $91.42, plus the Ray-Ban actual price replacing its estimate), the real projected total was $2,690.67 and the cap/ceiling was raised from $2,500 to $2,700 to match. Same day, adding $350 Chicago layover pocket money raised the real projected total to $3,040.67 and the cap/ceiling to $3,050 -- each raise confirmed by the traveler rather than silently absorbed.",
-      "Hotel Blake, an Ascend Collection Hotel (Bluegreen Vacations), added Aug 8, 2026 as the confirmed Chicago layover hotel: $787.38 for 6 nights (Sat Feb 27 - Fri Mar 5, 2027), bridging the AA arrival into ORD and the Korean Air ORD-ICN-MNL departure. This is a confirmed/paid-at-property cost tracked under tripCosts.confirmed.accommodations, separate from the $3,050 cap which only covers still-to-spend categories.",
-      "Asiana and American Airlines flights are marked paid: true and excluded from the all-in trip target hero number -- only the outstanding Korean Air balance and confirmed hotel totals count as still-owed. Both flights remain listed in the Airfare breakdown card for reference.",
-      "Shonen Tattoo round-trip transit (Nov 7) is folded into Portland local transit as a TriMet bus 33 fare ($2.80 each way) rather than a separate rideshare line, per the traveler's request to avoid Uber.",
+      "Sep 13, 2026 Chicago hotel swap: replaced Hotel Blake ($787.38, 6 nights) with ACME Hotel Chicago, Outset Collection by Hilton ($406.72, 3 nights, Sat Feb 27 - Tue Mar 2, 2027), confirmation 3523360010. This lowers confirmed accommodations from $1,862.34 to $1,481.68 and leaves Mar 2-5, 2027 unbooked before the Mar 5 Philippine Airlines departure unless a later Chicago plan is added.",
+      "Asiana and American Airlines flights are marked paid: true and excluded from the all-in trip target hero number -- only the outstanding Philippine Airlines award taxes and confirmed hotel totals count as still-owed. All flights remain listed in the Airfare breakdown card for reference.",
+      "Sep 13, 2026 cost-reduction pass: removed Meta Ray-Ban glasses ($459), Bleu de Chanel ($173), the Amazon order block ($550.25), the Nov 7 tattoo appointment ($177), tattoo transit ($6), Best Buy Northgate fit-check logistics, and reduced Chicago pocket money from $350 to $300. Kept Calvin Klein and Hollister online purchases. Airfare remains tracked at $385.50 for Philippine Airlines award taxes.",
       "Aug 8, 2026 food/activity cost-reduction pass (traveler-requested to shrink the still-to-spend total): removed Poquitos Happy Hour (Nov 1, $35), Glo's Diner breakfast (Nov 2, $38), Sailing Seattle (Nov 2, $54), Luke's Lobster lunch (Nov 2, $26), FOB Sushi dinner (Nov 2, $25), Cafe Presse breakfast (Nov 3, $25), the Nov 3 evening Saint John's stop ($42), Analog Coffee + QFC train snacks (Nov 5, $18), the last Capitol Hill walk + coffee stop (Nov 5, $10), and Pretty Ugly Burger dinner (Nov 7, $63, replaced by Novel Book Bar covering both drinks and dinner). Portland Japanese Garden was also dropped from the route entirely (traveler does not want a paid-admission stop there). Net itinerary reduction: $336, moving the real projected total down to $2,666.27 against the unchanged $3,050 cap/ceiling.",
       "Aug 9, 2026 day-pass transit rework (ORCA Seattle + TriMet Portland): Converted per-leg transit fares to flat $6 day-pass charges -- first ORCA-system ride of each Seattle day costs $6, every other ORCA ride that same day costs $0; same rule applied to Portland TriMet first-ride $6 + subsequent $0 per day. Non-ORCA fares (Washington State Ferries, Amtrak, POINT NorthWest intercity bus) remain separate/unchanged. Days 8 and 9: Light hotel-area walk and final walk converted to transit type per traveler request.",
       "Aug 9, 2026 (FINAL) Day 2 itinerary rebuild, sourced from a traveler-supplied Google Maps route screenshot: the full Pike Place/waterfront/Sky View day was resequenced to match the screenshot's exact 21-stop order and per-leg travel times. Order: Pike Place sign/arcade -> Totem Smokehouse -> Piroshky Piroshky -> Original Starbucks -> Hellenika Cultured Creamery (NEW, $13 traveler-pegged) -> Beecher's Handmade Cheese -> Rachel's Ginger Beer -> Mee Sum Pastry -> Daily Dozen Doughnuts -> Ghost Alley Espresso -> Seattle Waterfront -> Overlook Walk -> Old Stove Brewing -> walk to Olympic Sculpture Park -> Olympic Sculpture Park -> Seattle Great Wheel (photo only) -> Harbor Steps -> Pike Place Market swings -> Uber Seattle Engineering Office (30-45 min visit) -> transit to Best Buy Northgate (Ray-Ban Meta glasses fit check) -> transit to Columbia Center Sky View Observatory (retimed to 4:35 PM to catch ~4:53 PM PST sunset) -> Sky View Cafe sunset cocktail -> transit back to Capitol Hill. This supersedes the two earlier same-day Day 2 reorder attempts (a verbal Pike Place-cluster-before-Best-Buy pass, and the gap-fill-block version referenced in the transit rework note above). MarketSpice browse ($8) was dropped -- not part of the authoritative screenshot route. Net Food category change: -$32.20 (removed MarketSpice $8, adjusted $24.20 for budget-alignment rounding) plus the new $13 Hellenika stop folded in. All prices are researched estimates or traveler-pegged pending on-site verification.",
@@ -69,16 +69,15 @@ window.TRIP_DATA = {
   budget: {
     cap: 3050,
     absoluteCeiling: 3050,
-    projectedTotal: 2727.44,
+    projectedTotal: 1494.66,
     categories: [
-      { name: "Transportation", amount: 147.20, note: "Seattle ORCA all-day pass ($6 first ride per day, $0 subsequent rides same day) and Portland TriMet/Hop all-day pass ($6 first ride per day, $0 subsequent rides same day) as the primary model for Nov 1-9 local transit, replacing per-leg fare pricing. Non-ORCA fares (Washington State Ferries Bainbridge round-trip $12, Amtrak Cascades SEA-PDX $48, POINT NorthWest Cannon Beach round-trip $40) are tracked separately and unchanged. Shonen Tattoo TriMet bus 33 round trip ($2.80 each way, $5.60 total) folded into Portland local transit no separate rideshare line. Day-pass model raises the net Transportation total slightly as first-of-day rides claim the $6 flat rate instead of lower per-ride fares. Multnomah Falls day trip and its Columbia Gorge Express fare removed entirely -- Day 8 is now a rest day, no Gorge transit." },
+      { name: "Transportation", amount: 141.20, note: "Seattle ORCA all-day pass ($6 first ride per day, $0 subsequent rides same day) and Portland TriMet/Hop all-day pass ($6 first ride per day, $0 subsequent rides same day) as the primary model for Nov 1-9 local transit, replacing per-leg fare pricing. Non-ORCA fares (Washington State Ferries Bainbridge round-trip $12, Amtrak Cascades SEA-PDX $48, POINT NorthWest Cannon Beach round-trip $40) are tracked separately and unchanged. Sep 13, 2026 update removed the Shonen Tattoo/Milwaukie transit and Best Buy Northgate fit-check routing. Multnomah Falls day trip and its Columbia Gorge Express fare remain removed entirely." },
       { name: "Food", amount: 364.69, note: "Meals, coffee, and snack totals for Nov 1-9, trimmed per the Aug 8, 2026 food-cost reduction pass: removed Glo's Diner breakfast ($38, Nov 2 -- Pike Place covers breakfast now), Luke's Lobster lunch ($26, Nov 2), FOB Sushi dinner ($25, Nov 2), Cafe Presse breakfast ($25, Nov 3 -- Bainbridge covers it), Analog Coffee + QFC train snacks ($18, Nov 5), and the last Capitol Hill walk + coffee stop ($10, Nov 5). Nov 6-9 unchanged: Cannon Beach lunch/coffee/cocktail $100, Day 7 coffee $31 + Saturday Market lunch $50, Cartopia brunch $50, Hotel Vance final breakfast $31. Added Aug 9 (traveler-supplied Google Maps route screenshot): Day 2 Pike Place/waterfront itinerary rebuilt to match the exact 21-stop route order, including Original Starbucks store (whole bean coffee bag $16 + Seattle-exclusive mug $20 + grande cold brew $5 = $41 total) and the new Hellenika Cultured Creamery stop ($13 traveler-pegged price). MarketSpice browse ($8) dropped -- not part of the authoritative screenshot route. Adjusted Aug 9 for budget alignment (reduced by $32.20 to match auto-calculated projectedTotal). Prices are researched estimates pending on-site receipt verification. Added Aug 15, 2026: Day 1 (Nov 1) evening H Mart International District grocery run for ready-to-heat food covering later Seattle-stay meals/breakfasts, +$19.89 ($18 subtotal + 10.5% WA sales tax). Added Aug 15, 2026 (Evening): H Mart cap raised to $30, and Day 2's Pike Place morning expanded with Mee Sum ($6.62), Tiny's Apple Cider ($9.93), Le Panier ($5.68), Molly Moon's (~$7 est.), and Day 3's new Gourmondo Café ($5.68) and Old Stove Brewing ($13, moved from Day 2) -- exact dollar deltas flow through the auto-reconciled Contingency category rather than being hand-tallied per category here." },
       { name: "Cocktails and social", amount: 182.96, note: "Saint John's Bar and Eatery, Salt & Straw, and Rachel's Ginger Beer corrected against actual receipts. Trimmed Aug 8, 2026: removed the Nov 3 evening Saint John's stop after Menya Musashi ramen ($42) and Pretty Ugly Burger dinner ($63, Nov 7 -- replaced by Novel Book Bar covering both drinks and dinner at $29). Poquitos Happy Hour ($35, Nov 1 removal) is tracked under Food, not here. Added Aug 9: (1) Columbia Center Sky View Cafe Nov 2 sunset visit — one cocktail (~$18) + BLT sandwich ($14) + 10.5% WA sales tax + 18% tip = ~$41.12 all-in, and (2) Old Stove Brewing, MarketFront, 1901 Western Ave Ste A (one beer, Elliott Bay view, $13 all-in with menu price + tax + tip) as part of the new Nov 2 Pike Place/waterfront gap-fill itinerary block. Prices include actual receipt data for Sky View, Old Stove set per traveler direction. Added Aug 15, 2026: Day 3 (Tue Nov 3) Palihotel happy hour at The Hart and the Hunter during the existing 2:40-6:00 PM hotel recharge block -- Tuesday's ALL NIGHT happy hour (3-9pm) covers 2 cocktails at $12 each + 10.5% WA sales tax + 18% tip = $30.84." },
       { name: "Entrance fees", amount: 52.50, note: "Paid attractions in the synced route (Cannon Beach free; Kraken removed). Sailing Seattle ($54) removed entirely from the Nov 2 itinerary per user request -- Columbia Center Sky View Observatory Elite Experience Adult ticket ($49 + $1 booking fee + $2.50 WA tax = $52.50) is the only remaining paid attraction (cafe food and cocktails at Sky View Cafe tracked separately under Cocktails and social). Multnomah Falls/Vista House removed from the route entirely, so its free-admission note no longer applies. Seattle Great Wheel (Pier 57) added to Nov 2 Pike Place/waterfront gap-fill as a photo-only stop with no entrance fee ($0 cost) per traveler request." },
-      { name: "Shopping", amount: 1547.32, note: "Everything to buy/keep in one place: coffee beans $60 (one Seattle bag, one Portland bag), souvenirs/keepsakes $137 (Totem Smokehouse salmon -- raised from $40 to $60 traveler-requested Aug 15, 2026 Evening, delta flows through Contingency -- QFC Truly Hard Seltzer 12-pack $20, city mugs, magnets, market browsing), Meta Ray-Ban glasses $459 (actual, itemized in tripCosts.plannedPurchases) + Bleu de Chanel perfume $173 (still planned), and confirmed online purchases $726.32 from Amazon $550.25 + Calvin Klein $76.65 + Hollister $91.42 (itemized in tripCosts.onlinePurchases)." },
-      { name: "Tattoo", amount: 177, note: "New category for the Nov 7 tattoo appointment (Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR, $150 + $27 tip), scheduled early on Day 7 so it has the rest of the trip to heal. Day 8 was restructured into a rest day around this. TriMet bus fare to/from Milwaukie is tracked under Transportation (folded into Portland local transit), not this number." },
-      { name: "Chicago pocket money", amount: 350, note: "General discretionary spending money for the Feb 27 - Mar 5, 2027 Chicago layover (Hotel Blake stay), separate from the confirmed hotel cost tracked under tripCosts.confirmed.accommodations." },
-      { name: "Contingency", amount: -43.50, note: "Rounding and reconciliation buffer between the hand-tracked category totals and the auto-computed projectedTotal from day/purchase calculations. The script auto-calculates projectedTotal from day totals and purchase items, so Contingency adjusts for the difference. Updated Aug 14, 2026 to reflect Palihotel hotel swap + itinerary optimization (removed Menya Musashi Day 3 $27, removed Analog Coffee Day 4 $4.50, net itinerary reduction $31.50). Cap/ceiling raised from $2,500 to $2,700 on Aug 8, 2026 (online purchases) and to $3,050 on Aug 8, 2026 (Chicago pocket money) to cover the real projectedTotal; see the top-level assumptions note." }
+      { name: "Shopping", amount: 365.07, note: "Everything still kept in the live shopping plan: coffee beans $60 (one Seattle bag, one Portland bag), souvenirs/keepsakes $137 (Totem Smokehouse salmon, Truly Hard Seltzer 12-pack, city mugs, magnets, market browsing), plus confirmed online purchases from Calvin Klein $76.65 and Hollister $91.42. Sep 13, 2026 removed Meta Ray-Ban glasses $459, Bleu de Chanel $173, and the Amazon $550.25 order block pending new pricing." },
+      { name: "Chicago pocket money", amount: 300, note: "General discretionary spending money for the Feb 27 - Mar 2, 2027 ACME Hotel Chicago stay, separate from the confirmed hotel cost tracked under tripCosts.confirmed.accommodations." },
+      { name: "Contingency", amount: 88.24, note: "Rounding and reconciliation buffer between the hand-tracked category totals and the auto-computed projectedTotal from day/purchase calculations. The script auto-calculates projectedTotal from day totals and purchase items, so Contingency adjusts for the difference. Sep 13, 2026 update reflects the removal of Best Buy/Ray-Ban, Bleu de Chanel, Amazon, tattoo, and the Chicago pocket-money reduction." }
     ]
   },
   tripCosts: {
@@ -112,8 +111,8 @@ window.TRIP_DATA = {
         ]
       },
       accommodations: {
-        total: 1862.34,
-        note: "Palihotel Seattle, Hotel Vance, and Hotel Blake (Chicago layover between the Feb 27 AA arrival and the Mar 5 Philippine Airlines departure) as the hotel source of truth for the executive summary.",
+        total: 1481.68,
+        note: "Palihotel Seattle, Hotel Vance, and ACME Hotel Chicago as the confirmed hotel source of truth for the executive summary. ACME currently covers Feb 27-Mar 2, 2027; Mar 2-5 remains unbooked unless a later Chicago plan is added.",
         items: [
           {
             name: "Palihotel Seattle",
@@ -136,48 +135,23 @@ window.TRIP_DATA = {
             url: "https://www.marriott.com/reservation/upcomingReservation.mi?confirmationNumber=94290711&tripId=94290711&propertyId=pdxtx"
           },
           {
-            name: "Hotel Blake, an Ascend Collection Hotel (Bluegreen Vacations)",
-            amount: 787.38,
-            confirmation: "39136450",
-            itinerary: "73459920188647",
+            name: "ACME Hotel Chicago, Outset Collection by Hilton",
+            amount: 406.72,
+            confirmation: "3523360010",
             city: "Chicago",
-            nights: 6,
-            covers: "Sat Feb 27, 2027, 3 PM check-in - Fri Mar 5, 2027, noon check-out, bridging the AA arrival into ORD and the Philippine Airlines direct ORD-MNL departure",
-            note: "2 adults, 1 room. Room rate $101.32/night (Feb 27-28) then $114.92/night (Mar 1-4) plus $125.06 taxes = $787.38 total, pay at property. Member Deal Tier 2 (15%) already applied, $116.88 saved off rack rate. Note: hotel checkout is noon Mar 5, and the Philippine Airlines PR 133 ORD-MNL departure that same day is 10:45 PM local -- well after checkout, so there is a full afternoon/evening gap between checkout and airport departure to plan for (bag storage or a day room may be worth considering)."
+            nights: 3,
+            address: "15 E Ohio Street, Chicago, IL 60611",
+            checkIn: "Sat, Feb 27, 2027, 3:00 PM",
+            checkOut: "Tue, Mar 2, 2027, 11:00 AM",
+            url: "https://www.hilton.com/en/book/reservation/manage/?arrival=2027-02-27&confirmationNumber=3523360010&lastName=Lim",
+            covers: "Sat Feb 27, 2027, 3 PM check-in - Tue Mar 2, 2027, 11 AM check-out, after the AA arrival into ORD",
+            note: "1 room for 2 adults, Standard King. Room charge $341.32 plus $65.40 taxes/government charges = $406.72 total. Free cancellation before 11:59 PM local hotel time on Feb 26, 2027. Self parking is $65/night if needed. Phone +1 312-894-0800. Mar 2-5 remains unbooked before the Mar 5 PR 133 departure unless a later Chicago plan is added."
           }
         ]
       }
     },
-    plannedPurchases: [
-      {
-        name: "Meta Ray-Ban glasses",
-        category: "Personal item / shopping",
-        amount: 459,
-        status: "purchased",
-        note: "Meta Ray-Ban Gen 2 Wayfarer in matte black. Actual Amazon purchase price ($459), replacing the earlier $490 planning estimate."
-      },
-      {
-        name: "BLEU DE CHANEL Eau de Parfum 3.4 oz",
-        category: "Personal item / shopping",
-        amount: 173,
-        status: "planned",
-        note: "Planned personal purchase to include in the true savings target."
-      }
-    ],
+    plannedPurchases: [],
     onlinePurchases: [
-      {
-        store: "Amazon",
-        total: 550.25,
-        note: "Amazon Purchases order block from the trip expense tracker (excludes the Meta Ray-Ban glasses, itemized in plannedPurchases above).",
-        items: [
-          { name: "U-100 1ml Syringe with Needle, 31G, Pack of 100", amount: 15.90, note: "Diabetic travel supply." },
-          { name: "MED PRIDE Sterile Alcohol Prep Pads, 200-Count", amount: 6.99, note: "Diabetic travel supply." },
-          { name: "suzamed Insulin Cooler Travel Case, TSA Approved", amount: 13.99, note: "Diabetic travel supply." },
-          { name: "Men's Cotton Sleeveless Tank Top", amount: 29.99, note: "Personal clothing purchase." },
-          { name: "Google Pixel 10a 128GB, Obsidian", amount: 424.00, note: "Personal electronics purchase." },
-          { name: "Coffee Mixes", amount: 59.38, note: "Separate from the $60 Seattle/Portland coffee-bean budget line." }
-        ]
-      },
       {
         store: "Calvin Klein",
         total: 76.65,
@@ -199,8 +173,8 @@ window.TRIP_DATA = {
       }
     ],
     chicagoPocketMoney: {
-      amount: 350,
-      note: "General discretionary spending money for the Chicago layover, Feb 27 - Mar 5, 2027 (Hotel Blake stay), separate from the hotel cost itself."
+      amount: 300,
+      note: "General discretionary spending money for the Chicago layover, Feb 27 - Mar 2, 2027 (ACME Hotel Chicago stay), separate from the hotel cost itself."
     }
   },
   transit: [
@@ -416,7 +390,7 @@ window.TRIP_DATA = {
       isoDate: "2026-11-02",
       date: "Mon, Nov 2",
       city: "Seattle",
-      title: "Pike Place Market early food crawl + Uber office + Best Buy Northgate fit check + Sky View",
+      title: "Pike Place Market early food crawl + Uber office + Sky View",
       theme: "Early Pike Place morning to beat the crowds, relaxed afternoon, sunset",
       dayTotal: 282.35,
       weatherPlan: "Most of the day is walkable from hotel. Rain backup: same route, just shorter stops.",
@@ -444,10 +418,9 @@ window.TRIP_DATA = {
         { label: "Afternoon", items: [
           { time: "1:05 PM", name: "Lunch stop (self-choose)", type: "meal", neighborhood: "Waterfront or Pike Place area", duration: "40 min", cost: 26.12, website: "https://marinationmakai.com/menus/", payment: "Cards accepted", safetyScore: 85, safetyNote: "\u{1F7E1} 85% · Generally safe -- busy tourist waterfront/market area", detailText: `Suggested default: Marination Ma Kai, Pier 54 waterfront (Hawaiian-Korean fusion, casual walk-up counter, harbor view seating).\nMenu: https://marinationmakai.com/menus/\nORDER: Kalbi short rib tacos or the Spam musubi plate.\nBackup if you'd rather stay in the market: Lowell's (Pike Place, 3rd floor, water-view dining room) -- fish and chips or a burger.\nEstimated cost: $26.12 (lunch with tax and tip).`, route: "https://www.google.com/maps/dir/Pike+Place+Market+Seattle/Marination+Ma+Kai+Seattle", mapFrom: "Pike Place Market, 85 Pike St, Seattle, WA 98101", mapTo: "Marination Ma Kai, Pier 54, Seattle, WA 98104" },
           { time: "1:45 PM", name: "Uber Seattle Engineering Office visit", type: "activity", neighborhood: "Downtown", location: "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101", duration: "45 min", cost: 0, payment: "N/A", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- downtown office corridor, daylight hours", notes: "Brief informal walk-through of the Uber Seattle Engineering Office, not a meeting -- short walk from Pike Place.", detailText: `Purpose: informal look around Uber's Seattle satellite engineering office -- not a scheduled meeting, max 45 min.\nEstimated cost: Free.`, route: "https://www.google.com/maps/dir/Marination+Ma+Kai+Seattle/1191+2nd+Ave+Seattle", mapFrom: "Marination Ma Kai, Pier 54, Seattle, WA 98104", mapTo: "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101" },
-          { time: "2:30 PM", name: "Transit to Best Buy Northgate", type: "transit", neighborhood: "Downtown -> Northgate", duration: "25 min", cost: 0, notes: "Link light rail to Northgate (confirmed ~14 min ride) plus walk/wait time to and from the station.", route: "https://www.google.com/maps/dir/1191+2nd+Ave+Seattle/Best+Buy+Northgate+Seattle", mapFrom: "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101", mapTo: "Best Buy Northgate, Seattle, WA 98125" },
-          { time: "2:55 PM", name: "Best Buy Northgate - Ray-Ban Meta glasses fit check", type: "shopping", neighborhood: "Northgate", location: "Best Buy Northgate", duration: "60 min", cost: 0, website: "https://www.meta.com/demo/scheduler/best-buy/", safetyScore: 85, safetyNote: "\u{1F7E2} 85% · Generally safe -- retail shopping center, daylight hours", notes: "Confirm Ray-Ban Meta frame fit in person, then order through Amazon for Hotel Vance Portland delivery if the fit works. Dwell time extended to up to 60 min -- no longer squeezed against the sunset hard stop now that the waterfront loop moved to Day 3.", detailText: `Purpose: in-person frame fit check for Ray-Ban Meta glasses before ordering online for Portland delivery.\nEstimated cost: Free (fit check only, purchase happens via Amazon).`, route: "https://www.google.com/maps/dir/Uber+Seattle+Engineering+Office/Best+Buy+Northgate+Seattle", mapFrom: "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101", mapTo: "Best Buy Northgate, 401 NE Northgate Way, Seattle, WA 98125" },
-          { time: "3:55 PM", name: "Transit back to Downtown for Sky View", type: "transit", neighborhood: "Northgate -> Downtown", duration: "25 min", cost: 0, notes: "Link light rail back downtown (confirmed ~14 min ride) plus walk/wait time, timed to land at Sky View by 4:55 PM with real buffer.", route: "https://www.google.com/maps/dir/Best+Buy+Northgate+Seattle/Columbia+Center+Sky+View+Observatory+Seattle", mapFrom: "Best Buy Northgate, Seattle, WA 98125", mapTo: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104" },
-          { time: "4:55 PM", name: "Columbia Center Sky View Observatory - Elite Experience ticket", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "60 min", cost: 52.50, website: "https://skyviewobservatory.com/tickets/", payment: "Cards accepted", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- secure indoor attraction", detailText: `Trivia: Sky View Observatory sits on the 73rd floor of Columbia Center, the tallest building in Washington State -- the highest public viewpoint in the city.\nSeattle skyline views from the observation deck at dusk.\nTickets: Elite Experience Adult $49 + booking fee $1 + tax $2.50 = $52.50.`, route: "https://www.google.com/maps/dir/Best+Buy+Northgate+Seattle/Columbia+Center+Sky+View+Observatory", mapFrom: "Best Buy Northgate, 401 NE Northgate Way, Seattle, WA 98125", mapTo: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104" },
+          { time: "2:30 PM", name: "Hotel reset before Sky View", type: "rest", neighborhood: "Palihotel base", duration: "115 min", cost: 0, notes: "Best Buy Northgate fit check removed Sep 13, 2026. Use this as an open buffer before the hard sunset-view appointment." },
+          { time: "4:25 PM", name: "Walk to Columbia Center Sky View", type: "walk", neighborhood: "Downtown", duration: "30 min", cost: 0, notes: "Leave Palihotel with a relaxed buffer and arrive at Sky View by 4:55 PM.", route: "https://www.google.com/maps/dir/Palihotel+Seattle/Columbia+Center+Sky+View+Observatory+Seattle", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104" },
+          { time: "4:55 PM", name: "Columbia Center Sky View Observatory - Elite Experience ticket", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "60 min", cost: 52.50, website: "https://skyviewobservatory.com/tickets/", payment: "Cards accepted", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- secure indoor attraction", detailText: `Trivia: Sky View Observatory sits on the 73rd floor of Columbia Center, the tallest building in Washington State -- the highest public viewpoint in the city.\nSeattle skyline views from the observation deck at dusk.\nTickets: Elite Experience Adult $49 + booking fee $1 + tax $2.50 = $52.50.`, route: "https://www.google.com/maps/dir/Palihotel+Seattle/Columbia+Center+Sky+View+Observatory", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104" },
           { time: "5:55 PM", name: "Sky View Cafe - sunset cocktail", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory Cafe, 700 4th Ave", duration: "30 min", cost: 0, website: "https://skyviewobservatory.com/sky-view-cafe-bar-menu/", payment: "Cards accepted", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- secure indoor attraction", notes: "Included in the Sky View admission. Enjoy the dusk lights from the deck.", detailText: `Menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nIncluded in the Sky View admission -- no separate cost.`, route: "https://www.google.com/maps/dir/Columbia+Center+Sky+View+Observatory/Sky+View+Observatory+Cafe", mapFrom: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104", mapTo: "Sky View Observatory Cafe, 700 4th Ave, Seattle, WA 98104" }
         ]},
         { label: "Evening", items: [
@@ -544,7 +517,7 @@ window.TRIP_DATA = {
         { label: "Afternoon", items: [
           { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 48, notes: "Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class." },
           { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "35 min", cost: 6, notes: "First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge." },
-          { time: "4:20 PM", name: "Check in, reset, and Amazon package check", type: "rest", neighborhood: "Hotel Vance Portland", duration: "100 min", cost: 0, notes: "Ask the front desk whether the incoming Ray-Ban Meta package has arrived and is being held." }
+          { time: "4:20 PM", name: "Check in and reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "100 min", cost: 0, notes: "Settle into Hotel Vance after the Seattle-to-Portland transfer." }
         ]},
         { label: "Evening", items: [
           { time: "6:00 PM", name: "Easy downtown orientation walk", type: "walk", neighborhood: "Downtown Portland", duration: "30 min", cost: 0 },
@@ -588,23 +561,21 @@ window.TRIP_DATA = {
       isoDate: "2026-11-07",
       date: "Sat, Nov 7",
       city: "Portland",
-      title: "Tattoo + Portland Saturday Market + local food",
-      theme: "Coffee, tattoo appointment, market, and a full Portland night out",
-      dayTotal: 425.20,
-      weatherPlan: "Tattoo is indoors; Saturday Market is outdoor but covered. Keep the afternoon light so the new tattoo can rest and wrap.",
+      title: "Portland Saturday Market + local food",
+      theme: "Coffee, market, Sephora browse, and a Portland book-bar night",
+      dayTotal: 110,
+      weatherPlan: "Saturday Market is outdoor but covered. Keep the afternoon flexible and low-pressure.",
       segments: [
         { label: "Morning", items: [
           { time: "7:45 AM", name: "Wake + prep", type: "rest", neighborhood: "Hotel Vance Portland", duration: "40 min", cost: 0 },
-          { time: "8:05 AM", name: "Stumptown coffee + coffee bean buy", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "30 min", cost: 31, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop before the tattoo appointment. Shortened slightly to leave enough time for the real Milwaukie commute below.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Guatemala El Injerto Bourbon whole-bean bag ($25) plus a 16oz Original Cold Brew ($6).\nEstimated cost: $31.` },
-          { time: "8:35 AM", name: "Transit to Shonen Tattoo (Milwaukie) via TriMet Bus 33", type: "transit", neighborhood: "Downtown Portland -> Milwaukie, OR", duration: "50 min", cost: 6, notes: "TriMet bus 33 (McLoughlin) from Downtown Portland to 17052 McLoughlin Blvd, Milwaukie, OR. First TriMet-system ride of Day 7 -- flat $6 day-pass charge.", detailText: `Shonen Tattoo is in Milwaukie, OR, not downtown -- budget real time to get there.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nPlan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $6 (TriMet day-pass, first ride of the day).\nEstimated cost: $6.` }
+          { time: "8:05 AM", name: "Stumptown coffee + coffee bean buy", type: "coffee", neighborhood: "Downtown Portland", location: "Stumptown Coffee Roasters, 1026 SW Stark St", duration: "30 min", cost: 31, website: "https://www.stumptowncoffee.com/", payment: "Cards accepted", detailText: `Portland flagship coffee stop before the Saturday Market day.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Guatemala El Injerto Bourbon whole-bean bag ($25) plus a 16oz Original Cold Brew ($6).\nEstimated cost: $31.` },
+          { time: "8:35 AM", name: "Slow morning reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "115 min", cost: 0, notes: "Tattoo appointment removed Sep 13, 2026. Keep the morning open before Saturday Market." }
         ]},
         { label: "Afternoon", items: [
-          { time: "9:25 AM", name: "Tattoo appointment", type: "activity", neighborhood: "Milwaukie, OR", location: "Shonen Tattoo, 17052 McLoughlin Blvd, Milwaukie, OR", duration: "90 min", cost: 177, website: "https://www.instagram.com/shonen_tattoo/", payment: "Not confirmed -- no shop-specific payment info found; tattoo shops often prefer cash to avoid card fees, call ahead to confirm", detailText: `Tattoo appointment, scheduled early in the day so it has the rest of the trip to rest and wrap.\nAddress: 17052 McLoughlin Blvd, Milwaukie, OR.\nInstagram: https://www.instagram.com/shonen_tattoo/\nEstimated cost: $150 + $27 tip = $177 (bus fare to/from is tracked separately under Transportation, folded into Portland local transit).\nAftercare: Keep the rest of the day light -- no heavy activity or hiking while it heals.` },
-          { time: "10:55 AM", name: "Transit back to Downtown Portland via TriMet Bus 33", type: "transit", neighborhood: "Milwaukie, OR -> Downtown Portland", duration: "50 min", cost: 0, notes: "Return TriMet bus 33 (McLoughlin) from Shonen Tattoo to Downtown Portland. Cost $0 -- covered by the day's $6 TriMet pass.", detailText: `Return leg from Milwaukie back to Downtown Portland ahead of the Saturday Market.\nPlan: TriMet bus 33 (McLoughlin), about 50 min. Cost: $0 (covered by day pass).\nEstimated cost: $0.` },
-          { time: "11:45 AM", name: "Transit to Portland Saturday Market", type: "transit", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0, notes: "Short MAX/streetcar transit hop to the waterfront market. Cost $0 -- covered by the day's $6 TriMet pass." },
-          { time: "12:15 PM", name: "Portland Saturday Market browse + lunch", type: "activity", neighborhood: "Waterfront", location: "2 SW Naito Pkwy", duration: "120 min", cost: 50, website: "https://www.portlandsaturdaymarket.com/food-vendors-and-partners", payment: "Many vendors prefer cash; some accept cards", detailText: `Waterfront artisan market block with lunch from the food vendors.\nWebsite: https://www.portlandsaturdaymarket.com/food-vendors-and-partners\nPurpose: Shop local makers and graze market food vendors for lunch instead of a sit-down meal.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $50 covering lunch and market browsing.` },
-          { time: "2:15 PM", name: "Sephora Portland Downtown browse", type: "shopping", neighborhood: "Downtown Portland", location: "Sephora Portland Downtown", duration: "30 min", cost: 0, notes: "Perfume browse stop (Bleu de Chanel) -- tracked separately as a personal purchase, not part of the trip budget." },
-          { time: "2:45 PM", name: "Hotel Vance reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "135 min", cost: 0, notes: "Keep the afternoon light for tattoo aftercare." }
+          { time: "10:30 AM", name: "Walk/transit to Portland Saturday Market", type: "transit", neighborhood: "Downtown -> Waterfront", duration: "30 min", cost: 0, notes: "Short walk, MAX, or streetcar hop to the waterfront market. Cost left at $0 because no day-pass transit is otherwise needed." },
+          { time: "11:00 AM", name: "Portland Saturday Market browse + lunch", type: "activity", neighborhood: "Waterfront", location: "2 SW Naito Pkwy", duration: "120 min", cost: 50, website: "https://www.portlandsaturdaymarket.com/food-vendors-and-partners", payment: "Many vendors prefer cash; some accept cards", detailText: `Waterfront artisan market block with lunch from the food vendors.\nWebsite: https://www.portlandsaturdaymarket.com/food-vendors-and-partners\nPurpose: Shop local makers and graze market food vendors for lunch instead of a sit-down meal.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $50 covering lunch and market browsing.` },
+          { time: "1:15 PM", name: "Sephora Portland Downtown browse", type: "shopping", neighborhood: "Downtown Portland", location: "Sephora Portland Downtown", duration: "30 min", cost: 0, notes: "Optional perfume browse only. Bleu de Chanel purchase removed Sep 13, 2026; add a new purchase later only if you decide to buy." },
+          { time: "1:45 PM", name: "Hotel Vance reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "195 min", cost: 0, notes: "Keep the afternoon open before Novel Book Bar." }
         ]},
         { label: "Evening", items: [
           { time: "5:00 PM", name: "Novel Book Bar dinner + cocktail + browse", type: "activity", neighborhood: "NW Everett / Pearl edge", location: "Novel Book Bar, Portland", duration: "90 min", cost: 29, website: "https://www.novelmaine.com/menu", payment: "Cards accepted", detailText: `Books, food, and cocktails close to the hotel base. Pretty Ugly Burger dinner removed -- dinner happens here instead so there's no duplicate meal.\nMenu: https://www.novelmaine.com/menu\nOrder: Partly Cloudy ($10) and Carajillo ($14), plus a light food item from the menu (burger $7 / salad $10 / salmon $15) to cover dinner.\nEstimated cost: $10 + $14 + $4.50 tip = $29 (add ~$8-15 more if ordering a full food item; kept at $29 baseline).` },
@@ -617,13 +588,13 @@ window.TRIP_DATA = {
       isoDate: "2026-11-08",
       date: "Sun, Nov 8",
       city: "Portland",
-      title: "Tattoo rest day + Cartopia food carts",
-      theme: "Light day: let the new tattoo rest and wrap, brunch-time Cartopia, easy transit only",
+      title: "Rest day + Cartopia food carts",
+      theme: "Light day: brunch-time Cartopia and easy transit only",
       dayTotal: 59,
-      weatherPlan: "Indoor-friendly, low-effort day by design -- no hiking or long outdoor exposure while the tattoo heals.",
+      weatherPlan: "Indoor-friendly, low-effort day by design -- no hiking or long outdoor exposure needed.",
       segments: [
         { label: "Morning", items: [
-          { time: "9:00 AM", name: "Sleep in + tattoo aftercare check", type: "rest", neighborhood: "Hotel Vance Portland", duration: "90 min", cost: 0, notes: "No heavy activity today -- letting yesterday's tattoo rest and wrap." },
+          { time: "9:00 AM", name: "Sleep in + slow morning", type: "rest", neighborhood: "Hotel Vance Portland", duration: "90 min", cost: 0, notes: "No heavy activity today -- keep it light and easy." },
           { time: "10:30 AM", name: "Light hotel-area transit loop", type: "transit", neighborhood: "Downtown Portland", duration: "25 min", cost: 0, notes: "Easy short MAX/bus loop, nothing strenuous. Cost $0 -- covered by the day's $6 TriMet pass." }
         ]},
         { label: "Daytime", items: [
@@ -678,9 +649,6 @@ window.TRIP_DATA = {
       }
     ],
     reservations: [
-      { name: "Best Buy Northgate Ray-Ban Meta fit check", status: "ACTIVE DAY-2 LOGISTICS STOP", note: "Aug 14, 2026 sequencing audit (revised): traveler confirmed the in-person fit check is required, not optional. Re-sequenced Day 2 afternoon -- lunch trimmed to 40 min, Uber office visit moved to 3:05 PM, then a real 25-min Link light rail leg each way to/from Northgate (confirmed ~14 min ride + walk/wait) bracketing the 20-min Best Buy stop -- so Sky View Observatory now starts at 4:55 PM, inside the traveler's required 4:45-5:00 PM arrival window.", link: "https://www.meta.com/demo/scheduler/best-buy/" },
-      { name: "Hotel Vance Portland - Amazon package delivery confirmation", status: "CALL BEFORE ORDERING", note: "Call hotel concierge to confirm Amazon guest package delivery policy before ordering Meta glasses for hotel arrival.", link: "https://www.hotelvance.com/" },
-      { name: "Portland Japanese Garden", status: "Optional -- not in the active itinerary or budget", note: "Admission is $19.95 adult (verify current rate at japanesegarden.org before adding). No cost is shown because this stop was intentionally skipped in favor of Powell's and other indoor activities -- it is not counted anywhere in the trip budget. Timed tickets recommended up to 10 days ahead if you decide to add it back in.", link: "https://japanesegarden.org/hours-admission/" },
       { name: "Poquitos Capitol Hill", status: "Recommended", note: "Reserve only if you want certainty after arrival; otherwise use Ocho Hour as a flexible walk-in dinner.", link: "https://www.vivapoquitos.com/" }
     ],
     photoOps: [
@@ -716,8 +684,8 @@ window.TRIP_DATA = {
     ],
     rainyDay: [
       "Seattle: Pike Place Market, Seattle Art Museum, Amazon Spheres exterior/photo stop, coffee crawl near Capitol Hill.",
-      "Seattle: Replace Bainbridge with UW libraries, Japanese Garden only if light rain, Madrona Arms early evening instead of the island block.",
-      "Portland: Powell's, Made Here, Hotel Vance/Pearl District coffee blocks, Japanese Garden in light rain, indoor food carts/beer garden."
+      "Seattle: Replace Bainbridge with UW libraries or a Capitol Hill coffee crawl if weather makes the island block feel too exposed.",
+      "Portland: Powell's, Made Here, Hotel Vance/Pearl District coffee blocks, and indoor food carts/beer garden."
     ],
     packing: [
       "Waterproof shell with hood, not just an umbrella.",
@@ -810,7 +778,6 @@ window.TRIP_DATA = {
     { label: "Anchorhead 10 oz bag pricing", url: "https://anchorheadcoffee.com/products/narwhal-blend" },
     { label: "Olympia Coffee Columbia City", url: "https://www.olympiacoffee.com/pages/columbia-city" },
     { label: "Olympia Sweetheart pricing", url: "https://www.olympiacoffee.com/products/sweetheart" },
-    { label: "Portland Japanese Garden hours/admission", url: "https://japanesegarden.org/hours-admission/" },
     { label: "Fuller's Coffee Shop", url: "https://fullerscoffeeshop.com/" },
     { label: "Powell's / Travel Portland", url: "https://www.travelportland.com/attractions/powells/" },
     { label: "Portland Saturday Market / Travel Portland", url: "https://www.travelportland.com/event/6839b028f06e831a6c74666e/" },
