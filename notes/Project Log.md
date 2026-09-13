@@ -3247,6 +3247,22 @@ Remaining blocker:
 - The repo is now cleaner to publish, easier to hand off, and less likely to carry stale operating guidance into the next session.
 
 ---
+## 2026-09-13 (arrival flight retime: EMR56H -> KE047)
+
+### COMPLETE: Updated arrival flight routing, shifted Day 1 timing, regenerated exports, and patched the live Seattle & Portland 2026 calendar
+
+**What changed:**
+- `data/trip-data.js`: updated booking reference EMR56H so the arrival routing is now OZ702 MNL->ICN (11:45 AM-4:25 PM, A330-300, Economy V) plus Korean Air KE047 ICN->SEA (9:20 PM-2:10 PM, B787-9, Economy Q), replacing the old OZ272 second leg.
+- Day 1 Seattle arrival chain shifted from the old 1:55 PM landing to the new 2:10 PM landing: SEA buffer, Link, Palihotel check-in, H Mart, Target, dinner, and Waterfront Park now flow without overlaps.
+- Regenerated `data/google-calendar-events-nov1-9-2026.json` and `data/google-calendar-import-nov1-9-2026.csv`.
+- Live Google Calendar `Seattle & Portland 2026` updated in place: OZ702, Incheon layover, KE047, and the affected Day 1 Seattle arrival/evening events were patched rather than duplicated.
+
+**Verification:**
+- `npm run validate` passes.
+- Budget audit reports projected local spend `$2,202.91` against the `$3,050` ceiling, `$847.09` remaining.
+- Calendar verification search confirms KE047/EMR56H and the updated 2:10 PM Seattle arrival chain are present.
+
+---
 ## 2026-08-15 (session 48: H Mart budget cap + Day 2 early-start rebuild + Day 2/Day 3 waterfront split)
 
 ### COMPLETE: H Mart cap raised to $30; Day 2 rebuilt for a 5:30 AM early start with an expanded Pike Place crawl; waterfront loop (Harbor Steps, Great Wheel, Pier 62, Olympic Sculpture Park, Sirens of Spring, Old Stove Brewing, Gourmondo Café) moved to Day 3 after a timing audit found the original single-day plan missed the 4:55 PM Sky View sunset hard stop

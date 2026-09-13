@@ -2,82 +2,82 @@
   {
     "tag": "SEAPDX-2026-day-1-01",
     "title": "🚇 Seattle Day 1 · Arrive SEA -- passport control, baggage claim, transfer to Link",
-    "start": "2026-11-01T13:55:00-08:00",
-    "end": "2026-11-01T14:40:00-08:00",
+    "start": "2026-11-01T14:10:00-08:00",
+    "end": "2026-11-01T14:55:00-08:00",
     "location": "SEA Airport",
-    "description": "Arrival transition block after landing in Seattle on Asiana OZ272 (ICN-SEA), confirmation EMR56H.\nPurpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Land 1:55 PM, leave the secure area by about 2:40 PM.\nEstimated cost: $6.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-passport-control-ba"
+    "description": "Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA), booking reference EMR56H.\nPurpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Land 2:10 PM, leave the secure area by about 2:55 PM.\nEstimated cost: $6.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-0-arrive-sea-passport-control-ba"
   },
   {
     "tag": "SEAPDX-2026-day-1-02",
     "title": "🚇 Seattle Day 1 · Link light rail to Downtown Seattle",
-    "start": "2026-11-01T14:40:00-08:00",
-    "end": "2026-11-01T15:25:00-08:00",
+    "start": "2026-11-01T14:55:00-08:00",
+    "end": "2026-11-01T15:40:00-08:00",
     "location": "SEA -> Downtown",
     "description": "Link ride from SEA into Downtown Seattle.\nWhat to expect: Easy no-drama airport transfer -- settle in, hydrate, let the arrival day stay simple.\nCost note: Fare already counted in the previous airport-transfer stop.\nDuration: 45 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-1-link-light-rail-to-downtown-se"
   },
   {
     "tag": "SEAPDX-2026-day-1-03",
     "title": "🚶 Seattle Day 1 · Walk to Palihotel Seattle",
-    "start": "2026-11-01T15:25:00-08:00",
-    "end": "2026-11-01T15:30:00-08:00",
+    "start": "2026-11-01T15:40:00-08:00",
+    "end": "2026-11-01T15:50:00-08:00",
     "location": "Downtown",
-    "description": "Short station-to-hotel walk.\nWhat to expect: Palihotel is right in the heart of downtown near Pike Place, so this walk is very manageable even jet-lagged.\nEstimated arrival: 3:30-3:45 PM window.\nDuration: 10 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-palihotel-seattle"
+    "description": "Short station-to-hotel walk.\nWhat to expect: Palihotel is right in the heart of downtown near Pike Place, so this walk is very manageable even jet-lagged.\nEstimated arrival: around 3:50 PM.\nDuration: 10 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-palihotel-seattle"
   },
   {
     "tag": "SEAPDX-2026-day-1-04",
     "title": "📍 Seattle Day 1 · Palihotel Seattle check-in",
-    "start": "2026-11-01T15:30:00-08:00",
-    "end": "2026-11-01T16:30:00-08:00",
+    "start": "2026-11-01T15:50:00-08:00",
+    "end": "2026-11-01T16:50:00-08:00",
     "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-    "description": "Trivia: Palihotel Seattle is a boutique hotel in the Palisociety group, set right in the heart of downtown Seattle a few blocks from Pike Place Market -- known for a design-forward, mid-century-leaning look distinct from typical big-chain downtown hotels.\nLocation: 107 Pine St, Seattle, WA 98101 -- steps from Pike Place, 2nd Ave shopping, and the Link tunnel stations.\nReservation: Confirmation #2434SG190857, itinerary #73521738329875, Deluxe Room 1 Queen Bed, 2 adults, total $662.00 (already paid). Official check-in is 3:00 PM so early arrival around 3:30-3:45 PM should be right at or just after check-in opens.\nSafety note: Downtown core / Pike Place blocks report a 15% year-over-year drop in violent crime through 2025 and are described as busy and well-policed during the day (Downtown Seattle Association reporting via KOMO News, Aug 2025). Standard city awareness is enough for a mid-afternoon hotel check-in.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.palihotel.com/hotels/palihotel-seattle/\nPayment: Prepaid -- $662.00 total, already charged\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-3-palihotel-seattle-check-in"
+    "description": "Trivia: Palihotel Seattle is a boutique hotel in the Palisociety group, set right in the heart of downtown Seattle a few blocks from Pike Place Market -- known for a design-forward, mid-century-leaning look distinct from typical big-chain downtown hotels.\nLocation: 107 Pine St, Seattle, WA 98101 -- steps from Pike Place, 2nd Ave shopping, and the Link tunnel stations.\nReservation: Confirmation #2434SG190857, itinerary #73521738329875, Deluxe Room 1 Queen Bed, 2 adults, total $662.00 (already paid). Official check-in is 3:00 PM so arrival around 3:50 PM should be after check-in opens.\nSafety note: Downtown core / Pike Place blocks report a 15% year-over-year drop in violent crime through 2025 and are described as busy and well-policed during the day (Downtown Seattle Association reporting via KOMO News, Aug 2025). Standard city awareness is enough for a mid-afternoon hotel check-in.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.palihotel.com/hotels/palihotel-seattle/\nPayment: Prepaid -- $662.00 total, already charged\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-3-palihotel-seattle-check-in"
   },
   {
     "tag": "SEAPDX-2026-day-1-05",
     "title": "🛍️ Seattle Day 1 · H Mart Downtown Seattle -- grocery run",
-    "start": "2026-11-01T16:30:00-08:00",
-    "end": "2026-11-01T16:50:00-08:00",
+    "start": "2026-11-01T16:50:00-08:00",
+    "end": "2026-11-01T17:10:00-08:00",
     "location": "H Mart, 1601 2nd Ave, Seattle, WA 98101",
-    "description": "Trivia: H Mart (\"Han Ah Reum,\" Korean for \"one arm full of groceries\") is the largest Korean-American grocery chain in the US, known for fresh produce, a huge banchan/ready-to-heat section, and an in-store food court in some locations -- this downtown Seattle location is grocery-focused.\nWhy this stop: Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) to bring back to Palihotel as tonight's dinner, since Pike Place Chowder's ~4:30 PM close makes it unreachable on this timeline.\nORDER: A mix of ready-to-heat meals, snacks, and drinks (see reference photo).\nBudget: capped at $30 -- traveler-requested headroom, not a target. You likely won't spend the full amount, but the ready-to-heat spread can run up quickly.\nSafety note: Late-afternoon (~4:30-5:00 PM) on the 2nd Ave retail corridor is described in local reporting as one of the cleaner downtown stretches compared to the 3rd Ave corridor a block over, which is documented as the area with the most visible street-drug activity in the central city (KOMO News, Aug 2025). Standard awareness recommended; this stop is during busy daylight retail hours.\nLocation: H Mart, 1601 2nd Ave, Seattle, WA 98101\nWebsite: https://www.hmart.com/\nPayment: Cards/Apple Pay only -- H Mart does not accept cash\nEstimated cost: $30.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-4-h-mart-downtown-seattle-grocer"
+    "description": "Trivia: H Mart (\"Han Ah Reum,\" Korean for \"one arm full of groceries\") is the largest Korean-American grocery chain in the US, known for fresh produce, a huge banchan/ready-to-heat section, and an in-store food court in some locations -- this downtown Seattle location is grocery-focused.\nWhy this stop: Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) to bring back to Palihotel as tonight's dinner, since Pike Place Chowder's ~4:30 PM close makes it unreachable on this timeline.\nORDER: A mix of ready-to-heat meals, snacks, and drinks (see reference photo).\nBudget: capped at $30 -- traveler-requested headroom, not a target. You likely won't spend the full amount, but the ready-to-heat spread can run up quickly.\nSafety note: Late-afternoon (~4:50-5:10 PM) on the 2nd Ave retail corridor is described in local reporting as one of the cleaner downtown stretches compared to the 3rd Ave corridor a block over, which is documented as the area with the most visible street-drug activity in the central city (KOMO News, Aug 2025). Standard awareness recommended; this stop is during busy daylight retail hours.\nLocation: H Mart, 1601 2nd Ave, Seattle, WA 98101\nWebsite: https://www.hmart.com/\nPayment: Cards/Apple Pay only -- H Mart does not accept cash\nEstimated cost: $30.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-4-h-mart-downtown-seattle-grocer"
   },
   {
     "tag": "SEAPDX-2026-day-1-06",
     "title": "🚶 Seattle Day 1 · Walk back to Palihotel to drop off food",
-    "start": "2026-11-01T16:50:00-08:00",
-    "end": "2026-11-01T17:00:00-08:00",
+    "start": "2026-11-01T17:10:00-08:00",
+    "end": "2026-11-01T17:20:00-08:00",
     "location": "Downtown",
     "description": "Purpose: Drop the H Mart food in the room fridge/microwave setup so it's ready as dinner around 5-6 PM.\nDuration: 10 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-5-walk-back-to-palihotel-to-drop"
   },
   {
     "tag": "SEAPDX-2026-day-1-07",
     "title": "🛍️ Seattle Day 1 · Target Downtown Seattle (Pike Plaza) -- pickup order",
-    "start": "2026-11-01T17:00:00-08:00",
-    "end": "2026-11-01T17:25:00-08:00",
+    "start": "2026-11-01T17:20:00-08:00",
+    "end": "2026-11-01T17:45:00-08:00",
     "location": "Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)",
     "description": "Order Pickup at Seattle Pike Plaza -- 2 items:\n- Zantac 360 Maximum Strength Heartburn Prevention and Relief Tablets, Famotidine, 25ct -- $10.89\n- Truly Unruly Variety Pack, 12pk/12 fl oz cans -- $18.99\nEstimated total (incl. WA sales tax): $34.36.\nSafety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.\nLocation: Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)\nWebsite: https://www.target.com/\nPayment: Cards accepted\nEstimated cost: $34.36.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-1-0-target-downtown-seattle-pike-p"
   },
   {
     "tag": "SEAPDX-2026-day-1-08",
     "title": "🚶 Seattle Day 1 · Walk to Pike Place Bar & Grill",
-    "start": "2026-11-01T17:25:00-08:00",
-    "end": "2026-11-01T17:40:00-08:00",
+    "start": "2026-11-01T17:45:00-08:00",
+    "end": "2026-11-01T18:00:00-08:00",
     "location": "Downtown / Pike Place",
     "description": "Purpose: Short walk from Target to Pike Place Bar & Grill.\nDuration: 10 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-1-1-walk-to-pike-place-bar-grill"
   },
   {
     "tag": "SEAPDX-2026-day-1-09",
     "title": "🍽️ Seattle Day 1 · Dinner at Pike Place Bar & Grill",
-    "start": "2026-11-01T17:40:00-08:00",
-    "end": "2026-11-01T18:40:00-08:00",
+    "start": "2026-11-01T18:00:00-08:00",
+    "end": "2026-11-01T19:00:00-08:00",
     "location": "Pike Place Bar & Grill",
     "description": "Menu: https://www.eatatpikeplace.com/happy-hour\nORDER:\n- Grilled Chicken Burger (tomato, lettuce, creamy horseradish, sourdough) -- $14.95\n- Prickly-Pear Margarita (Cuervo Gold, triple sec, prickly-pear cactus puree, fresh lime sour, salt rim, on the rocks) -- $10.00\n- Fresca (Absolut Citron, muddled citrus, soda water, splash grapefruit juice) -- $10.00\nSubtotal: $34.95. Plus 10.35% WA/Seattle sales tax ($3.62) and 18% tip on the subtotal ($6.29) = est. total $44.86.\nSafety note: Pike Place itself is described as busy and well-policed daily (KOMO News, Aug 2025); early-evening dinner hour here is a core tourist area with heavy foot traffic.\nLocation: Pike Place Bar & Grill\nPayment: Cards accepted\nEstimated cost: $44.86.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-1-2-dinner-at-pike-place-bar-grill"
   },
   {
     "tag": "SEAPDX-2026-day-1-10",
     "title": "🎟️ Seattle Day 1 · Waterfront Park",
-    "start": "2026-11-01T18:40:00-08:00",
+    "start": "2026-11-01T19:00:00-08:00",
     "end": "2026-11-01T19:40:00-08:00",
     "location": "Waterfront Park (Pier 62/Pier 58 area)",
-    "description": "Trivia: Seattle's new Waterfront Park is the centerpiece of the ~$1.2B Waterfront Seattle redevelopment -- a ~20-acre string of public spaces from Pier 57 to Pier 62, including the Seattle Aquarium and Pier 62's floating dock and lawn (ASCE, Jan 2026).\nIMPORTANT -- posted hours: Pier 62 / Waterfront Park is posted open daily 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org). Arriving right at 10 PM means the park will likely already be closing or closed -- go earlier in the evening (e.g. right after dinner, ~6:30-7:30 PM) to actually have time there before it shuts.\nSafety note (sourced, not a live feed): Seattle Parks & Rec's 2026 \"Summer of Safety\" initiative specifically calls out increased staffing/security, clearer signage, and lighting/sight-line improvements at high-use parks including the waterfront (Seattle Parks, May 2026); Seattle Center also states the park's operations prioritize clear sight lines and lighting as safety measures. No source found with a specific crime count or homelessness figure for Waterfront Park at night as of this writing -- that gap is stated here rather than guessed at. General downtown-Seattle guidance from multiple 2026 visitor-safety writeups: core tourist areas including the waterfront feel safe during the day and evening hours when busy; visible homelessness/drug activity downtown is common and generally not dangerous, but isolated/empty stretches after dark warrant normal city caution. Given the 10 PM close, plan to be there earlier while it's still lit, staffed, and populated rather than right at closing.\nLocation: Waterfront Park (Pier 62/Pier 58 area)\nPayment: Free walk-in\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-1-3-waterfront-park"
+    "description": "Trivia: Seattle's new Waterfront Park is the centerpiece of the ~$1.2B Waterfront Seattle redevelopment -- a ~20-acre string of public spaces from Pier 57 to Pier 62, including the Seattle Aquarium and Pier 62's floating dock and lawn (ASCE, Jan 2026).\nIMPORTANT -- posted hours: Pier 62 / Waterfront Park is posted open daily 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org). Arriving right at 10 PM means the park will likely already be closing or closed -- go earlier in the evening (e.g. right after dinner, ~6:30-7:30 PM) to actually have time there before it shuts.\nSafety note (sourced, not a live feed): Seattle Parks & Rec's 2026 \"Summer of Safety\" initiative specifically calls out increased staffing/security, clearer signage, and lighting/sight-line improvements at high-use parks including the waterfront (Seattle Parks, May 2026); Seattle Center also states the park's operations prioritize clear sight lines and lighting as safety measures. No source found with a specific crime count or homelessness figure for Waterfront Park at night as of this writing -- that gap is stated here rather than guessed at. General downtown-Seattle guidance from multiple 2026 visitor-safety writeups: core tourist areas including the waterfront feel safe during the day and evening hours when busy; visible homelessness/drug activity downtown is common and generally not dangerous, but isolated/empty stretches after dark warrant normal city caution. Given the 10 PM close, plan to be there earlier while it's still lit, staffed, and populated rather than right at closing.\nLocation: Waterfront Park (Pier 62/Pier 58 area)\nPayment: Free walk-in\nDuration: 40 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-1-3-waterfront-park"
   },
   {
     "tag": "SEAPDX-2026-day-1-11",

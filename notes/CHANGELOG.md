@@ -4,6 +4,12 @@
 
 This is the concise project change record.
 
+## 2026-09-13 — Arrival flight retime to KE047
+
+- Updated EMR56H arrival routing: OZ702 MNL→ICN now departs 11:45 AM and arrives 4:25 PM; second leg is Korean Air KE047 ICN→SEA, 9:20 PM→2:10 PM, replacing OZ272.
+- Shifted Day 1 airport-to-hotel and early evening blocks by the needed margin, regenerated calendar exports, and updated the live Seattle & Portland 2026 calendar flight/arrival events.
+- Current projected local spend remains **$2,202.91** against the **$3,050** ceiling, with **$847.09** remaining.
+
 ## 2026-08-15 (session 49) — Sleep-ceiling fix, per-stop image sourcing, Day 2/3 route audit, memory consolidation
 
 - **Sleep-ceiling rule** applied: Day 1 (was 8:00 PM start) and Day 2 (was 6:50 PM start) wind-down/sleep blocks split into an evening segment plus a "Sleep" segment that never starts before 10:00 PM, in `trip-data.js` and on the live calendar. Day 3's sleep block (10:15 PM) was already compliant.
