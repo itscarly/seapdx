@@ -3260,6 +3260,19 @@ Remaining blocker:
 - Always call Graphify first for architecture, source-of-truth, data-flow, or project-content questions in this repo. After edits, run `graphify update .` before closing.
 
 ---
+## 2026-09-13 (ICN layover lounge plan)
+
+### COMPLETE: Added shared ChatGPT ICN layover guidance to the flight view
+
+**What changed:**
+- `data/trip-data.js`: added the ICN layover plan from the shared ChatGPT review to the EMR56H arrival journey. Current guidance is to stay airside in Terminal 2, skip a Seoul city tour on the 4h55 connection, use Priority Pass Sky Hub near Gate 247 as first choice, use Sky Hub East near Gate 268 if KE047 posts far east, leave lounge around 8:20 PM, and be at the KE047 gate around 8:35-8:45 PM.
+- `dashboards/js/app.js`: rendered `journey.layoverPlan` inside the existing flight-story block so the guidance appears on the homepage flight card and logistics flight board without adding a new route model.
+- `dashboards/html/index.html` and `dashboards/html/logistics.html`: bumped the data/app cache keys so GitHub Pages pulls the new flight guidance promptly.
+
+**Verification:**
+- `npm run validate` passes.
+
+---
 ## 2026-09-13 (arrival flight retime: EMR56H -> KE047)
 
 ### COMPLETE: Updated arrival flight routing, shifted Day 1 timing, regenerated exports, and patched the live Seattle & Portland 2026 calendar
