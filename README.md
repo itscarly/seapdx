@@ -4,9 +4,9 @@ Static travel-planning dashboard for a November 1-9, 2026 Seattle and Portland t
 
 ## Live site
 
-- GitHub Pages: [itscarly.github.io/seadpdx](https://itscarly.github.io/seadpdx/)
-- Dashboard entry: [dashboards/html/index.html](https://itscarly.github.io/seadpdx/dashboards/html/index.html)
-- Logistics hub: [dashboards/html/logistics.html](https://itscarly.github.io/seadpdx/dashboards/html/logistics.html)
+- GitHub Pages: [itscarly.github.io/seapdx](https://itscarly.github.io/seapdx/)
+- Dashboard entry: [dashboards/html/index.html](https://itscarly.github.io/seapdx/dashboards/html/index.html)
+- Logistics hub: [dashboards/html/logistics.html](https://itscarly.github.io/seapdx/dashboards/html/logistics.html)
 
 ## Current trip snapshot
 
