@@ -6,8 +6,8 @@ This project is a static site. There is no build step, server runtime, or backen
 
 GitHub Pages is the primary public host for this repo.
 
-- Repository: [itscarly/seadpdx](https://github.com/itscarly/seadpdx)
-- Live site: [itscarly.github.io/seadpdx](https://itscarly.github.io/seadpdx/)
+- Repository: [itscarly/seapdx](https://github.com/itscarly/seapdx)
+- Live site: [itscarly.github.io/seapdx](https://itscarly.github.io/seapdx/)
 
 ## How publish works
 

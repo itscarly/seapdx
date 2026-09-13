@@ -22,7 +22,7 @@ It is built to be:
 - Budget validation script: `scripts/audit-budget.js`
 - Local preview: `npm run serve`
 - Fast verification: `npm run validate`
-- Canonical public host: `https://itscarly.github.io/seadpdx/`
+- Canonical public host: `https://itscarly.github.io/seapdx/`
 
 ## Homepage product direction
 
