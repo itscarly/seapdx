@@ -527,7 +527,7 @@ function initHero() {
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed (hotels + Philippine Airlines award taxes) + ${money(plannedTotal)} still to plan/spend -- Asiana + AA airfare already paid, not counted here`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed for hotels + ${money(plannedTotal)} still to plan/spend -- Asiana, AA, and PAL airfare already paid, not counted here`;
   if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   const meterSlider = document.getElementById("heroMeterSlider");
@@ -582,7 +582,7 @@ function renderHeroFacts() {
   const lines = [
     `${data.itinerary.length} trip days with one continuous Seattle-to-Portland flow`,
     `${seattleDays} Seattle days, ${portlandDays} Portland or transfer days`,
-    `${moneyPrecise(getConfirmedTripTotal())} still owed for hotels + outstanding airfare before local trip spending (Asiana + AA already paid)`,
+    `${moneyPrecise(getConfirmedTripTotal())} still owed for hotels before local trip spending (Asiana, AA, and PAL airfare already paid)`,
     `${futureJourneys ? `${futureJourneys} later booked flight still lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
   ];
   factsEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join("");
@@ -750,6 +750,7 @@ function renderFlightJourney(journey, options = {}) {
       <div class="flight-journey-links">
         ${journey.statusSource ? `<a class="link-button" href="${journey.statusSource}" target="_blank" rel="noreferrer">Flight status source</a>` : ""}
         ${journey.airportSource ? `<a class="link-button" href="${journey.airportSource}" target="_blank" rel="noreferrer">Airport status board</a>` : ""}
+        ${journey.receiptUrl ? `<a class="link-button" href="${journey.receiptUrl}" target="_blank" rel="noreferrer">Ticket receipt PDF</a>` : ""}
       </div>
     </article>
   `;
@@ -1082,7 +1083,9 @@ function getAirfareItems() {
 }
 
 function getPaidAirfareTotal() {
-  return getAirfareItems().filter((item) => item.paid).reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
+  return getAirfareItems()
+    .filter((item) => item.paid && item.currency !== "PHP")
+    .reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
 }
 
 function getOutstandingAirfareTotal() {
@@ -1171,11 +1174,12 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Airfare",
       amount: getOutstandingAirfareTotal(),
-      note: `Only the Philippine Airlines award taxes count toward the all-in target above -- Asiana and American Airlines (YWFKME) are already paid in full ($${getPaidAirfareTotal().toFixed(2)} combined) and listed below for reference only.`,
+      note: "All listed airfare is already paid and locked. Philippine Airlines is shown in pesos from receipt Z8RAML; Asiana/Korean Air and American Airlines remain shown in USD for reference.",
       shareBase: allInTarget,
       breakdown: airfareItems.map((item) => ({
         label: `${item.name}${item.paid ? " (already paid)" : " (confirmed, not yet charged)"}`,
         amount: item.amount,
+        displayAmount: item.displayAmount,
         detail: item.covers || item.confirmation || ""
       }))
     },
@@ -1378,7 +1382,7 @@ function renderTripCostSummary() {
           <strong>${item.label}</strong>
           ${item.detail ? `<span>${item.detail}</span>` : ""}
         </div>
-        <b>${moneyCompact(item.amount)}</b>
+        <b>${item.displayAmount || moneyCompact(item.amount)}</b>
       </li>
     `).join("");
     return `

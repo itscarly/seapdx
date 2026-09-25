@@ -8,7 +8,7 @@ window.TRIP_DATA = {
       portland: "Hotel Vance, a Tribute Portfolio Hotel",
       chicago: "ACME Hotel Chicago, Outset Collection by Hilton"
     },
-    verifiedOn: "Sep 13, 2026",
+    verifiedOn: "Sep 25, 2026",
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [
@@ -26,9 +26,9 @@ window.TRIP_DATA = {
       "A 20% realism buffer is now treated as the planning default for flexible paid categories such as food, coffee, cocktails, and small shopping so the live budget reflects real-world drift better than the earlier tighter draft.",
       "Souvenir pricing should stay explicit whenever possible: Starbucks city mugs, one coffee with each mug errand, coffee-bean buys, and small magnet-style gifts are now modeled directly instead of being hidden inside generic buffers.",
       "As of the Aug 8, 2026 online-purchases update (Amazon $550.25, Calvin Klein $76.65, Hollister $91.42, plus the Ray-Ban actual price replacing its estimate), the real projected total was $2,690.67 and the cap/ceiling was raised from $2,500 to $2,700 to match. Same day, adding $350 Chicago layover pocket money raised the real projected total to $3,040.67 and the cap/ceiling to $3,050 -- each raise confirmed by the traveler rather than silently absorbed.",
-      "Sep 13, 2026 Chicago hotel swap: replaced Hotel Blake ($787.38, 6 nights) with ACME Hotel Chicago, Outset Collection by Hilton ($406.72, 3 nights, Sat Feb 27 - Tue Mar 2, 2027), confirmation 3523360010. This lowers confirmed accommodations from $1,862.34 to $1,481.68 and leaves Mar 2-5, 2027 unbooked before the Mar 5 Philippine Airlines departure unless a later Chicago plan is added.",
-      "Asiana and American Airlines flights are marked paid: true and excluded from the all-in trip target hero number -- only the outstanding Philippine Airlines award taxes and confirmed hotel totals count as still-owed. All flights remain listed in the Airfare breakdown card for reference.",
-      "Sep 13, 2026 cost-reduction pass: removed Meta Ray-Ban glasses ($459), Bleu de Chanel ($173), the old Amazon order block ($550.25), the Nov 7 tattoo appointment ($177), tattoo transit ($6), Best Buy Northgate fit-check logistics, and reduced Chicago pocket money from $350 to $300. Kept Calvin Klein and Hollister online purchases. Airfare remains tracked at $385.50 for Philippine Airlines award taxes. New Amazon cart/wish-list block added afterward at $708.25 subtotal across 37 quantity-counted items.",
+      "Sep 13, 2026 Chicago hotel swap: replaced Hotel Blake ($787.38, 6 nights) with ACME Hotel Chicago, Outset Collection by Hilton ($406.72, 3 nights, Sat Feb 27 - Tue Mar 2, 2027), confirmation 3523360010. Sep 26 receipt update: PAL PR133 now departs ORD late Mar 1, so the ACME stay covers the Chicago layover before the paid return-to-Manila flight.",
+      "Asiana, American Airlines, and Philippine Airlines flights are marked paid: true and excluded from the all-in trip target hero number. All flights remain listed in the Airfare breakdown card for reference.",
+      "Sep 26, 2026 Philippine Airlines receipt update: return-to-Manila booking Z8RAML is paid and locked in at PHP 24,281, replacing the old USD 385.50 PAL award-tax estimate. Receipt PDF is attached under dashboards/assets/docs/philippine-airlines-z8raml-ticket-receipt.pdf.",
       "Aug 8, 2026 food/activity cost-reduction pass (traveler-requested to shrink the still-to-spend total): removed Poquitos Happy Hour (Nov 1, $35), Glo's Diner breakfast (Nov 2, $38), Sailing Seattle (Nov 2, $54), Luke's Lobster lunch (Nov 2, $26), FOB Sushi dinner (Nov 2, $25), Cafe Presse breakfast (Nov 3, $25), the Nov 3 evening Saint John's stop ($42), Analog Coffee + QFC train snacks (Nov 5, $18), the last Capitol Hill walk + coffee stop (Nov 5, $10), and Pretty Ugly Burger dinner (Nov 7, $63, replaced by Novel Book Bar covering both drinks and dinner). Portland Japanese Garden was also dropped from the route entirely (traveler does not want a paid-admission stop there). Net itinerary reduction: $336, moving the real projected total down to $2,666.27 against the unchanged $3,050 cap/ceiling.",
       "Aug 9, 2026 day-pass transit rework (ORCA Seattle + TriMet Portland): Converted per-leg transit fares to flat $6 day-pass charges -- first ORCA-system ride of each Seattle day costs $6, every other ORCA ride that same day costs $0; same rule applied to Portland TriMet first-ride $6 + subsequent $0 per day. Non-ORCA fares (Washington State Ferries, Amtrak, POINT NorthWest intercity bus) remain separate/unchanged. Days 8 and 9: Light hotel-area walk and final walk converted to transit type per traveler request.",
       "Aug 9, 2026 (FINAL) Day 2 itinerary rebuild, sourced from a traveler-supplied Google Maps route screenshot: the full Pike Place/waterfront/Sky View day was resequenced to match the screenshot's exact 21-stop order and per-leg travel times. Order: Pike Place sign/arcade -> Totem Smokehouse -> Piroshky Piroshky -> Original Starbucks -> Hellenika Cultured Creamery (NEW, $13 traveler-pegged) -> Beecher's Handmade Cheese -> Rachel's Ginger Beer -> Mee Sum Pastry -> Daily Dozen Doughnuts -> Ghost Alley Espresso -> Seattle Waterfront -> Overlook Walk -> Old Stove Brewing -> walk to Olympic Sculpture Park -> Olympic Sculpture Park -> Seattle Great Wheel (photo only) -> Harbor Steps -> Pike Place Market swings -> Uber Seattle Engineering Office (30-45 min visit) -> transit to Best Buy Northgate (Ray-Ban Meta glasses fit check) -> transit to Columbia Center Sky View Observatory (retimed to 4:35 PM to catch ~4:53 PM PST sunset) -> Sky View Cafe sunset cocktail -> transit back to Capitol Hill. This supersedes the two earlier same-day Day 2 reorder attempts (a verbal Pike Place-cluster-before-Best-Buy pass, and the gap-fill-block version referenced in the transit rework note above). MarketSpice browse ($8) was dropped -- not part of the authoritative screenshot route. Net Food category change: -$32.20 (removed MarketSpice $8, adjusted $24.20 for budget-alignment rounding) plus the new $13 Hellenika stop folded in. All prices are researched estimates or traveler-pegged pending on-site verification.",
@@ -40,7 +40,7 @@ window.TRIP_DATA = {
       "Aug 14, 2026 (Sequencing audit) Traveler confirmed the Best Buy Northgate in-person fit check is required, not optional -- Day 2's afternoon is re-sequenced to budget real travel time instead of dropping the stop: lunch trimmed 60 -> 40 min (2:25-3:05 PM), Uber Seattle Engineering Office visit moved to 3:05-3:45 PM, then a 25-min Link light rail leg to Northgate (3:45-4:10 PM, confirmed ~14 min ride + walk/wait), the 20-min Best Buy fit check (4:10-4:30 PM), and a 25-min Link leg back downtown (4:30-4:55 PM). Sky View Observatory starts at 4:55 PM, landing inside the traveler's required 4:45-5:00 PM arrival window to still catch the sunset; Sky View Cafe cocktail shifts to 5:55 PM accordingly. STOP_COORDINATES entry for Best Buy Northgate confirmed present in dashboards/js/app.js. Also verified Day 3 Capitol Hill evening block against real addresses (Saint John's 719 E Pike St and Salt & Straw 714 E Pike St are directly across the street from each other; Menya Musashi at 1510 Belmont Ave is a ~0.4 mi / 8-10 min walk -- geographically sound). Fixed the Seattle hero 'trip anchor' link in dashboards/js/app.js (line ~541), which was hardcoded to an old Cloudbeds/Boylston confirmation URL instead of reading the Palihotel Seattle United reservation URL from trip-data.js -- now looks it up the same way the Portland hotel link does. Cleared remaining stale 'Courtyard Portland' / 'The Boylston Hotel Capitol Hill Seattle' references, including the backup-route Google Maps URL strings in alternatesConsidered, updating them to Hotel Vance Portland and Palihotel Seattle. No cost or day-total change (Best Buy was and remains $0; Sky View unchanged at $52.50).",
       "Aug 14, 2026 (Night) Fix: Day 1 evening had been left with a generic 'dinner at Palihotel area' placeholder and no cost after the Capitol Hill outing was removed -- this was an incomplete edit. Replaced with a specific, named stop: Pike Place Chowder (1530 Post Alley), a casual counter-service spot 4 minutes from Palihotel, cup of chowder + roll + drink, $22 all-in. Chosen deliberately light/casual for an arrival evening rather than a sit-down reservation. Day 1 total moves from $6 to $28 (auto-recomputed from itinerary item costs by the projectedTotal script at the bottom of this file, which also reconciles the Contingency category and overall projectedTotal automatically -- no other manual total edits were needed).",
       "Aug 15, 2026 airport-buffer standardization: applied traveler-specified arrival buffers to every airportLeaveBy field. International departures (Manila->Incheon OZ702, Chicago->Manila KE038) now use a 3.5 hr buffer where the traveler specified it (Manila) and 3 hr where specified (Chicago/ORD); domestic legs (Portland->Corpus AA2496, Corpus->Chicago AA3338) now use a 3 hr buffer. Manila now targets 8:15 AM airport arrival for the 11:45 AM OZ702 departure. Portland: 'inside PDX by 12:40-12:45 PM' (~1h50m) -> 'leave Hotel Vance by 11:05 AM, inside PDX by 11:34 AM' (3h) for the 2:34 PM departure. Corpus: 'be at CRP by 8:20 AM' (2h01m) -> '7:21 AM' (3h) for the 10:21 AM departure. Chicago/ORD: vague 'well ahead of' -> explicit '8:25 AM' (3h) for the 11:25 AM departure. Amtrak Cascades (Seattle->Portland, 2.5 hr requirement) already met the buffer at 2h55m (9:15 AM station arrival vs 12:10 PM departure) -- no change needed.",
-      "Aug 15, 2026 return-to-Manila flight swap: replaced the two-leg Korean Air routing (KE038 ORD-ICN + KE623 ICN-MNL via Incheon, $658.40 cash fare, 21h 0m total with transfer) with a direct Philippine Airlines award booking, PR 133, Airbus A350, Business class (Standard Business, class A), departing ORD 10:45 PM Fri Mar 5, 2027 and arriving MNL 5:25 AM Sun Mar 7, 2027 local time, 16h 40m nonstop. Per standing tracker rule (PAL award taxes, not cash fares), the tracked cost is the $385.50 taxes/fees/charges only (67,000 miles redeemed separately, not tracked in USD). tripCosts.confirmed.airfare total moves from $1,915.23 to $1,642.33 (-$272.90); flights.airfareTotal updated to match. airportLeaveBy recalculated for the new 10:45 PM departure at a 3 hr domestic-to-international buffer: be at ORD Terminal 5 by 7:45 PM. Hotel Blake's noon Mar 5 checkout now precedes the new 10:45 PM Mar 5 departure by a wide margin (previously the old itinerary had checkout the same day as an 11:25 AM Korean Air departure that had already passed by checkout -- that timeline was already for the following departure date, so this note is corrected to flag the actual gap: a full afternoon/evening between checkout and airport departure to plan for, e.g. bag storage or a day room). All references to 'Korean Air' elsewhere in trip-data.js (hero notes, hotel note, executive summary) and dashboards/js/app.js (still-owed hero copy, airfare breakdown note) updated to Philippine Airlines. npm run validate passes; day totals unaffected since this is a confirmed-airfare change, not an itinerary/activity cost change.",
+      "Sep 26, 2026 return-to-Manila receipt correction: attached Philippine Airlines receipt Z8RAML shows PR133 ORD-MNL, departing ORD 10:45 PM Mon Mar 1, 2027 and arriving MNL 5:25 AM Wed Mar 3, 2027, Business Class seat 02A, paid total PHP 24,281. The old Mar 5-7 / USD 385.50 award-tax draft is superseded.",
       "Aug 15, 2026 Palihotel happy hour + Truly Hard Seltzer additions (sourced from the traveler-supplied Hart and the Hunter weekly-happenings flyer and brunch menu, both fetched and read directly): (1) Day 3 (Tue Nov 3) now includes a happy hour stop at The Hart and the Hunter, Palihotel's in-house restaurant -- fits inside the existing 2:40-6:00 PM hotel recharge block, timed for Tuesday's ALL NIGHT happy hour (3-9pm, $12 cocktails vs. $17 full price). 2 cocktails + 10.5% WA sales tax + 18% tip = $30.84. Day 3 total moves from $127 to $157.84; Cocktails and social category moves from $152.12 to $182.96. (2) Day 5 (Thu Nov 5) morning restructured: added a Target Downtown Seattle stop (breakfast items + Truly Hard Seltzer 12-pack, $32 subtotal + 10.5% WA tax = $35.36) as the traveler's requested cheaper alternative to Palihotel's Hart and the Hunter brunch menu (which is still noted as an option: H&H Breakfast $17, Eggs Benedict $21, Waffle $15, brunch cocktails $17). Day 5 total moves from $52 to $87.36; Food category moves from $344.80 to $358.06 (only the breakfast-plus-tax portion, since the $20 Truly Hard Seltzer line was already anticipated inside the Shopping category total and does not get double-counted -- the remainder flows through the auto-reconciled Contingency category). STOP_COORDINATES entries added in dashboards/js/app.js for both new stops so map markers render. npm run validate passes.",
       "Aug 15, 2026 (Revision) Consolidated the Target/Truly Hard Seltzer run onto Day 1 instead of Day 5, per traveler request -- Nov 1 arrival evening has the most open time, and buying the seltzer once at arrival covers the whole Seattle stay rather than a second, redundant Day 5 buy. Day 1 evening now reads: Pike Place Chowder dinner (7:40-8:25 PM) -> walk to Target (8:25 PM) -> Target Downtown Seattle, Truly Hard Seltzer 12-pack only, $22.10 (8:31-8:51 PM) -> Link transit to International District, $0 (already covered by the day's ORCA pass) -> H Mart International District grocery run for ready-to-heat food, $19.89 (9:01-9:26 PM) -> Link transit back, $0 -> wind-down/sleep (9:36 PM). Day 1 total moves from $28 to $69.99. Day 5's earlier Target/breakfast stop is reverted -- that morning goes back to a single Wake/pack/checkout block, with a note that the H Mart ready-to-heat food from Day 1 covers breakfast instead of a second store run. Day 5 total moves back from $87.36 to $52. Food category moves from $358.06 to $364.69 (Day 5's prior +$13.26 breakfast line removed, Day 1's new +$19.89 H Mart grocery line added). Shopping category unchanged at $1,547.32 -- the $20 Truly Hard Seltzer line was already budgeted there, just now correctly anchored to Day 1 instead of unanchored. STOP_COORDINATES updated in dashboards/js/app.js (Target Downtown Seattle renamed off the breakfast wording, new H Mart International District entry added). Live Seattle & Portland 2026 calendar updated to match on both days. npm run validate passes.",
       "Aug 15, 2026 (Correction) Traveler corrected the Target/H Mart addresses used above: H Mart Downtown Seattle is actually 1601 2nd Ave (not the International District branch at 601 5th Ave S), and Target is 1401 2nd Ave (not 1600 2nd Ave) -- both a few blocks from Palihotel (107 Pine St) on the same 2nd Ave corridor, no Link transit required. Day 1 evening re-timed as an all-walking route: Pike Place Chowder dinner -> walk to Target, 1401 2nd Ave (4 min) -> Truly Hard Seltzer run (8:29-8:49 PM) -> walk to H Mart, 1601 2nd Ave (3 min) -> grocery run (8:52-9:17 PM) -> walk back to Palihotel (6 min) -> wind-down (9:23 PM). Costs unchanged ($22.10 Target, $19.89 H Mart); only the transit legs were removed since they're no longer needed. STOP_COORDINATES corrected in dashboards/js/app.js.",
@@ -84,8 +84,8 @@ window.TRIP_DATA = {
   tripCosts: {
     confirmed: {
       airfare: {
-        total: 1642.33,
-        note: "Confirmed airfare across the Asiana/Korean Air arrival, the American Airlines YWFKME booking, and the Philippine Airlines return-to-Manila award booking. The arrival booking and AA are already paid in full and excluded from the all-in trip target hero number below -- only the Philippine Airlines award taxes still count toward that headline figure. Per standing tracker rule, PAL award bookings are tracked by redemption taxes only, not a cash fare.",
+        total: 1256.83,
+        note: "Confirmed USD airfare across the Asiana/Korean Air arrival and the American Airlines YWFKME booking. The Philippine Airlines return-to-Manila receipt is paid and locked separately in Philippine pesos at PHP 24,281, so it is listed for reference but not converted into the USD all-in target.",
         items: [
           {
             name: "Asiana/Korean Air arrival booking",
@@ -104,10 +104,14 @@ window.TRIP_DATA = {
           },
           {
             name: "Philippine Airlines award booking",
-            amount: 385.50,
-            confirmation: "TBD",
-            covers: "Chicago/O'Hare to Manila direct, March 5-7, 2027 (PR 133, Airbus A350, Business)",
-            note: "67,000-mile award redemption, Standard Business fare, class A. Air transportation charges $0.00 + taxes/fees/charges $385.50 = $385.50 total cash outlay. Confirmation number not yet provided. Replaces the earlier two-leg Korean Air routing (KE038/KE623 via Incheon, $658.40 cash fare) with a direct flight."
+            amount: 0,
+            displayAmount: "PHP 24,281",
+            confirmation: "Z8RAML",
+            ticketNumber: "0792545377670",
+            covers: "Chicago/O'Hare to Manila direct, March 1-3, 2027 (PR 133, Airbus A350, Business)",
+            paid: true,
+            receiptUrl: "../assets/docs/philippine-airlines-z8raml-ticket-receipt.pdf",
+            note: "Paid and locked Philippine Airlines electronic ticket receipt. Fare USD 1.00 / PHP 63 equivalent + PHP 24,218 card payment = PHP 24,281 total amount. Standard Business award fare, class A, seat 02A, 67,000 miles redeemed."
           }
         ]
       },
@@ -146,7 +150,7 @@ window.TRIP_DATA = {
             checkOut: "Tue, Mar 2, 2027, 11:00 AM",
             url: "https://www.hilton.com/en/book/reservation/manage/?arrival=2027-02-27&confirmationNumber=3523360010&lastName=Lim",
             covers: "Sat Feb 27, 2027, 3 PM check-in - Tue Mar 2, 2027, 11 AM check-out, after the AA arrival into ORD",
-            note: "1 room for 2 adults, Standard King. Room charge $341.32 plus $65.40 taxes/government charges = $406.72 total. Free cancellation before 11:59 PM local hotel time on Feb 26, 2027. Self parking is $65/night if needed. Phone +1 312-894-0800. Mar 2-5 remains unbooked before the Mar 5 PR 133 departure unless a later Chicago plan is added."
+            note: "1 room for 2 adults, Standard King. Room charge $341.32 plus $65.40 taxes/government charges = $406.72 total. Free cancellation before 11:59 PM local hotel time on Feb 26, 2027. Self parking is $65/night if needed. Phone +1 312-894-0800. PAL PR133 now departs late Mar 1, before this stay's Mar 2 checkout."
           }
         ]
       }
@@ -243,7 +247,7 @@ window.TRIP_DATA = {
     }
   ],
   flights: {
-    airfareTotal: 1642.33,
+    airfareTotal: 1256.83,
     journeys: [
       {
         id: "journey-arrival-2026-11-01",
@@ -371,25 +375,28 @@ window.TRIP_DATA = {
         id: "journey-future-2027-03-05",
         kind: "Future journey",
         title: "Chicago/O'Hare to Manila (direct)",
-        dateLabel: "Friday, March 5 - Sunday, March 7, 2027",
-        ticketCost: 385.50,
+        dateLabel: "Monday, March 1 - Wednesday, March 3, 2027",
+        ticketCost: null,
+        fareDisplay: "PHP 24,281 paid",
         airportLeaveBy: "Be at ORD Terminal 5 by 7:45 PM for the 10:45 PM international departure (3 hr buffer).",
-        visibilityNote: "Direct return-to-Manila routing on Philippine Airlines, an award redemption booked separately from the November trip and its AA continuation to Chicago.",
-        statusLabel: "Booked as an award redemption; confirmation number not yet provided -- update once available.",
-        alertCopy: "67,000-mile award redemption in Business Class (fare type Standard Business, class A). Air transportation charges $0.00, taxes/fees/charges $385.50 -- consistent with this tracker's rule of tracking PAL award taxes, not a cash fare. Total duration 16h 40m, direct/non-stop, no Incheon transfer required.",
+        visibilityNote: "Direct return-to-Manila routing on Philippine Airlines, now paid and locked from receipt Z8RAML.",
+        statusLabel: "Booked, paid, and locked under booking reference Z8RAML (ticket 0792545377670).",
+        alertCopy: "Electronic ticket receipt shows PR133 ORD-MNL, Standard Business award fare class A, seat 02A, 2 checked bags, and total amount PHP 24,281. Total duration 16h 40m, direct/non-stop, no Incheon transfer required.",
         statusSource: "https://www.philippineairlines.com/en/us/plan/flight-status",
         airportSource: "https://www.flychicago.com/ohare/home/pages/default.aspx",
+        receiptUrl: "../assets/docs/philippine-airlines-z8raml-ticket-receipt.pdf",
         legs: [
           {
             from: { code: "ORD", city: "Chicago / O'Hare" },
             to: { code: "MNL", city: "Manila" },
-            departureTime: "10:45 PM (Fri, Mar 5, 2027)",
-            arrivalTime: "5:25 AM (Sun, Mar 7, 2027)",
+            departureTime: "10:45 PM (Mon, Mar 1, 2027)",
+            arrivalTime: "5:25 AM (Wed, Mar 3, 2027)",
             duration: "16h 40m",
             connectionNote: "Direct flight, no transfer",
             flightNumber: "PR 133",
             aircraft: "Airbus A350",
             cabin: "Business (A)",
+            seat: "02A",
             operator: "Philippine Airlines",
             terminal: "Depart Terminal 5, arrive Terminal 1",
             mileage: "67,000 miles"
@@ -784,6 +791,7 @@ window.TRIP_DATA = {
     { label: "Portland International Airport flight board", url: "https://www.flypdx.com/Flights#/arrivals-and-departures" },
     { label: "Seattle-Tacoma International Airport flight status", url: "https://www.portseattle.org/sea-tac/flight-status" },
     { label: "DFW Airport flight board", url: "https://www.dfwairport.com/flights/" },
+    { label: "Philippine Airlines Z8RAML ticket receipt", url: "../assets/docs/philippine-airlines-z8raml-ticket-receipt.pdf" },
     { label: "Pike Place Market visit info", url: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
     { label: "Sailing Seattle sails", url: "https://sailingseattle.com/sails" },
     { label: "Sky View Observatory hours/directions", url: "https://skyviewobservatory.com/location/" },
