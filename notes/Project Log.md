@@ -3290,6 +3290,7 @@ Remaining blocker:
 - Kept Nov 7 focused on Portland Saturday Market.
 - Added the accessible site link: `https://sasquatchshuttle.com/waterfall-tour/`.
 - Added the $82.54 tour total to `Entrance fees`, so Activities and admissions now itemizes Sky View plus the waterfall tour.
+- Moved Amtrak + business-class bid ($48) and Cannon Beach POINT NorthWest round trip ($40) from Transportation to Activities and admissions per traveler request.
 
 **Verification target:**
 - `npm run validate` passes.

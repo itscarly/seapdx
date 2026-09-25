@@ -1207,13 +1207,11 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Transportation",
       amount: transportationCategory?.amount || 0,
-      note: "Seattle local transit, Portland local transit, Bainbridge ferry, Amtrak, and both day-trip buses are broken out separately here.",
+      note: "Local transit only. Amtrak and the Cannon Beach POINT NorthWest booking are grouped under Activities and admissions by traveler preference.",
       shareBase: allInTarget,
       breakdown: [
         { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("POINT NorthWest") && !stop.name.includes("Columbia Gorge Express") && !stop.name.includes("CGX return") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Intercity bus") && !String(stop.neighborhood || "").includes("Puget Sound") && !String(stop.neighborhood || "").includes("Gorge") && !String(stop.neighborhood || "").includes("Gateway") && !String(stop.neighborhood || "").includes("Hotel Vance") && !String(stop.neighborhood || "").includes("Union Station")), detail: "Link, buses, and other Seattle-side transit moves." },
         { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
-        { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
-        { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
         { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, airport-side Portland transit, and local Portland hops." }
       ]
     },
@@ -1224,6 +1222,8 @@ function buildTripCostBreakdown(allInTarget) {
       shareBase: allInTarget,
       breakdown: [
         { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View Observatory - Elite Experience ticket"), detail: "Observatory ticket. Sailing Seattle removed from the itinerary -- no longer a separate line here." },
+        { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
+        { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
         { label: "Columbia River Gorge Waterfall Shuttle Tour", amount: findStopCost("Columbia River Gorge Waterfall Shuttle Tour"), detail: "Nov 8 waterfall shuttle booking with adult ticket, Trailkeepers of Oregon donation, taxes, and fees." },
       ]
     },
