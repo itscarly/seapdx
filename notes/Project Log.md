@@ -1,3 +1,31 @@
+## 2026-09-14
+
+### COMPLETE: Added verified Codex SessionStart/Stop hooks and cleaned stale Obsidian/Graphify paths
+
+- Added `/Users/carly/.codex/bin/codex-session-start-context`, which detects the active project root and prints Obsidian/Graphify startup pointers.
+- Added `/Users/carly/.codex/bin/codex-session-closeout-sync`, which writes a closeout audit under `notes/session-audits/`, runs the project Obsidian collector when present, and runs `graphify update .`.
+- Wired both scripts into `/Users/carly/.codex/hooks.json` as `SessionStart` and `Stop` hooks while preserving the existing `PreToolUse` Graphify hook-check.
+- Fixed `scripts/collect-obsidian-memory.js` so it uses `/Users/carly` paths, drops nonexistent optional sources from source indexes, and no longer reports nonexistent VS Code/Claude storage paths as blockers.
+- Cleaned old local user/path and old Obsidian vault references from active project/global guidance, docs, source indexes, and session notes.
+- Verified hook JSON, hook script syntax, collector output, note audit, stale-path scan, and manual closeout hook execution.
+
+### COMPLETE: Audited and configured Obsidian + Graphify as the project memory loop
+
+- Confirmed the user was now in the correct `SeaPdx` Obsidian vault and the graph contained project notes/docs instead of the empty starter vault.
+- Added/update rules so session start uses both Graphify and Obsidian notes: Graphify first for architecture/source-of-truth/data-flow/action/project-content questions, then relevant Markdown notes.
+- Added/update closeout rules: update affected Markdown notes, tasks, blockers, decisions, handoff state, and [[Project Log]], then run `graphify update .`.
+- Corrected stale Obsidian vault memory that still pointed to `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx/`; the active vault is `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx`.
+- Tuned `.obsidian/graph.json` display/force settings and graph color groups for `notes`, `docs`, `tasks`, and `graphify-out`.
+- Updated global `/Users/carly/AGENTS.md` and `/Users/carly/ENGINEERING_GUIDELINES.md` so Obsidian and Graphify are used across projects under `/Users/carly` when those projects have notes/graph state.
+
+### COMPLETE: Connected the project folder as an Obsidian vault
+
+- Added local Obsidian vault config in `.obsidian/` with `notes/Home.md` as the workspace entry point.
+- Added [[Codebase Map]] as the codebase/navigation overview.
+- Added [[Project Files]] so the graph has links across project notes, docs, code, scripts, and assets.
+- Added [[Setup/Obsidian Vault Setup]] with the vault path and open instructions.
+- Linked the new notes from [[Home]].
+
 ## 2026-08-15 (session 49: sleep-ceiling fix + per-stop images sourced from Google Images/Wikimedia + Day 2/3 route audit)
 
 ### COMPLETE: Fixed Day 1/Day 2 sleep blocks starting too early, sourced real per-stop photos (not one generic reused image), filled in missing route/mapFrom/mapTo and detailText fields, resynced the live calendar
@@ -145,7 +173,7 @@
 
 **Dev server root cause (two compounding bugs):**
 1. `dev-server-daemon.sh` called `npm run serve`, but launchd runs LaunchAgents with a minimal PATH lacking `npm` — the daemon crash-looped every 5 seconds from the moment it was set up, never actually holding port 4173. The earlier session's "verified" claim was based on a point-in-time check, not a persistent one.
-2. A second, unrelated LaunchAgent (`com.kicker.codexproject.localhost`) ran a health-check watchdog every 2 minutes against `~/Downloads/codexproject` (a near-empty decoy directory, not the real project). Whenever bug 1 freed port 4173, this watchdog grabbed it with its own `python3 -m http.server` pointed at the wrong directory, so `dashboards/html/index.html` and `data/trip-data.js` 404'd even though something answered on the port.
+2. A second, unrelated LaunchAgent (`com.kicker.codexproject.localhost`) ran a health-check watchdog every 2 minutes against `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx` (a near-empty decoy directory, not the real project). Whenever bug 1 freed port 4173, this watchdog grabbed it with its own `python3 -m http.server` pointed at the wrong directory, so `dashboards/html/index.html` and `data/trip-data.js` 404'd even though something answered on the port.
 
 **Fix:** `dev-server-daemon.sh` now runs `/usr/bin/python3 -m http.server 4173 --directory "$REPO_DIR"` directly instead of `npm run serve`, removing the launchd PATH dependency. The rogue watchdog LaunchAgent was unloaded and its plist renamed to `.disabled` (reversible, but must be repointed at the real project directory before ever re-enabling). Verified both `dashboards/html/index.html` and `data/trip-data.js` return 200 after the fix, with `dev-server.log` showing 200s.
 
@@ -396,7 +424,7 @@
 **What changed:**
 - Restored `http://127.0.0.1:4173/dashboards/html/index.html` by restarting the existing `com.kicker.codexproject.localhost` LaunchAgent.
 - Updated `scripts/ensure-localhost.sh` so the watchdog now checks the actual dashboard URL instead of accepting a generic root response.
-- Made the watchdog start Python with an explicit `--directory /Users/kicker/Downloads/codexproject` argument.
+- Made the watchdog start Python with an explicit `--directory /Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx` argument.
 - Aligned `npm run serve` with the same explicit-directory behavior.
 
 **Root cause:**
@@ -1248,7 +1276,7 @@ Dashboard now feels like premium travel software (Apple Maps/Travel aesthetic) �
 
 ### COMPLETE: Merged ponytail-optimize + post-chat-cleanup into single carly skill
 
-**What:** Created `/Users/kicker/.claude/skills/carly/SKILL.md` — unified workflow combining four phases.
+**What:** Created `/Users/carly/.claude/skills/carly/SKILL.md` — unified workflow combining four phases.
 
 **Phases:**
 1. **Structure (Graphify)** — map problem landscape, dependencies, scope
@@ -2210,19 +2238,19 @@ Follow-up:
 
 Files touched:
 
-- `/Users/kicker/Projects/Codex/AGENTS.md`
-- `/Users/kicker/.claude/CLAUDE.md`
-- `/Users/kicker/Projects/Claude/Projects/AGENTS.md`
-- `/Users/kicker/Projects/Claude/Projects/CLAUDE.md`
-- `/Users/kicker/Projects/Project Starter/AGENTS.md`
-- `/Users/kicker/Projects/Project Starter/CLAUDE.md`
-- `/Users/kicker/Projects/Example Project/AGENTS.md`
-- `/Users/kicker/Projects/Example Project/CLAUDE.md`
-- `/Users/kicker/Projects/Codex/Project Starter/AGENTS.md`
-- `/Users/kicker/Projects/Codex/Project Starter/CLAUDE.md`
-- `/Users/kicker/Projects/Codex/Example Project/AGENTS.md`
-- `/Users/kicker/Projects/Codex/Example Project/CLAUDE.md`
-- `/Users/kicker/Projects/uigen/CLAUDE.md`
+- `/Users/carly/Projects/Codex/AGENTS.md`
+- `/Users/carly/.claude/CLAUDE.md`
+- `/Users/carly/Projects/Claude/Projects/AGENTS.md`
+- `/Users/carly/Projects/Claude/Projects/CLAUDE.md`
+- `/Users/carly/Projects/Project Starter/AGENTS.md`
+- `/Users/carly/Projects/Project Starter/CLAUDE.md`
+- `/Users/carly/Projects/Example Project/AGENTS.md`
+- `/Users/carly/Projects/Example Project/CLAUDE.md`
+- `/Users/carly/Projects/Codex/Project Starter/AGENTS.md`
+- `/Users/carly/Projects/Codex/Project Starter/CLAUDE.md`
+- `/Users/carly/Projects/Codex/Example Project/AGENTS.md`
+- `/Users/carly/Projects/Codex/Example Project/CLAUDE.md`
+- `/Users/carly/Projects/uigen/CLAUDE.md`
 - `AGENTS.md`
 - `CLAUDE.md`
 - `notes/MAINTENANCE.md`
@@ -2284,19 +2312,19 @@ Follow-up:
 
 Files touched:
 
-- `/Users/kicker/Projects/Codex/AGENTS.md`
-- `/Users/kicker/.claude/CLAUDE.md`
-- `/Users/kicker/Projects/Claude/Projects/AGENTS.md`
-- `/Users/kicker/Projects/Claude/Projects/CLAUDE.md`
-- `/Users/kicker/Projects/uigen/CLAUDE.md`
-- `/Users/kicker/Projects/Project Starter/AGENTS.md`
-- `/Users/kicker/Projects/Project Starter/CLAUDE.md`
-- `/Users/kicker/Projects/Example Project/AGENTS.md`
-- `/Users/kicker/Projects/Example Project/CLAUDE.md`
-- `/Users/kicker/Projects/Codex/Project Starter/AGENTS.md`
-- `/Users/kicker/Projects/Codex/Project Starter/CLAUDE.md`
-- `/Users/kicker/Projects/Codex/Example Project/AGENTS.md`
-- `/Users/kicker/Projects/Codex/Example Project/CLAUDE.md`
+- `/Users/carly/Projects/Codex/AGENTS.md`
+- `/Users/carly/.claude/CLAUDE.md`
+- `/Users/carly/Projects/Claude/Projects/AGENTS.md`
+- `/Users/carly/Projects/Claude/Projects/CLAUDE.md`
+- `/Users/carly/Projects/uigen/CLAUDE.md`
+- `/Users/carly/Projects/Project Starter/AGENTS.md`
+- `/Users/carly/Projects/Project Starter/CLAUDE.md`
+- `/Users/carly/Projects/Example Project/AGENTS.md`
+- `/Users/carly/Projects/Example Project/CLAUDE.md`
+- `/Users/carly/Projects/Codex/Project Starter/AGENTS.md`
+- `/Users/carly/Projects/Codex/Project Starter/CLAUDE.md`
+- `/Users/carly/Projects/Codex/Example Project/AGENTS.md`
+- `/Users/carly/Projects/Codex/Example Project/CLAUDE.md`
 - `AGENTS.md`
 - `CLAUDE.md`
 - `notes/MAINTENANCE.md`
@@ -2328,20 +2356,20 @@ Follow-up:
 - Added a stronger shared default for caveman-style brevity in internal reasoning and short status updates, while keeping final user-facing answers readable.
 - Added a stronger plan-first rule so both tools should behave like they are in planning mode for non-trivial work even when the app itself is not literally switched into a formal Plan mode.
 - Mirrored the same defaults into this project's `AGENTS.md` and `CLAUDE.md` so the behavior stays consistent inside `codexproject`.
-- Propagated the same shared-memory, post-task maintenance, and token-discipline defaults into the reusable starter and example project folders under `/Users/kicker/Projects` and `/Users/kicker/Projects/Codex`.
-- Updated the shared Claude-side instruction files under `/Users/kicker/Projects/Claude/Projects` plus the active `/Users/kicker/Projects/uigen/CLAUDE.md` file so the higher-level defaults are more consistent outside this repo too.
+- Propagated the same shared-memory, post-task maintenance, and token-discipline defaults into the reusable starter and example project folders under `/Users/carly/Projects` and `/Users/carly/Projects/Codex`.
+- Updated the shared Claude-side instruction files under `/Users/carly/Projects/Claude/Projects` plus the active `/Users/carly/Projects/uigen/CLAUDE.md` file so the higher-level defaults are more consistent outside this repo too.
 
 Files touched:
 
-- `/Users/kicker/Projects/Codex/AGENTS.md`
-- `/Users/kicker/.claude/CLAUDE.md`
-- `/Users/kicker/Projects/Claude/Projects/AGENTS.md`
-- `/Users/kicker/Projects/Claude/Projects/CLAUDE.md`
-- `/Users/kicker/Projects/uigen/CLAUDE.md`
-- `/Users/kicker/Projects/Project Starter/`
-- `/Users/kicker/Projects/Example Project/`
-- `/Users/kicker/Projects/Codex/Project Starter/`
-- `/Users/kicker/Projects/Codex/Example Project/`
+- `/Users/carly/Projects/Codex/AGENTS.md`
+- `/Users/carly/.claude/CLAUDE.md`
+- `/Users/carly/Projects/Claude/Projects/AGENTS.md`
+- `/Users/carly/Projects/Claude/Projects/CLAUDE.md`
+- `/Users/carly/Projects/uigen/CLAUDE.md`
+- `/Users/carly/Projects/Project Starter/`
+- `/Users/carly/Projects/Example Project/`
+- `/Users/carly/Projects/Codex/Project Starter/`
+- `/Users/carly/Projects/Codex/Example Project/`
 - `AGENTS.md`
 - `CLAUDE.md`
 - `notes/LEARNINGS.md`
@@ -2414,12 +2442,12 @@ Files touched:
 Files touched:
 
 - `notes/Project Log.md`
-- `/Users/kicker/Documents/Obsidian Vault/Home.md`
-- `/Users/kicker/Documents/Obsidian Vault/Memory Map.md`
-- `/Users/kicker/Documents/Obsidian Vault/Vault Workflow.md`
-- `/Users/kicker/Documents/Obsidian Vault/.obsidian/core-plugins.json`
-- `/Users/kicker/Documents/Obsidian Vault/.obsidian/graph.json`
-- `/Users/kicker/Documents/Obsidian Vault/.obsidian/workspace.json`
+- `/Users/carly/Documents/Obsidian Vault/Home.md`
+- `/Users/carly/Documents/Obsidian Vault/Memory Map.md`
+- `/Users/carly/Documents/Obsidian Vault/Vault Workflow.md`
+- `/Users/carly/Documents/Obsidian Vault/.obsidian/core-plugins.json`
+- `/Users/carly/Documents/Obsidian Vault/.obsidian/graph.json`
+- `/Users/carly/Documents/Obsidian Vault/.obsidian/workspace.json`
 
 Follow-up:
 
@@ -2890,7 +2918,7 @@ Follow-up:
 
 ### Verification
 
-- Source discovery: pass (`/Users/kicker/.codex/memories`, `/Users/kicker/.claude/plans`, `/Users/kicker/Library/Application Support/Code/User/workspaceStorage`).
+- Source discovery: pass (`/Users/carly/.codex/memories`, `/Users/carly/.claude/plans`, `/Users/carly/Library/Application Support/Code/User/workspaceStorage`).
 - Missing-path behavior: collector emits explicit blocker lines in digest/index notes.
 - Idempotency: content is stable when no source updates occur.
 - Freshness: digest and source-index notes include latest source-linked updates.
@@ -3195,7 +3223,7 @@ Remaining blocker:
 ### What changed
 
 - Audited the local homepage at `http://127.0.0.1:4175/dashboards/html/index.html` and confirmed the main visual failure was the layout system itself: fixed section heights, overflow clipping, and a two-column homepage grid that created large dead zones and made mobile feel broken.
-- Installed the external `ui-ux-pro-max` skill from `nextlevelbuilder/ui-ux-pro-max-skill` into `/Users/kicker/.codex/skills/ui-ux-pro-max` and used its design-system search as a reference layer before the CSS rewrite.
+- Installed the external `ui-ux-pro-max` skill from `nextlevelbuilder/ui-ux-pro-max-skill` into `/Users/carly/.codex/skills/ui-ux-pro-max` and used its design-system search as a reference layer before the CSS rewrite.
 - Reworked the homepage shell so the main content now flows as a single vertical stack instead of an equal-height section grid, which removed the large blank areas and let each section size to its real content.
 - Added stronger typography, external font loading, a skip link, better sticky navigation behavior on mobile, and home-page-specific reveal handling so the page is readable, keyboard-friendly, and deterministic in automated verification.
 - Retuned the homepage cards, hero facts, day cards, guide grids, map grids, and footer spacing so the page reads like one cohesive travel planning hub instead of a clipped dashboard collage.
@@ -3237,6 +3265,38 @@ Remaining blocker:
 - `notes/LEARNINGS.md`
 - `notes/Project Log.md`
 - `DESIGN.md`
+## 2026-09-25 (PAL Z8RAML receipt update)
+
+### COMPLETE: Replaced the PAL return-flight USD estimate with the paid Philippine peso receipt and attached the ticket PDF
+
+**What changed:**
+- `data/trip-data.js`: updated Philippine Airlines PR133 to match the attached electronic ticket receipt: booking Z8RAML, ticket 0792545377670, ORD -> MNL, Mon Mar 1 10:45 PM -> Wed Mar 3 5:25 AM, Business Class A, seat 02A, paid total PHP 24,281.
+- `dashboards/js/app.js`: kept the existing USD budget model for USD airfare and added the smallest display support needed for the PAL receipt to show as `PHP 24,281` instead of a USD amount.
+- `dashboards/assets/docs/philippine-airlines-z8raml-ticket-receipt.pdf`: added the receipt PDF so the flight card and source list can link to it.
+- `README.md`, `notes/KNOWN_ISSUES.md`, and `notes/memory/active/project_current_state.md`: replaced stale Korean Air / Mar 5 placeholder guidance with the Z8RAML receipt truth.
+
+**Verification target:**
+- `npm run validate` passes.
+- Local site serves the updated flight card and receipt link.
+
+---
+
+## 2026-09-25 (waterfall shuttle tour)
+
+### COMPLETE: Added the Columbia River Gorge Waterfall Shuttle Tour to Nov 8 and Activities and admissions
+
+**What changed:**
+- Added the Columbia River Gorge Waterfall Shuttle Tour to Day 8, Sun Nov 8, at 10:30 AM.
+- Kept Nov 7 focused on Portland Saturday Market.
+- Added the accessible site link: `https://sasquatchshuttle.com/waterfall-tour/`.
+- Added the $82.54 tour total to `Entrance fees`, so Activities and admissions now itemizes Sky View plus the waterfall tour.
+
+**Verification target:**
+- `npm run validate` passes.
+- Local served data shows the tour on Nov 8, not Nov 7.
+
+---
+
 - `PRODUCT.md`
 
 **Verification target:**

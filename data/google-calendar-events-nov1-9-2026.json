@@ -819,60 +819,76 @@
     "tag": "SEAPDX-2026-day-7-103",
     "title": "🛌 Portland Day 7 · Wind-down",
     "start": "2026-11-07T19:45:00-08:00",
-    "end": "2026-11-08T09:00:00-08:00",
+    "end": "2026-11-08T08:00:00-08:00",
     "location": "Hotel Vance Portland",
     "description": "Purpose: Wind-down keeps the portland saturday market + local food route on track.\nDuration: 12 hrs.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-7-2-1-wind-down"
   },
   {
     "tag": "SEAPDX-2026-day-8-104",
-    "title": "🛌 Portland Day 8 · Sleep in + slow morning",
-    "start": "2026-11-08T09:00:00-08:00",
-    "end": "2026-11-08T10:30:00-08:00",
+    "title": "🛌 Portland Day 8 · Wake + prep for waterfall tour",
+    "start": "2026-11-08T08:00:00-08:00",
+    "end": "2026-11-08T09:00:00-08:00",
     "location": "Hotel Vance Portland",
-    "description": "Purpose: No heavy activity today -- keep it light and easy.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-0-0-sleep-in-slow-morning"
+    "description": "Purpose: Earlier start for the 10:30 AM Columbia River Gorge Waterfall Shuttle Tour.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-0-0-wake-prep-for-waterfall-tour"
   },
   {
     "tag": "SEAPDX-2026-day-8-105",
-    "title": "🚇 Portland Day 8 · Light hotel-area transit loop",
-    "start": "2026-11-08T10:30:00-08:00",
-    "end": "2026-11-08T11:30:00-08:00",
-    "location": "Downtown Portland",
-    "description": "Purpose: Easy short MAX/bus loop, nothing strenuous. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 25 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-0-1-light-hotel-area-transit-loop"
+    "title": "🚇 Portland Day 8 · Travel to Sasquatch Adventures + tour check-in",
+    "start": "2026-11-08T09:00:00-08:00",
+    "end": "2026-11-08T10:30:00-08:00",
+    "location": "Portland -> Columbia River Gorge",
+    "description": "Purpose: Arrive 15 minutes early to check in and look around at the Sasquatch Adventures store before the 10:30 AM tour.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-0-1-travel-to-sasquatch-adventures"
   },
   {
     "tag": "SEAPDX-2026-day-8-106",
-    "title": "🚇 Portland Day 8 · Transit to Cartopia food carts",
-    "start": "2026-11-08T11:30:00-08:00",
-    "end": "2026-11-08T12:00:00-08:00",
-    "location": "Hotel Vance -> SE Hawthorne (Cartopia)",
-    "description": "Purpose: Short trip out for a brunch-time visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-1-0-transit-to-cartopia-food-carts"
+    "title": "🎟️ Portland Day 8 · Columbia River Gorge Waterfall Shuttle Tour",
+    "start": "2026-11-08T10:30:00-08:00",
+    "end": "2026-11-08T13:00:00-08:00",
+    "location": "Sasquatch Adventures Store",
+    "description": "Waterfall shuttle tour moved to Nov 8, 2026 at 10:30 AM so Nov 7 stays focused on Portland Saturday Market.\nAccessible site: https://sasquatchshuttle.com/waterfall-tour/\nTitle: Columbia River Gorge Waterfall Shuttle Tour.\nReceipt total: $82.54, including Adult (12 & Up) ticket $79.00, Trailkeepers of Oregon Donation $2.00, and taxes/fees.\nTour format: narrated shuttle through the Columbia River Gorge Waterfall Corridor, small-group maximum 20 guests, with expert narration and stops at must-see Gorge attractions. Expect about 15 minutes at each stop except Multnomah Falls.\nHighlights: Multnomah Falls, Gorge history and nature, 250+ five-star-review positioning, dog-friendly operator, and 20% off at the Sasquatch Adventures store.\nCancellation: free cancellation up to 48 hours in advance for a full refund.\nImportant: arrive 15 minutes early for check-in. Activity copy also mentions peak-season 8:30 AM and 2:30 PM departures; itinerary uses the traveler-requested 10:30 AM time and Nov 8 placement.\nLocation: Sasquatch Adventures Store\nPayment: Paid booking -- total $82.54\nEstimated cost: $82.54.\nDuration: 2.5 hrs.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-0-2-columbia-river-gorge-waterfall"
   },
   {
     "tag": "SEAPDX-2026-day-8-107",
-    "title": "🍽️ Portland Day 8 · Cartopia food cart pod brunch",
-    "start": "2026-11-08T12:00:00-08:00",
-    "end": "2026-11-08T13:30:00-08:00",
-    "location": "Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214",
-    "description": "Portland's largest food cart cluster, visited at brunch time to keep the day light.\nCart directory: https://www.cartopiapdx.com/carts\nORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.\nLocation: Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214\nPayment: Cash preferred\nEstimated cost: $50.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-1-1-cartopia-food-cart-pod-brunch"
+    "title": "🚇 Portland Day 8 · Return from waterfall tour",
+    "start": "2026-11-08T13:00:00-08:00",
+    "end": "2026-11-08T14:15:00-08:00",
+    "location": "Columbia River Gorge -> Portland",
+    "description": "Purpose: Return buffer after the 2.5-hour narrated shuttle tour.\nDuration: 75 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-1-0-return-from-waterfall-tour"
   },
   {
     "tag": "SEAPDX-2026-day-8-108",
+    "title": "🚇 Portland Day 8 · Transit to Cartopia food carts",
+    "start": "2026-11-08T14:15:00-08:00",
+    "end": "2026-11-08T14:45:00-08:00",
+    "location": "Hotel Vance -> SE Hawthorne (Cartopia)",
+    "description": "Purpose: Short trip out for a late Cartopia visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-1-1-transit-to-cartopia-food-carts"
+  },
+  {
+    "tag": "SEAPDX-2026-day-8-109",
+    "title": "🍽️ Portland Day 8 · Cartopia food cart pod late lunch",
+    "start": "2026-11-08T14:45:00-08:00",
+    "end": "2026-11-08T16:00:00-08:00",
+    "location": "Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214",
+    "description": "Portland's largest food cart cluster, visited after the waterfall tour.\nCart directory: https://www.cartopiapdx.com/carts\nORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.\nLocation: Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214\nPayment: Cash preferred\nEstimated cost: $50.\nDuration: 75 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-1-2-cartopia-food-cart-pod-late-lu"
+  },
+  {
+    "tag": "SEAPDX-2026-day-8-110",
     "title": "🚇 Portland Day 8 · Transit back to Hotel Vance",
-    "start": "2026-11-08T13:30:00-08:00",
-    "end": "2026-11-08T14:00:00-08:00",
+    "start": "2026-11-08T16:00:00-08:00",
+    "end": "2026-11-08T16:30:00-08:00",
     "location": "SE Hawthorne -> Hotel Vance",
     "description": "Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 20 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-2-0-transit-back-to-hotel-vance"
   },
   {
-    "tag": "SEAPDX-2026-day-8-109",
+    "tag": "SEAPDX-2026-day-8-111",
     "title": "🛌 Portland Day 8 · Hotel Vance rest afternoon",
-    "start": "2026-11-08T14:00:00-08:00",
+    "start": "2026-11-08T16:30:00-08:00",
     "end": "2026-11-08T20:00:00-08:00",
     "location": "Hotel Vance Portland",
-    "description": "Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.\nDuration: 6 hrs.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-2-1-hotel-vance-rest-afternoon"
+    "description": "Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.\nDuration: 3.5 hrs.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-2-1-hotel-vance-rest-afternoon"
   },
   {
-    "tag": "SEAPDX-2026-day-8-110",
+    "tag": "SEAPDX-2026-day-8-112",
     "title": "🛌 Portland Day 8 · Early wind-down + sleep",
     "start": "2026-11-08T20:00:00-08:00",
     "end": "2026-11-09T08:05:00-08:00",
@@ -880,7 +896,7 @@
     "description": "Purpose: Full recovery night before the flight day.\nDuration: 11 hrs.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-8-2-2-early-wind-down-sleep"
   },
   {
-    "tag": "SEAPDX-2026-day-9-111",
+    "tag": "SEAPDX-2026-day-9-113",
     "title": "🛌 Portland Day 9 · Wake + final packing",
     "start": "2026-11-09T08:05:00-08:00",
     "end": "2026-11-09T09:05:00-08:00",
@@ -888,7 +904,7 @@
     "description": "Purpose: Wake + final packing keeps the final breakfast and departure route on track.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-0-0-wake-final-packing"
   },
   {
-    "tag": "SEAPDX-2026-day-9-112",
+    "tag": "SEAPDX-2026-day-9-114",
     "title": "🍽️ Portland Day 9 · Hotel Vance breakfast",
     "start": "2026-11-09T09:05:00-08:00",
     "end": "2026-11-09T10:05:00-08:00",
@@ -896,7 +912,7 @@
     "description": "Final morning breakfast at the hotel before checkout.\nMenu: https://www.hotelvance.com/resourcefiles/pdf/vance-and-vine-breakfast-menu.pdf\nOrder: Breakfast sandwich (bacon or sausage, egg, cheese, spicy aioli) plus a mimosa or bloody mary if you want one.\nEstimated cost: $31.\nLocation: Hotel Vance, Vance & Vine\nPayment: Cards accepted\nEstimated cost: $31.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-0-1-hotel-vance-breakfast"
   },
   {
-    "tag": "SEAPDX-2026-day-9-113",
+    "tag": "SEAPDX-2026-day-9-115",
     "title": "🚇 Portland Day 9 · Hotel Vance final transit loop",
     "start": "2026-11-09T10:05:00-08:00",
     "end": "2026-11-09T11:05:00-08:00",
@@ -904,7 +920,7 @@
     "description": "Purpose: Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge. Morning shifted 55 min earlier (Aug 15, 2026) to fit the 3 hr PDX arrival buffer without overlap.\nEstimated cost: $6.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-0-2-hotel-vance-final-transit-loop"
   },
   {
-    "tag": "SEAPDX-2026-day-9-114",
+    "tag": "SEAPDX-2026-day-9-116",
     "title": "🚇 Portland Day 9 · Checkout + transfer to PDX",
     "start": "2026-11-09T11:05:00-08:00",
     "end": "2026-11-09T11:34:00-08:00",
@@ -912,7 +928,7 @@
     "description": "Purpose: Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).\nDuration: 29 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-0-3-checkout-transfer-to-pdx"
   },
   {
-    "tag": "SEAPDX-2026-day-9-115",
+    "tag": "SEAPDX-2026-day-9-117",
     "title": "🛌 Portland Day 9 · Airport check-in and security buffer",
     "start": "2026-11-09T11:34:00-08:00",
     "end": "2026-11-09T14:34:00-08:00",
@@ -920,7 +936,7 @@
     "description": "Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.\nDuration: 180 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-0-4-airport-check-in-and-security-"
   },
   {
-    "tag": "SEAPDX-2026-day-9-116",
+    "tag": "SEAPDX-2026-day-9-118",
     "title": "🚇 Portland Day 9 · Flight PDX -> DFW",
     "start": "2026-11-09T14:34:00-08:00",
     "end": "2026-11-09T20:29:00-08:00",
@@ -928,7 +944,7 @@
     "description": "Purpose: AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget.\nDuration: 5h 55m.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-1-0-flight-pdx-dfw"
   },
   {
-    "tag": "SEAPDX-2026-day-9-117",
+    "tag": "SEAPDX-2026-day-9-119",
     "title": "🛌 Portland Day 9 · DFW layover buffer",
     "start": "2026-11-09T20:29:00-08:00",
     "end": "2026-11-09T22:30:00-08:00",
@@ -936,7 +952,7 @@
     "description": "Purpose: 2h 01m connection at DFW.\nDuration: 121 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-1-1-dfw-layover-buffer"
   },
   {
-    "tag": "SEAPDX-2026-day-9-118",
+    "tag": "SEAPDX-2026-day-9-120",
     "title": "🚇 Portland Day 9 · Flight DFW -> CRP",
     "start": "2026-11-09T22:30:00-08:00",
     "end": "2026-11-09T23:58:00-08:00",
@@ -944,7 +960,7 @@
     "description": "Purpose: AA 5273, Economy, seat 8F, operated by PSA Airlines as American Eagle.\nDuration: 1h 28m.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-9-1-2-flight-dfw-crp"
   },
   {
-    "tag": "SEAPDX-2026-day-9-119",
+    "tag": "SEAPDX-2026-day-9-121",
     "title": "🛌 Portland Day 9 · Arrival and end-of-trip recovery",
     "start": "2026-11-09T23:58:00-08:00",
     "end": "2026-11-10T00:58:00-08:00",
