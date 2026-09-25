@@ -1224,6 +1224,7 @@ function buildTripCostBreakdown(allInTarget) {
       shareBase: allInTarget,
       breakdown: [
         { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View Observatory - Elite Experience ticket"), detail: "Observatory ticket. Sailing Seattle removed from the itinerary -- no longer a separate line here." },
+        { label: "Columbia River Gorge Waterfall Shuttle Tour", amount: findStopCost("Columbia River Gorge Waterfall Shuttle Tour"), detail: "Nov 8 waterfall shuttle booking with adult ticket, Trailkeepers of Oregon donation, taxes, and fees." },
       ]
     },
     {
