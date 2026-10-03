@@ -1,18 +1,22 @@
 ---
 name: project-current-state
-description: "Current verified state of codexproject as of 2026-08-15 (session 49) — Day 1-2 sleep-ceiling fix, per-stop images sourced/verified for Day 2, Day 2/3 route+detailText audit clean, projected total $2909.91/$3050. See the top block; everything after the --- divider is historical."
+description: "Current verified state of SeaPdx as of 2026-10-03 — local validation reports $2,285.45 against the $3,050 cap; 121 calendar events are exported. See the top block; everything after the --- divider is historical."
 metadata:
   node_type: memory
   type: project
   originSessionId: session-40-nov6-9-reconciliation
 ---
 
-**SUPERSEDED (2026-08-15, session 49): everything below this line predates the Day 2/3 sleep-ceiling fix, per-stop image sourcing, and route/detailText audit.** Current verified state:
+**Historical context through 2026-09-26:** the earlier notes below record prior itinerary, image, route-audit, and calendar work. The current budget figure is above; revalidate after future trip-data changes.
+
+- **Budget revalidated 2026-10-03** — `npm run validate` passed at `$2,285.45` against the `$3,050` cap/ceiling (`$764.55` remaining). It regenerated the local calendar JSON/CSV exports with 121 events; live calendar state was not checked in this session.
+
+- **Calendar reconciliation completed 2026-09-26** — `npm run validate` passed and regenerated 121 itinerary events. The live `Seattle & Portland 2026` calendar now matches all 121 export events on title, time, location, and description; 119 existing records were patched in place and two missing Day 8 records were added. Paid Philippine Airlines PR133 ORD→MNL (booking [redacted], ticket [redacted], Mar 1-3 2027, PHP 24,281, Business Class seat 02A) was added to the same target calendar. The personal calendar `limcarl83@gmail.com` was read for verification only and was not written.
 
 - **Sleep-ceiling rule now in effect for all days** — Day 1 and Day 2 sleep blocks (previously single items starting 8:00 PM and 6:50 PM respectively, running straight through to next-day wake) split into "Evening wind-down" + "Sleep," with Sleep never starting before 10:00 PM. Day 3's sleep block (10:15 PM) was already compliant. Days 4-9 still need this applied when their rich-stop rebuild happens. See [[feedback_sleep_ceiling]].
 - **Day 2 per-stop images**: 15 of 17 stops now have individually-sourced, subject-verified, recent (2022-2024 where available) photos from Wikimedia Commons or Pike Place Market's own vendor directory, replacing a single generic reused photo. Totem Smokehouse and the Pike Place Market "swings" (Park Promenade/Overlook Walk) have no freely-licensed photo available anywhere searched (Commons, official vendor page, Google Images) — both still use the generic `pike-place-market.jpg` fallback, disclosed rather than silently left. See [[feedback_per_stop_image_sourcing]].
 - **Day 2/3 field-completeness audit clean** — every real stop (activity/meal/food/shopping/coffee type) now has `route`/`mapFrom`/`mapTo` and `detailText`; 11 stops that were missing map routes were fixed (Best Buy Northgate, Sky View Observatory, Sky View Cafe, Ferry to Bainbridge, Harbour Public House, Blackbird Coffee, Return ferry, Hart and the Hunter, Saint John's, Salt & Straw, Menya Musashi).
-- **Projected total is now $2,909.91** against the unchanged $3,050 cap/ceiling ($140.09 remaining) — up from the session-46 figure below due to Day 2 rebuild costs (Totem Smokehouse souvenir budget raised to $60, H Mart cap raised to $30, new Day 2 stops added). Re-run `npm run audit:budget` before trusting this number if trip-data.js changes again.
+- **Projected total was $2,909.91 on 2026-08-15** against the unchanged $3,050 cap/ceiling ($140.09 remaining) — up from the session-46 figure below due to Day 2 rebuild costs (Totem Smokehouse souvenir budget raised to $60, H Mart cap raised to $30, new Day 2 stops added). Superseded by the 2026-10-03 validation above.
 - Live "Seattle & Portland 2026" calendar fully resynced through Day 3 (Days 2 and 3 rebuilt with the rich-stop schema and rebalanced 50-event calendar sync; sleep-block split applied on the live calendar too).
 
 ---
@@ -21,9 +25,9 @@ metadata:
 - **Seattle hotel is now Palihotel Seattle** (107 Pine St, 98101, 4 nights, $662.00) — the Boylston Hotel Capitol Hill claim below is stale; do not reintroduce Boylston.
 - **Portland hotel is still Hotel Vance, a Tribute Portfolio Hotel** (conf [redacted]) — this one below is still correct.
 - **Chicago layover hotel: Hotel Blake, an Ascend Collection Hotel** (6 nights, $787.38) — not mentioned below, added since.
-- **Return-to-Manila airfare is now Philippine Airlines PR133 direct** ($385.50 award taxes, 67,000 miles) — the Korean Air ORD→ICN→MNL two-leg entry below is stale; do not reintroduce Korean Air for this leg.
-- **Confirmed airfare total is now $2,247.84** (Asiana $540.43 + AA $716.40 + Philippine Airlines $385.50 — but see note: only the PAL taxes count toward the all-in target per [[feedback_airfare_award_vs_cash]]).
-- **Full visual overhaul shipped** (commit `2735eeb`) — DESIGN.md's flat "One Lift Rule" system below is also stale; DESIGN.md §4-5 (raised-card 3D elevation) is now authoritative. See `~/.claude/projects/-Users-kicker/memory/codexproject_session_2026_08_14_overhaul.md`.
+- **Return-to-Manila airfare is now Philippine Airlines PR133 direct** (booking [redacted], ticket [redacted], paid and locked at PHP 24,281, 67,000 miles) — the Korean Air ORD→ICN→MNL two-leg entry below is stale; do not reintroduce Korean Air for this leg.
+- **Confirmed USD airfare total is now $1,256.83** (Asiana/Korean Air $540.43 + AA $716.40). The paid PAL return is intentionally tracked in Philippine pesos as PHP 24,281 and is not converted into the USD all-in target.
+- **Full visual overhaul shipped** (commit `2735eeb`) — DESIGN.md's flat "One Lift Rule" system below is also stale; DESIGN.md §4-5 (raised-card 3D elevation) is now authoritative. See `~/.claude/projects/-Users-carly/memory/codexproject_session_2026_08_14_overhaul.md`.
 - Day 1 evening now includes a Target/H Mart/Truly Hard Seltzer run (walking distance from Palihotel); Day 3 includes a Palihotel happy hour stop. Payment-acceptance fields across the itinerary were verified via research subagent, not assumed.
 
 Full detail in `notes/CHANGELOG.md` (2026-08-14 session 46 entry) — that is the source of truth.
@@ -48,10 +52,10 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 - `npm run sync:calendar` only regenerates local `data/google-calendar-events-nov1-9-2026.json`/`.csv` — it never calls the Google Calendar API. If the live calendar and the local export ever drift again, the live calendar must be updated by hand via the Google Calendar MCP tools (delete stale events, recreate from the local export), scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"` — never the personal calendar `limcarl83@gmail.com`.
 - `data/trip-data.js` has a self-executing IIFE near the bottom of the file that recomputes `day.dayTotal` and `budget.projectedTotal` from the actual per-stop `cost` fields on every load, and auto-fills `Contingency` as the remainder against non-contingency category totals (clamped at 0). Hand-set `dayTotal`/`projectedTotal` values are cosmetic only — the real source of truth is always the sum of stop `cost` fields. Keep category amounts (excluding Contingency) at or below the real itinerary total or Contingency will silently clamp to $0.
 
-## Added return-to-Manila airfare (2026-08-08)
+## Added return-to-Manila airfare (2026-08-08; superseded 2026-09-26)
 
-- Added a third confirmed airfare item: **Korean Air ORD→ICN→MNL, March 5-6, 2027** ($658.40: $275 fare + $251.80 carrier fee + $40.50 taxes + $91.10 seat selection). Confirmation number not yet provided by the user — currently "TBD" in `tripCosts.confirmed.airfare.items`, update it once known.
-- Confirmed airfare total is now **$1,915.23** ($540.43 Asiana + $716.40 AA [redacted] + $658.40 Korean Air), up from $1,256.83. This is outside the $2,500 local-spend cap (airfare/hotels excluded per the cap's scope).
+- The earlier Korean Air ORD→ICN→MNL item was replaced by Philippine Airlines PR133 direct.
+- Current receipt truth: **PAL PR133 ORD→MNL, March 1-3, 2027**, booking [redacted], ticket [redacted], Business Class seat 02A, paid total **PHP 24,281**.
 
 ## Budget restructure as of 2026-08-07 (later same session)
 
@@ -70,7 +74,7 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 
 ### Confirmed airfare — $1,256.83 total
 
-- Asiana arrival (Manila → Seattle via Incheon), Nov 1, 2026 — $540.43, confirmation [redacted]. Note: Asiana's current published route schedule lists Seattle-Incheon OZ271/272 as Mon/Tue/Wed/Fri/Sat, not Sunday — reconfirm the Nov 1 date directly with Asiana before travel.
+- Asiana/Korean Air arrival (Manila → Seattle via Incheon), Nov 1, 2026 — $540.43, confirmation [redacted]. The confirmed reissue now uses OZ702 MNL-ICN plus Korean Air KE047 ICN-SEA; the old Sunday OZ272 schedule warning is resolved. Recheck [redacted] in Asiana Manage My Trip and confirm KE047 before departure because public schedule pages cannot verify private bookings.
 - American Airlines (Portland → Corpus Christi Nov 9, plus Corpus Christi → Chicago Feb 27, 2027) — $716.40, confirmation [redacted].
 
 ### Budget snapshot (local Seattle + Portland spend, separate from confirmed airfare/hotels)

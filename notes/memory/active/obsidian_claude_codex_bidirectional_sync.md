@@ -14,109 +14,100 @@ metadata:
 
 ## What This Is
 
-Complete automatic memory integration where:
-1. **Claude memories** (from `~/.claude/projects/*/memory/`) sync to Obsidian at session end
-2. **Codex memories** (from `~/.codex/memories/`) sync to Obsidian at session end
-3. **Obsidian Index** is loaded into both tools' context at session start
-4. **Edits in Obsidian** flow back to Claude/Codex on the next session start
+File-based memory integration where:
+1. Project Markdown in `notes/` is the shared Obsidian/Codex project memory.
+2. Codex SessionStart prints the project memory entry points when a project has notes or Graphify state.
+3. Codex Stop writes a closeout audit note, runs the project collector when present, and runs `graphify update .`.
+4. Edits in Obsidian flow back to Codex because Codex reads the same Markdown files.
 
 ## Setup Complete (2026-07-18)
 
+Updated and re-verified on 2026-09-14 for Carly's current machine paths.
+
 ### Changes Made
 
-**Claude Code** (`~/.claude/settings.json`):
-- Added SessionStart hook: reads `~/Notes/Obsidian Vault/memory/Index.md` on session start
-- Stop hook already existed: now syncs Claude memories to vault active/ folder
-
 **Codex** (`~/.codex/hooks.json`):
-- Added SessionStart hook: reads Obsidian Index on session start
-- Added Stop hook: syncs Codex memories to vault active/ folder
+- SessionStart hook: `/Users/carly/.codex/bin/codex-session-start-context`
+- Stop hook: `/Users/carly/.codex/bin/codex-session-closeout-sync`
 
 **Obsidian Vault**:
-- Created `memory/Index.md`: unified, manually-maintained index of all memories
-- Created `memory/SETUP_GUIDE.md`: comprehensive setup and troubleshooting guide
-- Updated `Memory Map.md`: now accurately describes the sync mechanism
-- Fixed dead skill path in `~/.claude/skills-repo/skills/personal/obsidian-vault/SKILL.md`
+- SeaPdx vault root: `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx`
+- Entry note: [[Home]]
+- Code/project index: [[Project Files]]
 
 ### Files Involved
 
 | File | Purpose |
 |------|---------|
-| `~/.claude/settings.json` | SessionStart + Stop hooks for Claude |
-| `~/.codex/hooks.json` | SessionStart + Stop hooks for Codex |
-| `~/Notes/Obsidian Vault/memory/Index.md` | Master index of all sessions and memories |
-| `~/Notes/Obsidian Vault/memory/SETUP_GUIDE.md` | Full documentation and troubleshooting |
-| `~/Notes/Obsidian Vault/Memory Map.md` | Corrected to describe real sync mechanism |
+| `/Users/carly/.codex/hooks.json` | SessionStart + Stop hooks for Codex |
+| `/Users/carly/.codex/bin/codex-session-start-context` | Prints project memory pointers |
+| `/Users/carly/.codex/bin/codex-session-closeout-sync` | Writes closeout audit and refreshes Graphify |
+| [[Home]] | Project memory entry point |
+| [[Project Files]] | Project code/doc index for Obsidian graph |
 
 ## How It Works
 
 ### Session End (Automatic)
 
-Both tools run Stop-hooks:
-- Claude copies `~/.claude/projects/*/memory/*.md` → `~/Notes/Obsidian Vault/memory/active/`
-- Codex copies `~/.codex/memories/*.md` → `~/Notes/Obsidian Vault/memory/active/`
-- Both also copy to `<project>/notes/memory/active/` if in a project with notes folder
+Codex Stop hook:
+- writes `notes/session-audits/<date>-codex-closeout.md`
+- runs `node scripts/collect-obsidian-memory.js` when available
+- runs `graphify update .` when available
 
 ### Session Start (Automatic)
 
-Both tools run SessionStart hooks:
-- Read top 100 lines of `~/Notes/Obsidian Vault/memory/Index.md`
-- Inject into session context with `[Memory Index]` prefix
-- This exposes Obsidian edits to the tools
+Codex SessionStart hook:
+- detects the nearest project with `notes/Home.md`, `.obsidian/`, or `graphify-out/graph.json`
+- prints the project root, note entry points, and Graphify graph status
+- reminds the session to use `graphify query "<question>"` before broad reads for architecture/data-flow/project-content
 
 ### Index Maintenance (Manual, One-Time)
 
-When a new memory appears in `active/`:
-1. Open `memory/Index.md` in Obsidian
-2. Add `[[active/filename]]` to the right section
-3. Save
+When project state changes:
+1. Update the affected standardized note.
+2. Update [[Project Log]] for meaningful completed work.
+3. Run `graphify update .`.
 
-The Index keeps memories organized by date, project, and type.
+The active notes keep memories organized by date, project, and type.
 
 ## Key Design Decisions (Ponytail: kept lazy)
 
 - **No daemon**: Sync happens at session end/start, not live
 - **No MCP**: Uses only hooks + shell commands, no new dependencies
-- **Manual index**: Keeps the index clean and readable (prevents duplication)
+- **Manual notes**: Keeps project memory clean and readable (prevents duplication)
 - **Obsidian native**: No plugins required; uses only folder structure and wikilinks
-- **One-way raw copies**: Memory files sync bidirectionally through the Index; direct edits in Obsidian appear in next session
+- **Shared files**: Direct edits in Obsidian appear in Codex because both use the same Markdown files
 
 ## Usage Pattern
 
-1. **Work in Claude or Codex**: Your session's memories are stored locally
-2. **Session ends**: Stop-hook copies them to Obsidian
+1. **Work in Codex**: project memory lives in repo Markdown
+2. **Session ends**: Stop hook writes a closeout audit and refreshes Graphify
 3. **Edit in Obsidian**: You can refine, link, organize memories in the vault
-4. **Next session starts**: SessionStart hook reads the Index, your edits are in context
+4. **Next session starts**: SessionStart hook prints the project memory pointers
 5. **Work continues**: You now see your Obsidian edits in the next session
 
 ## Troubleshooting
 
-See `~/Notes/Obsidian Vault/memory/SETUP_GUIDE.md` for:
-- Common issues and fixes
-- Why Obsidian and Claude have different versions (expected)
-- How to force immediate sync (manual script option)
-- Health check command
+See [[Setup/Obsidian Vault Setup]] and [[project_obsidian_vault]] for current paths and troubleshooting.
 
 ## Why This Works
 
 **Before**: Memories were fragmented across 4 disconnected silos:
 - `~/.claude/projects/*/memory/`
 - `~/.codex/memories/`
-- `~/Notes/Obsidian Vault/memory/`
-- `~/Downloads/codexproject/notes/memory/`
+- project `notes/memory/`
+- project `notes/session-audits/`
 
-**Now**: Everything syncs to one unified Obsidian vault, with context flowing back to both tools via Index on session start.
+**Now**: SeaPdx uses one project vault, with context flowing through shared Markdown files and Graphify refreshes.
 
 ## Next Steps
 
-- Test it: close Claude/Codex and verify memories appear in `~/Notes/Obsidian Vault/memory/active/`
-- Update `Index.md` as new memories arrive
-- Archive old memories to `memory/archive/` after a week or month
+- Test hooks after edits: run `/Users/carly/.codex/bin/codex-session-start-context` and `/Users/carly/.codex/bin/codex-session-closeout-sync`
+- Archive old memories to `notes/memory/archive/` when they are no longer active
 - Use wikilinks to connect related memories across projects
 
 ## Related
 
-- [[Memory Map]] — updated description of how memory layers connect
-- `~/Notes/Obsidian Vault/memory/SETUP_GUIDE.md` — full documentation
-- `~/.claude/settings.json` — SessionStart and Stop hooks
-- `~/.codex/hooks.json` — SessionStart and Stop hooks
+- [[Project Files]] — project graph hub
+- [[Setup/Obsidian Vault Setup]] — vault setup
+- `/Users/carly/.codex/hooks.json` — Codex SessionStart and Stop hooks

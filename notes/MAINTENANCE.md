@@ -9,18 +9,22 @@ The goal is to keep active notes accurate without turning the notes folder into 
 ## After every meaningful completed step
 
 1. Check what changed in the project.
-2. Identify which active notes are affected.
-3. Update only the relevant standardized notes.
-4. Rewrite stale guidance instead of stacking duplicates.
-5. Archive older context when it still matters historically.
-6. Add reusable patterns to [[LEARNINGS]] only if they will help again.
-7. Update [[Project Log]] with the dated session summary.
-8. Check [[TASKS]] and [[KNOWN_ISSUES]] for anything now resolved or newly opened.
-9. Verify [[Decisions]] still reflects any choices made this session.
-10. Re-check for conflicts between active notes.
-11. Add a short next-session handoff note so the next run does not depend on raw chat history.
-12. Remove monitor-era or deleted-workflow references if the current repo no longer supports them.
-13. If the user accepted site or data changes, commit and push them before calling the work complete so local and GitHub stay identical.
+2. Pull current context from Obsidian notes and Graphify before assuming state:
+   - Read [[Home]], [[TASKS]], [[KNOWN_ISSUES]], and [[memory/active/SESSION_START]] when relevant.
+   - Run `graphify query "<question>"` for architecture, source-of-truth, data-flow, dependency, action, or project-content questions when `graphify-out/graph.json` exists.
+3. Identify which active notes are affected.
+4. Update only the relevant standardized notes.
+5. Rewrite stale guidance instead of stacking duplicates.
+6. Archive older context when it still matters historically.
+7. Add reusable patterns to [[LEARNINGS]] only if they will help again.
+8. Update [[Project Log]] with the dated session summary.
+9. Check [[TASKS]] and [[KNOWN_ISSUES]] for anything now resolved or newly opened.
+10. Verify [[Decisions]] still reflects any choices made this session.
+11. Re-check for conflicts between active notes.
+12. Add a short next-session handoff note so the next run does not depend on raw chat history.
+13. Run `graphify update .` when Graphify is available so the graph includes the same code and Markdown state as Obsidian.
+14. Remove monitor-era or deleted-workflow references if the current repo no longer supports them.
+15. If the user accepted site or data changes, commit and push them before calling the work complete so local and GitHub stay identical.
 
 ## Confidence rules
 
@@ -79,6 +83,14 @@ Obsidian should show the clean active notes first.
 Archive material should stay available, but it should not crowd the top-level daily workflow.
 
 When a thread gets too long or noisy, add a short handoff summary to the active notes before moving to a fresh chat.
+
+Obsidian, Codex, and Graphify share state through files:
+
+- Obsidian is the human editor/view for Markdown.
+- Codex reads and updates the same Markdown files during sessions.
+- Graphify indexes the repo after updates.
+
+Do not describe this as live sync unless a live watcher is installed and verified. The required closeout action is note update plus `graphify update .`.
 
 Prefer text-first visual intake:
 

@@ -96,7 +96,7 @@ For meaningful verified work: update only affected standardized notes and `Proje
 
 Follows the global hard rule in `~/.claude/rules/ecc/common/performance.md`: planning starts on Sonnet 5, execution runs on Haiku 4.5 (or lower), Opus/Fable only on explicit user request. No project-level override.
 
-See `~/.claude/projects/-Users-kicker/memory/codexproject_model_routing.md` for prior examples.
+See `notes/memory/active/SESSION_START.md` and `notes/TASKS.md` for current routing context.
 
 ## Persistent Dev Server (LOCKED RULE)
 
@@ -105,13 +105,13 @@ See `~/.claude/projects/-Users-kicker/memory/codexproject_model_routing.md` for 
 **Boot:** Starts automatically on system restart via LaunchAgent  
 **Deploy:** `git push origin main` → GitHub Pages (CI auto-deploys)  
 
-Daemon script: `/Users/kicker/Projects/codexproject/dev-server-daemon.sh`  
-LaunchAgent: `/Users/kicker/Library/LaunchAgents/com.kicker.codexproject-dev-server.plist`
+Daemon script: `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx/dev-server-daemon.sh`
+LaunchAgent: `/Users/carly/Library/LaunchAgents/com.kicker.codexproject.localhost.plist`
 
-See `~/.claude/projects/-Users-kicker/memory/codexproject_dev_server_setup.md` for full details.
+See `docs/local-development.md` for full details.
 
 ## Global Defaults
 
 Safety, memory, and tool defaults come from `~/.claude/CLAUDE.md`. Development style follows ECC coding conventions (immutability, error handling, input validation, DRY).
 
-**Obsidian sync:** Bidirectional (SessionStart pulls, Stop pushes) — memories auto-sync via `~/.codex/scripts/obsidian-memory-sync.sh`
+**Obsidian sync:** File-based. Read/update project Markdown in `notes/`; Codex hooks print startup pointers and write closeout audits. Run `graphify update .` after meaningful changes.

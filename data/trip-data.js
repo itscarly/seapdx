@@ -8,7 +8,7 @@ window.TRIP_DATA = {
       portland: "Hotel Vance, a Tribute Portfolio Hotel",
       chicago: "ACME Hotel Chicago, Outset Collection by Hilton"
     },
-    verifiedOn: "Sep 25, 2026",
+    verifiedOn: "Oct 3, 2026",
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [
@@ -259,7 +259,7 @@ window.TRIP_DATA = {
         airportLeaveBy: "Be at Manila airport by 8:15 AM for the 11:45 AM international departure (3.5 hr international buffer).",
         visibilityNote: "This is the long-haul arrival chain that feeds directly into the Seattle day-one plan.",
         statusLabel: "Booked and confirmed under booking reference [redacted] (ticket [redacted]); Sunday, Nov 1 routing is OZ702 MNL-ICN, then Korean Air KE047 ICN-SEA.",
-        alertCopy: "Booking reference [redacted] now shows OZ702 (MNL-ICN) followed by Korean Air KE047 (ICN-SEA). The previous OZ272 second leg has been replaced; use [redacted] for future lookup and flight-status checks.",
+        alertCopy: "Booking reference [redacted] now shows OZ702 (MNL-ICN) followed by Korean Air KE047 (ICN-SEA); the old OZ272 Sunday-schedule warning is resolved. Asiana's public route notice does not expose private booking status, so recheck [redacted] in Manage My Trip and confirm KE047 before departure.",
         layoverPlan: "ICN layover plan: stay airside in Terminal 2. Priority Pass first choice is Sky Hub Lounge near Gate 247, with Sky Hub Lounge East near Gate 268 as backup if KE047 posts to an eastern gate. Skip a Seoul city tour on this connection; leave the lounge around 8:20 PM and be at the KE047 gate around 8:35-8:45 PM.",
         statusSource: "https://flyasiana.com/C/US/EN/index",
         airportSource: "https://www.portseattle.org/sea-tac/flight-status",

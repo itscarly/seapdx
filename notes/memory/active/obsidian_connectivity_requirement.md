@@ -15,21 +15,19 @@ metadata:
 
 ## Rule
 
-**Obsidian at `~/Notes/Obsidian Vault/` must be open and accessible during ALL Claude Code and Codex sessions.**
+**The project Obsidian vault must be open and accessible during project sessions. For SeaPdx, the vault is `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx`.**
 
 This is not optional. The memory sync system depends on it.
 
 ## Why
 
 ### SessionStart Hook (Session Opening)
-- Claude: Reads `~/Notes/Obsidian Vault/memory/Index.md` on session start
-- Codex: Reads same Index on session start
-- **If Obsidian is closed**: File may be locked or stale; hook still runs but context may be incomplete
+- Claude/Codex: Read the project's Markdown entry points on session start when hooks/instructions are active.
+- **If Obsidian is closed**: file reads still work, but human edits may not have been saved.
 
 ### Stop Hook (Session Closing)
-- Claude: Copies `~/.claude/projects/*/memory/*.md` → `~/Notes/Obsidian Vault/memory/active/`
-- Codex: Copies `~/.codex/memories/*.md` → `~/Notes/Obsidian Vault/memory/active/`
-- **If Obsidian is closed during sync**: File writes may race with Obsidian's load-on-open; newer sessions might not see memories
+- Codex: Writes closeout audit notes under `notes/session-audits/`, runs the project collector when present, and runs `graphify update .` when available.
+- **If Obsidian is closed during sync**: Markdown still writes to disk; reopen Obsidian to refresh the UI.
 
 ### Cross-Tool Visibility
 - Both Claude and Codex use the same Index
@@ -41,21 +39,21 @@ This is not optional. The memory sync system depends on it.
 ### Before Every Session
 ```
 1. Check: Obsidian is open
-2. Check: ~/Notes/Obsidian Vault/memory/ is accessible
+2. Check: project `notes/` is accessible
 3. If not open: Open Obsidian first
 ```
 
 ### During Session
 ```
 1. Keep Obsidian open (don't close it)
-2. SessionStart-hook will have read Index into context
+2. SessionStart hook prints project memory pointers when configured
 3. You can edit memories in Obsidian while session runs
 ```
 
 ### When Closing Session
 ```
 1. Close Claude or Codex
-2. Stop-hook runs: syncs memories to vault
+2. Stop hook runs: writes closeout audit and refreshes Graphify structural graph
 3. Wait ~5 seconds for sync to complete
 4. Then: Open the next tool OR stay with Obsidian to review
 ```
@@ -63,15 +61,15 @@ This is not optional. The memory sync system depends on it.
 ### When Switching Between Tools
 ```
 1. Close first tool (e.g., Claude) → triggers Stop-hook → waits ~5s
-2. Make sure memories synced: ls ~/Notes/Obsidian Vault/memory/active/
+2. Make sure closeout audit exists: `ls notes/session-audits/`
 3. Then: Open second tool (e.g., Codex) → SessionStart-hook reads Index
 ```
 
 ## How to Remember
 
-- **Checklist**: See `~/Notes/Obsidian Vault/OBSIDIAN_REQUIRED.md` (print or bookmark)
-- **Quick ref**: See `~/Notes/Obsidian Vault/memory/SETUP_GUIDE.md` (troubleshooting section)
-- **Architecture**: See `~/Notes/Obsidian Vault/Systems/Claude_Codex_Obsidian_Integration.md`
+- **Checklist**: See [[Setup/Obsidian Vault Setup]]
+- **Quick ref**: See [[project_obsidian_vault]]
+- **Architecture**: See [[obsidian_claude_codex_bidirectional_sync]]
 
 ## If You Forget
 
@@ -90,21 +88,20 @@ This is not optional. The memory sync system depends on it.
 ## Implementation
 
 **Where this is enforced:**
-- `~/.claude/settings.json` — SessionStart hook assumes vault is readable
-- `~/.codex/hooks.json` — SessionStart hook assumes vault is readable
-- `~/.claude/CLAUDE.md` — Global instructions, "Obsidian Vault Integration (REQUIRED)"
-- `~/.codex/AGENTS.md` — Global instructions, "Obsidian Vault Integration (REQUIRED)"
-- `~/Notes/Obsidian Vault/OBSIDIAN_REQUIRED.md` — Prominent reminder at vault root
+- `/Users/carly/.codex/hooks.json` — SessionStart and Stop hooks for Codex
+- `/Users/carly/AGENTS.md` — Global project-memory instructions for projects under `/Users/carly`
+- Project `AGENTS.md` — SeaPdx-specific Graphify + Obsidian rules
+- [[Setup/Obsidian Vault Setup]] — vault open instructions
 
 **How Claude/Codex know about this:**
-- On every SessionStart: Hook tries to read Index (if Obsidian closed, may be stale)
-- Global instructions tell every session: assume Index is available
+- On every Codex SessionStart: hook prints available project memory pointers.
+- Global instructions tell project sessions to read notes and use Graphify first where available.
 - Memory entries document the requirement
 
 ## Related
 
 - [[obsidian_claude_codex_bidirectional_sync]] — Full integration architecture
-- `~/Notes/Obsidian Vault/OBSIDIAN_REQUIRED.md` — Checklist
-- `~/Notes/Obsidian Vault/memory/SETUP_GUIDE.md` — Troubleshooting
+- [[Setup/Obsidian Vault Setup]] — Checklist
+- [[project_obsidian_vault]] — Troubleshooting
 - `~/.claude/CLAUDE.md` — Claude's copy of this requirement
 - `~/.codex/AGENTS.md` — Codex's copy of this requirement

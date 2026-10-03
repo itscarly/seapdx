@@ -6,6 +6,8 @@ This vault is the clean working memory for `codexproject`.
 
 - [[PROJECT_CONTEXT]]
 - [[ARCHITECTURE]]
+- [[Codebase Map]]
+- [[Project Files]]
 - [[DECISIONS]]
 - [[TASKS]]
 - [[CHANGELOG]]
@@ -37,6 +39,7 @@ This vault is the clean working memory for `codexproject`.
 
 ## Supporting folders
 
+- [[Setup/Obsidian Vault Setup|Obsidian vault setup]]
 - [[Features/README|Features]]
 - [[Sessions/README|Sessions]]
 - [[Ideas/README|Ideas]]

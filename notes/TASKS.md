@@ -11,10 +11,23 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 ### Next up
 
 - **Hold for the next user-provided change list** -- the Sep 13 restore/update pass is complete and published. Local source, GitHub repo, GitHub Pages, generated calendar exports, and the live `Seattle & Portland 2026` calendar are aligned.
-- **Use Graphify first next session** -- for architecture, source-of-truth, data-flow, or project-content questions, run `graphify query "<question>"` before broad file reads. After edits, run `graphify update .`.
+- **Use Graphify + Obsidian first next session** -- for architecture, source-of-truth, data-flow, action, dependency, or project-content questions, run `graphify query "<question>"` before broad file reads, then read relevant notes from `notes/Home.md`. After meaningful edits, update affected Markdown notes and run `graphify update .`.
 - **Optional later work:** roll the Day 1-3 rich-stop rebuild pattern out to Days 4-9 using `notes/MAINTENANCE.md` ("Day rebuild playbook"). Do this only when the user asks for that polish pass; current priority is targeted itinerary/cost updates.
 
 ### Just completed
+
+- **SeaPdx restore and project-memory closeout** (2026-10-03) — consolidated documentation, Obsidian/Graphify setup, current-state notes, and closeout records; corrected the budget snapshot from validation; committed and pushed to `origin/main`.
+
+- **Codex SessionStart/Stop hook setup + stale-path cleanup** (2026-09-14)
+  - Added real Codex hooks for project memory startup pointers and closeout audit/Graphify refresh.
+  - Removed old local user/path and missing-source references from active docs and regenerated source index notes.
+  - Verified collector output has zero blockers and note audit passes.
+
+- **Obsidian + Graphify bidirectional audit/config** (2026-09-14)
+  - Confirmed Obsidian is open on the `SeaPdx` vault and the graph includes project notes/docs.
+  - Added `Project Files` and `Codebase Map` as graph hubs for notes, docs, scripts, data, and code links.
+  - Updated project and global agent rules so sessions pull from Obsidian notes plus Graphify, then update Markdown notes and run `graphify update .` at closeout.
+  - Tuned `.obsidian/graph.json` forces/display/groups so Graph view is interactive and easier to inspect.
 
 - **Sep 13 restore/update closeout**
   - Restored the local project under `/Users/carly/Library/Mobile Documents/com~apple~CloudDocs/Documents/SeaPdx`.

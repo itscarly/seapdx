@@ -33,7 +33,7 @@ This project includes a local health check for this Mac. It checks `http://127.0
 To turn it on:
 
 ```sh
-/Users/kicker/Downloads/codexproject/scripts/install-localhost-launchagent.sh
+/Users/carly/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/SeaPdx/scripts/install-localhost-launchagent.sh
 ```
 
 After that, macOS checks the local preview at login and about every two minutes.
@@ -42,9 +42,9 @@ The installer copies a small helper to `~/Library/Application Support/codexproje
 Useful checks:
 
 ```sh
-/Users/kicker/Downloads/codexproject/scripts/ensure-localhost.sh
+/Users/carly/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/SeaPdx/scripts/ensure-localhost.sh
 open http://localhost:4173/
-tail -n 20 /Users/kicker/Downloads/codexproject/logs/localhost-health.log
+tail -n 20 "$HOME/Library/Logs/codexproject-localhost.log"
 ```
 
 To turn it off:

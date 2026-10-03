@@ -1,3 +1,13 @@
+## 2026-09-26
+
+### COMPLETE: Validated calendar export and reconciled the live Seattle & Portland 2026 calendar
+
+- Ran `npm run validate`: status `ok`, projected `$2,285.45` against the `$3,050` ceiling, `$764.55` remaining, and regenerated `data/google-calendar-events-nov1-9-2026.json` plus the matching CSV with 121 itinerary events.
+- Read the documented target calendar ID `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` and confirmed it resolves to `Seattle & Portland 2026`; the personal primary calendar remains the separate `limcarl83@gmail.com` calendar.
+- Compared the regenerated export against the target calendar and updated 119 existing itinerary events in place, changing only fields that differed. The two missing Day 8 export slots were created on the target calendar. Every export event now matches on title, start, end, location, and description.
+- Added the missing paid return flight: Philippine Airlines PR133 ORD-MNL, booking `[redacted]`, ticket `[redacted]`, Mar 1-3, 2027, Business Class seat 02A, PHP 24,281 paid.
+- Read back the target calendar: all 121 export events matched, PR133 was present under the target calendar organizer, and no write call used the personal calendar. A pre-existing personal-calendar PR133 record remains separate and unchanged.
+
 ## 2026-09-14
 
 ### COMPLETE: Added verified Codex SessionStart/Stop hooks and cleaned stale Obsidian/Graphify paths
@@ -416,6 +426,14 @@
 - Ran `npm run validate` — syntax OK, budget balanced, calendar synced 118 events.
 
 # Project Log
+
+## 2026-09-26 — Closed stale Asiana OZ271/OZ272 Sunday warning
+
+- Rechecked current official Asiana sources. The route notice lists Seattle-Incheon OZ271/272 on Mon/Tue/Wed/Fri/Sat through Oct 12 and states schedules may change; public pages do not expose private reservation status.
+- Confirmed the project booking record already reflects the later [redacted] reissue: [redacted] uses OZ702 MNL→ICN plus Korean Air KE047 ICN→SEA on Sunday, Nov 1, 2026. Closed the obsolete OZ271/OZ272 mismatch warning in notes and clarified the dashboard alert.
+- Action remains: recheck [redacted] in Asiana Manage My Trip and confirm KE047 before departure. Official source: https://flyasiana.com/C/US/EN/customer/notice/detail?id=CM202410140002522590
+- `npm run validate` passed: status `ok`, projected `$2,285.45` against the `$3,050` ceiling, `$764.55` remaining; calendar export regenerated with 121 events.
+
 
 ## 2026-07-19 (session 34: Localhost dashboard watchdog repair)
 
@@ -3378,3 +3396,10 @@ Remaining blocker:
 - Day 2 now has real timing buffer before its sunset hard stop instead of an unaccounted-for ~45 min shortfall. Day 3's waterfront loop reuses the Bainbridge ferry's downtown return instead of adding a redundant cross-town trip. All new stops are sourced (traveler-supplied menus/prices, web-search-verified names and hours).
 
 ---
+## 2026-10-03
+
+### COMPLETE: Revalidated and organized the restored SeaPdx checkout
+
+- Ran `npm run validate`: syntax and budget checks passed, projected local spend is `$2,285.45` against the `$3,050` cap (`$764.55` remaining), and local calendar exports contain 121 events. Live calendar state was not checked in this session.
+- Updated the README and current-state notes to the validated budget; retained older figures in historical entries with their dates.
+- Reconciled restore, Obsidian/Graphify setup, and closeout notes into one commit and pushed it to `origin/main`.

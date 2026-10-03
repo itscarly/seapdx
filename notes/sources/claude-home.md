@@ -1,6 +1,6 @@
 ---
 source: claude-home
-last_verified: 2026-07-05T03:00:47.787Z
+last_verified: 2026-09-13T22:43:05.061Z
 status: active
 confidence: high
 next_action: Use this index for session startup context.
@@ -18,14 +18,10 @@ Medium-high for workflow defaults and historical plans. Validate date-sensitive 
 Session-start daily digest + whenever plan files or shared instructions change.
 
 ## Link paths
-- `/Users/kicker/.claude/plans`
-- `/Users/kicker/.claude/settings.json`
-- `/Users/kicker/.claude/settings.local.json`
+- `/Users/carly/.claude/settings.json`
 
 ## Top-priority changes
-- /Users/kicker/.claude/plans/can-you-install-this-idempotent-twilight.md (updated 2026-07-05T03:00:47.787Z)
-- /Users/kicker/.claude/plans/create-a-fable-5-declarative-emerson.md (updated 2026-07-04T19:22:18.265Z)
-- /Users/kicker/.claude/plans/bright-gliding-liskov.md (updated 2026-06-28T17:38:27.659Z)
+- No new items found in this run.
 
 ## Blockers
 - none

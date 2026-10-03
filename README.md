@@ -10,12 +10,12 @@ Static travel-planning dashboard for a November 1-9, 2026 Seattle and Portland t
 
 ## Current trip snapshot
 
-- Local trip-spend target: `$1,250`
-- Current local projection: `$1,241.50`
-- Local ceiling: `$1,300`
-- Confirmed airfare: `$1,256.83`
-- Confirmed hotels: `$895.46`
-- Planned personal purchases: `$582`
+- Local trip-spend cap: `$3,050`
+- Current local projection: `$2,285.45` (last validated Oct 3, 2026)
+- Local ceiling: `$3,050`
+- Confirmed USD airfare: `$1,256.83`
+- Paid Philippine Airlines return: `PHP 24,281` ([redacted])
+- Confirmed hotels: `$1,481.68`
 - All-in savings target: derived from confirmed bookings + planned trip spend + planned purchases
 
 ## What is in this repo
@@ -46,7 +46,7 @@ npm run sync:calendar
 npm run review:monthly
 ```
 
-See [docs/local-development.md](/Users/kicker/Downloads/codexproject/docs/local-development.md) for the full local workflow.
+See [docs/local-development.md](docs/local-development.md) for the full local workflow.
 
 ## Publishing
 
@@ -57,7 +57,7 @@ GitHub Pages is the canonical public host for this repo. The `main` branch trigg
 - `git-integrity-check.yml`: system-file and git-health audit
 - `monthly-watch.yml`: monthly review artifact generation
 
-See [docs/deployment.md](/Users/kicker/Downloads/codexproject/docs/deployment.md) for the release and hosting notes.
+See [docs/deployment.md](docs/deployment.md) for the release and hosting notes.
 
 ## Operational rules
 

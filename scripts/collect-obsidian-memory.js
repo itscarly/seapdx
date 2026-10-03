@@ -72,7 +72,7 @@ function writeIfChanged(file, content) {
 }
 
 function sourceTemplate(name, cfg, scan) {
-  const linkList = cfg.paths.map((p) => `- \`${p}\``).join('\n');
+  const linkList = cfg.paths.length ? cfg.paths.map((p) => `- \`${p}\``).join('\n') : '- None found on this machine.';
   const changes = scan.topChanges.length ? scan.topChanges.map((x) => `- ${x}`).join('\n') : '- No new items found in this run.';
   const blockers = scan.blockers.length ? scan.blockers.map((b) => `- ${b}`).join('\n') : '- none';
 
@@ -164,13 +164,15 @@ function scanSource(cfg) {
   const topChanges = [];
   let fileCount = 0;
   let latestMtimeMs = 0;
+  const existingPaths = [];
 
   for (const p of cfg.paths) {
     const st = safeStat(p);
     if (!st) {
-      blockers.push(`Missing path: ${p}`);
+      if (cfg.requiredPaths?.includes(p)) blockers.push(`Unavailable required source: ${p}`);
       continue;
     }
+    existingPaths.push(p);
     if (st.isFile()) {
       fileCount += 1;
       latestMtimeMs = Math.max(latestMtimeMs, st.mtimeMs || 0);
@@ -203,10 +205,10 @@ function scanSource(cfg) {
 
   const status = blockers.length ? 'needs-attention' : 'active';
   const confidence = blockers.length ? 'medium' : 'high';
-  const nextAction = blockers.length ? 'Resolve missing paths, then rerun collector.' : 'Use this index for session startup context.';
+  const nextAction = blockers.length ? 'Resolve missing required paths, then rerun collector.' : 'Use this index for session startup context.';
 
   const generatedAt = latestMtimeMs ? new Date(latestMtimeMs).toISOString() : new Date(0).toISOString();
-  return { generatedAt, latestMtimeMs, blockers, topChanges: topChanges.slice(0, 8), fileCount, status, confidence, nextAction };
+  return { generatedAt, latestMtimeMs, blockers, topChanges: topChanges.slice(0, 8), fileCount, status, confidence, nextAction, existingPaths };
 }
 
 function main() {
@@ -221,7 +223,7 @@ function main() {
       stores: 'Codex memory registry, rollout summaries, and curated memory notes used for startup context and historical continuity.',
       trust: 'High for structural/project history. Time-sensitive facts still require live verification.',
       cadence: 'Session-start daily digest + rerun after meaningful project changes.',
-      paths: ['/Users/kicker/.codex/memories'],
+      paths: ['/Users/carly/.codex/memories'],
       depth: 2,
     },
     {
@@ -230,7 +232,7 @@ function main() {
       stores: 'Claude local plans/settings and reusable context files relevant to project continuity.',
       trust: 'Medium-high for workflow defaults and historical plans. Validate date-sensitive items before use.',
       cadence: 'Session-start daily digest + whenever plan files or shared instructions change.',
-      paths: ['/Users/kicker/.claude/plans', '/Users/kicker/.claude/settings.json', '/Users/kicker/.claude/settings.local.json'],
+      paths: ['/Users/carly/.claude/plans', '/Users/carly/.claude/settings.json', '/Users/carly/.claude/settings.local.json'],
       depth: 2,
     },
     {
@@ -239,7 +241,7 @@ function main() {
       stores: 'VS Code workspace storage pointers and workspace-scoped context artifacts for this machine.',
       trust: 'Medium. Useful for editor/session continuity but not authoritative for project logic.',
       cadence: 'Session-start daily digest + rerun when workspace setup changes.',
-      paths: ['/Users/kicker/Library/Application Support/Code/User/workspaceStorage'],
+      paths: ['/Users/carly/Library/Application Support/Code/User/workspaceStorage'],
       depth: 2,
     },
   ];
@@ -247,7 +249,8 @@ function main() {
   const scans = [];
   for (const cfg of configs) {
     const scan = scanSource(cfg);
-    const indexBody = sourceTemplate(cfg.key, cfg, scan);
+    const cfgForWrite = { ...cfg, paths: scan.existingPaths };
+    const indexBody = sourceTemplate(cfg.key, cfgForWrite, scan);
     writeIfChanged(path.join(SOURCES_DIR, `${cfg.key}.md`), redactSecrets(indexBody));
     scans.push({ title: cfg.title, ...scan, key: cfg.key });
   }
