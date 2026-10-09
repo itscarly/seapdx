@@ -12,7 +12,7 @@ window.TRIP_DATA = {
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [
-      "The activity-budget block stays separate from the all-in trip-cost summary.",
+      "The activity budget stays separate from the trip target, which excludes paid airfare.",
       "Booked flight costs and hotel costs are shown in the executive summary. The $3,050 cap/ceiling covers everything still to plan or spend: local trip spend, shopping/keepsakes/personal purchases, the tattoo, and Chicago layover pocket money -- all combined into one number.",
       "Amtrak Cascades 517 and the business-class bid upgrade are carried separately from Seattle and Portland local transit.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
@@ -27,13 +27,13 @@ window.TRIP_DATA = {
       "Souvenir pricing should stay explicit whenever possible: Starbucks city mugs, one coffee with each mug errand, coffee-bean buys, and small magnet-style gifts are now modeled directly instead of being hidden inside generic buffers.",
       "As of the Aug 8, 2026 online-purchases update (Amazon $550.25, Calvin Klein $76.65, Hollister $91.42, plus the Ray-Ban actual price replacing its estimate), the real projected total was $2,690.67 and the cap/ceiling was raised from $2,500 to $2,700 to match. Same day, adding $350 Chicago layover pocket money raised the real projected total to $3,040.67 and the cap/ceiling to $3,050 -- each raise confirmed by the traveler rather than silently absorbed.",
       "Sep 13, 2026 Chicago hotel swap: replaced Hotel Blake ($787.38, 6 nights) with ACME Hotel Chicago, Outset Collection by Hilton ($406.72, 3 nights, Sat Feb 27 - Tue Mar 2, 2027), confirmation [redacted]. Sep 26 receipt update: PAL PR133 now departs ORD late Mar 1, so the ACME stay covers the Chicago layover before the paid return-to-Manila flight.",
-      "Asiana, American Airlines, and Philippine Airlines flights are marked paid: true and excluded from the all-in trip target hero number. All flights remain listed in the Airfare breakdown card for reference.",
-      "Sep 26, 2026 Philippine Airlines receipt update: return-to-Manila booking [redacted] is paid and locked in at PHP 24,281, replacing the old USD 385.50 PAL award-tax estimate. Receipt PDF is attached under [private receipt removed].",
+      "Paid airfare is excluded from the trip target and shown separately in the flight view.",
+      "Sep 26, 2026 Philippine Airlines fare update: return-to-Manila routing is paid in PHP 24,281, replacing the old USD 385.50 award-tax estimate. Private receipt details stay off the public dashboard.",
       "Aug 8, 2026 food/activity cost-reduction pass (traveler-requested to shrink the still-to-spend total): removed Poquitos Happy Hour (Nov 1, $35), Glo's Diner breakfast (Nov 2, $38), Sailing Seattle (Nov 2, $54), Luke's Lobster lunch (Nov 2, $26), FOB Sushi dinner (Nov 2, $25), Cafe Presse breakfast (Nov 3, $25), the Nov 3 evening Saint John's stop ($42), Analog Coffee + QFC train snacks (Nov 5, $18), the last Capitol Hill walk + coffee stop (Nov 5, $10), and Pretty Ugly Burger dinner (Nov 7, $63, replaced by Novel Book Bar covering both drinks and dinner). Portland Japanese Garden was also dropped from the route entirely (traveler does not want a paid-admission stop there). Net itinerary reduction: $336, moving the real projected total down to $2,666.27 against the unchanged $3,050 cap/ceiling.",
       "Aug 9, 2026 day-pass transit rework (ORCA Seattle + TriMet Portland): Converted per-leg transit fares to flat $6 day-pass charges -- first ORCA-system ride of each Seattle day costs $6, every other ORCA ride that same day costs $0; same rule applied to Portland TriMet first-ride $6 + subsequent $0 per day. Non-ORCA fares (Washington State Ferries, Amtrak, POINT NorthWest intercity bus) remain separate/unchanged. Days 8 and 9: Light hotel-area walk and final walk converted to transit type per traveler request.",
       "Aug 9, 2026 (FINAL) Day 2 itinerary rebuild, sourced from a traveler-supplied Google Maps route screenshot: the full Pike Place/waterfront/Sky View day was resequenced to match the screenshot's exact 21-stop order and per-leg travel times. Order: Pike Place sign/arcade -> Totem Smokehouse -> Piroshky Piroshky -> Original Starbucks -> Hellenika Cultured Creamery (NEW, $13 traveler-pegged) -> Beecher's Handmade Cheese -> Rachel's Ginger Beer -> Mee Sum Pastry -> Daily Dozen Doughnuts -> Ghost Alley Espresso -> Seattle Waterfront -> Overlook Walk -> Old Stove Brewing -> walk to Olympic Sculpture Park -> Olympic Sculpture Park -> Seattle Great Wheel (photo only) -> Harbor Steps -> Pike Place Market swings -> Uber Seattle Engineering Office (30-45 min visit) -> transit to Best Buy Northgate (Ray-Ban Meta glasses fit check) -> transit to Columbia Center Sky View Observatory (retimed to 4:35 PM to catch ~4:53 PM PST sunset) -> Sky View Cafe sunset cocktail -> transit back to Capitol Hill. This supersedes the two earlier same-day Day 2 reorder attempts (a verbal Pike Place-cluster-before-Best-Buy pass, and the gap-fill-block version referenced in the transit rework note above). MarketSpice browse ($8) was dropped -- not part of the authoritative screenshot route. Net Food category change: -$32.20 (removed MarketSpice $8, adjusted $24.20 for budget-alignment rounding) plus the new $13 Hellenika stop folded in. All prices are researched estimates or traveler-pegged pending on-site verification.",
       "Aug 14, 2026 Seattle hotel swap + itinerary optimization: replaced The Boylston Hotel Capitol Hill ($504.46, 3 nights) with Palihotel Seattle ($662.00, 4 nights, 107 Pine St downtown near Pike Place Market). Original itinerary had Capitol Hill as base with repeated costly/time-wasting crossings: Day 1 arrives at Capitol Hill, Day 2 Capitol Hill->Downtown->Capitol Hill, Day 3 evening Menya Musashi in Capitol Hill, Day 4 morning Analog Coffee in Capitol Hill->Fremont/Ballard. New downtown base optimizes for walkability to Pike Place/waterfront (Day 2 now largely walkable) and eliminates unnecessary Capitol Hill commutes. Consolidated Capitol Hill social activities into Day 1 evening (Saint John's dinner + Salt & Straw dessert + QFC seltzer run), removed Menya Musashi (Day 3 evening) and Analog Coffee (Day 4 morning) to avoid redundant transit now that hotel is downtown. Day 1 arrival now routes to Downtown link station instead of Capitol Hill. Accommodations total updated from $1704.80 to $1862.34 (+$157.54 delta). Full itinerary Days 1-5 resequenced; Day 2-5 transit notes updated for downtown base. All trip-data.js references (meta.travelerBase.seattle, tripCosts.confirmed.accommodations, itinerary segment names/times/transit notes) cross-checked against dashboards/js/app.js STOP_COORDINATES and findStopCost() hardcoded lookups to prevent silent cost/marker rendering failures.",
-      "Aug 15, 2026 arrival-leg completion + AA reissue: added the missing OZ702 Manila->Seoul leg and Incheon connection stay to the live Seattle & Portland 2026 calendar. Sep 13, 2026 flight update: [redacted] now shows OZ702 MNL->ICN (11:45 AM-4:25 PM, Economy V) connecting to Korean Air KE047 ICN->SEA (9:20 PM-2:10 PM, Economy Q) instead of Asiana OZ272. Also reissued American Airlines confirmation [redacted] (issued Aug 11, 2026): Nov 9, 2026 AA 2496/AA 5273 times unchanged but fare class updated to Economy (S); the Feb 27, 2027 continuation flight numbers changed from AA 3774/AA 3114 to AA 3338 (CRP->DFW, 10:21-11:53 AM, no seat assigned) and AA 1290 (DFW->ORD, 1:42-4:16 PM, no seat assigned), both Economy (N). All ~90 duplicate itinerary/flight/hotel events on the traveler's personal Google calendar (limcarl83@gmail.com) covering Oct 31-Nov 9, 2026 were deleted as a cleanup pass, since the same events now live correctly and exclusively on the Seattle & Portland 2026 trip calendar.",
+      "Aug 15, 2026 arrival-leg completion + AA reissue: added the missing OZ702 Manila->Seoul leg and Incheon connection stay to the live Seattle & Portland 2026 calendar. Sep 13, 2026 flight update: [redacted] now shows OZ702 MNL->ICN (11:45 AM-4:25 PM, Economy V) connecting to Korean Air KE047 ICN->SEA (9:20 PM-2:10 PM, Economy Q) instead of Asiana OZ272. Also reissued American Airlines confirmation [redacted] (issued Aug 11, 2026): Nov 9, 2026 AA 2496/AA 5273 times unchanged but fare class updated to Economy (S); the Feb 27, 2027 continuation flight numbers changed from AA 3774/AA 3114 to AA 3338 (CRP->DFW, 10:21-11:53 AM, no seat assigned) and AA 1290 (DFW->ORD, 1:42-4:16 PM, no seat assigned), both Economy (N). All ~90 duplicate itinerary/flight/hotel events on the traveler's personal Google calendar ([redacted]) covering Oct 31-Nov 9, 2026 were deleted as a cleanup pass, since the same events now live correctly and exclusively on the Seattle & Portland 2026 trip calendar.",
       "Sep 13, 2026 ICN layover note from shared ChatGPT planning review: do not clear Korean immigration or attempt a Seoul tour during the 4h55 connection. Stay airside in Terminal 2. With Priority Pass, use Sky Hub Lounge near Gate 247 as first choice, or Sky Hub Lounge East near Gate 268 if KE047 posts to the far-east gates. Matina remains a backup only if food matters more than flexibility because its stay limit is shorter. Leave lounge around 8:20 PM and be at the final KE047 gate around 8:35-8:45 PM.",
       "Aug 14, 2026 (Evening) Day 1 and Day 2 simplification for relaxed, social-focused itinerary: Removed Day 1 evening Capitol Hill outing entirely (Saint John's dinner $42 + Salt & Straw $9 + QFC seltzer $20 + 60-min transit both ways = removed). Day 1 now simplified to: arrive, check in, light downtown walk, rest -- protective buffer for jet lag without structured evening activities. Day 2 trimmed from 271.12 to 168.12 by removing 8 redundant Pike Place food stops (Piroshky $9, Hellenika $13, Beecher's $9, Rachel's Ginger Beer $18, Mee Sum $9, Daily Dozen $16 + Old Stove Brewing $13) and two unnecessary transit legs (Uber office 40 min + Best Buy Northgate round-trip 2+ hours), keeping only Pike Place highlights (sign, Totem salmon, Original Starbucks, Ghost Alley coffee), waterfront walk, and Sky View sunset. Added flexible 'self-choose' lunch ($26.12) and 2-hour afternoon rest block to enable social time, exploring, or just relaxing. Net itinerary reduction: $173 (Day 1 $71 + Day 2 $102). Projected total now $2554.44, remaining budget $495.56. Goal: relaxing days with breathing room to meet people and enjoy the city at your own pace, not activity-packed schedule.",
       "Aug 14, 2026 (Restore/Consolidate) Confirmed Menya Musashi is a Capitol Hill ramen shop (menyamuso.us, Capitol Hill menu). Restored the Capitol Hill evening block onto Day 3 instead of Day 1: transit to Capitol Hill (6:00 PM) -> Saint John's Bar and Eatery dinner $42 (6:20 PM) -> Salt & Straw Capitol Hill dessert $9 (7:35 PM) -> Menya Musashi ramen $27 (8:05 PM) -> transit back to Palihotel (9:05 PM), placed after the Bainbridge ferry return and a shortened 2:40-6:00 PM hotel recharge block. Day 3 total rises from $49 to $127. Also restored Day 4 Analog Coffee ($4.50, Capitol Hill) to its original 8:10 AM morning slot before the Fremont transit, shifting the rest of Day 4's times by 20 minutes; Day 4 total rises from $30 to $34.50. npm run validate confirms status ok, projected $2745.94 against the unchanged $3050 ceiling, remaining $304.06.",
@@ -76,7 +76,7 @@ window.TRIP_DATA = {
       { name: "Food", amount: 364.69, note: "Meals, coffee, and snack totals for Nov 1-9, trimmed per the Aug 8, 2026 food-cost reduction pass: removed Glo's Diner breakfast ($38, Nov 2 -- Pike Place covers breakfast now), Luke's Lobster lunch ($26, Nov 2), FOB Sushi dinner ($25, Nov 2), Cafe Presse breakfast ($25, Nov 3 -- Bainbridge covers it), Analog Coffee + QFC train snacks ($18, Nov 5), and the last Capitol Hill walk + coffee stop ($10, Nov 5). Nov 6-9 unchanged: Cannon Beach lunch/coffee/cocktail $100, Day 7 coffee $31 + Saturday Market lunch $50, Cartopia brunch $50, Hotel Vance final breakfast $31. Added Aug 9 (traveler-supplied Google Maps route screenshot): Day 2 Pike Place/waterfront itinerary rebuilt to match the exact 21-stop route order, including Original Starbucks store (whole bean coffee bag $16 + Seattle-exclusive mug $20 + grande cold brew $5 = $41 total) and the new Hellenika Cultured Creamery stop ($13 traveler-pegged price). MarketSpice browse ($8) dropped -- not part of the authoritative screenshot route. Adjusted Aug 9 for budget alignment (reduced by $32.20 to match auto-calculated projectedTotal). Prices are researched estimates pending on-site receipt verification. Added Aug 15, 2026: Day 1 (Nov 1) evening H Mart International District grocery run for ready-to-heat food covering later Seattle-stay meals/breakfasts, +$19.89 ($18 subtotal + 10.5% WA sales tax). Added Aug 15, 2026 (Evening): H Mart cap raised to $30, and Day 2's Pike Place morning expanded with Mee Sum ($6.62), Tiny's Apple Cider ($9.93), Le Panier ($5.68), Molly Moon's (~$7 est.), and Day 3's new Gourmondo Café ($5.68) and Old Stove Brewing ($13, moved from Day 2) -- exact dollar deltas flow through the auto-reconciled Contingency category rather than being hand-tallied per category here." },
       { name: "Cocktails and social", amount: 182.96, note: "Saint John's Bar and Eatery, Salt & Straw, and Rachel's Ginger Beer corrected against actual receipts. Trimmed Aug 8, 2026: removed the Nov 3 evening Saint John's stop after Menya Musashi ramen ($42) and Pretty Ugly Burger dinner ($63, Nov 7 -- replaced by Novel Book Bar covering both drinks and dinner at $29). Poquitos Happy Hour ($35, Nov 1 removal) is tracked under Food, not here. Added Aug 9: (1) Columbia Center Sky View Cafe Nov 2 sunset visit — one cocktail (~$18) + BLT sandwich ($14) + 10.5% WA sales tax + 18% tip = ~$41.12 all-in, and (2) Old Stove Brewing, MarketFront, 1901 Western Ave Ste A (one beer, Elliott Bay view, $13 all-in with menu price + tax + tip) as part of the new Nov 2 Pike Place/waterfront gap-fill itinerary block. Prices include actual receipt data for Sky View, Old Stove set per traveler direction. Added Aug 15, 2026: Day 3 (Tue Nov 3) Palihotel happy hour at The Hart and the Hunter during the existing 2:40-6:00 PM hotel recharge block -- Tuesday's ALL NIGHT happy hour (3-9pm) covers 2 cocktails at $12 each + 10.5% WA sales tax + 18% tip = $30.84." },
       { name: "Entrance fees", amount: 223.04, note: "Paid activities and admissions in the synced route. Columbia Center Sky View Observatory Elite Experience is $52.50; Amtrak + business-class bid is $48; Cannon Beach POINT NorthWest round trip is $40; Columbia River Gorge Waterfall Shuttle Tour is $82.54. Sailing Seattle remains removed; Seattle Great Wheel stays photo-only with no entrance fee." },
-      { name: "Shopping", amount: 1073.32, note: "Everything still kept in the live shopping plan: coffee beans $60 (one Seattle bag, one Portland bag), souvenirs/keepsakes $137 (Totem Smokehouse salmon, Truly Hard Seltzer 12-pack, city mugs, magnets, market browsing), confirmed online purchases from Calvin Klein $76.65 and Hollister $91.42, plus the Sep 13, 2026 Amazon cart/wish-list subtotal of $708.25 across 37 quantity-counted items. Meta Ray-Ban glasses and Bleu de Chanel remain removed." },
+      { name: "Shopping", amount: 1073.32, note: "Coffee beans, souvenirs/keepsakes, and private online orders." },
       { name: "Chicago pocket money", amount: 300, note: "General discretionary spending money for the Feb 27 - Mar 2, 2027 ACME Hotel Chicago stay, separate from the confirmed hotel cost tracked under tripCosts.confirmed.accommodations." },
       { name: "Contingency", amount: 88.24, note: "Rounding and reconciliation buffer between the hand-tracked category totals and the auto-computed projectedTotal from day/purchase calculations. The script auto-calculates projectedTotal from day totals and purchase items, so Contingency adjusts for the difference. Sep 13, 2026 update reflects the removal of Best Buy/Ray-Ban, Bleu de Chanel, Amazon, tattoo, and the Chicago pocket-money reduction." }
     ]
@@ -85,20 +85,17 @@ window.TRIP_DATA = {
     confirmed: {
       airfare: {
         total: 1256.83,
-        note: "Confirmed USD airfare across the Asiana/Korean Air arrival and the American Airlines [redacted] booking. The Philippine Airlines return-to-Manila receipt is paid and locked separately in Philippine pesos at PHP 24,281, so it is listed for reference but not converted into the USD all-in target.",
+        note: "Confirmed airfare is paid. USD fares and the Philippine Airlines award charge (PHP 24,281) are shown for reference and excluded from the trip target.",
         items: [
           {
             name: "Asiana/Korean Air arrival booking",
             amount: 540.43,
-            confirmation: "[redacted]",
             covers: "Manila to Seattle via Incheon on November 1, 2026",
             paid: true
           },
           {
             name: "American Airlines booking",
             amount: 716.40,
-            confirmation: "[redacted]",
-            ticketNumber: "[redacted]",
             covers: "Portland to Corpus Christi on November 9, 2026 plus Corpus Christi to Chicago on February 27, 2027",
             paid: true
           },
@@ -106,12 +103,9 @@ window.TRIP_DATA = {
             name: "Philippine Airlines award booking",
             amount: 0,
             displayAmount: "PHP 24,281",
-            confirmation: "[redacted]",
-            ticketNumber: "[redacted]",
             covers: "Chicago/O'Hare to Manila direct, March 1-3, 2027 (PR 133, Airbus A350, Business)",
             paid: true,
-
-            note: "Paid and locked Philippine Airlines electronic ticket receipt. Fare USD 1.00 / PHP 63 equivalent + PHP 24,218 card payment = PHP 24,281 total amount. Standard Business award fare, class A, seat 02A, 67,000 miles redeemed."
+            note: "Paid Philippine Airlines award charge, tracked separately in PHP."
           }
         ]
       },
@@ -122,33 +116,27 @@ window.TRIP_DATA = {
           {
             name: "Palihotel Seattle",
             amount: 662.00,
-            confirmation: "[redacted]",
             city: "Seattle",
             nights: 4,
             address: "107 Pine St, Seattle, WA 98101",
             checkIn: "Sun, Nov 1, 3:00 PM",
             checkOut: "Thu, Nov 5, 11:00 AM",
-            url: "[private reservation link removed]",
             note: "Downtown location near Pike Place Market, 4 nights Nov 1-5, 2026. Replaces The Boylston Hotel Capitol Hill ($504.46/3 nights)."
           },
           {
             name: "Hotel Vance, a Tribute Portfolio Hotel",
             amount: 412.96,
-            confirmation: "[redacted]",
             city: "Portland",
             nights: 5,
-            url: "[private reservation link removed]"
           },
           {
             name: "ACME Hotel Chicago, Outset Collection by Hilton",
             amount: 406.72,
-            confirmation: "[redacted]",
             city: "Chicago",
             nights: 3,
             address: "15 E Ohio Street, Chicago, IL 60611",
             checkIn: "Sat, Feb 27, 2027, 3:00 PM",
             checkOut: "Tue, Mar 2, 2027, 11:00 AM",
-            url: "[private reservation link removed]",
             covers: "Sat Feb 27, 2027, 3 PM check-in - Tue Mar 2, 2027, 11 AM check-out, after the AA arrival into ORD",
             note: "1 room for 2 adults, Standard King. Room charge $341.32 plus $65.40 taxes/government charges = $406.72 total. Free cancellation before 11:59 PM local hotel time on Feb 26, 2027. Self parking is $65/night if needed. Phone +1 312-894-0800. PAL PR133 now departs late Mar 1, before this stay's Mar 2 checkout."
           }
@@ -158,64 +146,22 @@ window.TRIP_DATA = {
     plannedPurchases: [],
     onlinePurchases: [
       {
-        store: "Amazon",
+        store: "Private online orders",
         total: 708.25,
-        note: "Sep 13, 2026 Amazon shopping cart / wish-list subtotal. Prices reflect cart line prices before any final checkout tax, shipping, coupon, or Subscribe & Save changes.",
-        items: [
-          { name: "Zantac 360 Maximum Strength Tablets, 50 Count", amount: 16.97, note: "Heartburn prevention and relief, 20 mg tablets." },
-          { name: "Premium Lubricating White Oil, 8 oz", amount: 10.99, note: "For electric shavers, hair clippers, hair trimmers, and straight razors." },
-          { name: "Philips Norelco Replacement Foil for Body Groomer", amount: 14.96, note: "Triple Protect shave system replacement foil." },
-          { name: "0.5ml Syringe 31G 5/16 Inch, 100 Pack x2", amount: 27.98, note: "$13.99 each, quantity 2." },
-          { name: "MED PRIDE Sterile Alcohol Prep Pads, 200 Count", amount: 6.99, note: "70% isopropyl, 2-ply." },
-          { name: "DHT Blocker Hair Growth Support Supplement", amount: 24.97, note: "Saw palmetto + hair vitamins." },
-          { name: "Amazon Basic Care Famotidine 20mg Tablets, 90 Count", amount: 9.43, note: "Acid reducer / heartburn prevention." },
-          { name: "Colgate Optic White Pro Series Toothpaste, 2 Pack", amount: 17.59, note: "3 oz tubes, cool wintergreen mint." },
-          { name: "Carlyle Pumpkin Seed Oil with Saw Palmetto 4000 mg", amount: 9.99, note: "120 softgel capsules." },
-          { name: "hims Thick Fix Shampoo & Conditioner with Minoxidil 5%", amount: 40.71, note: "6.4 fl oz set with minoxidil solution." },
-          { name: "Carlyle Melatonin 40mg Complex", amount: 12.73, note: "150 fast dissolve tablets." },
-          { name: "Vitalibre Vitamin D3 K2 Supplement", amount: 12.99, note: "D3 10000 IU + K2 MK7, 90 softgels." },
-          { name: "Nizoral Anti-Dandruff Shampoo 1% Ketoconazole, 14 oz", amount: 28.99, note: "Peppermint and tea tree scent." },
-          { name: "Nizoral Pre-Shampoo Scalp Build-Up Remover, 5 oz", amount: 11.99, note: "Pre-shampoo treatment." },
-          { name: "Hollander White Chocolate Cafe Sauce, 15 oz", amount: 11.95, note: "Squeeze bottle." },
-          { name: "Hollander Caramel Cafe Sauce, 15 fl oz", amount: 11.95, note: "Squeeze bottle." },
-          { name: "Coffee Mate French Vanilla Concentrated Liquid Pump Bottle x3", amount: 44.94, note: "$14.98 each, quantity 3." },
-          { name: "Syruvia Sugar Free Coffee Syrup - Caramel Chocolate", amount: 9.99, note: "25.4 fl oz." },
-          { name: "Syruvia Sugar Free Coffee Syrup - Ube", amount: 9.99, note: "25.4 fl oz." },
-          { name: "Syruvia Sugar Free Coffee Syrup - Salted Cookie Butter", amount: 9.99, note: "25.4 fl oz." },
-          { name: "Syruvia Sugar Free Coffee Syrup - Butter Pecan", amount: 9.99, note: "25.4 fl oz." },
-          { name: "jouhoo Human Hair Blend Lace Front Wig, 14 Inch", amount: 98.99, note: "Brown with blonde highlights." },
-          { name: "WIGYY 10 Inch Straight Bob Wig", amount: 79.99, note: "Deep brown black." },
-          { name: "WeightWorld Gentle Iron 65mg with Vitamin C", amount: 14.99, note: "180 tablets." },
-          { name: "Nutricost Vitamin D3 5,000 IU", amount: 12.95, note: "240 softgels." },
-          { name: "Carlyle B-Complex Vitamin with B12", amount: 9.99, note: "300 tablets." },
-          { name: "BOLDIFY Hair Fibers, Dark Brown 56g", amount: 31.95, note: "Thin spot cover-up." },
-          { name: "BOLDIFY Hair Fibers, Dark Brown 28g", amount: 24.95, note: "Thin spot cover-up." },
-          { name: "Dolahair Extreme Hold Lace Glue for Wigs", amount: 8.99, note: "Waterproof invisible bonding, 1.285 oz." },
-          { name: "Vitamatic Pumpkin Seed Oil 2000 mg", amount: 13.49, note: "180 softgels." },
-          { name: "BOLDIFY Hairline Powder Brush", amount: 14.95, note: "Dual-ended root touch-up brush applicator." },
-          { name: "Boldify Hairline Powder, Dark Brown 4g", amount: 17.95, note: "Root touch-up powder." },
-          { name: "The Hair Diagram Bold Hold Lace Gelly", amount: 12.99, note: "Temporary hold lace melt gel, 6 oz." },
-          { name: "Syruvia Sugar Free Coffee Syrup - Peanut Butter Cup", amount: 9.99, note: "25.4 fl oz." }
-        ]
+        note: "Private order details omitted; subtotal retained in the trip budget.",
+        items: [{ amount: 708.25 }]
       },
       {
-        store: "Calvin Klein",
+        store: "Private online orders",
         total: 76.65,
-        note: "Boxer brief order (CSV listed the store blank; confirmed as Calvin Klein directly, not Amazon).",
-        items: [
-          { name: "Microfiber Stretch 3-Pack Boxer Brief, Black", amount: 31.50, note: "" },
-          { name: "Intense Power Micro 3-Pack Boxer Brief, Black w/WB Multi", amount: 45.15, note: "" }
-        ]
+        note: "Private order details omitted; subtotal retained in the trip budget.",
+        items: [{ amount: 76.65 }]
       },
       {
-        store: "Hollister",
+        store: "Private online orders",
         total: 91.42,
-        note: "Hollister order, 3 items.",
-        items: [
-          { name: "Baggy Painter Jeans, Black 28x28", amount: 39.00, note: "" },
-          { name: "Boxy Heavyweight Striped Crew T-Shirt, S Black Stripe", amount: 22.46, note: "" },
-          { name: "Boxy Layered 2-in-1 Microthermal Crew T-Shirt, S Black Stripe", amount: 29.96, note: "" }
-        ]
+        note: "Private order details omitted; subtotal retained in the trip budget.",
+        items: [{ amount: 91.42 }]
       }
     ],
     chicagoPocketMoney: {
@@ -258,8 +204,8 @@ window.TRIP_DATA = {
         ticketCost: 540.43,
         airportLeaveBy: "Be at Manila airport by 8:15 AM for the 11:45 AM international departure (3.5 hr international buffer).",
         visibilityNote: "This is the long-haul arrival chain that feeds directly into the Seattle day-one plan.",
-        statusLabel: "Booked and confirmed under booking reference [redacted] (ticket [redacted]); Sunday, Nov 1 routing is OZ702 MNL-ICN, then Korean Air KE047 ICN-SEA.",
-        alertCopy: "Booking reference [redacted] now shows OZ702 (MNL-ICN) followed by Korean Air KE047 (ICN-SEA); the old OZ272 Sunday-schedule warning is resolved. Asiana's public route notice does not expose private booking status, so recheck [redacted] in Manage My Trip and confirm KE047 before departure.",
+        statusLabel: "Booked and confirmed; Sunday routing is OZ702 MNL-ICN, then Korean Air KE047 ICN-SEA.",
+        alertCopy: "The confirmed route is OZ702 (MNL-ICN) followed by Korean Air KE047 (ICN-SEA). Recheck current flight status before departure.",
         layoverPlan: "ICN layover plan: stay airside in Terminal 2. Priority Pass first choice is Sky Hub Lounge near Gate 247, with Sky Hub Lounge East near Gate 268 as backup if KE047 posts to an eastern gate. Skip a Seoul city tour on this connection; leave the lounge around 8:20 PM and be at the KE047 gate around 8:35-8:45 PM.",
         statusSource: "https://flyasiana.com/C/US/EN/index",
         airportSource: "https://www.portseattle.org/sea-tac/flight-status",
@@ -299,7 +245,7 @@ window.TRIP_DATA = {
         ticketCost: 716.40,
         airportLeaveBy: "Leave Hotel Vance by about 11:05 AM and aim to be inside PDX by 11:34 AM for the 2:34 PM departure (3 hr domestic buffer).",
         visibilityNote: "This is the November departure routing that replaces the old generic flight-dependent buffer language.",
-        statusLabel: "Booked and ticketed under confirmation [redacted].",
+        statusLabel: "Booked and ticketed.",
         alertCopy: "This fare already covers the later February 27, 2027 American Airlines continuation to Chicago, so the trip-cost summary should not treat that later leg as unpaid.",
         statusSource: "https://www.aa.com/travelInformation/flights/status",
         airportSource: "https://www.flypdx.com/Flights#/arrivals-and-departures",
@@ -313,7 +259,6 @@ window.TRIP_DATA = {
             connectionNote: "2 hr 01 min connection",
             flightNumber: "AA 2496",
             cabin: "Economy (S)",
-            seat: "8F",
             meals: "Food for purchase"
           },
           {
@@ -325,7 +270,6 @@ window.TRIP_DATA = {
             connectionNote: "Final November-trip leg",
             flightNumber: "AA 5273",
             cabin: "Economy (S)",
-            seat: "8F",
             operator: "Operated by PSA Airlines as American Eagle"
           }
         ]
@@ -338,8 +282,8 @@ window.TRIP_DATA = {
         fareDisplay: "Included in $716.40 AA booking",
         ticketCost: null,
         airportLeaveBy: "Be at CRP by about 7:21 AM for the 10:21 AM departure (3 hr domestic buffer).",
-        visibilityNote: "Later booked routing tied to the same paid American Airlines confirmation as the November 9 return.",
-        statusLabel: "Booked and already included in confirmation [redacted]. Reissued Aug 11, 2026 with updated flight numbers and times.",
+        visibilityNote: "Later routing is included in the paid American Airlines fare shown with the November 9 return.",
+        statusLabel: "Booked and included in the paid American Airlines fare.",
         alertCopy: "This later leg should stay visible for planning clarity, but it is already included in the confirmed American Airlines airfare total.",
         statusSource: "https://www.aa.com/travelInformation/flights/status",
         airportSource: "https://www.dfwairport.com/flights/",
@@ -353,7 +297,6 @@ window.TRIP_DATA = {
             connectionNote: "1 hr 49 min transit",
             flightNumber: "AA 3338",
             cabin: "Economy (N)",
-            seat: "",
             meals: "",
             operator: "Operated by Envoy Air as American Eagle"
           },
@@ -366,7 +309,6 @@ window.TRIP_DATA = {
             connectionNote: "Future trip final leg",
             flightNumber: "AA 1290",
             cabin: "Economy (N)",
-            seat: "",
             meals: ""
           }
         ]
@@ -379,12 +321,11 @@ window.TRIP_DATA = {
         ticketCost: null,
         fareDisplay: "PHP 24,281 paid",
         airportLeaveBy: "Be at ORD Terminal 5 by 7:45 PM for the 10:45 PM international departure (3 hr buffer).",
-        visibilityNote: "Direct return-to-Manila routing on Philippine Airlines, now paid and locked from receipt [redacted].",
-        statusLabel: "Booked, paid, and locked under booking reference [redacted] (ticket [redacted]).",
-        alertCopy: "Electronic ticket receipt shows PR133 ORD-MNL, Standard Business award fare class A, seat 02A, 2 checked bags, and total amount PHP 24,281. Total duration 16h 40m, direct/non-stop, no Incheon transfer required.",
+        visibilityNote: "Direct return-to-Manila routing on Philippine Airlines, paid in Philippine pesos.",
+        statusLabel: "Booked and paid; PHP 24,281 award charge is tracked separately.",
+        alertCopy: "PR133 ORD-MNL, Business award fare, 2 checked bags. Total duration 16h 40m, direct/non-stop, no Incheon transfer required.",
         statusSource: "https://www.philippineairlines.com/en/us/plan/flight-status",
         airportSource: "https://www.flychicago.com/ohare/home/pages/default.aspx",
-
         legs: [
           {
             from: { code: "ORD", city: "Chicago / O'Hare" },
@@ -396,7 +337,6 @@ window.TRIP_DATA = {
             flightNumber: "PR 133",
             aircraft: "Airbus A350",
             cabin: "Business (A)",
-            seat: "02A",
             operator: "Philippine Airlines",
             terminal: "Depart Terminal 5, arrive Terminal 1",
             mileage: "67,000 miles"
@@ -417,15 +357,15 @@ window.TRIP_DATA = {
       weatherPlan: "Keep arrival day calm and simple — focus on resting and light downtown orientation only.",
       segments: [
         { label: "Afternoon", items: [
-          { time: "2:10 PM", leaveTime: "2:55 PM", name: "Arrive SEA -- passport control, baggage claim, transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "45 min", cost: 6, notes: "Korean Air KE047 from ICN lands 2:10 PM (booking reference [redacted], ticket [redacted]). Budgeting a full 45 min for passport control + baggage claim before heading to the Link platform.", detailText: `Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA), booking reference [redacted].\nPurpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Land 2:10 PM, leave the secure area by about 2:55 PM.`, route: "https://www.google.com/maps/dir/SEA+Airport/Downtown+Seattle", mapFrom: "SEA Airport, Seattle, WA", mapTo: "Downtown Seattle, WA" },
+          { time: "2:10 PM", leaveTime: "2:55 PM", name: "Arrive SEA -- passport control, baggage claim, transfer to Link", type: "transit", neighborhood: "SEA Airport", duration: "45 min", cost: 6, notes: "Korean Air KE047 from ICN lands at 2:10 PM. Budgeting a full 45 min for passport control + baggage claim before heading to the Link platform.", detailText: `Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA).\nPurpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Land 2:10 PM, leave the secure area by about 2:55 PM.`, route: "https://www.google.com/maps/dir/SEA+Airport/Downtown+Seattle", mapFrom: "SEA Airport, Seattle, WA", mapTo: "Downtown Seattle, WA" },
           { time: "2:55 PM", name: "Link light rail to Downtown Seattle", type: "transit", neighborhood: "SEA -> Downtown", duration: "45 min", cost: 0, notes: "Ride to downtown tunnel stations near Pike Place; fare already counted above.", detailText: `Link ride from SEA into Downtown Seattle.\nWhat to expect: Easy no-drama airport transfer -- settle in, hydrate, let the arrival day stay simple.\nCost note: Fare already counted in the previous airport-transfer stop.`, route: "https://www.google.com/maps/dir/SEA+Airport/Downtown+Seattle", mapFrom: "SEA Airport, Seattle, WA", mapTo: "Downtown Seattle, WA" },
           { time: "3:40 PM", name: "Walk to Palihotel Seattle", type: "walk", neighborhood: "Downtown", duration: "10 min", cost: 0, notes: "Short walk from the downtown Link station to 107 Pine St, arriving roughly 3:50 PM.", detailText: `Short station-to-hotel walk.\nWhat to expect: Palihotel is right in the heart of downtown near Pike Place, so this walk is very manageable even jet-lagged.\nEstimated arrival: around 3:50 PM.`, route: "https://maps.app.goo.gl/EKxsajFNbp4x7hTm9", mapFrom: "Westlake Station, Seattle, WA", mapTo: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101" },
-          { time: "3:50 PM", name: "Palihotel Seattle check-in", type: "hotel", neighborhood: "Downtown", location: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", duration: "60 min", cost: 0, website: "https://www.palihotel.com/hotels/palihotel-seattle/", payment: "Prepaid -- $662.00 total, already charged", reservation: "Confirmation #[redacted] -- Itinerary #[redacted] -- Deluxe Room, 1 Queen Bed -- 2 adults -- official check-in Sun, Nov 1, 3:00 PM / check-out Thu, Nov 5, 11:00 AM -- reserved for [redacted] -- request on file: high floor, nice view, strong AC, strong Wi-Fi (not guaranteed, confirm with property)", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- busy, well-policed downtown core in daylight", detailText: `Trivia: Palihotel Seattle is a boutique hotel in the Palisociety group, set right in the heart of downtown Seattle a few blocks from Pike Place Market -- known for a design-forward, mid-century-leaning look distinct from typical big-chain downtown hotels.\nLocation: 107 Pine St, Seattle, WA 98101 -- steps from Pike Place, 2nd Ave shopping, and the Link tunnel stations.\nReservation: Confirmation #[redacted], itinerary #[redacted], Deluxe Room 1 Queen Bed, 2 adults, total $662.00 (already paid). Official check-in is 3:00 PM so arrival around 3:50 PM should be after check-in opens.\nSafety note: Downtown core / Pike Place blocks report a 15% year-over-year drop in violent crime through 2025 and are described as busy and well-policed during the day (Downtown Seattle Association reporting via KOMO News, Aug 2025). Standard city awareness is enough for a mid-afternoon hotel check-in.` },
+          { time: "3:50 PM", name: "Palihotel Seattle check-in", type: "hotel", neighborhood: "Downtown", location: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", duration: "60 min", cost: 0, website: "https://www.palihotel.com/hotels/palihotel-seattle/", payment: "Prepaid -- $662.00 total, already charged", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- busy, well-policed downtown core in daylight", detailText: `Trivia: Palihotel Seattle is a boutique hotel in the Palisociety group, set right in the heart of downtown Seattle a few blocks from Pike Place Market -- known for a design-forward, mid-century-leaning look distinct from typical big-chain downtown hotels.\nLocation: 107 Pine St, Seattle, WA 98101 -- steps from Pike Place, 2nd Ave shopping, and the Link tunnel stations.\nCheck-in opens at 3:00 PM, so the scheduled 3:50 PM arrival is after check-in begins.\nSafety note: Downtown core / Pike Place blocks report a 15% year-over-year drop in violent crime through 2025 and are described as busy and well-policed during the day (Downtown Seattle Association reporting via KOMO News, Aug 2025). Standard city awareness is enough for a mid-afternoon hotel check-in.` },
           { time: "4:50 PM", name: "H Mart Downtown Seattle -- grocery run", type: "shopping", neighborhood: "Downtown Seattle", location: "H Mart, 1601 2nd Ave, Seattle, WA 98101", duration: "20 min", cost: 30, website: "https://www.hmart.com/", payment: "Cards/Apple Pay only -- H Mart does not accept cash", image: "hmart-food-sample.jpg", safetyScore: 85, safetyNote: "\u{1F7E2} 85% · Generally safe -- busy daylight retail hours, cleaner 2nd Ave stretch", detailText: `Trivia: H Mart ("Han Ah Reum," Korean for "one arm full of groceries") is the largest Korean-American grocery chain in the US, known for fresh produce, a huge banchan/ready-to-heat section, and an in-store food court in some locations -- this downtown Seattle location is grocery-focused.\nWhy this stop: Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) to bring back to Palihotel as tonight's dinner, since Pike Place Chowder's ~4:30 PM close makes it unreachable on this timeline.\nORDER: A mix of ready-to-heat meals, snacks, and drinks (see reference photo).\nBudget: capped at $30 -- traveler-requested headroom, not a target. You likely won't spend the full amount, but the ready-to-heat spread can run up quickly.\nSafety note: Late-afternoon (~4:50-5:10 PM) on the 2nd Ave retail corridor is described in local reporting as one of the cleaner downtown stretches compared to the 3rd Ave corridor a block over, which is documented as the area with the most visible street-drug activity in the central city (KOMO News, Aug 2025). Standard awareness recommended; this stop is during busy daylight retail hours.`, route: "https://maps.app.goo.gl/hThtzBj3hkMjL75CA", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "H Mart, 1601 2nd Ave, Seattle, WA 98101" },
           { time: "5:10 PM", name: "Walk back to Palihotel to drop off food", type: "walk", neighborhood: "Downtown", duration: "10 min", cost: 0, notes: "Drop the H Mart food in the room fridge/microwave setup so it's ready as dinner around 5-6 PM." }
         ]},
         { label: "Evening", items: [
-          { time: "5:20 PM", name: "Target Downtown Seattle (Pike Plaza) -- pickup order", type: "shopping", neighborhood: "Downtown Seattle", location: "Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)", duration: "25 min", cost: 34.36, website: "https://www.target.com/", payment: "Cards accepted", safetyScore: 85, safetyNote: "\u{1F7E2} 85% · Generally safe -- same block as H Mart, busy early-evening retail hours", detailText: `Order Pickup at Seattle Pike Plaza -- 2 items:\n- Zantac 360 Maximum Strength Heartburn Prevention and Relief Tablets, Famotidine, 25ct -- $10.89\n- Truly Unruly Variety Pack, 12pk/12 fl oz cans -- $18.99\nEstimated total (incl. WA sales tax): $34.36.\nSafety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.`, route: "https://maps.app.goo.gl/MLPGzYEsuTRYkLYZ6", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Target, 1401 2nd Ave, Seattle, WA 98101" },
+          { time: "5:20 PM", name: "Target Downtown Seattle (Pike Plaza) -- pickup order", type: "shopping", neighborhood: "Downtown Seattle", location: "Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)", duration: "25 min", cost: 34.36, website: "https://www.target.com/", payment: "Cards accepted", safetyScore: 85, safetyNote: "\u{1F7E2} 85% · Generally safe -- same block as H Mart, busy early-evening retail hours", detailText: `Pickup order at Seattle Pike Plaza. Estimated total including Washington sales tax: $34.36.\nSafety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.`, route: "https://maps.app.goo.gl/MLPGzYEsuTRYkLYZ6", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Target, 1401 2nd Ave, Seattle, WA 98101" },
           { time: "5:45 PM", name: "Walk to Pike Place Bar & Grill", type: "walk", neighborhood: "Downtown / Pike Place", duration: "10 min", cost: 0, notes: "Short walk from Target to Pike Place Bar & Grill.", route: "https://maps.app.goo.gl/ZMgD7BnFvq6v7SFK6", mapFrom: "Target, 1401 2nd Ave, Seattle, WA 98101", mapTo: "Pike Place Bar & Grill, Seattle, WA" },
           { time: "6:00 PM", name: "Dinner at Pike Place Bar & Grill", type: "meal", neighborhood: "Pike Place", location: "Pike Place Bar & Grill", duration: "60 min", cost: 44.86, website: "https://www.eatatpikeplace.com/happy-hour", payment: "Cards accepted", safetyScore: 88, safetyNote: "\u{1F7E2} 88% · Generally safe -- busy, well-policed core tourist area", detailText: `Menu: https://www.eatatpikeplace.com/happy-hour\nORDER:\n- Grilled Chicken Burger (tomato, lettuce, creamy horseradish, sourdough) -- $14.95\n- Prickly-Pear Margarita (Cuervo Gold, triple sec, prickly-pear cactus puree, fresh lime sour, salt rim, on the rocks) -- $10.00\n- Fresca (Absolut Citron, muddled citrus, soda water, splash grapefruit juice) -- $10.00\nSubtotal: $34.95. Plus 10.35% WA/Seattle sales tax ($3.62) and 18% tip on the subtotal ($6.29) = est. total $44.86.\nSafety note: Pike Place itself is described as busy and well-policed daily (KOMO News, Aug 2025); early-evening dinner hour here is a core tourist area with heavy foot traffic.` },
           { time: "7:00 PM", name: "Waterfront Park", type: "activity", neighborhood: "Central Waterfront", location: "Waterfront Park (Pier 62/Pier 58 area)", duration: "40 min", cost: 0, payment: "Free walk-in", image: "waterfront-park.jpg", safetyScore: 65, safetyNote: "\u{1F7E1} 65% · Use normal caution -- no specific night data found, less busy after dark, plan to leave before the 10 PM close", detailText: `Trivia: Seattle's new Waterfront Park is the centerpiece of the ~$1.2B Waterfront Seattle redevelopment -- a ~20-acre string of public spaces from Pier 57 to Pier 62, including the Seattle Aquarium and Pier 62's floating dock and lawn (ASCE, Jan 2026).\nIMPORTANT -- posted hours: Pier 62 / Waterfront Park is posted open daily 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org). Arriving right at 10 PM means the park will likely already be closing or closed -- go earlier in the evening (e.g. right after dinner, ~6:30-7:30 PM) to actually have time there before it shuts.\nSafety note (sourced, not a live feed): Seattle Parks & Rec's 2026 "Summer of Safety" initiative specifically calls out increased staffing/security, clearer signage, and lighting/sight-line improvements at high-use parks including the waterfront (Seattle Parks, May 2026); Seattle Center also states the park's operations prioritize clear sight lines and lighting as safety measures. No source found with a specific crime count or homelessness figure for Waterfront Park at night as of this writing -- that gap is stated here rather than guessed at. General downtown-Seattle guidance from multiple 2026 visitor-safety writeups: core tourist areas including the waterfront feel safe during the day and evening hours when busy; visible homelessness/drug activity downtown is common and generally not dangerous, but isolated/empty stretches after dark warrant normal city caution. Given the 10 PM close, plan to be there earlier while it's still lit, staffed, and populated rather than right at closing.`, route: "https://maps.app.goo.gl/rZe9oL8gLyiTmB4e9", mapFrom: "Pike Place Bar & Grill, Seattle, WA", mapTo: "Waterfront Park, Seattle, WA" },
@@ -793,7 +733,6 @@ window.TRIP_DATA = {
     { label: "Portland International Airport flight board", url: "https://www.flypdx.com/Flights#/arrivals-and-departures" },
     { label: "Seattle-Tacoma International Airport flight status", url: "https://www.portseattle.org/sea-tac/flight-status" },
     { label: "DFW Airport flight board", url: "https://www.dfwairport.com/flights/" },
-    { label: "Philippine Airlines [redacted] ticket receipt", url: "../assets/docs/philippine-airlines-[redacted]-ticket-receipt.pdf" },
     { label: "Pike Place Market visit info", url: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
     { label: "Sailing Seattle sails", url: "https://sailingseattle.com/sails" },
     { label: "Sky View Observatory hours/directions", url: "https://skyviewobservatory.com/location/" },

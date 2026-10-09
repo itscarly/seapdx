@@ -1,5 +1,5 @@
 Subject,Start Date,Start Time,End Date,End Time,Location,Description
-"🚇 Seattle Day 1 · Arrive SEA -- passport control, baggage claim, transfer to Link","2026-11-01","14:10","2026-11-01","14:55","SEA Airport","Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA), booking reference [redacted].
+"🚇 Seattle Day 1 · Arrive SEA -- passport control, baggage claim, transfer to Link","2026-11-01","14:10","2026-11-01","14:55","SEA Airport","Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA).
 Purpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.
 Estimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).
 Timing: Land 2:10 PM, leave the secure area by about 2:55 PM.
@@ -18,7 +18,7 @@ Duration: 10 min.
 Site link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-2-walk-to-palihotel-seattle"
 "📍 Seattle Day 1 · Palihotel Seattle check-in","2026-11-01","15:50","2026-11-01","16:50","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Trivia: Palihotel Seattle is a boutique hotel in the Palisociety group, set right in the heart of downtown Seattle a few blocks from Pike Place Market -- known for a design-forward, mid-century-leaning look distinct from typical big-chain downtown hotels.
 Location: 107 Pine St, Seattle, WA 98101 -- steps from Pike Place, 2nd Ave shopping, and the Link tunnel stations.
-Reservation: Confirmation #[redacted], itinerary #[redacted], Deluxe Room 1 Queen Bed, 2 adults, total $662.00 (already paid). Official check-in is 3:00 PM so arrival around 3:50 PM should be after check-in opens.
+Check-in opens at 3:00 PM, so the scheduled 3:50 PM arrival is after check-in begins.
 Safety note: Downtown core / Pike Place blocks report a 15% year-over-year drop in violent crime through 2025 and are described as busy and well-policed during the day (Downtown Seattle Association reporting via KOMO News, Aug 2025). Standard city awareness is enough for a mid-afternoon hotel check-in.
 Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.palihotel.com/hotels/palihotel-seattle/
@@ -39,10 +39,7 @@ Site link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day
 "🚶 Seattle Day 1 · Walk back to Palihotel to drop off food","2026-11-01","17:10","2026-11-01","17:20","Downtown","Purpose: Drop the H Mart food in the room fridge/microwave setup so it's ready as dinner around 5-6 PM.
 Duration: 10 min.
 Site link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-1-0-5-walk-back-to-palihotel-to-drop"
-"🛍️ Seattle Day 1 · Target Downtown Seattle (Pike Plaza) -- pickup order","2026-11-01","17:20","2026-11-01","17:45","Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)","Order Pickup at Seattle Pike Plaza -- 2 items:
-- Zantac 360 Maximum Strength Heartburn Prevention and Relief Tablets, Famotidine, 25ct -- $10.89
-- Truly Unruly Variety Pack, 12pk/12 fl oz cans -- $18.99
-Estimated total (incl. WA sales tax): $34.36.
+"🛍️ Seattle Day 1 · Target Downtown Seattle (Pike Plaza) -- pickup order","2026-11-01","17:20","2026-11-01","17:45","Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)","Pickup order at Seattle Pike Plaza. Estimated total including Washington sales tax: $34.36.
 Safety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.
 Location: Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)
 Website: https://www.target.com/

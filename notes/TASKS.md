@@ -16,6 +16,8 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
+- **Public dashboard privacy and all-view audit** (2026-10-09) — removed booking/manage links, ticket references, receipt PDF, and individual private purchase details from current public source; fixed mobile navigation, stop-category labeling, map summaries, dynamic logistics costs, and unsafe custom-stop HTML/URL rendering. Verified desktop/mobile views and matched 121 itinerary entries and costs against the private calendar; calendar visibility remains free/busy.
+
 - **SeaPdx restore and project-memory closeout** (2026-10-03) — consolidated documentation, Obsidian/Graphify setup, current-state notes, and closeout records; corrected the budget snapshot from validation; committed and pushed to `origin/main`.
 
 - **Codex SessionStart/Stop hook setup + stale-path cleanup** (2026-09-14)

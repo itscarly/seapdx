@@ -13,7 +13,7 @@
 ### COMPLETE: Validated calendar export and reconciled the live Seattle & Portland 2026 calendar
 
 - Ran `npm run validate`: status `ok`, projected `$2,285.45` against the `$3,050` ceiling, `$764.55` remaining, and regenerated `data/google-calendar-events-nov1-9-2026.json` plus the matching CSV with 121 itinerary events.
-- Read the documented target calendar ID `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` and confirmed it resolves to `Seattle & Portland 2026`; the personal primary calendar remains the separate `limcarl83@gmail.com` calendar.
+- Read the documented target calendar ID `b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` and confirmed it resolves to `Seattle & Portland 2026`; the personal primary calendar remains the separate `[redacted]` calendar.
 - Compared the regenerated export against the target calendar and updated 119 existing itinerary events in place, changing only fields that differed. The two missing Day 8 export slots were created on the target calendar. Every export event now matches on title, start, end, location, and description.
 - Added the missing paid return flight: Philippine Airlines PR133 ORD-MNL, booking `[redacted]`, ticket `[redacted]`, Mar 1-3, 2027, Business Class seat 02A, PHP 24,281 paid.
 - Read back the target calendar: all 121 export events matched, PR133 was present under the target calendar organizer, and no write call used the personal calendar. A pre-existing personal-calendar PR133 record remains separate and unchanged.
@@ -279,7 +279,7 @@
 **Full live-calendar resync (both halves of the trip, via MCP Google Calendar tools):**
 - Nov 1-5: deleted 63 stale events, recreated 69 from the corrected local export. Flights/lounge/hotel-admin events outside the itinerary structure were left untouched.
 - Nov 6-9: deleted 43 stale events (including a genuine "🏨 Courtyard by Marriott Portland Check-Out" booking record, confirmation [redacted] — user explicitly confirmed deleting it since Hotel Vance is the correct current hotel) and created 48 events matching the current Cannon Beach, Saturday Market, and Multnomah Falls itinerary. Unlike Nov 1-5, the Nov 9 flight events (AA 2496 PDX→DFW, DFW layover, AA 5273 DFW→CRP) ARE part of day-9's itinerary structure in `trip-data.js` and so were included in the delete/recreate.
-- All calendar writes scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"`; the personal calendar (`limcarl83@gmail.com`) was never touched.
+- All calendar writes scoped to `calendarId: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com` with `notificationLevel: "NONE"`; the personal calendar (`[redacted]`) was never touched.
 - Verified post-sync: 48/48 Nov 6-9 events confirmed live, zero overlaps, zero stale venue names remaining (grepped for Courtyard/Fuller's/Japanese Garden/Tasty n Alder/Powell's/Heart Coffee/Momiji/Tope/MadeHere — none found).
 
 **Two Cannon Beach (Day 6) data bugs found while extracting the Nov 6-9 calendar export:**
@@ -1975,7 +1975,7 @@ Full automation audit and overhaul. All monitors are now automated via GitHub Ac
 - Old: 15-min poll of airline/airport status pages for 3 booked flights — wrong scope and wrong cadence
 - New: `scripts/monitor-pal-taxes.js` monitors PAL award taxes on SFO→MNL and ORD→MNL for March 2027 travel
 - Cadence: weekly Mon (now–Aug 2026) → Mon/Wed/Fri (Sep–Dec 2026) → daily (Jan 2027+), date-gated inside script
-- Email alert to limcarl83@gmail.com via Resend on any tax drop
+- Email alert to [redacted] via Resend on any tax drop
 - GitHub Issue opened on any tax change
 - Workflow: `.github/workflows/monitor-flights.yml` rewritten, single daily cron, `workflow_dispatch` for manual test
 
@@ -1994,7 +1994,7 @@ Full automation audit and overhaul. All monitors are now automated via GitHub Ac
 - Wired via `UserPromptSubmit` hook in `.claude/settings.local.json`
 
 **GitHub Secrets required for email alerts:**
-- `RESEND_API_KEY`, `ALERT_EMAIL_TO` (limcarl83@gmail.com), `ALERT_FROM`
+- `RESEND_API_KEY`, `ALERT_EMAIL_TO` ([redacted]), `ALERT_FROM`
 
 **Files created/modified:**
 - `scripts/monitor-pal-taxes.js` (new)
@@ -3300,7 +3300,7 @@ Remaining blocker:
 **What changed:**
 - `data/trip-data.js`: updated Philippine Airlines PR133 to match the attached electronic ticket receipt: booking [redacted], ticket [redacted], ORD -> MNL, Mon Mar 1 10:45 PM -> Wed Mar 3 5:25 AM, Business Class A, seat 02A, paid total PHP 24,281.
 - `dashboards/js/app.js`: kept the existing USD budget model for USD airfare and added the smallest display support needed for the PAL receipt to show as `PHP 24,281` instead of a USD amount.
-- `[private receipt removed]`: added the receipt PDF so the flight card and source list can link to it.
+- `[private attachment removed]`: added the receipt PDF so the flight card and source list can link to it.
 - `README.md`, `notes/KNOWN_ISSUES.md`, and `notes/memory/active/project_current_state.md`: replaced stale Korean Air / Mar 5 placeholder guidance with the [redacted] receipt truth.
 
 **Verification target:**
@@ -3413,3 +3413,18 @@ Remaining blocker:
 - Ran `npm run validate`: syntax and budget checks passed, projected local spend is `$2,285.45` against the `$3,050` cap (`$764.55` remaining), and local calendar exports contain 121 events. Live calendar state was not checked in this session.
 - Updated the README and current-state notes to the validated budget; retained older figures in historical entries with their dates.
 - Reconciled restore, Obsidian/Graphify setup, and closeout notes into one commit and pushed it to `origin/main`.
+
+
+---
+## 2026-10-09 (public dashboard privacy and all-view audit)
+
+### COMPLETE: Removed current public booking artifacts and corrected dashboard usability/security issues
+
+- Removed public booking references/manage URLs, ticket identifiers, individual online purchase details, and the airline receipt PDF from current site/source files.
+- Clarified the trip target excludes paid airfare; logistics-page airfare/hotel totals now derive from itinerary source data.
+- Fixed mobile navigation wrapping, H Mart/dinner category labels, and Portland route summaries (coast/Gorge excursions and final airport transfer).
+- Escaped custom-stop content and constrained custom external links to HTTP(S).
+- Reviewed home, logistics, itinerary, budget, route/map views at desktop and mobile widths; no horizontal overflow or browser-console errors found.
+- Compared private Calendar to regenerated export: all 121 itinerary activities match by title/start/end and extracted cost amounts. Two inbound flight/layover blocks remain on Calendar and are represented by the site's flight view. Calendar remains free/busy only.
+
+**Verification:** `npm run validate` passes (projected $2,285.45; $764.55 remaining); `git diff --check` passes.

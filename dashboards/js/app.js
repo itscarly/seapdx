@@ -120,6 +120,11 @@ const TRIP_MAP_CONFIG = {
       "day-7": "#1749db",
       "day-8": "#7c3aed",
       "day-9": "#f4b231"
+    },
+    summaryOverrides: {
+      "day-6": { metric: "Excursion", label: "Coast excursion" },
+      "day-8": { metric: "Excursion", label: "Gorge excursion" },
+      "day-9": { metric: "Transfer", label: "Airport transfer" }
     }
   }
 };
@@ -186,14 +191,29 @@ const STOP_COORDINATES = {
   "Hat Yai": { lat: 45.5169, lng: -122.6524, label: "Hat Yai Belmont" },
   "Belmont / Mississippi browse + Nate's Oatmeal Cookies": { lat: 45.548, lng: -122.6751, label: "Mississippi / Nate's" },
   "Stumptown Downtown": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
+  "Stumptown coffee + coffee bean buy": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Stumptown Downtown breakfast + coffee bean #3": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Stumptown Downtown breakfast + coffee bean #4": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Stumptown final coffee": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Portland Saturday Market + Waterfront Park": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
   "Portland Saturday Market browse": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
+  "Portland Saturday Market browse + lunch": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
   "Market lunch + snacks": { lat: 45.5238, lng: -122.6696, label: "Portland Saturday Market" },
   "Eem": { lat: 45.5417, lng: -122.6661, label: "Eem" },
   "Novel Book Bar": { lat: 45.5259, lng: -122.6743, label: "Novel Book Bar" },
+  "Novel Book Bar dinner + cocktail + browse": { lat: 45.5259, lng: -122.6743, label: "Novel Book Bar" },
+  "Arrive Portland Union Station and transfer to Hotel Vance": { lat: 45.5289, lng: -122.6763, label: "Portland Union Station" },
+  "Arrive Portland Union Station + transfer to Hotel Vance": { lat: 45.5289, lng: -122.6763, label: "Portland Union Station" },
+  "Depart Portland Union Station (POINT NorthWest)": { lat: 45.5289, lng: -122.6763, label: "Portland Union Station" },
+  "Hotel Vance breakfast": { lat: 45.515, lng: -122.682, label: "Hotel Vance" },
+  "Hotel Vance final transit loop": { lat: 45.515, lng: -122.682, label: "Hotel Vance" },
+  "Check in and reset": { lat: 45.515, lng: -122.682, label: "Hotel Vance" },
+  "Easy downtown orientation walk": { lat: 45.515, lng: -122.682, label: "Hotel Vance" },
+  "Apple Pioneer Place time block": { lat: 45.5179, lng: -122.6774, label: "Apple Pioneer Place" },
+  "Luc Lac Vietnamese Kitchen dinner": { lat: 45.5143, lng: -122.675, label: "Luc Lac Vietnamese Kitchen" },
+  "Cartopia food cart pod late lunch": { lat: 45.5125, lng: -122.6533, label: "Cartopia Food Carts" },
+  "Checkout + transfer to PDX": { lat: 45.515, lng: -122.682, label: "Hotel Vance" },
+  "Airport check-in and security buffer": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" },
   "Novel Book Bar cocktail + browse": { lat: 45.5259, lng: -122.6743, label: "Novel Book Bar" },
   "Pretty Ugly Burger dinner": { lat: 45.5164, lng: -122.6732, label: "Pretty Ugly Burger" },
   "Tope or rooftop backup near downtown": { lat: 45.5185, lng: -122.6767, label: "Tope" },
@@ -321,6 +341,10 @@ function initCollapsibleAnchors() {
 }
 
 function initLogisticsPage() {
+  const airfareEl = document.getElementById("logisticsAirfareTotal");
+  const hotelsEl = document.getElementById("logisticsHotelTotal");
+  if (airfareEl) airfareEl.textContent = moneyPrecise(getConfirmedAirfareTotal());
+  if (hotelsEl) hotelsEl.textContent = moneyPrecise(getConfirmedHotelTotal());
   renderLogisticsFlightBoard();
   initReveal();
 }
@@ -527,7 +551,7 @@ function initHero() {
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} still owed for hotels + ${money(plannedTotal)} still to plan/spend -- Asiana, AA, and PAL airfare already paid, not counted here`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed hotel costs + ${money(plannedTotal)} planned spend; paid airfare excluded`;
   if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   const meterSlider = document.getElementById("heroMeterSlider");
@@ -556,19 +580,19 @@ function initHero() {
   if (fxMetaEl) fxMetaEl.textContent = `${fxMeta.live ? "Live feed" : "Fallback"} from ${fxMeta.provider}; last update ${fxMeta.updatedLabel}.`;
   if (seattleBaseEl) {
     const seattleHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Seattle');
-    const seattleHotelUrl = seattleHotel?.url || 'https://www.palihotel.com/seattle/';
-    seattleBaseEl.innerHTML = `<a href="${seattleHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.seattle}</a>`;
+    const seattleHotelUrl = safeExternalUrl(seattleHotel?.url) || 'https://www.palihotel.com/seattle/';
+    seattleBaseEl.innerHTML = `<a href="${escapeAttribute(seattleHotelUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(data.meta.travelerBase.seattle)}</a>`;
   }
   if (portlandBaseEl) {
     const portlandHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Portland');
-    const portlandHotelUrl = portlandHotel?.url || 'https://www.hotelvance.com/';
-    portlandBaseEl.innerHTML = `<a href="${portlandHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.portland}</a>`;
+    const portlandHotelUrl = safeExternalUrl(portlandHotel?.url) || 'https://www.hotelvance.com/';
+    portlandBaseEl.innerHTML = `<a href="${escapeAttribute(portlandHotelUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(data.meta.travelerBase.portland)}</a>`;
   }
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
   if (chicagoBaseEl) {
     const chicagoHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Chicago');
-    const chicagoHotelUrl = chicagoHotel?.url || 'https://www.hilton.com/en/hotels/chiaoup-acme-hotel-chicago/';
-    chicagoBaseEl.innerHTML = `<a href="${chicagoHotelUrl}" target="_blank" rel="noopener noreferrer">${data.meta.travelerBase.chicago}</a>`;
+    const chicagoHotelUrl = safeExternalUrl(chicagoHotel?.url) || 'https://www.hilton.com/en/hotels/chiaoup-acme-hotel-chicago/';
+    chicagoBaseEl.innerHTML = `<a href="${escapeAttribute(chicagoHotelUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(data.meta.travelerBase.chicago)}</a>`;
   }
   if (lastUpdatedEl) lastUpdatedEl.textContent = data.meta.verifiedOn;
 }
@@ -582,7 +606,7 @@ function renderHeroFacts() {
   const lines = [
     `${data.itinerary.length} trip days with one continuous Seattle-to-Portland flow`,
     `${seattleDays} Seattle days, ${portlandDays} Portland or transfer days`,
-    `${moneyPrecise(getConfirmedTripTotal())} still owed for hotels before local trip spending (Asiana, AA, and PAL airfare already paid)`,
+    `${moneyPrecise(getConfirmedTripTotal())} confirmed hotel costs before planned local spending; paid airfare is separate`,
     `${futureJourneys ? `${futureJourneys} later booked flight still lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
   ];
   factsEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join("");
@@ -751,7 +775,6 @@ function renderFlightJourney(journey, options = {}) {
       <div class="flight-journey-links">
         ${journey.statusSource ? `<a class="link-button" href="${journey.statusSource}" target="_blank" rel="noreferrer">Flight status source</a>` : ""}
         ${journey.airportSource ? `<a class="link-button" href="${journey.airportSource}" target="_blank" rel="noreferrer">Airport status board</a>` : ""}
-        ${journey.receiptUrl ? `<a class="link-button" href="${journey.receiptUrl}" target="_blank" rel="noreferrer">Ticket receipt PDF</a>` : ""}
       </div>
     </article>
   `;
@@ -774,10 +797,10 @@ function renderFlightShell(targetId, options = {}) {
             : "Booked-flight timing stays visible here without taking over the main trip-planning view."}</p>
         </div>
         <article class="budget-summary-card airfare">
-          <span class="budget-kicker">Confirmed airfare</span>
+          <span class="budget-kicker">Paid airfare, excluded below</span>
           <div class="budget-capline">
             <strong>${moneyPrecise(data.flights?.airfareTotal || 0)}</strong>
-            <p>This total is part of the all-in trip cost summary, but still separate from the local activity-budget meters.</p>
+            <p>USD airfare is paid. PAL’s PHP 24,281 award charge is separate. Neither amount is included in this trip target.</p>
           </div>
         </article>
       </div>
@@ -829,9 +852,9 @@ function flattenDayEvents(day) {
 
 function renderTiming(stop) {
   const pills = [
-    stop.time ? `<span class="timing-pill">${iconClock()}<span>Planned: ${stop.time}</span></span>` : "",
-    stop.leaveTime ? `<span class="timing-pill">${iconRoute()}<span>Leave by: ${stop.leaveTime}</span></span>` : "",
-    stop.duration ? `<span class="timing-pill">${iconClock()}<span>Duration: ${stop.duration}</span></span>` : ""
+    stop.time ? `<span class="timing-pill">${iconClock()}<span>Planned: ${escapeHtml(stop.time)}</span></span>` : "",
+    stop.leaveTime ? `<span class="timing-pill">${iconRoute()}<span>Leave by: ${escapeHtml(stop.leaveTime)}</span></span>` : "",
+    stop.duration ? `<span class="timing-pill">${iconClock()}<span>Duration: ${escapeHtml(stop.duration)}</span></span>` : ""
   ].filter(Boolean).join("");
   return pills ? `<div class="timing-row">${pills}</div>` : "";
 }
@@ -845,9 +868,9 @@ function renderEditorActions(stop, options = {}) {
     `<button class="stop-action focus-ring" type="button" data-editor-action="replace" data-stop-uid="${escapeAttribute(stop._uid)}">Replace stop</button>`,
     `<button class="stop-action focus-ring" type="button" data-editor-action="insert-after" data-stop-uid="${escapeAttribute(stop._uid)}">Add after</button>`,
     `<button class="stop-action focus-ring" type="button" data-editor-action="remove" data-stop-uid="${escapeAttribute(stop._uid)}">Remove</button>`,
-    stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
-    stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
-    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : ""
+    safeExternalUrl(stop.website) ? `<a class="link-button" href="${escapeAttribute(safeExternalUrl(stop.website))}" target="_blank" rel="noreferrer">Website</a>` : "",
+    safeExternalUrl(stop.menu) ? `<a class="link-button" href="${escapeAttribute(safeExternalUrl(stop.menu))}" target="_blank" rel="noreferrer">Menu</a>` : "",
+    safeExternalUrl(stop.route) ? `<a class="link-button" href="${escapeAttribute(safeExternalUrl(stop.route))}" target="_blank" rel="noreferrer">Map route</a>` : ""
   ].filter(Boolean).join("");
 }
 
@@ -855,7 +878,7 @@ function getStopDisplayLabel(stop, options = {}) {
   const explicit = stop.displayType || stop.anchorType;
   if (explicit) return labelize(String(explicit).replace(/-/g, " "));
 
-  const text = `${stop.name || ""} ${stop.notes || ""} ${stop.detailText || ""}`.toLowerCase();
+  const text = `${stop.name || ""} ${stop.notes || ""}`.toLowerCase();
   if (/happy hour/.test(text)) return "Happy hour";
   if (/photo|sign \+ arcade|skyline|facade|interior|sunset|ferris wheel/.test(text)) return "Photo ops";
   if (/cocktail|one-drink|rooftop bar|spritz|margarita|lychee|book bar/.test(text)) return "Cocktails";
@@ -893,13 +916,13 @@ function renderStop(stop, options = {}) {
     const shortNote = stop.notes ? stop.notes.substring(0, 80) + (stop.notes.length > 80 ? "..." : "") : "";
     const hasCost = costValue != null && costValue > 0;
     return `
-      <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""} ${hasCost ? "has-cost" : ""}" data-type="${type}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
-        <div class="chip-timing">${stop.time || ""}</div>
+      <article id="${escapeAttribute(getStopAnchorId(stop))}" class="stop stop--chip ${options.isAlternate ? "is-alternate" : ""} ${hasCost ? "has-cost" : ""}" data-type="${escapeAttribute(type)}" data-stop-uid="${escapeAttribute(stop._uid)}" data-day-id="${escapeAttribute(options.dayId || "")}">
+        <div class="chip-timing">${escapeHtml(stop.time || "")}</div>
         <div class="chip-body">
-          <div class="chip-badge">${badgeLabel}</div>
-          <div class="chip-title">${stop.name}</div>
-          <div class="chip-meta">${[stop.neighborhood, stop.duration].filter(Boolean).join(" · ")}${hasCost ? ` · <span class="chip-cost">${money(costValue)}</span>` : ""}</div>
-          ${shortNote ? `<div class="chip-note">${shortNote}</div>` : ""}
+          <div class="chip-badge">${escapeHtml(badgeLabel)}</div>
+          <div class="chip-title">${escapeHtml(stop.name)}</div>
+          <div class="chip-meta">${escapeHtml([stop.neighborhood, stop.duration].filter(Boolean).join(" · "))}${hasCost ? ` · <span class="chip-cost">${money(costValue)}</span>` : ""}</div>
+          ${shortNote ? `<div class="chip-note">${escapeHtml(shortNote)}</div>` : ""}
         </div>
       </article>
     `;
@@ -924,21 +947,21 @@ function renderStop(stop, options = {}) {
   ].filter(([, value]) => value);
 
   return `
-    <article class="stop ${options.isAlternate ? "is-alternate" : ""}" data-type="${type}" data-reveal>
+    <article class="stop ${options.isAlternate ? "is-alternate" : ""}" data-type="${escapeAttribute(type)}" data-reveal>
       <div class="stop-top">
         <div>
-          <span class="badge">${icon}<span>${badgeLabel}</span></span>
-          <h3>${stop.name}</h3>
-          <p>${stop.neighborhood || ""}</p>
+          <span class="badge">${icon}<span>${escapeHtml(badgeLabel)}</span></span>
+          <h3>${escapeHtml(stop.name)}</h3>
+          <p>${escapeHtml(stop.neighborhood || "")}</p>
         </div>
         ${costValue != null ? `<strong>${money(costValue)}</strong>` : ""}
       </div>
       ${renderTiming(stop)}
-      ${stop.notes ? `<p>${stop.notes}</p>` : ""}
-      ${stop.recommended ? `<p><b>Recommended:</b> ${stop.recommended}</p>` : ""}
-      ${stop.status ? `<p><b>Status:</b> ${stop.status}</p>` : ""}
+      ${stop.notes ? `<p>${escapeHtml(stop.notes)}</p>` : ""}
+      ${stop.recommended ? `<p><b>Recommended:</b> ${escapeHtml(stop.recommended)}</p>` : ""}
+      ${stop.status ? `<p><b>Status:</b> ${escapeHtml(stop.status)}</p>` : ""}
       <div class="details">
-        ${details.map(([label, value]) => `<div class="detail"><b>${label}</b>${value}</div>`).join("")}
+        ${details.map(([label, value]) => `<div class="detail"><b>${escapeHtml(label)}</b>${escapeHtml(value)}</div>`).join("")}
       </div>
       ${renderEditorActions(stop, options) ? `<div class="card-actions">${renderEditorActions(stop, options)}</div>` : ""}
     </article>
@@ -1107,7 +1130,7 @@ function getOnlinePurchaseGroups() {
 
 function getOnlinePurchasesTotal() {
   return getOnlinePurchaseGroups().reduce((sum, group) => (
-    sum + (group.items || []).reduce((groupSum, item) => groupSum + (Number(item.amount) || 0), 0)
+    sum + Number(group.total ?? (group.items || []).reduce((groupSum, item) => groupSum + (Number(item.amount) || 0), 0))
   ), 0);
 }
 
@@ -1238,8 +1261,8 @@ function buildTripCostBreakdown(allInTarget) {
         ...plannedPurchases.map((item) => ({ label: item.name, amount: item.amount, detail: item.note || "" })),
         ...onlinePurchaseGroups.map((group) => ({
           label: `${group.store} order`,
-          amount: (group.items || []).reduce((sum, item) => sum + (Number(item.amount) || 0), 0),
-          detail: (group.items || []).map((item) => `${item.name} -- $${Number(item.amount).toFixed(2)}`).join("\n")
+          amount: Number(group.total ?? (group.items || []).reduce((sum, item) => sum + (Number(item.amount) || 0), 0)),
+          detail: "Private purchase details hidden"
         }))
       ]
     },
@@ -1332,19 +1355,17 @@ function renderTripCostSummary() {
   const breakdownEl = document.getElementById("tripCostBreakdown");
   if (!summaryEl || !breakdownEl) return;
 
-  const confirmedAirfare = getConfirmedAirfareTotal();
-  const confirmedHotels = getConfirmedHotelTotal();
   const { confirmedTotal, plannedTripSpend, allInTarget } = getBudgetTotals();
-  const tripSpendBreakdown = applyBudgetOverrides(buildTripCostBreakdown(allInTarget));
+  const tripSpendBreakdown = applyBudgetOverrides(buildTripCostBreakdown(allInTarget).filter((category) => category.name !== "Airfare"));
   // Pristine (un-overridden) amounts, used only to pin each slider's max so dragging
   // one category can never inflate another category's range on the next render.
-  const pristineBreakdown = buildTripCostBreakdown(0);
+  const pristineBreakdown = buildTripCostBreakdown(0).filter((category) => category.name !== "Airfare");
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
-      <span class="budget-kicker">${moneyPrecise(allInTarget)} all-in target -- how it breaks down</span>
-      <strong class="budget-total">${moneyPrecise(confirmedTotal)} <span style="font-weight:400;">confirmed</span></strong>
-      <p class="budget-copy">Plus ${money(plannedTripSpend)} still to plan or spend -- local trip spend, shopping, and the tattoo, all combined and capped at ${money(data.budget.cap)} (itemized below). See the hero card up top for the single all-in number.</p>
+      <span class="budget-kicker">${moneyPrecise(allInTarget)} trip target, excluding paid airfare</span>
+      <strong class="budget-total">${moneyPrecise(confirmedTotal)} <span style="font-weight:400;">confirmed hotels</span></strong>
+      <p class="budget-copy">Plus ${money(plannedTripSpend)} still to plan or spend, capped at ${money(data.budget.cap)} (itemized below). Paid airfare is shown separately and excluded from this target.</p>
       <div class="budget-main-meter" aria-hidden="true">
         <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
       </div>
@@ -1357,12 +1378,7 @@ function renderTripCostSummary() {
               <span>One plain formula so the savings target is easy to sanity-check.</span>
             </div>
           </li>
-          <li>
-            <div>
-              <strong>Not double-counted</strong>
-              <span>The category cards below are the itemized explanation for this same total, not separate charges added again.</span>
-            </div>
-          </li>
+          <li><div><strong>Paid airfare excluded</strong><span>Confirmed USD airfare and the PAL charge in PHP are listed on the flight card but are not part of this target.</span></div></li>
         </ul>
       </div>
     </article>
@@ -1406,7 +1422,7 @@ function renderTripCostSummary() {
             value="${Math.round(category.amount)}" aria-label="Drag to adjust ${category.name} amount">
         </div>
         <div class="budget-meter-labels">
-          <span>Share of all-in target</span>
+          <span>Share of trip target</span>
           <span>${usdMoney(category.amount)} of ${usdMoney(allInTarget)}</span>
         </div>
         <p>${category.note}</p>
@@ -1716,7 +1732,7 @@ function renderCityAtlas(scopeKey) {
   summary.innerHTML = routeDays.map((routeDay) => `
     <button class="atlas-day-pill" type="button" data-map-scope="${scopeKey}" data-map-day="${routeDay.day.id}" style="--atlas-color:${routeDay.color}">
       <span>${routeDay.day.date}</span>
-      <strong>${routeDay.distanceMiles.toFixed(1)} mi</strong>
+      <strong>${routeDay.summaryMetric}</strong>
       <em>${routeDay.walkability}</em>
     </button>
   `).join("");
@@ -1750,12 +1766,14 @@ function buildRouteDay(day, config) {
   });
 
   const distanceMiles = calculateRouteMiles(points);
+  const summaryOverride = config.summaryOverrides?.[day.id];
   return {
     day,
     color: config.colors[day.id] || "#1749db",
     points,
     distanceMiles,
-    walkability: describeWalkability(points, distanceMiles)
+    summaryMetric: summaryOverride?.metric || `${distanceMiles.toFixed(1)} mi`,
+    walkability: summaryOverride?.label || describeWalkability(points, distanceMiles)
   };
 }
 
@@ -1803,7 +1821,7 @@ function haversineMiles(a, b) {
 }
 
 function escapeAttribute(value) {
-  return String(value).replace(/"/g, "&quot;");
+  return escapeHtml(value);
 }
 
 function escapeHtml(value) {
@@ -1819,6 +1837,16 @@ function linkifyText(value) {
   return escapeHtml(value).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noreferrer">$1</a>');
 }
 
+function safeExternalUrl(value) {
+  if (!value) return "";
+  try {
+    const url = new URL(String(value || ""), window.location.href);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
 function getStopAnchorId(stop) {
   return `stop-${slugify(stop?._uid || stop?.name || "stop")}`;
 }
@@ -1832,7 +1860,7 @@ function getStopDeepLink(stop) {
 }
 
 function getCalendarDayUrl(day, stop) {
-  if (stop?.calendarUrl) return stop.calendarUrl;
+  if (stop?.calendarUrl) return safeExternalUrl(stop.calendarUrl);
   if (!day?.isoDate) return "";
   const [year, month, date] = day.isoDate.split("-").map((part) => Number(part));
   return `https://calendar.google.com/calendar/u/0/r/day/${year}/${month}/${date}?cid=${encodeURIComponent(SHARED_CALENDAR_ID)}`;
@@ -1954,11 +1982,14 @@ function renderDetailPanel(stop, day) {
   ].filter(([, value]) => value);
 
   const linksHtml = [
-    stop.website ? `<a class="link-button" href="${stop.website}" target="_blank" rel="noreferrer">Website</a>` : "",
-    stop.menu ? `<a class="link-button" href="${stop.menu}" target="_blank" rel="noreferrer">Menu</a>` : "",
-    stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noreferrer">Map route</a>` : "",
-    getCalendarDayUrl(day, stop) ? `<a class="link-button" href="${getCalendarDayUrl(day, stop)}" target="_blank" rel="noreferrer">View in Google Calendar</a>` : ""
-  ].filter(Boolean).join("");
+    ["Website", stop.website],
+    ["Menu", stop.menu],
+    ["Map route", stop.route],
+    ["View in Google Calendar", getCalendarDayUrl(day, stop)]
+  ].map(([label, value]) => {
+    const url = safeExternalUrl(value);
+    return url ? `<a class="link-button" href="${escapeAttribute(url)}" target="_blank" rel="noreferrer">${label}</a>` : "";
+  }).join("");
   const mapContainerId = `chip-map-${stop._uid.replace(/\W/g, "_")}`;
   const hasCoordinates = stop.name && STOP_COORDINATES[stop.name];
   const richSectionsHtml = renderRichDetailSections(stop.detailText);
@@ -1970,23 +2001,23 @@ function renderDetailPanel(stop, day) {
     <div class="stop-detail">
       <div class="stop-detail-header">
         <div class="stop-detail-title">
-          <span class="badge">${labelize(type)}</span>
-          <h4>${stop.name}</h4>
-          <div class="stop-detail-location">${stop.neighborhood || "Location kept flexible within the route."}</div>
+          <span class="badge">${escapeHtml(labelize(type))}</span>
+          <h4>${escapeHtml(stop.name)}</h4>
+          <div class="stop-detail-location">${escapeHtml(stop.neighborhood || "Location kept flexible within the route.")}</div>
         </div>
         ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
       </div>
       ${stop.image ? `
-        <a class="visual-card-link stop-detail-image" href="${IMAGE_BASE}${stop.image}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">
-          <img src="${IMAGE_BASE}${stop.image}" alt="${escapeAttribute(stop.name)}" loading="lazy" />
+        <a class="visual-card-link stop-detail-image" href="${escapeAttribute(IMAGE_BASE + stop.image)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">
+          <img src="${escapeAttribute(IMAGE_BASE + stop.image)}" alt="${escapeAttribute(stop.name)}" loading="lazy" />
         </a>
       ` : ""}
       ${stop.safetyNote ? `<div class="safety-badge">${escapeHtml(stop.safetyNote)}</div>` : ""}
       ${stop.time || stop.duration || stop.leaveTime ? `
         <div class="stop-detail-timing">
-          ${stop.time ? `<span>Planned: ${stop.time}</span>` : ""}
-          ${stop.duration ? `<span>Duration: ${stop.duration}</span>` : ""}
-          ${stop.leaveTime ? `<span>Leave by: ${stop.leaveTime}</span>` : ""}
+          ${stop.time ? `<span>Planned: ${escapeHtml(stop.time)}</span>` : ""}
+          ${stop.duration ? `<span>Duration: ${escapeHtml(stop.duration)}</span>` : ""}
+          ${stop.leaveTime ? `<span>Leave by: ${escapeHtml(stop.leaveTime)}</span>` : ""}
         </div>
       ` : ""}
       ${richSectionsHtml || `
@@ -1998,7 +2029,7 @@ function renderDetailPanel(stop, day) {
       `}
       ${details.length ? `
         <div class="details details--stop">
-          ${details.map(([label, value]) => `<div class="detail"><b>${label}</b><span>${value}</span></div>`).join("")}
+          ${details.map(([label, value]) => `<div class="detail"><b>${escapeHtml(label)}</b><span>${escapeHtml(value)}</span></div>`).join("")}
         </div>
       ` : ""}
       ${routeMapSrc ? `
@@ -2008,8 +2039,8 @@ function renderDetailPanel(stop, day) {
       ` : hasCoordinates ? `<div id="${mapContainerId}" class="stop-detail-map" aria-label="Map for ${escapeAttribute(stop.name)}"></div>` : ""}
       ${linksHtml ? `<div class="stop-detail-links">${linksHtml}</div>` : ""}
       <div class="stop-detail-actions">
-        ${hasCoordinates && stop.route ? `<a class="link-button" href="${stop.route}" target="_blank" rel="noopener">Get directions</a>` : ""}
-        <a class="link-button" href="${getStopDeepLink(stop)}">Open stop link</a>
+        ${hasCoordinates && safeExternalUrl(stop.route) ? `<a class="link-button" href="${escapeAttribute(safeExternalUrl(stop.route))}" target="_blank" rel="noopener">Get directions</a>` : ""}
+        <a class="link-button" href="${escapeAttribute(getStopDeepLink(stop))}">Open stop link</a>
       </div>
     </div>
   `;

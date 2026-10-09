@@ -14,10 +14,10 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 - Status: resolved 2026-08-09 (session 42)
 - Detail: `dev-server-daemon.sh` called `npm run serve`, which fails under launchd's minimal PATH (`npm: command not found`) — the daemon crash-looped and never held port 4173. A second unrelated LaunchAgent (`com.kicker.codexproject.localhost`) filled the gap by serving the wrong local folder whenever the port came free, so requests intermittently 404'd. Fixed by having the daemon call `python3 -m http.server` directly and disabling the rogue watchdog. If the site 404s on `dashboards/html/index.html` or `data/trip-data.js` again, check `lsof -nP -iTCP:4173 -sTCP:LISTEN` for which process actually owns the port before assuming the daemon is fine.
 
-### Hotel booking cleanup still needs human confirmation
+### Hotel costs and privacy
 
-- Status: resolved as of 2026-08-02
-- Detail: the dashboard now treats Boylston and Hotel Vance, a Tribute Portfolio Hotel, as the active hotel truth (confirmed accommodations total `$917.42`). Courtyard by Marriott Portland City Center was the stale booking and has been fully removed from trip-data.js, app.js, index.html, logistics.html, and the memory notes.
+- Status: current public totals validated 2026-10-09
+- Detail: the dashboard shows `$1,481.68` in confirmed hotel costs. Reservation identifiers, manage links, ticket identifiers, and the airline receipt attachment are removed from the current public source. Calendar sharing remains free/busy only; authenticated calendar details remain private.
 
 ### November 2026 hours and one unverified transit time still need closer review
 

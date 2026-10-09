@@ -36,7 +36,6 @@ function main() {
   const calendarJson = readJson(path.join(rootDir, "data", "google-calendar-events-nov1-9-2026.json"));
   const airfare = data?.tripCosts?.confirmed?.airfare;
   const hotels = data?.tripCosts?.confirmed?.accommodations;
-  const aaBooking = airfare?.items?.find((item) => item.confirmation === "[redacted]");
 
   lines.push("--- Trip Summary ---");
   lines.push("  Dashboard focus: public itinerary + executive spend summary");
@@ -47,7 +46,7 @@ function main() {
   lines.push("--- Confirmed Costs ---");
   lines.push(`  Airfare: ${money(airfare?.total)}`);
   lines.push(`  Hotels: ${money(hotels?.total)} (${(hotels?.items || []).map((h) => `${h.city}: ${money(h.amount)}`).join(", ")})`);
-  if (aaBooking) lines.push(`  Paid AA booking: ${aaBooking.confirmation} (${money(aaBooking.amount)})`);
+  if (airfare) lines.push(`  Paid airfare is tracked without public booking references (${money(airfare.total)}).`);
   lines.push("");
 
   lines.push("--- Budget Snapshot ---");

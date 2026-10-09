@@ -2520,8 +2520,9 @@ h3 {
   }
 
   .topbar {
-    justify-content: flex-start;
-    overflow-x: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: visible;
     width: calc(100% - 26px);
     padding: 10px 14px;
   }
