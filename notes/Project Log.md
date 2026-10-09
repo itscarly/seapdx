@@ -3424,7 +3424,8 @@ Remaining blocker:
 - Clarified the trip target excludes paid airfare; logistics-page airfare/hotel totals now derive from itinerary source data.
 - Fixed mobile navigation wrapping, H Mart/dinner category labels, and Portland route summaries (coast/Gorge excursions and final airport transfer).
 - Escaped custom-stop content and constrained custom external links to HTTP(S).
+- Darkened the primary and hover accent colors to clear the contrast checker’s AA threshold.
 - Reviewed home, logistics, itinerary, budget, route/map views at desktop and mobile widths; no horizontal overflow or browser-console errors found.
 - Compared private Calendar to regenerated export: all 121 itinerary activities match by title/start/end and extracted cost amounts. Two inbound flight/layover blocks remain on Calendar and are represented by the site's flight view. Calendar remains free/busy only.
 
-**Verification:** `npm run validate` passes (projected $2,285.45; $764.55 remaining); `git diff --check` passes.
+**Verification:** `npm run validate` passes (projected $2,285.45; $764.55 remaining); contrast detector reports zero low-contrast findings; `git diff --check` passes. Public branch history was rewritten to remove booking identifiers and the ticket receipt; GitHub’s closed PR #51 still retains its original internal ref and needs GitHub Support for full removal.

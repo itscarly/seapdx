@@ -4,6 +4,11 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 ## Current known issues
 
+### Closed GitHub PR retains an old internal ref
+
+- Status: external removal required
+- Detail: public branch histories were rewritten to remove booking identifiers, manage links, and the ticket receipt. GitHub’s closed PR #51 still points at its old head via a GitHub-managed `refs/pull/51/head`, which cannot be updated by a normal branch push. Ask GitHub Support to purge the closed-PR ref/cache if complete removal is needed; forks and external caches are outside this repository’s control.
+
 ### Two Day 2 stops have no freely-licensed image
 
 - Status: known limitation, not a bug to fix unless requested
