@@ -1385,7 +1385,7 @@ function renderTripCostSummary() {
   `;
   bindBudgetBreakdowns(summaryEl);
 
-  const colors = ["#bd6b2f", "#1f7a67", "#2f6fe4", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68", "#6d5bd0"];
+  const colors = ["#bd6b2f", "#1f7a67", "#225bbb", "#d7a35a", "#a1552b", "#3d7f8f", "#6c7a68", "#6d5bd0"];
   breakdownEl.innerHTML = tripSpendBreakdown.map((category, index) => {
     const pristineAmount = pristineBreakdown.find((c) => c.name === category.name)?.amount || category.amount || 1;
     // Fixed ceiling based on the original data, not the live (override-affected) total --

@@ -9,8 +9,8 @@ colors:
   panel: "rgba(255, 252, 247, 0.92)"
   panel-strong: "rgba(255, 252, 247, 0.98)"
   line: "rgba(49, 42, 35, 0.1)"
-  accent: "#2f6fe4"
-  accent-dark: "#0284c7"
+  accent: "#225bbb"
+  accent-dark: "#0066a8"
   accent-2: "#1f7a67"
   accent-3: "#bd6b2f"
   accent-4: "#d7a35a"
@@ -126,7 +126,7 @@ The system explicitly rejects the SaaS-dashboard reflex: no navy-and-electric-bl
 
 **Key Characteristics:**
 - Warm off-white paper background (`#f6f3ec`), never cool gray
-- One primary accent blue (`#2f6fe4`) carries emphasis; teal and ochre are secondary, used sparingly for status and route tags
+- One primary accent blue (`#225bbb`) carries emphasis; teal and ochre are secondary, used sparingly for status and route tags
 - Pill-shaped controls (`999px` radius) throughout — buttons, chips, tabs, meters
 - Compact type scale; hero headline capped at `clamp(2rem, 4vw, 3.6rem)`, well under the 6rem/96px ceiling
 - Cards are soft, bordered, and shadow-light — never nested, never nested "for structure"
@@ -136,7 +136,7 @@ The system explicitly rejects the SaaS-dashboard reflex: no navy-and-electric-bl
 The palette is warm-neutral paper with a single committed accent blue; teal and ochre are supporting, not equal partners.
 
 ### Primary
-- **Trip Blue** (`#2f6fe4`): the only color used for primary actions, active states, and the one accent that should draw the eye — active chips/tabs, primary buttons, the meter fill's leading edge, link-buttons.
+- **Trip Blue** (`#225bbb`): the only color used for primary actions, active states, and the one accent that should draw the eye — active chips/tabs, primary buttons, the meter fill's leading edge, link-buttons.
 
 ### Secondary
 - **Ledger Teal** (`#1f7a67`): status/confirmation accents — "confirmed" spend states, secondary gradient stop in meters and gauges.
@@ -194,7 +194,7 @@ Beyond the five named roles above, dozens of smaller controls (badges, meter hin
 
 ### Buttons
 - **Shape:** fully pill-shaped (`border-radius: 999px`), `min-height: 40px`, `padding: 0 14px`.
-- **Primary:** `linear-gradient(135deg, #2f6fe4, #0284c7)` background, white text, border-color matches the gradient's dark stop, plus an inset top highlight and a colored ambient glow shadow (`0 8px 18px rgba(accent, 0.35)`).
+- **Primary:** `linear-gradient(135deg, #225bbb, #0066a8)` background, white text, border-color matches the gradient's dark stop, plus an inset top highlight and a colored ambient glow shadow (`0 8px 18px rgba(accent, 0.35)`).
 - **Secondary/default:** subtle top-to-bottom white→paper gradient background, ink text, hairline border, inset top highlight + soft ambient shadow at rest.
 - **Hover/Focus:** lifts 3px, shadow firms and grows, `outline: 2px solid var(--accent)` with 2px offset for focus-visible.
 - **Active/pressed:** inset shadow only, slight `scale(0.99)` — physical push feedback.
@@ -225,7 +225,7 @@ The trip-target meter and per-category budget gauges are the dashboard's one dis
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** use Trip Blue (`#2f6fe4`) as the only primary-action and active-state color; per the **One Accent Rule**.
+- **Do** use Trip Blue (`#225bbb`) as the only primary-action and active-state color; per the **One Accent Rule**.
 - **Do** keep every meter/gauge fill and its draggable thumb driven by one shared percentage formula so they never visually desync.
 - **Do** cap hero `<h1>` at `clamp(2rem, 4vw, 3.6rem)` — well under the 6rem ceiling; this is a trip notebook, not a landing page.
 - **Do** use the pill radius (`999px`) for every interactive control — buttons, chips, tabs, meters — for a single consistent control language.

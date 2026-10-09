@@ -12,7 +12,7 @@
   --line-strong: rgba(22, 23, 20, 0.18);
   --accent: #0EA5E9;
   --accent-rgb: 14, 165, 233;
-  --accent-dark: #0284c7;
+  --accent-dark: #0066a8;
   --accent-2: #0f766e;
   --accent-2-rgb: 15, 118, 110;
   --accent-3: #F97316;
@@ -3206,8 +3206,8 @@ main {
   --muted: #655d53;
   --line: rgba(var(--line-rgb), 0.1);
   --line-rgb: 49, 42, 35;
-  --accent: #2f6fe4;
-  --accent-rgb: 47, 111, 228;
+  --accent: #225bbb;
+  --accent-rgb: 36, 95, 190;
   --accent-2: #1f7a67;
   --accent-2-rgb: 31, 122, 103;
   --accent-3: #bd6b2f;
