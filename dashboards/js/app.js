@@ -622,6 +622,7 @@ function handleImageError(img) {
 }
 
 function rerenderMoneyViews() {
+  renderHeroFacts();
   initHero();
   renderTripCostSummary();
   renderItinerary(currentFilter);

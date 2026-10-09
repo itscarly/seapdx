@@ -8,7 +8,7 @@ window.TRIP_DATA = {
       portland: "Hotel Vance, a Tribute Portfolio Hotel",
       chicago: "ACME Hotel Chicago, Outset Collection by Hilton"
     },
-    verifiedOn: "Oct 3, 2026",
+    verifiedOn: "Oct 9, 2026",
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [

@@ -1,3 +1,13 @@
+## 2026-10-09
+
+### COMPLETE: Audited dashboard and reconciled private calendar details
+
+- Confirmed all 121 generated Nov 1-9 itinerary events match the target calendar by title, timing, and cost; the API's 124-event window also includes three separate arrival-chain entries.
+- `npm run validate` passed: projected activity spend `$2,285.45` against `$3,050`, with `$764.55` remaining.
+- Fixed the shared currency-refresh path so hero quick facts rerender when the live USD/PHP exchange rate arrives, keeping the precise PHP figure aligned with the all-in card.
+- Kept Google Calendar public access at free/busy only per the user's direction. Event details and costs remain private; the public embed consequently does not display them.
+- Impeccable detector reported one existing advisory at `dashboards/js/app.js:1755` for literal color `#1749db`; unrelated to this change.
+
 ## 2026-09-26
 
 ### COMPLETE: Validated calendar export and reconciled the live Seattle & Portland 2026 calendar

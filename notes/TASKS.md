@@ -168,13 +168,10 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 - The Trip cost breakdown (all-in target card + 8 category cards + local-spend/buffer status cards) renders as one unified 4-column CSS grid with equal card heights and no orphaned full-width rows.
 - Six homepage sections now use native `<details>`/`<summary>` collapsibles, all default-collapsed on load with a clearly visible filled accent-colored toggle bar ("Click to expand"/"Click to collapse"): Trip cost, Day-by-day route, Booked flights, Planning guides, Maps and transit, and Utility pages. Anchor links (hero nav, "Jump to totals") auto-expand their target section on click/hashchange so they never land on hidden content.
 - Planning guides tabs: "Social + Dating" was removed entirely (data and UI). "Rainy day" and "Packing" were merged into one "Rainy day + packing" tab with two subsections. Reservations tab was reviewed — only Poquitos Capitol Hill is an actual bookable reservation; the other three entries are logistics notes, not reservations.
-- Executive all-in spend summary is live and should stay aligned with:
-  - confirmed airfare `$1,256.83`
-  - confirmed hotels `$917.42` (Boylston $504.46 + Hotel Vance $412.96)
-  - planned personal purchases: Meta Ray-Ban Gen 2 Wayfarer `$490` and BLEU DE CHANEL EDP 3.4oz `$173`
-  - local activity-budget projected total `$1,069` against the `$1,250` cap / `$1,300` ceiling
-  - all-in target: `$3,906.25`
-- Shared-calendar-to-site alignment is in a good state for the current public route.
+- Current verified trip snapshot (2026-10-09): airfare `$1,256.83`; hotel balance `$1,481.68`; all-in target `$3,767.13`; planned activity spend `$2,285.45` against the `$3,050` cap, leaving `$764.55`.
+- Seattle base is Palihotel Seattle; Portland base is Hotel Vance; Chicago base is ACME Hotel Chicago. Source of truth: `data/trip-data.js`.
+- The 121 exported Nov 1-9 activity events match the live `Seattle & Portland 2026` calendar by title, timing, and cost. Three additional arrival flight/layover events are maintained separately.
+- The calendar is intentionally public free/busy only. The public embed will not show event details or costs; do not broaden visibility without explicit user approval.
 - The old airfare, hotel, and itinerary monitor stack is retired.
 - The active automation is the monthly baseline watch for itinerary prices, menus, and schedules.
 - GitHub Pages is the canonical public host, and the repo homepage should send visitors there directly.
