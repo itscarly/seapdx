@@ -265,51 +265,51 @@
   },
   {
     "tag": "SEAPDX-2026-day-2-34",
-    "title": "🛌 Seattle Day 2 · Hotel reset before Sky View",
+    "title": "🛌 Seattle Day 2 · Hotel reset before Space Needle photo",
     "start": "2026-11-02T14:30:00-08:00",
     "end": "2026-11-02T16:25:00-08:00",
     "location": "Palihotel base",
-    "description": "Purpose: Best Buy Northgate fit check removed Sep 13, 2026. Use this as an open buffer before the hard sunset-view appointment.\nDuration: 115 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-2-hotel-reset-before-sky-view"
+    "description": "Purpose: Use this open hotel break before the free Space Needle exterior photo stop.\nDuration: 115 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-2-hotel-reset-before-space-needl"
   },
   {
     "tag": "SEAPDX-2026-day-2-35",
-    "title": "🚶 Seattle Day 2 · Walk to Columbia Center Sky View",
+    "title": "🚶 Seattle Day 2 · Walk to Space Needle plaza",
     "start": "2026-11-02T16:25:00-08:00",
-    "end": "2026-11-02T16:55:00-08:00",
-    "location": "Downtown",
-    "description": "Purpose: Leave Palihotel with a relaxed buffer and arrive at Sky View by 4:55 PM.\nDuration: 30 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-3-walk-to-columbia-center-sky-vi"
+    "end": "2026-11-02T17:00:00-08:00",
+    "location": "Downtown -> Seattle Center",
+    "description": "Purpose: Walk from Palihotel to Seattle Center for an exterior photo only; no admission or elevator ticket.\nDuration: 35 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-3-walk-to-space-needle-plaza"
   },
   {
     "tag": "SEAPDX-2026-day-2-36",
-    "title": "🎟️ Seattle Day 2 · Columbia Center Sky View Observatory - Elite Experience ticket",
-    "start": "2026-11-02T16:55:00-08:00",
-    "end": "2026-11-02T17:55:00-08:00",
-    "location": "Sky View Observatory, 700 4th Ave",
-    "description": "Trivia: Sky View Observatory sits on the 73rd floor of Columbia Center, the tallest building in Washington State -- the highest public viewpoint in the city.\nSeattle skyline views from the observation deck at dusk.\nTickets: Elite Experience Adult $49 + booking fee $1 + tax $2.50 = $52.50.\nLocation: Sky View Observatory, 700 4th Ave\nWebsite: https://skyviewobservatory.com/tickets/\nPayment: Cards accepted\nEstimated cost: $52.5.\nDuration: 60 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-4-columbia-center-sky-view-obser"
+    "title": "🎟️ Seattle Day 2 · Space Needle plaza photo stop",
+    "start": "2026-11-02T17:00:00-08:00",
+    "end": "2026-11-02T17:20:00-08:00",
+    "location": "Space Needle, 400 Broad St, Seattle, WA 98109",
+    "description": "Take a photo of the Space Needle from the public plaza. Stay outside; no admission or elevator visit is planned. Estimated cost: Free.\nLocation: Space Needle, 400 Broad St, Seattle, WA 98109\nWebsite: https://www.spaceneedle.com/\nPayment: No admission; exterior photo only\nDuration: 20 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-4-space-needle-plaza-photo-stop"
   },
   {
     "tag": "SEAPDX-2026-day-2-37",
-    "title": "🎟️ Seattle Day 2 · Sky View Cafe - sunset cocktail",
-    "start": "2026-11-02T17:55:00-08:00",
-    "end": "2026-11-02T18:35:00-08:00",
-    "location": "Sky View Observatory Cafe, 700 4th Ave",
-    "description": "Menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nIncluded in the Sky View admission -- no separate cost.\nLocation: Sky View Observatory Cafe, 700 4th Ave\nPayment: Cards accepted\nDuration: 30 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-5-sky-view-cafe-sunset-cocktail"
+    "title": "🚶 Seattle Day 2 · Walk back to Palihotel",
+    "start": "2026-11-02T17:20:00-08:00",
+    "end": "2026-11-02T18:00:00-08:00",
+    "location": "Seattle Center -> Downtown",
+    "description": "Purpose: Return to the hotel before dinner and the requested 7:30-8:00 PM home-by window.\nDuration: 35 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-1-5-walk-back-to-palihotel"
   },
   {
     "tag": "SEAPDX-2026-day-2-38",
-    "title": "🚶 Seattle Day 2 · Walk back to Palihotel + free evening",
-    "start": "2026-11-02T18:35:00-08:00",
-    "end": "2026-11-02T18:50:00-08:00",
-    "location": "Downtown -> Palihotel",
-    "description": "Purpose: Short walk back to the hotel. Evening is open -- find dinner nearby, meet people, relax.\nDuration: 15 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-2-0-walk-back-to-palihotel-free-ev"
+    "title": "🍽️ Seattle Day 2 · Dinner near Palihotel (self-choose)",
+    "start": "2026-11-02T18:00:00-08:00",
+    "end": "2026-11-02T19:30:00-08:00",
+    "location": "Palihotel area",
+    "description": "Purpose: Keep food and drink spend as planned; choose a nearby dinner, then return to the hotel by 7:30-8:00 PM.\nDuration: 90 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-2-0-dinner-near-palihotel-self-cho"
   },
   {
     "tag": "SEAPDX-2026-day-2-39",
-    "title": "🛌 Seattle Day 2 · Dinner and wind-down (self-choose)",
-    "start": "2026-11-02T18:50:00-08:00",
+    "title": "🛌 Seattle Day 2 · Back at Palihotel / evening wind-down",
+    "start": "2026-11-02T19:30:00-08:00",
     "end": "2026-11-02T22:00:00-08:00",
-    "location": "Palihotel area or Downtown",
-    "description": "Open evening, self-choose dinner nearby.\nContinuity: Bridges dinner/settling-in to a real 10:00 PM lights-out ahead of Day 3's Bainbridge ferry morning.\nDuration: 3 hrs 10 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-2-1-dinner-and-wind-down-self-choo"
+    "location": "Palihotel base",
+    "description": "Purpose: Be back at the hotel between 7:30 and 8:00 PM, then wind down before the 10:00 PM sleep ceiling.\nDuration: 2 hrs 30 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-2-2-1-back-at-palihotel-evening-wind"
   },
   {
     "tag": "SEAPDX-2026-day-2-40",
@@ -453,7 +453,7 @@
     "start": "2026-11-03T17:00:00-08:00",
     "end": "2026-11-03T18:40:00-08:00",
     "location": "The Hart and the Hunter, 111 Pine St",
-    "description": "Palihotel's in-house restaurant runs Tuesday ALL NIGHT happy hour, 3-9pm: $4 draft beers, $8 wines by the glass, $12 cocktails, and snacks (Tue-Sat is 3-6pm otherwise). Start shifted from 4:10 PM to 5:00 PM to follow the waterfront loop (moved here from Day 2 to protect Day 2's Sky View sunset hard stop) -- still well inside the 3-9pm window.\nORDER: Any two of Espresso Martini, Bloody Mary, House Spritz, French 75, Irish Coffee, or Japanese Old Fashioned -- all $12 at happy hour price (normally $17 each).\nEstimated cost: 2 cocktails at $12 = $24 + 10.5% WA sales tax ($2.52) + 18% tip ($4.32) = $30.84.\nLocation: The Hart and the Hunter, 111 Pine St\nWebsite: https://thehartandthehunter.com/\nPayment: Cards accepted, no cash\nEstimated cost: $30.84.\nDuration: 100 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-3-2-9-the-hart-and-the-hunter-happy-"
+    "description": "Palihotel's in-house restaurant runs Tuesday ALL NIGHT happy hour, 3-9pm: $4 draft beers, $8 wines by the glass, $12 cocktails, and snacks (Tue-Sat is 3-6pm otherwise). Start shifted from 4:10 PM to 5:00 PM to follow the waterfront loop (moved here from Day 2 to leave that evening open) -- still well inside the 3-9pm window.\nORDER: Any two of Espresso Martini, Bloody Mary, House Spritz, French 75, Irish Coffee, or Japanese Old Fashioned -- all $12 at happy hour price (normally $17 each).\nEstimated cost: 2 cocktails at $12 = $24 + 10.5% WA sales tax ($2.52) + 18% tip ($4.32) = $30.84.\nLocation: The Hart and the Hunter, 111 Pine St\nWebsite: https://thehartandthehunter.com/\nPayment: Cards accepted, no cash\nEstimated cost: $30.84.\nDuration: 100 min.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-3-2-9-the-hart-and-the-hunter-happy-"
   },
   {
     "tag": "SEAPDX-2026-day-3-58",
@@ -613,7 +613,7 @@
     "start": "2026-11-05T12:10:00-08:00",
     "end": "2026-11-05T15:35:00-08:00",
     "location": "Intercity rail",
-    "description": "Purpose: Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class.\nEstimated cost: $48.\nDuration: 3h 25m.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-5-1-0-amtrak-cascades-517-sea-pdx"
+    "description": "Purpose: The $29 rail fare is already paid; only the $19 successful business-class bid remains in planned spend.\nEstimated cost: $19.\nDuration: 3h 25m.\nSite link: https://itscarly.github.io/seapdx/dashboards/html/index.html#stop-day-5-1-0-amtrak-cascades-517-sea-pdx"
   },
   {
     "tag": "SEAPDX-2026-day-5-78",

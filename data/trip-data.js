@@ -6,15 +6,14 @@ window.TRIP_DATA = {
     travelerBase: {
       seattle: "Palihotel Seattle",
       portland: "Hotel Vance, a Tribute Portfolio Hotel",
-      chicago: "ACME Hotel Chicago, Outset Collection by Hilton"
     },
-    verifiedOn: "Oct 9, 2026",
+    verifiedOn: "Oct 11, 2026",
     budgetCap: 3050,
     absoluteCeiling: 3050,
     assumptions: [
       "The activity budget stays separate from the trip target, which excludes paid airfare.",
-      "Booked flight costs and hotel costs are shown in the executive summary. The $3,050 cap/ceiling covers everything still to plan or spend: local trip spend, shopping/keepsakes/personal purchases, the tattoo, and Chicago layover pocket money -- all combined into one number.",
-      "Amtrak Cascades 517 and the business-class bid upgrade are carried separately from Seattle and Portland local transit.",
+      "Booked flight costs and hotel costs are shown in the executive summary. The $3,050 cap/ceiling covers everything still to plan or spend: local trip spend, shopping/keepsakes/personal purchases, and the tattoo -- all combined into one number.",
+      "The Amtrak fare is paid; only the $19 business-class bid remains in planned spend, separate from Seattle and Portland local transit.",
       "Prices include estimated local tax where applicable plus budget-conscious tips when table service or cocktails are involved.",
       "Default tip model: 15% for standard sit-down meals, 18% for cocktail bars, $1 for coffee, and 0-10% or simple round-up for counter-service food.",
       "Dashboard USD amounts now also show PHP equivalents using the May 9, 2026 USD/PHP rate plus a 1.85% foreign transaction fee buffer.",
@@ -22,6 +21,7 @@ window.TRIP_DATA = {
       "Portland home base is Hotel Vance, a Tribute Portfolio Hotel, Portland, Oregon, United States.",
       "November 2026 hours are not fully published for many businesses, so the dashboard flags current verified status and recommends rechecking before booking.",
       "The plan is curated best-fit; not every candidate location is included.",
+      "Nov 2: take a free exterior Space Needle photo, then return to Palihotel between 7:30 and 8:00 PM. Keep the $40 Cannon Beach round trip and the Columbia River Gorge waterfall shuttle in scope.",
       "May 18 review uses the shared Google Maps saved list as the candidate source, with menu/pricing checked against official or current public pages where possible.",
       "A 20% realism buffer is now treated as the planning default for flexible paid categories such as food, coffee, cocktails, and small shopping so the live budget reflects real-world drift better than the earlier tighter draft.",
       "Souvenir pricing should stay explicit whenever possible: Starbucks city mugs, one coffee with each mug errand, coffee-bean buys, and small magnet-style gifts are now modeled directly instead of being hidden inside generic buffers.",
@@ -72,13 +72,12 @@ window.TRIP_DATA = {
     absoluteCeiling: 3050,
     projectedTotal: 1494.66,
     categories: [
-      { name: "Transportation", amount: 53.20, note: "Local transit only: Seattle ORCA all-day pass ($6 first ride per day, $0 subsequent rides same day), Portland TriMet/Hop all-day pass, Bainbridge ferry, and airport/station local transfers. Sep 25, 2026: Amtrak + business-class bid and Cannon Beach POINT NorthWest round trip moved to Activities and admissions per traveler request." },
+      { name: "Transportation", amount: 53.20, note: "Seattle and Portland local transit, ferry, and local airport/station transfers. Unchanged." },
       { name: "Food", amount: 364.69, note: "Meals, coffee, and snack totals for Nov 1-9, trimmed per the Aug 8, 2026 food-cost reduction pass: removed Glo's Diner breakfast ($38, Nov 2 -- Pike Place covers breakfast now), Luke's Lobster lunch ($26, Nov 2), FOB Sushi dinner ($25, Nov 2), Cafe Presse breakfast ($25, Nov 3 -- Bainbridge covers it), Analog Coffee + QFC train snacks ($18, Nov 5), and the last Capitol Hill walk + coffee stop ($10, Nov 5). Nov 6-9 unchanged: Cannon Beach lunch/coffee/cocktail $100, Day 7 coffee $31 + Saturday Market lunch $50, Cartopia brunch $50, Hotel Vance final breakfast $31. Added Aug 9 (traveler-supplied Google Maps route screenshot): Day 2 Pike Place/waterfront itinerary rebuilt to match the exact 21-stop route order, including Original Starbucks store (whole bean coffee bag $16 + Seattle-exclusive mug $20 + grande cold brew $5 = $41 total) and the new Hellenika Cultured Creamery stop ($13 traveler-pegged price). MarketSpice browse ($8) dropped -- not part of the authoritative screenshot route. Adjusted Aug 9 for budget alignment (reduced by $32.20 to match auto-calculated projectedTotal). Prices are researched estimates pending on-site receipt verification. Added Aug 15, 2026: Day 1 (Nov 1) evening H Mart International District grocery run for ready-to-heat food covering later Seattle-stay meals/breakfasts, +$19.89 ($18 subtotal + 10.5% WA sales tax). Added Aug 15, 2026 (Evening): H Mart cap raised to $30, and Day 2's Pike Place morning expanded with Mee Sum ($6.62), Tiny's Apple Cider ($9.93), Le Panier ($5.68), Molly Moon's (~$7 est.), and Day 3's new Gourmondo Café ($5.68) and Old Stove Brewing ($13, moved from Day 2) -- exact dollar deltas flow through the auto-reconciled Contingency category rather than being hand-tallied per category here." },
-      { name: "Cocktails and social", amount: 182.96, note: "Saint John's Bar and Eatery, Salt & Straw, and Rachel's Ginger Beer corrected against actual receipts. Trimmed Aug 8, 2026: removed the Nov 3 evening Saint John's stop after Menya Musashi ramen ($42) and Pretty Ugly Burger dinner ($63, Nov 7 -- replaced by Novel Book Bar covering both drinks and dinner at $29). Poquitos Happy Hour ($35, Nov 1 removal) is tracked under Food, not here. Added Aug 9: (1) Columbia Center Sky View Cafe Nov 2 sunset visit — one cocktail (~$18) + BLT sandwich ($14) + 10.5% WA sales tax + 18% tip = ~$41.12 all-in, and (2) Old Stove Brewing, MarketFront, 1901 Western Ave Ste A (one beer, Elliott Bay view, $13 all-in with menu price + tax + tip) as part of the new Nov 2 Pike Place/waterfront gap-fill itinerary block. Prices include actual receipt data for Sky View, Old Stove set per traveler direction. Added Aug 15, 2026: Day 3 (Tue Nov 3) Palihotel happy hour at The Hart and the Hunter during the existing 2:40-6:00 PM hotel recharge block -- Tuesday's ALL NIGHT happy hour (3-9pm) covers 2 cocktails at $12 each + 10.5% WA sales tax + 18% tip = $30.84." },
-      { name: "Entrance fees", amount: 223.04, note: "Paid activities and admissions in the synced route. Columbia Center Sky View Observatory Elite Experience is $52.50; Amtrak + business-class bid is $48; Cannon Beach POINT NorthWest round trip is $40; Columbia River Gorge Waterfall Shuttle Tour is $82.54. Sailing Seattle remains removed; Seattle Great Wheel stays photo-only with no entrance fee." },
+      { name: "Cocktails and social", amount: 182.96, note: "Food and drink budget retained. The Nov 2 estimate now covers dinner near Palihotel after the free Space Needle exterior photo stop; other planned meals and cocktails are unchanged." },
+      { name: "Entrance fees", amount: 141.54, note: "Amtrak business-class bid $19, Cannon Beach POINT NorthWest round trip $40, and Columbia River Gorge Waterfall Shuttle Tour $82.54. The already-paid Amtrak fare and free Space Needle exterior photo have no planned admission cost." },
       { name: "Shopping", amount: 1073.32, note: "Coffee beans, souvenirs/keepsakes, and private online orders." },
-      { name: "Chicago pocket money", amount: 300, note: "General discretionary spending money for the Feb 27 - Mar 2, 2027 ACME Hotel Chicago stay, separate from the confirmed hotel cost tracked under tripCosts.confirmed.accommodations." },
-      { name: "Contingency", amount: 88.24, note: "Rounding and reconciliation buffer between the hand-tracked category totals and the auto-computed projectedTotal from day/purchase calculations. The script auto-calculates projectedTotal from day totals and purchase items, so Contingency adjusts for the difference. Sep 13, 2026 update reflects the removal of Best Buy/Ray-Ban, Bleu de Chanel, Amazon, tattoo, and the Chicago pocket-money reduction." }
+      { name: "Contingency", amount: 88.24, note: "Rounding and reconciliation buffer between the hand-tracked category totals and the auto-computed projectedTotal from day/purchase calculations. The script auto-calculates projectedTotal from day totals and purchase items, so Contingency adjusts for the difference." }
     ]
   },
   tripCosts: {
@@ -96,7 +95,7 @@ window.TRIP_DATA = {
           {
             name: "American Airlines booking",
             amount: 716.40,
-            covers: "Portland to Corpus Christi on November 9, 2026 plus Corpus Christi to Chicago on February 27, 2027",
+            covers: "Portland to Corpus Christi on November 9, 2026 plus Corpus Christi to ORD on February 27, 2027 for the direct Manila flight",
             paid: true
           },
           {
@@ -110,8 +109,8 @@ window.TRIP_DATA = {
         ]
       },
       accommodations: {
-        total: 1481.68,
-        note: "Palihotel Seattle, Hotel Vance, and ACME Hotel Chicago as the confirmed hotel source of truth for the executive summary. ACME currently covers Feb 27-Mar 2, 2027; Mar 2-5 remains unbooked unless a later Chicago plan is added.",
+        total: 1074.96,
+        note: "Palihotel Seattle and Hotel Vance are the confirmed hotel source of truth for the executive summary.",
         items: [
           {
             name: "Palihotel Seattle",
@@ -129,17 +128,6 @@ window.TRIP_DATA = {
             city: "Portland",
             nights: 5,
           },
-          {
-            name: "ACME Hotel Chicago, Outset Collection by Hilton",
-            amount: 406.72,
-            city: "Chicago",
-            nights: 3,
-            address: "15 E Ohio Street, Chicago, IL 60611",
-            checkIn: "Sat, Feb 27, 2027, 3:00 PM",
-            checkOut: "Tue, Mar 2, 2027, 11:00 AM",
-            covers: "Sat Feb 27, 2027, 3 PM check-in - Tue Mar 2, 2027, 11 AM check-out, after the AA arrival into ORD",
-            note: "1 room for 2 adults, Standard King. Room charge $341.32 plus $65.40 taxes/government charges = $406.72 total. Free cancellation before 11:59 PM local hotel time on Feb 26, 2027. Self parking is $65/night if needed. Phone +1 312-894-0800. PAL PR133 now departs late Mar 1, before this stay's Mar 2 checkout."
-          }
         ]
       }
     },
@@ -164,10 +152,6 @@ window.TRIP_DATA = {
         items: [{ amount: 91.42 }]
       }
     ],
-    chicagoPocketMoney: {
-      amount: 300,
-      note: "General discretionary spending money for the Chicago layover, Feb 27 - Mar 2, 2027 (ACME Hotel Chicago stay), separate from the hotel cost itself."
-    }
   },
   transit: [
     {
@@ -246,7 +230,7 @@ window.TRIP_DATA = {
         airportLeaveBy: "Leave Hotel Vance by about 11:05 AM and aim to be inside PDX by 11:34 AM for the 2:34 PM departure (3 hr domestic buffer).",
         visibilityNote: "This is the November departure routing that replaces the old generic flight-dependent buffer language.",
         statusLabel: "Booked and ticketed.",
-        alertCopy: "This fare already covers the later February 27, 2027 American Airlines continuation to Chicago, so the trip-cost summary should not treat that later leg as unpaid.",
+        alertCopy: "This fare already covers the later February 27, 2027 American Airlines continuation to ORD for the direct Manila flight, so the trip-cost summary should not treat that later leg as unpaid.",
         statusSource: "https://www.aa.com/travelInformation/flights/status",
         airportSource: "https://www.flypdx.com/Flights#/arrivals-and-departures",
         legs: [
@@ -277,7 +261,7 @@ window.TRIP_DATA = {
       {
         id: "journey-future-2027-02-27",
         kind: "Future journey",
-        title: "Corpus Christi to Chicago via Dallas/Fort Worth",
+        title: "Corpus Christi to ORD via Dallas/Fort Worth for Manila connection",
         dateLabel: "Saturday, February 27, 2027",
         fareDisplay: "Included in $716.40 AA booking",
         ticketCost: null,
@@ -380,7 +364,7 @@ window.TRIP_DATA = {
       isoDate: "2026-11-02",
       date: "Mon, Nov 2",
       city: "Seattle",
-      title: "Pike Place Market early food crawl + Uber office + Sky View",
+      title: "Pike Place Market early food crawl + Space Needle photo stop",
       theme: "Early Pike Place morning to beat the crowds, relaxed afternoon, sunset",
       dayTotal: 282.35,
       weatherPlan: "Most of the day is walkable from hotel. Rain backup: same route, just shorter stops.",
@@ -408,14 +392,14 @@ window.TRIP_DATA = {
         { label: "Afternoon", items: [
           { time: "1:05 PM", name: "Lunch stop (self-choose)", type: "meal", neighborhood: "Waterfront or Pike Place area", duration: "40 min", cost: 26.12, website: "https://marinationmakai.com/menus/", payment: "Cards accepted", safetyScore: 85, safetyNote: "\u{1F7E1} 85% · Generally safe -- busy tourist waterfront/market area", detailText: `Suggested default: Marination Ma Kai, Pier 54 waterfront (Hawaiian-Korean fusion, casual walk-up counter, harbor view seating).\nMenu: https://marinationmakai.com/menus/\nORDER: Kalbi short rib tacos or the Spam musubi plate.\nBackup if you'd rather stay in the market: Lowell's (Pike Place, 3rd floor, water-view dining room) -- fish and chips or a burger.\nEstimated cost: $26.12 (lunch with tax and tip).`, route: "https://www.google.com/maps/dir/Pike+Place+Market+Seattle/Marination+Ma+Kai+Seattle", mapFrom: "Pike Place Market, 85 Pike St, Seattle, WA 98101", mapTo: "Marination Ma Kai, Pier 54, Seattle, WA 98104" },
           { time: "1:45 PM", name: "Uber Seattle Engineering Office visit", type: "activity", neighborhood: "Downtown", location: "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101", duration: "45 min", cost: 0, payment: "N/A", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- downtown office corridor, daylight hours", notes: "Brief informal walk-through of the Uber Seattle Engineering Office, not a meeting -- short walk from Pike Place.", detailText: `Purpose: informal look around Uber's Seattle satellite engineering office -- not a scheduled meeting, max 45 min.\nEstimated cost: Free.`, route: "https://www.google.com/maps/dir/Marination+Ma+Kai+Seattle/1191+2nd+Ave+Seattle", mapFrom: "Marination Ma Kai, Pier 54, Seattle, WA 98104", mapTo: "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101" },
-          { time: "2:30 PM", name: "Hotel reset before Sky View", type: "rest", neighborhood: "Palihotel base", duration: "115 min", cost: 0, notes: "Best Buy Northgate fit check removed Sep 13, 2026. Use this as an open buffer before the hard sunset-view appointment." },
-          { time: "4:25 PM", name: "Walk to Columbia Center Sky View", type: "walk", neighborhood: "Downtown", duration: "30 min", cost: 0, notes: "Leave Palihotel with a relaxed buffer and arrive at Sky View by 4:55 PM.", route: "https://www.google.com/maps/dir/Palihotel+Seattle/Columbia+Center+Sky+View+Observatory+Seattle", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104" },
-          { time: "4:55 PM", name: "Columbia Center Sky View Observatory - Elite Experience ticket", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory, 700 4th Ave", duration: "60 min", cost: 52.50, website: "https://skyviewobservatory.com/tickets/", payment: "Cards accepted", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- secure indoor attraction", detailText: `Trivia: Sky View Observatory sits on the 73rd floor of Columbia Center, the tallest building in Washington State -- the highest public viewpoint in the city.\nSeattle skyline views from the observation deck at dusk.\nTickets: Elite Experience Adult $49 + booking fee $1 + tax $2.50 = $52.50.`, route: "https://www.google.com/maps/dir/Palihotel+Seattle/Columbia+Center+Sky+View+Observatory", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104" },
-          { time: "5:55 PM", name: "Sky View Cafe - sunset cocktail", type: "activity", neighborhood: "Downtown", location: "Sky View Observatory Cafe, 700 4th Ave", duration: "30 min", cost: 0, website: "https://skyviewobservatory.com/sky-view-cafe-bar-menu/", payment: "Cards accepted", safetyScore: 90, safetyNote: "\u{1F7E2} 90% · Generally safe -- secure indoor attraction", notes: "Included in the Sky View admission. Enjoy the dusk lights from the deck.", detailText: `Menu: https://skyviewobservatory.com/sky-view-cafe-bar-menu/\nIncluded in the Sky View admission -- no separate cost.`, route: "https://www.google.com/maps/dir/Columbia+Center+Sky+View+Observatory/Sky+View+Observatory+Cafe", mapFrom: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104", mapTo: "Sky View Observatory Cafe, 700 4th Ave, Seattle, WA 98104" }
+          { time: "2:30 PM", name: "Hotel reset before Space Needle photo", type: "rest", neighborhood: "Palihotel base", duration: "115 min", cost: 0, notes: "Use this open hotel break before the free Space Needle exterior photo stop." },
+          { time: "4:25 PM", name: "Walk to Space Needle plaza", type: "walk", neighborhood: "Downtown -> Seattle Center", duration: "35 min", cost: 0, notes: "Walk from Palihotel to Seattle Center for an exterior photo only; no admission or elevator ticket.", route: "https://www.google.com/maps/dir/Palihotel+Seattle/Space+Needle+Seattle", mapFrom: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101", mapTo: "Space Needle, 400 Broad St, Seattle, WA 98109" },
+          { time: "5:00 PM", name: "Space Needle plaza photo stop", type: "activity", neighborhood: "Seattle Center", location: "Space Needle, 400 Broad St, Seattle, WA 98109", duration: "20 min", cost: 0, website: "https://www.spaceneedle.com/", payment: "No admission; exterior photo only", detailText: `Take a photo of the Space Needle from the public plaza. Stay outside; no admission or elevator visit is planned. Estimated cost: Free.`, route: "https://www.google.com/maps/dir/Space+Needle+Seattle/Palihotel+Seattle", mapFrom: "Space Needle, 400 Broad St, Seattle, WA 98109", mapTo: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101" },
+          { time: "5:20 PM", name: "Walk back to Palihotel", type: "walk", neighborhood: "Seattle Center -> Downtown", duration: "35 min", cost: 0, notes: "Return to the hotel before dinner and the requested 7:30-8:00 PM home-by window.", route: "https://www.google.com/maps/dir/Space+Needle+Seattle/Palihotel+Seattle", mapFrom: "Space Needle, 400 Broad St, Seattle, WA 98109", mapTo: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101" }
         ]},
         { label: "Evening", items: [
-          { time: "6:35 PM", name: "Walk back to Palihotel + free evening", type: "walk", neighborhood: "Downtown -> Palihotel", duration: "15 min", cost: 0, notes: "Short walk back to the hotel. Evening is open -- find dinner nearby, meet people, relax.", route: "https://www.google.com/maps/dir/Columbia+Center+Sky+View+Observatory+Seattle/Palihotel+Seattle", mapFrom: "Sky View Observatory, 700 4th Ave, Seattle, WA 98104", mapTo: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101" },
-          { time: "6:50 PM", name: "Dinner and wind-down (self-choose)", type: "rest", neighborhood: "Palihotel area or Downtown", duration: "3 hrs 10 min", cost: 0, notes: "Open evening. Grab dinner somewhere casual nearby, settle in before the 10:00 PM sleep ceiling.", detailText: `Open evening, self-choose dinner nearby.\nContinuity: Bridges dinner/settling-in to a real 10:00 PM lights-out ahead of Day 3's Bainbridge ferry morning.` },
+          { time: "6:00 PM", name: "Dinner near Palihotel (self-choose)", type: "meal", neighborhood: "Palihotel area", duration: "90 min", cost: 0, notes: "Keep food and drink spend as planned; choose a nearby dinner, then return to the hotel by 7:30-8:00 PM." },
+          { time: "7:30 PM", name: "Back at Palihotel / evening wind-down", type: "rest", neighborhood: "Palihotel base", duration: "2 hrs 30 min", cost: 0, notes: "Be back at the hotel between 7:30 and 8:00 PM, then wind down before the 10:00 PM sleep ceiling." },
           { time: "10:00 PM", name: "Sleep", type: "rest", neighborhood: "Palihotel base", duration: "9 hrs 20 min", cost: 0, notes: "Lights out -- 10:00 PM is the sleep ceiling every night of this trip.", detailText: `Purpose: Real night's sleep before Day 3's 7:20 AM wake and Bainbridge ferry morning.\nContinuity: Rest before Day 3's Bainbridge ferry morning.` }
         ]}
       ]
@@ -451,7 +435,7 @@ window.TRIP_DATA = {
           { time: "4:15 PM", name: "Seattle Great Wheel - photo stop", type: "activity", neighborhood: "Waterfront", location: "Seattle Great Wheel, Pier 57", duration: "10 min", cost: 0, payment: "Free walk-in", image: "seattle-great-wheel.jpg", safetyScore: 88, safetyNote: "\u{1F7E2} 88% · Generally safe -- busy central waterfront pier", notes: "Photo-only stop, no ride.", detailText: `Trivia: The Seattle Great Wheel is a 175-ft Ferris wheel on Pier 57, one of the tallest on the US West Coast, opened 2012.\nEstimated cost: Free (photo only, no ride).`, route: "https://www.google.com/maps/dir/Seattle+Great+Wheel/Harbor+Steps+Seattle", mapFrom: "Seattle Great Wheel, Pier 57, Seattle, WA 98101", mapTo: "Harbor Steps, 1301 Western Ave, Seattle, WA 98101" },
           { time: "4:30 PM", name: "Harbor Steps", type: "walk", neighborhood: "Downtown Waterfront", location: "Harbor Steps, 1301 Western Ave", duration: "15 min", cost: 0, notes: "South dip closest to the hotel, ends the loop.", safetyScore: 88, safetyNote: "\u{1F7E2} 88% · Generally safe -- downtown public staircase/plaza, daylight hours", detailText: `Trivia: Harbor Steps is a public staircase and plaza connecting downtown Seattle to the waterfront, near the Seattle Art Museum.\nEstimated cost: Free.`, route: "https://www.google.com/maps/dir/Harbor+Steps+Seattle/Palihotel+Seattle", mapFrom: "Harbor Steps, 1301 Western Ave, Seattle, WA 98101", mapTo: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101" },
           { time: "4:45 PM", name: "Walk back to Palihotel", type: "walk", neighborhood: "Waterfront -> Downtown", duration: "15 min", cost: 0, notes: "Short walk back for happy hour.", route: "https://www.google.com/maps/dir/Harbor+Steps+Seattle/Palihotel+Seattle", mapFrom: "Harbor Steps, 1301 Western Ave, Seattle, WA 98101", mapTo: "Palihotel Seattle, 107 Pine St, Seattle, WA 98101" },
-          { time: "5:00 PM", name: "The Hart and the Hunter happy hour - 2 cocktails", type: "food", neighborhood: "Palihotel base", location: "The Hart and the Hunter, 111 Pine St", duration: "100 min", cost: 30.84, website: "https://thehartandthehunter.com/", payment: "Cards accepted, no cash", detailText: `Palihotel's in-house restaurant runs Tuesday ALL NIGHT happy hour, 3-9pm: $4 draft beers, $8 wines by the glass, $12 cocktails, and snacks (Tue-Sat is 3-6pm otherwise). Start shifted from 4:10 PM to 5:00 PM to follow the waterfront loop (moved here from Day 2 to protect Day 2's Sky View sunset hard stop) -- still well inside the 3-9pm window.\nORDER: Any two of Espresso Martini, Bloody Mary, House Spritz, French 75, Irish Coffee, or Japanese Old Fashioned -- all $12 at happy hour price (normally $17 each).\nEstimated cost: 2 cocktails at $12 = $24 + 10.5% WA sales tax ($2.52) + 18% tip ($4.32) = $30.84.`, route: "https://www.google.com/maps/dir/Harbor+Steps+Seattle/The+Hart+and+the+Hunter+Palihotel+Seattle", mapFrom: "Harbor Steps, 1301 Western Ave, Seattle, WA 98101", mapTo: "The Hart and the Hunter, 111 Pine St, Seattle, WA 98101" },
+          { time: "5:00 PM", name: "The Hart and the Hunter happy hour - 2 cocktails", type: "food", neighborhood: "Palihotel base", location: "The Hart and the Hunter, 111 Pine St", duration: "100 min", cost: 30.84, website: "https://thehartandthehunter.com/", payment: "Cards accepted, no cash", detailText: `Palihotel's in-house restaurant runs Tuesday ALL NIGHT happy hour, 3-9pm: $4 draft beers, $8 wines by the glass, $12 cocktails, and snacks (Tue-Sat is 3-6pm otherwise). Start shifted from 4:10 PM to 5:00 PM to follow the waterfront loop (moved here from Day 2 to leave that evening open) -- still well inside the 3-9pm window.\nORDER: Any two of Espresso Martini, Bloody Mary, House Spritz, French 75, Irish Coffee, or Japanese Old Fashioned -- all $12 at happy hour price (normally $17 each).\nEstimated cost: 2 cocktails at $12 = $24 + 10.5% WA sales tax ($2.52) + 18% tip ($4.32) = $30.84.`, route: "https://www.google.com/maps/dir/Harbor+Steps+Seattle/The+Hart+and+the+Hunter+Palihotel+Seattle", mapFrom: "Harbor Steps, 1301 Western Ave, Seattle, WA 98101", mapTo: "The Hart and the Hunter, 111 Pine St, Seattle, WA 98101" },
           { time: "6:40 PM", name: "Transit to Capitol Hill", type: "transit", neighborhood: "Downtown -> Capitol Hill", duration: "10 min", cost: 0, notes: "Consolidated Capitol Hill evening: Saint John's dinner, Salt & Straw dessert, and Menya Musashi ramen. Shifted ~50 min later than before since happy hour now follows the waterfront loop." },
           { time: "7:10 PM", name: "Saint John's Bar and Eatery dinner", type: "meal", neighborhood: "Capitol Hill", duration: "75 min", cost: 42, website: "https://www.saintjohnsseattle.com/happyhour-v1", payment: "Cards accepted", detailText: `Menu/happy hour: https://www.saintjohnsseattle.com/happyhour-v1\nORDER: Fried chicken sandwich or the burger, plus a house margarita ($6 flat).\nEstimated cost: $42 with tax and tip.`, route: "https://www.google.com/maps/dir/Downtown+Seattle/Saint+John's+Bar+and+Eatery+Capitol+Hill", mapFrom: "Downtown Seattle, WA", mapTo: "Saint John's Bar and Eatery, 719 E Pike St, Seattle, WA 98122" },
           { time: "8:25 PM", name: "Salt & Straw Capitol Hill dessert", type: "food", neighborhood: "Capitol Hill", duration: "30 min", cost: 9, website: "https://saltandstraw.com/pages/capitol-hill", payment: "Cards accepted", detailText: `Menu: https://saltandstraw.com/pages/capitol-hill\nORDER: A seasonal flavor flight (2-3 scoop taste) if you can't decide, or go straight for Honey Lavender / Sea Salt with Caramel Ribbons as the signature picks.\nEstimated cost: $9.`, route: "https://www.google.com/maps/dir/Saint+John's+Bar+and+Eatery+Capitol+Hill/Salt+%26+Straw+Capitol+Hill", mapFrom: "Saint John's Bar and Eatery, 719 E Pike St, Seattle, WA 98122", mapTo: "Salt & Straw, 714 E Pike St, Seattle, WA 98122" },
@@ -505,7 +489,7 @@ window.TRIP_DATA = {
           { time: "9:15 AM", name: "Station arrival + platform prep", type: "rest", neighborhood: "King Street Station", duration: "55 min", cost: 0, notes: "Settle in at the station with plenty of margin before boarding." }
         ]},
         { label: "Afternoon", items: [
-          { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 48, notes: "Reservation 29CB3A-17MAY26, $29 fare plus $19 successful bid to business class." },
+          { time: "12:10 PM", name: "Amtrak Cascades 517 SEA -> PDX", type: "transit", neighborhood: "Intercity rail", duration: "3h 25m", cost: 19, notes: "The $29 rail fare is already paid; only the $19 successful business-class bid remains in planned spend." },
           { time: "3:35 PM", name: "Arrive Portland Union Station and transfer to Hotel Vance", type: "transit", neighborhood: "Union Station -> Hotel Vance", duration: "35 min", cost: 6, notes: "First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge." },
           { time: "4:20 PM", name: "Check in and reset", type: "rest", neighborhood: "Hotel Vance Portland", duration: "100 min", cost: 0, notes: "Settle into Hotel Vance after the Seattle-to-Portland transfer." }
         ]},
@@ -688,8 +672,7 @@ window.TRIP_DATA = {
     ]
   },
   exclusions: [
-    { name: "Space Needle", reason: "Excluded for value. Columbia Center gives a higher public view for a more efficient downtown route.", bestDay: "day-2", alternateType: "sightseeing", alternateFor: "Columbia Center Sky View Observatory", estimatedCost: 42, neighborhood: "Seattle Center", duration: "90 min", bestTime: "Late afternoon if the icon matters more than budget efficiency.", notes: "Best as a skyline-icon swap, not an add-on.", route: "https://www.google.com/maps/dir/Pike+Place+Market/Space+Needle+Seattle", website: "https://www.spaceneedle.com/" },
-    { name: "Seattle Ferris Wheel", reason: "Touristy and redundant after Sky View; use waterfront walk instead.", bestDay: "day-2", alternateType: "sightseeing", alternateFor: "Seattle Waterfront + Olympic Sculpture Park", estimatedCost: 22, neighborhood: "Waterfront", duration: "45 min", bestTime: "Midday if weather is clear and you want a shorter paid tourist stop.", notes: "Photo-forward backup, not the best value.", route: "https://www.google.com/maps/dir/Pike+Place+Market/Seattle+Great+Wheel", website: "https://seattlegreatwheel.com/" },
+    { name: "Seattle Ferris Wheel", reason: "Touristy; the Seattle Center photo stop already covers the iconic landmark view.", bestDay: "day-2", alternateType: "sightseeing", alternateFor: "Seattle Waterfront + Olympic Sculpture Park", estimatedCost: 22, neighborhood: "Waterfront", duration: "45 min", cost: 22, bestTime: "Midday if weather is clear and you want a shorter paid tourist stop.", notes: "Photo-forward backup, not the best value.", route: "https://www.google.com/maps/dir/Pike+Place+Market/Seattle+Great+Wheel", website: "https://seattlegreatwheel.com/" },
     { name: "MOHAI Freedom Plane exhibit", reason: "Useful current Seattle add if you want one museum block with advance timed reservations; keep it as a Seattle Center detour instead of forcing it into the Pike Place day.", bestDay: "day-4", alternateType: "sightseeing", alternateFor: "Ballard + Fremont + sunset view", estimatedCost: 0, neighborhood: "Seattle Center", duration: "90 min", bestTime: "Midday if you want one indoor history stop between neighborhood days.", notes: "Reserve ahead if the special exhibit is still running; use this only as a curated add-on, not a default city anchor.", route: "https://www.google.com/maps/dir/Palihotel+Seattle/Museum+of+History+%26+Industry+Seattle", website: "https://www.mohai.org/" },
     { name: "The Pink Door", reason: "Still excluded because the revised plan intentionally favors AYCE sushi and cheaper Seattle meals over another destination dinner.", bestDay: "day-3", alternateType: "food", alternateFor: "Sushi% AYCE Seattle premium dinner", estimatedCost: 58, neighborhood: "Pike Place", duration: "90 min", bestTime: "Dinner if atmosphere matters more than the AYCE-first sushi preference.", notes: "Use this only if you intentionally undo the AYCE-first budget shift.", route: "https://www.google.com/maps/dir/Madrona+Arms+Seattle/The+Pink+Door+Seattle", website: "https://www.thepinkdoor.net/" },
     { name: "Carkeek Park", reason: "Too far north for this short Seattle stay unless replacing Bainbridge.", bestDay: "day-3", alternateType: "sightseeing", alternateFor: "Bainbridge Island ferry + Winslow", estimatedCost: 6, neighborhood: "North Seattle", duration: "2 hr", bestTime: "Daylight hours if ferry conditions make Bainbridge feel too ambitious.", notes: "Nature-heavy fallback with less transfer friction.", route: "https://www.google.com/maps/dir/Palihotel+Seattle/Carkeek+Park+Seattle", website: "https://www.seattle.gov/parks/allparks/carkeek-park" },
@@ -735,8 +718,7 @@ window.TRIP_DATA = {
     { label: "DFW Airport flight board", url: "https://www.dfwairport.com/flights/" },
     { label: "Pike Place Market visit info", url: "https://www.pikeplacemarket.org/about-pike-place-market/plan-your-visit/" },
     { label: "Sailing Seattle sails", url: "https://sailingseattle.com/sails" },
-    { label: "Sky View Observatory hours/directions", url: "https://skyviewobservatory.com/location/" },
-    { label: "Sky View bar menu PDF", url: "https://www.skyviewobservatory.com/wp-content/themes/skyview/assets/images/cafe/SVO_Menu_Book_2022.pdf" },
+    { label: "Space Needle official visitor information", url: "https://www.spaceneedle.com/" },
     { label: "Seattle Japanese Garden / UW Botanic Gardens", url: "https://botanicgardens.uw.edu/washington-park-arboretum/gardens/japanese-garden/" },
     { label: "Canon official site", url: "https://www.canonseattle.com/" },
     { label: "Canon average cocktail price", url: "https://www.theworlds50best.com/discovery/Establishments/US/Seattle/Canon.html" },
@@ -825,9 +807,7 @@ window.TRIP_DATA = {
   const onlinePurchasesTotal = (tripData.tripCosts?.onlinePurchases || [])
     .reduce((sum, group) => sum + (group.items || []).reduce((groupSum, item) => groupSum + Number(item.amount || 0), 0), 0);
 
-  const chicagoPocketMoneyTotal = Number(tripData.tripCosts?.chicagoPocketMoney?.amount || 0);
-
-  const combinedTotal = itineraryTotal + plannedPurchasesTotal + onlinePurchasesTotal + chicagoPocketMoneyTotal;
+  const combinedTotal = itineraryTotal + plannedPurchasesTotal + onlinePurchasesTotal;
   tripData.budget.projectedTotal = combinedTotal;
 
   const contingency = tripData.budget.categories.find((category) => category.name === "Contingency");

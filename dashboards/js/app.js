@@ -160,8 +160,7 @@ const STOP_COORDINATES = {
   "Ghost Alley Espresso (coffee to-go before Northgate)": { lat: 47.6099, lng: -122.3428, label: "Ghost Alley Espresso" },
   "Seattle Waterfront + Olympic Sculpture Park": { lat: 47.6159, lng: -122.3554, label: "Olympic Sculpture Park" },
   "Seattle Starbucks city mug + Pike Place magnet stop": { lat: 47.6101, lng: -122.3426, label: "Seattle Starbucks + souvenirs" },
-  "Columbia Center Sky View Observatory": { lat: 47.6042, lng: -122.3305, label: "Sky View Observatory" },
-  "Columbia Center Sky View sunset": { lat: 47.6042, lng: -122.3305, label: "Columbia Center" },
+  "Space Needle plaza photo stop": { lat: 47.6205, lng: -122.3493, label: "Space Needle" },
   "Biang Biang Noodles - Capitol Hill": { lat: 47.6177, lng: -122.3204, label: "Biang Biang" },
   "Salt & Straw Capitol Hill": { lat: 47.6147, lng: -122.3184, label: "Salt & Straw" },
   "Walk/transit to Seattle Ferry Terminal": { lat: 47.6027, lng: -122.3381, label: "Seattle Ferry Terminal" },
@@ -547,7 +546,6 @@ function initHero() {
   const seattleBaseEl = document.getElementById("heroSeattleBase");
   const portlandBaseEl = document.getElementById("heroPortlandBase");
   const railWindowEl = document.getElementById("heroRailWindow");
-  const chicagoBaseEl = document.getElementById("heroChicagoBase");
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
@@ -589,11 +587,6 @@ function initHero() {
     portlandBaseEl.innerHTML = `<a href="${escapeAttribute(portlandHotelUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(data.meta.travelerBase.portland)}</a>`;
   }
   if (railWindowEl) railWindowEl.textContent = "Amtrak Cascades 517 on Nov 5";
-  if (chicagoBaseEl) {
-    const chicagoHotel = data.tripCosts.confirmed.accommodations.items.find(item => item.city === 'Chicago');
-    const chicagoHotelUrl = safeExternalUrl(chicagoHotel?.url) || 'https://www.hilton.com/en/hotels/chiaoup-acme-hotel-chicago/';
-    chicagoBaseEl.innerHTML = `<a href="${escapeAttribute(chicagoHotelUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(data.meta.travelerBase.chicago)}</a>`;
-  }
   if (lastUpdatedEl) lastUpdatedEl.textContent = data.meta.verifiedOn;
 }
 
@@ -793,7 +786,7 @@ function renderFlightShell(targetId, options = {}) {
           <p class="eyebrow">${includeFuture ? "Flight visibility" : "Booked flights"}</p>
           <h2>${includeFuture ? "Detailed route view and later booking context" : "Flight timing and airport buffers"}</h2>
           <p class="flight-shell-copy">${includeFuture
-            ? "This utility view keeps the deeper route context and the later Chicago booking that no longer belongs on the homepage."
+            ? "This utility view keeps the later American Airlines connection to ORD and the direct Manila flight."
             : "Booked-flight timing stays visible here without taking over the main trip-planning view."}</p>
         </div>
         <article class="budget-summary-card airfare">
@@ -1186,7 +1179,6 @@ function buildTripCostBreakdown(allInTarget) {
   const entranceCategory = data.budget.categories.find((item) => item.name === "Entrance fees");
   const shoppingCategory = data.budget.categories.find((item) => item.name === "Shopping");
   const tattooCategory = data.budget.categories.find((item) => item.name === "Tattoo");
-  const chicagoPocketMoneyCategory = data.budget.categories.find((item) => item.name === "Chicago pocket money");
   const contingencyCategory = data.budget.categories.find((item) => item.name === "Contingency");
   const plannedPurchases = data.tripCosts?.plannedPurchases || [];
   const plannedPurchasesTotal = getPlannedPersonalPurchaseTotal();
@@ -1210,7 +1202,7 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Hotel accommodations",
       amount: getConfirmedHotelTotal(),
-      note: "Palihotel in Seattle, Hotel Vance in Portland, and ACME Hotel Chicago (Feb 27 - Mar 2, 2027 layover).",
+      note: "Confirmed Seattle and Portland hotel stays.",
       shareBase: allInTarget,
       breakdown: hotelItems.map((item) => ({
         label: item.name,
@@ -1245,8 +1237,7 @@ function buildTripCostBreakdown(allInTarget) {
       note: "Paid attractions and admission-based itinerary stops.",
       shareBase: allInTarget,
       breakdown: [
-        { label: "Columbia Center Sky View Observatory", amount: findStopCost("Columbia Center Sky View Observatory - Elite Experience ticket"), detail: "Observatory ticket. Sailing Seattle removed from the itinerary -- no longer a separate line here." },
-        { label: "Amtrak + business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "$29 rail fare plus $19 successful bid upgrade." },
+        { label: "Amtrak business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "The $29 rail fare is already paid; only the $19 successful upgrade bid remains in planned spend." },
         { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
         { label: "Columbia River Gorge Waterfall Shuttle Tour", amount: findStopCost("Columbia River Gorge Waterfall Shuttle Tour"), detail: "Nov 8 waterfall shuttle booking with adult ticket, Trailkeepers of Oregon donation, taxes, and fees." },
       ]
@@ -1275,15 +1266,6 @@ function buildTripCostBreakdown(allInTarget) {
         { label: "Tattoo appointment", amount: tattooCategory.amount || 0, detail: tattooCategory.note || "" }
       ]
     }] : []),
-    {
-      name: "Chicago pocket money",
-      amount: chicagoPocketMoneyCategory?.amount || 0,
-      note: "Discretionary spending money for the Feb 27 - Mar 2, 2027 Chicago layover, separate from the ACME Hotel Chicago cost.",
-      shareBase: allInTarget,
-      breakdown: [
-        { label: "Chicago layover pocket money", amount: chicagoPocketMoneyCategory?.amount || 0, detail: chicagoPocketMoneyCategory?.note || "" }
-      ]
-    },
     {
       name: "Contingency",
       amount: contingencyCategory?.amount || 0,

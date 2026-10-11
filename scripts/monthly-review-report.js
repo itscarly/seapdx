@@ -5,11 +5,6 @@ const reviewItems = [
     url: "https://sailingseattle.com/sails"
   },
   {
-    name: "Sky View Observatory",
-    check: "Confirm hours, closure notices, and ticket price.",
-    url: "https://skyviewobservatory.com/location/"
-  },
-  {
     name: "Glo's Cafe",
     check: "Confirm hours and menu/homepage changes.",
     url: "https://www.glosseattle.com/home/"
