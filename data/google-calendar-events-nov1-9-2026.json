@@ -97,14 +97,22 @@
   },
   {
     "tag": "SEAPDX-2026-day-1-13",
-    "title": "🛌 Seattle Day 1 · Sleep",
+    "title": "🛌 Seattle Day 1 · Sleep · protected overnight",
     "start": "2026-11-01T22:00:00-08:00",
-    "end": "2026-11-02T07:40:00-08:00",
-    "location": "Palihotel base",
-    "description": "Purpose: Get good sleep after a long travel day, with a real night's sleep before Day 2's 5:30 AM wake.\nContinuity: Sleep protection to stabilize next day.\nDuration: 7.5 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+    "end": "2026-11-02T07:00:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
     "tag": "SEAPDX-2026-day-2-14",
+    "title": "🎟️ Seattle Day 2 · Wake + breakfast / get ready",
+    "start": "2026-11-02T07:00:00-08:00",
+    "end": "2026-11-02T07:40:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Morning preparation.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-2-15",
     "title": "🚶 Seattle Day 2 · Walk + early market photos",
     "start": "2026-11-02T07:40:00-08:00",
     "end": "2026-11-02T08:00:00-08:00",
@@ -112,7 +120,7 @@
     "description": "Leave Palihotel; optional 7:30 start for extra exterior photos. Vendors have different opening times.\nLocation: Pike Place Market, 85 Pike St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Pike+Place+Market%2C+85+Pike+St%2C+Seattle%2C+WA\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Pike%20Place%20Market%2C%2085%20Pike%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-15",
+    "tag": "SEAPDX-2026-day-2-16",
     "title": "🎟️ Seattle Day 2 · Le Panier · pastry",
     "start": "2026-11-02T08:00:00-08:00",
     "end": "2026-11-02T08:25:00-08:00",
@@ -120,7 +128,7 @@
     "description": "$8 all-in tasting allowance, including provision for tax and 18% pre-tax tip; item and exact price not confirmed. Not an $8 menu quote.\nLocation: Le Panier, 1902 Pike Pl, Seattle, WA\nWebsite: https://lepanier.com/menu\nMenu: https://lepanier.com/menu\nEstimated cost: $8.\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Le%20Panier%2C%201902%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-16",
+    "tag": "SEAPDX-2026-day-2-17",
     "title": "🎟️ Seattle Day 2 · Piroshky Piroshky · savory pastry",
     "start": "2026-11-02T08:25:00-08:00",
     "end": "2026-11-02T09:00:00-08:00",
@@ -128,7 +136,7 @@
     "description": "$11 all-in tasting allowance including tax and 18% pre-tax tip. Beef & cheese is a candidate; exact November price unconfirmed.\nLocation: Piroshky Piroshky, 1908 Pike Pl, Seattle, WA\nWebsite: https://piroshkybakery.com/product/beef_and_cheese_piroshky\nMenu: https://piroshkybakery.com/product/beef_and_cheese_piroshky\nEstimated cost: $11.\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Le%20Panier%2C%201902%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Piroshky%20Piroshky%2C%201908%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-17",
+    "tag": "SEAPDX-2026-day-2-18",
     "title": "🎟️ Seattle Day 2 · Beecher’s · mac & cheese tasting",
     "start": "2026-11-02T09:00:00-08:00",
     "end": "2026-11-02T09:30:00-08:00",
@@ -136,7 +144,7 @@
     "description": "$12 all-in tasting allowance including tax and 18% pre-tax tip, not a verified menu price. Official cafe opens9 AM; ordering menu currently unavailable.\nLocation: Beecher’s Handmade Cheese, 1600 Pike Pl, Seattle, WA\nWebsite: https://beechershandmadecheese.com/cafe/pike-place-market/\nMenu: https://beechershandmadecheese.com/cafe/pike-place-market/\nEstimated cost: $12.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Piroshky%20Piroshky%2C%201908%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Beecher%E2%80%99s%20Handmade%20Cheese%2C%201600%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-18",
+    "tag": "SEAPDX-2026-day-2-19",
     "title": "🎟️ Seattle Day 2 · Mee Sum Pastry · hom bow",
     "start": "2026-11-02T09:30:00-08:00",
     "end": "2026-11-02T10:00:00-08:00",
@@ -144,7 +152,7 @@
     "description": "$9 all-in tasting allowance including tax and 18% pre-tax tip; item/price to confirm. These four market tastings total the retained $40 fund.\nLocation: Mee Sum Pastry, 1526 Pike Pl, Seattle, WA\nWebsite: https://www.pikeplacemarket.org/vendor/mee-sum-pastry/\nMenu: https://www.pikeplacemarket.org/vendor/mee-sum-pastry/\nEstimated cost: $9.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Beecher%E2%80%99s%20Handmade%20Cheese%2C%201600%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Mee%20Sum%20Pastry%2C%201526%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-19",
+    "tag": "SEAPDX-2026-day-2-20",
     "title": "☕ Seattle Day 2 · Original Starbucks · coffee, beans + mug",
     "start": "2026-11-02T10:00:00-08:00",
     "end": "2026-11-02T10:45:00-08:00",
@@ -152,7 +160,7 @@
     "description": "Retained $41 all-in combined allowance for cold brew, one Seattle bean bag and city mug; exact current item/tax/tip split unverified. No second souvenir fund added. Do not treat the drink as $41.\nLocation: Starbucks, 1912 Pike Pl, Seattle, WA\nWebsite: https://www.starbucks.com/store-locator\nMenu: https://www.starbucks.com/store-locator\nEstimated cost: $41.\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Mee%20Sum%20Pastry%2C%201526%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Starbucks%2C%201912%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-20",
+    "tag": "SEAPDX-2026-day-2-21",
     "title": "🎟️ Seattle Day 2 · Totem Smokehouse · salmon souvenir",
     "start": "2026-11-02T10:45:00-08:00",
     "end": "2026-11-02T11:15:00-08:00",
@@ -160,7 +168,7 @@
     "description": "Retained $60 retail ceiling including tax; no food-service tip added. This is a souvenir allowance, not one meal or confirmed charge.\nLocation: Totem Smokehouse, 1906 Pike Pl, Seattle, WA\nWebsite: https://www.totemsmokehouse.com/\nMenu: https://www.totemsmokehouse.com/\nEstimated cost: $60.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Starbucks%2C%201912%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Totem%20Smokehouse%2C%201906%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-21",
+    "tag": "SEAPDX-2026-day-2-22",
     "title": "🎟️ Seattle Day 2 · Pike Place / waterfront photos",
     "start": "2026-11-02T11:15:00-08:00",
     "end": "2026-11-02T12:25:00-08:00",
@@ -168,7 +176,7 @@
     "description": "Market and waterfront photos. If the optional Uber office visit is skipped, extend this block through2:45PM; no hotel reset or additional purchase assumed.\nLocation: Pike Place Market, 85 Pike St, Seattle, WA\nWebsite: https://www.pikeplacemarket.org/\nMenu: https://www.pikeplacemarket.org/\nDuration: 70 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Totem%20Smokehouse%2C%201906%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Pike%20Place%20Market%2C%2085%20Pike%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-22",
+    "tag": "SEAPDX-2026-day-2-23",
     "title": "🚶 Seattle Day 2 · Walk to optional Uber office",
     "start": "2026-11-02T12:25:00-08:00",
     "end": "2026-11-02T12:45:00-08:00",
@@ -176,7 +184,7 @@
     "description": "Optional office visit, no appointment confirmed. Public access is not guaranteed. Hold12:45–2:45PM only; replace with market photos if skipping.\nLocation: Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Pike%20Place%20Market%2C%2085%20Pike%20St%2C%20Seattle%2C%20WA&destination=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-23",
+    "tag": "SEAPDX-2026-day-2-24",
     "title": "🎟️ Seattle Day 2 · Uber office · optional two-hour hold",
     "start": "2026-11-02T12:45:00-08:00",
     "end": "2026-11-02T14:45:00-08:00",
@@ -184,7 +192,7 @@
     "description": "Optional office visit, no appointment confirmed. Public access is not guaranteed. Hold12:45–2:45PM only; replace with market photos if skipping.\nLocation: Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101\nDuration: 120 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&destination=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-24",
+    "tag": "SEAPDX-2026-day-2-25",
     "title": "🚶 Seattle Day 2 · Walk + Pioneer Square photos",
     "start": "2026-11-02T14:45:00-08:00",
     "end": "2026-11-02T15:15:00-08:00",
@@ -192,7 +200,7 @@
     "description": "Toward 102 Cherry St, including photo stops.\nLocation: Beneath the Streets, 102 Cherry St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&destination=Beneath%20the%20Streets%2C%20102%20Cherry%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-25",
+    "tag": "SEAPDX-2026-day-2-26",
     "title": "🚶 Seattle Day 2 · Underground check-in",
     "start": "2026-11-02T15:15:00-08:00",
     "end": "2026-11-02T15:30:00-08:00",
@@ -200,7 +208,7 @@
     "description": "15-minute planning buffer.\nLocation: Beneath the Streets, 102 Cherry St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Beneath%20the%20Streets%2C%20102%20Cherry%20St%2C%20Seattle%2C%20WA&destination=Beneath%20the%20Streets%2C%20102%20Cherry%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-26",
+    "tag": "SEAPDX-2026-day-2-27",
     "title": "🎟️ Seattle Day 2 · Beneath the Streets · target",
     "start": "2026-11-02T15:30:00-08:00",
     "end": "2026-11-02T16:30:00-08:00",
@@ -208,7 +216,7 @@
     "description": "One-hour guided underground history walk. 102 Cherry St; ends near 119 S Main. Six flights of stairs, no elevator. 3:30 PM appeared in earlier selector; this slot and its total need reconfirmation. $32 total observed at 2:30 PM instead.\nBudget: $32 earlier ticket quote plus $5 voluntary guide-tip allowance = $37. Requested3:30 PM slot and total are not yet booked or confirmed.\nLocation: Beneath the Streets, 102 Cherry St, Seattle, WA\nWebsite: https://www.beneath-the-streets.com/\nEstimated cost: $37.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Beneath%20the%20Streets%2C%20102%20Cherry%20St%2C%20Seattle%2C%20WA&destination=119%20S%20Main%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-27",
+    "tag": "SEAPDX-2026-day-2-28",
     "title": "🚶 Seattle Day 2 · Walk to free waterfront sunset spot",
     "start": "2026-11-02T16:30:00-08:00",
     "end": "2026-11-02T16:40:00-08:00",
@@ -216,7 +224,7 @@
     "description": "Upper paved promenade at Washington Street Boat Landing / above Habitat Beach; Alaskan Way & S Washington St. About 10 minutes planning allowance from underground tour end near 119 S Main.\nLocation: Washington Street Boat Landing, Alaskan Way and S Washington St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Washington+Street+Boat+Landing%2C+Alaskan+Way+and+S+Washington+St%2C+Seattle%2C+WA\nDuration: 10 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=119%20S%20Main%20St%2C%20Seattle%2C%20WA&destination=Washington%20Street%20Boat%20Landing%2C%20Alaskan%20Way%20and%20S%20Washington%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-28",
+    "tag": "SEAPDX-2026-day-2-29",
     "title": "🎟️ Seattle Day 2 · Free sunset · Elliott Bay waterfront",
     "start": "2026-11-02T16:40:00-08:00",
     "end": "2026-11-02T17:10:00-08:00",
@@ -224,7 +232,7 @@
     "description": "Stay on the upper paved promenade, not beach rocks or water. Sunset Nov 2 about 4:49 PM; civil twilight to5:22. Bay/ferry/Olympic views, not an elevated skyline. Outdoors; weather can obscure sunset.\nLocation: Washington Street Boat Landing, Alaskan Way and S Washington St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Washington+Street+Boat+Landing%2C+Alaskan+Way+and+S+Washington+St%2C+Seattle%2C+WA\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Washington%20Street%20Boat%20Landing%2C%20Alaskan%20Way%20and%20S%20Washington%20St%2C%20Seattle%2C%20WA&destination=Washington%20Street%20Boat%20Landing%2C%20Alaskan%20Way%20and%20S%20Washington%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-29",
+    "tag": "SEAPDX-2026-day-2-30",
     "title": "🚶 Seattle Day 2 · Walk to Von’s / Harbor Steps",
     "start": "2026-11-02T17:10:00-08:00",
     "end": "2026-11-02T17:25:00-08:00",
@@ -232,7 +240,7 @@
     "description": "1225 1st Ave. 15-minute planning allowance.\nLocation: Von’s 1000Spirits, 1225 1st Ave, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Von%E2%80%99s+1000Spirits%2C+1225+1st+Ave%2C+Seattle%2C+WA\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Washington%20Street%20Boat%20Landing%2C%20Alaskan%20Way%20and%20S%20Washington%20St%2C%20Seattle%2C%20WA&destination=Von%E2%80%99s%201000Spirits%2C%201225%201st%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-30",
+    "tag": "SEAPDX-2026-day-2-31",
     "title": "📍 Seattle Day 2 · Happy hour · Von’s 1000Spirits",
     "start": "2026-11-02T17:25:00-08:00",
     "end": "2026-11-02T18:00:00-08:00",
@@ -240,7 +248,7 @@
     "description": "Daily HH 2–6 PM. Scratch vodka/gin martini $7.99 is an all-day deal. With $0.40 discretionary cooks commission, $0.89 modeled tax and $1.44 tip: $10.72. Walk-in only; queue can affect timing.\nOrder: Scratch vodka or gin martini · all-day value during HH. Base $7.99; other fee $0.40; tax $0.89; 18% pre-tax tip $1.44; total $10.72. Current menu $7.99; daily HH 2–6 PM. Includes discretionary 5% cooks commission $0.40; modeled $0.89 tax on drink plus commission, 18% tip on drink. Not a special HH discount on this martini.\nLocation: Von’s 1000Spirits, 1225 1st Ave, Seattle, WA\nWebsite: https://vons1000spirits.com/Happy-hour-menu/\nMenu: https://vons1000spirits.com/Happy-hour-menu/\nEstimated cost: $10.72.\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Von%E2%80%99s%201000Spirits%2C%201225%201st%20Ave%2C%20Seattle%2C%20WA&destination=Von%E2%80%99s%201000Spirits%2C%201225%201st%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-31",
+    "tag": "SEAPDX-2026-day-2-32",
     "title": "🚶 Seattle Day 2 · Walk to Dough Zone",
     "start": "2026-11-02T18:00:00-08:00",
     "end": "2026-11-02T18:05:00-08:00",
@@ -248,7 +256,7 @@
     "description": "83 University St; very short Harbor Steps transfer.\nLocation: Dough Zone Harbor Steps, 83 University St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Dough+Zone+Harbor+Steps%2C+83+University+St%2C+Seattle%2C+WA\nDuration: 5 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Von%E2%80%99s%201000Spirits%2C%201225%201st%20Ave%2C%20Seattle%2C%20WA&destination=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-32",
+    "tag": "SEAPDX-2026-day-2-33",
     "title": "🍽️ Seattle Day 2 · Dinner · your Dough Zone order",
     "start": "2026-11-02T18:05:00-08:00",
     "end": "2026-11-02T19:00:00-08:00",
@@ -256,7 +264,7 @@
     "description": "Spicy Ma La noodles $8.30 + 4 pan-fried chicken xiao long bao $5.95 = $14.25. Screenshot tax $1.51 +18% pre-tax tip $2.57 = $18.33. Extra chili oil noted; any new charge excluded.\nOrder: Spicy Ma La noodles + 4 pan-fried chicken xiao long bao. Base $14.25; other fee $0.00; tax $1.51; 18% pre-tax tip $2.57; total $18.33. User pickup screenshots: $8.30 + $5.95 = $14.25, displayed tax $1.51. Add requested 18% pre-tax tip $2.57. Not an order placed; dine-in/November parity unconfirmed.\nLocation: Dough Zone Harbor Steps, 83 University St, Seattle, WA\nWebsite: https://order.toasttab.com/online/dough-zone-harbor-steps\nMenu: https://order.toasttab.com/online/dough-zone-harbor-steps\nEstimated cost: $18.33.\nDuration: 55 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&destination=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-33",
+    "tag": "SEAPDX-2026-day-2-34",
     "title": "🎟️ Seattle Day 2 · Harbor Steps / waterfront night photos",
     "start": "2026-11-02T19:00:00-08:00",
     "end": "2026-11-02T19:30:00-08:00",
@@ -264,7 +272,7 @@
     "description": "Optional in dry weather; no added purchase assumed.\nLocation: Dough Zone Harbor Steps, 83 University St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Dough+Zone+Harbor+Steps%2C+83+University+St%2C+Seattle%2C+WA\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&destination=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-34",
+    "tag": "SEAPDX-2026-day-2-35",
     "title": "🚶 Seattle Day 2 · Walk to Palihotel",
     "start": "2026-11-02T19:30:00-08:00",
     "end": "2026-11-02T19:50:00-08:00",
@@ -272,15 +280,31 @@
     "description": "Hotel by8 PM.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-2-35",
+    "tag": "SEAPDX-2026-day-2-36",
     "title": "🛌 Seattle Day 2 · Hotel · evening wind-down",
     "start": "2026-11-02T20:00:00-08:00",
-    "end": "2026-11-02T21:00:00-08:00",
+    "end": "2026-11-02T22:00:00-08:00",
     "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-    "description": "No daytime hotel reset.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+    "description": "No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-36",
+    "tag": "SEAPDX-2026-day-2-37",
+    "title": "🛌 Seattle Day 2 · Sleep · protected overnight",
+    "start": "2026-11-02T22:00:00-08:00",
+    "end": "2026-11-03T07:00:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-3-38",
+    "title": "🎟️ Seattle Day 3 · Wake + breakfast / get ready",
+    "start": "2026-11-03T07:00:00-08:00",
+    "end": "2026-11-03T07:30:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Morning preparation.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-3-39",
     "title": "🎟️ Seattle Day 3 · Grocery breakfast",
     "start": "2026-11-03T07:30:00-08:00",
     "end": "2026-11-03T07:45:00-08:00",
@@ -288,7 +312,7 @@
     "description": "Already funded in November 1 grocery allowance; no new purchase assumed.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-37",
+    "tag": "SEAPDX-2026-day-3-40",
     "title": "🚶 Seattle Day 3 · Walk to Colman Dock",
     "start": "2026-11-03T07:45:00-08:00",
     "end": "2026-11-03T08:20:00-08:00",
@@ -296,7 +320,7 @@
     "description": "Pier 52; 35-minute planning window.\nLocation: Seattle Ferry Terminal, 801 Alaskan Way, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Seattle+Ferry+Terminal%2C+801+Alaskan+Way%2C+Seattle%2C+WA\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-38",
+    "tag": "SEAPDX-2026-day-3-41",
     "title": "🚇 Seattle Day 3 · Ferry boarding buffer",
     "start": "2026-11-03T08:20:00-08:00",
     "end": "2026-11-03T08:45:00-08:00",
@@ -304,7 +328,7 @@
     "description": "Check WSF alerts on the day.\nLocation: Seattle Ferry Terminal, 801 Alaskan Way, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Seattle+Ferry+Terminal%2C+801+Alaskan+Way%2C+Seattle%2C+WA\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-3-39",
+    "tag": "SEAPDX-2026-day-3-42",
     "title": "🚇 Seattle Day 3 · Ferry to Bainbridge",
     "start": "2026-11-03T08:45:00-08:00",
     "end": "2026-11-03T09:20:00-08:00",
@@ -312,7 +336,7 @@
     "description": "Published fall weekday sailing; 35 minutes. $12 passenger allowance; return foot-passenger fare not collected.\nLocation: Bainbridge Island Ferry Terminal, 270 Olympic Dr SE, Bainbridge Island, WA\nWebsite: https://wsdot.com/ferries/schedule/scheduledetailbyroute.aspx?route=sea-bi\nEstimated cost: $12.\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-3-40",
+    "tag": "SEAPDX-2026-day-3-43",
     "title": "🚶 Seattle Day 3 · Walk to Eagle Harbor",
     "start": "2026-11-03T09:20:00-08:00",
     "end": "2026-11-03T09:40:00-08:00",
@@ -320,7 +344,7 @@
     "description": "Waterfront photos toward Pegasus.\nLocation: Pegasus Coffee House, 131 Parfitt Way SW, Bainbridge Island, WA\nWebsite: https://pegasuscoffee.com/pages/original-pegasus-coffee-house-bainbridge\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&destination=Pegasus%20Coffee%20House%2C%20131%20Parfitt%20Way%20SW%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-41",
+    "tag": "SEAPDX-2026-day-3-44",
     "title": "☕ Seattle Day 3 · Pegasus coffee + harbor",
     "start": "2026-11-03T09:40:00-08:00",
     "end": "2026-11-03T10:15:00-08:00",
@@ -328,7 +352,7 @@
     "description": "131 Parfitt Way. Coffee item price not published in readable operator menu; keep $7 all-in allowance, not a verified tax/tip split.\nLocation: Pegasus Coffee House, 131 Parfitt Way SW, Bainbridge Island, WA\nWebsite: https://pegasuscoffee.com/pages/original-pegasus-coffee-house-bainbridge\nMenu: https://pegasuscoffee.com/pages/original-pegasus-coffee-house-bainbridge\nEstimated cost: $7.\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Pegasus%20Coffee%20House%2C%20131%20Parfitt%20Way%20SW%2C%20Bainbridge%20Island%2C%20WA&destination=Pegasus%20Coffee%20House%2C%20131%20Parfitt%20Way%20SW%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-42",
+    "tag": "SEAPDX-2026-day-3-45",
     "title": "🚶 Seattle Day 3 · Walk to BIMA",
     "start": "2026-11-03T10:15:00-08:00",
     "end": "2026-11-03T10:30:00-08:00",
@@ -336,7 +360,7 @@
     "description": "Short Winslow transfer.\nLocation: Bainbridge Island Museum of Art, 550 Winslow Way E, Bainbridge Island, WA\nWebsite: https://www.biartmuseum.org/\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Pegasus%20Coffee%20House%2C%20131%20Parfitt%20Way%20SW%2C%20Bainbridge%20Island%2C%20WA&destination=Bainbridge%20Island%20Museum%20of%20Art%2C%20550%20Winslow%20Way%20E%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-43",
+    "tag": "SEAPDX-2026-day-3-46",
     "title": "🎟️ Seattle Day 3 · BIMA",
     "start": "2026-11-03T10:30:00-08:00",
     "end": "2026-11-03T11:15:00-08:00",
@@ -344,7 +368,7 @@
     "description": "Free Bainbridge Island Museum of Art visit; short self-paced look.\nLocation: Bainbridge Island Museum of Art, 550 Winslow Way E, Bainbridge Island, WA\nWebsite: https://www.biartmuseum.org/\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Bainbridge%20Island%20Museum%20of%20Art%2C%20550%20Winslow%20Way%20E%2C%20Bainbridge%20Island%2C%20WA&destination=Bainbridge%20Island%20Museum%20of%20Art%2C%20550%20Winslow%20Way%20E%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-44",
+    "tag": "SEAPDX-2026-day-3-47",
     "title": "🍽️ Seattle Day 3 · Winslow photos + lunch walk",
     "start": "2026-11-03T11:15:00-08:00",
     "end": "2026-11-03T11:30:00-08:00",
@@ -352,7 +376,7 @@
     "description": "Keep the harbor and town experience.\nLocation: Proper Fish, 112 Madison Ave N, Bainbridge Island, WA\nWebsite: https://order.toasttab.com/online/proper-fish\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Bainbridge%20Island%20Museum%20of%20Art%2C%20550%20Winslow%20Way%20E%2C%20Bainbridge%20Island%2C%20WA&destination=Proper%20Fish%2C%20112%20Madison%20Ave%20N%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-45",
+    "tag": "SEAPDX-2026-day-3-48",
     "title": "🎟️ Seattle Day 3 · Proper Fish · British fish & chips",
     "start": "2026-11-03T11:30:00-08:00",
     "end": "2026-11-03T12:15:00-08:00",
@@ -360,7 +384,7 @@
     "description": "112 Madison Ave N. Your pickup screenshot: food$22 + merchant fee$1.10 + displayed tax$2.12 = $25.22; 18% food-only tip$3.96 → $29.18. Approved exception above$25 meal cap. No purchase placed; November/dine-in parity unconfirmed.\nLocation: Proper Fish, 112 Madison Ave N, Bainbridge Island, WA\nWebsite: https://order.toasttab.com/online/proper-fish\nMenu: https://order.toasttab.com/online/proper-fish\nEstimated cost: $29.18.\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Proper%20Fish%2C%20112%20Madison%20Ave%20N%2C%20Bainbridge%20Island%2C%20WA&destination=Proper%20Fish%2C%20112%20Madison%20Ave%20N%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-46",
+    "tag": "SEAPDX-2026-day-3-49",
     "title": "🎟️ Seattle Day 3 · Blackbird treat + harbor photos",
     "start": "2026-11-03T12:15:00-08:00",
     "end": "2026-11-03T12:40:00-08:00",
@@ -368,7 +392,7 @@
     "description": "210 Winslow Way E. Chocolate chip walnut cookie $5.50 + $0.51 conservatively modeled tax + $0.99 tip = $7.00. Qualifying bakery sales may be exempt; actual tax can be lower.\nLocation: Blackbird Bakery, 210 Winslow Way E, Bainbridge Island, WA\nWebsite: https://blackbirdbakery.com/menu/\nMenu: https://blackbirdbakery.com/menu/\nEstimated cost: $7.\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Proper%20Fish%2C%20112%20Madison%20Ave%20N%2C%20Bainbridge%20Island%2C%20WA&destination=Blackbird%20Bakery%2C%20210%20Winslow%20Way%20E%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-47",
+    "tag": "SEAPDX-2026-day-3-50",
     "title": "🚶 Seattle Day 3 · Walk to ferry terminal",
     "start": "2026-11-03T12:40:00-08:00",
     "end": "2026-11-03T12:55:00-08:00",
@@ -376,7 +400,7 @@
     "description": "Protect the return connection.\nLocation: Bainbridge Island Ferry Terminal, 270 Olympic Dr SE, Bainbridge Island, WA\nWebsite: https://wsdot.com/ferries/schedule/scheduledetailbyroute.aspx?route=sea-bi\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Blackbird%20Bakery%2C%20210%20Winslow%20Way%20E%2C%20Bainbridge%20Island%2C%20WA&destination=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-3-48",
+    "tag": "SEAPDX-2026-day-3-51",
     "title": "🚶 Seattle Day 3 · Return boarding buffer",
     "start": "2026-11-03T12:55:00-08:00",
     "end": "2026-11-03T13:15:00-08:00",
@@ -384,7 +408,7 @@
     "description": "Do not wait for a later ferry if keeping the afternoon cruise.\nLocation: Bainbridge Island Ferry Terminal, 270 Olympic Dr SE, Bainbridge Island, WA\nWebsite: https://wsdot.com/ferries/schedule/scheduledetailbyroute.aspx?route=sea-bi\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&destination=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-49",
+    "tag": "SEAPDX-2026-day-3-52",
     "title": "🚇 Seattle Day 3 · Ferry to Seattle",
     "start": "2026-11-03T13:15:00-08:00",
     "end": "2026-11-03T13:50:00-08:00",
@@ -392,7 +416,7 @@
     "description": "Published fall weekday sailing. A disruption changes the cruise plan.\nLocation: Seattle Ferry Terminal, 801 Alaskan Way, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Seattle+Ferry+Terminal%2C+801+Alaskan+Way%2C+Seattle%2C+WA\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&destination=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-3-50",
+    "tag": "SEAPDX-2026-day-3-53",
     "title": "🚶 Seattle Day 3 · Walk to Pier 55 + priority queue",
     "start": "2026-11-03T13:50:00-08:00",
     "end": "2026-11-03T14:15:00-08:00",
@@ -400,7 +424,7 @@
     "description": "1101 Alaskan Way. Arrive by 2:15 PM for requested First to Board; exact early-arrival rule and add-on need confirmation.\nLocation: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA\nWebsite: https://www.argosycruises.com/argosy-cruises/harbor-cruise/\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-51",
+    "tag": "SEAPDX-2026-day-3-54",
     "title": "🚶 Seattle Day 3 · First to Board / indoor seat",
     "start": "2026-11-03T14:15:00-08:00",
     "end": "2026-11-03T14:45:00-08:00",
@@ -408,7 +432,7 @@
     "description": "Covered waiting area with paid add-on. Boarding begins around 20 minutes before departure; first access is not a reserved window seat.\nSeparate $20 First to Board allowance; inclusion in$59.79 quote remains unconfirmed. Priority boarding does not guarantee a window seat.\nLocation: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA\nWebsite: https://www.argosycruises.com/argosy-cruises/harbor-cruise/\nEstimated cost: $20.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-52",
+    "tag": "SEAPDX-2026-day-3-55",
     "title": "🎟️ Seattle Day 3 · Argosy Harbor Cruise · two cocktails",
     "start": "2026-11-03T14:45:00-08:00",
     "end": "2026-11-03T15:45:00-08:00",
@@ -416,7 +440,7 @@
     "description": "Tuesday Nov3,2:45–3:45 PM. Screenshot ticket quote$52+$7.79 taxes/fees=$59.79. Two full-price modeled$16 cocktails: each$1.69 tax+$2.88 tip=$20.57; two=$41.14. No unconfirmed beverage discount counted. Voluntary guide-tip fund$5. Total this block$105.93; separate$20 boarding allowance above. Quoted, not booked; November bar price unconfirmed. Indoor seating available; docks/transfers may be rainy.\nMenu: https://www.argosycruises.com/menu/\nLocation: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA\nWebsite: https://www.argosycruises.com/argosy-cruises/harbor-cruise/\nEstimated cost: $105.93.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-53",
+    "tag": "SEAPDX-2026-day-3-56",
     "title": "🚶 Seattle Day 3 · Disembark / waterfront transition",
     "start": "2026-11-03T15:45:00-08:00",
     "end": "2026-11-03T16:00:00-08:00",
@@ -424,7 +448,7 @@
     "description": "Cruise scheduled to end3:45. Retain time for leaving vessel.\nLocation: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA\nWebsite: https://www.argosycruises.com/argosy-cruises/harbor-cruise/\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-54",
+    "tag": "SEAPDX-2026-day-3-57",
     "title": "🚇 Seattle Day 3 · Link + walk to Rhein Haus",
     "start": "2026-11-03T16:00:00-08:00",
     "end": "2026-11-03T16:50:00-08:00",
@@ -432,7 +456,7 @@
     "description": "912 12th Ave. 50-minute planning allowance including walk from waterfront to station, train and Capitol Hill walk.\nLocation: Rhein Haus, 912 12th Ave, Seattle, WA\nWebsite: https://www.rheinhausseattle.com/menu-happy-hour\nEstimated cost: $6.\nDuration: 50 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Rhein%20Haus%2C%20912%2012th%20Ave%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-3-55",
+    "tag": "SEAPDX-2026-day-3-58",
     "title": "📍 Seattle Day 3 · Happy hour · Rhein Haus",
     "start": "2026-11-03T16:50:00-08:00",
     "end": "2026-11-03T17:30:00-08:00",
@@ -440,7 +464,7 @@
     "description": "Weekdays 3–6 PM. Current linked PDF: draft Negroni, margarita, old fashioned or Moscow mule $8 +$0.84 tax +$1.44 tip = $10.28. Independent of cruise beverage discount; November prices can change.\nOrder: Happy-hour draft Negroni · or margarita / old fashioned / Moscow mule. Base $8.00; other fee $0.00; tax $0.84; 18% pre-tax tip $1.44; total $10.28. Currently linked HH PDF downloaded and read Oct22: $8 draft cocktails, Mon–Fri 3–6 PM. Espresso martini $8 came from an older menu and is not the chosen current offer.\nLocation: Rhein Haus, 912 12th Ave, Seattle, WA\nWebsite: https://www.rheinhausseattle.com/menu-happy-hour\nMenu: https://www.rheinhausseattle.com/s/RHS_HappyHour_8-8-25_WEB.pdf\nEstimated cost: $10.28.\nDuration: 40 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Rhein%20Haus%2C%20912%2012th%20Ave%2C%20Seattle%2C%20WA&destination=Rhein%20Haus%2C%20912%2012th%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-56",
+    "tag": "SEAPDX-2026-day-3-59",
     "title": "🚶 Seattle Day 3 · Walk to DANBO",
     "start": "2026-11-03T17:30:00-08:00",
     "end": "2026-11-03T17:45:00-08:00",
@@ -448,7 +472,7 @@
     "description": "1222 E Pine St; same Capitol Hill cluster.\nLocation: Ramen DANBO, 1222 E Pine St, Seattle, WA\nWebsite: https://ramendanbo.com/our-menu-seattle/\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Rhein%20Haus%2C%20912%2012th%20Ave%2C%20Seattle%2C%20WA&destination=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-57",
+    "tag": "SEAPDX-2026-day-3-60",
     "title": "🍽️ Seattle Day 3 · Dinner · Ramen DANBO",
     "start": "2026-11-03T17:45:00-08:00",
     "end": "2026-11-03T18:45:00-08:00",
@@ -456,7 +480,7 @@
     "description": "Classic + egg $14.95 +$1.58 tax +$2.69 tip = $19.22. If queue long, shorten optional browsing or use a quick nearby dinner.\nOrder: Classic ramen + egg. Base $14.95; other fee $0.00; tax $1.58; 18% pre-tax tip $2.69; total $19.22. $12.95 + $2. No reservations; queue can change timing.\nLocation: Ramen DANBO, 1222 E Pine St, Seattle, WA\nWebsite: https://ramendanbo.com/our-menu-seattle/\nMenu: https://ramendanbo.com/our-menu-seattle/\nEstimated cost: $19.22.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-58",
+    "tag": "SEAPDX-2026-day-3-61",
     "title": "🎟️ Seattle Day 3 · Short Capitol Hill browse",
     "start": "2026-11-03T18:45:00-08:00",
     "end": "2026-11-03T19:00:00-08:00",
@@ -464,7 +488,7 @@
     "description": "Optional; absorbs dinner queue.\nLocation: Ramen DANBO, 1222 E Pine St, Seattle, WA\nWebsite: https://ramendanbo.com/our-menu-seattle/\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-3-59",
+    "tag": "SEAPDX-2026-day-3-62",
     "title": "🚇 Seattle Day 3 · Link + walk to Palihotel",
     "start": "2026-11-03T19:00:00-08:00",
     "end": "2026-11-03T19:45:00-08:00",
@@ -472,15 +496,31 @@
     "description": "Hotel by8 PM.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-3-60",
+    "tag": "SEAPDX-2026-day-3-63",
     "title": "🛌 Seattle Day 3 · Hotel · evening wind-down",
     "start": "2026-11-03T20:00:00-08:00",
-    "end": "2026-11-03T21:00:00-08:00",
+    "end": "2026-11-03T22:00:00-08:00",
     "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-    "description": "No daytime hotel reset.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+    "description": "No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-61",
+    "tag": "SEAPDX-2026-day-3-64",
+    "title": "🛌 Seattle Day 3 · Sleep · protected overnight",
+    "start": "2026-11-03T22:00:00-08:00",
+    "end": "2026-11-04T07:00:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-4-65",
+    "title": "🎟️ Seattle Day 4 · Wake + breakfast / get ready",
+    "start": "2026-11-04T07:00:00-08:00",
+    "end": "2026-11-04T08:00:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Morning preparation.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-4-66",
     "title": "🚇 Seattle Day 4 · Link + walk to Capitol Hill",
     "start": "2026-11-04T08:00:00-08:00",
     "end": "2026-11-04T08:40:00-08:00",
@@ -488,7 +528,7 @@
     "description": "Breakfast from Nov 1 groceries; optional pastry purchase not included.\nConservative bus/Link allowance$12: regional day pass$6 plus$6 headroom. Buy the pass explicitly; ORCA e-purse is not an automatic daily cap. Monorail is extra.\nLocation: Anchorhead Coffee, 1115 12th Ave, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Anchorhead+Coffee%2C+1115+12th+Ave%2C+Seattle%2C+WA\nEstimated cost: $12.\nDuration: 40 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Anchorhead%20Coffee%2C%201115%2012th%20Ave%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-62",
+    "tag": "SEAPDX-2026-day-4-67",
     "title": "☕ Seattle Day 4 · Anchorhead · latte tasting",
     "start": "2026-11-04T08:40:00-08:00",
     "end": "2026-11-04T09:30:00-08:00",
@@ -496,7 +536,7 @@
     "description": "1115 12th Ave. 10 oz latte $6.25 + $0.66 tax + $1.13 tip = $8.04. Weekday 7 AM–6 PM.\nOrder: 10 oz latte; dairy, no syrup. Base $6.25; other fee $0.00; tax $0.66; 18% pre-tax tip $1.13; total $8.04. Operator-linked Summer 2026 menu; November changes possible. Weekdays 7 AM–6 PM.\nLocation: Anchorhead Coffee, 1115 12th Ave, Seattle, WA\nWebsite: https://anchorheadcoffee.com/pages/capitol-hill\nMenu: https://anchorheadcoffee.com/pages/capitol-hill\nEstimated cost: $8.04.\nDuration: 50 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Anchorhead%20Coffee%2C%201115%2012th%20Ave%2C%20Seattle%2C%20WA&destination=Anchorhead%20Coffee%2C%201115%2012th%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-63",
+    "tag": "SEAPDX-2026-day-4-68",
     "title": "🎟️ Seattle Day 4 · Capitol Hill · browse + short walk",
     "start": "2026-11-04T09:30:00-08:00",
     "end": "2026-11-04T10:15:00-08:00",
@@ -504,7 +544,7 @@
     "description": "Self-paced photo / shop window time, then walk toward 721 E Pine. Outdoors optional in rain; extend café time instead.\nLocation: Phê, 721 E Pine St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Ph%C3%AA%2C+721+E+Pine+St%2C+Seattle%2C+WA\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Anchorhead%20Coffee%2C%201115%2012th%20Ave%2C%20Seattle%2C%20WA&destination=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-64",
+    "tag": "SEAPDX-2026-day-4-69",
     "title": "☕ Seattle Day 4 · Phê · matcha + bánh mì",
     "start": "2026-11-04T10:15:00-08:00",
     "end": "2026-11-04T11:15:00-08:00",
@@ -512,7 +552,7 @@
     "description": "721 E Pine St. Basic matcha $7.50 + bánh mì $11 = $18.50 + $1.95 tax + $3.33 tip = $23.78. One café meal under $25. Other drinks shown separately, not additional included purchases.\nOrder: Basic matcha latte + bánh mì. Base $18.50; other fee $0.00; tax $1.95; 18% pre-tax tip $3.33; total $23.78. Merchant ordering menu. Matcha $7.50 + bánh mì $11. Weekdays 8 AM–4 PM; pickup/dine-in parity unconfirmed.\nLocation: Phê, 721 E Pine St, Seattle, WA\nWebsite: https://www.toasttab.com/local/order/phe-yet/\nMenu: https://www.toasttab.com/local/order/phe-yet/\nEstimated cost: $23.78.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-65",
+    "tag": "SEAPDX-2026-day-4-70",
     "title": "🚇 Seattle Day 4 · Bus / Link + walk to Central Library",
     "start": "2026-11-04T11:15:00-08:00",
     "end": "2026-11-04T12:00:00-08:00",
@@ -520,7 +560,7 @@
     "description": "45-minute planning allowance. Route 2 via First Hill or Link + downtown walk; check actual departures.\nLocation: Seattle Central Library, 1000 4th Ave, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Seattle+Central+Library%2C+1000+4th+Ave%2C+Seattle%2C+WA\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Seattle%20Central%20Library%2C%201000%204th%20Ave%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-66",
+    "tag": "SEAPDX-2026-day-4-71",
     "title": "🎟️ Seattle Day 4 · Central Library · indoor architecture",
     "start": "2026-11-04T12:00:00-08:00",
     "end": "2026-11-04T13:00:00-08:00",
@@ -528,7 +568,7 @@
     "description": "1000 4th Ave. Free; Wednesday 10 AM–8 PM. Architecture / Books Spiral; respect readers and posted photo rules. Weather-friendly replacement activity.\nLocation: Seattle Central Library, 1000 4th Ave, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Seattle+Central+Library%2C+1000+4th+Ave%2C+Seattle%2C+WA\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Central%20Library%2C%201000%204th%20Ave%2C%20Seattle%2C%20WA&destination=Seattle%20Central%20Library%2C%201000%204th%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-67",
+    "tag": "SEAPDX-2026-day-4-72",
     "title": "🚇 Seattle Day 4 · Walk / bus toward Nana’s",
     "start": "2026-11-04T13:00:00-08:00",
     "end": "2026-11-04T13:25:00-08:00",
@@ -536,7 +576,7 @@
     "description": "1007 Stewart St, Suite 103; approximately 20–25 minute downtown walk, bus if raining.\nLocation: Nana’s Green Tea, 1007 Stewart St Suite 103, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Nana%E2%80%99s+Green+Tea%2C+1007+Stewart+St+Suite+103%2C+Seattle%2C+WA\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Central%20Library%2C%201000%204th%20Ave%2C%20Seattle%2C%20WA&destination=Nana%E2%80%99s%20Green%20Tea%2C%201007%20Stewart%20St%20Suite%20103%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-68",
+    "tag": "SEAPDX-2026-day-4-73",
     "title": "☕ Seattle Day 4 · Nana’s · second matcha tasting",
     "start": "2026-11-04T13:25:00-08:00",
     "end": "2026-11-04T14:00:00-08:00",
@@ -544,7 +584,7 @@
     "description": "Small latte $6.50 + $0.69 tax + $1.17 tip = $8.36. Compare straightforward Japanese matcha with Phê. Optional tasting checkbox removes purchase, retains browsing time.\nOrder: Small matcha latte; dairy, no extras. Base $6.50; other fee $0.00; tax $0.69; 18% pre-tax tip $1.17; total $8.36. Small size $6.50; medium +$0.50, alternative milk +$1. Seattle branch opens 11 AM daily.\nLocation: Nana’s Green Tea, 1007 Stewart St Suite 103, Seattle, WA\nWebsite: https://www.toasttab.com/local/order/nanasgreentea/item-matcha-latte_56debc73-e48d-4460-b545-ee7cb7860089\nMenu: https://www.toasttab.com/local/order/nanasgreentea/item-matcha-latte_56debc73-e48d-4460-b545-ee7cb7860089\nEstimated cost: $8.36.\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Nana%E2%80%99s%20Green%20Tea%2C%201007%20Stewart%20St%20Suite%20103%2C%20Seattle%2C%20WA&destination=Nana%E2%80%99s%20Green%20Tea%2C%201007%20Stewart%20St%20Suite%20103%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-69",
+    "tag": "SEAPDX-2026-day-4-74",
     "title": "🚶 Seattle Day 4 · Walk to Westlake Monorail station",
     "start": "2026-11-04T14:00:00-08:00",
     "end": "2026-11-04T14:15:00-08:00",
@@ -552,7 +592,7 @@
     "description": "400 Pine St, third floor of Westlake Center. Separate service from Link.\nLocation: Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Westlake+Center+Monorail+Station%2C+400+Pine+St%2C+third+floor%2C+Seattle%2C+WA\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Nana%E2%80%99s%20Green%20Tea%2C%201007%20Stewart%20St%20Suite%20103%2C%20Seattle%2C%20WA&destination=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-70",
+    "tag": "SEAPDX-2026-day-4-75",
     "title": "🚇 Seattle Day 4 · Monorail · Westlake → Seattle Center",
     "start": "2026-11-04T14:15:00-08:00",
     "end": "2026-11-04T14:30:00-08:00",
@@ -560,7 +600,7 @@
     "description": "370 Thomas St arrival; about 2 minutes aboard, normally every 8–10 minutes. Window includes faregate/waiting. Adult $4 one way; $8 round trip budgeted separately from bus/Link allowance.\nLocation: Seattle Center Monorail Station, 370 Thomas St, Seattle, WA\nWebsite: https://www.seattlemonorail.com/buy-tickets-to-ride-with-us/\nEstimated cost: $4.\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&destination=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-71",
+    "tag": "SEAPDX-2026-day-4-76",
     "title": "🎟️ Seattle Day 4 · Space Needle exterior + SpaceBase gift shop",
     "start": "2026-11-04T14:30:00-08:00",
     "end": "2026-11-04T15:00:00-08:00",
@@ -568,7 +608,7 @@
     "description": "400 Broad St. Exterior photos are free; no observation-deck ticket budgeted. Gift-shop stop included, but official pages do not explicitly confirm ticket-free access or separate November shop hours: ask staff; if restricted, keep exterior photos. Souvenir purchases extra.\nLocation: Space Needle / SpaceBase Gift Shop, 400 Broad St, Seattle, WA\nWebsite: https://space-needle.myshopify.com/\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&destination=Space%20Needle%20%2F%20SpaceBase%20Gift%20Shop%2C%20400%20Broad%20St%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-72",
+    "tag": "SEAPDX-2026-day-4-77",
     "title": "🚇 Seattle Day 4 · Bus + short walk to Kerry Park",
     "start": "2026-11-04T15:00:00-08:00",
     "end": "2026-11-04T15:45:00-08:00",
@@ -576,7 +616,7 @@
     "description": "Board an uphill Queen Anne bus (2/13 toward Queen Anne, verify departure) near Seattle Center; allow waiting and final walk to 211 W Highland Dr. Replaces generic Queen Anne browsing.\nLocation: Kerry Park, 211 W Highland Dr, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Kerry+Park%2C+211+W+Highland+Dr%2C+Seattle%2C+WA\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Space%20Needle%20%2F%20SpaceBase%20Gift%20Shop%2C%20400%20Broad%20St%2C%20Seattle%2C%20WA&destination=Kerry%20Park%2C%20211%20W%20Highland%20Dr%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-73",
+    "tag": "SEAPDX-2026-day-4-78",
     "title": "🎟️ Seattle Day 4 · Kerry Park · skyline",
     "start": "2026-11-04T15:45:00-08:00",
     "end": "2026-11-04T16:55:00-08:00",
@@ -584,7 +624,7 @@
     "description": "211 W Highland Dr. Free. Nov 4 sunset ~4:46 PM; weather may obscure skyline. This is outdoors: use rain cover or skip for indoor browsing if staying dry takes priority.\nLocation: Kerry Park, 211 W Highland Dr, Seattle, WA\nWebsite: https://www.seattle.gov/parks/allparks/kerry-park\nDuration: 70 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Kerry%20Park%2C%20211%20W%20Highland%20Dr%2C%20Seattle%2C%20WA&destination=Kerry%20Park%2C%20211%20W%20Highland%20Dr%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-74",
+    "tag": "SEAPDX-2026-day-4-79",
     "title": "🚇 Seattle Day 4 · Bus / downhill walk to Uptown",
     "start": "2026-11-04T16:55:00-08:00",
     "end": "2026-11-04T17:20:00-08:00",
@@ -592,7 +632,7 @@
     "description": "Toward 601 Queen Anne Ave N.\nLocation: Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Toulouse+Petit%2C+601+Queen+Anne+Ave+N%2C+Seattle%2C+WA\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Kerry%20Park%2C%20211%20W%20Highland%20Dr%2C%20Seattle%2C%20WA&destination=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-75",
+    "tag": "SEAPDX-2026-day-4-80",
     "title": "📍 Seattle Day 4 · Toulouse Petit · cocktail",
     "start": "2026-11-04T17:20:00-08:00",
     "end": "2026-11-04T18:00:00-08:00",
@@ -600,7 +640,7 @@
     "description": "601 Queen Anne Ave N. Rosemary Collins $11 + $1.16 tax + $1.98 tip = $14.14. Current linked HH menu; lounge/bar, before 6 PM. Seat/inventory not guaranteed.\nOrder: Rosemary Collins · current happy-hour menu. Base $11.00; other fee $0.00; tax $1.16; 18% pre-tax tip $1.98; total $14.14. Currently linked June 2026 menu: $11. Target 5:20 PM before 6 PM cutoff; lounge/bar seating, availability unconfirmed.\nLocation: Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA\nWebsite: https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf\nMenu: https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf\nEstimated cost: $14.14.\nDuration: 40 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&destination=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-76",
+    "tag": "SEAPDX-2026-day-4-81",
     "title": "🍽️ Seattle Day 4 · Dinner · Dick’s Queen Anne",
     "start": "2026-11-04T18:00:00-08:00",
     "end": "2026-11-04T18:45:00-08:00",
@@ -608,7 +648,7 @@
     "description": "500 Queen Anne Ave N. Deluxe, fries, shake $12.75 + $1.35 tax + $2.30 optional tip = $16.40.\nOrder: Deluxe + fries + shake. Base $12.75; other fee $0.00; tax $1.35; 18% pre-tax tip $2.30; total $16.40. $5.75 + $2.95 + $4.05. Includes requested optional 18% counter tip.\nLocation: Dick’s Drive-In, 500 Queen Anne Ave N, Seattle, WA\nWebsite: https://ddir.com/menu/\nMenu: https://ddir.com/menu/\nEstimated cost: $16.4.\nDuration: 45 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&destination=Dick%E2%80%99s%20Drive-In%2C%20500%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-77",
+    "tag": "SEAPDX-2026-day-4-82",
     "title": "🚶 Seattle Day 4 · Walk to Seattle Center Monorail",
     "start": "2026-11-04T18:45:00-08:00",
     "end": "2026-11-04T19:10:00-08:00",
@@ -616,7 +656,7 @@
     "description": "370 Thomas St; about 15–20 minutes from Dick’s, with buffer. Outdoor transfer; rain possible.\nLocation: Seattle Center Monorail Station, 370 Thomas St, Seattle, WA\nWebsite: https://www.google.com/maps/search/?api=1&query=Seattle+Center+Monorail+Station%2C+370+Thomas+St%2C+Seattle%2C+WA\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dick%E2%80%99s%20Drive-In%2C%20500%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&destination=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-78",
+    "tag": "SEAPDX-2026-day-4-83",
     "title": "🚇 Seattle Day 4 · Monorail · Seattle Center → Westlake",
     "start": "2026-11-04T19:10:00-08:00",
     "end": "2026-11-04T19:25:00-08:00",
@@ -624,7 +664,7 @@
     "description": "Return ride $4, included in $8 round-trip fare. Normally every 8–10 minutes; current Nov 4 event schedule runs until 11 PM. Event queues possible; depart earlier if needed.\nLocation: Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA\nWebsite: https://www.seattlemonorail.com/buy-tickets-to-ride-with-us/\nEstimated cost: $4.\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&destination=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-4-79",
+    "tag": "SEAPDX-2026-day-4-84",
     "title": "🚶 Seattle Day 4 · Walk to Palihotel",
     "start": "2026-11-04T19:25:00-08:00",
     "end": "2026-11-04T19:50:00-08:00",
@@ -632,15 +672,23 @@
     "description": "107 Pine St; retain buffer for queues and the 8 PM hotel deadline.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 25 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-4-80",
-    "title": "🛌 Seattle Day 4 · Hotel · pack after 8 PM",
+    "tag": "SEAPDX-2026-day-4-85",
+    "title": "🛌 Seattle Day 4 · Hotel · pack and evening wind-down",
     "start": "2026-11-04T20:00:00-08:00",
-    "end": "2026-11-04T21:00:00-08:00",
+    "end": "2026-11-04T22:00:00-08:00",
     "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-    "description": "No daytime hotel break.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+    "description": "No daytime hotel break. Evening relaxation/packing only; protected sleep begins10PM.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nWebsite: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-81",
+    "tag": "SEAPDX-2026-day-4-86",
+    "title": "🛌 Seattle Day 4 · Sleep · protected overnight",
+    "start": "2026-11-04T22:00:00-08:00",
+    "end": "2026-11-05T07:00:00-08:00",
+    "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Palihotel Seattle, 107 Pine St, Seattle, WA 98101\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-5-87",
     "title": "🛌 Portland Day 5 · Wake, final pack, checkout prep",
     "start": "2026-11-05T07:00:00-08:00",
     "end": "2026-11-05T09:00:00-08:00",
@@ -648,7 +696,7 @@
     "description": "Purpose: Light prep and packing. King Street Station is walking distance from downtown Palihotel. Grab-and-go breakfast from the H Mart/Target run stocked on Day 1 covers this morning -- no separate breakfast stop needed.\nDuration: 120 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-82",
+    "tag": "SEAPDX-2026-day-5-88",
     "title": "🚶 Portland Day 5 · Checkout and walk to King Street Station",
     "start": "2026-11-05T09:00:00-08:00",
     "end": "2026-11-05T09:15:00-08:00",
@@ -656,7 +704,7 @@
     "description": "Purpose: Short walk from downtown to King Street Station. Palihotel proximity makes this very manageable.\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=King%20Street%20Station%2C%20Seattle%2C%20WA&destination=King%20Street%20Station%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-83",
+    "tag": "SEAPDX-2026-day-5-89",
     "title": "🛌 Portland Day 5 · Station arrival + platform prep",
     "start": "2026-11-05T09:15:00-08:00",
     "end": "2026-11-05T12:10:00-08:00",
@@ -664,7 +712,7 @@
     "description": "Purpose: Settle in at the station with plenty of margin before boarding.\nDuration: 55 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=King%20Street%20Station%2C%20Seattle%2C%20WA&destination=King%20Street%20Station%2C%20Seattle%2C%20WA&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-84",
+    "tag": "SEAPDX-2026-day-5-90",
     "title": "🚇 Portland Day 5 · Amtrak Cascades 517 SEA -> PDX",
     "start": "2026-11-05T12:10:00-08:00",
     "end": "2026-11-05T15:35:00-08:00",
@@ -672,7 +720,7 @@
     "description": "Purpose: The $29 rail fare is already paid; only the $19 successful business-class bid remains in planned spend.\nEstimated cost: $19.\nDuration: 3h 25m.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-5-85",
+    "tag": "SEAPDX-2026-day-5-91",
     "title": "🚇 Portland Day 5 · Arrive Portland Union Station and transfer to Hotel Vance",
     "start": "2026-11-05T15:35:00-08:00",
     "end": "2026-11-05T16:20:00-08:00",
@@ -680,7 +728,7 @@
     "description": "Purpose: First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-5-86",
+    "tag": "SEAPDX-2026-day-5-92",
     "title": "🛌 Portland Day 5 · Check in and reset",
     "start": "2026-11-05T16:20:00-08:00",
     "end": "2026-11-05T18:00:00-08:00",
@@ -688,7 +736,7 @@
     "description": "Purpose: Settle into Hotel Vance after the Seattle-to-Portland transfer.\nDuration: 100 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-87",
+    "tag": "SEAPDX-2026-day-5-93",
     "title": "🚶 Portland Day 5 · Easy downtown orientation walk",
     "start": "2026-11-05T18:00:00-08:00",
     "end": "2026-11-05T18:35:00-08:00",
@@ -696,7 +744,7 @@
     "description": "Purpose: Easy downtown orientation walk keeps the checkout + amtrak transfer + light portland evening route on track.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%20Portland%2C%20OR&destination=Downtown%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-88",
+    "tag": "SEAPDX-2026-day-5-94",
     "title": "🛍️ Portland Day 5 · Apple Pioneer Place time block",
     "start": "2026-11-05T18:35:00-08:00",
     "end": "2026-11-05T19:15:00-08:00",
@@ -704,7 +752,7 @@
     "description": "Short downtown stop to check the Apple store and Pioneer Place architecture.\nPurpose: Use this as the Portland phone / accessory browse block, not a full shopping spree.\nPhoto angle: The store frontage and mall atrium make a clean city-photo backdrop.\nEstimated cost: Free unless you buy the new phone or accessories.\nPayment: Cards accepted.\nLocation: Apple Pioneer Place, 450 SW Yamhill St\nWebsite: https://www.apple.com/retail/pioneerplace/\nPayment: Cards accepted\nDuration: 35 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Apple%20Pioneer%20Place%2C%20450%20SW%20Yamhill%20St%2C%20Portland%2C%20OR&destination=Apple%20Pioneer%20Place%2C%20450%20SW%20Yamhill%20St%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-89",
+    "tag": "SEAPDX-2026-day-5-95",
     "title": "🍽️ Portland Day 5 · Luc Lac Vietnamese Kitchen dinner",
     "start": "2026-11-05T19:15:00-08:00",
     "end": "2026-11-05T20:30:00-08:00",
@@ -712,15 +760,23 @@
     "description": "First dinner in Portland after the travel day.\nMenu: https://luclacpdx.com/\nORDER: Round Steak & Lean Brisket -- rare slices of steak cooked with citrus, pineapple sauce, cilantro, onions, fresh herbs, peanuts and shallots.\nFruity: Ask for the most fruit-forward seasonal cocktail or their coconut-leaning drink.\nSkip: Soup. Save room for the rice-and-beef lane.\nEstimated cost: $15.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.\nPayment: Cards accepted\nEstimated cost: $15.\nDuration: 75 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%20Portland%2C%20OR&destination=Downtown%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-5-90",
-    "title": "🛌 Portland Day 5 · Hotel Vance wind-down / Sleep",
+    "tag": "SEAPDX-2026-day-5-96",
+    "title": "🛌 Portland Day 5 · Hotel · evening wind-down",
     "start": "2026-11-05T20:30:00-08:00",
-    "end": "2026-11-06T07:00:00-08:00",
+    "end": "2026-11-05T22:00:00-08:00",
     "location": "Hotel Vance Portland",
-    "description": "Purpose: Full recovery night before the first deeper Portland day.\nDuration: 10 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+    "description": "Full recovery night before the first deeper Portland day. Evening relaxation/packing only; protected sleep begins10PM.\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-6-91",
+    "tag": "SEAPDX-2026-day-5-97",
+    "title": "🛌 Portland Day 5 · Sleep · protected overnight",
+    "start": "2026-11-05T22:00:00-08:00",
+    "end": "2026-11-06T07:00:00-08:00",
+    "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Hotel Vance, 1455 SW Broadway, Portland, OR\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-6-98",
     "title": "🛌 Portland Day 6 · Wake + quick breakfast + prep",
     "start": "2026-11-06T07:00:00-08:00",
     "end": "2026-11-06T07:50:00-08:00",
@@ -728,7 +784,7 @@
     "description": "Purpose: Early start to catch the westbound POINT NorthWest bus.\nDuration: 50 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-6-92",
+    "tag": "SEAPDX-2026-day-6-99",
     "title": "🚇 Portland Day 6 · Transit to Portland Union Station",
     "start": "2026-11-06T07:50:00-08:00",
     "end": "2026-11-06T08:10:00-08:00",
@@ -736,7 +792,7 @@
     "description": "Purpose: Walk or MAX to Union Station (800 NW 6th Ave). First TriMet-system ride of Day 6 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20Union%20Station%2C%20Portland%2C%20OR&destination=Portland%20Union%20Station%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-93",
+    "tag": "SEAPDX-2026-day-6-100",
     "title": "🚇 Portland Day 6 · POINT NorthWest bus to Cannon Beach (boarding)",
     "start": "2026-11-06T08:10:00-08:00",
     "end": "2026-11-06T08:28:00-08:00",
@@ -744,7 +800,7 @@
     "description": "Purpose: Confirmed 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245. Connection warning: retained Astoria-origin ticket time is not the Cannon Beach boarding time; exact Cannon Beach stop/departure must be confirmed with POINT. Do not travel to Astoria based on this label.\nDuration: 18 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20Union%20Station%2C%20Portland%2C%20OR&destination=Portland%20Union%20Station%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-94",
+    "tag": "SEAPDX-2026-day-6-101",
     "title": "🚇 Portland Day 6 · Depart Portland Union Station (POINT NorthWest)",
     "start": "2026-11-06T08:28:00-08:00",
     "end": "2026-11-06T11:46:00-08:00",
@@ -752,7 +808,7 @@
     "description": "Purpose: Confirmed schedule: PDX Union Station to Astoria, OR (via ART connecting bus 5500), arrives 11:46 AM. $40 covers the confirmed round-trip fare.\nEstimated cost: $40.\nDuration: 198 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-95",
+    "tag": "SEAPDX-2026-day-6-102",
     "title": "🚇 Portland Day 6 · Arrive Cannon Beach",
     "start": "2026-11-06T11:46:00-08:00",
     "end": "2026-11-06T11:50:00-08:00",
@@ -760,7 +816,7 @@
     "description": "Purpose: Bus stops at 1170 S Hemlock St, downtown Cannon Beach.\nDuration: 0 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Cannon%20Beach%2C%20OR&destination=Cannon%20Beach%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-96",
+    "tag": "SEAPDX-2026-day-6-103",
     "title": "🎟️ Portland Day 6 · Orientation + Haystack Rock walk",
     "start": "2026-11-06T11:50:00-08:00",
     "end": "2026-11-06T14:50:00-08:00",
@@ -768,7 +824,7 @@
     "description": "Iconic Cannon Beach sea-stack exploration.\nWhat to see: 235-foot Haystack Rock visible from the beach.\nTide pools: Low tide is essential for exploring tide pools around the base of the rock. Check NOAA tide times for November 6, 2026 before the trip at noaa.gov or tide-forecast.com. Optimal window usually a couple hours before/after the lowest tide.\nWhat to bring: Layers (coastal wind), water, snacks, camera.\nWarnings: Lifeguards and patrol trucks monitor the area; stay off exposed rocks to protect tide-pool ecosystems.\nEstimated cost: Free.\nLocation: Haystack Rock, Tolovana Beach State Recreation Site\nWebsite: https://www.cannonbeach.org/things-to-do/beaches-and-parks/haystack-rock/\nPayment: No admission; public land open 24/7\nDuration: 180 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Haystack%20Rock%2C%20Tolovana%20Beach%20State%20Recreation%20Site%2C%20Cannon%20Beach%2C%20OR&destination=Haystack%20Rock%2C%20Tolovana%20Beach%20State%20Recreation%20Site%2C%20Cannon%20Beach%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-6-97",
+    "tag": "SEAPDX-2026-day-6-104",
     "title": "🍽️ Portland Day 6 · Cannon Beach lunch, coffee, and cocktail",
     "start": "2026-11-06T14:50:00-08:00",
     "end": "2026-11-06T17:40:00-08:00",
@@ -776,7 +832,7 @@
     "description": "Suggested default: Pelican Brewing Cannon Beach, oceanfront taproom right on the beach.\nMenu: https://pelicanbrewing.com/menus/\nORDER: Fish and chips or the Pelican burger, plus a Kiwanda Cream Ale or a seasonal cocktail.\nCoffee alternate: Sea Level Bakery (2 minutes inland) for coffee/pastry if you'd rather split the stop.\nEstimated cost: $100 (lunch, coffee, and a cocktail with tip).\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.\nPayment: Cards accepted\nEstimated cost: $100.\nDuration: 90 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Cannon%20Beach%2C%20OR&destination=Cannon%20Beach%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-6-98",
+    "tag": "SEAPDX-2026-day-6-105",
     "title": "🚇 Portland Day 6 · Transit to bus stop + board return bus",
     "start": "2026-11-06T17:40:00-08:00",
     "end": "2026-11-06T17:55:00-08:00",
@@ -784,7 +840,7 @@
     "description": "Purpose: Confirmed schedule: Astoria departs 5:55 PM, arrives Portland Union Station 9:00 PM. Connection warning: retained Astoria-origin ticket time is not the Cannon Beach boarding time; exact Cannon Beach stop/departure must be confirmed with POINT. Do not travel to Astoria based on this label.\nDuration: 15 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%20Cannon%20Beach%2C%20OR&destination=Downtown%20Cannon%20Beach%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-99",
+    "tag": "SEAPDX-2026-day-6-106",
     "title": "🚇 Portland Day 6 · Depart Astoria (POINT NorthWest return)",
     "start": "2026-11-06T17:55:00-08:00",
     "end": "2026-11-06T21:00:00-08:00",
@@ -792,7 +848,7 @@
     "description": "Purpose: Confirmed return leg: Astoria, OR to Portland, OR Union Station (via ART connecting bus 5565), arrives 9:00 PM. Fare already covered in the outbound $40.\nDuration: 185 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-100",
+    "tag": "SEAPDX-2026-day-6-107",
     "title": "🚇 Portland Day 6 · Arrive Portland Union Station + transfer to Hotel Vance",
     "start": "2026-11-06T21:00:00-08:00",
     "end": "2026-11-06T21:20:00-08:00",
@@ -800,15 +856,23 @@
     "description": "Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-6-101",
-    "title": "🛌 Portland Day 6 · Hotel wind-down + early sleep",
+    "tag": "SEAPDX-2026-day-6-108",
+    "title": "🛌 Portland Day 6 · Hotel · evening wind-down",
     "start": "2026-11-06T21:20:00-08:00",
-    "end": "2026-11-07T07:45:00-08:00",
+    "end": "2026-11-06T22:00:00-08:00",
     "location": "Hotel Vance Portland",
-    "description": "Purpose: Settle in and rest after a full coastal day.\nDuration: 9.5 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+    "description": "Settle in and rest after a full coastal day. Evening relaxation/packing only; protected sleep begins10PM.\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-102",
+    "tag": "SEAPDX-2026-day-6-109",
+    "title": "🛌 Portland Day 6 · Sleep · protected overnight",
+    "start": "2026-11-06T22:00:00-08:00",
+    "end": "2026-11-07T07:45:00-08:00",
+    "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Hotel Vance, 1455 SW Broadway, Portland, OR\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-7-110",
     "title": "🛌 Portland Day 7 · Wake + prep",
     "start": "2026-11-07T07:45:00-08:00",
     "end": "2026-11-07T08:05:00-08:00",
@@ -816,7 +880,7 @@
     "description": "Purpose: Wake + prep keeps the portland saturday market + local food route on track.\nDuration: 40 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-103",
+    "tag": "SEAPDX-2026-day-7-111",
     "title": "☕ Portland Day 7 · Stumptown coffee + coffee bean buy",
     "start": "2026-11-07T08:05:00-08:00",
     "end": "2026-11-07T08:35:00-08:00",
@@ -824,7 +888,7 @@
     "description": "Portland flagship coffee stop before the Saturday Market day.\nWebsite: https://www.stumptowncoffee.com/\nOrder: Guatemala El Injerto Bourbon whole-bean bag ($25) plus a 16oz Original Cold Brew ($6).\nEstimated cost: $31.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.\nLocation: Stumptown Downtown Cafe, 128 SW 3rd Ave, Portland, OR\nWebsite: https://www.stumptowncoffee.com/pages/portland-downtown-cafe\nMenu: https://www.stumptowncoffee.com/pages/portland-downtown-cafe\nPayment: Cards accepted\nEstimated cost: $31.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Stumptown%20Downtown%20Cafe%2C%20128%20SW%203rd%20Ave%2C%20Portland%2C%20OR&destination=Stumptown%20Downtown%20Cafe%2C%20128%20SW%203rd%20Ave%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-104",
+    "tag": "SEAPDX-2026-day-7-112",
     "title": "🛌 Portland Day 7 · Slow morning reset",
     "start": "2026-11-07T08:35:00-08:00",
     "end": "2026-11-07T10:30:00-08:00",
@@ -832,7 +896,7 @@
     "description": "Purpose: Tattoo appointment removed Sep 13, 2026. Keep the morning open before Saturday Market.\nDuration: 115 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-105",
+    "tag": "SEAPDX-2026-day-7-113",
     "title": "🚇 Portland Day 7 · Walk/transit to Portland Saturday Market",
     "start": "2026-11-07T10:30:00-08:00",
     "end": "2026-11-07T11:00:00-08:00",
@@ -840,7 +904,7 @@
     "description": "Purpose: Short walk, MAX, or streetcar hop to the waterfront market. Cost left at $0 because no day-pass transit is otherwise needed.\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Waterfront%2C%20Portland%2C%20OR&destination=Waterfront%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-7-106",
+    "tag": "SEAPDX-2026-day-7-114",
     "title": "🎟️ Portland Day 7 · Portland Saturday Market browse + lunch",
     "start": "2026-11-07T11:00:00-08:00",
     "end": "2026-11-07T13:15:00-08:00",
@@ -848,7 +912,7 @@
     "description": "Waterfront artisan market block with lunch from the food vendors.\nWebsite: https://www.portlandsaturdaymarket.com/food-vendors-and-partners\nPurpose: Shop local makers and graze market food vendors for lunch instead of a sit-down meal.\nPayment: Many vendors prefer cash even when some larger booths take cards.\nEstimated cost: $50 covering lunch and market browsing.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.\nLocation: 2 SW Naito Pkwy\nPayment: Many vendors prefer cash; some accept cards\nEstimated cost: $50.\nDuration: 120 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=2%20SW%20Naito%20Pkwy%2C%20Portland%2C%20OR&destination=2%20SW%20Naito%20Pkwy%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-107",
+    "tag": "SEAPDX-2026-day-7-115",
     "title": "🛍️ Portland Day 7 · Sephora Portland Downtown browse",
     "start": "2026-11-07T13:15:00-08:00",
     "end": "2026-11-07T13:45:00-08:00",
@@ -856,7 +920,7 @@
     "description": "Purpose: Optional perfume browse only. Bleu de Chanel purchase removed Sep 13, 2026; add a new purchase later only if you decide to buy.\nLocation: Sephora Portland Downtown\nDuration: 30 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Sephora%20Portland%20Downtown&destination=Sephora%20Portland%20Downtown&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-108",
+    "tag": "SEAPDX-2026-day-7-116",
     "title": "🛌 Portland Day 7 · Hotel Vance reset",
     "start": "2026-11-07T13:45:00-08:00",
     "end": "2026-11-07T17:00:00-08:00",
@@ -864,7 +928,7 @@
     "description": "Purpose: Keep the afternoon open before Novel Book Bar.\nDuration: 195 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-7-109",
+    "tag": "SEAPDX-2026-day-7-117",
     "title": "🎟️ Portland Day 7 · Novel Book Bar dinner + cocktail + browse",
     "start": "2026-11-07T17:00:00-08:00",
     "end": "2026-11-07T19:45:00-08:00",
@@ -872,15 +936,23 @@
     "description": "Retained $29 total allowance, not a verified current itemized menu. Oregon sales tax$0; reserve18% pre-tax tip within this allowance. Prior novelmaine.com menu belongs to Maine and is removed. Oregon venue confirmed at233 NW Everett via local reporting March18,2026; report listed Saturday7PM–midnight, so current5PM itinerary window requires direct hours confirmation. Do not travel until confirmed. Source: https://bridgetownbites.com/2026/03/18/novel-book-bar-is-open-in-chinatown-northwest-portland-oregon/\nLocation: Novel Book Bar, 233 NW Everett St, Portland, OR\nWebsite: https://www.instagram.com/novel_pdx/\nMenu: https://www.instagram.com/novel_pdx/\nPayment: Cards accepted\nEstimated cost: $29.\nDuration: 90 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Novel%20Book%20Bar%2C%20233%20NW%20Everett%20St%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-7-110",
-    "title": "🛌 Portland Day 7 · Wind-down",
+    "tag": "SEAPDX-2026-day-7-118",
+    "title": "🛌 Portland Day 7 · Hotel · evening wind-down",
     "start": "2026-11-07T19:45:00-08:00",
-    "end": "2026-11-08T08:00:00-08:00",
+    "end": "2026-11-07T22:00:00-08:00",
     "location": "Hotel Vance Portland",
-    "description": "Purpose: Wind-down keeps the portland saturday market + local food route on track.\nDuration: 12 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+    "description": "Evening relaxation/packing only; protected sleep begins10PM.\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-8-111",
+    "tag": "SEAPDX-2026-day-7-119",
+    "title": "🛌 Portland Day 7 · Sleep · protected overnight",
+    "start": "2026-11-07T22:00:00-08:00",
+    "end": "2026-11-08T08:00:00-08:00",
+    "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Hotel Vance, 1455 SW Broadway, Portland, OR\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-8-120",
     "title": "🛌 Portland Day 8 · Wake + prep for waterfall tour",
     "start": "2026-11-08T08:00:00-08:00",
     "end": "2026-11-08T09:00:00-08:00",
@@ -888,7 +960,7 @@
     "description": "Purpose: Earlier start for the 10:30 AM Columbia River Gorge Waterfall Shuttle Tour.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-8-112",
+    "tag": "SEAPDX-2026-day-8-121",
     "title": "🚇 Portland Day 8 · Travel to Sasquatch Adventures + tour check-in",
     "start": "2026-11-08T09:00:00-08:00",
     "end": "2026-11-08T10:30:00-08:00",
@@ -896,7 +968,7 @@
     "description": "Arrive 15 minutes early to check in and look around at the Sasquatch Adventures store before the 10:30 AM tour.\nNEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.\nLocation: Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060\nDuration: 90 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Sasquatch%20Adventures%20Store%2C%20450%20NW%20257th%20Way%20%23352%2C%20Troutdale%2C%20OR%2097060&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-8-113",
+    "tag": "SEAPDX-2026-day-8-122",
     "title": "🎟️ Portland Day 8 · Columbia River Gorge Waterfall Shuttle Tour",
     "start": "2026-11-08T10:30:00-08:00",
     "end": "2026-11-08T13:00:00-08:00",
@@ -904,7 +976,7 @@
     "description": "Waterfall shuttle tour moved to Nov 8, 2026 at 10:30 AM so Nov 7 stays focused on Portland Saturday Market.\nAccessible site: https://sasquatchshuttle.com/waterfall-tour/\nTitle: Columbia River Gorge Waterfall Shuttle Tour.\nReceipt total: $82.54, including Adult (12 & Up) ticket $79.00, Trailkeepers of Oregon Donation $2.00, and taxes/fees.\nTour format: narrated shuttle through the Columbia River Gorge Waterfall Corridor, small-group maximum 20 guests, with expert narration and stops at must-see Gorge attractions. Expect about 15 minutes at each stop except Multnomah Falls.\nHighlights: Multnomah Falls, Gorge history and nature, 250+ five-star-review positioning, dog-friendly operator, and 20% off at the Sasquatch Adventures store.\nCancellation: free cancellation up to 48 hours in advance for a full refund.\nImportant: arrive 15 minutes early for check-in. Activity copy also mentions peak-season 8:30 AM and 2:30 PM departures; itinerary uses the traveler-requested 10:30 AM time and Nov 8 placement.\nNEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.\nLocation: Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060\nPayment: Paid booking -- total $82.54\nEstimated cost: $82.54.\nDuration: 2.5 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Sasquatch%20Adventures%20Store%2C%20450%20NW%20257th%20Way%20%23352%2C%20Troutdale%2C%20OR%2097060&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-8-114",
+    "tag": "SEAPDX-2026-day-8-123",
     "title": "🚇 Portland Day 8 · Return from waterfall tour",
     "start": "2026-11-08T13:00:00-08:00",
     "end": "2026-11-08T14:15:00-08:00",
@@ -912,7 +984,7 @@
     "description": "Purpose: Return buffer after the 2.5-hour narrated shuttle tour.\nDuration: 75 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland&destination=Portland&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-8-115",
+    "tag": "SEAPDX-2026-day-8-124",
     "title": "🚇 Portland Day 8 · Transit to Cartopia food carts",
     "start": "2026-11-08T14:15:00-08:00",
     "end": "2026-11-08T14:45:00-08:00",
@@ -920,7 +992,7 @@
     "description": "Purpose: Short trip out for a late Cartopia visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge.\nEstimated cost: $6.\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=SE%20Hawthorne%20(Cartopia)%2C%20Portland%2C%20OR&destination=SE%20Hawthorne%20(Cartopia)%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-8-116",
+    "tag": "SEAPDX-2026-day-8-125",
     "title": "🍽️ Portland Day 8 · Cartopia food cart pod late lunch",
     "start": "2026-11-08T14:45:00-08:00",
     "end": "2026-11-08T16:00:00-08:00",
@@ -928,7 +1000,7 @@
     "description": "Portland's largest food cart cluster, visited after the waterfall tour.\nCart directory: https://www.cartopiapdx.com/carts\nORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.\nLocation: Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214\nPayment: Cash preferred\nEstimated cost: $50.\nDuration: 75 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Cartopia%20Food%20Carts%2C%201207%20SE%20Hawthorne%20Blvd%2C%20Portland%2C%20OR%2097214&destination=Cartopia%20Food%20Carts%2C%201207%20SE%20Hawthorne%20Blvd%2C%20Portland%2C%20OR%2097214&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-8-117",
+    "tag": "SEAPDX-2026-day-8-126",
     "title": "🚇 Portland Day 8 · Transit back to Hotel Vance",
     "start": "2026-11-08T16:00:00-08:00",
     "end": "2026-11-08T16:30:00-08:00",
@@ -936,7 +1008,7 @@
     "description": "Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.\nDuration: 20 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-8-118",
+    "tag": "SEAPDX-2026-day-8-127",
     "title": "🛌 Portland Day 8 · Hotel Vance rest afternoon",
     "start": "2026-11-08T16:30:00-08:00",
     "end": "2026-11-08T20:00:00-08:00",
@@ -944,15 +1016,23 @@
     "description": "Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.\nDuration: 3.5 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-8-119",
-    "title": "🛌 Portland Day 8 · Early wind-down + sleep",
+    "tag": "SEAPDX-2026-day-8-128",
+    "title": "🛌 Portland Day 8 · Hotel · evening wind-down",
     "start": "2026-11-08T20:00:00-08:00",
-    "end": "2026-11-09T08:05:00-08:00",
+    "end": "2026-11-08T22:00:00-08:00",
     "location": "Hotel Vance Portland",
-    "description": "Purpose: Full recovery night before the flight day.\nDuration: 11 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+    "description": "Full recovery night before the flight day. Evening relaxation/packing only; protected sleep begins10PM.\nDuration: Until10PM.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-9-120",
+    "tag": "SEAPDX-2026-day-8-129",
+    "title": "🛌 Portland Day 8 · Sleep · protected overnight",
+    "start": "2026-11-08T22:00:00-08:00",
+    "end": "2026-11-09T08:05:00-08:00",
+    "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+    "description": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.\nLocation: Hotel Vance, 1455 SW Broadway, Portland, OR\nDuration: Protected overnight.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-9-130",
     "title": "🛌 Portland Day 9 · Wake + final packing",
     "start": "2026-11-09T08:05:00-08:00",
     "end": "2026-11-09T09:05:00-08:00",
@@ -960,7 +1040,7 @@
     "description": "Purpose: Wake + final packing keeps the final breakfast and departure route on track.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-9-121",
+    "tag": "SEAPDX-2026-day-9-131",
     "title": "🍽️ Portland Day 9 · Hotel Vance breakfast",
     "start": "2026-11-09T09:05:00-08:00",
     "end": "2026-11-09T10:05:00-08:00",
@@ -968,7 +1048,7 @@
     "description": "Final morning breakfast at the hotel before checkout.\nMenu: https://www.hotelvance.com/resourcefiles/pdf/vance-and-vine-breakfast-menu.pdf\nOrder: Breakfast sandwich (bacon or sausage, egg, cheese, spicy aioli) plus a mimosa or bloody mary if you want one.\nEstimated cost: $31.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.\nLocation: Hotel Vance, Vance & Vine\nPayment: Cards accepted\nEstimated cost: $31.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-9-122",
+    "tag": "SEAPDX-2026-day-9-132",
     "title": "🚇 Portland Day 9 · Hotel Vance final transit loop",
     "start": "2026-11-09T10:05:00-08:00",
     "end": "2026-11-09T11:05:00-08:00",
@@ -976,7 +1056,7 @@
     "description": "Purpose: Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge. Morning shifted 55 min earlier (Aug 15, 2026) to fit the 3 hr PDX arrival buffer without overlap.\nEstimated cost: $6.\nDuration: 60 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%20Portland%2C%20OR&destination=Downtown%20Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-9-123",
+    "tag": "SEAPDX-2026-day-9-133",
     "title": "🚇 Portland Day 9 · Checkout + transfer to PDX",
     "start": "2026-11-09T11:05:00-08:00",
     "end": "2026-11-09T11:34:00-08:00",
@@ -984,7 +1064,7 @@
     "description": "Purpose: Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).\nDuration: 29 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20International%20Airport%20(PDX)&destination=Portland%20International%20Airport%20(PDX)&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-9-124",
+    "tag": "SEAPDX-2026-day-9-134",
     "title": "🛌 Portland Day 9 · Airport check-in and security buffer",
     "start": "2026-11-09T11:34:00-08:00",
     "end": "2026-11-09T14:34:00-08:00",
@@ -992,35 +1072,43 @@
     "description": "Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.\nDuration: 180 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20International%20Airport%20(PDX)&destination=Portland%20International%20Airport%20(PDX)&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-9-125",
+    "tag": "SEAPDX-2026-day-9-135",
     "title": "🚇 Portland Day 9 · Flight PDX -> DFW",
     "start": "2026-11-09T14:34:00-08:00",
-    "end": "2026-11-09T20:29:00-08:00",
+    "end": "2026-11-09T18:29:00-08:00",
     "location": "Air travel",
-    "description": "Purpose: AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget.\nDuration: 5h 55m.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
+    "description": "AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget. Pacific timeline2:34–6:29PM PST; Dallas arrival8:29PM CST (America/Chicago). Clock conversion corrected; ticketed local times unchanged.\nDuration: 3 hrs 55 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-9-126",
+    "tag": "SEAPDX-2026-day-9-136",
     "title": "🛌 Portland Day 9 · DFW layover buffer",
-    "start": "2026-11-09T20:29:00-08:00",
-    "end": "2026-11-09T22:30:00-08:00",
+    "start": "2026-11-09T18:29:00-08:00",
+    "end": "2026-11-09T20:30:00-08:00",
     "location": "DFW",
-    "description": "Purpose: 2h 01m connection at DFW.\nDuration: 121 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dallas%20Fort%20Worth%20International%20Airport%20(DFW)&destination=Dallas%20Fort%20Worth%20International%20Airport%20(DFW)&travelmode=walking"
+    "description": "Pacific timeline6:29–8:30PM PST = Dallas8:29–10:30PM CST;2h01m connection.\nDuration: 121 min.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dallas%20Fort%20Worth%20International%20Airport%20(DFW)&destination=Dallas%20Fort%20Worth%20International%20Airport%20(DFW)&travelmode=walking"
   },
   {
-    "tag": "SEAPDX-2026-day-9-127",
+    "tag": "SEAPDX-2026-day-9-137",
     "title": "🚇 Portland Day 9 · Flight DFW -> CRP",
-    "start": "2026-11-09T22:30:00-08:00",
-    "end": "2026-11-09T23:58:00-08:00",
+    "start": "2026-11-09T20:30:00-08:00",
+    "end": "2026-11-09T21:58:00-08:00",
     "location": "Air travel",
-    "description": "Purpose: AA 5273, Economy, seat 8F, operated by PSA Airlines as American Eagle.\nDuration: 1h 28m.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
+    "description": "AA5273: Dallas10:30PM CST→CorpusChristi11:58PM CST; Pacific calendar8:30–9:58PM PST. Ticketed local times unchanged.\nDuration: 1h 28m.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
   },
   {
-    "tag": "SEAPDX-2026-day-9-128",
+    "tag": "SEAPDX-2026-day-9-138",
     "title": "🛌 Portland Day 9 · Arrival and end-of-trip recovery",
-    "start": "2026-11-09T23:58:00-08:00",
-    "end": "2026-11-10T00:58:00-08:00",
+    "start": "2026-11-09T21:58:00-08:00",
+    "end": "2026-11-09T22:30:00-08:00",
     "location": "Corpus Christi",
-    "description": "Purpose: Arrival and end-of-trip recovery keeps the final breakfast and departure route on track.\nDuration: N/A.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Corpus%20Christi%2C%20TX&destination=Corpus%20Christi%2C%20TX&travelmode=walking"
+    "description": "Arrival11:58PM CST Nov9 (9:58PM PST). Recovery/transfer allowance until12:30AM CST Nov10; actual airport-exit/transfer time may require a later sleep start.\nDuration: N/A.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Corpus%20Christi%2C%20TX&destination=Corpus%20Christi%2C%20TX&travelmode=walking"
+  },
+  {
+    "tag": "SEAPDX-2026-day-9-139",
+    "title": "🛌 Portland Day 9 · Sleep · Corpus Christi (12:30–8:30 AM Central)",
+    "start": "2026-11-09T22:30:00-08:00",
+    "end": "2026-11-10T06:30:00-08:00",
+    "location": "Corpus Christi, TX",
+    "description": "Calendar Pacific timeline converted from Central local time. Sleep12:30–8:30AM CST onNov10; allow airport exit and transfer after11:58PM CST arrival. Lodging/transfer duration unconfirmed.\nLocation: Corpus Christi, TX\nDuration: 8 hrs.\nGoogle Maps directions: https://www.google.com/maps/dir/?api=1&origin=Corpus%20Christi%2C%20TX%2C%20Portland%2C%20OR&destination=Corpus%20Christi%2C%20TX%2C%20Portland%2C%20OR&travelmode=walking"
   }
 ]

@@ -78,9 +78,13 @@ Purpose: Decompress after a long travel day before lights-out. Day 2 is the full
 Continuity: Bridges dinner/settling-in to a real 10:00 PM lights-out.
 Duration: 2 hrs.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
-"🛌 Seattle Day 1 · Sleep","2026-11-01","22:00","2026-11-02","07:40","Palihotel base","Purpose: Get good sleep after a long travel day, with a real night's sleep before Day 2's 5:30 AM wake.
-Continuity: Sleep protection to stabilize next day.
-Duration: 7.5 hrs.
+"🛌 Seattle Day 1 · Sleep · protected overnight","2026-11-01","22:00","2026-11-02","07:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Protected overnight.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+"🎟️ Seattle Day 2 · Wake + breakfast / get ready","2026-11-02","07:00","2026-11-02","07:40","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Morning preparation.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
 "🚶 Seattle Day 2 · Walk + early market photos","2026-11-02","07:40","2026-11-02","08:00","Pike Place Market, 85 Pike St, Seattle, WA","Leave Palihotel; optional 7:30 start for extra exterior photos. Vendors have different opening times.
 Location: Pike Place Market, 85 Pike St, Seattle, WA
@@ -208,10 +212,18 @@ Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101
 Duration: 20 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dough%20Zone%20Harbor%20Steps%2C%2083%20University%20St%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
-"🛌 Seattle Day 2 · Hotel · evening wind-down","2026-11-02","20:00","2026-11-02","21:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","No daytime hotel reset.
+"🛌 Seattle Day 2 · Hotel · evening wind-down","2026-11-02","20:00","2026-11-02","22:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.
 Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101
-Duration: 60 min.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+"🛌 Seattle Day 2 · Sleep · protected overnight","2026-11-02","22:00","2026-11-03","07:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Protected overnight.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+"🎟️ Seattle Day 3 · Wake + breakfast / get ready","2026-11-03","07:00","2026-11-03","07:30","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Morning preparation.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
 "🎟️ Seattle Day 3 · Grocery breakfast","2026-11-03","07:30","2026-11-03","07:45","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Already funded in November 1 grocery allowance; no new purchase assumed.
 Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
@@ -351,10 +363,18 @@ Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101
 Duration: 45 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ramen%20DANBO%2C%201222%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=transit"
-"🛌 Seattle Day 3 · Hotel · evening wind-down","2026-11-03","20:00","2026-11-03","21:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","No daytime hotel reset.
+"🛌 Seattle Day 3 · Hotel · evening wind-down","2026-11-03","20:00","2026-11-03","22:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.
 Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101
-Duration: 60 min.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+"🛌 Seattle Day 3 · Sleep · protected overnight","2026-11-03","22:00","2026-11-04","07:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Protected overnight.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+"🎟️ Seattle Day 4 · Wake + breakfast / get ready","2026-11-04","07:00","2026-11-04","08:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Morning preparation.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
 "🚇 Seattle Day 4 · Link + walk to Capitol Hill","2026-11-04","08:00","2026-11-04","08:40","Anchorhead Coffee, 1115 12th Ave, Seattle, WA","Breakfast from Nov 1 groceries; optional pastry purchase not included.
 Conservative bus/Link allowance$12: regional day pass$6 plus$6 headroom. Buy the pass explicitly; ORCA e-purse is not an automatic daily cap. Monorail is extra.
@@ -470,10 +490,14 @@ Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101
 Duration: 25 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
-"🛌 Seattle Day 4 · Hotel · pack after 8 PM","2026-11-04","20:00","2026-11-04","21:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","No daytime hotel break.
+"🛌 Seattle Day 4 · Hotel · pack and evening wind-down","2026-11-04","20:00","2026-11-04","22:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","No daytime hotel break. Evening relaxation/packing only; protected sleep begins10PM.
 Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Website: https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101
-Duration: 60 min.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
+"🛌 Seattle Day 4 · Sleep · protected overnight","2026-11-04","22:00","2026-11-05","07:00","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
+Duration: Protected overnight.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
 "🛌 Portland Day 5 · Wake, final pack, checkout prep","2026-11-05","07:00","2026-11-05","09:00","Palihotel base","Purpose: Light prep and packing. King Street Station is walking distance from downtown Palihotel. Grab-and-go breakfast from the H Mart/Target run stocked on Day 1 covers this morning -- no separate breakfast stop needed.
 Duration: 120 min.
@@ -519,8 +543,12 @@ Payment: Cards accepted
 Estimated cost: $15.
 Duration: 75 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%20Portland%2C%20OR&destination=Downtown%20Portland%2C%20OR&travelmode=walking"
-"🛌 Portland Day 5 · Hotel Vance wind-down / Sleep","2026-11-05","20:30","2026-11-06","07:00","Hotel Vance Portland","Purpose: Full recovery night before the first deeper Portland day.
-Duration: 10 hrs.
+"🛌 Portland Day 5 · Hotel · evening wind-down","2026-11-05","20:30","2026-11-05","22:00","Hotel Vance Portland","Full recovery night before the first deeper Portland day. Evening relaxation/packing only; protected sleep begins10PM.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+"🛌 Portland Day 5 · Sleep · protected overnight","2026-11-05","22:00","2026-11-06","07:00","Hotel Vance, 1455 SW Broadway, Portland, OR","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Hotel Vance, 1455 SW Broadway, Portland, OR
+Duration: Protected overnight.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
 "🛌 Portland Day 6 · Wake + quick breakfast + prep","2026-11-06","07:00","2026-11-06","07:50","Hotel Vance Portland","Purpose: Early start to catch the westbound POINT NorthWest bus.
 Duration: 50 min.
@@ -569,8 +597,12 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2
 "🚇 Portland Day 6 · Arrive Portland Union Station + transfer to Hotel Vance","2026-11-06","21:00","2026-11-06","21:20","Union Station -> Hotel Vance","Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.
 Duration: 20 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
-"🛌 Portland Day 6 · Hotel wind-down + early sleep","2026-11-06","21:20","2026-11-07","07:45","Hotel Vance Portland","Purpose: Settle in and rest after a full coastal day.
-Duration: 9.5 hrs.
+"🛌 Portland Day 6 · Hotel · evening wind-down","2026-11-06","21:20","2026-11-06","22:00","Hotel Vance Portland","Settle in and rest after a full coastal day. Evening relaxation/packing only; protected sleep begins10PM.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+"🛌 Portland Day 6 · Sleep · protected overnight","2026-11-06","22:00","2026-11-07","07:45","Hotel Vance, 1455 SW Broadway, Portland, OR","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Hotel Vance, 1455 SW Broadway, Portland, OR
+Duration: Protected overnight.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
 "🛌 Portland Day 7 · Wake + prep","2026-11-07","07:45","2026-11-07","08:05","Hotel Vance Portland","Purpose: Wake + prep keeps the portland saturday market + local food route on track.
 Duration: 40 min.
@@ -619,8 +651,12 @@ Payment: Cards accepted
 Estimated cost: $29.
 Duration: 90 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Novel%20Book%20Bar%2C%20233%20NW%20Everett%20St%2C%20Portland%2C%20OR&travelmode=transit"
-"🛌 Portland Day 7 · Wind-down","2026-11-07","19:45","2026-11-08","08:00","Hotel Vance Portland","Purpose: Wind-down keeps the portland saturday market + local food route on track.
-Duration: 12 hrs.
+"🛌 Portland Day 7 · Hotel · evening wind-down","2026-11-07","19:45","2026-11-07","22:00","Hotel Vance Portland","Evening relaxation/packing only; protected sleep begins10PM.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+"🛌 Portland Day 7 · Sleep · protected overnight","2026-11-07","22:00","2026-11-08","08:00","Hotel Vance, 1455 SW Broadway, Portland, OR","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Hotel Vance, 1455 SW Broadway, Portland, OR
+Duration: Protected overnight.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
 "🛌 Portland Day 8 · Wake + prep for waterfall tour","2026-11-08","08:00","2026-11-08","09:00","Hotel Vance Portland","Purpose: Earlier start for the 10:30 AM Columbia River Gorge Waterfall Shuttle Tour.
 Duration: 60 min.
@@ -668,8 +704,12 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Va
 "🛌 Portland Day 8 · Hotel Vance rest afternoon","2026-11-08","16:30","2026-11-08","20:00","Hotel Vance Portland","Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.
 Duration: 3.5 hrs.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
-"🛌 Portland Day 8 · Early wind-down + sleep","2026-11-08","20:00","2026-11-09","08:05","Hotel Vance Portland","Purpose: Full recovery night before the flight day.
-Duration: 11 hrs.
+"🛌 Portland Day 8 · Hotel · evening wind-down","2026-11-08","20:00","2026-11-08","22:00","Hotel Vance Portland","Full recovery night before the flight day. Evening relaxation/packing only; protected sleep begins10PM.
+Duration: Until10PM.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
+"🛌 Portland Day 8 · Sleep · protected overnight","2026-11-08","22:00","2026-11-09","08:05","Hotel Vance, 1455 SW Broadway, Portland, OR","Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.
+Location: Hotel Vance, 1455 SW Broadway, Portland, OR
+Duration: Protected overnight.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
 "🛌 Portland Day 9 · Wake + final packing","2026-11-09","08:05","2026-11-09","09:05","Hotel Vance Portland","Purpose: Wake + final packing keeps the final breakfast and departure route on track.
 Duration: 60 min.
@@ -694,15 +734,19 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2
 "🛌 Portland Day 9 · Airport check-in and security buffer","2026-11-09","11:34","2026-11-09","14:34","PDX","Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.
 Duration: 180 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20International%20Airport%20(PDX)&destination=Portland%20International%20Airport%20(PDX)&travelmode=walking"
-"🚇 Portland Day 9 · Flight PDX -> DFW","2026-11-09","14:34","2026-11-09","20:29","Air travel","Purpose: AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget.
-Duration: 5h 55m.
+"🚇 Portland Day 9 · Flight PDX -> DFW","2026-11-09","14:34","2026-11-09","18:29","Air travel","AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget. Pacific timeline2:34–6:29PM PST; Dallas arrival8:29PM CST (America/Chicago). Clock conversion corrected; ticketed local times unchanged.
+Duration: 3 hrs 55 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
-"🛌 Portland Day 9 · DFW layover buffer","2026-11-09","20:29","2026-11-09","22:30","DFW","Purpose: 2h 01m connection at DFW.
+"🛌 Portland Day 9 · DFW layover buffer","2026-11-09","18:29","2026-11-09","20:30","DFW","Pacific timeline6:29–8:30PM PST = Dallas8:29–10:30PM CST;2h01m connection.
 Duration: 121 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dallas%20Fort%20Worth%20International%20Airport%20(DFW)&destination=Dallas%20Fort%20Worth%20International%20Airport%20(DFW)&travelmode=walking"
-"🚇 Portland Day 9 · Flight DFW -> CRP","2026-11-09","22:30","2026-11-09","23:58","Air travel","Purpose: AA 5273, Economy, seat 8F, operated by PSA Airlines as American Eagle.
+"🚇 Portland Day 9 · Flight DFW -> CRP","2026-11-09","20:30","2026-11-09","21:58","Air travel","AA5273: Dallas10:30PM CST→CorpusChristi11:58PM CST; Pacific calendar8:30–9:58PM PST. Ticketed local times unchanged.
 Duration: 1h 28m.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
-"🛌 Portland Day 9 · Arrival and end-of-trip recovery","2026-11-09","23:58","2026-11-10","00:58","Corpus Christi","Purpose: Arrival and end-of-trip recovery keeps the final breakfast and departure route on track.
+"🛌 Portland Day 9 · Arrival and end-of-trip recovery","2026-11-09","21:58","2026-11-09","22:30","Corpus Christi","Arrival11:58PM CST Nov9 (9:58PM PST). Recovery/transfer allowance until12:30AM CST Nov10; actual airport-exit/transfer time may require a later sleep start.
 Duration: N/A.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Corpus%20Christi%2C%20TX&destination=Corpus%20Christi%2C%20TX&travelmode=walking"
+"🛌 Portland Day 9 · Sleep · Corpus Christi (12:30–8:30 AM Central)","2026-11-09","22:30","2026-11-10","06:30","Corpus Christi, TX","Calendar Pacific timeline converted from Central local time. Sleep12:30–8:30AM CST onNov10; allow airport exit and transfer after11:58PM CST arrival. Lodging/transfer duration unconfirmed.
+Location: Corpus Christi, TX
+Duration: 8 hrs.
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Corpus%20Christi%2C%20TX%2C%20Portland%2C%20OR&destination=Corpus%20Christi%2C%20TX%2C%20Portland%2C%20OR&travelmode=walking"

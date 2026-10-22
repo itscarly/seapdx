@@ -3508,3 +3508,11 @@ Remaining blocker:
 - Removed cap-comparison renderer/DOM, used same fourcategorylist for hero and cards, retained amountoverride controls. npmvalidate, Seattle regression and new dashboardmoney check pass.
 
 - Live verification caught stale browser assets under the oldOct9querytoken; refreshed existing trip-data/app script version on homepage/logisticspage. Prevents oldbudgetrenderers from running against newmarkup and stalefigures afterdeployment.
+
+### 2026-10-22 - personal calendar isolation and sleep audit
+
+- User requested shared-calendar-only entries and protected sleep. Read both calendars for Oct 31-Nov 11: shared calendar 131 events, personal calendar 24. Personal records included 16 invited trip copies, seven standalone duplicate/stale flights, and one unrelated all-day record. Removed the personal attendee from 16 shared organizer entries; organizer records kept. Standalone flight cleanup follows canonical timezone correction. Final readback below.
+- Canonical source now has 139 events: eight new sleep holds plus the existing Nov 1 hold, and three morning preparation blocks. Split evening wind-down from sleep. All nine nights have at least eight hours and no itinerary overlap. Seattle/Portland sleep starts at 22:00 Pacific. Last night is 00:30-08:30 Central after arrival/recovery planning time; lodging and airport transfer remain unconfirmed.
+- Corrected Central/Pacific conversion for Nov 9 flights without changing ticketed airport-local times. Export now supports explicit endDate. Added check-calendar-sleep.cjs; prior itinerary/budget checks remain valid. Refreshed the data asset version. New calendar creates must explicitly omit self attendance and Meet.
+
+- Final live readback passed: target142 (139 canonical plus three protected arrival records), nine sleep holds and zero sleep conflicts; all canonical titles/times/locations/description content match. Personal calendar now contains only its unrelated all-day record; zero trip copies. Removed 16 invited copies through attendee removal and seven standalone duplicate/stale flights. New creates explicitly omit self-attendance/Meet; budget remains unchanged. NYC/Seattle three-hour display offset explained to user.

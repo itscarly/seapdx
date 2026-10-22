@@ -56,3 +56,5 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 - CannonBeach: retainedticket usesAstoria11:46arrival/17:55return; exactCannonBeachstop/connectionunresolved.
 - CruiseFirsttoBoardinclusion stillunconfirmed; separate20allowance. Underground3:30slot/finalprice andSpaceBasefreeentry/Novemberhoursunconfirmed.
 - Untouched foodbudgets/marketfundsremainallinallowances; do notclaimfreshitemizedmenuverification.
+
+- October 22 calendar audit: 16 personal invitation copies traced to self-attendance on trip organizer records; explicitly omit self-attendance on future creates. Nine sleep holds now exist. Nov 9 Central/Pacific conversion corrected. Corpus Christi airport exit/transfer/lodging after the 23:58 Central arrival remains unconfirmed; planned sleep starts at 00:30 Central, and must move later if recovery takes longer while retaining eight hours.

@@ -234,7 +234,7 @@ tripData.itinerary.forEach((day) => {
 const events = flatStops.map((entry, index) => {
   const next = flatStops[index + 1];
   const start = toIso(entry.day.isoDate, entry.stop.time);
-  const end = entry.stop.endTime ? toIso(entry.day.isoDate, entry.stop.endTime)
+  const end = entry.stop.endTime ? toIso(entry.stop.endDate || entry.day.isoDate, entry.stop.endTime)
     : next ? toIso(next.day.isoDate, next.stop.time) : addMinutes(start, durationToMinutes(entry.stop.duration));
   return {
     tag: `SEAPDX-2026-${entry.day.id}-${String(index + 1).padStart(2, "0")}`,

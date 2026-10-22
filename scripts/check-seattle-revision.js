@@ -17,7 +17,7 @@ function minutes(t){let [c,m]=t.split(' '),[h,n]=c.split(':').map(Number);return
 for(const day of days){
  const stops=day.segments.flatMap(x=>x.items);
  for(let i=0;i<stops.length;i++){
-  const s=stops[i];assert(minutes(s.endTime)>minutes(s.time),s.name);
+  const s=stops[i];assert(s.endDate>day.isoDate || minutes(s.endTime)>minutes(s.time),s.name);
   if(i)assert(minutes(stops[i-1].endTime)<=minutes(s.time),s.name);
   if(s.type==='rest')assert(minutes(s.time)>=1200,s.name);
   assert(s.coordinates,s.name);

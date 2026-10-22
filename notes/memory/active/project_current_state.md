@@ -119,3 +119,7 @@ Canonical source now carries approved Nov2–4 plan; other dates’ activities/c
 
 ### Current dashboard scope (later Oct22 user change)
 Dashboard target now **$2274.96**: hotels1074.96 +food/drink775 +transport100 +activities325. Flexibleallowances total1200 and include259.22 additionalroom above scopedpricedbaseline940.78. Shopping/onlineorders excluded from dashboard; Contingency/BufferLeft/Capcomparison cards removed. Actual itinerary/calendar costs and underlying fullledger1977.46 preserved for comparison, not the dashboardtarget. Guidefunds10 includedinactivities.
+
+### Current sleep/calendar audit - later October 22
+
+139 canonical events include nine protected overnight sleep blocks; the live trip calendar also retains three separate arrival-chain records. Nov 1-8 sleep begins at 22:00 Pacific, with 9h-10h05 protected. Last arrival night is 00:30-08:30 Central in Corpus Christi. Nov 9 flight timezone conversion corrected; ticketed local clocks unchanged. Personal calendar cleanup targets 16 invited copies plus seven duplicate/stale flights, preserving the unrelated record. Create future trip events with self_attendance omit, no attendees and no Meet. Dashboard target remains $2,274.96.

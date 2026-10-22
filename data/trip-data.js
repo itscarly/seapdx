@@ -571,18 +571,26 @@ window.TRIP_DATA = {
             },
             {
               "time": "10:00 PM",
-              "name": "Sleep",
+              "name": "Sleep · protected overnight",
               "type": "rest",
-              "neighborhood": "Palihotel base",
-              "duration": "7.5 hrs",
+              "neighborhood": "Seattle hotel",
+              "duration": "Protected overnight",
               "cost": 0,
-              "notes": "Lights out -- 10:00 PM is the sleep ceiling every night of this trip.",
-              "detailText": "Purpose: Get good sleep after a long travel day, with a real night's sleep before Day 2's 5:30 AM wake.\nContinuity: Sleep protection to stabilize next day.",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
               "budgetCategory": "Food",
-              "mapFrom": "Palihotel base",
-              "mapTo": "Palihotel base",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+base&destination=Palihotel+base&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "endTime": "7:00 AM",
+              "endDate": "2026-11-02",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
             }
           ]
         }
@@ -601,6 +609,29 @@ window.TRIP_DATA = {
         {
           "label": "Morning / afternoon / evening · Pacific time",
           "items": [
+            {
+              "time": "7:00 AM",
+              "endTime": "7:40 AM",
+              "leaveTime": "7:40 AM",
+              "name": "Wake + breakfast / get ready",
+              "type": "activity",
+              "neighborhood": "Palihotel base",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "duration": "Morning preparation",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Breakfast from already-funded groceries; no new purchase assumed. Morning prep before leaving, following protected sleep.",
+              "detailText": "Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
+            },
             {
               "time": "7:40 AM",
               "leaveTime": "8:00 AM",
@@ -1155,18 +1186,18 @@ window.TRIP_DATA = {
             },
             {
               "time": "8:00 PM",
-              "leaveTime": "9:00 PM",
-              "endTime": "9:00 PM",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
               "name": "Hotel · evening wind-down",
               "type": "rest",
               "neighborhood": "Seattle",
               "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-              "duration": "60 min",
+              "duration": "Until10PM",
               "cost": 0,
               "budgetCategory": "Food",
               "website": "https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101",
-              "notes": "No daytime hotel reset.",
-              "detailText": "No daytime hotel reset.",
+              "notes": "No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.",
+              "detailText": "No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&destination=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&travelmode=walking",
               "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
@@ -1177,6 +1208,29 @@ window.TRIP_DATA = {
                 "label": "Palihotel Seattle"
               },
               "priceStatus": "free / no purchase budgeted"
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "7:00 AM",
+              "endDate": "2026-11-03",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Seattle hotel",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
             }
           ]
         }
@@ -1195,6 +1249,29 @@ window.TRIP_DATA = {
         {
           "label": "Morning / afternoon / evening · Pacific time",
           "items": [
+            {
+              "time": "7:00 AM",
+              "endTime": "7:30 AM",
+              "leaveTime": "7:30 AM",
+              "name": "Wake + breakfast / get ready",
+              "type": "activity",
+              "neighborhood": "Palihotel base",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "duration": "Morning preparation",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Breakfast from already-funded groceries; no new purchase assumed. Morning prep before leaving, following protected sleep.",
+              "detailText": "Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
+            },
             {
               "time": "7:30 AM",
               "leaveTime": "7:45 AM",
@@ -1817,18 +1894,18 @@ window.TRIP_DATA = {
             },
             {
               "time": "8:00 PM",
-              "leaveTime": "9:00 PM",
-              "endTime": "9:00 PM",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
               "name": "Hotel · evening wind-down",
               "type": "rest",
               "neighborhood": "Seattle",
               "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-              "duration": "60 min",
+              "duration": "Until10PM",
               "cost": 0,
               "budgetCategory": "Food",
               "website": "https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101",
-              "notes": "No daytime hotel reset.",
-              "detailText": "No daytime hotel reset.",
+              "notes": "No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.",
+              "detailText": "No daytime hotel reset. Evening relaxation/packing only; protected sleep begins10PM.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&destination=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&travelmode=walking",
               "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
@@ -1839,6 +1916,29 @@ window.TRIP_DATA = {
                 "label": "Palihotel Seattle"
               },
               "priceStatus": "free / no purchase budgeted"
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "7:00 AM",
+              "endDate": "2026-11-04",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Seattle hotel",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
             }
           ]
         }
@@ -1857,6 +1957,29 @@ window.TRIP_DATA = {
         {
           "label": "Morning / afternoon / evening · Pacific time",
           "items": [
+            {
+              "time": "7:00 AM",
+              "endTime": "8:00 AM",
+              "leaveTime": "8:00 AM",
+              "name": "Wake + breakfast / get ready",
+              "type": "activity",
+              "neighborhood": "Palihotel base",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "duration": "Morning preparation",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Breakfast from already-funded groceries; no new purchase assumed. Morning prep before leaving, following protected sleep.",
+              "detailText": "Wake7AM. Eat breakfast, get ready and leave for the existing itinerary start; no earlier outing added.",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
+            },
             {
               "time": "8:00 AM",
               "leaveTime": "8:40 AM",
@@ -2339,18 +2462,18 @@ window.TRIP_DATA = {
             },
             {
               "time": "8:00 PM",
-              "leaveTime": "9:00 PM",
-              "endTime": "9:00 PM",
-              "name": "Hotel · pack after 8 PM",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
+              "name": "Hotel · pack and evening wind-down",
               "type": "rest",
               "neighborhood": "Seattle",
               "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
-              "duration": "60 min",
+              "duration": "Until10PM",
               "cost": 0,
               "budgetCategory": "Food",
               "website": "https://www.google.com/maps/search/?api=1&query=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101",
-              "notes": "No daytime hotel break.",
-              "detailText": "No daytime hotel break.",
+              "notes": "No daytime hotel break. Evening relaxation/packing only; protected sleep begins10PM.",
+              "detailText": "No daytime hotel break. Evening relaxation/packing only; protected sleep begins10PM.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&destination=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&travelmode=walking",
               "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
@@ -2361,6 +2484,29 @@ window.TRIP_DATA = {
                 "label": "Palihotel Seattle"
               },
               "priceStatus": "free / no purchase budgeted"
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "7:00 AM",
+              "endDate": "2026-11-05",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Seattle hotel",
+              "location": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "mapTo": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
+              "coordinates": {
+                "lat": 47.6097,
+                "lng": -122.3402,
+                "label": "Palihotel Seattle"
+              }
             }
           ]
         }
@@ -2524,17 +2670,38 @@ window.TRIP_DATA = {
             },
             {
               "time": "8:30 PM",
-              "name": "Hotel Vance wind-down / Sleep",
+              "name": "Hotel · evening wind-down",
               "type": "rest",
               "neighborhood": "Hotel Vance Portland",
-              "duration": "10 hrs",
+              "duration": "Until10PM",
               "cost": 0,
-              "notes": "Full recovery night before the first deeper Portland day.",
+              "notes": "Full recovery night before the first deeper Portland day. Evening relaxation/packing only; protected sleep begins10PM.",
               "budgetCategory": "Food",
               "mapFrom": "Hotel Vance Portland",
               "mapTo": "Hotel Vance Portland",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
+              "detailText": "Full recovery night before the first deeper Portland day. Evening relaxation/packing only; protected sleep begins10PM."
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "7:00 AM",
+              "endDate": "2026-11-06",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Portland hotel",
+              "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "mapTo": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&travelmode=walking"
             }
           ]
         }
@@ -2713,17 +2880,38 @@ window.TRIP_DATA = {
             },
             {
               "time": "9:20 PM",
-              "name": "Hotel wind-down + early sleep",
+              "name": "Hotel · evening wind-down",
               "type": "rest",
               "neighborhood": "Hotel Vance Portland",
-              "duration": "9.5 hrs",
+              "duration": "Until10PM",
               "cost": 0,
-              "notes": "Settle in and rest after a full coastal day.",
+              "notes": "Settle in and rest after a full coastal day. Evening relaxation/packing only; protected sleep begins10PM.",
               "budgetCategory": "Food",
               "mapFrom": "Hotel Vance Portland",
               "mapTo": "Hotel Vance Portland",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
+              "detailText": "Settle in and rest after a full coastal day. Evening relaxation/packing only; protected sleep begins10PM."
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "7:45 AM",
+              "endDate": "2026-11-07",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Portland hotel",
+              "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "mapTo": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&travelmode=walking"
             }
           ]
         }
@@ -2881,16 +3069,38 @@ window.TRIP_DATA = {
             },
             {
               "time": "7:45 PM",
-              "name": "Wind-down",
+              "name": "Hotel · evening wind-down",
               "type": "rest",
               "neighborhood": "Hotel Vance Portland",
-              "duration": "12 hrs",
+              "duration": "Until10PM",
               "cost": 0,
               "budgetCategory": "Food",
               "mapFrom": "Hotel Vance Portland",
               "mapTo": "Hotel Vance Portland",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
+              "notes": " Evening relaxation/packing only; protected sleep begins10PM.",
+              "detailText": " Evening relaxation/packing only; protected sleep begins10PM."
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "8:00 AM",
+              "endDate": "2026-11-08",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Portland hotel",
+              "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "mapTo": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&travelmode=walking"
             }
           ]
         }
@@ -3045,17 +3255,38 @@ window.TRIP_DATA = {
             },
             {
               "time": "8:00 PM",
-              "name": "Early wind-down + sleep",
+              "name": "Hotel · evening wind-down",
               "type": "rest",
               "neighborhood": "Hotel Vance Portland",
-              "duration": "11 hrs",
+              "duration": "Until10PM",
               "cost": 0,
-              "notes": "Full recovery night before the flight day.",
+              "notes": "Full recovery night before the flight day. Evening relaxation/packing only; protected sleep begins10PM.",
               "budgetCategory": "Food",
               "mapFrom": "Hotel Vance Portland",
               "mapTo": "Hotel Vance Portland",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking",
+              "leaveTime": "10:00 PM",
+              "endTime": "10:00 PM",
+              "detailText": "Full recovery night before the flight day. Evening relaxation/packing only; protected sleep begins10PM."
+            },
+            {
+              "time": "10:00 PM",
+              "endTime": "8:05 AM",
+              "endDate": "2026-11-09",
+              "name": "Sleep · protected overnight",
+              "type": "rest",
+              "neighborhood": "Portland hotel",
+              "location": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "duration": "Protected overnight",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "Protected sleep from10PM until the next morning. Pacific time (America/Los_Angeles); no sightseeing, packing or transit scheduled inside this block.",
+              "detailText": "Sleep starts10PM, separate from evening wind-down. Overnight room protected; morning preparation follows sleep, not part of it.",
+              "mapFrom": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "mapTo": "Hotel Vance, 1455 SW Broadway, Portland, OR",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%201455%20SW%20Broadway%2C%20Portland%2C%20OR&travelmode=walking"
             }
           ]
         }
@@ -3157,45 +3388,53 @@ window.TRIP_DATA = {
               "name": "Flight PDX -> DFW",
               "type": "transit",
               "neighborhood": "Air travel",
-              "duration": "5h 55m",
+              "duration": "3 hrs 55 min",
               "cost": 0,
-              "notes": "AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget.",
+              "notes": "AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget. Pacific timeline2:34–6:29PM PST; Dallas arrival8:29PM CST (America/Chicago). Clock conversion corrected; ticketed local times unchanged.",
               "budgetCategory": "Transportation",
               "mapFrom": "Air travel",
               "mapTo": "Air travel",
               "routeMode": "transit",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Air+travel&destination=Air+travel&travelmode=transit"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Air+travel&destination=Air+travel&travelmode=transit",
+              "endTime": "6:29 PM",
+              "detailText": "AA 2496, Economy, seat 8F. Airfare tracked separately from activity budget. Pacific timeline2:34–6:29PM PST; Dallas arrival8:29PM CST (America/Chicago). Clock conversion corrected; ticketed local times unchanged."
             },
             {
-              "time": "8:29 PM",
+              "time": "6:29 PM",
               "name": "DFW layover buffer",
               "type": "rest",
               "neighborhood": "DFW",
               "duration": "121 min",
               "cost": 0,
-              "notes": "2h 01m connection at DFW.",
+              "notes": "Pacific timeline6:29–8:30PM PST = Dallas8:29–10:30PM CST;2h01m connection.",
               "budgetCategory": "Food",
               "mapFrom": "DFW",
               "mapTo": "DFW",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=DFW&destination=DFW&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=DFW&destination=DFW&travelmode=walking",
+              "leaveTime": "8:30 PM",
+              "endTime": "8:30 PM",
+              "detailText": "Pacific timeline6:29–8:30PM PST = Dallas8:29–10:30PM CST;2h01m connection."
             },
             {
-              "time": "10:30 PM",
+              "time": "8:30 PM",
               "name": "Flight DFW -> CRP",
               "type": "transit",
               "neighborhood": "Air travel",
               "duration": "1h 28m",
               "cost": 0,
-              "notes": "AA 5273, Economy, seat 8F, operated by PSA Airlines as American Eagle.",
+              "notes": "AA5273: Dallas10:30PM CST→CorpusChristi11:58PM CST; Pacific calendar8:30–9:58PM PST. Ticketed local times unchanged.",
               "budgetCategory": "Transportation",
               "mapFrom": "Air travel",
               "mapTo": "Air travel",
               "routeMode": "transit",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Air+travel&destination=Air+travel&travelmode=transit"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Air+travel&destination=Air+travel&travelmode=transit",
+              "leaveTime": "9:58 PM",
+              "endTime": "9:58 PM",
+              "detailText": "AA5273: Dallas10:30PM CST→CorpusChristi11:58PM CST; Pacific calendar8:30–9:58PM PST. Ticketed local times unchanged."
             },
             {
-              "time": "11:58 PM",
+              "time": "9:58 PM",
               "name": "Arrival and end-of-trip recovery",
               "type": "rest",
               "neighborhood": "Corpus Christi",
@@ -3205,7 +3444,29 @@ window.TRIP_DATA = {
               "mapFrom": "Corpus Christi",
               "mapTo": "Corpus Christi",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Corpus+Christi&destination=Corpus+Christi&travelmode=walking"
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Corpus+Christi&destination=Corpus+Christi&travelmode=walking",
+              "leaveTime": "10:30 PM",
+              "endTime": "10:30 PM",
+              "notes": "Arrival11:58PM CST Nov9 (9:58PM PST). Recovery/transfer allowance until12:30AM CST Nov10; actual airport-exit/transfer time may require a later sleep start.",
+              "detailText": "Arrival11:58PM CST Nov9 (9:58PM PST). Recovery/transfer allowance until12:30AM CST Nov10; actual airport-exit/transfer time may require a later sleep start."
+            },
+            {
+              "time": "10:30 PM",
+              "endTime": "6:30 AM",
+              "endDate": "2026-11-10",
+              "name": "Sleep · Corpus Christi (12:30–8:30 AM Central)",
+              "type": "rest",
+              "neighborhood": "Corpus Christi",
+              "location": "Corpus Christi, TX",
+              "duration": "8 hrs",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "notes": "After arrival and recovery. Calendar is Pacific:10:30PM Nov9–6:30AM Nov10 equals12:30–8:30AM Nov10 America/Chicago. Eight-hour sleep block; exact lodging is not specified.",
+              "detailText": "Calendar Pacific timeline converted from Central local time. Sleep12:30–8:30AM CST onNov10; allow airport exit and transfer after11:58PM CST arrival. Lodging/transfer duration unconfirmed.",
+              "mapFrom": "Corpus Christi, TX",
+              "mapTo": "Corpus Christi, TX",
+              "routeMode": "walking",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Corpus%20Christi%2C%20TX&destination=Corpus%20Christi%2C%20TX&travelmode=walking"
             }
           ]
         }

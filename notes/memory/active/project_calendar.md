@@ -47,3 +47,15 @@ Historical note only -- these were tied to the earlier Reside Seattle Downtown b
 - Nov8 retained at direct user request with time/Troutdale transit/weather warnings. Novel Oregon address/account corrected; hours/menu unresolved.
 
 - Verified live Oct22: **128 itinerary events +3 preserved arrival-chain records =131**, no duplicate title/start pairs; exactstart/end/location anddescriptioncontent parity withgeneratedexports (connectorlinewrap/bulletescapesnormalized). PreservedexistingIDs wherepossible;14created,7removedsupersededrecords. Calendar free/busy permission unchanged.
+
+## October 22: sleep and personal-calendar isolation
+
+User requires trip events only on the shared trip calendar. Audit found 16 invitation copies on the personal calendar (same IDs, shared-calendar organizer, personal self-attendee), seven standalone AA2496/AA5273 copies, and one unrelated all-day record. Remove the personal attendee from shared organizer records; preserve the organizer entries. Preserve the unrelated personal record. Final readback counts are in Project Log.
+
+Prevention: every new trip event must pass the exact shared calendar_id, attendees: [], self_attendance: "omit", add_google_meet: false. Do not rely on provider defaults. Verify organizer equals the trip calendar and attendees is empty. Explicitly disable reminders for sleep holds. Never invite the personal address to make itinerary events visible.
+
+Nine explicit sleep blocks: Nov 1-5 nights 22:00-07:00; Nov 6 night 22:00-07:45; Nov 7 night 22:00-08:00; Nov 8 night 22:00-08:05, all Pacific. Nov 9 night 22:30-06:30 Pacific equals Nov 10 00:30-08:30 Central in Corpus Christi. Last-night airport exit/transfer and lodging remain unconfirmed; protect eight hours if arrival recovery takes longer. Evening wind-down is separate. Nov 2-4 preparation starts at 07:00 before existing outings; no new purchase.
+
+Nov 9 flight conversion corrected without changing ticketed local clocks: PDX 14:34 Pacific to DFW 20:29 Central (18:29 Pacific); layover to 22:30 Central (20:30 Pacific); AA5273 arrives 23:58 Central (21:58 Pacific). Export supports explicit overnight endDate. Budget unchanged.
+
+Verified final API readback: shared calendar 142 records (139 canonical itinerary plus three arrival-chain records); personal calendar one unrelated record, zero trip copies. Nine sleep holds, no overlaps; canonical title/start/end/location/description parity confirmed. Removed 16 invitation links and seven standalone duplicate/stale flights. New records have no attendees or Meet. NYC display is three hours ahead of Pacific; 22:00 Pacific appears at 01:00 next day in New York.
