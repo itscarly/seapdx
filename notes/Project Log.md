@@ -3501,3 +3501,8 @@ Remaining blocker:
 - Checks: npmrunvalidate + node scripts/check-seattle-revision.js; browser verifiedexactdailycosts andWednesdaysequence. Livecalendar/Pagesresult recordedafterverification. No purchases/cancellations orcalendarvisibilitychanges.
 
 - Completion verification: Pages commit78c4d33 deployed successfully; livehomepage shows$3052.42 target and$1977.46planned, unpricedtransferwarning,Oct22stamp. Calendar now128itineraryevents+3untouchedarrivalrecords; no duplicate title/start pairs; starts/ends/locations/descriptions match exports afterconnectorwhitespace/bulletescaping normalization. Reused existingIDs, created14newrecords and removed7supersededrecords across two passes; no calendarpermissions changed. Notes audit passed.
+
+### 2026-10-22 — dashboard scope and spending room
+- User removed Shopping, Contingency, Buffer Left and Still-to-plan-vs-cap cards; tracks those separately. Dashboard now has hotels, food/drink, transportation, activities only. Shopping excluded from dashboard target; itinerary/calendar and underlying full ledger preserved. Voluntary guide tips remain under activities rather than a standalone contingency card.
+- Comfortable category allowances: food/drink775 (priced609.45 +165.55room); transport100 (priced68 +32room); activities325 (priced253.33 +10guidetips +61.67room). Planneddashboard1200 +hotels1074.96 = **2274.96** excluding shopping/paidairfare. Addedroom259.22, itemized in categorydetails. No false merchant-price increases or calendarcost edits.
+- Removed cap-comparison renderer/DOM, used same fourcategorylist for hero and cards, retained amountoverride controls. npmvalidate, Seattle regression and new dashboardmoney check pass.

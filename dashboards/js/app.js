@@ -316,7 +316,6 @@ function initHomePage() {
   renderItinerary();
   window.addEventListener("hashchange", openStopFromHash);
   initFilters();
-  renderBudget();
   renderGuide();
   initTabs();
   renderHomeSupport();
@@ -545,7 +544,6 @@ function initHero() {
   const targetRatio = allInTarget > 0 ? Math.min(100, Math.max(0, (confirmedTotal / allInTarget) * 100)) : 0;
   const spendEl = document.getElementById("heroSpend");
   const remainingEl = document.getElementById("heroRemaining");
-  const budgetHeadingEl = document.getElementById("budgetHeading");
   const meterEl = document.getElementById("heroMeter");
   const fxRateEl = document.getElementById("fxRateDisplay");
   const fxMetaEl = document.getElementById("fxMeta");
@@ -555,8 +553,7 @@ function initHero() {
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed hotel costs + ${moneyPrecise(plannedTotal)} planned spend; paid airfare excluded. Troutdale transfer unpriced`;
-  if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping): ${money(data.budget.cap)} cap`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed hotel costs + ${moneyPrecise(plannedTotal)} planned with extra room; shopping and paid airfare excluded. Troutdale connection unconfirmed`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   const meterSlider = document.getElementById("heroMeterSlider");
   const meterHintEl = document.getElementById("heroMeterHint");
@@ -649,7 +646,6 @@ function rerenderMoneyViews() {
   initHero();
   renderTripCostSummary();
   renderItinerary(currentFilter);
-  renderBudget();
 }
 
 async function refreshExchangeRate() {
@@ -1070,33 +1066,6 @@ function initFilters() {
   });
 }
 
-function renderBudget() {
-  const projected = data.budget.projectedTotal;
-  const cap = data.budget.cap;
-  const ceiling = data.budget.absoluteCeiling || cap;
-  const remaining = cap - projected;
-  const overage = projected - cap;
-  const capRatio = Math.min(100, Math.max(0, (projected / cap) * 100));
-
-  document.getElementById("budgetSummary").innerHTML = `
-    <article class="budget-summary-card main">
-      <span class="budget-kicker">Still to plan/spend vs. cap</span>
-      <strong class="budget-total">${money(projected)}</strong>
-      <p class="budget-copy">${money(Math.abs(remaining))} ${remaining >= 0 ? "under" : "over"} the ${money(cap)} cap, with ${money(ceiling)} as the hard ceiling. See the category cards above for the itemized breakdown.</p>
-      <div class="budget-main-meter" aria-hidden="true">
-        <span style="width:${capRatio}%"></span>
-      </div>
-    </article>
-    <article class="budget-summary-card">
-      <span class="budget-kicker">${projected <= ceiling ? "Buffer left" : "Above ceiling"}</span>
-      <div class="budget-capline">
-        <strong>${money(Math.abs(ceiling - projected))}</strong>
-        <p>${projected <= ceiling ? "Remaining before the hard ceiling is hit." : "Trip spend now exceeds the hard ceiling."}</p>
-      </div>
-    </article>
-  `;
-}
-
 function getConfirmedAirfareTotal() {
   return data.tripCosts?.confirmed?.airfare?.total ?? data.flights?.airfareTotal ?? 0;
 }
@@ -1185,101 +1154,36 @@ function categoryLedger(category) {
 }
 
 function buildTripCostBreakdown(allInTarget) {
-  const airfareItems = data.tripCosts?.confirmed?.airfare?.items || [];
-  const hotelItems = data.tripCosts?.confirmed?.accommodations?.items || [];
-  const foodCategory = data.budget.categories.find((item) => item.name === "Food");
-  const cocktailsCategory = data.budget.categories.find((item) => item.name === "Cocktails and social");
-  const transportationCategory = data.budget.categories.find((item) => item.name === "Transportation");
-  const entranceCategory = data.budget.categories.find((item) => item.name === "Entrance fees");
-  const shoppingCategory = data.budget.categories.find((item) => item.name === "Shopping");
-  const tattooCategory = data.budget.categories.find((item) => item.name === "Tattoo");
-  const contingencyCategory = data.budget.categories.find((item) => item.name === "Contingency");
-  const plannedPurchases = data.tripCosts?.plannedPurchases || [];
-  const plannedPurchasesTotal = getPlannedPersonalPurchaseTotal();
-  const onlinePurchaseGroups = getOnlinePurchaseGroups();
-  const onlinePurchasesTotal = getOnlinePurchasesTotal();
-  const coffeeBeansAndSouvenirs = (shoppingCategory?.amount || 0) - plannedPurchasesTotal - onlinePurchasesTotal;
-
+  const amount = name => data.budget.categories.find(c => c.name === name)?.amount || 0;
   return [
     {
-      name: "Airfare",
-      amount: getOutstandingAirfareTotal(),
-      note: "All listed airfare is already paid and locked. Philippine Airlines is shown in pesos from receipt [redacted]; Asiana/Korean Air and American Airlines remain shown in USD for reference.",
-      shareBase: allInTarget,
-      breakdown: airfareItems.map((item) => ({
-        label: `${item.name}${item.paid ? " (already paid)" : " (confirmed, not yet charged)"}`,
-        amount: item.amount,
-        displayAmount: item.displayAmount,
-        detail: item.covers || item.confirmation || ""
+      name: "Hotel accommodations", amount: getConfirmedHotelTotal(),
+      note: "Confirmed Seattle and Portland hotel stays; no extra room added to paid amounts.",
+      breakdown: (data.tripCosts?.confirmed?.accommodations?.items || []).map(item => ({
+        label: item.name, amount: item.amount, detail: `${item.city}, ${item.nights} nights`
       }))
     },
     {
-      name: "Hotel accommodations",
-      amount: getConfirmedHotelTotal(),
-      note: "Confirmed Seattle and Portland hotel stays.",
-      shareBase: allInTarget,
-      breakdown: hotelItems.map((item) => ({
-        label: item.name,
-        amount: item.amount,
-        detail: `${item.city}, ${item.nights} night${item.nights === 1 ? "" : "s"}`
-      }))
+      name: "Food and drink", amount: amount("Food") + amount("Cocktails and social"),
+      note: "Meals, coffee, matcha and cocktails, including modeled tax/tips plus room for extra orders or price changes.",
+      breakdown: [...categoryLedger("Food"), ...categoryLedger("Cocktails and social")]
     },
     {
-      name: "Food and drink",
-      amount: (foodCategory?.amount || 0) + (cocktailsCategory?.amount || 0),
-      note: "Meals, coffee pacing, cocktails, and airport food inside the live itinerary.",
-      shareBase: allInTarget,
-      breakdown: [
-        { label: "Meals, coffee, and airport food", amount: foodCategory?.amount || 0, detail: foodCategory?.note || "" },
-        { label: "Cocktails and social nights", amount: cocktailsCategory?.amount || 0, detail: cocktailsCategory?.note || "" }
-      ]
-    },
-    {
-      name: "Transportation",
-      amount: transportationCategory?.amount || 0,
-      note: "Local transit, ferry and Monorail allowances. Amtrak and POINT remain under Activities. Downtown–Troutdale transfer is unpriced and excluded.",
-      shareBase: allInTarget,
+      name: "Transportation", amount: amount("Transportation"),
+      note: "Local transit, ferry and Monorail, with extra room for fares and connections. Troutdale route and exact fare still need confirmation.",
       breakdown: categoryLedger("Transportation")
     },
     {
-      name: "Activities and admissions",
-      amount: entranceCategory?.amount || 0,
-      note: "Paid attractions and admission-based itinerary stops.",
-      shareBase: allInTarget,
-      breakdown: categoryLedger("Entrance fees")
-    },
-    {
-      name: "Shopping",
-      amount: shoppingCategory?.amount || 0,
-      note: "Everything to buy or keep: coffee beans, souvenirs/keepsakes, and confirmed online orders still kept in scope.",
-      shareBase: allInTarget,
-      breakdown: [
-        { label: "Coffee beans and souvenirs/keepsakes", amount: coffeeBeansAndSouvenirs, detail: "Two coffee bags, Totem Smokehouse salmon, QFC seltzer 12-pack, city mugs, magnets, market browsing." },
-        ...plannedPurchases.map((item) => ({ label: item.name, amount: item.amount, detail: item.note || "" })),
-        ...onlinePurchaseGroups.map((group) => ({
-          label: `${group.store} order`,
-          amount: Number(group.total ?? (group.items || []).reduce((sum, item) => sum + (Number(item.amount) || 0), 0)),
-          detail: "Private purchase details hidden"
-        }))
-      ]
-    },
-    ...(tattooCategory ? [{
-      name: "Tattoo",
-      amount: tattooCategory.amount || 0,
-      note: tattooCategory.note || "Tattoo budget item.",
-      shareBase: allInTarget,
-      breakdown: [
-        { label: "Tattoo appointment", amount: tattooCategory.amount || 0, detail: tattooCategory.note || "" }
-      ]
-    }] : []),
-    {
-      name: "Contingency",
-      amount: contingencyCategory?.amount || 0,
-      note: "Explicit guide-tip funds. Unspent cap headroom is separate; unpriced transfers remain unresolved.",
-      shareBase: allInTarget,
-      breakdown: categoryLedger("Contingency")
+      name: "Activities and admissions", amount: amount("Entrance fees") + amount("Contingency"),
+      note: "Tours, admissions, guide tips, rail upgrade and POINT booking, with extra room for price changes.",
+      breakdown: [...categoryLedger("Entrance fees"), ...categoryLedger("Contingency")]
     }
-  ];
+  ].map(category => {
+    const target = Math.max(category.amount, data.budget.dashboardAllowances?.[category.name] || 0);
+    const room = Math.round((target - category.amount) * 100) / 100;
+    return { ...category, amount: target, shareBase: allInTarget,
+      breakdown: room ? [...category.breakdown, { label: "Room for extra spending / price changes", amount: room, detail: "Planning allowance; not a quoted charge or booking." }] : category.breakdown };
+  });
 }
 
 function bindBudgetBreakdowns(scope = document) {
@@ -1349,9 +1253,9 @@ function renderTripCostSummary() {
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
-      <span class="budget-kicker">${moneyPrecise(allInTarget)} trip target, excluding paid airfare</span>
+      <span class="budget-kicker">${moneyPrecise(allInTarget)} trip target · shopping and paid airfare excluded</span>
       <strong class="budget-total">${moneyPrecise(confirmedTotal)} <span style="font-weight:400;">confirmed hotels</span></strong>
-      <p class="budget-copy">Plus ${money(plannedTripSpend)} still to plan or spend, capped at ${money(data.budget.cap)} (itemized below). Paid airfare is shown separately and excluded from this target.</p>
+      <p class="budget-copy">Plus ${moneyPrecise(plannedTripSpend)} for food/drink, transportation and activities, including extra spending room. Shopping is tracked separately; paid airfare is excluded.</p>
       <div class="budget-main-meter" aria-hidden="true">
         <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
       </div>
@@ -1361,7 +1265,7 @@ function renderTripCostSummary() {
           <li>
             <div>
               <strong>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)}</strong>
-              <span>One plain formula so the savings target is easy to sanity-check.</span>
+              <span>Four tracked categories only. Extra room is itemized within each flexible category; shopping stays outside this target.</span>
             </div>
           </li>
           <li><div><strong>Paid airfare excluded</strong><span>Confirmed USD airfare and the PAL charge in PHP are listed on the flight card but are not part of this target.</span></div></li>
@@ -2355,7 +2259,6 @@ function rerenderApp() {
   renderHeroFacts();
   renderTripCostSummary();
   renderItinerary(currentFilter);
-  renderBudget();
   renderGuide(currentGuide);
   renderHomeSupport();
 }

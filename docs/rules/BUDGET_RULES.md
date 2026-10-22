@@ -10,3 +10,7 @@ Source of truth: `data/trip-data.js`.
 - Two full-price cruise cocktails and separate$20 unconfirmed boarding allowance retained.
 - Unpriced downtown–Troutdale transfer excluded and visibly flagged. Do not describe priced total as a guaranteed complete invoice.
 - Category sums derive from itinerary/purchase ledger; unused cap is headroom, not an expense.
+
+## Dashboard scope — later October22 instruction
+
+Dashboard displays four categories only: hotels$1074.96, food/drink$775, transportation$100, activities/admissions$325. Target **$2274.96**, including$259.22 flexible room over scoped prices/guide funds. Shopping and online orders are tracked separately and excluded from this target. No standalone Contingency, Buffer Left, or cap-comparison card. Canonical itinerary/calendar quotes remain unchanged; the full underlying ledger above is a different scope and must not be labeled as the dashboard target. Room is not a merchant quote.

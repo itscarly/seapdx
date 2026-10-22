@@ -116,3 +116,6 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 ## Current October22 accepted itinerary revision
 
 Canonical source now carries approved Nov2–4 plan; other dates’ activities/costs preserved. Planned$1977.46, hotels$1074.96, combined$3052.42 excluding paidairfare. Remaining plannedcap$1072.54. Categories derive from cent-based stop/purchase ledger; no balancing-contingency fiction. Seattle3day$514.38 includes ProperFish$29.18 exception,2 fullpricecruise drinks, separate$20 unresolved upgrade and$8 Monorail. Nov8 tour retained with unresolvedtime/Troutdale transfer cost/weather; pricedtotal not guaranteedfinalcost. Exact menu gaps remain labeled allowances. See research/itinerary-published-revision-2026-10-22.md.
+
+### Current dashboard scope (later Oct22 user change)
+Dashboard target now **$2274.96**: hotels1074.96 +food/drink775 +transport100 +activities325. Flexibleallowances total1200 and include259.22 additionalroom above scopedpricedbaseline940.78. Shopping/onlineorders excluded from dashboard; Contingency/BufferLeft/Capcomparison cards removed. Actual itinerary/calendar costs and underlying fullledger1977.46 preserved for comparison, not the dashboardtarget. Guidefunds10 includedinactivities.

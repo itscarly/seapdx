@@ -48,6 +48,7 @@ window.TRIP_DATA = {
     ]
   },
   budget: {
+    dashboardAllowances: { "Food and drink": 775, "Transportation": 100, "Activities and admissions": 325 },
     "cap": 3050,
     "absoluteCeiling": 3050,
     "projectedTotal": 1977.46,

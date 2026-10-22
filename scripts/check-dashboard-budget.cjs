@@ -1,0 +1,14 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+global.window={};require('../data/trip-data.js');const data=window.TRIP_DATA;
+const app=fs.readFileSync(require.resolve('../dashboards/js/app.js'),'utf8');
+const extract=(start,end)=>app.slice(app.indexOf('function '+start),app.indexOf('function '+end));
+const ctx={data,getConfirmedHotelTotal:()=>data.tripCosts.confirmed.accommodations.total};vm.createContext(ctx);
+vm.runInContext(extract('categoryLedger(','buildTripCostBreakdown(')+extract('buildTripCostBreakdown(','bindBudgetBreakdowns(')+';this.build=buildTripCostBreakdown',ctx);
+const cards=ctx.build(2274.96);
+assert.deepEqual(Array.from(cards,c=>c.name),['Hotel accommodations','Food and drink','Transportation','Activities and admissions']);
+assert.deepEqual(Array.from(cards,c=>c.amount),[1074.96,775,100,325]);
+for(const c of cards)assert.equal(Math.round(c.breakdown.reduce((s,x)=>s+x.amount,0)*100),Math.round(c.amount*100));
+assert.equal(Math.round(cards.reduce((s,c)=>s+c.amount,0)*100),227496);
+assert(!app.includes('function renderBudget()'));
+assert(!fs.readFileSync(require.resolve('../dashboards/html/index.html'),'utf8').includes('id="budgetSummary"'));
+console.log('PASS: four dashboard categories, $2274.96 target, itemized spending room; no shopping/contingency/cap/buffer cards.');
