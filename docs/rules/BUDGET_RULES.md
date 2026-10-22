@@ -1,29 +1,12 @@
 # Budget Rules
 
-## Target Cap
+Source of truth: `data/trip-data.js`.
 
-$800 USD excluding airfare and hotels.
-
-## Absolute Ceiling
-
-$900 USD. This is not the planned spend; it is the do-not-exceed ceiling for optional splurges.
-
-## Included
-
-- Food
-- Coffee drinks
-- Coffee beans
-- Cocktails
-- Social/date meetup drinks or snacks
-- Souvenirs
-- Entrance fees
-- Local transit
-- Ferry
-- Amtrak Cascades 517
-
-## Method
-
-- Include estimated taxes.
-- Use budget-conscious tips: 18% for sit-down meals and cocktail bars, $1 for coffee, and optional 10% for meaningful counter-service food.
-- Use casual meals to offset paid attractions.
-- Keep a live buffer for fare changes and weather delays.
+- Planned-spend cap and ceiling: **$3,050 USD**, excluding confirmed hotels and paid airfare.
+- Current priced planned spend: **$1,977.46**, including $876.32 retained online orders. Hotels: **$1,074.96**, separate. Combined target: **$3,052.42**, paid airfare excluded.
+- Meals target $20, usual all-in ceiling $25; approved Proper Fish exception $29.18.
+- Food/drink: 18% pre-tax tip, local tax and disclosed merchant fees. Seattle modeled10.55%, Bainbridge9.2%, Oregon0. Checkout evidence overrides models. Retail/fare/admission has no automatic18% tip.
+- Exact quote vs modeled price vs all-in allowance must be distinguished. Do not invent missing base/tax/tip splits.
+- Two full-price cruise cocktails and separate$20 unconfirmed boarding allowance retained.
+- Unpriced downtown–Troutdale transfer excluded and visibly flagged. Do not describe priced total as a guaranteed complete invoice.
+- Category sums derive from itinerary/purchase ledger; unused cap is headroom, not an expense.

@@ -1,3 +1,18 @@
+# 2026-10-11
+
+## COMPLETE: Updated Seattle/Portland trip costing and Nov 2 plan
+
+- Removed the `$300` Chicago pocket-money line and `$406.72` ACME Hotel Chicago cost. Seattle and Portland confirmed hotels now total `$1,074.96`.
+- Removed Columbia Center Sky View admission and replaced the visit with a free Space Needle exterior photo stop; plan returns to Palihotel between 7:30 and 8:00 PM on Nov 2.
+- Amtrak fare is marked paid; only the `$19` business-class bid remains. Kept the `$40` Cannon Beach POINT NorthWest round trip, `$82.54` Columbia River Gorge shuttle, and transportation and food/drink budgets.
+- `npm run validate` passed: `$1,903.95` planned against `$3,050` cap, `$1,146.05` remaining. The all-in trip target is `$2,978.91`, excluding paid airfare. Local calendar JSON/CSV exports regenerated (121 events); the live calendar update is recorded below.
+
+### COMPLETE: Updated live Seattle & Portland 2026 calendar with current plan and map directions
+
+- Reconciled the six stale Nov 2 Sky View records in place with the exterior-only Space Needle photo schedule; the Palihotel return is 7:30 PM.
+- Replaced the dashboard `Site link` in all 121 itinerary event descriptions with Google Maps directions using itinerary origins and destinations. Read-back confirms 121/121 map links, zero GitHub dashboard links, zero stale Sky View events, and titles/start times matching the current export. The 3 separate arrival-chain flight records were left unchanged.
+- Static hotel/rest blocks use the hotel location for their Maps link; a directions route is not meaningful when an event has no travel.
+- Updated `scripts/sync-calendar-exports.js` and regenerated the JSON/CSV exports so future calendar syncs retain the route links. `npm run validate` passed at `$1,903.95` planned against the `$3,050` target, with `$1,146.05` remaining.
 ## 2026-10-09
 
 ### COMPLETE: Audited dashboard and reconciled private calendar details
@@ -3429,3 +3444,58 @@ Remaining blocker:
 - Compared private Calendar to regenerated export: all 121 itinerary activities match by title/start/end and extracted cost amounts. Two inbound flight/layover blocks remain on Calendar and are represented by the site's flight view. Calendar remains free/busy only.
 
 **Verification:** `npm run validate` passes (projected $2,285.45; $764.55 remaining); contrast detector reports zero low-contrast findings; `git diff --check` passes. Public branch history was rewritten to remove booking identifiers and the ticket receipt; GitHub’s closed PR #51 still retains its original internal ref and needs GitHub Support for full removal.
+# 2026-10-09 — Nov 1 arrival ticket reissue reconciliation
+
+- Verified the Sep 12 Asiana e-ticket for booking EMR56H: the Nov 1 routing remains OZ702 MNL-ICN followed by Korean Air KE047 ICN-SEA. The new ticket replaces the prior ticket; exact identifiers are recorded only in ignored local file `.codex/private-arrival-record.md`.
+- Closed the stale note asking to reconfirm KE047. Preserved the action to reselect the KE047 seat through Korean Air; no seat assignment is confirmed.
+- Regenerated the local calendar exports. They contain the 121 itinerary activity events and do not include the separately maintained arrival flight records.
+- Checked the live `Seattle & Portland 2026` calendar without editing it: both OZ702 and KE047 still display the old ticket number. Update those two event descriptions; KE047 should also retain the seat-reselection reminder without claiming a confirmed seat.
+
+## 2026-10-21 — Seattle video evidence and itinerary proposal
+
+- Audited all 16 supplied MP4 paths (13 unique, three exact duplicate copies): 289 selected full-range frames visually inspected and full audio transcribed locally. Two clips unrelated to travel; 33 named venues catalogued, with unresolved shots explicitly retained.
+- Created `research/video-audit-2026-10-21/REPORT.md` with current-source menus/prices, tax/tip calculations, transit feasibility, timing conflicts and a relaxed district-based proposal. Missing branch/item prices are not presented as verified.
+- Reconfirmed user's solo/public-transit constraints, $20 meal target/$25 all-in cap and hotel/city dates. Proposed replacements rather than adding every purchase. Current itinerary, calendar, dashboard and reservations unchanged.
+- Independent Claude review attempted but unavailable (CLI absent; zero completed review rounds). Handoff and verification scope: `notes/memory/active/seattle_video_research.md`.
+
+## 2026-10-22 — Capital One Seattle activity review
+
+- Visited the live Nov 2–4 Capital One activity search; screened 48 popular listings and eight detail pages, cross-checking selected operator sources. Comparison saved in `research/capital-one-activities-2026-10-22.md`.
+- Shortlisted Smith Tower / Beneath the Streets as city choices and a conditional Nov 4 waterfall replacement. Cascadian Adventures showed $70.52 total for one adult at 08:00; advertised duration needs clarification. Other starting prices remain distinguished from confirmed dated totals. Needle/Chihuly voucher does not guarantee an entry window.
+- Read current trip data for fit; no itinerary, calendar, booking, code, or publication changes. Updated affected research handoff note.
+
+## 2026-10-22 — Four-tour itinerary and cost simulation
+
+- Created `research/four-tour-simulation-2026-10-22.md` and JSON plus an inline interactive current/proposed timeline and cost comparison. No itinerary, dashboard, calendar or booking edits.
+- Reconciled $440.87 recorded Nov 2–4; two optional $20 purchased dinners make a $480.87 comparison. Proposed A $460.82 replaces Bainbridge and Fremont/Ballard; B $482.82 keeps Bainbridge with three city activities on Nov 2. Both include $20 voluntary guide-tip fund + $20 ticket headroom, retain the $101 salmon/Starbucks bundle; optional drink +$17.
+- Refreshed Underground offer: Nov 2 14:30, one-adult displayed total $32. Smith/Argosy dated totals/slots and waterfall return unresolved. Actual reservations require those gaps resolved and route direction.
+- Checked source sums, proposed non-overlap, four tours per route, editable costs and odd-cent allocation; browser-tested route/date switches, optional drink, Apply amounts, and narrow layout. Runnable local check: `.codex/four-tour-simulation/check-simulation.cjs`.
+
+## 2026-10-22 — Revised simulation: Bainbridge, Kerry and no hotel breaks
+
+- Superseded earlier A/B proposals after user correction: both variants retain all four activities, Bainbridge and Kerry Park. Reserve optional Uber office 12:45–14:45 at user-confirmed 1191 2nd Ave #1200. Market starts 8 AM; no daytime hotel resets; hotel by 20:00 and packing afterward. Waterfall departure requires one ~7 AM hotel start.
+- Revised three-day estimate $513.77 with selected optional cocktail, versus $440.87 recorded / $480.87 with two dinner allowances. Named dinner estimates: Dough Zone Harbor Steps $21.08, DANBO $19.52, Dick’s Queen Anne $16.65. Market extra-purchase control preserves browsing flexibility; no itinerary/dashboard/calendar edits or bookings.
+- Compatible Argosy afternoon inventory, revised 15:30 underground slot/price, Smith dated entry and waterfall return remain unresolved. Waterfall afternoon movable; Argosy first paid drop if no compatible sailing. Current Hart Tuesday happy hour 15–18 supersedes prior all-night assumption.
+- Updated comparison report/JSON, inline timeline, handoff and runnable cent/schedule checks. Browser verified route/date/drink switches, Apply amounts and narrow layout. Existing unrelated working-tree changes preserved; no export-regenerating npm validation because actual itinerary JavaScript unchanged.
+
+## 2026-10-22 — Café/cruise revision after dropping waterfalls
+
+- User removed wet-trail tour, requested Phê plus more coffee/matcha/cocktails, grouped routes and 18% pre-tax tips. Added current report/JSON and a revised inline comparison; actual itinerary/calendar/dashboard untouched. Wednesday now Capitol Hill cafés → free Central Library → downtown matcha → Queen Anne/Kerry/Toulouse/Dick’s; hotel by20, pack afterward, no early tour departure.
+- Screenshot establishes Nov3 Tuesday14:45–15:45 cruise quote $59.79 ($52 + $7.79), not First to Board inclusion. Reference URL led to sign-in in accessible browser; no upgrade price/transaction confirmed. Keep separate editable $20 boarding allowance. Indoor seating verified; no promise of zero rain exposure. First to Board 15% beverage discount remains conditional; drinks charged separately.
+- Default three-day model $490.41 ($230.76/$176.93/$82.72), with one cruise cocktail, Toulouse cocktail, three Wednesday cafés, named orders and reserves. $23.36 below prior $513.77 proposal; $470.41 if quoted ticket already includes upgrade. Refreshed Proper Fish no-chips $16 and Blackbird cookie $5.50; conservative bakery tax caveat. Itemized Seattle/Bainbridge tax plus18% tip, rounding components separately.
+- Runnable `check-cafes.cjs` validates script/money/controls, three tours/no waterfall, compatible ferry/cruise windows, non-overlap and8PM limits. Interactive preview checked day/drink/discount/tasting/price changes and responsive layout. Updated affected research handoff; no actual trip JavaScript edit or export-regenerating npm validation.
+
+## 2026-10-22 — Free sunset, exact Dough order and Nov2–4 daily happy hour
+
+- Replaced Smith with free upper promenade sunset above Habitat Beach near Pioneer Square, then Von’s/Harbor Steps. Smith screenshot$19.98 at17:30 starts after16:49 sunset; supplied product read-only visit confirms earlier16:00 entry exists. User specifically requested free alternative. No booking/order/calendar/dashboard edits.
+- Adopted exact Dough screenshots: base$14.25 +displayed tax$1.51 +18% tip$2.57 = $18.33. Daily bars: Mon Von’s$10.72 including discretionary5% commission; Tue Rhein$10.28 current$8 draft cocktail; Wed Toulouse$14.14 after Kerry sunset. Current Rhein HH PDF downloaded and fully extracted; old espresso-martini offer not reused.
+- Current default budget$476.98 vs prior$490.41, with one undiscounted cruise cocktail and separate$20 upgrade allowance. User's explored two drinks + conditional discount:$491.37; upgrade inclusion still unresolved. Updated report/model/inline comparison, affected handoff and runnable money/schedule checks. Kept actual itinerary JavaScript unchanged; no npm export regeneration.
+
+### 2026-10-22 — Wednesday Monorail and Space Needle base
+- Added round-trip Monorail ($8 official adult fare), Space Needle exterior and SpaceBase gift-shop stop to proposed Nov4 schedule, replacing generic Queen Anne browsing; Kerry/HH/hotel-by20 preserved. Default simulation $484.98, Wed$90.72. Gift-shop ticket-free access/hours unconfirmed; no tower ticket or souvenirs budgeted. Updated research model/report/inline comparison and active handoff; money/non-overlap check passed. Actual itinerary/calendar untouched.
+
+### 2026-10-22 — approved Seattle plan adopted; full-trip budget consistency
+- User approved website/calendar update, ProperFish$29.18exception,2fullpricecruise cocktails and20upgradeallowance; later explicitly retainedNov8 withwarnings. AppliedNov2–4, preservingotherdates’ activities/costs. Optional2hUber hold12:45–14:45; hotelby20; no daytime reset.
+- Planned1977.46 (+73.51), hotels1074.96, combined3052.42 exclpaidairfare; Seattle3days514.38. Category ledger reconciles actual item/purchase allocations using cents; exact public stop/day values now show cents. TransferTroutdaleunpricedandexcluded.
+- CorrectedNovelMaine link toOregon venue/account, Stumptownbranch128SW3rd, Vance4nightsNov5–9; flaggedNovelhours, POINTCannonBeachconnection, Sasquatchtime/publictransit/weather, menuquotevsallowancegaps. Explicitwalking/transitroutes; approximateSeattleorientationpins.
+- Checks: npmrunvalidate + node scripts/check-seattle-revision.js; browser verifiedexactdailycosts andWednesdaysequence. Livecalendar/Pagesresult recordedafterverification. No purchases/cancellations orcalendarvisibilitychanges.

@@ -70,7 +70,7 @@ const DAY_VISUALS = {
   "day-1": TRIP_VISUALS[0],
   "day-2": TRIP_VISUALS[0],
   "day-3": TRIP_VISUALS[1],
-  "day-4": TRIP_VISUALS[3],
+  "day-4": TRIP_VISUALS[0],
   "day-5": TRIP_VISUALS[2],
   "day-6": TRIP_VISUALS[3],
   "day-7": TRIP_VISUALS[3],
@@ -190,7 +190,7 @@ const STOP_COORDINATES = {
   "Hat Yai": { lat: 45.5169, lng: -122.6524, label: "Hat Yai Belmont" },
   "Belmont / Mississippi browse + Nate's Oatmeal Cookies": { lat: 45.548, lng: -122.6751, label: "Mississippi / Nate's" },
   "Stumptown Downtown": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
-  "Stumptown coffee + coffee bean buy": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
+  "Stumptown coffee + coffee bean buy": { lat: 45.5207, lng: -122.6751, label: "Stumptown Downtown" },
   "Stumptown Downtown breakfast + coffee bean #3": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Stumptown Downtown breakfast + coffee bean #4": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
   "Stumptown final coffee": { lat: 45.522, lng: -122.6748, label: "Stumptown Downtown" },
@@ -226,6 +226,12 @@ const STOP_COORDINATES = {
   "Airport coffee/snack buffer": { lat: 45.5898, lng: -122.5951, label: "PDX Airport" }
 };
 
+// Use the itinerary's approximate orientation pins for the current route.
+for (const day of window.TRIP_DATA.itinerary) {
+  for (const stop of day.segments.flatMap(segment => segment.items)) {
+    if (stop.coordinates) STOP_COORDINATES[stop.name] = stop.coordinates;
+  }
+}
 const mapRegistry = {};
 
 const baseData = cloneData(window.TRIP_DATA);
@@ -549,8 +555,8 @@ function initHero() {
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed hotel costs + ${money(plannedTotal)} planned spend; paid airfare excluded`;
-  if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping + tattoo): ${money(data.budget.cap)} cap`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed hotel costs + ${moneyPrecise(plannedTotal)} planned spend; paid airfare excluded. Troutdale transfer unpriced`;
+  if (budgetHeadingEl) budgetHeadingEl.textContent = `Still to plan/spend (local trip spend + shopping): ${money(data.budget.cap)} cap`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   const meterSlider = document.getElementById("heroMeterSlider");
   const meterHintEl = document.getElementById("heroMeterHint");
@@ -914,7 +920,7 @@ function renderStop(stop, options = {}) {
         <div class="chip-body">
           <div class="chip-badge">${escapeHtml(badgeLabel)}</div>
           <div class="chip-title">${escapeHtml(stop.name)}</div>
-          <div class="chip-meta">${escapeHtml([stop.neighborhood, stop.duration].filter(Boolean).join(" · "))}${hasCost ? ` · <span class="chip-cost">${money(costValue)}</span>` : ""}</div>
+          <div class="chip-meta">${escapeHtml([stop.neighborhood, stop.duration].filter(Boolean).join(" · "))}${hasCost ? ` · <span class="chip-cost">${moneyPrecise(costValue)}</span>` : ""}</div>
           ${shortNote ? `<div class="chip-note">${escapeHtml(shortNote)}</div>` : ""}
         </div>
       </article>
@@ -922,7 +928,7 @@ function renderStop(stop, options = {}) {
   }
 
   const details = [
-    ["Cost", costValue != null ? money(costValue) : ""],
+    ["Cost", costValue != null ? moneyPrecise(costValue) : ""],
     ["Best time", stop.bestTime],
     ["Hours", stop.hours],
     ["Reservation", stop.reservation],
@@ -947,7 +953,7 @@ function renderStop(stop, options = {}) {
           <h3>${escapeHtml(stop.name)}</h3>
           <p>${escapeHtml(stop.neighborhood || "")}</p>
         </div>
-        ${costValue != null ? `<strong>${money(costValue)}</strong>` : ""}
+        ${costValue != null ? `<strong>${moneyPrecise(costValue)}</strong>` : ""}
       </div>
       ${renderTiming(stop)}
       ${stop.notes ? `<p>${escapeHtml(stop.notes)}</p>` : ""}
@@ -1010,7 +1016,7 @@ function renderItinerary(filter = "all") {
             </div>
             <span class="day-toggle">Open route details</span>
           </div>
-          <div class="day-total">${money(day.dayTotal)}<span class="day-total-note">daily estimate</span></div>
+          <div class="day-total">${moneyPrecise(day.dayTotal)}<span class="day-total-note">daily estimate</span></div>
         </header>
         <div class="day-body">
           <div class="day-timeline">${timelineHtml}</div>
@@ -1170,6 +1176,14 @@ function findStopCost(name) {
   return 0;
 }
 
+function categoryLedger(category) {
+  return data.itinerary.flatMap(day => day.segments.flatMap(segment => segment.items.flatMap(stop =>
+    (stop.budgetParts || [{ category: stop.budgetCategory, amount: stop.cost }])
+      .filter(part => part.category === category && part.amount)
+      .map(part => ({ label: `${day.date} · ${stop.name}`, amount: part.amount, detail: stop.priceStatus || stop.notes || "" }))
+  )));
+}
+
 function buildTripCostBreakdown(allInTarget) {
   const airfareItems = data.tripCosts?.confirmed?.airfare?.items || [];
   const hotelItems = data.tripCosts?.confirmed?.accommodations?.items || [];
@@ -1223,24 +1237,16 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Transportation",
       amount: transportationCategory?.amount || 0,
-      note: "Local transit only. Amtrak and the Cannon Beach POINT NorthWest booking are grouped under Activities and admissions by traveler preference.",
+      note: "Local transit, ferry and Monorail allowances. Amtrak and POINT remain under Activities. Downtown–Troutdale transfer is unpriced and excluded.",
       shareBase: allInTarget,
-      breakdown: [
-        { label: "Seattle local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("POINT NorthWest") && !stop.name.includes("Columbia Gorge Express") && !stop.name.includes("CGX return") && !String(stop.neighborhood || "").includes("PDX") && !String(stop.neighborhood || "").includes("Intercity rail") && !String(stop.neighborhood || "").includes("Intercity bus") && !String(stop.neighborhood || "").includes("Puget Sound") && !String(stop.neighborhood || "").includes("Gorge") && !String(stop.neighborhood || "").includes("Gateway") && !String(stop.neighborhood || "").includes("Hotel Vance") && !String(stop.neighborhood || "").includes("Union Station")), detail: "Link, buses, and other Seattle-side transit moves." },
-        { label: "Bainbridge ferry pass", amount: findStopCost("Ferry to Bainbridge"), detail: "Westbound walk-on ferry fare kept separate from local Seattle transit." },
-        { label: "Portland local transit", amount: sumStopCosts((stop) => stop.type === "transit" && !stop.name.includes("Amtrak Cascades 517") && !stop.name.includes("Ferry to Bainbridge") && !stop.name.includes("POINT NorthWest") && (String(stop.neighborhood || "").includes("Portland") || String(stop.neighborhood || "").includes("PDX") || String(stop.neighborhood || "").includes("Downtown -> Washington Park") || String(stop.neighborhood || "").includes("Union Station -> City Center") || String(stop.neighborhood || "").includes("Hotel Vance"))), detail: "TriMet, station transfer, airport-side Portland transit, and local Portland hops." }
-      ]
+      breakdown: categoryLedger("Transportation")
     },
     {
       name: "Activities and admissions",
       amount: entranceCategory?.amount || 0,
       note: "Paid attractions and admission-based itinerary stops.",
       shareBase: allInTarget,
-      breakdown: [
-        { label: "Amtrak business-class bid", amount: findStopCost("Amtrak Cascades 517 SEA -> PDX"), detail: "The $29 rail fare is already paid; only the $19 successful upgrade bid remains in planned spend." },
-        { label: "Cannon Beach round trip (POINT NorthWest)", amount: findStopCost("Depart Portland Union Station (POINT NorthWest)") + findStopCost("Depart Astoria (POINT NorthWest return)"), detail: "Day 6 confirmed bus to and from Cannon Beach via Astoria." },
-        { label: "Columbia River Gorge Waterfall Shuttle Tour", amount: findStopCost("Columbia River Gorge Waterfall Shuttle Tour"), detail: "Nov 8 waterfall shuttle booking with adult ticket, Trailkeepers of Oregon donation, taxes, and fees." },
-      ]
+      breakdown: categoryLedger("Entrance fees")
     },
     {
       name: "Shopping",
@@ -1269,11 +1275,9 @@ function buildTripCostBreakdown(allInTarget) {
     {
       name: "Contingency",
       amount: contingencyCategory?.amount || 0,
-      note: "Buffer kept visible instead of hidden inside other spend.",
+      note: "Explicit guide-tip funds. Unspent cap headroom is separate; unpriced transfers remain unresolved.",
       shareBase: allInTarget,
-      breakdown: [
-        { label: "Open buffer", amount: contingencyCategory?.amount || 0, detail: contingencyCategory?.note || "" }
-      ]
+      breakdown: categoryLedger("Contingency")
     }
   ];
 }
@@ -1976,7 +1980,7 @@ function renderDetailPanel(stop, day) {
   const hasCoordinates = stop.name && STOP_COORDINATES[stop.name];
   const richSectionsHtml = renderRichDetailSections(stop.detailText);
   const routeMapSrc = stop.mapFrom && stop.mapTo
-    ? `https://www.google.com/maps?saddr=${encodeURIComponent(stop.mapFrom)}&daddr=${encodeURIComponent(stop.mapTo)}&output=embed`
+    ? `https://www.google.com/maps?saddr=${encodeURIComponent(stop.mapFrom)}&daddr=${encodeURIComponent(stop.mapTo)}&dirflg=${stop.routeMode === "transit" ? "r" : "w"}&output=embed`
     : "";
 
   return `
@@ -1987,7 +1991,7 @@ function renderDetailPanel(stop, day) {
           <h4>${escapeHtml(stop.name)}</h4>
           <div class="stop-detail-location">${escapeHtml(stop.neighborhood || "Location kept flexible within the route.")}</div>
         </div>
-        ${costValue != null ? `<div class="stop-detail-cost">${money(costValue)}</div>` : ""}
+        ${costValue != null ? `<div class="stop-detail-cost">${moneyPrecise(costValue)}</div>` : ""}
       </div>
       ${stop.image ? `
         <a class="visual-card-link stop-detail-image" href="${escapeAttribute(IMAGE_BASE + stop.image)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(stop.name)} image">

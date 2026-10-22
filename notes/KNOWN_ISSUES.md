@@ -21,13 +21,13 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 ### Hotel costs and privacy
 
-- Status: current public totals validated 2026-10-09
-- Detail: the dashboard shows `$1,481.68` in confirmed hotel costs. Reservation identifiers, manage links, ticket identifiers, and the airline receipt attachment are removed from the current public source. Calendar sharing remains free/busy only; authenticated calendar details remain private.
+- Status: current public totals validated 2026-10-11
+- Detail: the dashboard shows `$1,074.96` for Seattle and Portland hotels; the Chicago hotel was removed from trip costing after the itinerary change. Reservation identifiers, manage links, ticket identifiers, and the airline receipt attachment are removed from the current public source. Calendar sharing remains free/busy only; authenticated calendar details remain private.
 
 ### November 2026 hours and one unverified transit time still need closer review
 
 - Status: open (narrowed 2026-08-07)
-- Detail: Asiana warning resolved 2026-09-26. The confirmed [redacted] booking now uses OZ702 MNL-ICN plus Korean Air KE047 ICN-SEA on Sunday, Nov 1; it no longer relies on Sunday OZ272. Asiana's current public route notice still lists OZ271/272 as Mon/Tue/Wed/Fri/Sat through Oct 12 and cannot verify private booking records, so recheck [redacted] in Manage My Trip and confirm KE047 before departure. The Seattle Kraken watch item is retired; Kraken tickets were removed from the plan on 2026-08-02 and should not be reintroduced. "Sea'd In Capitol Hill" is resolved -- the venue was deleted from the itinerary on 2026-08-06, not just flagged. The POINT NorthWest Cannon Beach round-trip bus time (Day 6) is now resolved -- confirmed 8:28 AM depart PDX / 11:46 AM arrive Astoria, 5:55 PM depart Astoria / 9:00 PM arrive PDX, source: user's CSV/screenshot. The Columbia Gorge Express / Multnomah Falls watch item is retired entirely -- Multnomah Falls was removed from the itinerary on 2026-08-07 (Day 8 is now a tattoo-rest day), so there is no longer a Gorge Express schedule to verify.
+- Detail: Asiana e-ticket issued 2026-09-12 reconfirms the Nov 1 OZ702 MNL-ICN plus Korean Air KE047 ICN-SEA routing; the old Sunday OZ272 schedule warning and request to reconfirm KE047 are closed. Reselect the KE047 seat through Korean Air; no seat assignment is confirmed. Current ticket number is kept in the ignored local-only `.codex/private-arrival-record.md`, not the public site source. The Seattle Kraken watch item is retired; Kraken tickets were removed from the plan on 2026-08-02 and should not be reintroduced. "Sea'd In Capitol Hill" is resolved -- the venue was deleted from the itinerary on 2026-08-06, not just flagged. The POINT NorthWest Cannon Beach round-trip bus time (Day 6) is now resolved -- confirmed 8:28 AM depart PDX / 11:46 AM arrive Astoria, 5:55 PM depart Astoria / 9:00 PM arrive PDX, source: user's CSV/screenshot. The Columbia Gorge Express / Multnomah Falls watch item is retired entirely -- Multnomah Falls was removed from the itinerary on 2026-08-07 (Day 8 is now a tattoo-rest day), so there is no longer a Gorge Express schedule to verify.
 
 ### Local calendar sync script does not touch the live Google Calendar
 
@@ -48,3 +48,11 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 - Status: open
 - Detail: the system can keep notes cleaner, but it still depends on Codex or Claude following the post-task maintenance rules after real work
+
+## October22 itinerary verification gaps
+
+- Nov8 Sasquatch retained by user:10:30AM conflicts withpublished8:30AM/2:30PM; meetingpointTroutdale450NW257thWay#352; downtownconnection/fareunpriced andexcluded; rain/spraypossible.
+- NovelOregon233NWEverett: correctaccountnovel_pdx; Maine menu removed. Marchreport7PMopening conflicts withretained5PMstop; exacthours/menuunconfirmed.
+- CannonBeach: retainedticket usesAstoria11:46arrival/17:55return; exactCannonBeachstop/connectionunresolved.
+- CruiseFirsttoBoardinclusion stillunconfirmed; separate20allowance. Underground3:30slot/finalprice andSpaceBasefreeentry/Novemberhoursunconfirmed.
+- Untouched foodbudgets/marketfundsremainallinallowances; do notclaimfreshitemizedmenuverification.

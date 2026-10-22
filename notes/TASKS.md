@@ -10,11 +10,18 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Next up
 
-- **Hold for the next user-provided change list** -- the Sep 13 restore/update pass is complete and published. Local source, GitHub repo, GitHub Pages, generated calendar exports, and the live `Seattle & Portland 2026` calendar are aligned.
+- **Live arrival calendar follow-up** — the main itinerary and 121 exported activity events remain aligned, but live flight events OZ702 and KE047 still show the prior ticket. See `notes/memory/active/project_calendar.md`; seat reselection through Korean Air remains pending.
 - **Use Graphify + Obsidian first next session** -- for architecture, source-of-truth, data-flow, action, dependency, or project-content questions, run `graphify query "<question>"` before broad file reads, then read relevant notes from `notes/Home.md`. After meaningful edits, update affected Markdown notes and run `graphify update .`.
 - **Optional later work:** roll the Day 1-3 rich-stop rebuild pattern out to Days 4-9 using `notes/MAINTENANCE.md` ("Day rebuild playbook"). Do this only when the user asks for that polish pass; current priority is targeted itinerary/cost updates.
 
 ### Just completed
+
+- **Oct22 accepted Seattle revision:** canonicalNov2–4 adopted, otherdates preserved; pricedplanned$1977.46+hotels$1074.96=$3052.42. Updated18%tip/fee/quote labels, categoryledger/maps and calendar exports. Livepublish/sync verification in ProjectLog. Remaining: Undergroundslot/upgradeinclusion, SpaceBaseentry, Novelhours/menu, POINTconnection, Nov8Troutdaletime/transfercost (tourretainedbyuser).
+
+
+- **Seattle/Portland costing and calendar update** (2026-10-11) — removed Chicago hotel and pocket money plus Sky View admission; retained the Gorge shuttle and Cannon Beach fare; changed Nov 2 to a free Space Needle exterior photo stop and Palihotel return by 7:30–8:00 PM. Updated all 121 live itinerary entries with Google Maps directions and reconciled the six Nov 2 Sky View records. `npm run validate` passed at `$1,903.95` planned against `$3,050`; 3 separate arrival-chain records remain untouched.
+
+- **Nov 1 arrival ticket reconciliation** (2026-10-09) — verified the Sep 12 Asiana e-ticket, replaced the stale local reconfirmation note, preserved Korean Air seat reselection as pending, regenerated local calendar exports, and identified two live flight descriptions that still need the ticket updated.
 
 - **Public dashboard privacy and all-view audit** (2026-10-09) — removed booking/manage links, ticket references, receipt PDF, and individual private purchase details from current public source; fixed mobile navigation, stop-category labeling, map summaries, dynamic logistics costs, and unsafe custom-stop HTML/URL rendering. Verified desktop/mobile views and matched 121 itinerary entries and costs against the private calendar; calendar visibility remains free/busy.
 

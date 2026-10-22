@@ -23,7 +23,7 @@ if (Math.abs(categoryTotal - data.budget.projectedTotal) > 0.01) {
   failures.push(`Category total ${categoryTotal} does not match projected total ${data.budget.projectedTotal}.`);
 }
 
-if (dayTotal !== data.budget.projectedTotal) {
+if (Math.round(dayTotal * 100) !== Math.round(data.budget.projectedTotal * 100)) {
   failures.push(`Day total ${dayTotal} does not match projected total ${data.budget.projectedTotal}.`);
 }
 

@@ -1,6 +1,6 @@
 ---
 name: project-current-state
-description: "Current verified state of SeaPdx as of 2026-10-03 — local validation reports $2,285.45 against the $3,050 cap; 121 calendar events are exported. See the top block; everything after the --- divider is historical."
+description: "Current verified state of SeaPdx as of 2026-10-11 — local validation reports $1,903.95 against the $3,050 cap; 121 calendar events are exported. See the top block; everything after the --- divider is historical."
 metadata:
   node_type: memory
   type: project
@@ -9,7 +9,9 @@ metadata:
 
 **Historical context through 2026-09-26:** the earlier notes below record prior itinerary, image, route-audit, and calendar work. The current budget figure is above; revalidate after future trip-data changes.
 
-- **Budget revalidated 2026-10-03** — `npm run validate` passed at `$2,285.45` against the `$3,050` cap/ceiling (`$764.55` remaining). It regenerated the local calendar JSON/CSV exports with 121 events; live calendar state was not checked in this session.
+- **Budget, Nov 2 plan, and live calendar revalidated 2026-10-11** — `npm run validate` passed at `$1,903.95` against the `$3,050` cap/ceiling (`$1,146.05` remaining). Confirmed Seattle/Portland hotels total `$1,074.96`; all-in trip target excluding paid airfare is `$2,978.91`. Removed the Chicago hotel and pocket-money items, Columbia Center Sky View ticket, and paid Amtrak fare from planned spend; retained the `$19` bid, `$40` Cannon Beach fare, `$82.54` Columbia Gorge shuttle, transportation, and food/drink categories. Nov 2 now has a free Space Needle exterior photo stop and return to Palihotel by 7:30–8:00 PM. Synced all 121 itinerary events to the target calendar with Google Maps directions; 3 separately maintained arrival-chain entries were left unchanged.
+
+- **Nov 1 arrival ticket reissued 2026-09-12** — the Asiana e-ticket confirms OZ702 MNL-ICN and Korean Air KE047 ICN-SEA. Reselect the KE047 seat through Korean Air; assignment is not confirmed. The exact current ticket number is stored only in ignored local file `.codex/private-arrival-record.md`.
 
 - **Calendar reconciliation completed 2026-09-26** — `npm run validate` passed and regenerated 121 itinerary events. The live `Seattle & Portland 2026` calendar now matches all 121 export events on title, time, location, and description; 119 existing records were patched in place and two missing Day 8 records were added. Paid Philippine Airlines PR133 ORD→MNL (booking [redacted], ticket [redacted], Mar 1-3 2027, PHP 24,281, Business Class seat 02A) was added to the same target calendar. The personal calendar `[redacted]` was read for verification only and was not written.
 
@@ -74,7 +76,7 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 
 ### Confirmed airfare — $1,256.83 total
 
-- Asiana/Korean Air arrival (Manila → Seattle via Incheon), Nov 1, 2026 — $540.43, confirmation [redacted]. The confirmed reissue now uses OZ702 MNL-ICN plus Korean Air KE047 ICN-SEA; the old Sunday OZ272 schedule warning is resolved. Recheck [redacted] in Asiana Manage My Trip and confirm KE047 before departure because public schedule pages cannot verify private bookings.
+- Asiana/Korean Air arrival (Manila → Seattle via Incheon), Nov 1, 2026 — $540.43. Sep 12 Asiana e-ticket confirms OZ702 MNL-ICN plus Korean Air KE047 ICN-SEA; no further KE047 reconfirmation is pending. Reselect the KE047 seat through Korean Air; assignment is not confirmed. Exact ticket number: `.codex/private-arrival-record.md` (local-only, ignored).
 - American Airlines (Portland → Corpus Christi Nov 9, plus Corpus Christi → Chicago Feb 27, 2027) — $716.40, confirmation [redacted].
 
 ### Budget snapshot (local Seattle + Portland spend, separate from confirmed airfare/hotels)
@@ -110,3 +112,7 @@ Seattle hotel is finalized: **The Boylston Hotel Capitol Hill** (conf [redacted]
 [[feedback_sleep_ceiling]]
 [[feedback_per_stop_image_sourcing]]
 [[user_profile]]
+
+## Current October22 accepted itinerary revision
+
+Canonical source now carries approved Nov2–4 plan; other dates’ activities/costs preserved. Planned$1977.46, hotels$1074.96, combined$3052.42 excluding paidairfare. Remaining plannedcap$1072.54. Categories derive from cent-based stop/purchase ledger; no balancing-contingency fiction. Seattle3day$514.38 includes ProperFish$29.18 exception,2 fullpricecruise drinks, separate$20 unresolved upgrade and$8 Monorail. Nov8 tour retained with unresolvedtime/Troutdale transfer cost/weather; pricedtotal not guaranteedfinalcost. Exact menu gaps remain labeled allowances. See research/itinerary-published-revision-2026-10-22.md.
