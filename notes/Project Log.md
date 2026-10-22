@@ -3506,3 +3506,5 @@ Remaining blocker:
 - User removed Shopping, Contingency, Buffer Left and Still-to-plan-vs-cap cards; tracks those separately. Dashboard now has hotels, food/drink, transportation, activities only. Shopping excluded from dashboard target; itinerary/calendar and underlying full ledger preserved. Voluntary guide tips remain under activities rather than a standalone contingency card.
 - Comfortable category allowances: food/drink775 (priced609.45 +165.55room); transport100 (priced68 +32room); activities325 (priced253.33 +10guidetips +61.67room). Planneddashboard1200 +hotels1074.96 = **2274.96** excluding shopping/paidairfare. Addedroom259.22, itemized in categorydetails. No false merchant-price increases or calendarcost edits.
 - Removed cap-comparison renderer/DOM, used same fourcategorylist for hero and cards, retained amountoverride controls. npmvalidate, Seattle regression and new dashboardmoney check pass.
+
+- Live verification caught stale browser assets under the oldOct9querytoken; refreshed existing trip-data/app script version on homepage/logisticspage. Prevents oldbudgetrenderers from running against newmarkup and stalefigures afterdeployment.
