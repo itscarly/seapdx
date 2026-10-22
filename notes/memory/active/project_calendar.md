@@ -45,3 +45,5 @@ Historical note only -- these were tied to the earlier Reside Seattle Downtown b
 - Approved ProperFish$29.18, two full-price cruise cocktails$41.14, separate$20 unresolved upgrade allowance. Seattle three days$514.38. All-trip planned$1977.46 plus hotels$1074.96=$3052.42 excluding paidairfare; Troutdale transfer unpriced/excluded.
 - Local exports regenerated from canonical source with explicit new stop end times and walking/transit directions. Live reconciliation result recorded in Project Log after verification. Preserve3 manually maintained arrival-chain events and all calendar visibility settings.
 - Nov8 retained at direct user request with time/Troutdale transit/weather warnings. Novel Oregon address/account corrected; hours/menu unresolved.
+
+- Verified live Oct22: **128 itinerary events +3 preserved arrival-chain records =131**, no duplicate title/start pairs; exactstart/end/location anddescriptioncontent parity withgeneratedexports (connectorlinewrap/bulletescapesnormalized). PreservedexistingIDs wherepossible;14created,7removedsupersededrecords. Calendar free/busy permission unchanged.

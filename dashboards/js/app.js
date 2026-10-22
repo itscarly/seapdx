@@ -72,10 +72,10 @@ const DAY_VISUALS = {
   "day-3": TRIP_VISUALS[1],
   "day-4": TRIP_VISUALS[0],
   "day-5": TRIP_VISUALS[2],
-  "day-6": TRIP_VISUALS[3],
-  "day-7": TRIP_VISUALS[3],
-  "day-8": TRIP_VISUALS[3],
-  "day-9": TRIP_VISUALS[3]
+  "day-6": TRIP_VISUALS[2],
+  "day-7": TRIP_VISUALS[2],
+  "day-8": TRIP_VISUALS[2],
+  "day-9": TRIP_VISUALS[5]
 };
 
 const TRIP_MAP_CONFIG = {
@@ -1682,7 +1682,7 @@ function renderCityAtlas(scopeKey) {
       polyline.bindPopup(`
         <strong>${routeDay.day.date}: ${routeDay.day.title}</strong><br>
         ${routeDay.points.length} mapped stops<br>
-        Approx route distance: ${routeDay.distanceMiles.toFixed(1)} mi<br>
+        Straight-line guide: ${routeDay.distanceMiles.toFixed(1)} mi (not a transit route)<br>
         ${routeDay.walkability}
       `);
     }
