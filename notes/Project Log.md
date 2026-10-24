@@ -1,3 +1,18 @@
+# 2026-10-23
+
+## COMPLETE: Replaced Nov 2 paid/office stops with Pike Place and Zig Zag
+
+- Removed the optional Uber office visit and the Beneath the Streets target/check-in; used the time for free Pike Place Market browsing and the City’s free Overlook Walk instead. Argosy Harbor Cruise stays on Nov 3 as quoted, not booked.
+- Replaced Von’s with Zig Zag’s official Monday–Friday 5–6 PM happy hour. The source lists select cocktails at $11 plus a 21% service charge; modeled stop is $14.71 with Seattle tax and no extra gratuity.
+- Corrected the Von’s guide: the $7.99 is the official regular-menu price for its Scratch Martini only, not a general happy-hour cocktail price. The current page lists many other cocktails at $14–$25; its happy-hour schedule was not reconfirmed.
+- `npm run validate` passed: projected spend is `$1,944.45` against the `$3,050` cap, with `$1,105.55` remaining; 137 itinerary events exported. Live calendar read-back confirmed the six updated Nov 2 events, removal of the Uber hold and Underground check-in, and the unchanged Nov 3 Argosy cruise entry.
+
+## COMPLETE: Added Seattle & Portland fruity-cocktail cheat sheet
+
+- Added a ranked top-10 guide under Planning guides in the itinerary and a matching `Fruity cocktails` tab.
+- Added a transparent all-day reference event, Nov 1-9, to the `Seattle & Portland 2026` shared calendar. Read-back confirmed the shared calendar organizer, ten drinks, no attendees, and no reminders.
+- Included a note that sweet flavors can mask alcohol and bar recipes/pours vary. `npm run validate` passed; projected spend remains `$1,977.46` against the `$3,050` target.
+
 # 2026-10-11
 
 ## COMPLETE: Updated Seattle/Portland trip costing and Nov 2 plan

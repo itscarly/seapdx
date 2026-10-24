@@ -29,7 +29,7 @@ window.TRIP_DATA = {
         "label": "Oct22 itinerary and budget revision",
         "checkedOn": "2026-10-22",
         "status": "material-update",
-        "note": "Approved Seattle Nov2–4 route applied;18% tip, two full-price cruise drinks, Proper Fish$29.18 and Monorail$8. Unresolved: cruise upgrade, Underground slot, giftshop entry, Novel hours/menu, POINT Cannon Beach connection, and Nov8 Troutdale departure/transport."
+        "note": "Seattle Nov2–4 updated Oct23: free Pike Place / Overlook Walk replaces Underground and Uber office; Zig Zag happy hour replaces Von’s. Argosy remains quoted, not booked. Other open items: cruise boarding inclusion, SpaceBase entry, Novel hours/menu, POINT Cannon Beach connection, and Nov8 Troutdale departure/transport."
       },
       {
         "id": "pre-trip-flight-transit",
@@ -601,9 +601,9 @@ window.TRIP_DATA = {
       "isoDate": "2026-11-02",
       "date": "Mon, Nov 2",
       "city": "Seattle",
-      "title": "Pike Place favorites, Underground, free waterfront sunset + Von’s / Dough Zone",
+      "title": "Pike Place Market + free Overlook Walk, waterfront sunset, Zig Zag + Dough Zone",
       "theme": "Public transit / walking; hotel by 8 PM; no daytime hotel reset; optional browsing absorbs queues",
-      "dayTotal": 207.05,
+      "dayTotal": 174.04,
       "weatherPlan": "Outdoor photos optional in rain; indoor cafés, library or cruise cabin offer cover. No guarantee of staying dry during transfers.",
       "segments": [
         {
@@ -836,8 +836,8 @@ window.TRIP_DATA = {
               "budgetCategory": "Food",
               "website": "https://www.pikeplacemarket.org/",
               "menu": "https://www.pikeplacemarket.org/",
-              "notes": "Market and waterfront photos. If the optional Uber office visit is skipped, extend this block through2:45PM; no hotel reset or additional purchase assumed.",
-              "detailText": "Market and waterfront photos. If the optional Uber office visit is skipped, extend this block through2:45PM; no hotel reset or additional purchase assumed.",
+              "notes": "Free Pike Place Market browsing and waterfront photos through2:45PM; no hotel reset or additional purchase assumed.",
+              "detailText": "Free Pike Place Market browsing and waterfront photos through2:45PM; no hotel reset or additional purchase assumed.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Totem+Smokehouse%2C+1906+Pike+Pl%2C+Seattle%2C+WA&destination=Pike+Place+Market%2C+85+Pike+St%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Totem Smokehouse, 1906 Pike Pl, Seattle, WA",
               "mapTo": "Pike Place Market, 85 Pike St, Seattle, WA",
@@ -851,136 +851,68 @@ window.TRIP_DATA = {
             },
             {
               "time": "12:25 PM",
-              "endTime": "12:45 PM",
-              "leaveTime": "12:45 PM",
-              "name": "Walk to optional Uber office",
-              "type": "walk",
-              "location": "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101",
-              "neighborhood": "Downtown Seattle",
-              "duration": "20 min",
-              "cost": 0,
-              "budgetCategory": "Food",
-              "notes": "Optional office visit, no appointment confirmed. If skipped, stay at the market until2:45PM, then walk to Underground check-in by3:15. Preserve the full2-hour block if visiting.",
-              "detailText": "Optional office visit, no appointment confirmed. Public access is not guaranteed. Hold12:45–2:45PM only; replace with market photos if skipping.",
-              "website": "https://www.google.com/maps/search/?api=1&query=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101",
-              "mapFrom": "Pike Place Market, 85 Pike St, Seattle, WA",
-              "mapTo": "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101",
-              "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Pike%20Place%20Market%2C%2085%20Pike%20St%2C%20Seattle%2C%20WA&destination=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
-              "coordinates": {
-                "lat": 47.6068,
-                "lng": -122.3374,
-                "label": "Uber office · optional"
-              }
-            },
-            {
-              "time": "12:45 PM",
               "endTime": "2:45 PM",
               "leaveTime": "2:45 PM",
-              "name": "Uber office · optional two-hour hold",
+              "name": "Pike Place Market · Post Alley + MarketFront photos",
               "type": "activity",
-              "location": "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101",
-              "neighborhood": "Downtown Seattle",
-              "duration": "120 min",
+              "location": "Pike Place Market, 85 Pike St, Seattle, WA",
+              "neighborhood": "Pike Place",
+              "duration": "2 hr 20 min",
               "cost": 0,
               "budgetCategory": "Food",
-              "notes": "Optional office visit, no appointment confirmed. If skipped, stay at the market until2:45PM, then walk to Underground check-in by3:15. Preserve the full2-hour block if visiting.",
-              "detailText": "Optional office visit, no appointment confirmed. Public access is not guaranteed. Hold12:45–2:45PM only; replace with market photos if skipping.",
-              "website": "https://www.google.com/maps/search/?api=1&query=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101",
-              "mapFrom": "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101",
-              "mapTo": "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101",
+              "website": "https://www.pikeplacemarket.org/about-pike-place-market/market-visitor-faq/",
+              "notes": "Free public-market browsing and photo time through2:45PM. Market admission is free; purchases are optional and not budgeted.",
+              "detailText": "Free public-market browsing and photo time through2:45PM. Market admission is free; purchases are optional and not budgeted.",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Pike+Place+Market%2C+85+Pike+St%2C+Seattle%2C+WA&destination=Pike+Place+Market%2C+85+Pike+St%2C+Seattle%2C+WA&travelmode=walking",
+              "mapFrom": "Pike Place Market, 85 Pike St, Seattle, WA",
+              "mapTo": "Pike Place Market, 85 Pike St, Seattle, WA",
               "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&destination=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&travelmode=walking",
               "coordinates": {
-                "lat": 47.6068,
-                "lng": -122.3374,
-                "label": "Uber office · optional"
-              }
+                "lat": 47.6088,
+                "lng": -122.3405,
+                "label": "Pike Place Market"
+              },
+              "priceStatus": "free / no purchase budgeted"
             },
             {
               "time": "2:45 PM",
               "leaveTime": "3:15 PM",
               "endTime": "3:15 PM",
-              "name": "Walk + Pioneer Square photos",
+              "name": "Walk to Overlook Walk",
               "type": "walk",
-              "neighborhood": "Seattle",
-              "location": "Beneath the Streets, 102 Cherry St, Seattle, WA",
+              "neighborhood": "Pike Place",
+              "location": "Overlook Walk, Seattle, WA",
               "duration": "30 min",
               "cost": 0,
               "budgetCategory": "Food",
-              "website": "https://www.google.com/maps/search/?api=1&query=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA",
-              "notes": "Toward 102 Cherry St, including photo stops.",
-              "detailText": "Toward 102 Cherry St, including photo stops.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Uber%20Seattle%20Engineering%20Office%2C%201191%202nd%20Ave%20%231200%2C%20Seattle%2C%20WA%2098101&destination=Beneath%20the%20Streets%2C%20102%20Cherry%20St%2C%20Seattle%2C%20WA&travelmode=walking",
-              "mapFrom": "Uber Seattle Engineering Office, 1191 2nd Ave #1200, Seattle, WA 98101",
-              "mapTo": "Beneath the Streets, 102 Cherry St, Seattle, WA",
+              "website": "https://seattle.gov/waterfront/projects/overlook-walk",
+              "notes": "Explore the MarketFront and move through Overlook Walk toward the waterfront; allow time for views and photos.",
+              "detailText": "Explore the MarketFront and move through Overlook Walk toward the waterfront; allow time for views and photos.",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Pike+Place+Market%2C+85+Pike+St%2C+Seattle%2C+WA&destination=Overlook+Walk%2C+Seattle%2C+WA&travelmode=walking",
+              "mapFrom": "Pike Place Market, 85 Pike St, Seattle, WA",
+              "mapTo": "Overlook Walk, Seattle, WA",
               "routeMode": "walking",
-              "coordinates": {
-                "lat": 47.6027,
-                "lng": -122.3351,
-                "label": "Beneath the Streets"
-              },
               "priceStatus": "free / no purchase budgeted"
             },
             {
               "time": "3:15 PM",
-              "leaveTime": "3:30 PM",
-              "endTime": "3:30 PM",
-              "name": "Underground check-in",
-              "type": "walk",
-              "neighborhood": "Seattle",
-              "location": "Beneath the Streets, 102 Cherry St, Seattle, WA",
-              "duration": "15 min",
-              "cost": 0,
-              "budgetCategory": "Food",
-              "website": "https://www.google.com/maps/search/?api=1&query=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA",
-              "notes": "15-minute planning buffer.",
-              "detailText": "15-minute planning buffer.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA&destination=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Beneath the Streets, 102 Cherry St, Seattle, WA",
-              "mapTo": "Beneath the Streets, 102 Cherry St, Seattle, WA",
-              "routeMode": "walking",
-              "coordinates": {
-                "lat": 47.6027,
-                "lng": -122.3351,
-                "label": "Beneath the Streets"
-              },
-              "priceStatus": "free / no purchase budgeted"
-            },
-            {
-              "time": "3:30 PM",
               "leaveTime": "4:30 PM",
               "endTime": "4:30 PM",
-              "name": "Beneath the Streets · target",
+              "name": "Overlook Walk · free market-to-waterfront views",
               "type": "activity",
-              "neighborhood": "Seattle",
-              "location": "Beneath the Streets, 102 Cherry St, Seattle, WA",
-              "duration": "60 min",
-              "cost": 37,
-              "budgetCategory": "Entrance fees",
-              "website": "https://www.beneath-the-streets.com/",
-              "notes": "One-hour guided underground history walk. 102 Cherry St; ends near 119 S Main. Six flights of stairs, no elevator. 3:30 PM appeared in earlier selector; this slot and its total need reconfirmation. $32 total observed at 2:30 PM instead.\nBudget: $32 earlier ticket quote plus $5 voluntary guide-tip allowance = $37. Requested3:30 PM slot and total are not yet booked or confirmed.",
-              "detailText": "One-hour guided underground history walk. 102 Cherry St; ends near 119 S Main. Six flights of stairs, no elevator. 3:30 PM appeared in earlier selector; this slot and its total need reconfirmation. $32 total observed at 2:30 PM instead.\nBudget: $32 earlier ticket quote plus $5 voluntary guide-tip allowance = $37. Requested3:30 PM slot and total are not yet booked or confirmed.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Beneath+the+Streets%2C+102+Cherry+St%2C+Seattle%2C+WA&destination=119+S+Main+St%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Beneath the Streets, 102 Cherry St, Seattle, WA",
-              "mapTo": "119 S Main St, Seattle, WA",
+              "neighborhood": "Pike Place / Waterfront",
+              "location": "Overlook Walk, Seattle, WA",
+              "duration": "75 min",
+              "cost": 0,
+              "budgetCategory": "Food",
+              "website": "https://seattle.gov/waterfront/projects/overlook-walk",
+              "notes": "Free elevated public path and park connecting Pike Place Market to the waterfront; open walk with Elliott Bay and mountain viewpoints. Weather may obscure views.",
+              "detailText": "Free elevated public path and park connecting Pike Place Market to the waterfront; open walk with Elliott Bay and mountain viewpoints. Weather may obscure views.",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Overlook+Walk%2C+Seattle%2C+WA&destination=Overlook+Walk%2C+Seattle%2C+WA&travelmode=walking",
+              "mapFrom": "Overlook Walk, Seattle, WA",
+              "mapTo": "Overlook Walk, Seattle, WA",
               "routeMode": "walking",
-              "coordinates": {
-                "lat": 47.5999,
-                "lng": -122.3335,
-                "label": "119 S Main St"
-              },
-              "priceStatus": "quoted / modeled",
-              "budgetParts": [
-                {
-                  "category": "Entrance fees",
-                  "amount": 32
-                },
-                {
-                  "category": "Contingency",
-                  "amount": 5
-                }
-              ]
+              "priceStatus": "free / no purchase budgeted"
             },
             {
               "time": "4:30 PM",
@@ -994,10 +926,10 @@ window.TRIP_DATA = {
               "cost": 0,
               "budgetCategory": "Food",
               "website": "https://www.google.com/maps/search/?api=1&query=Washington+Street+Boat+Landing%2C+Alaskan+Way+and+S+Washington+St%2C+Seattle%2C+WA",
-              "notes": "Upper paved promenade at Washington Street Boat Landing / above Habitat Beach; Alaskan Way & S Washington St. About 10 minutes planning allowance from underground tour end near 119 S Main.",
-              "detailText": "Upper paved promenade at Washington Street Boat Landing / above Habitat Beach; Alaskan Way & S Washington St. About 10 minutes planning allowance from underground tour end near 119 S Main.",
+              "notes": "Upper paved promenade at Washington Street Boat Landing / above Habitat Beach; Alaskan Way & S Washington St. About 10 minutes planning allowance from Overlook Walk.",
+              "detailText": "Upper paved promenade at Washington Street Boat Landing / above Habitat Beach; Alaskan Way & S Washington St. About 10 minutes planning allowance from Overlook Walk.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=119+S+Main+St%2C+Seattle%2C+WA&destination=Washington+Street+Boat+Landing%2C+Alaskan+Way+and+S+Washington+St%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "119 S Main St, Seattle, WA",
+              "mapFrom": "Overlook Walk, Seattle, WA",
               "mapTo": "Washington Street Boat Landing, Alaskan Way and S Washington St, Seattle, WA",
               "routeMode": "walking",
               "coordinates": {
@@ -1036,24 +968,24 @@ window.TRIP_DATA = {
               "time": "5:10 PM",
               "leaveTime": "5:25 PM",
               "endTime": "5:25 PM",
-              "name": "Walk to Von’s / Harbor Steps",
+              "name": "Walk to Zig Zag Cafe · Pike Street Hill Climb",
               "type": "walk",
               "neighborhood": "Seattle",
-              "location": "Von’s 1000Spirits, 1225 1st Ave, Seattle, WA",
+              "location": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "duration": "15 min",
               "cost": 0,
               "budgetCategory": "Food",
-              "website": "https://www.google.com/maps/search/?api=1&query=Von%E2%80%99s+1000Spirits%2C+1225+1st+Ave%2C+Seattle%2C+WA",
-              "notes": "1225 1st Ave. 15-minute planning allowance.",
-              "detailText": "1225 1st Ave. 15-minute planning allowance.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Washington+Street+Boat+Landing%2C+Alaskan+Way+and+S+Washington+St%2C+Seattle%2C+WA&destination=Von%E2%80%99s+1000Spirits%2C+1225+1st+Ave%2C+Seattle%2C+WA&travelmode=walking",
+              "website": "https://zigzagseattle.com/map/",
+              "notes": "Use the Pike Street Hill Climb entrance; allow15 minutes from the waterfront.",
+              "detailText": "Use the Pike Street Hill Climb entrance; allow15 minutes from the waterfront.",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Washington+Street+Boat+Landing%2C+Alaskan+Way+and+S+Washington+St%2C+Seattle%2C+WA&destination=Zig+Zag+Cafe%2C+1501+Western+Ave%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Washington Street Boat Landing, Alaskan Way and S Washington St, Seattle, WA",
-              "mapTo": "Von’s 1000Spirits, 1225 1st Ave, Seattle, WA",
+              "mapTo": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "routeMode": "walking",
               "coordinates": {
-                "lat": 47.6065,
-                "lng": -122.3379,
-                "label": "Von’s 1000Spirits"
+                "lat": 47.6083,
+                "lng": -122.3416,
+                "label": "Zig Zag Cafe"
               },
               "priceStatus": "free / no purchase budgeted"
             },
@@ -1061,27 +993,27 @@ window.TRIP_DATA = {
               "time": "5:25 PM",
               "leaveTime": "6:00 PM",
               "endTime": "6:00 PM",
-              "name": "Happy hour · Von’s 1000Spirits",
+              "name": "Happy hour · Zig Zag Cafe",
               "type": "cocktails",
               "neighborhood": "Seattle",
-              "location": "Von’s 1000Spirits, 1225 1st Ave, Seattle, WA",
+              "location": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "duration": "35 min",
-              "cost": 10.72,
+              "cost": 14.71,
               "budgetCategory": "Cocktails and social",
-              "website": "https://vons1000spirits.com/Happy-hour-menu/",
-              "menu": "https://vons1000spirits.com/Happy-hour-menu/",
-              "notes": "Daily HH 2–6 PM. Scratch vodka/gin martini $7.99 is an all-day deal. With $0.40 discretionary cooks commission, $0.89 modeled tax and $1.44 tip: $10.72. Walk-in only; queue can affect timing.\nOrder: Scratch vodka or gin martini · all-day value during HH. Base $7.99; other fee $0.40; tax $0.89; 18% pre-tax tip $1.44; total $10.72. Current menu $7.99; daily HH 2–6 PM. Includes discretionary 5% cooks commission $0.40; modeled $0.89 tax on drink plus commission, 18% tip on drink. Not a special HH discount on this martini.",
-              "detailText": "Daily HH 2–6 PM. Scratch vodka/gin martini $7.99 is an all-day deal. With $0.40 discretionary cooks commission, $0.89 modeled tax and $1.44 tip: $10.72. Walk-in only; queue can affect timing.\nOrder: Scratch vodka or gin martini · all-day value during HH. Base $7.99; other fee $0.40; tax $0.89; 18% pre-tax tip $1.44; total $10.72. Current menu $7.99; daily HH 2–6 PM. Includes discretionary 5% cooks commission $0.40; modeled $0.89 tax on drink plus commission, 18% tip on drink. Not a special HH discount on this martini.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Von%E2%80%99s+1000Spirits%2C+1225+1st+Ave%2C+Seattle%2C+WA&destination=Von%E2%80%99s+1000Spirits%2C+1225+1st+Ave%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Von’s 1000Spirits, 1225 1st Ave, Seattle, WA",
-              "mapTo": "Von’s 1000Spirits, 1225 1st Ave, Seattle, WA",
+              "website": "https://zigzagseattle.com/menu/happy-hour/",
+              "menu": "https://zigzagseattle.com/menu/happy-hour/",
+              "notes": "Monday–Friday5–6PM happy hour; select cocktails$11. Menu adds a21% service charge retained by the cafe. Estimated Seattle tax$1.40 on $13.31 subtotal=$14.71; no extra gratuity budgeted. 21+ only; entrance is down the Pike Street Hill Climb stairs. Walk-in/reservation availability unconfirmed.\nOrder: one happy-hour cocktail, menu price$11.00; mandatory service charge$2.31; modeled tax$1.40; estimated total$14.71. Not booked.",
+              "detailText": "Monday–Friday5–6PM happy hour; select cocktails$11. Menu adds a21% service charge retained by the cafe. Estimated Seattle tax$1.40 on $13.31 subtotal=$14.71; no extra gratuity budgeted. 21+ only; entrance is down the Pike Street Hill Climb stairs. Walk-in/reservation availability unconfirmed.\nOrder: one happy-hour cocktail, menu price$11.00; mandatory service charge$2.31; modeled tax$1.40; estimated total$14.71. Not booked.",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Zig+Zag+Cafe%2C+1501+Western+Ave%2C+Seattle%2C+WA&destination=Zig+Zag+Cafe%2C+1501+Western+Ave%2C+Seattle%2C+WA&travelmode=walking",
+              "mapFrom": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
+              "mapTo": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "routeMode": "walking",
               "coordinates": {
-                "lat": 47.6065,
-                "lng": -122.3379,
-                "label": "Von’s 1000Spirits"
+                "lat": 47.6083,
+                "lng": -122.3416,
+                "label": "Zig Zag Cafe"
               },
-              "priceStatus": "quoted / modeled"
+              "priceStatus": "official happy-hour menu / modeled tax"
             },
             {
               "time": "6:00 PM",
@@ -1097,8 +1029,8 @@ window.TRIP_DATA = {
               "website": "https://www.google.com/maps/search/?api=1&query=Dough+Zone+Harbor+Steps%2C+83+University+St%2C+Seattle%2C+WA",
               "notes": "83 University St; very short Harbor Steps transfer.",
               "detailText": "83 University St; very short Harbor Steps transfer.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Von%E2%80%99s+1000Spirits%2C+1225+1st+Ave%2C+Seattle%2C+WA&destination=Dough+Zone+Harbor+Steps%2C+83+University+St%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Von’s 1000Spirits, 1225 1st Ave, Seattle, WA",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Zig+Zag+Cafe%2C+1501+Western+Ave%2C+Seattle%2C+WA&destination=Dough+Zone+Harbor+Steps%2C+83+University+St%2C+Seattle%2C+WA&travelmode=walking",
+              "mapFrom": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "mapTo": "Dough Zone Harbor Steps, 83 University St, Seattle, WA",
               "routeMode": "walking",
               "coordinates": {
@@ -3474,6 +3406,69 @@ window.TRIP_DATA = {
     }
   ],
   guides: {
+    "cocktails": [
+      "Ranked for fruit-forward flavor and how easily sweetness may mask the spirit; drink strength varies by bar. Ask about the standard pour or ABV. Sweet flavor can hide alcohol without reducing its effects.",
+      {
+        "name": "1. Rum Punch",
+        "fruitFlavor": "Orange, pineapple, lime",
+        "whatToExpect": "Sweet and juicy; often made with several rums, so strength varies by bar. Fruit can mask the alcohol.",
+        "orderTip": "Ask how many standard pours are in it."
+      },
+      {
+        "name": "2. Hurricane",
+        "fruitFlavor": "Passion fruit, lemon, sometimes orange",
+        "whatToExpect": "Sweet, fruity rum cocktail that can have a strong pour; recipes vary.",
+        "orderTip": "Ask about the pour before ordering."
+      },
+      {
+        "name": "3. Bahama Mama",
+        "fruitFlavor": "Orange, pineapple, coconut",
+        "whatToExpect": "Sweet and tropical, usually rum-based; recipes and strength vary.",
+        "orderTip": "Ask whether it uses one or several rums."
+      },
+      {
+        "name": "4. Passion Fruit Martini (Pornstar Martini)",
+        "fruitFlavor": "Passion fruit, lime, vanilla",
+        "whatToExpect": "Usually vodka-based, fruity, tangy, and sweet; alcohol flavor depends on the pour.",
+        "orderTip": "Ask for the standard pour and whether a side shot is included."
+      },
+      {
+        "name": "5. Strawberry Daiquiri",
+        "fruitFlavor": "Strawberry and lime",
+        "whatToExpect": "Sweet-tart rum drink, often frozen; sweetness can hide the rum.",
+        "orderTip": "Ask for it less sweet if you want more lime."
+      },
+      {
+        "name": "6. Mai Tai",
+        "fruitFlavor": "Lime and orange",
+        "whatToExpect": "Rum, orange curaçao, and almond syrup; often strong with a sweet-tart flavor.",
+        "orderTip": "Ask how many rums or standard pours are used."
+      },
+      {
+        "name": "7. Strawberry Margarita",
+        "fruitFlavor": "Strawberry, lime, orange",
+        "whatToExpect": "Tequila with strawberry and orange liqueur; fruit-forward, with strength varying by recipe.",
+        "orderTip": "Ask for extra lime and the standard tequila pour."
+      },
+      {
+        "name": "8. Sex on the Beach",
+        "fruitFlavor": "Orange, cranberry, peach",
+        "whatToExpect": "Vodka, peach schnapps, and juice; very fruity and usually less spirit-forward.",
+        "orderTip": "A fruit-forward pick; ask about the standard pour."
+      },
+      {
+        "name": "9. Blackberry Bramble",
+        "fruitFlavor": "Blackberry and lemon",
+        "whatToExpect": "Gin with blackberry liqueur; refreshing, though the gin is usually noticeable.",
+        "orderTip": "Choose this if you like a more noticeable spirit flavor."
+      },
+      {
+        "name": "10. Cosmopolitan",
+        "fruitFlavor": "Cranberry, orange, lime",
+        "whatToExpect": "Vodka and orange liqueur; strong and citrusy, with a sharper taste than sweeter options.",
+        "orderTip": "Choose this if you prefer tart citrus over a sweet drink."
+      }
+    ],
     "dayTrips": [
       {
         "name": "Cannon Beach / Haystack Rock (Day 6, Fri Nov 6)",
@@ -3488,12 +3483,6 @@ window.TRIP_DATA = {
       }
     ],
     "reservations": [
-      {
-        "name": "Beneath the Streets",
-        "status": "Target only",
-        "note": "Nov2 3:30PM slot and$32 total need confirmation; no ticket purchased.",
-        "link": "https://www.beneath-the-streets.com/"
-      },
       {
         "name": "Argosy Harbor Cruise",
         "status": "Quoted, not booked",
@@ -3556,9 +3545,16 @@ window.TRIP_DATA = {
       {
         "name": "Von’s 1000Spirits · Monday",
         "city": "Seattle",
-        "deal": "Current menu $7.99; daily HH 2–6 PM. Includes discretionary 5% cooks commission $0.40; modeled $0.89 tax on drink plus commission, 18% tip on drink. Not a special HH discount on this martini.",
-        "drink": "Order: Scratch vodka or gin martini · all-day value during HH. Base $7.99; other fee $0.40; tax $0.89; 18% pre-tax tip $1.44; total $10.72. Current menu $7.99; daily HH 2–6 PM. Includes discretionary 5% cooks commission $0.40; modeled $0.89 tax on drink plus commission, 18% tip on drink. Not a special HH discount on this martini.",
-        "link": "https://vons1000spirits.com/Happy-hour-menu/"
+        "deal": "Official regular menu lists the Scratch Martini (Manhattan, vodka or gin) at $7.99. Other cocktails are mostly $14–$25. This is a specific martini price, not a general happy-hour cocktail price; current happy-hour hours were not confirmed.",
+        "drink": "A $7.99 Scratch Martini is the low-priced exception. The website’s regular cocktail menu lists other drinks at $14–$25. The earlier $10.72 all-in model included a discretionary 5% cooks commission, modeled tax, and 18% tip; it was not a general Von’s happy-hour price.",
+        "link": "https://vons1000spirits.com/menu/"
+      },
+      {
+        "name": "Zig Zag Cafe · Monday",
+        "city": "Seattle",
+        "deal": "Official menu lists select Monday–Friday happy-hour cocktails at $11 from 5–6 PM. A 21% service charge is added to the bill and retained by the cafe.",
+        "drink": "One $11 cocktail plus the 21% service charge and modeled Seattle tax: estimated $14.71; no extra gratuity budgeted. 21+ only; the entrance is on the Pike Street Hill Climb behind Pike Place Market.",
+        "link": "https://zigzagseattle.com/menu/happy-hour/"
       },
       {
         "name": "Rhein Haus · Tuesday",

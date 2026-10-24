@@ -16,7 +16,9 @@ It should stay shorter and cleaner than raw implementation scratch notes.
 
 ### Just completed
 
-- **Oct22 accepted Seattle revision:** canonicalNov2–4 adopted, otherdates preserved; pricedplanned$1977.46+hotels$1074.96=$3052.42. Updated18%tip/fee/quote labels, categoryledger/maps and calendar exports. Livepublish/sync verification in ProjectLog. Remaining: Undergroundslot/upgradeinclusion, SpaceBaseentry, Novelhours/menu, POINTconnection, Nov8Troutdaletime/transfercost (tourretainedbyuser).
+- **Nov 2 Pike Place update** — removed the optional Uber office hold and paid Beneath the Streets target; replaced them with free Pike Place Market / Overlook Walk time. Swapped Von’s for Zig Zag’s verified 5–6 PM happy hour, corrected Von’s $7.99 item as a specific Scratch Martini rather than a general happy-hour price, and kept Argosy unbooked. Validation passed at `$1,944.45` planned spend; live calendar read-back matched.
+
+- **Oct22 accepted Seattle revision:** canonicalNov2–4 adopted, otherdates preserved; pricedplanned$1977.46+hotels$1074.96=$3052.42. Updated18%tip/fee/quote labels, categoryledger/maps and calendar exports. The Oct23 update removed Underground. Remaining: cruise boarding inclusion, SpaceBase entry, Novel hours/menu, POINT connection, and Nov8 Troutdale departure/transport.
 
 
 - **Seattle/Portland costing and calendar update** (2026-10-11) — removed Chicago hotel and pocket money plus Sky View admission; retained the Gorge shuttle and Cannon Beach fare; changed Nov 2 to a free Space Needle exterior photo stop and Palihotel return by 7:30–8:00 PM. Updated all 121 live itinerary entries with Google Maps directions and reconciled the six Nov 2 Sky View records. `npm run validate` passed at `$1,903.95` planned against `$3,050`; 3 separate arrival-chain records remain untouched.

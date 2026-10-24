@@ -8,6 +8,17 @@ Calendar name: Seattle & Portland 2026
 Calendar ID: b1ea6a433072f3e7d61ee0da69665ac376a5e696af72655b5bdd3403a8a3d415@group.calendar.google.com
 Timezone: America/Los_Angeles
 
+## Cocktail cheat sheet added 2026-10-23
+
+- Added a ranked fruity-cocktail guide to `data/trip-data.js` and a matching transparent all-day reference event spanning Nov 1-9, 2026, on this shared calendar. The event is `ahvg0bgp2e6ojai7tl4n8b2npg`; it has no attendees or reminders and does not block time.
+- Read-back confirmed the shared calendar is the organizer and the event includes all ten drinks. Sweetness can mask alcohol; drink strength and recipes vary by bar.
+
+## Pike Place update added 2026-10-23
+
+- Nov 2 source/dashboard now extends free Pike Place Market browsing through 2:45 PM, replaces Beneath the Streets with the free Overlook Walk and waterfront views, and removes the optional Uber office hold.
+- Replaced the Von’s stop with Zig Zag Cafe at 5:25 PM. Its official happy-hour menu lists select $11 cocktails Monday–Friday, 5–6 PM, and adds a 21% service charge. Estimated all-in stop: $14.71; availability and November menu parity remain unconfirmed.
+- Live shared-calendar read-back matches the regenerated Nov 2 exports: Uber and Beneath the Streets entries removed; Pike Place, Overlook Walk, and Zig Zag entries present. Nov 3 Argosy remains quoted and unbooked for user checkout.
+
 **Why:** All trip events must go to this calendar, not the primary calendar. Events added to the wrong calendar must be deleted and recreated.
 
 **How to apply:** Always pass this calendarId explicitly in every create_event and update_event call. Never default to the primary calendar.
