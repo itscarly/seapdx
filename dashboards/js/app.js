@@ -299,7 +299,6 @@ function applyBudgetOverrides(categories) {
   }));
 }
 
-const CONFIRMED_CATEGORY_NAMES = ["Airfare", "Hotel accommodations"];
 
 if (pageMode === "home") {
   initHomePage();
@@ -540,8 +539,8 @@ function iconRoute() {
 }
 
 function initHero() {
-  const { confirmedTotal, plannedTripSpend: plannedTotal, allInTarget } = getBudgetTotals();
-  const targetRatio = allInTarget > 0 ? Math.min(100, Math.max(0, (confirmedTotal / allInTarget) * 100)) : 0;
+  const { documentedTotal, allInTarget } = getBudgetTotals();
+  const targetRatio = allInTarget > 0 ? Math.min(100, Math.max(0, (documentedTotal / allInTarget) * 100)) : 0;
   const spendEl = document.getElementById("heroSpend");
   const remainingEl = document.getElementById("heroRemaining");
   const meterEl = document.getElementById("heroMeter");
@@ -553,7 +552,7 @@ function initHero() {
   const lastUpdatedEl = document.getElementById("heroLastUpdated");
 
   if (spendEl) spendEl.textContent = moneyPrecise(allInTarget);
-  if (remainingEl) remainingEl.textContent = `${moneyPrecise(confirmedTotal)} confirmed hotel costs + ${moneyPrecise(plannedTotal)} planned with extra room; shopping and paid airfare excluded. Troutdale connection unconfirmed`;
+  if (remainingEl) remainingEl.textContent = `${moneyPrecise(documentedTotal)} in newly documented charges and orders. Food, transit, activities, and shopping included; hotels and airfare excluded.`;
   if (meterEl) meterEl.style.width = `${targetRatio}%`;
   const meterSlider = document.getElementById("heroMeterSlider");
   const meterHintEl = document.getElementById("heroMeterHint");
@@ -602,7 +601,7 @@ function renderHeroFacts() {
   const lines = [
     `${data.itinerary.length} trip days with one continuous Seattle-to-Portland flow`,
     `${seattleDays} Seattle days, ${portlandDays} Portland or transfer days`,
-    `${moneyPrecise(getConfirmedTripTotal())} confirmed hotel costs before planned local spending; paid airfare is separate`,
+    "Trip target covers food, drinks, transit, activities, and shopping; hotels and paid airfare are excluded",
     `${futureJourneys ? `${futureJourneys} later booked flight still lives in the logistics hub` : "Flight detail stays available in the logistics hub"}`
   ];
   factsEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join("");
@@ -1080,10 +1079,6 @@ function getPaidAirfareTotal() {
     .reduce((sum, item) => sum + (Number(item.amount) || 0), 0);
 }
 
-function getOutstandingAirfareTotal() {
-  return getConfirmedAirfareTotal() - getPaidAirfareTotal();
-}
-
 function getConfirmedHotelTotal() {
   return data.tripCosts?.confirmed?.accommodations?.total ?? 0;
 }
@@ -1102,23 +1097,17 @@ function getOnlinePurchasesTotal() {
   ), 0);
 }
 
-function getConfirmedTripTotal() {
-  return getOutstandingAirfareTotal() + getConfirmedHotelTotal();
-}
-
 function getPlannedAdditionalTotal() {
   return data.budget.projectedTotal;
 }
 
 function getBudgetTotals() {
   const rawCategories = applyBudgetOverrides(buildTripCostBreakdown(0));
-  const confirmedTotal = rawCategories
-    .filter((c) => CONFIRMED_CATEGORY_NAMES.includes(c.name))
-    .reduce((sum, c) => sum + c.amount, 0);
-  const plannedTripSpend = rawCategories
-    .filter((c) => !CONFIRMED_CATEGORY_NAMES.includes(c.name))
-    .reduce((sum, c) => sum + c.amount, 0);
-  return { confirmedTotal, plannedTripSpend, allInTarget: confirmedTotal + plannedTripSpend };
+  const allInTarget = rawCategories.reduce((sum, category) => sum + category.amount, 0);
+  const documentedTotal = findStopCost("Argosy Harbor Cruise") + getOnlinePurchaseGroups()
+    .filter(group => group.status === "charged or pending" || group.status === "placed")
+    .reduce((sum, group) => sum + group.total, 0);
+  return { documentedTotal, allInTarget };
 }
 
 function moneyCompact(value) {
@@ -1157,29 +1146,31 @@ function buildTripCostBreakdown(allInTarget) {
   const amount = name => data.budget.categories.find(c => c.name === name)?.amount || 0;
   return [
     {
-      name: "Hotel accommodations", amount: getConfirmedHotelTotal(),
-      note: "Confirmed Seattle and Portland hotel stays; no extra room added to paid amounts.",
-      breakdown: (data.tripCosts?.confirmed?.accommodations?.items || []).map(item => ({
-        label: item.name, amount: item.amount, detail: `${item.city}, ${item.nights} nights`
-      }))
-    },
-    {
       name: "Food and drink", amount: amount("Food") + amount("Cocktails and social"),
       note: "Meals, coffee, matcha and cocktails, including modeled tax/tips plus room for extra orders or price changes.",
       breakdown: [...categoryLedger("Food"), ...categoryLedger("Cocktails and social")]
     },
     {
       name: "Transportation", amount: amount("Transportation"),
-      note: "Local transit, ferry and Monorail, with extra room for fares and connections. Troutdale route and exact fare still need confirmation.",
+      note: "Bainbridge ferry and one Seattle ORCA day pass with Monorail fare differences. Other fares removed as requested.",
       breakdown: categoryLedger("Transportation")
     },
     {
       name: "Activities and admissions", amount: amount("Entrance fees") + amount("Contingency"),
-      note: "Tours, admissions, guide tips, rail upgrade and POINT booking, with extra room for price changes.",
+      note: "Final Argosy cruise price, Amtrak upgrade, and Cannon Beach POINT fare.",
       breakdown: [...categoryLedger("Entrance fees"), ...categoryLedger("Contingency")]
+    },
+    {
+      name: "Shopping", amount: amount("Shopping"),
+      note: "Trip shopping plus non-Apple statement charges and new orders. Amazon checkout is planned, not yet placed.",
+      breakdown: [...categoryLedger("Shopping"), ...getOnlinePurchaseGroups().map(group => ({
+        label: group.store, amount: group.total, detail: group.note
+      }))]
     }
   ].map(category => {
-    const target = Math.max(category.amount, data.budget.dashboardAllowances?.[category.name] || 0);
+    const target = category.name === "Food and drink"
+      ? Math.max(category.amount, data.budget.dashboardAllowances?.[category.name] || 0)
+      : category.amount;
     const room = Math.round((target - category.amount) * 100) / 100;
     return { ...category, amount: target, shareBase: allInTarget,
       breakdown: room ? [...category.breakdown, { label: "Room for extra spending / price changes", amount: room, detail: "Planning allowance; not a quoted charge or booking." }] : category.breakdown };
@@ -1245,27 +1236,27 @@ function renderTripCostSummary() {
   const breakdownEl = document.getElementById("tripCostBreakdown");
   if (!summaryEl || !breakdownEl) return;
 
-  const { confirmedTotal, plannedTripSpend, allInTarget } = getBudgetTotals();
-  const tripSpendBreakdown = applyBudgetOverrides(buildTripCostBreakdown(allInTarget).filter((category) => category.name !== "Airfare"));
+  const { documentedTotal, allInTarget } = getBudgetTotals();
+  const tripSpendBreakdown = applyBudgetOverrides(buildTripCostBreakdown(allInTarget));
   // Pristine (un-overridden) amounts, used only to pin each slider's max so dragging
   // one category can never inflate another category's range on the next render.
-  const pristineBreakdown = buildTripCostBreakdown(0).filter((category) => category.name !== "Airfare");
+  const pristineBreakdown = buildTripCostBreakdown(0);
 
   summaryEl.innerHTML = `
     <article class="budget-summary-card main budget-item--expandable" style="--budget-color:#1749db" tabindex="0" role="button" aria-expanded="false">
-      <span class="budget-kicker">${moneyPrecise(allInTarget)} trip target · shopping and paid airfare excluded</span>
-      <strong class="budget-total">${moneyPrecise(confirmedTotal)} <span style="font-weight:400;">confirmed hotels</span></strong>
-      <p class="budget-copy">Plus ${moneyPrecise(plannedTripSpend)} for food/drink, transportation and activities, including extra spending room. Shopping is tracked separately; paid airfare is excluded.</p>
+      <span class="budget-kicker">Trip target · hotels and paid airfare excluded</span>
+      <strong class="budget-total">${moneyPrecise(allInTarget)}</strong>
+      <p class="budget-copy">Food and drink, transportation, activities, and shopping. ${moneyPrecise(documentedTotal)} comes from newly documented charges and orders; the $34.26 Amazon checkout remains planned.</p>
       <div class="budget-main-meter" aria-hidden="true">
-        <span style="width:${Math.min(100, (confirmedTotal / allInTarget) * 100)}%"></span>
+        <span style="width:${allInTarget ? Math.min(100, (documentedTotal / allInTarget) * 100) : 0}%"></span>
       </div>
       <div class="budget-breakdown">
         <div class="budget-breakdown-label">How this total works <span class="chevron-icon" aria-hidden="true">&#9662;</span></div>
         <ul class="budget-breakdown-list how-total-details">
           <li>
             <div>
-              <strong>${moneyPrecise(allInTarget)} = ${moneyPrecise(confirmedTotal)} + ${moneyPrecise(plannedTripSpend)}</strong>
-              <span>Four tracked categories only. Extra room is itemized within each flexible category; shopping stays outside this target.</span>
+              <strong>${moneyPrecise(allInTarget)} across four categories</strong>
+              <span>Only food and drink retains extra spending room. Shopping includes earlier private order subtotals and new non-Apple charges. Card payments are not purchases and are excluded.</span>
             </div>
           </li>
           <li><div><strong>Paid airfare excluded</strong><span>Confirmed USD airfare and the PAL charge in PHP are listed on the flight card but are not part of this target.</span></div></li>

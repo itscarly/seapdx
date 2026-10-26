@@ -1,9 +1,5 @@
 Subject,Start Date,Start Time,End Date,End Time,Location,Description
-"🚇 Seattle Day 1 · Arrive SEA -- passport control, baggage claim, transfer to Link","2026-11-01","14:10","2026-11-01","14:55","SEA Airport","Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA).
-Purpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.
-Estimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).
-Timing: Land 2:10 PM, leave the secure area by about 2:55 PM.
-Estimated cost: $6.
+"🚇 Seattle Day 1 · Arrive SEA -- passport control, baggage claim, transfer to Link","2026-11-01","14:10","2026-11-01","14:55","SEA Airport","Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA). Allow 45 minutes for passport control and baggage claim. Airport Link fare is excluded from this budget at the traveler's request; $0 here does not mean free transit.
 Duration: 45 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=SEA%20Airport%2C%20Seattle%2C%20WA&destination=Downtown%20Seattle%2C%20WA&travelmode=transit"
 "🚇 Seattle Day 1 · Link light rail to Downtown Seattle","2026-11-01","14:55","2026-11-01","15:40","SEA -> Downtown","Link ride from SEA into Downtown Seattle.
@@ -25,11 +21,7 @@ Website: https://www.palihotel.com/hotels/palihotel-seattle/
 Payment: Prepaid -- $662.00 total, already charged
 Duration: 60 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
-"🛍️ Seattle Day 1 · H Mart Downtown Seattle -- grocery run","2026-11-01","16:50","2026-11-01","17:10","H Mart, 1601 2nd Ave, Seattle, WA 98101","Trivia: H Mart (""Han Ah Reum,"" Korean for ""one arm full of groceries"") is the largest Korean-American grocery chain in the US, known for fresh produce, a huge banchan/ready-to-heat section, and an in-store food court in some locations -- this downtown Seattle location is grocery-focused.
-Why this stop: Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) to bring back to Palihotel as tonight's dinner, since Pike Place Chowder's ~4:30 PM close makes it unreachable on this timeline.
-ORDER: A mix of ready-to-heat meals, snacks, and drinks (see reference photo).
-Budget: capped at $30 -- traveler-requested headroom, not a target. You likely won't spend the full amount, but the ready-to-heat spread can run up quickly.
-Safety note: Late-afternoon (~4:50-5:10 PM) on the 2nd Ave retail corridor is described in local reporting as one of the cleaner downtown stretches compared to the 3rd Ave corridor a block over, which is documented as the area with the most visible street-drug activity in the central city (KOMO News, Aug 2025). Standard awareness recommended; this stop is during busy daylight retail hours.
+"🛍️ Seattle Day 1 · H Mart Downtown Seattle -- grocery run","2026-11-01","16:50","2026-11-01","17:10","H Mart, 1601 2nd Ave, Seattle, WA 98101","H Mart dinner groceries, $30 planning allowance. Actual checkout may vary.
 Location: H Mart, 1601 2nd Ave, Seattle, WA 98101
 Website: https://www.hmart.com/
 Payment: Cards/Apple Pay only -- H Mart does not accept cash
@@ -39,37 +31,20 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%
 "🚶 Seattle Day 1 · Walk back to Palihotel to drop off food","2026-11-01","17:10","2026-11-01","17:20","Downtown","Purpose: Drop the H Mart food in the room fridge/microwave setup so it's ready as dinner around 5-6 PM.
 Duration: 10 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%2C%20Seattle%2C%20WA&destination=Downtown%2C%20Seattle%2C%20WA&travelmode=walking"
-"🛍️ Seattle Day 1 · Target Downtown Seattle (Pike Plaza) -- pickup order","2026-11-01","17:20","2026-11-01","17:45","Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)","Pickup order at Seattle Pike Plaza. Estimated total including Washington sales tax: $34.36.
-Safety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.
+"🛍️ Seattle Day 1 · Target Downtown Seattle (Pike Plaza) -- pickup order","2026-11-01","17:20","2026-11-01","19:00","Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)","Target pickup $34.36 estimated with tax, plus a $20 planning allowance for one Truly Hard Seltzer 12-pack. Target lists a 12-pack at $16.99 before local tax; store availability and final checkout may vary. Combined shopping estimate: $54.36.
 Location: Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)
 Website: https://www.target.com/
 Payment: Cards accepted
-Estimated cost: $34.36.
+Estimated cost: $54.36.
 Duration: 25 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Target%2C%201401%202nd%20Ave%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
-"🚶 Seattle Day 1 · Walk to Pike Place Bar & Grill","2026-11-01","17:45","2026-11-01","18:00","Downtown / Pike Place","Purpose: Short walk from Target to Pike Place Bar & Grill.
-Duration: 10 min.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Target%2C%201401%202nd%20Ave%2C%20Seattle%2C%20WA%2098101&destination=Pike%20Place%20Bar%20%26%20Grill%2C%20Seattle%2C%20WA&travelmode=walking"
-"🍽️ Seattle Day 1 · Dinner at Pike Place Bar & Grill","2026-11-01","18:00","2026-11-01","19:00","Pike Place Bar & Grill","Menu: https://www.eatatpikeplace.com/happy-hour
-ORDER:
-- Grilled Chicken Burger (tomato, lettuce, creamy horseradish, sourdough) -- $14.95
-- Prickly-Pear Margarita (Cuervo Gold, triple sec, prickly-pear cactus puree, fresh lime sour, salt rim, on the rocks) -- $10.00
-- Fresca (Absolut Citron, muddled citrus, soda water, splash grapefruit juice) -- $10.00
-Subtotal: $34.95. Plus 10.35% WA/Seattle sales tax ($3.62) and 18% tip on the subtotal ($6.29) = est. total $44.86.
-Safety note: Pike Place itself is described as busy and well-policed daily (KOMO News, Aug 2025); early-evening dinner hour here is a core tourist area with heavy foot traffic.
-Cost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Seattle tax modeled10.55% where applicable; actual checkout tax takes precedence.
-Location: Pike Place Bar & Grill
-Payment: Cards accepted
-Estimated cost: $44.86.
-Duration: 60 min.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Pike%20Place%20Bar%20%26%20Grill%2C%20Seattle%2C%20WA&destination=Pike%20Place%20Bar%20%26%20Grill%2C%20Seattle%2C%20WA&travelmode=walking"
 "🎟️ Seattle Day 1 · Waterfront Park","2026-11-01","19:00","2026-11-01","19:40","Waterfront Park (Pier 62/Pier 58 area)","Trivia: Seattle's new Waterfront Park is the centerpiece of the ~$1.2B Waterfront Seattle redevelopment -- a ~20-acre string of public spaces from Pier 57 to Pier 62, including the Seattle Aquarium and Pier 62's floating dock and lawn (ASCE, Jan 2026).
 IMPORTANT -- posted hours: Pier 62 / Waterfront Park is posted open daily 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org). Arriving right at 10 PM means the park will likely already be closing or closed -- go earlier in the evening (e.g. right after dinner, ~6:30-7:30 PM) to actually have time there before it shuts.
 Safety note (sourced, not a live feed): Seattle Parks & Rec's 2026 ""Summer of Safety"" initiative specifically calls out increased staffing/security, clearer signage, and lighting/sight-line improvements at high-use parks including the waterfront (Seattle Parks, May 2026); Seattle Center also states the park's operations prioritize clear sight lines and lighting as safety measures. No source found with a specific crime count or homelessness figure for Waterfront Park at night as of this writing -- that gap is stated here rather than guessed at. General downtown-Seattle guidance from multiple 2026 visitor-safety writeups: core tourist areas including the waterfront feel safe during the day and evening hours when busy; visible homelessness/drug activity downtown is common and generally not dangerous, but isolated/empty stretches after dark warrant normal city caution. Given the 10 PM close, plan to be there earlier while it's still lit, staffed, and populated rather than right at closing.
 Location: Waterfront Park (Pier 62/Pier 58 area)
 Payment: Free walk-in
 Duration: 40 min.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Pike%20Place%20Bar%20%26%20Grill%2C%20Seattle%2C%20WA&destination=Waterfront%20Park%2C%20Seattle%2C%20WA&travelmode=walking"
+Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Target%2C%201401%202nd%20Ave%2C%20Seattle%2C%20WA&destination=Waterfront%20Park%2C%20Seattle%2C%20WA&travelmode=walking"
 "🚶 Seattle Day 1 · Walk back to Palihotel","2026-11-01","19:40","2026-11-01","20:00","Waterfront -> Downtown","Purpose: Walk back up to Palihotel to rest.
 Duration: 15 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Waterfront%20Park%2C%20Seattle%2C%20WA&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
@@ -119,11 +94,11 @@ Menu: https://www.pikeplacemarket.org/vendor/mee-sum-pastry/
 Estimated cost: $9.
 Duration: 30 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Beecher%E2%80%99s%20Handmade%20Cheese%2C%201600%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Mee%20Sum%20Pastry%2C%201526%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
-"☕ Seattle Day 2 · Original Starbucks · coffee, beans + mug","2026-11-02","10:00","2026-11-02","10:45","Starbucks, 1912 Pike Pl, Seattle, WA","Retained $41 all-in combined allowance for cold brew, one Seattle bean bag and city mug; exact current item/tax/tip split unverified. No second souvenir fund added. Do not treat the drink as $41.
+"☕ Seattle Day 2 · Original Starbucks · coffee, beans + mug","2026-11-02","10:00","2026-11-02","10:45","Starbucks, 1912 Pike Pl, Seattle, WA","Combined $50 allowance: $6 coffee and $44 beans plus mug. Final checkout not confirmed.
 Location: Starbucks, 1912 Pike Pl, Seattle, WA
 Website: https://www.starbucks.com/store-locator
 Menu: https://www.starbucks.com/store-locator
-Estimated cost: $41.
+Estimated cost: $50.
 Duration: 45 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Mee%20Sum%20Pastry%2C%201526%20Pike%20Pl%2C%20Seattle%2C%20WA&destination=Starbucks%2C%201912%20Pike%20Pl%2C%20Seattle%2C%20WA&travelmode=walking"
 "🎟️ Seattle Day 2 · Totem Smokehouse · salmon souvenir","2026-11-02","10:45","2026-11-02","11:15","Totem Smokehouse, 1906 Pike Pl, Seattle, WA","Retained $60 retail ceiling including tax; no food-service tip added. This is a souvenir allowance, not one meal or confirmed charge.
@@ -169,12 +144,11 @@ Location: Zig Zag Cafe, 1501 Western Ave, Seattle, WA
 Website: https://zigzagseattle.com/map/
 Duration: 15 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Washington%20Street%20Boat%20Landing%2C%20Alaskan%20Way%20and%20S%20Washington%20St%2C%20Seattle%2C%20WA&destination=Zig%20Zag%20Cafe%2C%201501%20Western%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
-"📍 Seattle Day 2 · Happy hour · Zig Zag Cafe","2026-11-02","17:25","2026-11-02","18:00","Zig Zag Cafe, 1501 Western Ave, Seattle, WA","Monday–Friday5–6PM happy hour; select cocktails$11. Menu adds a21% service charge retained by the cafe. Estimated Seattle tax$1.40 on $13.31 subtotal=$14.71; no extra gratuity budgeted. 21+ only; entrance is down the Pike Street Hill Climb stairs. Walk-in/reservation availability unconfirmed.
-Order: one happy-hour cocktail, menu price$11.00; mandatory service charge$2.31; modeled tax$1.40; estimated total$14.71. Not booked.
+"📍 Seattle Day 2 · Happy hour · Zig Zag Cafe","2026-11-02","17:25","2026-11-02","18:00","Zig Zag Cafe, 1501 Western Ave, Seattle, WA","Two $11 happy-hour cocktails: $22 base + $4.62 mandatory 21% service charge + $2.80 modeled tax = $29.42. No extra gratuity budgeted. Monday-Friday 5-6 PM; availability not confirmed.
 Location: Zig Zag Cafe, 1501 Western Ave, Seattle, WA
 Website: https://zigzagseattle.com/menu/happy-hour/
 Menu: https://zigzagseattle.com/menu/happy-hour/
-Estimated cost: $14.71.
+Estimated cost: $29.42.
 Duration: 35 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Zig%20Zag%20Cafe%2C%201501%20Western%20Ave%2C%20Seattle%2C%20WA&destination=Zig%20Zag%20Cafe%2C%201501%20Western%20Ave%2C%20Seattle%2C%20WA&travelmode=walking"
 "🚶 Seattle Day 2 · Walk to Dough Zone","2026-11-02","18:00","2026-11-02","18:05","Dough Zone Harbor Steps, 83 University St, Seattle, WA","83 University St; very short Harbor Steps transfer.
@@ -290,23 +264,16 @@ Location: Seattle Ferry Terminal, 801 Alaskan Way, Seattle, WA
 Website: https://www.google.com/maps/search/?api=1&query=Seattle+Ferry+Terminal%2C+801+Alaskan+Way%2C+Seattle%2C+WA
 Duration: 35 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Bainbridge%20Island%20Ferry%20Terminal%2C%20270%20Olympic%20Dr%20SE%2C%20Bainbridge%20Island%2C%20WA&destination=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=transit"
-"🚶 Seattle Day 3 · Walk to Pier 55 + priority queue","2026-11-03","13:50","2026-11-03","14:15","Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA","1101 Alaskan Way. Arrive by 2:15 PM for requested First to Board; exact early-arrival rule and add-on need confirmation.
+"🚶 Seattle Day 3 · Walk to Pier 55 + boarding queue","2026-11-03","13:50","2026-11-03","14:15","Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA","Arrive early for standard boarding. No separate boarding add-on budgeted.
 Location: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA
 Website: https://www.argosycruises.com/argosy-cruises/harbor-cruise/
 Duration: 25 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Ferry%20Terminal%2C%20801%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
-"🚶 Seattle Day 3 · First to Board / indoor seat","2026-11-03","14:15","2026-11-03","14:45","Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA","Covered waiting area with paid add-on. Boarding begins around 20 minutes before departure; first access is not a reserved window seat.
-Separate $20 First to Board allowance; inclusion in$59.79 quote remains unconfirmed. Priority boarding does not guarantee a window seat.
+"🎟️ Seattle Day 3 · Argosy Harbor Cruise","2026-11-03","14:45","2026-11-03","15:45","Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA","Final cruise price $63.28 supplied by traveler; Capital One Travel charge pending on October 26 statement. No separate boarding, onboard cocktails, or guide fund budgeted.
 Location: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA
 Website: https://www.argosycruises.com/argosy-cruises/harbor-cruise/
-Estimated cost: $20.
-Duration: 30 min.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
-"🎟️ Seattle Day 3 · Argosy Harbor Cruise · two cocktails","2026-11-03","14:45","2026-11-03","15:45","Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA","Tuesday Nov3,2:45–3:45 PM. Screenshot ticket quote$52+$7.79 taxes/fees=$59.79. Two full-price modeled$16 cocktails: each$1.69 tax+$2.88 tip=$20.57; two=$41.14. No unconfirmed beverage discount counted. Voluntary guide-tip fund$5. Total this block$105.93; separate$20 boarding allowance above. Quoted, not booked; November bar price unconfirmed. Indoor seating available; docks/transfers may be rainy.
 Menu: https://www.argosycruises.com/menu/
-Location: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA
-Website: https://www.argosycruises.com/argosy-cruises/harbor-cruise/
-Estimated cost: $105.93.
+Estimated cost: $63.28.
 Duration: 60 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
 "🚶 Seattle Day 3 · Disembark / waterfront transition","2026-11-03","15:45","2026-11-03","16:00","Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA","Cruise scheduled to end3:45. Retain time for leaving vessel.
@@ -314,10 +281,9 @@ Location: Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA
 Website: https://www.argosycruises.com/argosy-cruises/harbor-cruise/
 Duration: 15 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&travelmode=walking"
-"🚇 Seattle Day 3 · Link + walk to Rhein Haus","2026-11-03","16:00","2026-11-03","16:50","Rhein Haus, 912 12th Ave, Seattle, WA","912 12th Ave. 50-minute planning allowance including walk from waterfront to station, train and Capitol Hill walk.
+"🚇 Seattle Day 3 · Link + walk to Rhein Haus","2026-11-03","16:00","2026-11-03","16:50","Rhein Haus, 912 12th Ave, Seattle, WA","Fare removed from this item at traveler request; travel step remains in the itinerary.
 Location: Rhein Haus, 912 12th Ave, Seattle, WA
 Website: https://www.rheinhausseattle.com/menu-happy-hour
-Estimated cost: $6.
 Duration: 50 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Argosy%20Cruises%20Pier%2055%2C%201101%20Alaskan%20Way%2C%20Seattle%2C%20WA&destination=Rhein%20Haus%2C%20912%2012th%20Ave%2C%20Seattle%2C%20WA&travelmode=transit"
 "📍 Seattle Day 3 · Happy hour · Rhein Haus","2026-11-03","16:50","2026-11-03","17:30","Rhein Haus, 912 12th Ave, Seattle, WA","Weekdays 3–6 PM. Current linked PDF: draft Negroni, margarita, old fashioned or Moscow mule $8 +$0.84 tax +$1.44 tip = $10.28. Independent of cruise beverage discount; November prices can change.
@@ -364,11 +330,9 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%
 Location: Palihotel Seattle, 107 Pine St, Seattle, WA 98101
 Duration: Morning preparation.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&travelmode=walking"
-"🚇 Seattle Day 4 · Link + walk to Capitol Hill","2026-11-04","08:00","2026-11-04","08:40","Anchorhead Coffee, 1115 12th Ave, Seattle, WA","Breakfast from Nov 1 groceries; optional pastry purchase not included.
-Conservative bus/Link allowance$12: regional day pass$6 plus$6 headroom. Buy the pass explicitly; ORCA e-purse is not an automatic daily cap. Monorail is extra.
+"🚇 Seattle Day 4 · Link + walk to Capitol Hill","2026-11-04","08:00","2026-11-04","08:40","Anchorhead Coffee, 1115 12th Ave, Seattle, WA","Fare removed from this item at traveler request; travel step remains in the itinerary.
 Location: Anchorhead Coffee, 1115 12th Ave, Seattle, WA
 Website: https://www.google.com/maps/search/?api=1&query=Anchorhead+Coffee%2C+1115+12th+Ave%2C+Seattle%2C+WA
-Estimated cost: $12.
 Duration: 40 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Palihotel%20Seattle%2C%20107%20Pine%20St%2C%20Seattle%2C%20WA%2098101&destination=Anchorhead%20Coffee%2C%201115%2012th%20Ave%2C%20Seattle%2C%20WA&travelmode=transit"
 "☕ Seattle Day 4 · Anchorhead · latte tasting","2026-11-04","08:40","2026-11-04","09:30","Anchorhead Coffee, 1115 12th Ave, Seattle, WA","1115 12th Ave. 10 oz latte $6.25 + $0.66 tax + $1.13 tip = $8.04. Weekday 7 AM–6 PM.
@@ -384,12 +348,11 @@ Location: Phê, 721 E Pine St, Seattle, WA
 Website: https://www.google.com/maps/search/?api=1&query=Ph%C3%AA%2C+721+E+Pine+St%2C+Seattle%2C+WA
 Duration: 45 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Anchorhead%20Coffee%2C%201115%2012th%20Ave%2C%20Seattle%2C%20WA&destination=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
-"☕ Seattle Day 4 · Phê · matcha + bánh mì","2026-11-04","10:15","2026-11-04","11:15","Phê, 721 E Pine St, Seattle, WA","721 E Pine St. Basic matcha $7.50 + bánh mì $11 = $18.50 + $1.95 tax + $3.33 tip = $23.78. One café meal under $25. Other drinks shown separately, not additional included purchases.
-Order: Basic matcha latte + bánh mì. Base $18.50; other fee $0.00; tax $1.95; 18% pre-tax tip $3.33; total $23.78. Merchant ordering menu. Matcha $7.50 + bánh mì $11. Weekdays 8 AM–4 PM; pickup/dine-in parity unconfirmed.
+"☕ Seattle Day 4 · Phê · matcha","2026-11-04","10:15","2026-11-04","11:15","Phê, 721 E Pine St, Seattle, WA","Basic matcha $7.50 + $0.79 modeled Seattle tax + $1.35 modeled tip = $9.64. No bánh mì budgeted.
 Location: Phê, 721 E Pine St, Seattle, WA
 Website: https://www.toasttab.com/local/order/phe-yet/
 Menu: https://www.toasttab.com/local/order/phe-yet/
-Estimated cost: $23.78.
+Estimated cost: $9.64.
 Duration: 60 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&destination=Ph%C3%AA%2C%20721%20E%20Pine%20St%2C%20Seattle%2C%20WA&travelmode=walking"
 "🚇 Seattle Day 4 · Bus / Link + walk to Central Library","2026-11-04","11:15","2026-11-04","12:00","Seattle Central Library, 1000 4th Ave, Seattle, WA","45-minute planning allowance. Route 2 via First Hill or Link + downtown walk; check actual departures.
@@ -420,10 +383,9 @@ Location: Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, W
 Website: https://www.google.com/maps/search/?api=1&query=Westlake+Center+Monorail+Station%2C+400+Pine+St%2C+third+floor%2C+Seattle%2C+WA
 Duration: 15 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Nana%E2%80%99s%20Green%20Tea%2C%201007%20Stewart%20St%20Suite%20103%2C%20Seattle%2C%20WA&destination=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&travelmode=transit"
-"🚇 Seattle Day 4 · Monorail · Westlake → Seattle Center","2026-11-04","14:15","2026-11-04","14:30","Seattle Center Monorail Station, 370 Thomas St, Seattle, WA","370 Thomas St arrival; about 2 minutes aboard, normally every 8–10 minutes. Window includes faregate/waiting. Adult $4 one way; $8 round trip budgeted separately from bus/Link allowance.
+"🚇 Seattle Day 4 · Monorail · Westlake → Seattle Center","2026-11-04","14:15","2026-11-04","14:30","Seattle Center Monorail Station, 370 Thomas St, Seattle, WA","Fare removed from this item at traveler request; travel step remains in the itinerary.
 Location: Seattle Center Monorail Station, 370 Thomas St, Seattle, WA
 Website: https://www.seattlemonorail.com/buy-tickets-to-ride-with-us/
-Estimated cost: $4.
 Duration: 15 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&destination=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&travelmode=transit"
 "🎟️ Seattle Day 4 · Space Needle exterior + SpaceBase gift shop","2026-11-04","14:30","2026-11-04","15:00","Space Needle / SpaceBase Gift Shop, 400 Broad St, Seattle, WA","400 Broad St. Exterior photos are free; no observation-deck ticket budgeted. Gift-shop stop included, but official pages do not explicitly confirm ticket-free access or separate November shop hours: ask staff; if restricted, keep exterior photos. Souvenir purchases extra.
@@ -446,12 +408,11 @@ Location: Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA
 Website: https://www.google.com/maps/search/?api=1&query=Toulouse+Petit%2C+601+Queen+Anne+Ave+N%2C+Seattle%2C+WA
 Duration: 25 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Kerry%20Park%2C%20211%20W%20Highland%20Dr%2C%20Seattle%2C%20WA&destination=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&travelmode=transit"
-"📍 Seattle Day 4 · Toulouse Petit · cocktail","2026-11-04","17:20","2026-11-04","18:00","Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA","601 Queen Anne Ave N. Rosemary Collins $11 + $1.16 tax + $1.98 tip = $14.14. Current linked HH menu; lounge/bar, before 6 PM. Seat/inventory not guaranteed.
-Order: Rosemary Collins · current happy-hour menu. Base $11.00; other fee $0.00; tax $1.16; 18% pre-tax tip $1.98; total $14.14. Currently linked June 2026 menu: $11. Target 5:20 PM before 6 PM cutoff; lounge/bar seating, availability unconfirmed.
+"📍 Seattle Day 4 · Toulouse Petit · two cocktails","2026-11-04","17:20","2026-11-04","18:00","Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA","Two $11 happy-hour Rosemary Collins cocktails: $22 base + $2.32 modeled Seattle tax + $3.96 modeled tip = $28.28. Target 5:20 PM before 6 PM cutoff; availability unconfirmed.
 Location: Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA
 Website: https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf
 Menu: https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf
-Estimated cost: $14.14.
+Estimated cost: $28.28.
 Duration: 40 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&destination=Toulouse%20Petit%2C%20601%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&travelmode=walking"
 "🍽️ Seattle Day 4 · Dinner · Dick’s Queen Anne","2026-11-04","18:00","2026-11-04","18:45","Dick’s Drive-In, 500 Queen Anne Ave N, Seattle, WA","500 Queen Anne Ave N. Deluxe, fries, shake $12.75 + $1.35 tax + $2.30 optional tip = $16.40.
@@ -467,10 +428,10 @@ Location: Seattle Center Monorail Station, 370 Thomas St, Seattle, WA
 Website: https://www.google.com/maps/search/?api=1&query=Seattle+Center+Monorail+Station%2C+370+Thomas+St%2C+Seattle%2C+WA
 Duration: 25 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Dick%E2%80%99s%20Drive-In%2C%20500%20Queen%20Anne%20Ave%20N%2C%20Seattle%2C%20WA&destination=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&travelmode=transit"
-"🚇 Seattle Day 4 · Monorail · Seattle Center → Westlake","2026-11-04","19:10","2026-11-04","19:25","Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA","Return ride $4, included in $8 round-trip fare. Normally every 8–10 minutes; current Nov 4 event schedule runs until 11 PM. Event queues possible; depart earlier if needed.
+"🚇 Seattle Day 4 · Monorail · Seattle Center → Westlake","2026-11-04","19:10","2026-11-04","19:25","Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA","November 4 Seattle transit model: $6 ORCA regional day pass covers buses and Link up to $3 per ride; two Monorail rides add $1 each from ORCA E-purse, $8 total. Buy the pass explicitly; cash-value taps do not auto-cap.
 Location: Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA
 Website: https://www.seattlemonorail.com/buy-tickets-to-ride-with-us/
-Estimated cost: $4.
+Estimated cost: $8.
 Duration: 15 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Seattle%20Center%20Monorail%20Station%2C%20370%20Thomas%20St%2C%20Seattle%2C%20WA&destination=Westlake%20Center%20Monorail%20Station%2C%20400%20Pine%20St%2C%20third%20floor%2C%20Seattle%2C%20WA&travelmode=transit"
 "🚶 Seattle Day 4 · Walk to Palihotel","2026-11-04","19:25","2026-11-04","19:50","Palihotel Seattle, 107 Pine St, Seattle, WA 98101","107 Pine St; retain buffer for queues and the 8 PM hotel deadline.
@@ -500,8 +461,7 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=King%20Str
 Estimated cost: $19.
 Duration: 3h 25m.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
-"🚇 Portland Day 5 · Arrive Portland Union Station and transfer to Hotel Vance","2026-11-05","15:35","2026-11-05","16:20","Union Station -> Hotel Vance","Purpose: First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge.
-Estimated cost: $6.
+"🚇 Portland Day 5 · Arrive Portland Union Station and transfer to Hotel Vance","2026-11-05","15:35","2026-11-05","16:20","Union Station -> Hotel Vance","Purpose: Fare removed from this item at traveler request; travel step remains in the itinerary.
 Duration: 35 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
 "🛌 Portland Day 5 · Check in and reset","2026-11-05","16:20","2026-11-05","18:00","Hotel Vance Portland","Purpose: Settle into Hotel Vance after the Seattle-to-Portland transfer.
@@ -541,8 +501,7 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Va
 "🛌 Portland Day 6 · Wake + quick breakfast + prep","2026-11-06","07:00","2026-11-06","07:50","Hotel Vance Portland","Purpose: Early start to catch the westbound POINT NorthWest bus.
 Duration: 50 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
-"🚇 Portland Day 6 · Transit to Portland Union Station","2026-11-06","07:50","2026-11-06","08:10","Hotel Vance -> Union Station","Purpose: Walk or MAX to Union Station (800 NW 6th Ave). First TriMet-system ride of Day 6 -- flat $6 day-pass charge.
-Estimated cost: $6.
+"🚇 Portland Day 6 · Transit to Portland Union Station","2026-11-06","07:50","2026-11-06","08:10","Hotel Vance -> Union Station","Purpose: Fare removed from this item at traveler request; travel step remains in the itinerary.
 Duration: 20 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20Union%20Station%2C%20Portland%2C%20OR&destination=Portland%20Union%20Station%2C%20Portland%2C%20OR&travelmode=transit"
 "🚇 Portland Day 6 · POINT NorthWest bus to Cannon Beach (boarding)","2026-11-06","08:10","2026-11-06","08:28","Portland Union Station","Purpose: Confirmed 8:28 AM departure window. Tickets can be purchased at Amtrak kiosks, online, or by phone 1-800-872-7245. Connection warning: retained Astoria-origin ticket time is not the Cannon Beach boarding time; exact Cannon Beach stop/departure must be confirmed with POINT. Do not travel to Astoria based on this label.
@@ -582,7 +541,7 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%2
 "🚇 Portland Day 6 · Depart Astoria (POINT NorthWest return)","2026-11-06","17:55","2026-11-06","21:00","Intercity bus","Purpose: Confirmed return leg: Astoria, OR to Portland, OR Union Station (via ART connecting bus 5565), arrives 9:00 PM. Fare already covered in the outbound $40.
 Duration: 185 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%2C%20OR&destination=Portland%2C%20OR&travelmode=transit"
-"🚇 Portland Day 6 · Arrive Portland Union Station + transfer to Hotel Vance","2026-11-06","21:00","2026-11-06","21:20","Union Station -> Hotel Vance","Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.
+"🚇 Portland Day 6 · Arrive Portland Union Station + transfer to Hotel Vance","2026-11-06","21:00","2026-11-06","21:20","Union Station -> Hotel Vance","Purpose: Return transfer fare not included in this budget at traveler request.
 Duration: 20 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
 "🛌 Portland Day 6 · Hotel · evening wind-down","2026-11-06","21:20","2026-11-06","22:00","Hotel Vance Portland","Settle in and rest after a full coastal day. Evening relaxation/packing only; protected sleep begins10PM.
@@ -646,36 +605,13 @@ Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Va
 Location: Hotel Vance, 1455 SW Broadway, Portland, OR
 Duration: Protected overnight.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
-"🛌 Portland Day 8 · Wake + prep for waterfall tour","2026-11-08","08:00","2026-11-08","09:00","Hotel Vance Portland","Purpose: Earlier start for the 10:30 AM Columbia River Gorge Waterfall Shuttle Tour.
+"🛌 Portland Day 8 · Wake + open Portland morning","2026-11-08","08:00","2026-11-08","14:15","Hotel Vance Portland","Purpose: No paid tour planned. Keep the morning open before Cartopia.
 Duration: 60 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
-"🚇 Portland Day 8 · Travel to Sasquatch Adventures + tour check-in","2026-11-08","09:00","2026-11-08","10:30","Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060","Arrive 15 minutes early to check in and look around at the Sasquatch Adventures store before the 10:30 AM tour.
-NEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.
-Location: Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060
-Duration: 90 min.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Sasquatch%20Adventures%20Store%2C%20450%20NW%20257th%20Way%20%23352%2C%20Troutdale%2C%20OR%2097060&travelmode=transit"
-"🎟️ Portland Day 8 · Columbia River Gorge Waterfall Shuttle Tour","2026-11-08","10:30","2026-11-08","13:00","Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060","Waterfall shuttle tour moved to Nov 8, 2026 at 10:30 AM so Nov 7 stays focused on Portland Saturday Market.
-Accessible site: https://sasquatchshuttle.com/waterfall-tour/
-Title: Columbia River Gorge Waterfall Shuttle Tour.
-Receipt total: $82.54, including Adult (12 & Up) ticket $79.00, Trailkeepers of Oregon Donation $2.00, and taxes/fees.
-Tour format: narrated shuttle through the Columbia River Gorge Waterfall Corridor, small-group maximum 20 guests, with expert narration and stops at must-see Gorge attractions. Expect about 15 minutes at each stop except Multnomah Falls.
-Highlights: Multnomah Falls, Gorge history and nature, 250+ five-star-review positioning, dog-friendly operator, and 20% off at the Sasquatch Adventures store.
-Cancellation: free cancellation up to 48 hours in advance for a full refund.
-Important: arrive 15 minutes early for check-in. Activity copy also mentions peak-season 8:30 AM and 2:30 PM departures; itinerary uses the traveler-requested 10:30 AM time and Nov 8 placement.
-NEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.
-Location: Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060
-Payment: Paid booking -- total $82.54
-Estimated cost: $82.54.
-Duration: 2.5 hrs.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Sasquatch%20Adventures%20Store%2C%20450%20NW%20257th%20Way%20%23352%2C%20Troutdale%2C%20OR%2097060&travelmode=transit"
-"🚇 Portland Day 8 · Return from waterfall tour","2026-11-08","13:00","2026-11-08","14:15","Columbia River Gorge -> Portland","Purpose: Return buffer after the 2.5-hour narrated shuttle tour.
-Duration: 75 min.
-Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland&destination=Portland&travelmode=transit"
-"🚇 Portland Day 8 · Transit to Cartopia food carts","2026-11-08","14:15","2026-11-08","14:45","Hotel Vance -> SE Hawthorne (Cartopia)","Purpose: Short trip out for a late Cartopia visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge.
-Estimated cost: $6.
+"🚇 Portland Day 8 · Transit to Cartopia food carts","2026-11-08","14:15","2026-11-08","14:45","Hotel Vance -> SE Hawthorne (Cartopia)","Purpose: Fare removed from this item at traveler request; travel step remains in the itinerary.
 Duration: 20 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=SE%20Hawthorne%20(Cartopia)%2C%20Portland%2C%20OR&destination=SE%20Hawthorne%20(Cartopia)%2C%20Portland%2C%20OR&travelmode=transit"
-"🍽️ Portland Day 8 · Cartopia food cart pod late lunch","2026-11-08","14:45","2026-11-08","16:00","Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214","Portland's largest food cart cluster, visited after the waterfall tour.
+"🍽️ Portland Day 8 · Cartopia food cart pod late lunch","2026-11-08","14:45","2026-11-08","16:00","Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214","Portland food cart visit after an open morning.
 Cart directory: https://www.cartopiapdx.com/carts
 ORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.
 Estimated cost: $50.
@@ -686,7 +622,7 @@ Payment: Cash preferred
 Estimated cost: $50.
 Duration: 75 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Cartopia%20Food%20Carts%2C%201207%20SE%20Hawthorne%20Blvd%2C%20Portland%2C%20OR%2097214&destination=Cartopia%20Food%20Carts%2C%201207%20SE%20Hawthorne%20Blvd%2C%20Portland%2C%20OR%2097214&travelmode=walking"
-"🚇 Portland Day 8 · Transit back to Hotel Vance","2026-11-08","16:00","2026-11-08","16:30","SE Hawthorne -> Hotel Vance","Purpose: Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.
+"🚇 Portland Day 8 · Transit back to Hotel Vance","2026-11-08","16:00","2026-11-08","16:30","SE Hawthorne -> Hotel Vance","Purpose: Return transfer fare not included in this budget at traveler request.
 Duration: 20 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=transit"
 "🛌 Portland Day 8 · Hotel Vance rest afternoon","2026-11-08","16:30","2026-11-08","20:00","Hotel Vance Portland","Purpose: Keep the rest of the day unstructured -- rest, recover, pack for tomorrow's flight.
@@ -712,11 +648,10 @@ Payment: Cards accepted
 Estimated cost: $31.
 Duration: 60 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Hotel%20Vance%2C%20Portland%2C%20OR&destination=Hotel%20Vance%2C%20Portland%2C%20OR&travelmode=walking"
-"🚇 Portland Day 9 · Hotel Vance final transit loop","2026-11-09","10:05","2026-11-09","11:05","Downtown Portland","Purpose: Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge. Morning shifted 55 min earlier (Aug 15, 2026) to fit the 3 hr PDX arrival buffer without overlap.
-Estimated cost: $6.
+"🚇 Portland Day 9 · Hotel Vance final transit loop","2026-11-09","10:05","2026-11-09","11:05","Downtown Portland","Purpose: Fare removed from this item at traveler request; travel step remains in the itinerary.
 Duration: 60 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Downtown%20Portland%2C%20OR&destination=Downtown%20Portland%2C%20OR&travelmode=transit"
-"🚇 Portland Day 9 · Checkout + transfer to PDX","2026-11-09","11:05","2026-11-09","11:34","Hotel Vance -> PDX","Purpose: Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).
+"🚇 Portland Day 9 · Checkout + transfer to PDX","2026-11-09","11:05","2026-11-09","11:34","Hotel Vance -> PDX","Purpose: Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Airport fare omitted from this budget at traveler request; $0 does not mean free transit.
 Duration: 29 min.
 Google Maps directions: https://www.google.com/maps/dir/?api=1&origin=Portland%20International%20Airport%20(PDX)&destination=Portland%20International%20Airport%20(PDX)&travelmode=transit"
 "🛌 Portland Day 9 · Airport check-in and security buffer","2026-11-09","11:34","2026-11-09","14:34","PDX","Purpose: Airport check-in and security buffer keeps the final breakfast and departure route on track.

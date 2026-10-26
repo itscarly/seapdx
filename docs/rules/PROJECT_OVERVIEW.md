@@ -4,7 +4,7 @@ Interactive Seattle and Portland itinerary planner for November 1-9, 2026.
 
 ## Goal
 
-Produce a realistic, walking-first itinerary that stays under the $800 target activity budget while balancing sightseeing, food, coffee, cocktails, transit, social meetups, and weather risk.
+Produce a realistic, walking-first itinerary with a $2,254.04 target for food/drink, transportation, activities, and shopping. Hotels and paid airfare are tracked separately.
 
 ## Current Deliverable
 
@@ -15,7 +15,7 @@ The current v1 deliverable is a static responsive HTML dashboard:
 It now runs in both places from the same codebase:
 
 - locally through a static server from the project root
-- publicly on Netlify with automatic redeploys from GitHub pushes
+- publicly on GitHub Pages from the same repository
 
 ## Data Source
 

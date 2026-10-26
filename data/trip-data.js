@@ -15,10 +15,10 @@ window.TRIP_DATA = {
       "One solo traveler; public transit and walking. Meals target$20, usual all-in ceiling$25; approved Proper Fish exception$29.18. Food/drink model uses18% pre-tax tip and applicable local tax. Retail/transit/admission have no automatic18% tip.",
       "Seattle restaurant tax modeled10.55%; Bainbridge9.2%; Oregon sales tax0. User checkout tax/fees override models. Untouched all-in allowances are not fresh menu quotes; their precise base/tax/tip splits remain unverified.",
       "Nov2–4: no daytime hotel breaks; return to Palihotel by8PM. Optional two-hour Uber hold12:45–2:45PM replaces market browsing; skip it to extend the market. No office appointment confirmed.",
-      "Cruise Nov3 2:45PM quote$59.79, two full-price modeled cocktails$41.14, separate unconfirmed First to Board allowance$20; voluntary guide funds$10. No beverage discount counted and no booking made.",
-      "Monorail $4 each way, $8 roundtrip; separate from bus/Link pass. Space Needle exterior is free; SpaceBase ticket-free entry/November shop hours unconfirmed. Souvenir purchases beyond existing allowances cost extra.",
-      "Nov8 waterfall tour retained with explicit departure/public-transit/weather gaps. Downtown–Troutdale connection is unpriced, so total is the priced plan, not a guaranteed complete final bill.",
-      "Planned spend cap remains$3050, separate from confirmed hotels$1074.96; paid airfare excluded from trip target. Budget categories reconcile to actual itinerary and online-order amounts; unspent cap is headroom, not an invented expense.",
+      "Cruise Nov3 final price $63.28 from Capital One Travel; charge pending Oct26. No separate boarding or onboard drink allowance.",
+      "ORCA regional day pass is $6 and covers $3 per ride; Monorail costs $4 each way, requiring $1 extra per ride with the pass. Ferry is separate.",
+      "Nov8 waterfall tour and Troutdale transfer removed from the plan.",
+      "Trip target includes food/drink, transportation, activities and shopping; confirmed hotels and paid airfare are excluded. Checkout-only purchases remain labeled planned.",
       "Two coffee bean bags maximum, one Seattle and one Portland, $60 combined target; no additional bean purchase implied by café tastings."
     ]
   },
@@ -29,7 +29,7 @@ window.TRIP_DATA = {
         "label": "Oct22 itinerary and budget revision",
         "checkedOn": "2026-10-22",
         "status": "material-update",
-        "note": "Seattle Nov2–4 updated Oct23: free Pike Place / Overlook Walk replaces Underground and Uber office; Zig Zag happy hour replaces Von’s. Argosy remains quoted, not booked. Other open items: cruise boarding inclusion, SpaceBase entry, Novel hours/menu, POINT Cannon Beach connection, and Nov8 Troutdale departure/transport."
+        "note": "Costs revised Oct26: Argosy $63.28 final price with pending card charge; two Zig Zag and two Toulouse cocktails; Gorge tour removed. Open items: SpaceBase entry, Novel hours/menu and POINT Cannon Beach connection."
       },
       {
         "id": "pre-trip-flight-transit",
@@ -48,7 +48,7 @@ window.TRIP_DATA = {
     ]
   },
   budget: {
-    dashboardAllowances: { "Food and drink": 775, "Transportation": 100, "Activities and admissions": 325 },
+    dashboardAllowances: { "Food and drink": 775 },
     "cap": 3050,
     "absoluteCeiling": 3050,
     "projectedTotal": 1977.46,
@@ -81,7 +81,7 @@ window.TRIP_DATA = {
       {
         "name": "Contingency",
         "amount": 10,
-        "note": "Explicit voluntary guide-tip allowances only; unspent cap headroom is not counted as an expense. Unpriced Troutdale connection excluded."
+        "note": "No guide-tip or extra activity allowance remains; unspent cap headroom is not an expense."
       }
     ]
   },
@@ -168,7 +168,10 @@ window.TRIP_DATA = {
             "amount": 91.42
           }
         ]
-      }
+      },
+      { "store": "Capital One non-Apple charges", "total": 206.55, "status": "charged or pending", "note": "Oct 19-26 statement purchases and member fee; Apple charges and payments excluded. Merchant details omitted from public data.", "items": [{ "amount": 206.55 }] },
+      { "store": "Retail order", "total": 61.27, "status": "placed", "note": "Oct 26 order confirmation; private product details omitted.", "items": [{ "amount": 61.27 }] },
+      { "store": "Amazon checkout", "total": 34.26, "status": "planned", "note": "Checkout quote only; order not yet placed. Private product details omitted.", "items": [{ "amount": 34.26 }] }
     ]
   },
   transit: [
@@ -353,8 +356,8 @@ window.TRIP_DATA = {
       "isoDate": "2026-11-01",
       "date": "Sun, Nov 1",
       "city": "Seattle",
-      "title": "Arrival, Palihotel check-in, H Mart + Target run, Pike Place Bar & Grill dinner, Waterfront Park",
-      "theme": "Arrival day -- 45-min customs buffer, hotel drop, grocery + Target run, dinner, waterfront evening",
+      "title": "Arrival, Palihotel check-in, H Mart dinner + Target run, Waterfront Park",
+      "theme": "Arrival day -- 45-min customs buffer, hotel drop, H Mart dinner + Target run, waterfront evening",
       "dayTotal": 115.22,
       "weatherPlan": "Keep arrival day calm and simple — focus on resting and light downtown orientation only.",
       "segments": [
@@ -368,9 +371,9 @@ window.TRIP_DATA = {
               "type": "transit",
               "neighborhood": "SEA Airport",
               "duration": "45 min",
-              "cost": 6,
+              "cost": 0,
               "notes": "Korean Air KE047 from ICN lands at 2:10 PM. Budgeting a full 45 min for passport control + baggage claim before heading to the Link platform.",
-              "detailText": "Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA).\nPurpose: 45-minute buffer for passport control and baggage claim -- international arrivals at SEA can run long, so this is the full allotment rather than the previous 25-minute estimate.\nEstimated cost: $6 for the airport-to-city transit leg (ORCA day-pass model, first ride of the day).\nTiming: Land 2:10 PM, leave the secure area by about 2:55 PM.",
+              "detailText": "Arrival transition block after landing in Seattle on Korean Air KE047 (ICN-SEA). Allow 45 minutes for passport control and baggage claim. Airport Link fare is excluded from this budget at the traveler's request; $0 here does not mean free transit.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=SEA+Airport%2C+Seattle%2C+WA&destination=Downtown+Seattle%2C+WA&travelmode=transit",
               "mapFrom": "SEA Airport, Seattle, WA",
               "mapTo": "Downtown Seattle, WA",
@@ -440,12 +443,12 @@ window.TRIP_DATA = {
               "image": "hmart-food-sample.jpg",
               "safetyScore": 85,
               "safetyNote": "🟢 85% · Generally safe -- busy daylight retail hours, cleaner 2nd Ave stretch",
-              "detailText": "Trivia: H Mart (\"Han Ah Reum,\" Korean for \"one arm full of groceries\") is the largest Korean-American grocery chain in the US, known for fresh produce, a huge banchan/ready-to-heat section, and an in-store food court in some locations -- this downtown Seattle location is grocery-focused.\nWhy this stop: Stock up on ready-to-heat food (rice bowls, dumplings, banchan, instant meals) to bring back to Palihotel as tonight's dinner, since Pike Place Chowder's ~4:30 PM close makes it unreachable on this timeline.\nORDER: A mix of ready-to-heat meals, snacks, and drinks (see reference photo).\nBudget: capped at $30 -- traveler-requested headroom, not a target. You likely won't spend the full amount, but the ready-to-heat spread can run up quickly.\nSafety note: Late-afternoon (~4:50-5:10 PM) on the 2nd Ave retail corridor is described in local reporting as one of the cleaner downtown stretches compared to the 3rd Ave corridor a block over, which is documented as the area with the most visible street-drug activity in the central city (KOMO News, Aug 2025). Standard awareness recommended; this stop is during busy daylight retail hours.",
+              "detailText": "H Mart dinner groceries, $30 planning allowance. Actual checkout may vary.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&destination=H+Mart%2C+1601+2nd+Ave%2C+Seattle%2C+WA+98101&travelmode=walking",
               "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "mapTo": "H Mart, 1601 2nd Ave, Seattle, WA 98101",
               "priceStatus": "retained all-in allowance / source detail not re-quoted",
-              "budgetCategory": "Shopping",
+              "budgetCategory": "Food",
               "routeMode": "walking"
             },
             {
@@ -474,12 +477,12 @@ window.TRIP_DATA = {
               "neighborhood": "Downtown Seattle",
               "location": "Target, 1401 2nd Ave, Seattle, WA 98101 (Seattle Pike Plaza)",
               "duration": "25 min",
-              "cost": 34.36,
+              "cost": 54.36,
               "website": "https://www.target.com/",
               "payment": "Cards accepted",
               "safetyScore": 85,
               "safetyNote": "🟢 85% · Generally safe -- same block as H Mart, busy early-evening retail hours",
-              "detailText": "Pickup order at Seattle Pike Plaza. Estimated total including Washington sales tax: $34.36.\nSafety note: Same downtown/Pike Plaza block as H Mart -- early evening, busy retail hours, no specific advisories found for this address.",
+              "detailText": "Target pickup $34.36 estimated with tax, plus a $20 planning allowance for one Truly Hard Seltzer 12-pack. Target lists a 12-pack at $16.99 before local tax; store availability and final checkout may vary. Combined shopping estimate: $54.36.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&destination=Target%2C+1401+2nd+Ave%2C+Seattle%2C+WA+98101&travelmode=walking",
               "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "mapTo": "Target, 1401 2nd Ave, Seattle, WA 98101",
@@ -487,40 +490,8 @@ window.TRIP_DATA = {
               "budgetCategory": "Shopping",
               "routeMode": "walking"
             },
-            {
-              "time": "5:45 PM",
-              "name": "Walk to Pike Place Bar & Grill",
-              "type": "walk",
-              "neighborhood": "Downtown / Pike Place",
-              "duration": "10 min",
-              "cost": 0,
-              "notes": "Short walk from Target to Pike Place Bar & Grill.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Target%2C+1401+2nd+Ave%2C+Seattle%2C+WA+98101&destination=Pike+Place+Bar+%26+Grill%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Target, 1401 2nd Ave, Seattle, WA 98101",
-              "mapTo": "Pike Place Bar & Grill, Seattle, WA",
-              "budgetCategory": "Food",
-              "routeMode": "walking"
-            },
-            {
-              "time": "6:00 PM",
-              "name": "Dinner at Pike Place Bar & Grill",
-              "type": "meal",
-              "neighborhood": "Pike Place",
-              "location": "Pike Place Bar & Grill",
-              "duration": "60 min",
-              "cost": 44.86,
-              "website": "https://www.eatatpikeplace.com/happy-hour",
-              "payment": "Cards accepted",
-              "safetyScore": 88,
-              "safetyNote": "🟢 88% · Generally safe -- busy, well-policed core tourist area",
-              "detailText": "Menu: https://www.eatatpikeplace.com/happy-hour\nORDER:\n- Grilled Chicken Burger (tomato, lettuce, creamy horseradish, sourdough) -- $14.95\n- Prickly-Pear Margarita (Cuervo Gold, triple sec, prickly-pear cactus puree, fresh lime sour, salt rim, on the rocks) -- $10.00\n- Fresca (Absolut Citron, muddled citrus, soda water, splash grapefruit juice) -- $10.00\nSubtotal: $34.95. Plus 10.35% WA/Seattle sales tax ($3.62) and 18% tip on the subtotal ($6.29) = est. total $44.86.\nSafety note: Pike Place itself is described as busy and well-policed daily (KOMO News, Aug 2025); early-evening dinner hour here is a core tourist area with heavy foot traffic.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Seattle tax modeled10.55% where applicable; actual checkout tax takes precedence.",
-              "priceStatus": "retained all-in allowance / source detail not re-quoted",
-              "budgetCategory": "Food",
-              "mapFrom": "Pike Place Bar & Grill",
-              "mapTo": "Pike Place Bar & Grill",
-              "routeMode": "walking",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Pike+Place+Bar+%26+Grill&destination=Pike+Place+Bar+%26+Grill&travelmode=walking"
-            },
+
+
             {
               "time": "7:00 PM",
               "name": "Waterfront Park",
@@ -534,8 +505,8 @@ window.TRIP_DATA = {
               "safetyScore": 65,
               "safetyNote": "🟡 65% · Use normal caution -- no specific night data found, less busy after dark, plan to leave before the 10 PM close",
               "detailText": "Trivia: Seattle's new Waterfront Park is the centerpiece of the ~$1.2B Waterfront Seattle redevelopment -- a ~20-acre string of public spaces from Pier 57 to Pier 62, including the Seattle Aquarium and Pier 62's floating dock and lawn (ASCE, Jan 2026).\nIMPORTANT -- posted hours: Pier 62 / Waterfront Park is posted open daily 7 AM-10 PM (seattle.gov / waterfrontparkseattle.org). Arriving right at 10 PM means the park will likely already be closing or closed -- go earlier in the evening (e.g. right after dinner, ~6:30-7:30 PM) to actually have time there before it shuts.\nSafety note (sourced, not a live feed): Seattle Parks & Rec's 2026 \"Summer of Safety\" initiative specifically calls out increased staffing/security, clearer signage, and lighting/sight-line improvements at high-use parks including the waterfront (Seattle Parks, May 2026); Seattle Center also states the park's operations prioritize clear sight lines and lighting as safety measures. No source found with a specific crime count or homelessness figure for Waterfront Park at night as of this writing -- that gap is stated here rather than guessed at. General downtown-Seattle guidance from multiple 2026 visitor-safety writeups: core tourist areas including the waterfront feel safe during the day and evening hours when busy; visible homelessness/drug activity downtown is common and generally not dangerous, but isolated/empty stretches after dark warrant normal city caution. Given the 10 PM close, plan to be there earlier while it's still lit, staffed, and populated rather than right at closing.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Pike+Place+Bar+%26+Grill%2C+Seattle%2C+WA&destination=Waterfront+Park%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Pike Place Bar & Grill, Seattle, WA",
+              "route": "https://www.google.com/maps/dir/?api=1&origin=Target%2C+1401+2nd+Ave%2C+Seattle%2C+WA&destination=Waterfront+Park%2C+Seattle%2C+WA&travelmode=walking",
+              "mapFrom": "Target, 1401 2nd Ave, Seattle, WA",
               "mapTo": "Waterfront Park, Seattle, WA",
               "budgetCategory": "Food",
               "routeMode": "walking"
@@ -770,12 +741,12 @@ window.TRIP_DATA = {
               "neighborhood": "Seattle",
               "location": "Starbucks, 1912 Pike Pl, Seattle, WA",
               "duration": "45 min",
-              "cost": 41,
+              "cost": 50,
               "budgetCategory": "Food",
               "website": "https://www.starbucks.com/store-locator",
               "menu": "https://www.starbucks.com/store-locator",
-              "notes": "Retained $41 all-in combined allowance for cold brew, one Seattle bean bag and city mug; exact current item/tax/tip split unverified. No second souvenir fund added. Do not treat the drink as $41.",
-              "detailText": "Retained $41 all-in combined allowance for cold brew, one Seattle bean bag and city mug; exact current item/tax/tip split unverified. No second souvenir fund added. Do not treat the drink as $41.",
+              "notes": "Combined $50 allowance: $6 coffee and $44 beans plus mug. Final checkout not confirmed.",
+              "detailText": "Combined $50 allowance: $6 coffee and $44 beans plus mug. Final checkout not confirmed.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Mee+Sum+Pastry%2C+1526+Pike+Pl%2C+Seattle%2C+WA&destination=Starbucks%2C+1912+Pike+Pl%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Mee Sum Pastry, 1526 Pike Pl, Seattle, WA",
               "mapTo": "Starbucks, 1912 Pike Pl, Seattle, WA",
@@ -789,11 +760,11 @@ window.TRIP_DATA = {
               "budgetParts": [
                 {
                   "category": "Food",
-                  "amount": 5
+                  "amount": 6
                 },
                 {
                   "category": "Shopping",
-                  "amount": 36
+                  "amount": 44
                 }
               ]
             },
@@ -891,6 +862,7 @@ window.TRIP_DATA = {
               "route": "https://www.google.com/maps/dir/?api=1&origin=Pike+Place+Market%2C+85+Pike+St%2C+Seattle%2C+WA&destination=Overlook+Walk%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Pike Place Market, 85 Pike St, Seattle, WA",
               "mapTo": "Overlook Walk, Seattle, WA",
+              "coordinates": { "lat": 47.6089, "lng": -122.3427, "label": "Overlook Walk (approximate)" },
               "routeMode": "walking",
               "priceStatus": "free / no purchase budgeted"
             },
@@ -911,6 +883,7 @@ window.TRIP_DATA = {
               "route": "https://www.google.com/maps/dir/?api=1&origin=Overlook+Walk%2C+Seattle%2C+WA&destination=Overlook+Walk%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Overlook Walk, Seattle, WA",
               "mapTo": "Overlook Walk, Seattle, WA",
+              "coordinates": { "lat": 47.6089, "lng": -122.3427, "label": "Overlook Walk (approximate)" },
               "routeMode": "walking",
               "priceStatus": "free / no purchase budgeted"
             },
@@ -998,12 +971,12 @@ window.TRIP_DATA = {
               "neighborhood": "Seattle",
               "location": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "duration": "35 min",
-              "cost": 14.71,
+              "cost": 29.42,
               "budgetCategory": "Cocktails and social",
               "website": "https://zigzagseattle.com/menu/happy-hour/",
               "menu": "https://zigzagseattle.com/menu/happy-hour/",
-              "notes": "Monday–Friday5–6PM happy hour; select cocktails$11. Menu adds a21% service charge retained by the cafe. Estimated Seattle tax$1.40 on $13.31 subtotal=$14.71; no extra gratuity budgeted. 21+ only; entrance is down the Pike Street Hill Climb stairs. Walk-in/reservation availability unconfirmed.\nOrder: one happy-hour cocktail, menu price$11.00; mandatory service charge$2.31; modeled tax$1.40; estimated total$14.71. Not booked.",
-              "detailText": "Monday–Friday5–6PM happy hour; select cocktails$11. Menu adds a21% service charge retained by the cafe. Estimated Seattle tax$1.40 on $13.31 subtotal=$14.71; no extra gratuity budgeted. 21+ only; entrance is down the Pike Street Hill Climb stairs. Walk-in/reservation availability unconfirmed.\nOrder: one happy-hour cocktail, menu price$11.00; mandatory service charge$2.31; modeled tax$1.40; estimated total$14.71. Not booked.",
+              "notes": "Two $11 happy-hour cocktails: $22 base + $4.62 mandatory 21% service charge + $2.80 modeled tax = $29.42. No extra gratuity budgeted. Monday-Friday 5-6 PM; availability not confirmed.",
+              "detailText": "Two $11 happy-hour cocktails: $22 base + $4.62 mandatory 21% service charge + $2.80 modeled tax = $29.42. No extra gratuity budgeted. Monday-Friday 5-6 PM; availability not confirmed.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Zig+Zag+Cafe%2C+1501+Western+Ave%2C+Seattle%2C+WA&destination=Zig+Zag+Cafe%2C+1501+Western+Ave%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
               "mapTo": "Zig Zag Cafe, 1501 Western Ave, Seattle, WA",
@@ -1561,7 +1534,7 @@ window.TRIP_DATA = {
               "time": "1:50 PM",
               "leaveTime": "2:15 PM",
               "endTime": "2:15 PM",
-              "name": "Walk to Pier 55 + priority queue",
+              "name": "Walk to Pier 55 + boarding queue",
               "type": "walk",
               "neighborhood": "Seattle",
               "location": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
@@ -1569,8 +1542,8 @@ window.TRIP_DATA = {
               "cost": 0,
               "budgetCategory": "Food",
               "website": "https://www.argosycruises.com/argosy-cruises/harbor-cruise/",
-              "notes": "1101 Alaskan Way. Arrive by 2:15 PM for requested First to Board; exact early-arrival rule and add-on need confirmation.",
-              "detailText": "1101 Alaskan Way. Arrive by 2:15 PM for requested First to Board; exact early-arrival rule and add-on need confirmation.",
+              "notes": "Arrive early for standard boarding. No separate boarding add-on budgeted.",
+              "detailText": "Arrive early for standard boarding. No separate boarding add-on budgeted.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Seattle+Ferry+Terminal%2C+801+Alaskan+Way%2C+Seattle%2C+WA&destination=Argosy+Cruises+Pier+55%2C+1101+Alaskan+Way%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Seattle Ferry Terminal, 801 Alaskan Way, Seattle, WA",
               "mapTo": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
@@ -1582,46 +1555,22 @@ window.TRIP_DATA = {
               },
               "priceStatus": "free / no purchase budgeted"
             },
-            {
-              "time": "2:15 PM",
-              "leaveTime": "2:45 PM",
-              "endTime": "2:45 PM",
-              "name": "First to Board / indoor seat",
-              "type": "walk",
-              "neighborhood": "Seattle",
-              "location": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
-              "duration": "30 min",
-              "cost": 20,
-              "budgetCategory": "Entrance fees",
-              "website": "https://www.argosycruises.com/argosy-cruises/harbor-cruise/",
-              "notes": "Covered waiting area with paid add-on. Boarding begins around 20 minutes before departure; first access is not a reserved window seat.\nSeparate $20 First to Board allowance; inclusion in$59.79 quote remains unconfirmed. Priority boarding does not guarantee a window seat.",
-              "detailText": "Covered waiting area with paid add-on. Boarding begins around 20 minutes before departure; first access is not a reserved window seat.\nSeparate $20 First to Board allowance; inclusion in$59.79 quote remains unconfirmed. Priority boarding does not guarantee a window seat.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Argosy+Cruises+Pier+55%2C+1101+Alaskan+Way%2C+Seattle%2C+WA&destination=Argosy+Cruises+Pier+55%2C+1101+Alaskan+Way%2C+Seattle%2C+WA&travelmode=walking",
-              "mapFrom": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
-              "mapTo": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
-              "routeMode": "walking",
-              "coordinates": {
-                "lat": 47.6047,
-                "lng": -122.3399,
-                "label": "Argosy Cruises Pier 55"
-              },
-              "priceStatus": "quoted / modeled"
-            },
+
             {
               "time": "2:45 PM",
               "leaveTime": "3:45 PM",
               "endTime": "3:45 PM",
-              "name": "Argosy Harbor Cruise · two cocktails",
+              "name": "Argosy Harbor Cruise",
               "type": "activity",
               "neighborhood": "Seattle",
               "location": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
               "duration": "60 min",
-              "cost": 105.93,
+              "cost": 63.28,
               "budgetCategory": "Entrance fees",
               "website": "https://www.argosycruises.com/argosy-cruises/harbor-cruise/",
               "menu": "https://www.argosycruises.com/menu/",
-              "notes": "Tuesday Nov3,2:45–3:45 PM. Screenshot ticket quote$52+$7.79 taxes/fees=$59.79. Two full-price modeled$16 cocktails: each$1.69 tax+$2.88 tip=$20.57; two=$41.14. No unconfirmed beverage discount counted. Voluntary guide-tip fund$5. Total this block$105.93; separate$20 boarding allowance above. Quoted, not booked; November bar price unconfirmed. Indoor seating available; docks/transfers may be rainy.\nMenu: https://www.argosycruises.com/menu/",
-              "detailText": "Tuesday Nov3,2:45–3:45 PM. Screenshot ticket quote$52+$7.79 taxes/fees=$59.79. Two full-price modeled$16 cocktails: each$1.69 tax+$2.88 tip=$20.57; two=$41.14. No unconfirmed beverage discount counted. Voluntary guide-tip fund$5. Total this block$105.93; separate$20 boarding allowance above. Quoted, not booked; November bar price unconfirmed. Indoor seating available; docks/transfers may be rainy.\nMenu: https://www.argosycruises.com/menu/",
+              "notes": "Final cruise price $63.28 supplied by traveler; Capital One Travel charge pending on October 26 statement. No separate boarding, onboard cocktails, or guide fund budgeted.",
+              "detailText": "Final cruise price $63.28 supplied by traveler; Capital One Travel charge pending on October 26 statement. No separate boarding, onboard cocktails, or guide fund budgeted.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Argosy+Cruises+Pier+55%2C+1101+Alaskan+Way%2C+Seattle%2C+WA&destination=Argosy+Cruises+Pier+55%2C+1101+Alaskan+Way%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
               "mapTo": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
@@ -1631,21 +1580,7 @@ window.TRIP_DATA = {
                 "lng": -122.3399,
                 "label": "Argosy Cruises Pier 55"
               },
-              "priceStatus": "quoted / modeled",
-              "budgetParts": [
-                {
-                  "category": "Entrance fees",
-                  "amount": 59.79
-                },
-                {
-                  "category": "Cocktails and social",
-                  "amount": 41.14
-                },
-                {
-                  "category": "Contingency",
-                  "amount": 5
-                }
-              ]
+              "priceStatus": "final price; Capital One charge pending Oct 26"
             },
             {
               "time": "3:45 PM",
@@ -1681,11 +1616,11 @@ window.TRIP_DATA = {
               "neighborhood": "Seattle",
               "location": "Rhein Haus, 912 12th Ave, Seattle, WA",
               "duration": "50 min",
-              "cost": 6,
+              "cost": 0,
               "budgetCategory": "Transportation",
               "website": "https://www.rheinhausseattle.com/menu-happy-hour",
-              "notes": "912 12th Ave. 50-minute planning allowance including walk from waterfront to station, train and Capitol Hill walk.",
-              "detailText": "912 12th Ave. 50-minute planning allowance including walk from waterfront to station, train and Capitol Hill walk.",
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
+              "detailText": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Argosy+Cruises+Pier+55%2C+1101+Alaskan+Way%2C+Seattle%2C+WA&destination=Rhein+Haus%2C+912+12th+Ave%2C+Seattle%2C+WA&travelmode=transit",
               "mapFrom": "Argosy Cruises Pier 55, 1101 Alaskan Way, Seattle, WA",
               "mapTo": "Rhein Haus, 912 12th Ave, Seattle, WA",
@@ -1921,11 +1856,11 @@ window.TRIP_DATA = {
               "neighborhood": "Seattle",
               "location": "Anchorhead Coffee, 1115 12th Ave, Seattle, WA",
               "duration": "40 min",
-              "cost": 12,
+              "cost": 0,
               "budgetCategory": "Transportation",
               "website": "https://www.google.com/maps/search/?api=1&query=Anchorhead+Coffee%2C+1115+12th+Ave%2C+Seattle%2C+WA",
-              "notes": "Breakfast from Nov 1 groceries; optional pastry purchase not included.\nConservative bus/Link allowance$12: regional day pass$6 plus$6 headroom. Buy the pass explicitly; ORCA e-purse is not an automatic daily cap. Monorail is extra.",
-              "detailText": "Breakfast from Nov 1 groceries; optional pastry purchase not included.\nConservative bus/Link allowance$12: regional day pass$6 plus$6 headroom. Buy the pass explicitly; ORCA e-purse is not an automatic daily cap. Monorail is extra.",
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
+              "detailText": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Palihotel+Seattle%2C+107+Pine+St%2C+Seattle%2C+WA+98101&destination=Anchorhead+Coffee%2C+1115+12th+Ave%2C+Seattle%2C+WA&travelmode=transit",
               "mapFrom": "Palihotel Seattle, 107 Pine St, Seattle, WA 98101",
               "mapTo": "Anchorhead Coffee, 1115 12th Ave, Seattle, WA",
@@ -1992,17 +1927,17 @@ window.TRIP_DATA = {
               "time": "10:15 AM",
               "leaveTime": "11:15 AM",
               "endTime": "11:15 AM",
-              "name": "Phê · matcha + bánh mì",
+              "name": "Phê · matcha",
               "type": "coffee",
               "neighborhood": "Seattle",
               "location": "Phê, 721 E Pine St, Seattle, WA",
               "duration": "60 min",
-              "cost": 23.78,
+              "cost": 9.64,
               "budgetCategory": "Food",
               "website": "https://www.toasttab.com/local/order/phe-yet/",
               "menu": "https://www.toasttab.com/local/order/phe-yet/",
-              "notes": "721 E Pine St. Basic matcha $7.50 + bánh mì $11 = $18.50 + $1.95 tax + $3.33 tip = $23.78. One café meal under $25. Other drinks shown separately, not additional included purchases.\nOrder: Basic matcha latte + bánh mì. Base $18.50; other fee $0.00; tax $1.95; 18% pre-tax tip $3.33; total $23.78. Merchant ordering menu. Matcha $7.50 + bánh mì $11. Weekdays 8 AM–4 PM; pickup/dine-in parity unconfirmed.",
-              "detailText": "721 E Pine St. Basic matcha $7.50 + bánh mì $11 = $18.50 + $1.95 tax + $3.33 tip = $23.78. One café meal under $25. Other drinks shown separately, not additional included purchases.\nOrder: Basic matcha latte + bánh mì. Base $18.50; other fee $0.00; tax $1.95; 18% pre-tax tip $3.33; total $23.78. Merchant ordering menu. Matcha $7.50 + bánh mì $11. Weekdays 8 AM–4 PM; pickup/dine-in parity unconfirmed.",
+              "notes": "Basic matcha $7.50 + $0.79 modeled Seattle tax + $1.35 modeled tip = $9.64. No bánh mì budgeted.",
+              "detailText": "Basic matcha $7.50 + $0.79 modeled Seattle tax + $1.35 modeled tip = $9.64. No bánh mì budgeted.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Ph%C3%AA%2C+721+E+Pine+St%2C+Seattle%2C+WA&destination=Ph%C3%AA%2C+721+E+Pine+St%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Phê, 721 E Pine St, Seattle, WA",
               "mapTo": "Phê, 721 E Pine St, Seattle, WA",
@@ -2149,11 +2084,11 @@ window.TRIP_DATA = {
               "neighborhood": "Seattle",
               "location": "Seattle Center Monorail Station, 370 Thomas St, Seattle, WA",
               "duration": "15 min",
-              "cost": 4,
+              "cost": 0,
               "budgetCategory": "Transportation",
               "website": "https://www.seattlemonorail.com/buy-tickets-to-ride-with-us/",
-              "notes": "370 Thomas St arrival; about 2 minutes aboard, normally every 8–10 minutes. Window includes faregate/waiting. Adult $4 one way; $8 round trip budgeted separately from bus/Link allowance.",
-              "detailText": "370 Thomas St arrival; about 2 minutes aboard, normally every 8–10 minutes. Window includes faregate/waiting. Adult $4 one way; $8 round trip budgeted separately from bus/Link allowance.",
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
+              "detailText": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Westlake+Center+Monorail+Station%2C+400+Pine+St%2C+third+floor%2C+Seattle%2C+WA&destination=Seattle+Center+Monorail+Station%2C+370+Thomas+St%2C+Seattle%2C+WA&travelmode=transit",
               "mapFrom": "Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA",
               "mapTo": "Seattle Center Monorail Station, 370 Thomas St, Seattle, WA",
@@ -2269,17 +2204,17 @@ window.TRIP_DATA = {
               "time": "5:20 PM",
               "leaveTime": "6:00 PM",
               "endTime": "6:00 PM",
-              "name": "Toulouse Petit · cocktail",
+              "name": "Toulouse Petit · two cocktails",
               "type": "cocktails",
               "neighborhood": "Seattle",
               "location": "Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA",
               "duration": "40 min",
-              "cost": 14.14,
+              "cost": 28.28,
               "budgetCategory": "Cocktails and social",
               "website": "https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf",
               "menu": "https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf",
-              "notes": "601 Queen Anne Ave N. Rosemary Collins $11 + $1.16 tax + $1.98 tip = $14.14. Current linked HH menu; lounge/bar, before 6 PM. Seat/inventory not guaranteed.\nOrder: Rosemary Collins · current happy-hour menu. Base $11.00; other fee $0.00; tax $1.16; 18% pre-tax tip $1.98; total $14.14. Currently linked June 2026 menu: $11. Target 5:20 PM before 6 PM cutoff; lounge/bar seating, availability unconfirmed.",
-              "detailText": "601 Queen Anne Ave N. Rosemary Collins $11 + $1.16 tax + $1.98 tip = $14.14. Current linked HH menu; lounge/bar, before 6 PM. Seat/inventory not guaranteed.\nOrder: Rosemary Collins · current happy-hour menu. Base $11.00; other fee $0.00; tax $1.16; 18% pre-tax tip $1.98; total $14.14. Currently linked June 2026 menu: $11. Target 5:20 PM before 6 PM cutoff; lounge/bar seating, availability unconfirmed.",
+              "notes": "Two $11 happy-hour Rosemary Collins cocktails: $22 base + $2.32 modeled Seattle tax + $3.96 modeled tip = $28.28. Target 5:20 PM before 6 PM cutoff; availability unconfirmed.",
+              "detailText": "Two $11 happy-hour Rosemary Collins cocktails: $22 base + $2.32 modeled Seattle tax + $3.96 modeled tip = $28.28. Target 5:20 PM before 6 PM cutoff; availability unconfirmed.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Toulouse+Petit%2C+601+Queen+Anne+Ave+N%2C+Seattle%2C+WA&destination=Toulouse+Petit%2C+601+Queen+Anne+Ave+N%2C+Seattle%2C+WA&travelmode=walking",
               "mapFrom": "Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA",
               "mapTo": "Toulouse Petit, 601 Queen Anne Ave N, Seattle, WA",
@@ -2351,11 +2286,11 @@ window.TRIP_DATA = {
               "neighborhood": "Seattle",
               "location": "Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA",
               "duration": "15 min",
-              "cost": 4,
+              "cost": 8,
               "budgetCategory": "Transportation",
               "website": "https://www.seattlemonorail.com/buy-tickets-to-ride-with-us/",
-              "notes": "Return ride $4, included in $8 round-trip fare. Normally every 8–10 minutes; current Nov 4 event schedule runs until 11 PM. Event queues possible; depart earlier if needed.",
-              "detailText": "Return ride $4, included in $8 round-trip fare. Normally every 8–10 minutes; current Nov 4 event schedule runs until 11 PM. Event queues possible; depart earlier if needed.",
+              "notes": "November 4 Seattle transit model: $6 ORCA regional day pass covers buses and Link up to $3 per ride; two Monorail rides add $1 each from ORCA E-purse, $8 total. Buy the pass explicitly; cash-value taps do not auto-cap.",
+              "detailText": "November 4 Seattle transit model: $6 ORCA regional day pass covers buses and Link up to $3 per ride; two Monorail rides add $1 each from ORCA E-purse, $8 total. Buy the pass explicitly; cash-value taps do not auto-cap.",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Seattle+Center+Monorail+Station%2C+370+Thomas+St%2C+Seattle%2C+WA&destination=Westlake+Center+Monorail+Station%2C+400+Pine+St%2C+third+floor%2C+Seattle%2C+WA&travelmode=transit",
               "mapFrom": "Seattle Center Monorail Station, 370 Thomas St, Seattle, WA",
               "mapTo": "Westlake Center Monorail Station, 400 Pine St, third floor, Seattle, WA",
@@ -2365,7 +2300,7 @@ window.TRIP_DATA = {
                 "lng": -122.3365,
                 "label": "Westlake Center Monorail Station"
               },
-              "priceStatus": "quoted / modeled"
+              "priceStatus": "modeled pass and Monorail top-ups"
             },
             {
               "time": "7:25 PM",
@@ -2525,8 +2460,8 @@ window.TRIP_DATA = {
               "type": "transit",
               "neighborhood": "Union Station -> Hotel Vance",
               "duration": "35 min",
-              "cost": 6,
-              "notes": "First TriMet-system ride in Portland on Day 5 -- flat $6 day-pass charge.",
+              "cost": 0,
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "priceStatus": "retained all-in allowance / source detail not re-quoted",
               "budgetCategory": "Transportation",
               "mapFrom": "Union Station -> Hotel Vance",
@@ -2672,8 +2607,8 @@ window.TRIP_DATA = {
               "type": "transit",
               "neighborhood": "Hotel Vance -> Union Station",
               "duration": "20 min",
-              "cost": 6,
-              "notes": "Walk or MAX to Union Station (800 NW 6th Ave). First TriMet-system ride of Day 6 -- flat $6 day-pass charge.",
+              "cost": 0,
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "priceStatus": "retained all-in allowance / source detail not re-quoted",
               "budgetCategory": "Transportation",
               "mapFrom": "Hotel Vance -> Union Station",
@@ -2803,7 +2738,7 @@ window.TRIP_DATA = {
               "neighborhood": "Union Station -> Hotel Vance",
               "duration": "20 min",
               "cost": 0,
-              "notes": "Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.",
+              "notes": "Return transfer fare not included in this budget at traveler request.",
               "budgetCategory": "Transportation",
               "mapFrom": "Union Station -> Hotel Vance",
               "mapTo": "Union Station -> Hotel Vance",
@@ -3043,90 +2978,42 @@ window.TRIP_DATA = {
       "isoDate": "2026-11-08",
       "date": "Sun, Nov 8",
       "city": "Portland",
-      "title": "Columbia River Gorge waterfall tour + Cartopia food carts",
-      "theme": "Waterfall shuttle tour, late food carts, and easy recovery before flight day",
+      "title": "Easy Portland morning + Cartopia food carts",
+      "theme": "Open Portland morning, late food carts, and easy recovery before flight day",
       "dayTotal": 138.54,
-      "weatherPlan": "Waterfall stops are outdoors with rain and spray possible. Retained at your request; 10:30 AM departure and public-transit connection to Troutdale need confirmation. Unpriced transfer excluded from budget.",
+      "weatherPlan": "Keep the morning flexible; Cartopia is the only planned afternoon stop.",
       "segments": [
         {
           "label": "Morning",
           "items": [
             {
               "time": "8:00 AM",
-              "name": "Wake + prep for waterfall tour",
+              "name": "Wake + open Portland morning",
               "type": "rest",
               "neighborhood": "Hotel Vance Portland",
               "duration": "60 min",
               "cost": 0,
-              "notes": "Earlier start for the 10:30 AM Columbia River Gorge Waterfall Shuttle Tour.",
+              "notes": "No paid tour planned. Keep the morning open before Cartopia.",
               "budgetCategory": "Food",
               "mapFrom": "Hotel Vance Portland",
               "mapTo": "Hotel Vance Portland",
               "routeMode": "walking",
               "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance+Portland&destination=Hotel+Vance+Portland&travelmode=walking"
-            },
-            {
-              "time": "9:00 AM",
-              "name": "Travel to Sasquatch Adventures + tour check-in",
-              "type": "transit",
-              "neighborhood": "Portland -> Columbia River Gorge",
-              "duration": "90 min",
-              "cost": 0,
-              "notes": "Arrive 15 minutes early to check in and look around at the Sasquatch Adventures store before the 10:30 AM tour.\nNEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance%2C+1455+SW+Broadway%2C+Portland%2C+OR&destination=Sasquatch+Adventures+Store%2C+450+NW+257th+Way+%23352%2C+Troutdale%2C+OR+97060&travelmode=transit",
-              "mapFrom": "Hotel Vance, 1455 SW Broadway, Portland, OR",
-              "mapTo": "Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060",
-              "location": "Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060",
-              "routeMode": "transit",
-              "detailText": "Arrive 15 minutes early to check in and look around at the Sasquatch Adventures store before the 10:30 AM tour.\nNEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.",
-              "budgetCategory": "Transportation"
-            },
-            {
-              "time": "10:30 AM",
-              "name": "Columbia River Gorge Waterfall Shuttle Tour",
-              "type": "activity",
-              "neighborhood": "Columbia River Gorge",
-              "location": "Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060",
-              "duration": "2.5 hrs",
-              "cost": 82.54,
-              "website": "https://sasquatchshuttle.com/waterfall-tour/",
-              "payment": "Paid booking -- total $82.54",
-              "detailText": "Waterfall shuttle tour moved to Nov 8, 2026 at 10:30 AM so Nov 7 stays focused on Portland Saturday Market.\nAccessible site: https://sasquatchshuttle.com/waterfall-tour/\nTitle: Columbia River Gorge Waterfall Shuttle Tour.\nReceipt total: $82.54, including Adult (12 & Up) ticket $79.00, Trailkeepers of Oregon Donation $2.00, and taxes/fees.\nTour format: narrated shuttle through the Columbia River Gorge Waterfall Corridor, small-group maximum 20 guests, with expert narration and stops at must-see Gorge attractions. Expect about 15 minutes at each stop except Multnomah Falls.\nHighlights: Multnomah Falls, Gorge history and nature, 250+ five-star-review positioning, dog-friendly operator, and 20% off at the Sasquatch Adventures store.\nCancellation: free cancellation up to 48 hours in advance for a full refund.\nImportant: arrive 15 minutes early for check-in. Activity copy also mentions peak-season 8:30 AM and 2:30 PM departures; itinerary uses the traveler-requested 10:30 AM time and Nov 8 placement.\nNEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Hotel+Vance%2C+1455+SW+Broadway%2C+Portland%2C+OR&destination=Sasquatch+Adventures+Store%2C+450+NW+257th+Way+%23352%2C+Troutdale%2C+OR+97060&travelmode=transit",
-              "mapFrom": "Hotel Vance, 1455 SW Broadway, Portland, OR",
-              "mapTo": "Sasquatch Adventures Store, 450 NW 257th Way #352, Troutdale, OR 97060",
-              "routeMode": "transit",
-              "notes": "Waterfall shuttle tour moved to Nov 8, 2026 at 10:30 AM so Nov 7 stays focused on Portland Saturday Market.\nAccessible site: https://sasquatchshuttle.com/waterfall-tour/\nTitle: Columbia River Gorge Waterfall Shuttle Tour.\nReceipt total: $82.54, including Adult (12 & Up) ticket $79.00, Trailkeepers of Oregon Donation $2.00, and taxes/fees.\nTour format: narrated shuttle through the Columbia River Gorge Waterfall Corridor, small-group maximum 20 guests, with expert narration and stops at must-see Gorge attractions. Expect about 15 minutes at each stop except Multnomah Falls.\nHighlights: Multnomah Falls, Gorge history and nature, 250+ five-star-review positioning, dog-friendly operator, and 20% off at the Sasquatch Adventures store.\nCancellation: free cancellation up to 48 hours in advance for a full refund.\nImportant: arrive 15 minutes early for check-in. Activity copy also mentions peak-season 8:30 AM and 2:30 PM departures; itinerary uses the traveler-requested 10:30 AM time and Nov 8 placement.\nNEEDS CONFIRMATION: retained at user request Oct22. Operator meeting point is Troutdale, not downtown. Published departures8:30AM/2:30PM conflict with retained10:30AM time. Downtown-to-Troutdale transit connection and cost are unresolved and excluded from current priced total; $0 transfer does not mean free service. Waterfall stops are outdoors with rain/spray risk. Confirm dated ticket and public-transit access before relying on this day. No tour cancelled.",
-              "priceStatus": "retained all-in allowance / source detail not re-quoted",
-              "budgetCategory": "Entrance fees"
             }
           ]
         },
         {
           "label": "Daytime",
           "items": [
-            {
-              "time": "1:00 PM",
-              "name": "Return from waterfall tour",
-              "type": "transit",
-              "neighborhood": "Columbia River Gorge -> Portland",
-              "duration": "75 min",
-              "cost": 0,
-              "notes": "Return buffer after the 2.5-hour narrated shuttle tour.",
-              "budgetCategory": "Transportation",
-              "mapFrom": "Columbia River Gorge -> Portland",
-              "mapTo": "Columbia River Gorge -> Portland",
-              "routeMode": "transit",
-              "route": "https://www.google.com/maps/dir/?api=1&origin=Columbia+River+Gorge+-%3E+Portland&destination=Columbia+River+Gorge+-%3E+Portland&travelmode=transit"
-            },
+
             {
               "time": "2:15 PM",
               "name": "Transit to Cartopia food carts",
               "type": "transit",
               "neighborhood": "Hotel Vance -> SE Hawthorne (Cartopia)",
               "duration": "20 min",
-              "cost": 6,
-              "notes": "Short trip out for a late Cartopia visit. First TriMet-system ride of Day 8 -- flat $6 day-pass charge.",
+              "cost": 0,
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "priceStatus": "retained all-in allowance / source detail not re-quoted",
               "budgetCategory": "Transportation",
               "mapFrom": "Hotel Vance -> SE Hawthorne (Cartopia)",
@@ -3144,7 +3031,7 @@ window.TRIP_DATA = {
               "cost": 50,
               "website": "https://www.cartopiapdx.com/carts",
               "payment": "Cash preferred",
-              "detailText": "Portland's largest food cart cluster, visited after the waterfall tour.\nCart directory: https://www.cartopiapdx.com/carts\nORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.",
+              "detailText": "Portland food cart visit after an open morning.\nCart directory: https://www.cartopiapdx.com/carts\nORDER: Bing Mi (Potato Champion's poutine cart neighbor) or Pyro Pizza's wood-fired pizza by the slice, plus a BKK pad thai order from Bing Bing if you want to split two carts.\nEstimated cost: $50.\nPayment: Bring cash; not all carts accept cards.\nCost basis: retained all-in allowance, including provision for18% pre-tax food/drink tip; exact current item/base/tip split unverified. Oregon sales tax$0.",
               "priceStatus": "retained all-in allowance / source detail not re-quoted",
               "budgetCategory": "Food",
               "mapFrom": "Cartopia Food Carts, 1207 SE Hawthorne Blvd, Portland, OR 97214",
@@ -3164,7 +3051,7 @@ window.TRIP_DATA = {
               "neighborhood": "SE Hawthorne -> Hotel Vance",
               "duration": "20 min",
               "cost": 0,
-              "notes": "Return transfer. Cost $0 -- covered by the day's $6 TriMet pass.",
+              "notes": "Return transfer fare not included in this budget at traveler request.",
               "budgetCategory": "Transportation",
               "mapFrom": "SE Hawthorne -> Hotel Vance",
               "mapTo": "SE Hawthorne -> Hotel Vance",
@@ -3274,8 +3161,8 @@ window.TRIP_DATA = {
               "type": "transit",
               "neighborhood": "Downtown Portland",
               "duration": "60 min",
-              "cost": 6,
-              "notes": "Short final MAX/transit loop. First (and only) TriMet-system ride of Day 9 -- flat $6 day-pass charge. Morning shifted 55 min earlier (Aug 15, 2026) to fit the 3 hr PDX arrival buffer without overlap.",
+              "cost": 0,
+              "notes": "Fare removed from this item at traveler request; travel step remains in the itinerary.",
               "priceStatus": "retained all-in allowance / source detail not re-quoted",
               "budgetCategory": "Transportation",
               "mapFrom": "Downtown Portland",
@@ -3290,7 +3177,7 @@ window.TRIP_DATA = {
               "neighborhood": "Hotel Vance -> PDX",
               "duration": "29 min",
               "cost": 0,
-              "notes": "Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Cost $0 -- covered by the day's $6 TriMet pass (claimed by the earlier final transit loop).",
+              "notes": "Leave the hotel by about 11:05 AM to be inside PDX by 11:34 AM, a 3 hr buffer ahead of the 2:34 PM domestic departure. Airport fare omitted from this budget at traveler request; $0 does not mean free transit.",
               "budgetCategory": "Transportation",
               "mapFrom": "Hotel Vance -> PDX",
               "mapTo": "Hotel Vance -> PDX",
@@ -3485,15 +3372,9 @@ window.TRIP_DATA = {
     "reservations": [
       {
         "name": "Argosy Harbor Cruise",
-        "status": "Quoted, not booked",
-        "note": "Nov3 2:45PM,$59.79 screenshot quote; First to Board inclusion unresolved. Separate$20 allowance.",
+        "status": "Final price; card charge pending",
+        "note": "Nov 3 cruise $63.28 final price supplied by traveler; Capital One Travel charge pending Oct 26. No boarding add-on or onboard drinks included.",
         "link": "https://www.argosycruises.com/argosy-cruises/harbor-cruise/"
-      },
-      {
-        "name": "Sasquatch waterfall tour",
-        "status": "Needs confirmation",
-        "note": "Retained Nov8;10:30AM conflicts with operator departures; Troutdale transfer unpriced.",
-        "link": "https://sasquatchshuttle.com/waterfall-tour/"
       }
     ],
     "photoOps": [
@@ -3539,7 +3420,7 @@ window.TRIP_DATA = {
         "name": "Toulouse Petit",
         "city": "Seattle",
         "deal": "Currently linked June 2026 menu: $11. Target 5:20 PM before 6 PM cutoff; lounge/bar seating, availability unconfirmed.",
-        "drink": "Order: Rosemary Collins · current happy-hour menu. Base $11.00; other fee $0.00; tax $1.16; 18% pre-tax tip $1.98; total $14.14. Currently linked June 2026 menu: $11. Target 5:20 PM before 6 PM cutoff; lounge/bar seating, availability unconfirmed.",
+        "drink": "Two Rosemary Collins cocktails: $22 base, $2.32 modeled tax, $3.96 modeled tip, $28.28 estimated total. Target 5:20 PM before 6 PM cutoff; availability unconfirmed.",
         "link": "https://www.toulousepetit.com/wp-content/uploads/2026/06/HH-Menu-Beverage-Summer-5.24.26.pdf"
       },
       {
@@ -3553,7 +3434,7 @@ window.TRIP_DATA = {
         "name": "Zig Zag Cafe · Monday",
         "city": "Seattle",
         "deal": "Official menu lists select Monday–Friday happy-hour cocktails at $11 from 5–6 PM. A 21% service charge is added to the bill and retained by the cafe.",
-        "drink": "One $11 cocktail plus the 21% service charge and modeled Seattle tax: estimated $14.71; no extra gratuity budgeted. 21+ only; the entrance is on the Pike Street Hill Climb behind Pike Place Market.",
+        "drink": "Two $11 cocktails plus a 21% service charge and modeled Seattle tax: estimated $29.42; no extra gratuity budgeted.",
         "link": "https://zigzagseattle.com/menu/happy-hour/"
       },
       {
@@ -3599,9 +3480,9 @@ window.TRIP_DATA = {
         "name": "Phê",
         "city": "Seattle",
         "day": "Day4",
-        "buy": "Basic matcha latte + bánh mì",
+        "buy": "Basic matcha latte only",
         "roast": "721 E Pine St",
-        "budget": "$23.78 tax +18% tip included; Merchant ordering menu. Matcha $7.50 + bánh mì $11. Weekdays 8 AM–4 PM; pickup/dine-in parity unconfirmed.",
+        "budget": "$9.64 estimated with modeled tax and 18% tip. Matcha base $7.50; no bánh mì.",
         "link": "https://www.toasttab.com/local/order/phe-yet/"
       },
       {
@@ -3619,7 +3500,7 @@ window.TRIP_DATA = {
         "day": "Day2",
         "buy": "One bean bag, city mug, cold brew",
         "roast": "1912 Pike Pl",
-        "budget": "Retained$41 combined allowance; not a$15–18 mug+beans quote.",
+        "budget": "$50 combined allowance: $6 coffee and $44 beans/mug.",
         "link": "https://www.starbucks.com/store-locator"
       },
       {
@@ -3851,7 +3732,7 @@ window.TRIP_DATA = {
   for (const category of tripData.budget.categories) {
     category.amount = (totals[category.name] || 0) / 100;
     category.note = category.name === 'Contingency'
-      ? 'Explicit voluntary guide-tip allowances only; unspent cap headroom is not counted as an expense. Unpriced Troutdale connection excluded.'
+      ? 'No guide-tip or extra activity allowance remains; unspent cap headroom is not an expense.'
       : 'Sum of itemized itinerary ledger entries and allocated purchase parts; tax/tip included where stated. Unknown menu splits remain labeled allowances.';
   }
 })();

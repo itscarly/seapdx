@@ -21,8 +21,8 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 
 ### Hotel costs and privacy
 
-- Status: current public totals validated 2026-10-11
-- Detail: the dashboard shows `$1,074.96` for Seattle and Portland hotels; the Chicago hotel was removed from trip costing after the itinerary change. Reservation identifiers, manage links, ticket identifiers, and the airline receipt attachment are removed from the current public source. Calendar sharing remains free/busy only; authenticated calendar details remain private.
+- Status: hotel exclusion from the trip target validated locally 2026-10-26
+- Detail: the dashboard keeps `$1,074.96` in the separate confirmed hotel reference, while its `$2,254.04` trip target excludes hotels and paid airfare. Reservation identifiers, manage links, ticket identifiers, and the airline receipt attachment are removed from the current public source. Calendar sharing remains free/busy only; authenticated calendar details remain private.
 
 ### November 2026 hours and one unverified transit time still need closer review
 
@@ -54,7 +54,7 @@ Related: [[TASKS]] · [[CHANGELOG]] · [[LEARNINGS]] · [[Project Log]]
 - Nov8 Sasquatch retained by user:10:30AM conflicts withpublished8:30AM/2:30PM; meetingpointTroutdale450NW257thWay#352; downtownconnection/fareunpriced andexcluded; rain/spraypossible.
 - NovelOregon233NWEverett: correctaccountnovel_pdx; Maine menu removed. Marchreport7PMopening conflicts withretained5PMstop; exacthours/menuunconfirmed.
 - CannonBeach: retainedticket usesAstoria11:46arrival/17:55return; exactCannonBeachstop/connectionunresolved.
-- CruiseFirsttoBoardinclusion stillunconfirmed; separate20allowance. Underground3:30slot/finalprice andSpaceBasefreeentry/Novemberhoursunconfirmed.
+- Argosy final price is $63.28 with no separate boarding allowance; the card charge was pending on the supplied statement. Underground3:30slot/finalprice andSpaceBasefreeentry/Novemberhoursunconfirmed.
 - Untouched foodbudgets/marketfundsremainallinallowances; do notclaimfreshitemizedmenuverification.
 
 - October 22 calendar audit: 16 personal invitation copies traced to self-attendance on trip organizer records; explicitly omit self-attendance on future creates. Nine sleep holds now exist. Nov 9 Central/Pacific conversion corrected. Corpus Christi airport exit/transfer/lodging after the 23:58 Central arrival remains unconfirmed; planned sleep starts at 00:30 Central, and must move later if recovery takes longer while retaining eight hours.

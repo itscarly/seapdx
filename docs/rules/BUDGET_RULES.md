@@ -2,15 +2,12 @@
 
 Source of truth: `data/trip-data.js`.
 
-- Planned-spend cap and ceiling: **$3,050 USD**, excluding confirmed hotels and paid airfare.
-- Current priced planned spend: **$1,977.46**, including $876.32 retained online orders. Hotels: **$1,074.96**, separate. Combined target: **$3,052.42**, paid airfare excluded.
-- Meals target $20, usual all-in ceiling $25; approved Proper Fish exception $29.18.
-- Food/drink: 18% pre-tax tip, local tax and disclosed merchant fees. Seattle modeled10.55%, Bainbridge9.2%, Oregon0. Checkout evidence overrides models. Retail/fare/admission has no automatic18% tip.
-- Exact quote vs modeled price vs all-in allowance must be distinguished. Do not invent missing base/tax/tip splits.
-- Two full-price cruise cocktails and separate$20 unconfirmed boarding allowance retained.
-- Unpriced downtown–Troutdale transfer excluded and visibly flagged. Do not describe priced total as a guaranteed complete invoice.
-- Category sums derive from itinerary/purchase ledger; unused cap is headroom, not an expense.
-
-## Dashboard scope — later October22 instruction
-
-Dashboard displays four categories only: hotels$1074.96, food/drink$775, transportation$100, activities/admissions$325. Target **$2274.96**, including$259.22 flexible room over scoped prices/guide funds. Shopping and online orders are tracked separately and excluded from this target. No standalone Contingency, Buffer Left, or cap-comparison card. Canonical itinerary/calendar quotes remain unchanged; the full underlying ledger above is a different scope and must not be labeled as the dashboard target. Room is not a merchant quote.
+- The itinerary and purchase ledger totals **$2,052.19** against its $3,050 ceiling. It includes $1,178.40 in online purchase groups, including new statement charges and orders. Confirmed hotels ($1,074.96) and paid airfare are separate.
+- The dashboard trip target is **$2,254.04**: food and drink $775, transportation $20, activities and admissions $122.28, and shopping $1,336.76. Hotels and airfare are excluded. The $201.85 difference from the priced ledger is food and drink spending room only; it is not a charge.
+- The $63.28 Argosy cruise is counted once in activities at the traveler-supplied final price. The Capital One Travel charge was pending on the October 26 statement. No separate boarding, onboard cocktail, or guide allowance remains.
+- Shopping includes $206.55 of non-Apple Capital One charges, a $61.27 placed retail order, and a $34.26 Amazon checkout quote that is **not yet an order**. Apple purchases and card payments are excluded. Merchant, medical, account, and delivery details from private statements/screenshots are not published.
+- Target includes its earlier $34.36 pickup estimate and a separate $20 allowance for one Truly Hard Seltzer 12-pack. [Target lists the pack at $16.99 before local tax](https://www.target.com/p/-/A-83745431); exact store price and stock remain unconfirmed.
+- H Mart's $30 grocery allowance is food for the November 1 dinner; Pike Place Bar & Grill is no longer budgeted. Starbucks is a $50 combined allowance: $6 coffee and $44 beans/mug. Zig Zag and Toulouse Petit each budget two happy-hour cocktails.
+- Seattle November 4 transit models a purchased $6 ORCA Regional Day Pass and two $1 Monorail fare differences, $8 total. This assumes the traveler has an ORCA card; a new card costs $3. [ORCA's day-pass guidance](https://info.myorca.com/seattle-soccer-2026/) and [Monorail's fare guidance](https://www.seattlemonorail.com/faq/) support the fare split. Washington State Ferries are separate. Other requested fare lines are removed from the budget; a $0 line does not establish free travel.
+- The $19 Amtrak upgrade, $40 Cannon Beach fare, and $12 Bainbridge ferry allowance remain. The Gorge tour and Troutdale transfer are removed. Menu prices, tax, tips, and transit assumptions remain estimates unless backed by a checkout total.
+- Category sums derive from the itinerary and purchase ledger. Only food and drink retains flexible room. Unused cap headroom is not an expense.

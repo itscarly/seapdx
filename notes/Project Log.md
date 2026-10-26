@@ -1,3 +1,14 @@
+# 2026-10-26
+
+## COMPLETE: Reconciled non-hotel trip target, statement charges, and new orders
+
+- Dashboard target is $2,254.04: food/drink $775, transportation $20, activities $122.28, shopping $1,336.76. The $1,074.96 hotels and paid airfare are excluded. Food/drink includes $201.85 extra spending room; transport and activities have none.
+- Counted the traveler-supplied $63.28 Argosy final price once in activities. The Capital One Travel statement still marked the charge pending. Removed the separate $20 boarding, $41.14 onboard cocktails, $5 guide allowance, and the $82.54 Gorge tour.
+- Added $206.55 of non-Apple Capital One charges to shopping. Apple charges and card payments are excluded. Added a $61.27 placed retail order and a $34.26 Amazon checkout quote, clearly labeled planned. Kept private account, medical, delivery, and product details out of public source.
+- Replaced the $44.86 Pike Place Bar & Grill dinner with the existing $30 H Mart food allowance. Target is $54.36, including a new $20 Truly Hard Seltzer allowance. Starbucks is $50 ($6 drink, $44 beans/mug). Zig Zag and Toulouse Petit each budget two cocktails. Phê now budgets only a matcha.
+- Seattle Nov 4 fare model is $6 for an explicitly purchased ORCA day pass plus $1 for each of two Monorail rides. The $12 Bainbridge ferry, $19 Amtrak upgrade, and $40 Cannon Beach fare remain. Other requested fare allowances are zeroed, with transit steps still visible.
+- `npm run validate` passed: $2,052.19 priced ledger against the $3,050 ceiling and 131 local calendar events exported. `check-seattle-revision.js` and `check-dashboard-budget.cjs` passed. No live calendar or site publication has been verified yet.
+
 # 2026-10-23
 
 ## COMPLETE: Replaced Nov 2 paid/office stops with Pike Place and Zig Zag

@@ -1,13 +1,15 @@
 ---
 name: project-current-state
-description: "Current verified state of SeaPdx as of 2026-10-11 — local validation reports $1,903.95 against the $3,050 cap; 121 calendar events are exported. See the top block; everything after the --- divider is historical."
+description: "Current verified state of SeaPdx as of 2026-10-26 — local validation reports $2,052.19 against the $3,050 cap; 131 calendar events are exported. See the top block; everything after the --- divider is historical."
 metadata:
   node_type: memory
   type: project
   originSessionId: session-40-nov6-9-reconciliation
 ---
 
-**Historical context through 2026-09-26:** the earlier notes below record prior itinerary, image, route-audit, and calendar work. The current budget figure is above; revalidate after future trip-data changes.
+**Current state, 2026-10-26:** `npm run check` passed. The dashboard target is `$2,254.04` for food/drink, transportation, activities, and shopping, excluding confirmed hotels (`$1,074.96`) and paid airfare. The priced ledger is `$2,052.19` against the `$3,050` cap; the `$201.85` difference is food/drink spending room. The `$63.28` Argosy final price is counted once. Non-Apple Capital One charges, a placed retail order, and a planned Amazon checkout are in shopping. Local calendar exports contain 131 events; the live calendar and GitHub Pages have not yet been verified for this revision.
+
+**Historical context through 2026-10-11:** the earlier notes below record prior itinerary, image, route-audit, and calendar work. Revalidate after future trip-data changes.
 
 - **Budget, Nov 2 plan, and live calendar revalidated 2026-10-11** — `npm run validate` passed at `$1,903.95` against the `$3,050` cap/ceiling (`$1,146.05` remaining). Confirmed Seattle/Portland hotels total `$1,074.96`; all-in trip target excluding paid airfare is `$2,978.91`. Removed the Chicago hotel and pocket-money items, Columbia Center Sky View ticket, and paid Amtrak fare from planned spend; retained the `$19` bid, `$40` Cannon Beach fare, `$82.54` Columbia Gorge shuttle, transportation, and food/drink categories. Nov 2 now has a free Space Needle exterior photo stop and return to Palihotel by 7:30–8:00 PM. Synced all 121 itinerary events to the target calendar with Google Maps directions; 3 separately maintained arrival-chain entries were left unchanged.
 

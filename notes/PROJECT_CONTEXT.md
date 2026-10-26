@@ -33,9 +33,9 @@ It is built to be:
 ## Current next priority
 
 - **Homepage redesign**: complete. The main dashboard now uses the public-facing editorial layout and the logistics hub split.
-- **Executive spend summary**: active and now part of the homepage. Confirmed airfare, confirmed hotels, planned local spend, and planned personal purchases should stay aligned with `data/trip-data.js`.
+- **Executive spend summary**: active and now part of the homepage. The $2,254.04 target covers food/drink, transportation, activities, and shopping; confirmed hotels and paid airfare remain separate references. Keep it aligned with `data/trip-data.js`.
 - **Calendar/site alignment**: active. The public homepage itinerary now follows the newer shared-calendar route, and richer stop-detail content plus calendar backlinks are part of the canonical source.
-- **Booked cost truth**: Confirmed USD airfare `$1,256.83`; paid PAL PR133 return is tracked separately at `PHP 24,281`; confirmed hotels total `$1,481.68`. The local trip-spend projection is `$2,285.45` against the `$3,050` cap/ceiling, last validated 2026-10-03. See `notes/memory/active/project_current_state.md` for the authoritative current detail.
+- **Booked cost truth**: Confirmed USD airfare `$1,256.83`; paid PAL PR133 return is tracked separately at `PHP 24,281`; confirmed hotels total `$1,074.96`. The priced non-hotel ledger is `$2,052.19` against the `$3,050` cap/ceiling, last validated 2026-10-26. See `notes/memory/active/project_current_state.md` for the authoritative current detail.
 - **Removed systems**: airfare tracker, hotel tracker, and repo monitor workflows are retired and should not be reintroduced into the public site or active repo workflow.
 - **Remaining automation**: the monthly baseline watch for itinerary prices, menus, schedules, and transit fares remains in scope. Kraken hockey was fully removed from the plan on 2026-08-02 and is no longer part of the watch. Do not reintroduce the old airfare/hotel/itinerary monitor stack.
 

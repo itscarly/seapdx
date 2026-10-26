@@ -2,8 +2,8 @@
 
 ## Data
 
-- [x] Budget total is under the $800 target.
-- [x] $900 absolute ceiling is documented as optional only.
+- [x] The $2,254.04 non-hotel trip target includes food/drink, transportation, activities, and shopping.
+- [x] The $2,052.19 priced ledger is below the $3,050 cap and ceiling.
 - [x] Category total matches projected total.
 - [x] Day totals match item totals.
 - [x] Core transit fares are sourced.
@@ -33,8 +33,5 @@
 
 ## Automation QA
 
-- [ ] Scheduled monitor checks all itinerary stops with source links.
-- [ ] Monitor reports old value, new value, source, and budget impact.
-- [ ] Monitor alerts when projected spend exceeds `$800`.
-- [ ] Monitor blocks automatic itinerary-structure changes without approval.
+- [ ] Recheck time-sensitive fares, hours, menus, and availability before travel.
 - [ ] Public site redeploys after accepted dashboard data updates.
