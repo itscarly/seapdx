@@ -7,7 +7,7 @@ metadata:
   originSessionId: session-40-nov6-9-reconciliation
 ---
 
-**Current state, 2026-10-26:** `npm run check` passed. The dashboard target is `$2,254.04` for food/drink, transportation, activities, and shopping, excluding confirmed hotels (`$1,074.96`) and paid airfare. The priced ledger is `$2,052.19` against the `$3,050` cap; the `$201.85` difference is food/drink spending room. The `$63.28` Argosy final price is counted once. Non-Apple Capital One charges, a placed retail order, and a planned Amazon checkout are in shopping. Local calendar exports contain 131 events; the live calendar and GitHub Pages have not yet been verified for this revision.
+**Current state, 2026-10-26:** `npm run check` passed. The dashboard target is `$2,254.04` for food/drink, transportation, activities, and shopping, excluding confirmed hotels (`$1,074.96`) and paid airfare. The priced ledger is `$2,052.19` against the `$3,050` cap; the `$201.85` difference is food/drink spending room. The `$63.28` Argosy final price is counted once. Non-Apple Capital One charges, a placed retail order, and a planned Amazon checkout are in shopping. Local calendar exports contain 131 events. GitHub Pages source readback confirmed the updated `app.js` and `trip-data.js`; the live calendar was not changed.
 
 **Historical context through 2026-10-11:** the earlier notes below record prior itinerary, image, route-audit, and calendar work. Revalidate after future trip-data changes.
 
